@@ -1,0 +1,2155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="f5c1fcc5-dab2-4742-9cfc-a9dcf5802d64" activeEnvironment="Default" name="Задачи на постановки ДН не используется" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" encryptionMode="Not encrypted" updated="3.10.0 2021-09-14T15:18:10Z" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5a758479-b267-4e9c-9859-5f7c2728095c" wsaVersion="NONE" name="taskServiceBinding" type="wsdl" bindingName="{http://emias.mos.ru/dn/task/v1/}taskServiceBinding" soapVersion="1_2" anonymous="optional" definition="http://dn.test.emias.mos.ru/api/Task?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://dn.test.emias.mos.ru/api/Task?wsdl"><con:part><con:url>http://dn.test.emias.mos.ru/api/Task?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="taskService" targetNamespace="http://emias.mos.ru/dn/task/v1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns:tns="http://emias.mos.ru/dn/task/v1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:nsf="http://emias.mos.ru/system/v1/faults/" xmlns:ns1="http://emias.mos.ru/dn/task/v1/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/">
+  <wsdl:documentation>Версия 1.0.0</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://dn.test.emias.mos.ru/api/Task?xsd=../../../system/v1/emias.system.v1.userContext.xsd"/>
+      <xs:import namespace="http://emias.mos.ru/system/v1/faults/" schemaLocation="http://dn.test.emias.mos.ru/api/Task?xsd=../../../system/v1/emias.system.v1.faults.xsd"/>
+      <xs:import namespace="http://emias.mos.ru/dn/task/v1/types/" schemaLocation="http://dn.test.emias.mos.ru/api/Task?xsd=dn.task.types.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="userContext">
+    <wsdl:documentation>Контекст пользователя</wsdl:documentation>
+    <wsdl:part element="uctx:userContext" name="userContext"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCloseTasksInput">
+    <wsdl:part element="ns1:getCloseTasksRequest" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPatientTasksOutput">
+    <wsdl:part element="ns1:getPatientTasksResponse" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOpenTasksOutput">
+    <wsdl:part element="ns1:getOpenTasksResponse" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="closeTaskOutput">
+    <wsdl:part element="ns1:closeTaskResponse" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPatientTasksInput">
+    <wsdl:part element="ns1:getPatientTasksRequest" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fault">
+    <wsdl:documentation>Ошибка</wsdl:documentation>
+    <wsdl:part element="nsf:fault" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="changeTaskInput">
+    <wsdl:part element="ns1:changeTaskRequest" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="closeTaskInput">
+    <wsdl:part element="ns1:closeTaskRequest" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCloseTasksOutput">
+    <wsdl:part element="ns1:getCloseTasksResponse" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="changeTaskOutput">
+    <wsdl:part element="ns1:changeTaskResponse" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOpenTasksInput">
+    <wsdl:part element="ns1:getOpenTasksRequest" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="taskServicePortType">
+    <wsdl:operation name="getOpenTasks">
+      <wsdl:input message="tns:getOpenTasksInput"></wsdl:input>
+      <wsdl:output message="tns:getOpenTasksOutput"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCloseTasks">
+      <wsdl:input message="tns:getCloseTasksInput"></wsdl:input>
+      <wsdl:output message="tns:getCloseTasksOutput"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientTasks">
+      <wsdl:input message="tns:getPatientTasksInput"></wsdl:input>
+      <wsdl:output message="tns:getPatientTasksOutput"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="closeTask">
+      <wsdl:input message="tns:closeTaskInput"></wsdl:input>
+      <wsdl:output message="tns:closeTaskOutput"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="changeTask">
+      <wsdl:input message="tns:changeTaskInput"></wsdl:input>
+      <wsdl:output message="tns:changeTaskOutput"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="taskServiceBinding" type="tns:taskServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getOpenTasks">
+      <soap:operation soapAction="getOpenTasks"/>
+      <wsdl:input>
+        <soap:header message="tns:userContext" part="userContext" use="literal"></soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCloseTasks">
+      <soap:operation soapAction="getCloseTasks"/>
+      <wsdl:input>
+        <soap:header message="tns:userContext" part="userContext" use="literal"></soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientTasks">
+      <soap:operation soapAction="getPatientTasks"/>
+      <wsdl:input>
+        <soap:header message="tns:userContext" part="userContext" use="literal"></soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="closeTask">
+      <soap:operation soapAction="closeTask"/>
+      <wsdl:input>
+        <soap:header message="tns:userContext" part="userContext" use="literal"></soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="changeTask">
+      <soap:operation soapAction="changeTask"/>
+      <wsdl:input>
+        <soap:header message="tns:userContext" part="userContext" use="literal"></soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="taskService">
+    <wsdl:port binding="tns:taskServiceBinding" name="taskPort">
+      <soap:address location="http://dn.test.emias.mos.ru/api/Task"/>
+    </wsdl:port>
+    <wsp:PolicyReference URI="#authPolicy"/>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="authPolicy">
+    <sp:SupportingTokens xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+      <wsp:Policy>
+        <sp:UsernameToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+          <wsp:Policy>
+            <sp:NoPassword/>
+          </wsp:Policy>
+        </sp:UsernameToken>
+      </wsp:Policy>
+    </sp:SupportingTokens>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/Task?xsd=../../../system/v1/emias.system.v1.userContext.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:core="http://emias.mos.ru/system/v1/" xmlns="http://emias.mos.ru/system/v1/userContext/">
+  <xs:include schemaLocation="http://dn.test.emias.mos.ru/api/Task?xsd=../../../system/v1/emias.system.v1.xsd"/>
+  <xs:element name="userContext" type="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="systemName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Шифр системы-потребителя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя пользователя (логин)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRoleId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Идентификатор Роли пользователя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="isUserRoleSystemWide" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак "Общесистемная Роль пользователя"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRights">
+        <xs:annotation>
+          <xs:documentation>Коллекция Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>ИД Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jobExecutionId" type="ID"/>
+      <xs:element minOccurs="0" name="hostIp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>IP адрес хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hostName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/Task?xsd=../../../system/v1/emias.system.v1.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--error message description-->
+  <xs:complexType name="ErrorMessageCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция сообщений об ошибках</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="message" type="ErrorMessage">
+        <xs:annotation>
+          <xs:documentation>Сообщение об ошибке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorMessage">
+    <xs:annotation>
+      <xs:documentation>Сообщение об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parameters">
+            <xs:annotation>
+              <xs:documentation>Коллекция параметров сообщения</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="parameter" type="KeyValuePair">
+                  <xs:annotation>
+                    <xs:documentation>Параметр сообщения</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Сопутствующие сообщения об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="ErrorMessageTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип сообщения</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ErrorMessageTypes">
+    <xs:annotation>
+      <xs:documentation>Тип сообщения об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation>Ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WARNING">
+        <xs:annotation>
+          <xs:documentation>Предупреждение (не блокирующая ошибка)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INFO">
+        <xs:annotation>
+          <xs:documentation>Информационное сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:complexType name="KeyValuePair">
+    <xs:annotation>
+      <xs:documentation>Представляет тип "ключ/значение"</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Ключ</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Message">
+    <xs:annotation>
+      <xs:documentation>Сообщение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Текст сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/Task?xsd=../../../system/v1/emias.system.v1.faults.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/faults/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns="http://emias.mos.ru/system/v1/faults/">
+  <xs:include schemaLocation="http://dn.test.emias.mos.ru/api/Task?xsd=../../../system/v1/emias.system.v1.xsd"/>
+  <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://dn.test.emias.mos.ru/api/Task?xsd=../../../system/v1/emias.system.v1.userContext.xsd"/>
+  <!--faults-->
+  <xs:element name="fault" type="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Базовый тип ошибки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SecurityFault">
+    <xs:annotation>
+      <xs:documentation>Ошибка безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element ref="uctx:userContext"/>
+          <xs:choice>
+            <xs:element name="unauthorizedRequestSecurityException" type="UnauthorizedRequestSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="otherSecurityException" type="OtherSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute fixed="SECURITY" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BusinessFault">
+    <xs:annotation>
+      <xs:documentation>Бизнес ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Коллекция Сообщений об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="hasErrors" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак наличия ошибок в списке сообщений</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="BUSINESS" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnexpectedFault">
+    <xs:annotation>
+      <xs:documentation>Непредвиденная ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="version" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Версия продукта-сервиса</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stackTrace">
+            <xs:annotation>
+              <xs:documentation>Стек вызова (последние 10  записей)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="10" name="stackTraceRecord">
+                  <xs:annotation>
+                    <xs:documentation>Запись StackTrace</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="declaringClass" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование класса, содержащего метод</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="methodName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование метода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="fileName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование файла</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="lineNumber" type="xs:int">
+                        <xs:annotation>
+                          <xs:documentation>Номер строки кода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="UNEXPECTED" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Описание базового типа описания ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--security exceptions-->
+  <xs:complexType name="UnauthorizedRequestSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="requiredRights">
+        <xs:annotation>
+          <xs:documentation>Перечень идентификаторов недостающих Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Идентификатор Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="UNAUTHORIZED_REQUEST_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="OtherSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="message" type="Message">
+        <xs:annotation>
+          <xs:documentation>Сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="OTHER_SECURITY_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:simpleType name="SecurityExceptionTypes">
+    <xs:annotation>
+      <xs:documentation>Типы исключений безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNAUTHORIZED_REQUEST_EXCEPTION"/>
+      <xs:enumeration value="OTHER_SECURITY_EXCEPTION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--components-->
+  <xs:simpleType name="FaultTypes">
+    <xs:annotation>
+      <xs:documentation>Тип ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SECURITY">
+        <xs:annotation>
+          <xs:documentation>Непредвиденная ошибка приложения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUSINESS">
+        <xs:annotation>
+          <xs:documentation>Бизнес ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UNEXPECTED">
+        <xs:annotation>
+          <xs:documentation>Ошибка безопасности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/Task?xsd=dn.task.types.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/dn/task/v1/types/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:core="http://emias.mos.ru/dn/core/v1/" xmlns="http://emias.mos.ru/dn/task/v1/types/">
+  <xs:import namespace="http://emias.mos.ru/dn/core/v1/" schemaLocation="http://dn.test.emias.mos.ru/api/Task?xsd=../dn.core.v1.xsd"/>
+  <xs:element name="getOpenTasksRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="pagingOptions" type="core:PagingOptions">
+          <xs:annotation>
+            <xs:documentation>Пагинация</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="openedPeriod" type="core:DatePeriod">
+          <xs:annotation>
+            <xs:documentation>Поиск по периоду даты создания задачи</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="areaId" type="core:ID" use="required">
+        <xs:annotation>
+          <xs:documentation>Идентификатор участка</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="moId" type="core:ID" use="optional">
+        <xs:annotation>
+          <xs:documentation>Идентификатор МО</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOpenTasksResponse">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="core:PagingResults">
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="tasks" type="Task">
+              <xs:annotation>
+                <xs:documentation>Набор задач</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType abstract="true" name="Task">
+    <xs:attribute name="id" type="core:ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор задачи</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="type" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип задачи</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="patientId" type="core:ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор пациента</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="opened" type="xs:dateTime" use="required">
+      <xs:annotation>
+        <xs:documentation>Время открытия задачи</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="closed" type="xs:dateTime">
+      <xs:annotation>
+        <xs:documentation>Время закрытия задачи</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="AreaTask">
+    <xs:complexContent>
+      <xs:extension base="Task"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DocumentTask">
+    <xs:complexContent>
+      <xs:extension base="Task">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="diagnoses" type="DiagnosisProcessingStatus">
+            <xs:annotation>
+              <xs:documentation>Диагнозы из документа</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="uid" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Идентификатор документа, который породил задачу</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="documentType" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип документа, который породил задачу</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DiagnosisProcessingStatus">
+    <xs:sequence>
+      <xs:element name="diagnosis" type="core:Diagnosis">
+        <xs:annotation>
+          <xs:documentation>Диагноз</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="status" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Статус обработки этого диагноза</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:element name="getCloseTasksRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="pagingOptions" type="core:PagingOptions">
+          <xs:annotation>
+            <xs:documentation>Пагинация</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="closePeriod" type="core:DatePeriod">
+          <xs:annotation>
+            <xs:documentation>Поиск по периоду даты закрытия задачи</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="areaId" type="core:ID" use="required">
+        <xs:annotation>
+          <xs:documentation>Идентификатор участка</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCloseTasksResponse">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="core:PagingResults">
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="tasks" type="Task">
+              <xs:annotation>
+                <xs:documentation>Набор задач</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientTasksRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="pagingOptions" type="core:PagingOptions">
+          <xs:annotation>
+            <xs:documentation>Пагинация</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="patientId" type="core:ID" use="required">
+        <xs:annotation>
+          <xs:documentation>Идентификатор пациента</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="closed" type="xs:boolean" use="required">
+        <xs:annotation>
+          <xs:documentation>Признак поиска по закрытым или открытым задачам</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="moId" type="core:ID" use="optional">
+        <xs:annotation>
+          <xs:documentation>Идентификатор МО</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPatientTasksResponse">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="core:PagingResults">
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="tasks" type="Task">
+              <xs:annotation>
+                <xs:documentation>Набор задач</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="changeTaskRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="options" type="core:Options">
+          <xs:annotation>
+            <xs:documentation>Опции</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="core:ID" use="required">
+        <xs:annotation>
+          <xs:documentation>Идентификатор задачи</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="changeTaskResponse">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="closeTaskRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="options" type="core:Options">
+          <xs:annotation>
+            <xs:documentation>Опции</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="core:ID" use="required">
+        <xs:annotation>
+          <xs:documentation>Идентификатор задачи</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="closeTaskResponse">
+    <xs:complexType/>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/Task?xsd=../dn.core.v1.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/dn/core/v1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://emias.mos.ru/dn/core/v1/">
+  <xs:include schemaLocation="http://dn.test.emias.mos.ru/api/Task?xsd=../../../core/v1/emias.core.v1.xsd"/>
+  <xs:complexType name="NsiBase">
+    <xs:annotation>
+      <xs:documentation>Базовый тип для справочников</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="title" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="code" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Код</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="archived" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Архивность элемента справочника</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="MedicalSpecialization">
+    <xs:annotation>
+      <xs:documentation>Медицинская специализация</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="NsiBase"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AgeGroup">
+    <xs:annotation>
+      <xs:documentation>Сведения о возратсной группе.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>ID</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="age_from" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>С какого возраста</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="age_to" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>До какого возраста</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="archived" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Архивность элемента справочника</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="Diagnosis">
+    <xs:annotation>
+      <xs:documentation>Сведения о диагнозе.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="NsiBase"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DispensaryObservationGroup">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="diagnoses" type="Diagnosis">
+        <xs:annotation>
+          <xs:documentation>Диагнозы по МКБ10, попадающие в эту группу</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="canBeAddedBy" type="MedicalSpecialization">
+        <xs:annotation>
+          <xs:documentation>Специализации, которые могут ставить на учет в эту группу ДН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="canBeRemovedBy" type="MedicalSpecialization">
+        <xs:annotation>
+          <xs:documentation>Специализации, которые могут снять с учета этой группы ДН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="canBeObservedBy" type="MedicalSpecialization">
+        <xs:annotation>
+          <xs:documentation>Специализации, которые могут вести эту группу ДН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ageGroup" type="AgeGroup">
+        <xs:annotation>
+          <xs:documentation>ID возрастной группы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="title" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="code" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Код</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="archived" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Архивность элемента справочника</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/Task?xsd=../../../core/v1/emias.core.v1.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://dn.test.emias.mos.ru/api/Task?xsd=../../../system/v1/emias.system.v1.xsd"/>
+  <!--references-->
+  <xs:element name="medicalOrganizationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинской организации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="medicalFacilityId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинского учреждения</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--async operation status-->
+  <xs:element name="operationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор операции</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="OperationExecutionStatus">
+    <xs:annotation>
+      <xs:documentation>Статус выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="isCompleted" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак окончания выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="completenessProgress" type="OperationCompletenessBase">
+        <xs:annotation>
+          <xs:documentation>Сведения о текущем статусе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasSucceded" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак успешности выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+        <xs:annotation>
+          <xs:documentation>Коллекция сообщений, порожденных в ходе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор операции</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType abstract="false" name="OperationCompletenessPercentage">
+    <xs:annotation>
+      <xs:documentation>Описание текущего статуса выполнения операции в процентах (0%-100%)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="OperationCompletenessBase">
+        <xs:sequence>
+          <xs:element name="completenessStatus">
+            <xs:annotation>
+              <xs:documentation>Статус (0%-100%)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:unsignedByte">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="OperationCompletenessBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип для описания текущего статуса выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--calling methods' options-->
+  <xs:element name="options" type="Options">
+    <xs:annotation>
+      <xs:documentation>Параметры вызова метода</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Options">
+    <xs:annotation>
+      <xs:documentation>Набор именованных значений</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="KeyValuePair">
+        <xs:annotation>
+          <xs:documentation>Именованное значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--pagination-->
+  <xs:element name="pagingOptions" type="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType abstract="true" name="PagingResults">
+    <xs:annotation>
+      <xs:documentation>Список с пагинацией</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageTotal" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество страниц</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="morePagesAvailable" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Флаг доступности других страниц с результатами для "постраничного листания" (true - если доступны еще страницы; false - иначе)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="totalItemsCount" type="xs:long" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество элементов (на всех страницах)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="sortingOptions"/>
+    </xs:sequence>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--sorting-->
+  <xs:element name="sortingOptions" type="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры сортировки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Условия сортировки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="3" name="sortOrder" type="SortOrder">
+        <xs:annotation>
+          <xs:documentation>Условия сортировки
+(используются в соответствии с
+переданной последовательностью)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SortOrder">
+    <xs:annotation>
+      <xs:documentation>Сортировка</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="attributeName" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование поля, по которому должна быть произведена сортировка</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute default="false" name="desceding" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>Направление сортировки</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--void response-->
+  <xs:element fixed="true" name="result">
+    <xs:annotation>
+      <xs:documentation>Элемент для использования в методах, не предполагающих возврат какого-либо значения</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:boolean"/>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--base types-->
+  <xs:complexType name="TimeInterval">
+    <xs:annotation>
+      <xs:documentation>Временной период (время)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время начала интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время окончания интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DatePeriod">
+    <xs:annotation>
+      <xs:documentation>Временной период (дата)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата окончания периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://dn.test.emias.mos.ru/api/Task</con:endpoint></con:endpoints><con:operation id="3e11352d-d834-41ae-9ad7-2414003fbaf1" isOneWay="false" action="changeTask" name="changeTask" bindingOperationName="changeTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="75550044-ce4c-402d-ae87-be87955b3a38" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.test.emias.mos.ru/api/Task</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>\r
+      <user:userContext>\r
+         <user:systemName>?</user:systemName>\r
+         <user:userName>?</user:userName>\r
+         <user:userRoleId>?</user:userRoleId>\r
+         <!--Optional:-->\r
+         <user:isUserRoleSystemWide>?</user:isUserRoleSystemWide>\r
+         <user:userRights>\r
+            <!--Zero or more repetitions:-->\r
+            <user:userRightId>?</user:userRightId>\r
+         </user:userRights>\r
+         <user:jobExecutionId>?</user:jobExecutionId>\r
+         <!--Optional:-->\r
+         <user:hostIp>?</user:hostIp>\r
+         <!--Optional:-->\r
+         <user:hostName>?</user:hostName>\r
+      </user:userContext>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <typ:changeTaskRequest id="?">\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <v1:entry key="?">?</v1:entry>\r
+         </typ:options>\r
+      </typ:changeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/dn/task/v1/taskServicePortType/changeTaskRequest"/></con:call></con:operation><con:operation id="6a709ec0-7312-484c-a706-572cd6061116" isOneWay="false" action="closeTask" name="closeTask" bindingOperationName="closeTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="77fb846f-efff-4a14-a4af-1a3085a90178" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.test.emias.mos.ru/api/Task</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>\r
+      <user:userContext>\r
+         <user:systemName>?</user:systemName>\r
+         <user:userName>?</user:userName>\r
+         <user:userRoleId>?</user:userRoleId>\r
+         <!--Optional:-->\r
+         <user:isUserRoleSystemWide>?</user:isUserRoleSystemWide>\r
+         <user:userRights>\r
+            <!--Zero or more repetitions:-->\r
+            <user:userRightId>?</user:userRightId>\r
+         </user:userRights>\r
+         <user:jobExecutionId>?</user:jobExecutionId>\r
+         <!--Optional:-->\r
+         <user:hostIp>?</user:hostIp>\r
+         <!--Optional:-->\r
+         <user:hostName>?</user:hostName>\r
+      </user:userContext>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <typ:closeTaskRequest id="?">\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <v1:entry key="?">?</v1:entry>\r
+         </typ:options>\r
+      </typ:closeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/dn/task/v1/taskServicePortType/closeTaskRequest"/></con:call></con:operation><con:operation id="674f215a-6ba6-4fd4-a483-c98e53986bfe" isOneWay="false" action="getCloseTasks" name="getCloseTasks" bindingOperationName="getCloseTasks" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="26b59467-15fc-43a5-a812-c5ce9c8393f1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.test.emias.mos.ru/api/Task</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>\r
+      <user:userContext>\r
+         <user:systemName>?</user:systemName>\r
+         <user:userName>?</user:userName>\r
+         <user:userRoleId>?</user:userRoleId>\r
+         <!--Optional:-->\r
+         <user:isUserRoleSystemWide>?</user:isUserRoleSystemWide>\r
+         <user:userRights>\r
+            <!--Zero or more repetitions:-->\r
+            <user:userRightId>?</user:userRightId>\r
+         </user:userRights>\r
+         <user:jobExecutionId>?</user:jobExecutionId>\r
+         <!--Optional:-->\r
+         <user:hostIp>?</user:hostIp>\r
+         <!--Optional:-->\r
+         <user:hostName>?</user:hostName>\r
+      </user:userContext>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <typ:getCloseTasksRequest areaId="?">\r
+         <typ:pagingOptions pageNumber="?" pageSize="?">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="?" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:closePeriod>\r
+            <!--Optional:-->\r
+            <v1:start>?</v1:start>\r
+            <!--Optional:-->\r
+            <v1:end>?</v1:end>\r
+         </typ:closePeriod>\r
+      </typ:getCloseTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getCloseTasksRequest"/></con:call></con:operation><con:operation id="ce3ff7ca-79e1-4344-b16c-e450cfd1edb5" isOneWay="false" action="getOpenTasks" name="getOpenTasks" bindingOperationName="getOpenTasks" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6a60bd1d-1acb-4af7-b0fd-dd5bb298e047" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.test.emias.mos.ru/api/Task</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>\r
+      <user:userContext>\r
+         <user:systemName>?</user:systemName>\r
+         <user:userName>?</user:userName>\r
+         <user:userRoleId>?</user:userRoleId>\r
+         <!--Optional:-->\r
+         <user:isUserRoleSystemWide>?</user:isUserRoleSystemWide>\r
+         <user:userRights>\r
+            <!--Zero or more repetitions:-->\r
+            <user:userRightId>?</user:userRightId>\r
+         </user:userRights>\r
+         <user:jobExecutionId>?</user:jobExecutionId>\r
+         <!--Optional:-->\r
+         <user:hostIp>?</user:hostIp>\r
+         <!--Optional:-->\r
+         <user:hostName>?</user:hostName>\r
+      </user:userContext>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <typ:getOpenTasksRequest areaId="?" moId="?">\r
+         <typ:pagingOptions pageNumber="?" pageSize="?">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="?" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:openedPeriod>\r
+            <!--Optional:-->\r
+            <v1:start>?</v1:start>\r
+            <!--Optional:-->\r
+            <v1:end>?</v1:end>\r
+         </typ:openedPeriod>\r
+      </typ:getOpenTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getOpenTasksRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="03270d12-79aa-4637-8d77-382d63997a63" isOneWay="false" action="getPatientTasks" name="getPatientTasks" bindingOperationName="getPatientTasks" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fe40a8fc-cc14-4ff4-b659-189a0c130716" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.test.emias.mos.ru/api/Task</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>\r
+      <user:userContext>\r
+         <user:systemName>?</user:systemName>\r
+         <user:userName>?</user:userName>\r
+         <user:userRoleId>?</user:userRoleId>\r
+         <!--Optional:-->\r
+         <user:isUserRoleSystemWide>?</user:isUserRoleSystemWide>\r
+         <user:userRights>\r
+            <!--Zero or more repetitions:-->\r
+            <user:userRightId>?</user:userRightId>\r
+         </user:userRights>\r
+         <user:jobExecutionId>?</user:jobExecutionId>\r
+         <!--Optional:-->\r
+         <user:hostIp>?</user:hostIp>\r
+         <!--Optional:-->\r
+         <user:hostName>?</user:hostName>\r
+      </user:userContext>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <typ:getPatientTasksRequest patientId="?" closed="?" moId="?">\r
+         <typ:pagingOptions pageNumber="?" pageSize="?">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="?" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getPatientTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getPatientTasksRequest"/></con:call></con:operation></con:interface><con:testSuite id="8cbc801c-0d6c-48ba-8ae1-34e6b9ef4ef0" name="taskServiceBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="dd3936af-5abf-4dd7-84b6-744183d08b00" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="changeTask TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="9d802d6c-d17d-4c86-bad9-0b1742b81b13" name="Test"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>changeTask</con:operation><con:request name="Test" id="d2044c87-067f-4120-8ef0-26757d319107"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:changeTaskRequest id="9341">\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <v1:entry key="B27.1">NEW</v1:entry>\r
+         </typ:options>\r
+      </typ:changeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/changeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="1b9c538a-c8dc-4b77-a6d5-abe8d03d3fa0" name="Основной сценарий без опций"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>changeTask</con:operation><con:request name="Основной сценарий без опций" id="d2044c87-067f-4120-8ef0-26757d319107"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:changeTaskRequest id="115">\r
+      </typ:changeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/changeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="61304c86-aea4-44b3-9502-f1be4072ecb2" name="Основной сценарий с параметрами"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>changeTask</con:operation><con:request name="Основной сценарий с параметрами" id="d2044c87-067f-4120-8ef0-26757d319107"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:changeTaskRequest id="251601">\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <v1:entry key="J45.0">SKIPPED</v1:entry>\r
+         </typ:options>\r
+      </typ:changeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/changeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="66a66eb9-f6bd-40c7-9e15-8d80c6fd9120" name="Задача не найдена"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>changeTask</con:operation><con:request name="Задача не найдена" id="d2044c87-067f-4120-8ef0-26757d319107"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:changeTaskRequest id="1333315">\r
+      </typ:changeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/changeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="09acb6a6-d4c2-4e33-a484-10d5833ef9b0" name="Диагноз отсуствует"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>changeTask</con:operation><con:request name="Диагноз отсуствует" id="d2044c87-067f-4120-8ef0-26757d319107"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>
+      <typ:changeTaskRequest id="104">
+         <!--Optional:-->
+         <typ:options>
+            <!--Zero or more repetitions:-->
+            <v1:entry key="A01.66661">SKIPPED</v1:entry>
+         </typ:options>
+      </typ:changeTaskRequest>
+   </soap:Body>
+
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/changeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="721be4ae-3549-4219-ad9a-d9ee9758e2a6" name="Передано неизвестное значение для статуса обработки диагноза"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>changeTask</con:operation><con:request name="Передано неизвестное значение для статуса обработки диагноза" id="d2044c87-067f-4120-8ef0-26757d319107"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>
+      <typ:changeTaskRequest id="104">
+         <!--Optional:-->
+         <typ:options>
+            <!--Zero or more repetitions:-->
+            <v1:entry key="A01.1">SdddddKIPPED</v1:entry>
+         </typ:options>
+      </typ:changeTaskRequest>
+   </soap:Body>
+
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/changeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="933e434d-91f9-42a4-8d2f-1953e1e3552e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="closeTask TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="001d7dd0-d8b8-4d95-87b7-875ff8e72590" name="Test"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>closeTask</con:operation><con:request name="Test" id="f92a7bf9-e0f1-425b-8cce-0fffc133d4c5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:closeTaskRequest id="140">\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <v1:entry key="A01.1">SKIPPED</v1:entry>\r
+         </typ:options>\r
+      </typ:closeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/closeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="0e13b517-867f-4c8c-9902-c7f4ef38ecbb" name="Основной сценарий"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>closeTask</con:operation><con:request name="Основной сценарий" id="f92a7bf9-e0f1-425b-8cce-0fffc133d4c5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:closeTaskRequest id="9341">\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <v1:entry key="B27.1">SKIPPED</v1:entry>\r
+         </typ:options>\r
+      </typ:closeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/closeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="b9d4443d-e32f-4503-ace3-d98c1a15c6f1" name="Основной сценарий без опций"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>closeTask</con:operation><con:request name="Основной сценарий без опций" id="f92a7bf9-e0f1-425b-8cce-0fffc133d4c5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:closeTaskRequest id="51404">\r
+
+      </typ:closeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/closeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="4bc961d1-58da-4a54-9bc8-9ac928c3ac50" name="Задача не найдена"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>closeTask</con:operation><con:request name="Задача не найдена" id="f92a7bf9-e0f1-425b-8cce-0fffc133d4c5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:closeTaskRequest id="5555104">\r
+
+      </typ:closeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/closeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="63ba5481-cc49-44aa-b410-3b3a4b427d4c" name="Диагноз отсутсвует"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>closeTask</con:operation><con:request name="Диагноз отсутсвует" id="f92a7bf9-e0f1-425b-8cce-0fffc133d4c5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:closeTaskRequest id="104">\r
+         <!--Optional:-->
+         <typ:options>
+            <!--Zero or more repetitions:-->
+            <v1:entry key="A01.3331">SKIPPED</v1:entry>
+         </typ:options>
+
+      </typ:closeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/closeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="5f2d147a-d4de-4284-bf7a-3ba35b2c3b5d" name="Передано неизвестное значение для статуса обработки диагноза"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>closeTask</con:operation><con:request name="Передано неизвестное значение для статуса обработки диагноза" id="f92a7bf9-e0f1-425b-8cce-0fffc133d4c5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:closeTaskRequest id="104">\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <v1:entry key="A01.1">SKIввввPPED</v1:entry>\r
+         </typ:options>\r
+      </typ:closeTaskRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/closeTaskRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="c4184224-6783-4a38-a8d5-f8209dcd1c24" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getCloseTasks TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="f15224f5-22c2-45d3-b352-9acdb9bd7d9b" name="Test"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getCloseTasks</con:operation><con:request name="Test" id="7f0665d4-67a8-4656-80de-637821b320b1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getCloseTasksRequest areaId="201">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:closePeriod>\r
+         </typ:closePeriod>\r
+      </typ:getCloseTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getCloseTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="7cd5c749-3f85-45d9-85c5-7ff6161030d8" name="Основной сценарий без дат"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getCloseTasks</con:operation><con:request name="Основной сценарий без дат" id="7f0665d4-67a8-4656-80de-637821b320b1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getCloseTasksRequest areaId="1005">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:closePeriod>\r
+
+         </typ:closePeriod>\r
+      </typ:getCloseTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getCloseTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="b2072895-e61b-44fc-a1a2-8a475b1b3b60" name="Основной сценарий с датами"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getCloseTasks</con:operation><con:request name="Основной сценарий с датами" id="7f0665d4-67a8-4656-80de-637821b320b1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getCloseTasksRequest areaId="100">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:closePeriod>\r
+            <!--Optional:-->\r
+            <v1:start>2020-10-13</v1:start>\r
+            <!--Optional:-->\r
+            <v1:end>2020-10-14</v1:end>\r
+         </typ:closePeriod>\r
+      </typ:getCloseTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getCloseTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="51016041-260c-419a-a26a-afc0ad945a39" name="Сортировка"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getCloseTasks</con:operation><con:request name="Сортировка" id="7f0665d4-67a8-4656-80de-637821b320b1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getCloseTasksRequest areaId="100">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:closePeriod>\r
+         </typ:closePeriod>\r
+      </typ:getCloseTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getCloseTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="3e9a1863-6748-439b-9cc8-0e5405b2752b" name="Получен непредусмотренный ключ сортировки"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getCloseTasks</con:operation><con:request name="Получен непредусмотренный ключ сортировки" id="7f0665d4-67a8-4656-80de-637821b320b1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getCloseTasksRequest areaId="100">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="oddddned" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:closePeriod>\r
+         </typ:closePeriod>\r
+      </typ:getCloseTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getCloseTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="5a3535f4-f361-4c64-bd32-17cec3f24ea6" name="Получено несколько параметров сортировки с разными направлениями"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getCloseTasks</con:operation><con:request name="Получено несколько параметров сортировки с разными направлениями" id="7f0665d4-67a8-4656-80de-637821b320b1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getCloseTasksRequest areaId="100">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+               <v1:sortOrder attributeName="closed" desceding="true"/>
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:closePeriod>\r
+         </typ:closePeriod>\r
+      </typ:getCloseTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getCloseTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="3954ced7-d045-483c-a4da-1df3468bb76e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getOpenTasks TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="bdd5889d-4419-44e6-987e-3ef2172a248e" name="Test"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getOpenTasks</con:operation><con:request name="Test" id="4e6c3fa9-fb02-4a16-9166-5e9ef922dc52"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_TasksSolit}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getOpenTasksRequest areaId="10007225" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:openedPeriod>\r
+         </typ:openedPeriod>\r
+      </typ:getOpenTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getOpenTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="c99ad6ec-5b0d-454e-b70e-6bc3414dfdea" name="Основной сценарий с датами"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getOpenTasks</con:operation><con:request name="Основной сценарий с датами" id="4e6c3fa9-fb02-4a16-9166-5e9ef922dc52"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getOpenTasksRequest areaId="17981426" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:openedPeriod>\r
+            <!--Optional:-->\r
+            <v1:start>2020-10-13</v1:start>\r
+            <!--Optional:-->\r
+            <v1:end>2020-10-14</v1:end>\r
+         </typ:openedPeriod>\r
+      </typ:getOpenTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getOpenTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="9f3914f6-2ceb-46af-a7d9-86f07eafd068" name="Основной сценарий без дат"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getOpenTasks</con:operation><con:request name="Основной сценарий без дат" id="4e6c3fa9-fb02-4a16-9166-5e9ef922dc52"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getOpenTasksRequest areaId="6">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:openedPeriod>\r
+
+         </typ:openedPeriod>\r
+      </typ:getOpenTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getOpenTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="f3eb1316-fc68-4c60-b835-ab0a596be2a5" name="Сортировка"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getOpenTasks</con:operation><con:request name="Сортировка" id="4e6c3fa9-fb02-4a16-9166-5e9ef922dc52"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getOpenTasksRequest areaId="134174" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:openedPeriod>\r
+         </typ:openedPeriod>\r
+      </typ:getOpenTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getOpenTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="19abccb5-a9cf-46d2-8bc9-ea748b2f1120" name="Получен непредусмотренный ключ сортировки"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getOpenTasks</con:operation><con:request name="Получен непредусмотренный ключ сортировки" id="4e6c3fa9-fb02-4a16-9166-5e9ef922dc52"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getOpenTasksRequest areaId="134174" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opendddded" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:openedPeriod>\r
+         </typ:openedPeriod>\r
+      </typ:getOpenTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getOpenTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a8d72f0f-3e8a-46bd-ade9-b336adcfc236" name="Не получен moId на вход при включенной настройке"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getOpenTasks</con:operation><con:request name="Не получен moId на вход при включенной настройке" id="4e6c3fa9-fb02-4a16-9166-5e9ef922dc52"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getOpenTasksRequest areaId="134174">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:openedPeriod>\r
+
+         </typ:openedPeriod>\r
+      </typ:getOpenTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getOpenTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="03567263-a0c0-4020-b32c-1f09145a7a9e" name="Полученный МО отсутствует в таблице"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getOpenTasks</con:operation><con:request name="Полученный МО отсутствует в таблице" id="4e6c3fa9-fb02-4a16-9166-5e9ef922dc52"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getOpenTasksRequest areaId="134174" moId="277704">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+         </typ:pagingOptions>\r
+         <!--Optional:-->\r
+         <typ:openedPeriod>\r
+
+         </typ:openedPeriod>\r
+      </typ:getOpenTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getOpenTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="3ecb5686-77d5-4447-ade0-ed9eac862418" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getPatientTasks TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="4f3058f7-44ee-476d-aac1-824dc6304fa0" name="Test"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getPatientTasks</con:operation><con:request name="Test" id="628482fc-1214-460e-8b87-1c3fefab06a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getPatientTasksRequest patientId="23640662" closed="true" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getPatientTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getPatientTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="05d04ac8-e47a-4f89-81ee-b3a5b012aedc" name="Основной сценарий"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getPatientTasks</con:operation><con:request name="Основной сценарий" id="628482fc-1214-460e-8b87-1c3fefab06a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getPatientTasksRequest patientId="1005" closed="true" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getPatientTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getPatientTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="b4285bd1-dcde-412f-ab3f-2762f26b43cb" name="Основной сценарий без опций"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getPatientTasks</con:operation><con:request name="Основной сценарий без опций" id="628482fc-1214-460e-8b87-1c3fefab06a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getPatientTasksRequest patientId="30000000302893" closed="false" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+         </typ:pagingOptions>\r
+      </typ:getPatientTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getPatientTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="9fb1c56c-c90f-4f5c-92e9-cfe40ac16023" name="Получен непредусмотренный ключ сортировки"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getPatientTasks</con:operation><con:request name="Получен непредусмотренный ключ сортировки" id="628482fc-1214-460e-8b87-1c3fefab06a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getPatientTasksRequest patientId="30000000302893" closed="false" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="oddddpened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getPatientTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getPatientTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="06f7f7f7-1d11-4276-bf4a-15f0f998336c" name="Сортировка"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getPatientTasks</con:operation><con:request name="Сортировка" id="628482fc-1214-460e-8b87-1c3fefab06a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getPatientTasksRequest patientId="30000000302893" closed="false" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getPatientTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getPatientTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="bbebf596-05cb-47cf-bc94-a65dc45dfadb" name="Получено несколько параметров сортировки с разными направлениями"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getPatientTasks</con:operation><con:request name="Получено несколько параметров сортировки с разными направлениями" id="628482fc-1214-460e-8b87-1c3fefab06a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getPatientTasksRequest patientId="30000000302893" closed="false" moId="204">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+               <v1:sortOrder attributeName="opened" desceding="true"/>
+
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getPatientTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getPatientTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a1748662-daff-435e-aa22-53ca59b51e67" name="Не получен moId на вход при включенной настройке"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getPatientTasks</con:operation><con:request name="Не получен moId на вход при включенной настройке" id="628482fc-1214-460e-8b87-1c3fefab06a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getPatientTasksRequest patientId="30000000302893" closed="false">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getPatientTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getPatientTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="6821cdf9-4226-4702-aaa8-bc832253082f" name="Полученный МО отсутствует в таблице"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>taskServiceBinding</con:interface><con:operation>getPatientTasks</con:operation><con:request name="Полученный МО отсутствует в таблице" id="628482fc-1214-460e-8b87-1c3fefab06a0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Tasks}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/task/v1/types/" xmlns:v1="http://emias.mos.ru/dn/core/v1/">\r
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+  </soap:Header>
+   <soap:Body>\r
+      <typ:getPatientTasksRequest patientId="30000000302893" closed="false" moId="2077774">\r
+         <typ:pagingOptions pageNumber="0" pageSize="50">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="opened" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getPatientTasksRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/dn/task/v1/taskServicePortType/getPatientTasksRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:properties><con:property><con:name>wsdl_Tasks</con:name><con:value>http://esbcamel.test.emias.mos.ru/proxy/dn/task/v1S/ProxyService</con:value></con:property><con:property><con:name>wsdl_TasksTest</con:name><con:value>http://dn.test.emias.mos.ru/api/Task</con:value></con:property><con:property><con:name>wsdl_TasksSolit</con:name><con:value>http://dn.emias.solit-clouds.ru/api/Task</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:jmsConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:authRepository/><con:tags/></con:soapui-project>

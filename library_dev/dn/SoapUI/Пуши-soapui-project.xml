@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="42e5295c-4921-49a2-b306-1c532816c888" activeEnvironment="Default" name="Пуши" resourceRoot="" soapui-version="5.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="1279f00b-a135-4c5f-be6e-f12cc5ab9965" wsaVersion="NONE" name="getSoap" type="wsdl" bindingName="{http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/}getSoap" soapVersion="1_2" anonymous="optional" definition="http://dn.emias.solit-clouds.ru/api/push?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://dn.emias.solit-clouds.ru/api/push?wsdl"><con:part><con:url>http://dn.emias.solit-clouds.ru/api/push?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="pushaccepterService" targetNamespace="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/">
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://dn.emias.solit-clouds.ru/api/push?xsd=emias.system.v1.userContext.xsd"/>
+      <xs:import namespace="http://emias.mos.ru/system/v1/faults/" schemaLocation="http://dn.emias.solit-clouds.ru/api/push?xsd=emias.system.v1.faults.xsd"/>
+      <xs:import namespace="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/" schemaLocation="http://dn.emias.solit-clouds.ru/api/push?xsd=pushaccepterProduct.pushaccepterService.v1.types.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getChangeElement">
+    <wsdl:part element="ns1:ChangeElement" name="getChangeElement"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResponseElement">
+    <wsdl:part element="ns1:ResponseElement" name="getResponseElement"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="pushaccepterServicePortType">
+    <wsdl:operation name="get">
+      <wsdl:input message="tns:getChangeElement" name="getChangeElement"></wsdl:input>
+      <wsdl:output message="tns:getResponseElement" name="getResponseElement"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="getSoap" type="tns:pushaccepterServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="get">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getChangeElement">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResponseElement">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="getService">
+    <wsdl:port binding="tns:getSoap" name="getSoap">
+      <soap:address location="http://dn.emias.solit-clouds.ru/api/push"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://dn.emias.solit-clouds.ru/api/push?xsd=emias.system.v1.userContext.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://emias.mos.ru/system/v1/userContext/">
+  <xs:include schemaLocation="http://dn.emias.solit-clouds.ru/api/push?xsd=emias.system.v1.xsd"/>
+  <xs:element name="userContext" type="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="systemName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Шифр системы-потребителя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя пользователя (логин)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRoleId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Идентификатор Роли пользователя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="isUserRoleSystemWide" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак "Общесистемная Роль пользователя"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRights">
+        <xs:annotation>
+          <xs:documentation>Коллекция Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>ИД Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jobExecutionId" type="ID"/>
+      <xs:element minOccurs="0" name="hostIp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>IP адрес хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hostName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.emias.solit-clouds.ru/api/push?xsd=emias.system.v1.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--error message description-->
+  <xs:complexType name="ErrorMessageCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция сообщений об ошибках</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="message" type="ErrorMessage">
+        <xs:annotation>
+          <xs:documentation>Сообщение об ошибке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorMessage">
+    <xs:annotation>
+      <xs:documentation>Сообщение об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parameters">
+            <xs:annotation>
+              <xs:documentation>Коллекция параметров сообщения</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="parameter" type="KeyValuePair">
+                  <xs:annotation>
+                    <xs:documentation>Параметр сообщения</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Сопутствующие сообщения об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="ErrorMessageTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип сообщения</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ErrorMessageTypes">
+    <xs:annotation>
+      <xs:documentation>Тип сообщения об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation>Ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WARNING">
+        <xs:annotation>
+          <xs:documentation>Предупреждение (не блокирующая ошибка)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INFO">
+        <xs:annotation>
+          <xs:documentation>Информационное сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:complexType name="KeyValuePair">
+    <xs:annotation>
+      <xs:documentation>Представляет тип "ключ/значение"</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Ключ</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Message">
+    <xs:annotation>
+      <xs:documentation>Сообщение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Текст сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.emias.solit-clouds.ru/api/push?xsd=emias.system.v1.faults.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/faults/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns="http://emias.mos.ru/system/v1/faults/">
+  <xs:include schemaLocation="http://dn.emias.solit-clouds.ru/api/push?xsd=emias.system.v1.xsd"/>
+  <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://dn.emias.solit-clouds.ru/api/push?xsd=emias.system.v1.userContext.xsd"/>
+  <!--faults-->
+  <xs:element name="fault" type="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Базовый тип ошибки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SecurityFault">
+    <xs:annotation>
+      <xs:documentation>Ошибка безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element ref="uctx:userContext"/>
+          <xs:choice>
+            <xs:element name="unauthorizedRequestSecurityException" type="UnauthorizedRequestSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="otherSecurityException" type="OtherSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute fixed="SECURITY" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BusinessFault">
+    <xs:annotation>
+      <xs:documentation>Бизнес ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Коллекция Сообщений об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="hasErrors" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак наличия ошибок в списке сообщений</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="BUSINESS" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnexpectedFault">
+    <xs:annotation>
+      <xs:documentation>Непредвиденная ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="version" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Версия продукта-сервиса</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stackTrace">
+            <xs:annotation>
+              <xs:documentation>Стек вызова (последние 10  записей)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="10" name="stackTraceRecord">
+                  <xs:annotation>
+                    <xs:documentation>Запись StackTrace</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="declaringClass" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование класса, содержащего метод</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="methodName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование метода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="fileName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование файла</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="lineNumber" type="xs:int">
+                        <xs:annotation>
+                          <xs:documentation>Номер строки кода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="UNEXPECTED" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Описание базового типа описания ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--security exceptions-->
+  <xs:complexType name="UnauthorizedRequestSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="requiredRights">
+        <xs:annotation>
+          <xs:documentation>Перечень идентификаторов недостающих Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Идентификатор Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="UNAUTHORIZED_REQUEST_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="OtherSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="message" type="Message">
+        <xs:annotation>
+          <xs:documentation>Сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="OTHER_SECURITY_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:simpleType name="SecurityExceptionTypes">
+    <xs:annotation>
+      <xs:documentation>Типы исключений безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNAUTHORIZED_REQUEST_EXCEPTION"/>
+      <xs:enumeration value="OTHER_SECURITY_EXCEPTION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--components-->
+  <xs:simpleType name="FaultTypes">
+    <xs:annotation>
+      <xs:documentation>Тип ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SECURITY">
+        <xs:annotation>
+          <xs:documentation>Непредвиденная ошибка приложения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUSINESS">
+        <xs:annotation>
+          <xs:documentation>Бизнес ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UNEXPECTED">
+        <xs:annotation>
+          <xs:documentation>Ошибка безопасности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.emias.solit-clouds.ru/api/push?xsd=pushaccepterProduct.pushaccepterService.v1.types.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ChangeElement">
+    <xs:annotation>
+      <xs:documentation>Входные параметры метода ChangeElement</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="in" type="xs:string"/>
+        <xs:element minOccurs="0" name="intype" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResponseElement">
+    <xs:annotation>
+      <xs:documentation>Выходные параметры метода ResponseElement</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="out" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://dn.emias.solit-clouds.ru/api/push</con:endpoint></con:endpoints><con:operation id="cb8568e6-45a6-4117-93de-8f20018c1d74" isOneWay="false" action="" name="get" bindingOperationName="get" type="Request-Response" outputName="getResponseElement" inputName="getChangeElement" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="66bee939-35ba-43e5-a08e-50d12ffd380d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.emias.solit-clouds.ru/api/push</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:ChangeElement>\r
+         <typ:in>?</typ:in>\r
+         <!--Optional:-->\r
+         <typ:intype>?</typ:intype>\r
+      </typ:ChangeElement>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="961c3dea-3bfe-471c-9216-95f1dca13662" name="getSoap TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b89f1a3b-22f1-430b-8148-bb8762a57728" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="get TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2c563f2d-4d37-4e3a-81ed-abff18a476a5" name="ADDED MKB"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="ADDED MKB" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Push}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:ChangeElement>
+         <typ:in>
+          <![CDATA[
+		 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package count="1" id="0">
+	<catalog>
+		<categories>
+			<category idHier="1123" nameHier="">1190</category>
+		</categories>
+		<data action="ADDED">
+			<attribute field_id="1133" name="global_id" type="INT">
+				<values>
+					<value>1501932222</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="Object_ID" type="STRING">
+				<values>
+					<value>1501931</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="CODE" type="STRING">
+				<values>
+					<value>ааааа</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="NAME" type="STRING">
+				<values>
+					<value>ОПИСАНИЕ</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="ID_PARENT" type="INT">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="ACTUAL" type="STRING">
+				<values>
+					<value>0</value>
+				</values>
+			</attribute>
+		</data>
+	</catalog>
+</package>
+		 ]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="76d9980a-6269-4b7d-847b-5f860bc90878" name="MODIFIED MKB"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="MODIFIED MKB" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.emias.solit-clouds.ru/api/push</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:ChangeElement>
+         <typ:in>
+          <![CDATA[
+		 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package count="1" id="0">
+	<catalog>
+		<categories>
+			<category idHier="1123" nameHier="">1190</category>
+		</categories>
+		<data action="MODIFIED">
+			<attribute field_id="1133" name="global_id" type="INT">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="Object_ID" type="STRING">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="CODE" type="STRING">
+				<values>
+					<value>тест</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="NAME" type="STRING">
+				<values>
+					<value>тест</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="ID_PARENT" type="INT">
+				<values>
+					<value>1505593</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="ACTUAL" type="STRING">
+				<values>
+					<value>1</value>
+				</values>
+			</attribute>
+		</data>
+	</catalog>
+</package>
+		 ]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="59c89e28-4af4-48e1-b764-231302ecc977" name="DELETED MKB"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="DELETED MKB" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Push}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:ChangeElement>
+         <typ:in>
+          <![CDATA[
+		 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package count="1" id="0">
+	<catalog>
+		<categories>
+			<category idHier="1123" nameHier="">1190</category>
+		</categories>
+		<data action="DELETED">
+			<attribute field_id="1133" name="global_id" type="INT">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="Object_ID" type="STRING">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="CODE" type="STRING">
+				<values>
+					<value>тест</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="NAME" type="STRING">
+				<values>
+					<value>тест</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="ID_PARENT" type="INT">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="ACTUAL" type="STRING">
+				<values>
+					<value>0</value>
+				</values>
+			</attribute>
+		</data>
+	</catalog>
+</package>
+		 ]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a93fec77-bdef-4754-ae4b-92d6c9625370" name="ADDED SPECIALIZATION"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="ADDED SPECIALIZATION" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.emias.solit-clouds.ru/api/push</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:ChangeElement>
+         <typ:in>
+         <![CDATA[<package xmlns:ns2="http://ehd.mos.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" count="1" id="10001367">
+   <catalog name="catalog_1115">
+      <categories>
+         <category idHier="" nameHier="">1115</category>
+      </categories>
+      <data action="ADDED"><attribute name="global_id" field_id="-1" type="NUMBER">
+                          <values><value>1256767591</value>
+                          </values>
+                       </attribute><attribute name="code" field_id="4522" type="STRING">
+                          <values><value>001</value>
+                          </values>
+                       </attribute><attribute name="title" field_id="3847" type="STRING">
+                          <values><value>тестовая специализация</value>
+                          </values>
+                       </attribute><attribute name="archived" field_id="3852" type="BOOLEAN">
+                          <values><value>0</value>
+                          </values>
+                       </attribute></data>
+   </catalog>
+</package>]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="f7957044-9882-478a-becb-b4c8e4517712" name="MODIFIED SPECIALIZATION"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="MODIFIED SPECIALIZATION" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.emias.solit-clouds.ru/api/push</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:ChangeElement>
+         <typ:in>
+         <![CDATA[<package xmlns:ns2="http://ehd.mos.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" count="1" id="10001367">
+   <catalog name="catalog_1115">
+      <categories>
+         <category idHier="" nameHier="">1115</category>
+      </categories>
+      <data action="DELETED"><attribute name="global_id" field_id="-1" type="NUMBER">
+                          <values><value>1256767591</value>
+                          </values>
+                       </attribute><attribute name="code" field_id="4522" type="STRING">
+                          <values><value>002</value>
+                          </values>
+                       </attribute><attribute name="title" field_id="3847" type="STRING">
+                          <values><value>тестовая специализация 2</value>
+                          </values>
+                       </attribute><attribute name="archived" field_id="3852" type="BOOLEAN">
+                          <values><value>0</value>
+                          </values>
+                       </attribute></data>
+   </catalog>
+</package>]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="fdf845f0-e29c-44da-a00b-f217a1d577d7" name="DELETED SPECIALIZATION"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="DELETED SPECIALIZATION" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.emias.solit-clouds.ru/api/push</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:ChangeElement>
+         <typ:in>
+         <![CDATA[<package xmlns:ns2="http://ehd.mos.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" count="1" id="10001367">
+   <catalog name="catalog_1115">
+      <categories>
+         <category idHier="" nameHier="">1115</category>
+      </categories>
+      <data action="MODIFIED"><attribute name="global_id" field_id="-1" type="NUMBER">
+                          <values><value>1256767591</value>
+                          </values>
+                       </attribute><attribute name="code" field_id="4522" type="STRING">
+                          <values><value>002</value>
+                          </values>
+                       </attribute><attribute name="title" field_id="3847" type="STRING">
+                          <values><value>тестовая специализация 2</value>
+                          </values>
+                       </attribute><attribute name="archived" field_id="3852" type="BOOLEAN">
+                          <values><value>0</value>
+                          </values>
+                       </attribute></data>
+   </catalog>
+</package>]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="9d7ab795-3c35-4235-a1b0-ea1ccb73f05e" name="Тестовый"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="Тестовый" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Push}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">
+  <soap:Header>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+     <wsse:UsernameToken>
+      <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+     </wsse:UsernameToken>
+   </wsse:Security>
+  </soap:Header>
+  <soap:Body>
+   <typ:ChangeElement>
+     <typ:in>
+     <![CDATA[
+		 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package count="1" id="0">
+	<catalog>
+		<categories>
+			<category idHier="1123" nameHier="">1190</category>
+		</categories>
+		<data action="ADDED">
+			<attribute field_id="1133" name="global_id" type="INT">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="Object_ID" type="STRING">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="CODE" type="STRING">
+				<values>
+					<value>ааааа</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="NAME" type="STRING">
+				<values>
+					<value>ОПИСАНИЕ</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="ID_PARENT" type="INT">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="ACTUAL" type="STRING">
+				<values>
+					<value>0</value>
+				</values>
+			</attribute>
+		</data>
+	</catalog>
+</package>
+		 ]]]]>><![CDATA[
+     </typ:in>
+   </typ:ChangeElement>
+  </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="d07c397a-837e-473b-9041-90cf96f14744" name="Autotest"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="a6ebe94a-d9ab-41cd-9329-c8b9ef2e0e00" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" id="551c2a5f-0906-44ac-b525-2f116b6cce8c" name="#61851"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="#61851" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_PushAuto}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:ChangeElement>
+         <typ:in>
+          <![CDATA[
+		 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package count="1" id="0">
+	<catalog>
+		<categories>
+			<category idHier="1123" nameHier="">1190</category>
+		</categories>
+		<data action="ADDED">
+			<attribute field_id="1133" name="global_id" type="INT">
+				<values>
+					<value>15481548</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="Object_ID" type="STRING">
+				<values>
+					<value>15481548</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="CODE" type="STRING">
+				<values>
+					<value>ааааа</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="NAME" type="STRING">
+				<values>
+					<value>ОПИСАНИЕ</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="ID_PARENT" type="INT">
+				<values>
+					<value>150193</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="ACTUAL" type="STRING">
+				<values>
+					<value>0</value>
+				</values>
+			</attribute>
+		</data>
+	</catalog>
+</package>
+		 ]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="05bc4491-2cbf-4464-a6ac-2fd62cb4d8eb" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab18dc06-43f8-40f9-a4a9-65c015299a73" name="Not SOAP Fault"/><con:assertion type="Simple Contains" id="f5ddd7b6-5cf3-494c-8e07-c8292567c9c6" name="Contains"><con:configuration><token>&lt;ns4:out>OK&lt;/ns4:out></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="jdbc" name="Get Data" id="b51533a2-6fa2-4002-ac6b-1ff084883f58"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>select * from d_mkb10 where id = 15481548</con:query><con:assertion type="Simple Contains" id="f6896a2b-327d-4ee8-abdb-3f417e4c574b" name="Contains"><con:configuration><token><![CDATA[<Results>
+    <ResultSet fetchSize="0">
+        <Row rowNumber="1">
+            <D_MKB10.ID>15481548</D_MKB10.ID>
+            <D_MKB10.OBJECT_ID>15481548</D_MKB10.OBJECT_ID>
+            <D_MKB10.CODE>ааааа</D_MKB10.CODE>
+            <D_MKB10.TITLE>ОПИСАНИЕ</D_MKB10.TITLE>
+            <D_MKB10.PARENT_ID>150193</D_MKB10.PARENT_ID>
+            <D_MKB10.ARCHIVED>t</D_MKB10.ARCHIVED>
+        </Row>
+    </ResultSet>
+</Results>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:properties/></con:config></con:testStep><con:testStep type="request" id="b8d7eed8-6d3e-40b9-9b9a-816f1d047285" name="#61852"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="#61852" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_PushAuto}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:ChangeElement>
+         <typ:in>
+          <![CDATA[
+		 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package count="1" id="0">
+	<catalog>
+		<categories>
+			<category idHier="1123" nameHier="">1190</category>
+		</categories>
+		<data action="MODIFIED">
+			<attribute field_id="1133" name="global_id" type="INT">
+				<values>
+					<value>15481548</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="Object_ID" type="STRING">
+				<values>
+					<value>15481548</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="CODE" type="STRING">
+				<values>
+					<value>test</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="NAME" type="STRING">
+				<values>
+					<value>test</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="ID_PARENT" type="INT">
+				<values>
+					<value>1501931</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="ACTUAL" type="STRING">
+				<values>
+					<value>1</value>
+				</values>
+			</attribute>
+		</data>
+	</catalog>
+</package>
+		 ]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="05bc4491-2cbf-4464-a6ac-2fd62cb4d8eb" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab18dc06-43f8-40f9-a4a9-65c015299a73" name="Not SOAP Fault"/><con:assertion type="Simple Contains" id="f5ddd7b6-5cf3-494c-8e07-c8292567c9c6" name="Contains"><con:configuration><token>&lt;ns4:out>OK&lt;/ns4:out></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="jdbc" name="Get Data 2" id="5c2cc26d-2933-4baf-8603-420708e70d53"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>select * from d_mkb10 where id = 15481548</con:query><con:assertion type="Simple Contains" id="f6896a2b-327d-4ee8-abdb-3f417e4c574b" name="Contains"><con:configuration><token><![CDATA[<Results>
+    <ResultSet fetchSize="0">
+        <Row rowNumber="1">
+            <D_MKB10.ID>15481548</D_MKB10.ID>
+            <D_MKB10.OBJECT_ID>15481548</D_MKB10.OBJECT_ID>
+            <D_MKB10.CODE>test</D_MKB10.CODE>
+            <D_MKB10.TITLE>test</D_MKB10.TITLE>
+            <D_MKB10.PARENT_ID>1501931</D_MKB10.PARENT_ID>
+            <D_MKB10.ARCHIVED>f</D_MKB10.ARCHIVED>
+        </Row>
+    </ResultSet>
+</Results>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:properties/></con:config></con:testStep><con:testStep type="request" id="a4b9a7d3-345c-4ca1-a157-bc1cdb8a0606" name="#61853"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="#61853" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_PushAuto}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:ChangeElement>
+         <typ:in>
+          <![CDATA[
+		 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package count="1" id="0">
+	<catalog>
+		<categories>
+			<category idHier="1123" nameHier="">1190</category>
+		</categories>
+		<data action="DELETED">
+			<attribute field_id="1133" name="global_id" type="INT">
+				<values>
+					<value>15481548</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="Object_ID" type="STRING">
+				<values>
+					<value>15481548</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="CODE" type="STRING">
+				<values>
+					<value>test</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="NAME" type="STRING">
+				<values>
+					<value>test</value>
+				</values>
+			</attribute>
+			<attribute field_id="1133" name="ID_PARENT" type="INT">
+				<values>
+					<value>1501931</value>
+				</values>
+			</attribute>
+			<attribute field_id="896" name="ACTUAL" type="STRING">
+				<values>
+					<value>1</value>
+				</values>
+			</attribute>
+		</data>
+	</catalog>
+</package>
+		 ]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="05bc4491-2cbf-4464-a6ac-2fd62cb4d8eb" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab18dc06-43f8-40f9-a4a9-65c015299a73" name="Not SOAP Fault"/><con:assertion type="Simple Contains" id="f5ddd7b6-5cf3-494c-8e07-c8292567c9c6" name="Contains"><con:configuration><token>&lt;ns4:out>OK&lt;/ns4:out></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="jdbc" name="Get Data 3" id="0397b085-fbf3-4209-9c3c-166824b88e0f"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>select * from d_mkb10 where id = 15481548</con:query><con:assertion type="Simple Contains" id="f6896a2b-327d-4ee8-abdb-3f417e4c574b" name="Contains"><con:configuration><token><![CDATA[<Results>
+    <ResultSet fetchSize="0">
+        <Row rowNumber="1">
+            <D_MKB10.ID>15481548</D_MKB10.ID>
+            <D_MKB10.OBJECT_ID>15481548</D_MKB10.OBJECT_ID>
+            <D_MKB10.CODE>test</D_MKB10.CODE>
+            <D_MKB10.TITLE>test</D_MKB10.TITLE>
+            <D_MKB10.PARENT_ID>1501931</D_MKB10.PARENT_ID>
+            <D_MKB10.ARCHIVED>t</D_MKB10.ARCHIVED>
+        </Row>
+    </ResultSet>
+</Results>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:properties/></con:config></con:testStep><con:testStep type="jdbc" name="Delete Data" id="18860586-8109-48db-abdc-4d24ad987a69"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>DELETE FROM d_mkb10 WHERE id=15481548;</con:query><con:properties/></con:config></con:testStep><con:testStep type="request" id="c91752f4-fec4-4eba-a414-1224652d2183" name="#61854"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="#61854" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_PushAuto}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:ChangeElement>
+         <typ:in>
+         <![CDATA[<package xmlns:ns2="http://ehd.mos.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" count="1" id="10001367">
+   <catalog name="catalog_1115">
+      <categories>
+         <category idHier="" nameHier="">1115</category>
+      </categories>
+      <data action="ADDED"><attribute name="global_id" field_id="-1" type="NUMBER">
+                          <values><value>1558</value>
+                          </values>
+                       </attribute><attribute name="code" field_id="4522" type="STRING">
+                          <values><value>001</value>
+                          </values>
+                       </attribute><attribute name="title" field_id="3847" type="STRING">
+                          <values><value>тестовая специализация</value>
+                          </values>
+                       </attribute><attribute name="archived" field_id="3852" type="BOOLEAN">
+                          <values><value>0</value>
+                          </values>
+                       </attribute></data>
+   </catalog>
+</package>]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" id="42f6b4b1-6dbc-4a11-88d4-7fded33d7364" name="Not SOAP Fault"/><con:assertion type="Schema Compliance" id="700f1954-7124-4a03-949d-00f4918e3370" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="Simple Contains" id="31c4a6bf-3c57-4d0d-8dff-e3778677a20a" name="Contains"><con:configuration><token>&lt;ns4:out>OK&lt;/ns4:out></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="jdbc" name="Get Data 4" id="9d0b458d-69ab-49b0-9481-230f3229bd67"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>select * from d_medical_specialization where id = 1558</con:query><con:assertion type="Simple Contains" id="f6896a2b-327d-4ee8-abdb-3f417e4c574b" name="Contains"><con:configuration><token><![CDATA[<Results>
+    <ResultSet fetchSize="0">
+        <Row rowNumber="1">
+            <D_MEDICAL_SPECIALIZATION.ID>1558</D_MEDICAL_SPECIALIZATION.ID>
+            <D_MEDICAL_SPECIALIZATION.TITLE>тестовая специализация</D_MEDICAL_SPECIALIZATION.TITLE>
+            <D_MEDICAL_SPECIALIZATION.CODE>001</D_MEDICAL_SPECIALIZATION.CODE>
+            <D_MEDICAL_SPECIALIZATION.ARCHIVED>f</D_MEDICAL_SPECIALIZATION.ARCHIVED>
+        </Row>
+    </ResultSet>
+</Results>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:properties/></con:config></con:testStep><con:testStep type="request" id="3c67536d-7244-4d65-b0ae-c11de7348b88" name="#61855"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="#61855" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_PushAuto}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:ChangeElement>
+         <typ:in>
+         <![CDATA[<package xmlns:ns2="http://ehd.mos.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" count="1" id="10001367">
+   <catalog name="catalog_1115">
+      <categories>
+         <category idHier="" nameHier="">1115</category>
+      </categories>
+      <data action="MODIFIED"><attribute name="global_id" field_id="-1" type="NUMBER">
+                          <values><value>1558</value>
+                          </values>
+                       </attribute><attribute name="code" field_id="4522" type="STRING">
+                          <values><value>002</value>
+                          </values>
+                       </attribute><attribute name="title" field_id="3847" type="STRING">
+                          <values><value>тестовая специализация2</value>
+                          </values>
+                       </attribute><attribute name="archived" field_id="3852" type="BOOLEAN">
+                          <values><value>1</value>
+                          </values>
+                       </attribute></data>
+   </catalog>
+</package>]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" id="42f6b4b1-6dbc-4a11-88d4-7fded33d7364" name="Not SOAP Fault"/><con:assertion type="Schema Compliance" id="700f1954-7124-4a03-949d-00f4918e3370" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="Simple Contains" id="31c4a6bf-3c57-4d0d-8dff-e3778677a20a" name="Contains"><con:configuration><token>&lt;ns4:out>OK&lt;/ns4:out></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="jdbc" name="Get Data 5" id="8100a6c4-7c61-410d-a29c-285818f28d87"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>select * from d_medical_specialization where id = 1558</con:query><con:assertion type="Simple Contains" id="f6896a2b-327d-4ee8-abdb-3f417e4c574b" name="Contains"><con:configuration><token><![CDATA[<Results>
+    <ResultSet fetchSize="0">
+        <Row rowNumber="1">
+            <D_MEDICAL_SPECIALIZATION.ID>1558</D_MEDICAL_SPECIALIZATION.ID>
+            <D_MEDICAL_SPECIALIZATION.TITLE>тестовая специализация2</D_MEDICAL_SPECIALIZATION.TITLE>
+            <D_MEDICAL_SPECIALIZATION.CODE>002</D_MEDICAL_SPECIALIZATION.CODE>
+            <D_MEDICAL_SPECIALIZATION.ARCHIVED>t</D_MEDICAL_SPECIALIZATION.ARCHIVED>
+        </Row>
+    </ResultSet>
+</Results>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:properties/></con:config></con:testStep><con:testStep type="request" id="91f9be4e-53c8-490e-a1d8-e9e18c576574" name="#61856"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>getSoap</con:interface><con:operation>get</con:operation><con:request name="#61856" id="c28243dd-c55f-4694-b844-5c8c6a802a12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_PushAuto}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/types/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>KPI_DOCTOR/RBeda</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:ChangeElement>
+         <typ:in>
+         <![CDATA[<package xmlns:ns2="http://ehd.mos.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" count="1" id="10001367">
+   <catalog name="catalog_1115">
+      <categories>
+         <category idHier="" nameHier="">1115</category>
+      </categories>
+      <data action="DELETED"><attribute name="global_id" field_id="-1" type="NUMBER">
+                          <values><value>1558</value>
+                          </values>
+                       </attribute><attribute name="code" field_id="4522" type="STRING">
+                          <values><value>002</value>
+                          </values>
+                       </attribute><attribute name="title" field_id="3847" type="STRING">
+                          <values><value>тестовая специализация2</value>
+                          </values>
+                       </attribute><attribute name="archived" field_id="3852" type="BOOLEAN">
+                          <values><value>1</value>
+                          </values>
+                       </attribute></data>
+   </catalog>
+</package>]]]]>><![CDATA[
+         </typ:in>
+      </typ:ChangeElement>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" id="42f6b4b1-6dbc-4a11-88d4-7fded33d7364" name="Not SOAP Fault"/><con:assertion type="Schema Compliance" id="700f1954-7124-4a03-949d-00f4918e3370" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="Simple Contains" id="31c4a6bf-3c57-4d0d-8dff-e3778677a20a" name="Contains"><con:configuration><token>&lt;ns4:out>OK&lt;/ns4:out></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://emias.mos.ru/pushaccepterProduct/pushaccepterService/v1/pushaccepterServicePortType/getChangeElement" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="jdbc" name="Get Data 6" id="b18d2645-eceb-4b40-bd6e-e456183a3932"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>select * from d_medical_specialization where id = 1558</con:query><con:assertion type="Simple Contains" id="f6896a2b-327d-4ee8-abdb-3f417e4c574b" name="Contains"><con:configuration><token><![CDATA[<Results>
+    <ResultSet fetchSize="0">
+        <Row rowNumber="1">
+            <D_MEDICAL_SPECIALIZATION.ID>1558</D_MEDICAL_SPECIALIZATION.ID>
+            <D_MEDICAL_SPECIALIZATION.TITLE>тестовая специализация2</D_MEDICAL_SPECIALIZATION.TITLE>
+            <D_MEDICAL_SPECIALIZATION.CODE>002</D_MEDICAL_SPECIALIZATION.CODE>
+            <D_MEDICAL_SPECIALIZATION.ARCHIVED>t</D_MEDICAL_SPECIALIZATION.ARCHIVED>
+        </Row>
+    </ResultSet>
+</Results>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:properties/></con:config></con:testStep><con:testStep type="jdbc" name="Delete Data 2" id="d723233b-b4ca-4a54-8537-8020ba2eac05"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>DELETE FROM d_medical_specialization WHERE id=1558;</con:query><con:properties/></con:config></con:testStep><con:properties><con:property><con:name>Id</con:name><con:value>1456</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>dbConnect</con:name><con:value>10.2.172.90:5432/dn</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>wsdl_Push</con:name><con:value>http://esbcamel.test.emias.mos.ru/proxy/dn/push/v1S/ProxyService</con:value></con:property><con:property><con:name>wsdl_PushAuto</con:name><con:value>http://esbcamel.test.emias.mos.ru/proxy/dn/push/v1S/ProxyService</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

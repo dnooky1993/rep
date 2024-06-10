@@ -1,0 +1,58 @@
+import org.apache.kafka.clients.producer.Callback;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
+
+import java.util.Properties;
+import java.util.UUID;
+
+        Properties props = new Properties();
+        props.put("bootstrap.servers", "10.2.172.24:9092,10.2.172.25:9092,10.2.172.26:9092");
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+        String topic = testRunner.testCase.getPropertyValue("topicName");
+        String key = UUID.randomUUID().toString();
+        String message = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
+                "<ns2:medicalOrganizationInfoMsg id=\"778\"\n" +
+                "\txmlns:ns5=\"http://emias.mos.ru/skuu/svmr/core/v1/\"\n" +
+                "\txmlns:ns2=\"http://emias.mos.ru/svmr2/systemInformerService/v1\"\n" +
+                "\txmlns:ns1=\"http://emias.mos.ru/svmr2/producer/v1/types\"\n" +
+                "\txmlns:ns4=\"http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/\"\n" +
+                "\txmlns:ns3=\"http://emias.mos.ru/svmr2/core/v1/types\">\n" +
+                "\t<ns2:create type=\"MEDICAL_ORGANIZATION\">\n" +
+                "\t\t<ns1:attributes>\n" +
+                "\t\t\t<ns1:name>Тестовая мед организация</ns1:name>\n" +
+                "\t\t\t<ns1:shortName>Тест отправки сообщения2</ns1:shortName>\n" +
+                "\t\t\t<ns1:ogrn>ОГРН</ns1:ogrn>\n" +
+                "\t\t\t<ns1:okopf>75203</ns1:okopf>\n" +
+                "\t\t\t<ns1:inn>7724015205</ns1:inn>\n" +
+                "\t\t\t<ns1:kpp>772401001</ns1:kpp>\n" +
+                "\t\t\t<ns1:regDate>2002-12-18</ns1:regDate>\n" +
+                "\t\t\t<ns1:departmentAffilation ns1:fnsiId=\"2300229\" id=\"123123123123\">\n" +
+                "\t\t\t\t<ns1:code>120</ns1:code>\n" +
+                "\t\t\t\t<ns1:title>Органы исполнительной власти субъектов Российской Федерации, осуществляющие функции в области здравоохранения</ns1:title>\n" +
+                "\t\t\t</ns1:departmentAffilation>\n" +
+                "\t\t</ns1:attributes>\n" +
+                "\t\t<ns1:medicalOrganizationAttributes>\n" +
+                "\t\t\t<ns1:medicalActivity ns1:fnsiId=\"106\" id=\"126094986\">\n" +
+                "\t\t\t\t<ns1:code>106</ns1:code>\n" +
+                "\t\t\t\t<ns1:title>Лаборатория</ns1:title>\n" +
+                "\t\t\t</ns1:medicalActivity>\n" +
+                "\t\t</ns1:medicalOrganizationAttributes>\n" +
+                "\t</ns2:create >\n" +
+                "</ns2:medicalOrganizationInfoMsg>";
+
+        KafkaProducer producer = new KafkaProducer(props);
+        ProducerRecord record = new ProducerRecord(topic, key, message);
+        producer.send(record,
+                new Callback() {
+                    public void onCompletion(RecordMetadata metadata, Exception e) {
+                        if(e != null) {
+                           log.info("Error has occured");
+                        } else {
+                            log.info("The offset of the record we just sent is: " + metadata.offset());
+                        }
+                    }
+                });
+        producer.close();

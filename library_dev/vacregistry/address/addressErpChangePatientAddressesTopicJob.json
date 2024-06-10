@@ -1,0 +1,306 @@
+{
+   "id": 5494563,
+   "operationDate": "2022-02-15T11:02:17.932+03:00",
+   "emiasId":  123,
+   "uklErp": "9925449",
+   "patientType": "I",
+   "patientRecStatus": "Y",
+   "entityName": "addresses",
+   "entityData": [
+      {
+         "attributes": [
+            {
+               "name": "addressId",
+               "type": "integer",
+               "value": {
+                  "value": "13821881"
+               }
+            },
+            {
+               "name": "addressMode",
+               "type": "dictionary",
+               "value": {
+                  "code": "FACT",
+                  "value": "адрес фактического проживания"
+               }
+            },
+            {
+               "name": "addressString",
+               "type": "string",
+               "value": {
+                  "value": "г. Москва, улица Наташи Фактической, д. 4, кв. 28"
+               }
+            },
+            {
+               "name": "regionName",
+               "type": "string",
+               "value": {
+                  "value": "Москва"
+               }
+            },
+            {
+               "name": "regionTypeFull",
+               "type": "string",
+               "value": {
+                  "value": "Город"
+               }
+            },
+            {
+               "name": "regionTypeShort",
+               "type": "string",
+               "value": {
+                  "value": "г"
+               }
+            },
+            {
+               "name": "regionId",
+               "type": "string",
+               "value": {
+                  "value": "67200856"
+               }
+            },
+            {
+               "name": "regionCode",
+               "type": "string",
+               "value": {
+                  "value": "77"
+               }
+            },
+            {
+               "name": "streetCodeOMKUM",
+               "type": "string",
+               "value": {
+                  "value": "09807"
+               }
+            },
+            {
+               "name": "streetName",
+               "type": "string",
+               "value": {
+                  "value": "улица Наташи Фактической"
+               }
+            },
+            {
+               "name": "houseName",
+               "type": "string",
+               "value": {
+                  "value": "4"
+               }
+            },
+            {
+               "name": "flatName",
+               "type": "string",
+               "value": {
+                  "value": "28"
+               }
+            },
+            {
+               "name": "elevator",
+               "type": "boolean",
+               "value": {
+                  "value": "false"
+               }
+            },
+            {
+               "name": "addressChangeDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-15T10:46:29.424806+03:00"
+               }
+            }
+         ]
+      },
+      {
+         "attributes": [
+            {
+               "name": "addressId",
+               "type": "integer",
+               "value": {
+                  "value": "13821882"
+               }
+            },
+            {
+               "name": "addressMode",
+               "type": "dictionary",
+               "value": {
+                  "code": "RCONST",
+                  "value": "адрес постоянной регистрации"
+               }
+            },
+            {
+               "name": "addressString",
+               "type": "string",
+               "value": {
+                  "value": "г. Москва, улица Наташи постоянной, д. 4, кв. 28"
+               }
+            },
+            {
+               "name": "regionName",
+               "type": "string",
+               "value": {
+                  "value": "Москва"
+               }
+            },
+            {
+               "name": "regionTypeFull",
+               "type": "string",
+               "value": {
+                  "value": "Город"
+               }
+            },
+            {
+               "name": "regionTypeShort",
+               "type": "string",
+               "value": {
+                  "value": "г"
+               }
+            },
+            {
+               "name": "regionId",
+               "type": "string",
+               "value": {
+                  "value": "67200856"
+               }
+            },
+            {
+               "name": "regionCode",
+               "type": "string",
+               "value": {
+                  "value": "77"
+               }
+            },
+            {
+               "name": "streetCodeOMKUM",
+               "type": "string",
+               "value": {
+                  "value": "09807"
+               }
+            },
+            {
+               "name": "streetName",
+               "type": "string",
+               "value": {
+                  "value": "улица Наташи постоянной"
+               }
+            },
+            {
+               "name": "houseName",
+               "type": "string",
+               "value": {
+                  "value": "4"
+               }
+            },
+            {
+               "name": "flatName",
+               "type": "string",
+               "value": {
+                  "value": "28"
+               }
+            }
+         ]
+      },
+	  {
+         "attributes": [
+            {
+               "name": "addressId",
+               "type": "integer",
+               "value": {
+                  "value": "13821881"
+               }
+            },
+            {
+               "name": "addressMode",
+               "type": "dictionary",
+               "value": {
+                  "code": "RTEMP",
+                  "value": "адрес временного проживания"
+               }
+            },
+            {
+               "name": "addressString",
+               "type": "string",
+               "value": {
+                  "value": "г. Москва, улица Наташи Временной, д. 4, кв. 28"
+               }
+            },
+            {
+               "name": "regionName",
+               "type": "string",
+               "value": {
+                  "value": "Москва"
+               }
+            },
+            {
+               "name": "regionTypeFull",
+               "type": "string",
+               "value": {
+                  "value": "Город"
+               }
+            },
+            {
+               "name": "regionTypeShort",
+               "type": "string",
+               "value": {
+                  "value": "г"
+               }
+            },
+            {
+               "name": "regionId",
+               "type": "string",
+               "value": {
+                  "value": "67200856"
+               }
+            },
+            {
+               "name": "regionCode",
+               "type": "string",
+               "value": {
+                  "value": "77"
+               }
+            },
+            {
+               "name": "streetCodeOMKUM",
+               "type": "string",
+               "value": {
+                  "value": "09807"
+               }
+            },
+            {
+               "name": "streetName",
+               "type": "string",
+               "value": {
+                  "value": "улица Наташи Временной"
+               }
+            },
+            {
+               "name": "houseName",
+               "type": "string",
+               "value": {
+                  "value": "4"
+               }
+            },
+            {
+               "name": "flatName",
+               "type": "string",
+               "value": {
+                  "value": "28"
+               }
+            },
+            {
+               "name": "elevator",
+               "type": "boolean",
+               "value": {
+                  "value": "false"
+               }
+            },
+            {
+               "name": "addressChangeDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-15T10:46:29.424806+03:00"
+               }
+            }
+         ]
+      }
+   ]
+}

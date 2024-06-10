@@ -1,0 +1,34 @@
+import groovy.sql.Sql
+
+if (context.dbConnect != null) {      
+sql = context.dbConnect;
+
+    def routeId= testRunner.testCase.getPropertyValue("routeId")
+   // def medicalFacilityId2= testRunner.testCase.getPropertyValue("medicalFacilityId2")
+    def medicalOrganizationId= testRunner.testCase.getPropertyValue("medicalOrganizationId")
+    def medicalOrganizationId2= testRunner.testCase.getPropertyValue("medicalOrganizationId2")
+
+   // Удаляем запись в DIRECT_MEDICAL_ORGANIZATIONS
+   sql.execute ("DELETE  from  DIRECT_MEDICAL_ORGANIZATIONS WHERE ROUTE_ID ="+routeId)
+
+   // Удаляем запись в RECEIVE_MEDICAL_ORGANIZATIONS
+   sql.execute ("DELETE  from  RECEIVE_MEDICAL_ORGANIZATIONS WHERE ROUTE_ID ="+routeId)
+
+    // Удаляем запись в ROUTE_JOURNAL
+   sql.execute ("DELETE  from  ROUTE_JOURNAL WHERE ROUTE_ID ="+routeId)  
+
+     // Удаляем запись в ROUTE_TREATMENTS
+   sql.execute ("DELETE  from  ROUTE_TREATMENTS WHERE ROUTE_ID ="+routeId)    
+
+     // Удаляем запись в ROUTE
+   sql.execute ("DELETE  from  ROUTE WHERE ID ="+routeId)       
+
+   // Удаляем МО MEDICAL_ORGANIZATION
+   sql.execute ("DELETE  from  MEDICAL_ORGANIZATION WHERE ID ="+medicalOrganizationId)
+
+      // Удаляем МО2 MEDICAL_ORGANIZATION
+   sql.execute ("DELETE  from  MEDICAL_ORGANIZATION WHERE ID ="+medicalOrganizationId2)
+   
+} else {
+	log.error("Соединение с бд не установлено!");
+}

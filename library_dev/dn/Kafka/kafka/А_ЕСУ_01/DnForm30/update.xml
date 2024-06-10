@@ -1,0 +1,26 @@
+{"domain":"default","ehrUid":"2f058325-88ee-48b4-86ef-a98fc546977d","operationType":"update","eventName":"form30yCompositionQueue","compositionId":"5a9a9f19-85ad-4400-abc1-950a1e4d9ed2::default::2", "oldResults": [{"patientId":"1045","uid":"fb20d746-821c-4928-abc4-8bc68781247","timeCommitted":"2020-12-23T13:02:53.97+03:00","groupCode":"DNA0001","groupName":"Инфекционные болезни","doctorFio":"Никитина Юлия Петровна","employeeId":"10008348","specialityCode":"50","specialityName":"Врач-инфекционист","specializationCode":"24","specializationName":"Инфекционные болезни","diagnosisCode":"A00","diagnosisName":"A00 - Холера","diagnosis":"укнрарпр","diagnosisDate":"2020-12-23T13:02:29.487+03:00","repeat":"диагноз установлен в предыдущ. году или ранее (-)","startDate":"2020-12-02","endDate":null,"cancelReasonCode":null,"cancelReasonName":null}],
+"newResults":[
+{
+    "patientId":"944",
+    "uid":"944",
+    "timeCommitted":"2021-01-20T15:00:58+03:00",
+    "groupCode":"DNC0067",
+    "groupName":"Эндокардит и поражения клапанов сердца",
+    "doctorFio":"Моисеева Марина Евгеньевна",
+    "employeeId":"10479782",
+	"noDoctor": "отсутствует",
+    "specialityCode":"50",
+    "specialityName":"Врач - педиатр участковый",
+    "specializationCode":"18",
+    "specializationName":"Детская кардиология`",
+    "diagnosisCode":"I37.1",
+    "diagnosisName":"проверка",
+    "diagnosis":"язвенный колит",
+    "diagnosisDate":"2018-02-05T00:00:00+03:00",
+    "repeat":"диагноз установлен в предыдущ. году или ранее (-)",
+    "startDate":"2018-02-06",
+    "endDate":null,
+    "cancelReasonCode":null,
+    "cancelReasonName":null
+}],
+"comment":"Modify Composition"}

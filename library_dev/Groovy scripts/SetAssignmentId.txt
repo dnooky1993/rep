@@ -1,0 +1,16 @@
+ UUID uuid = UUID.randomUUID()
+ 
+ def assignmentId = "ConsultationAssignment" + uuid
+ def assignmentStartDate = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())
+ def c = Calendar.getInstance(); 
+        c.setTime(new java.util.Date()); 
+        c.add(Calendar.DATE, 7);
+ def assignmentEndDate = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(c.getTime());
+ 
+ testRunner.testCase.setPropertyValue("assignmentId",assignmentId)
+ testRunner.testCase.setPropertyValue("assignmentStartDate",assignmentStartDate)
+ testRunner.testCase.setPropertyValue("assignmentEndDate",assignmentEndDate)
+ 
+ log.info (assignmentId)
+ log.info (assignmentStartDate)
+ log.info (assignmentEndDate)

@@ -1,0 +1,18 @@
+{
+    "@type":"PatientDeath",
+    "patientId": "1541",
+    "status": "complete",
+    "documentId": "",
+    "compositionId": "23504e43-aeb1-4d96-955d-0c51dac5ad98::default::1",
+    "deathDateTime": "2021-04-15T09:40",
+    "deathDateTimeType": "at0123",
+    "deathCertSeries": "4520",
+    "deathCertNum": "119979",
+    "deathCertDate": "2021-04-15",
+    "deathCertTypeId": "at0009",
+    "deathCertType": "окончательное",
+    "deathReasonId": "at0034",
+    "deathReason": "от заболевания",
+    "medicalOrg": "Обособленное подразделение ГБУЗ «ГКБ им В.П. Демихова ДЗМ» «Инфекционный центр»",
+    "medicalOrgOkpo": null
+}

@@ -1,0 +1,46 @@
+import java.time.*
+import java.time.format.*;
+import java.time.temporal.*;
+import  java.util.date.*
+import groovy.sql.Sql
+import java.sql.Timestamp
+import java.time.LocalDate
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def scheduleId= testRunner.testCase.getPropertyValue("scheduleId1")
+log.info ("ID Расписания: " + scheduleId)
+def mfId= testRunner.testCase.getPropertyValue("mfId1").toInteger()
+def schedulePeriodStart= testRunner.testCase.getPropertyValue("schedulePeriodStart1")
+def schedulePeriodEnd= testRunner.testCase.getPropertyValue("schedulePeriodEnd1")
+
+getSchedule = ("SELECT * FROM SCHEDULE WHERE ID="+scheduleId)
+schedule= sql.rows(getSchedule)
+if ( sql(getSchedule)== 0){
+		testRunner.fail("Запись в таблице SCHEDULE не найдена")
+}
+else {
+	log.info("Запись в таблице SCHEDULE найдена")
+	def scheduleStart = schedule[0].START_DATE.toString()
+	def scheduleEnd = schedule[0].END_DATE.toString()
+	def scheduleVersion = schedule[0].VERSION.toInteger()
+	def scheduleMedicalFacilityId=schedule[0].MEDICAL_FACILITY_ID.toInteger()
+	def scheduleIsActive =schedule[0].IS_ACTIVE.toInteger()
+	//log.info("scheduleVERSION :"+schedule[0].VERSION.getClass()+ " scheduleMEDICAL_FACILITY_ID :"+schedule[0].MEDICAL_FACILITY_ID.getClass()+" scheduleIS_ACTIVE :"+schedule[0].IS_ACTIVE.getClass() )
+	//log.info("schedule :"+schedule)
+	//log.info("schedule.start :"+schedule[0].START_DATE.getClass())
+	assert scheduleStart.replace(" 00:00:00.0","") == schedulePeriodStart
+	assert scheduleEnd.replace(" 00:00:00.0","") == schedulePeriodEnd
+	assert scheduleVersion ==0
+	assert scheduleIsActive ==0
+	assert scheduleMedicalFacilityId ==mfId
+	log.info("Расписание № "+scheduleId+" создано корректно")
+}

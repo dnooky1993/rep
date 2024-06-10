@@ -1,0 +1,534 @@
+{
+  "обратный_талон_санаторно-курортной_карты_форма_112_у_и_025_у": {
+    "_uid": [
+      "c3c22839-5222-456c-934d-4ba9f759c175::default::2"
+    ],
+    "language": [
+      {
+        "|code": "ru",
+        "|terminology": "ISO_639-1"
+      }
+    ],
+    "territory": [
+      {
+        "|code": "RU",
+        "|terminology": "ISO_3166-1"
+      }
+    ],
+    "context": [
+      {
+        "_participation": [
+          {
+            "|function": "Регистратор амбулаторных карт",
+            "|mode": "not specified",
+            "|name": "Рябов Михаил Владимирович",
+            "|id": "171551337"
+          }
+        ],
+        "_health_care_facility": [
+          {
+            "|id": "1037739085900",
+            "|id_scheme": "undefined",
+            "|id_namespace": "Сервис РМР/РМУ",
+            "|name": "Городская клиническая больница им. С.П. Боткина"
+          }
+        ],
+        "_end_time": [
+          "2021-04-22T09:12:56+03:00"
+        ],
+        "подробности_контекста": [
+          {
+            "ид_события": [
+              {
+                "|id": "7030",
+                "|issuer": "undefined",
+                "|assigner": "undefined",
+                "|type": "Идентификатор События"
+              }
+            ],
+            "ид_документа": [
+              {
+                "|id": "f2b0ee1a-4b17-4f7a-8d45-c1fdbdf90928",
+                "|issuer": "undefined",
+                "|assigner": "undefined",
+                "|type": "Идентификатор документа СИМИ"
+              }
+            ],
+            "ид_пациента": [
+              {
+                "|id": "928",
+                "|issuer": "undefined",
+                "|assigner": "undefined",
+                "|type": "Идентификатор пациента"
+              }
+            ],
+            "автор_информации": [
+              {
+                "идентификатор_исполнения_должности_медработника": [
+                  {
+                    "|id": "171551337",
+                    "|issuer": "undefined",
+                    "|assigner": "undefined",
+                    "|type": "EMIAS"
+                  }
+                ],
+                "наименование_должности": [
+                  "Врач-радиолог"
+                ],
+                "наименование_структурного_подразделения": [
+                  "Онкологическое отделение"
+                ],
+                "наименование_филиала": [
+                  "Городская клиническая больница им. С.П. Боткина"
+                ],
+                "наименование_юридического_лица": [
+                  "ГКБ им. С.П. Боткина"
+                ]
+              }
+            ],
+            "структура_медицинской_организации": [
+              {
+                "ид_объекта": [
+                  {
+                    "|id": "10492228",
+                    "|issuer": "issuer",
+                    "|assigner": "assigner",
+                    "|type": "type"
+                  }
+                ],
+                "тип_объекта": [
+                  {
+                    "|code": "at0019",
+                    "|value": "амбулаторно-поликлинический центр",
+                    "|terminology": "local"
+                  }
+                ],
+                "наименование": [
+                  "ГКБ им. С.П. Боткина"
+                ]
+              }
+            ],
+            "адрес_медицинской_организации": [
+              {
+                "субъект_рф": [
+                  "Москва"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "0202"
+                ],
+                "поселение": [
+                  "номер_земельного_участка"
+                ],
+                "населенный_пункт": [
+                  "населенный_пункт"
+                ],
+                "элемент_планировочной_структуры": [
+                  "элемент_планировочной_структуры"
+                ],
+                "улица": [
+                  "2-й Боткинский проезд"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "5"
+                    ],
+                    "номер_строения": [
+                      "1"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "номер_земельного_участка"
+                ],
+                "дополнительная_информация": [
+                  "дополнительная_информация"
+                ]
+              }
+            ],
+            "информация_о_месте_cобытия": [
+              {
+                "событие_произошло": [
+                  {
+                    "|code": "at0070",
+                    "|value": "В медицинской организации",
+                    "|terminology": "local"
+                  }
+                ],
+                "субъект_рф": [
+                  "Москва"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "муниципальный_район_городской_округ"
+                ],
+                "поселение": [
+                  "поселение"
+                ],
+                "населенный_пункт": [
+                  "населенный_пункт"
+                ],
+                "элемент_планировочной_структуры": [
+                  "элемент_планировочной_структуры"
+                ],
+                "улица": [
+                  "улица"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "номер_дома"
+                    ],
+                    "номер_строения": [
+                      "номер_строения"
+                    ],
+                    "номер_корпуса": [
+                      "номер_корпуса"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "номер_земельного_участка"
+                ],
+                "номер_помещения": [
+                  "номер_помещения"
+                ],
+                "дополнительная_информация": [
+                  "дополнительная_информация"
+                ]
+              }
+            ],
+            "дополнительная_информация": [
+              {
+                "профиль_медицинской_помощи": [
+                  {
+                    "|code": "at0087",
+                    "|value": "Терапия",
+                    "|terminology": "local"
+                  }
+                ],
+                "виды_медицинской_помощи": [
+                  {
+                    "|code": "at0051",
+                    "|value": "специализированная",
+                    "|terminology": "local"
+                  }
+                ],
+                "условия_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0054",
+                    "|value": "вне медицинской организации",
+                    "|terminology": "local"
+                  }
+                ],
+                "форма_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0058",
+                    "|value": "экстренная",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "start_time": [
+          "2021-04-21T09:08:07+03:00"
+        ],
+        "setting": [
+          {
+            "|code": "238",
+            "|value": "other care",
+            "|terminology": "openehr"
+          }
+        ]
+      }
+    ],
+    "наименование_санаторно-курортной_организации_выдавшей_документ": [
+      {
+        "наименование_санаторно-курортной_организации_выдавшей_документ": [
+          {
+            "наименование_санаторно-курортной_организации_выдавшей_документ": [
+              "Обязательное поле"
+            ]
+          }
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "начало_периода_лечения": [
+      {
+        "начало_периода_лечения": [
+          {
+            "начало_периода_лечения": [
+              "2007-07-19"
+            ]
+          }
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "окончание_периода_лечения": [
+      {
+        "окончание_периода_лечения": [
+          {
+            "окончание_периода_лечения": [
+              "2007-07-20"
+            ]
+          }
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "дата_выдачи_документа": [
+      {
+        "дата_выдачи_документа": [
+          {
+            "дата_выдачи_документа": [
+              "2021-04-23"
+            ]
+          }
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "отсутствие_информации_о_дате_выдачи_документа": [
+      {
+        "заявление_об_отсутствии": [
+          "нет данных"
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "диагноз_установленный_направившей_медицинской_организацией_основное_заболевание": [
+      {
+        "диагноз": [
+          {
+            "код_по_мкб_10": [
+              {
+                "|code": "A00",
+                "|value": "A00 - Холера",
+                "|terminology": "external"
+              }
+            ],
+            "диагноз_заболевания": [
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "исключение_кода_по_мкб_10": [
+          {
+            "формулировка_об_исключении": [
+              "отсутствует"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "другой_диагноз": [
+          {
+            "другой_диагноз": [
+              "Римский император Константин I Великий по достоинству оценил выгодное местоположение приморского Византия, расположенного на стыке Европы и Азии. Кроме того, на решение Константина повлияла неспокойная обстановка в самом Риме: недовольство знати и постоянные распри в борьбе за трон. Император хотел увенчать свою реформаторскую деятельность созданием нового административного центра огромной державы. Закладка города состоялась осенью 324 года, и Константин лично решил обозначить его границы."
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "отсутствие_информации_о_коде_по_мкб_10": [
+          {
+            "заявление_об_отсутствии": [
+              "нет данных"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "диагноз_при_выписке_из_санаторно-курортной_организации_основное_заболевание": [
+      {
+        "диагноз": [
+          {
+            "код_по_мкб_10": [
+              {
+                "|code": "A02.8",
+                "|value": "A02.8 - Другая уточненная сальмонеллезная инфекция",
+                "|terminology": "external"
+              }
+            ],
+            "диагноз_заболевания": [
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "другой_диагноз": [
+          {
+            "другой_диагноз": [
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "отсутствие_информации_о_коде_по_мкб_10": [
+          {
+            "заявление_об_отсутствии": [
+              "нет данных"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "category": [
+      {
+        "|code": "433",
+        "|value": "event",
+        "|terminology": "openehr"
+      }
+    ],
+    "composer": [
+      {
+        "|id": "02314899342",
+        "|id_scheme": "undefined",
+        "|id_namespace": "Парус",
+        "|name": "Рябов Михаил Владимирович"
+      }
+    ]
+  }
+}

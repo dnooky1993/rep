@@ -1,0 +1,13 @@
+truncate f_document CASCADE;
+truncate l_document_mkb10 CASCADE;
+truncate f_doc_prev_exam_diagnosis_processing CASCADE;
+truncate f_document_preventive_examination_task CASCADE;
+truncate f_continued_obs_task CASCADE;
+truncate f_doc_dig_diagnosis_processing CASCADE;
+truncate f_document_digitized_task CASCADE;
+truncate f_area_task CASCADE;
+truncate f_doc_hosp_dis_diagnosis_processing CASCADE;
+truncate f_document_hospital_discharge_task CASCADE;
+truncate f_task CASCADE;
+truncate f_patient CASCADE; 
+truncate f_patient_area CASCADE; 

@@ -1,0 +1,3505 @@
+{
+  "акушерский_выписной_эпикриз": {
+    "_uid": [
+      "bb77ebcc-493e-4140-943a-404fc10b6101::default::1"
+    ],
+    "language": [
+      {
+        "|code": "ru",
+        "|terminology": "ISO_639-1"
+      }
+    ],
+    "territory": [
+      {
+        "|code": "ru",
+        "|terminology": "ISO_3166-1"
+      }
+    ],
+    "context": [
+      {
+        "_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "_health_care_facility": [
+          {
+            "|id": "9091",
+            "|id_scheme": "HOSPITAL-NS",
+            "|id_namespace": "HOSPITAL-NS",
+            "|name": "Hospital"
+          }
+        ],
+        "подробности_контекста": [
+          {
+            "ид_события": [
+              {
+                "|id": "b2f787c4-01f8-4906-a125-ffe6fc4b8a3f",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_документа": [
+              {
+                "|id": "ea08a028-ff97-43ef-9121-3b76c61438",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_пациента": [
+              {
+                "|id": "1438",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "автор_информации": [
+              {
+                "идентификатор_исполнения_должности_медработника": [
+                  {
+                    "|id": "49123d6a-03fd-486e-b2f0-b8a582f6a3e2",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "наименование_должности": [
+                  "Наименование должности 64"
+                ],
+                "наименование_структурного_подразделения": [
+                  "Наименование структурного подразделения 52"
+                ],
+                "наименование_филиала": [
+                  "Наименование филиала 11"
+                ],
+                "наименование_юридического_лица": [
+                  "Наименование юридического лица 67"
+                ]
+              }
+            ],
+            "структура_медицинской_организации": [
+              {
+                "ид_объекта": [
+                  {
+                    "|id": "6a6c37f0-98c7-42e5-aae3-94ba7e3a605c",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "тип_объекта": [
+                  {
+                    "|code": "at0072",
+                    "|value": "больница",
+                    "|terminology": "local"
+                  }
+                ],
+                "наименование": [
+                  "Наименование 87"
+                ],
+                "родительский_ид": [
+                  {
+                    "|id": "92930952-9ea4-4d17-9ede-2a086616c7ab",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ]
+              }
+            ],
+            "адрес_медицинской_организации": [
+              {
+                "субъект_рф": [
+                  "Субъект РФ 34"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 80"
+                ],
+                "поселение": [
+                  "Поселение 66"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 61"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 68"
+                ],
+                "улица": [
+                  "Улица 26"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 72"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 58"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 43"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 79"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 35"
+                ]
+              }
+            ],
+            "информация_о_месте_cобытия": [
+              {
+                "событие_произошло": [
+                  {
+                    "|code": "at0070",
+                    "|value": "в медицинской организации",
+                    "|terminology": "local"
+                  }
+                ],
+                "субъект_рф": [
+                  "Субъект РФ 14"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 92"
+                ],
+                "поселение": [
+                  "Поселение 53"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 55"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 56"
+                ],
+                "улица": [
+                  "Улица 90"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 13"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 46"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 16"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 60"
+                ],
+                "номер_помещения": [
+                  "Номер помещения 98"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 87"
+                ]
+              }
+            ],
+            "дополнительная_информация": [
+              {
+                "профиль_медицинской_помощи": [
+                  {
+                    "|code": "at0088",
+                    "|value": "Педиатрия",
+                    "|terminology": "local"
+                  }
+                ],
+                "виды_медицинской_помощи": [
+                  {
+                    "|code": "at0050",
+                    "|value": "первичная",
+                    "|terminology": "local"
+                  }
+                ],
+                "условия_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0054",
+                    "|value": "вне медицинской организации",
+                    "|terminology": "local"
+                  }
+                ],
+                "форма_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0059",
+                    "|value": "неотложная",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "start_time": [
+          "2020-12-17T14:49:10.697+03:00"
+        ],
+        "setting": [
+          {
+            "|code": "238",
+            "|value": "other care",
+            "|terminology": "openehr"
+          }
+        ]
+      }
+    ],
+    "медицинская_организация_в_которой_осуществлялось_лечение": [
+      {
+        "_other_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "медицинская_организация_в_которой_осуществлялось_лечение": [
+          {
+            "медицинская_организация": [
+              {
+                "|code": "E.28",
+                "|value": "E.28 description",
+                "|terminology": "external"
+              }
+            ]
+          }
+        ],
+        "отделение": [
+          {
+            "отделение": [
+              {
+                "|code": "T.43",
+                "|value": "T.43 description",
+                "|terminology": "external"
+              }
+            ]
+          }
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "данные_о_пациенте_и_времени_его_пребывания_в_больнице": [
+      {
+        "номер_истории_родов": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "номер_истории_родов": [
+              "Номер истории родов 71"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "стационар": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "дата_поступления_в_стационар": [
+              "2020-12-17T14:48:52.108+03:00"
+            ],
+            "дата_выписки": [
+              "2020-12-17T14:48:52.108+03:00"
+            ],
+            "длительность_пребывания_в_стационаре": [
+              "PT0S"
+            ],
+            "исход_госпитализации": [
+              {
+                "|code": "at0014",
+                "|value": "выздоровление",
+                "|terminology": "local"
+              }
+            ],
+            "описание_исхода_госпитализации": [
+              "Описание исхода госпитализации 8"
+            ],
+            "данные_выписного_эпикриза_не_вошедшие_в_предыдущие_поля": [
+              "Данные выписного эпикриза, не вошедшие в предыдущие поля 75"
+            ],
+            "time": [
+              "2020-12-17T14:49:10.697+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "диагноз": [
+      {
+        "диагноз_при_поступлении": [
+          {
+            "диагноз": [
+              {
+                "основной_диагноз": [
+                  {
+                    "основной_диагноз": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "E.57",
+                            "|value": "E.57 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 26"
+                        ],
+                        "беременность": [
+                          {
+                            "беременность": [
+                              "Беременность 88"
+                            ]
+                          }
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "S.67",
+                                "|value": "S.67 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "N.8",
+                                "|value": "N.8 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "S.57",
+                                "|value": "S.57 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "C.31",
+                                "|value": "C.31 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "F.61",
+                                "|value": "F.61 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "E.61",
+                                "|value": "E.61 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "V.22",
+                                "|value": "V.22 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "I"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ],
+                    "конкурирующий_диагноз": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "T.23",
+                            "|value": "T.23 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 30"
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "D.80",
+                                "|value": "D.80 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "B.81",
+                                "|value": "B.81 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "C.43",
+                                "|value": "C.43 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "D.95",
+                                "|value": "D.95 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "F.45",
+                                "|value": "F.45 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "N.82",
+                                "|value": "N.82 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "T.32",
+                                "|value": "T.32 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "IIа"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ],
+                    "фоновое_заболевание": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "S.78",
+                            "|value": "S.78 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 4"
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "C.70",
+                                "|value": "C.70 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "I.48",
+                                "|value": "I.48 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "S.82",
+                                "|value": "S.82 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "V.40",
+                                "|value": "V.40 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "V.31",
+                                "|value": "V.31 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "D.72",
+                                "|value": "D.72 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "B.12",
+                                "|value": "B.12 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "I"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "сопутствующие_заболевания": [
+                  {
+                    "сопутствующие_заболевание": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "S.57",
+                            "|value": "S.57 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 13"
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "I.51",
+                                "|value": "I.51 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "N.13",
+                                "|value": "N.13 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "D.47",
+                                "|value": "D.47 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "S.21",
+                                "|value": "S.21 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "D.31",
+                                "|value": "D.31 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "E.74",
+                                "|value": "E.74 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "S.61",
+                                "|value": "S.61 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "II"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "осложнения_основного_заболевания": [
+                  {
+                    "осложнение_основного_заболевания": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "F.63",
+                            "|value": "F.63 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 95"
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "B.98",
+                                "|value": "B.98 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "A.45",
+                                "|value": "A.45 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "V.75",
+                                "|value": "V.75 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "A.33",
+                                "|value": "A.33 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "A.12",
+                                "|value": "A.12 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "E.70",
+                                "|value": "E.70 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "S.54",
+                                "|value": "S.54 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "IV"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "диагноз_при_выписке": [
+          {
+            "диагноз": [
+              {
+                "основной_диагноз": [
+                  {
+                    "основной_диагноз": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "I.42",
+                            "|value": "I.42 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 5"
+                        ],
+                        "беременность_роды": [
+                          {
+                            "беременность_роды": [
+                              "Беременность/роды 66"
+                            ]
+                          }
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "F.23",
+                                "|value": "F.23 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "C.78",
+                                "|value": "C.78 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "B.44",
+                                "|value": "B.44 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "V.78",
+                                "|value": "V.78 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "N.60",
+                                "|value": "N.60 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "T.23",
+                                "|value": "T.23 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "S.0",
+                                "|value": "S.0 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "I"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ],
+                    "конкурирующий_диагноз": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "S.10",
+                            "|value": "S.10 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 75"
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "S.54",
+                                "|value": "S.54 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "T.63",
+                                "|value": "T.63 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "V.7",
+                                "|value": "V.7 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "B.48",
+                                "|value": "B.48 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "S.6",
+                                "|value": "S.6 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "S.51",
+                                "|value": "S.51 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "C.31",
+                                "|value": "C.31 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "III"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ],
+                    "фоновое_заболевание": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "E.31",
+                            "|value": "E.31 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 91"
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "D.47",
+                                "|value": "D.47 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "I.37",
+                                "|value": "I.37 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "I.80",
+                                "|value": "I.80 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "B.90",
+                                "|value": "B.90 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "F.41",
+                                "|value": "F.41 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "C.3",
+                                "|value": "C.3 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "A.15",
+                                "|value": "A.15 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "III"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "сопутствующие_заболевания": [
+                  {
+                    "сопутствующие_заболевание": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "D.87",
+                            "|value": "D.87 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 88"
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "T.53",
+                                "|value": "T.53 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "A.29",
+                                "|value": "A.29 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "F.57",
+                                "|value": "F.57 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "D.39",
+                                "|value": "D.39 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "B.87",
+                                "|value": "B.87 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "A.9",
+                                "|value": "A.9 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "C.35",
+                                "|value": "C.35 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "I"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "осложнения_основного_заболевания": [
+                  {
+                    "осложнение_основного_заболевания": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "код_по_мкб_10": [
+                          {
+                            "|code": "C.81",
+                            "|value": "C.81 description",
+                            "|terminology": "NSI"
+                          }
+                        ],
+                        "развернутый_клинический_диагноз": [
+                          "Развернутый клинический диагноз 70"
+                        ],
+                        "описание_зно": [
+                          {
+                            "первичная_опухоль_ct": [
+                              {
+                                "|code": "V.2",
+                                "|value": "V.2 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_cn": [
+                              {
+                                "|code": "F.16",
+                                "|value": "F.16 description",
+                                "|terminology": "NSI"
+                              }
+                            ],
+                            "отдаленные_метастазы_cm": [
+                              {
+                                "|code": "B.24",
+                                "|value": "B.24 description",
+                                "|terminology": "NSI"
+                              }
+                            ]
+                          }
+                        ],
+                        "стадия_tnm_-_патологическая": [
+                          {
+                            "первичная_опухоль_рt": [
+                              {
+                                "|code": "V.2",
+                                "|value": "V.2 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "регионарные_лимфатические_узлы_pn": [
+                              {
+                                "|code": "E.62",
+                                "|value": "E.62 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "отдаленные_метастазы_pm": [
+                              {
+                                "|code": "S.2",
+                                "|value": "S.2 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "стадия_опухолевого_процесса": [
+                              {
+                                "|code": "V.8",
+                                "|value": "V.8 description",
+                                "|terminology": "external"
+                              }
+                            ],
+                            "клиническая_группа": [
+                              "III"
+                            ]
+                          }
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "жалобы_и_анамнез_заболевания": [
+      {
+        "жалобы_и_анамнез_заболевания": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "анамнез_заболевания": [
+              "Анамнез заболевания 39"
+            ],
+            "жалобы": [
+              {
+                "жалобы": [
+                  "Жалобы 87"
+                ]
+              }
+            ],
+            "подробности_истории_болезни": [
+              {
+                "дата_начала_заболевания": [
+                  "2020-12-17T14:48:52.111+03:00"
+                ],
+                "длительность_заболевания": [
+                  "P3Y3W2DT3H"
+                ],
+                "относительность_длительности": [
+                  "менее"
+                ],
+                "комментарий": [
+                  "Комментарий 17"
+                ]
+              }
+            ],
+            "time": [
+              "2020-12-17T14:49:10.697+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "подробности": [
+      {
+        "_other_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "статус_при_поступлении": [
+          {
+            "вид_статуса": [
+              {
+                "|code": "N.56",
+                "|value": "N.56 description",
+                "|terminology": "external"
+              }
+            ],
+            "другой_статус": [
+              "Другой статус 86"
+            ],
+            "описание": [
+              "Описание 2"
+            ]
+          }
+        ],
+        "статус_при_выписке": [
+          {
+            "вид_статуса": [
+              {
+                "|code": "T.95",
+                "|value": "T.95 description",
+                "|terminology": "external"
+              }
+            ],
+            "другой_статус": [
+              "Другой статус 66"
+            ],
+            "описание": [
+              "Описание 42"
+            ]
+          }
+        ],
+        "анамнез": [
+          {
+            "вид_анамнеза": [
+              {
+                "|code": "T.59",
+                "|value": "T.59 description",
+                "|terminology": "NSI"
+              }
+            ],
+            "другой_анамнез": [
+              "Другой анамнез 76"
+            ],
+            "описание": [
+              "Описание 39"
+            ]
+          }
+        ],
+        "другие_виды_лечения_в_том_числе_хирургическое": [
+          {
+            "название": [
+              "Название 11"
+            ],
+            "дата_начала": [
+              "2020-12-17T14:48:52.111+03:00"
+            ],
+            "дата_окончания": [
+              "2020-12-17T14:48:52.111+03:00"
+            ],
+            "описание": [
+              "Описание 57"
+            ]
+          }
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "состояние_пациента": [
+      {
+        "_other_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "состояние_при_поступлении": [
+          {
+            "описание": [
+              "Описание 29"
+            ],
+            "осмотр": [
+              {
+                "исследуемая_структура_или_система": [
+                  "Исследуемая структура или система 32"
+                ],
+                "подробности": [
+                  {
+                    "состояние_пациента": [
+                      {
+                        "|code": "at0004",
+                        "|value": "тяжелое",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "описание_состояния": [
+                      "Описание состояния 68"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "time": [
+              "2020-12-17T14:49:10.697+03:00"
+            ]
+          }
+        ],
+        "состояние_при_выписке": [
+          {
+            "описание": [
+              "Описание 92"
+            ],
+            "осмотр": [
+              {
+                "исследуемая_структура_или_система": [
+                  "Исследуемая структура или система 68"
+                ],
+                "подробности": [
+                  {
+                    "состояние_пациента": [
+                      {
+                        "|code": "at0005",
+                        "|value": "крайне тяжелое",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "описание_состояния": [
+                      "Описание состояния 33"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "time": [
+              "2020-12-17T14:49:10.697+03:00"
+            ]
+          }
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "данные_о_проведённых_исследованиях_и_дополнительных_консультациях_специалистов": [
+      {
+        "результаты_лабораторных_исследований": [
+          {
+            "название_лабораторного_исследования": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "название_лабораторного_исследования": [
+                  {
+                    "|code": "V.25",
+                    "|value": "V.25 description",
+                    "|terminology": "external"
+                  }
+                ],
+                "time": [
+                  "2020-12-17T14:49:10.697+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "название_лаборатоного_комплекса": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "название_лаборатоного_комплекса": [
+                  {
+                    "|code": "B.0",
+                    "|value": "B.0 description",
+                    "|terminology": "external"
+                  }
+                ],
+                "time": [
+                  "2020-12-17T14:49:10.697+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "лабораторное_исследование": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "исследование": [
+                  {
+                    "|code": "V.23",
+                    "|value": "V.23 description",
+                    "|terminology": "external"
+                  }
+                ],
+                "дата_и_время_исследования": [
+                  "2020-12-17T14:48:52.112+03:00"
+                ],
+                "комментарий": [
+                  "Комментарий 89"
+                ],
+                "тест": [
+                  {
+                    "показатель": [
+                      {
+                        "|code": "N.48",
+                        "|value": "N.48 description",
+                        "|terminology": "NSI"
+                      }
+                    ],
+                    "комментарий": [
+                      "Комментарий 47"
+                    ],
+                    "лабораторное_исследование_образца": [
+                      {
+                        "значение_результата": [
+                          {
+                            "boolean_value": [
+                              true
+                            ]
+                          }
+                        ],
+                        "единица_измерения_результата": [
+                          "Единица измерения результата 62"
+                        ],
+                        "информация_о_референсных_значениях": [
+                          {
+                            "референсные_значения": [
+                              "Референсные значения 29"
+                            ],
+                            "отклонение_от_нормы": [
+                              true
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "другой_показатель": [
+                      {
+                        "другой_показатель": [
+                          "Другой показатель 87"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "другое_исследование": [
+                  {
+                    "другое_исследование": [
+                      "Другое исследование 84"
+                    ]
+                  }
+                ],
+                "time": [
+                  "2020-12-17T14:49:10.697+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "лабораторный_комплекс": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "комплекс": [
+                  {
+                    "|code": "S.87",
+                    "|value": "S.87 description",
+                    "|terminology": "external"
+                  }
+                ],
+                "дата_и_время_исследования": [
+                  "2020-12-17T14:48:52.112+03:00"
+                ],
+                "комментарий": [
+                  "Комментарий 32"
+                ],
+                "тест": [
+                  {
+                    "показатель": [
+                      {
+                        "|code": "C.9",
+                        "|value": "C.9 description",
+                        "|terminology": "NSI"
+                      }
+                    ],
+                    "комментарий": [
+                      "Комментарий 45"
+                    ],
+                    "лабораторное_исследование_образца": [
+                      {
+                        "значение_результата": [
+                          {
+                            "boolean_value": [
+                              true
+                            ]
+                          }
+                        ],
+                        "единица_измерения_результата": [
+                          "Единица измерения результата 40"
+                        ],
+                        "информация_о_референсных_значениях": [
+                          {
+                            "референсные_значения": [
+                              "Референсные значения 84"
+                            ],
+                            "отклонение_от_нормы": [
+                              false
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "другой_показатель": [
+                      {
+                        "другой_показатель": [
+                          "Другой показатель 89"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "time": [
+                  "2020-12-17T14:49:10.697+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "гистологическое_исследование": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "исследование": [
+              {
+                "|code": "S.81",
+                "|value": "S.81 description",
+                "|terminology": "external"
+              }
+            ],
+            "дата_и_время_исследования": [
+              "2020-12-17T14:48:52.112+03:00"
+            ],
+            "заключение": [
+              "Заключение 24"
+            ],
+            "другое_исследование": [
+              {
+                "другое_исследование": [
+                  "Другое исследование 90"
+                ]
+              }
+            ],
+            "time": [
+              "2020-12-17T14:49:10.697+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "цитологическое_исследование": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "исследование": [
+              {
+                "|code": "I.25",
+                "|value": "I.25 description",
+                "|terminology": "external"
+              }
+            ],
+            "дата_и_время_исследования": [
+              "2020-12-17T14:48:52.112+03:00"
+            ],
+            "заключение": [
+              "Заключение 98"
+            ],
+            "другое_исследование": [
+              {
+                "другое_исследование": [
+                  "Другое исследование 80"
+                ]
+              }
+            ],
+            "time": [
+              "2020-12-17T14:49:10.697+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "микробиологическое_исследование": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "исследование": [
+              {
+                "|code": "S.16",
+                "|value": "S.16 description",
+                "|terminology": "external"
+              }
+            ],
+            "дата_и_время_исследования": [
+              "2020-12-17T14:48:52.112+03:00"
+            ],
+            "заключение": [
+              "Заключение 47"
+            ],
+            "другое_исследование": [
+              {
+                "другое_исследование": [
+                  "Другое исследование 33"
+                ]
+              }
+            ],
+            "time": [
+              "2020-12-17T14:49:10.697+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "инструментальные_исследования": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "исследование": [
+              {
+                "|code": "T.71",
+                "|value": "T.71 description",
+                "|terminology": "NSI"
+              }
+            ],
+            "дата_исследования": [
+              "2020-12-17T14:48:52.112+03:00"
+            ],
+            "описание_результатов": [
+              "Описание результатов 14"
+            ],
+            "иное_исследование": [
+              {
+                "иное_исследование": [
+                  "Иное исследование 71"
+                ]
+              }
+            ],
+            "оригинальное_наименование_исследования": [
+              {
+                "оригинальное_наименование_исследования": [
+                  "Оригинальное наименование исследования 11"
+                ]
+              }
+            ],
+            "суммарная_эффективная_доза_рентгенологических_исследований": [
+              {
+                "доза": [
+                  {
+                    "|magnitude": 95.86,
+                    "|unit": "1"
+                  }
+                ],
+                "единица_измерения": [
+                  "мЗв"
+                ]
+              }
+            ],
+            "time": [
+              "2020-12-17T14:49:10.697+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "консультация_специалиста": [
+          {
+            "консультация_специалиста": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "специализация_врача": [
+                  {
+                    "профессиональные_подробности": [
+                      {
+                        "специализация_врача": [
+                          {
+                            "|code": "N.86",
+                            "|value": "N.86 description",
+                            "|terminology": "external"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "дата_время_консультации": [
+                  {
+                    "дата_консультации": [
+                      "2020-12-17"
+                    ],
+                    "время_консультации": [
+                      "14:48:52.113"
+                    ]
+                  }
+                ],
+                "time": [
+                  "2020-12-17T14:49:10.697+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "заключение": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заключение": [
+                  "Заключение 36"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "консилиум": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "консилиум": [
+              {
+                "консилиум": [
+                  {
+                    "дата_проведения": [
+                      "2020-12-17T14:48:52.114+03:00"
+                    ],
+                    "онкологический_консилиум": [
+                      true
+                    ],
+                    "состав_консилиума": [
+                      {
+                        "другая_специальность": [
+                          "Другая специальность 67"
+                        ],
+                        "комментарий": [
+                          "Комментарий 75"
+                        ],
+                        "врач": [
+                          {
+                            "профессиональные_подробности": [
+                              {
+                                "специальность_врача": [
+                                  {
+                                    "|code": "A.59",
+                                    "|value": "A.59 description",
+                                    "|terminology": "external"
+                                  }
+                                ]
+                              }
+                            ],
+                            "фио": [
+                              {
+                                "фио": [
+                                  "ФИО 44"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "заключение": [
+                      "Заключение 53"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "данные_о_проведенном_лечении_и_его_эффективности": [
+      {
+        "лекарственная_терапия": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "препарат": [
+              {
+                "наименования": [
+                  {
+                    "мнн": [
+                      {
+                        "|code": "S.22",
+                        "|value": "S.22 description",
+                        "|terminology": "external"
+                      }
+                    ],
+                    "тн": [
+                      {
+                        "|code": "D.93",
+                        "|value": "D.93 description",
+                        "|terminology": "external"
+                      }
+                    ]
+                  }
+                ],
+                "доза": [
+                  {
+                    "доза": [
+                      {
+                        "quantity_value": [
+                          {
+                            "|magnitude": 34.45,
+                            "|unit": "1"
+                          }
+                        ]
+                      }
+                    ],
+                    "единица_измерения": [
+                      "Единица измерения 70"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "способ_введения": [
+              {
+                "подробности": [
+                  {
+                    "signa": [
+                      {
+                        "способ_введения": [
+                          {
+                            "|code": "T.75",
+                            "|value": "T.75 description",
+                            "|terminology": "external"
+                          }
+                        ],
+                        "другой_способ_введения": [
+                          "Другой способ введения 28"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "комментарий": [
+                  "Комментарий 66"
+                ],
+                "дата_и_время_начала": [
+                  {
+                    "дата_начала": [
+                      "2020-12-17"
+                    ],
+                    "время_начала": [
+                      "14:48:52.114"
+                    ]
+                  }
+                ],
+                "дата_и_время_окончания": [
+                  {
+                    "дата_окончания": [
+                      "2020-12-17"
+                    ],
+                    "время_окончания": [
+                      "14:48:52.114"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "сведения_о_родах": [
+      {
+        "особенности_родов": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "особенности_родов": [
+              {
+                "дата_и_время_родов": [
+                  "2020-12-17T14:48:52.114+03:00"
+                ],
+                "метод_родоразрешения": [
+                  {
+                    "|code": "at0042",
+                    "|value": "вакуум-экстракция",
+                    "|terminology": "local"
+                  }
+                ],
+                "показания": [
+                  "Показания 19"
+                ],
+                "общая_продолжительность_родов": [
+                  "PT3H"
+                ],
+                "родовая_деятельность_с": [
+                  "2020-12-17T14:48:52.114+03:00"
+                ],
+                "длительность_безводного_периода": [
+                  "PT3H1M"
+                ]
+              }
+            ],
+            "роды": [
+              "своевременные"
+            ],
+            "срок_гестации": [
+              29
+            ],
+            "обезболивание": [
+              "эндотрахеальная"
+            ],
+            "кровопотеря": [
+              {
+                "|magnitude": 36.98,
+                "|unit": "ml"
+              }
+            ],
+            "течение_послеродового_периода": [
+              "Течение послеродового периода 2"
+            ],
+            "комментарий": [
+              "Комментарий 69"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "сведения_о_ребенке": [
+          {
+            "ребенок": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "ребенок": [
+                  {
+                    "результат_рождения_ребенка": [
+                      {
+                        "|code": "at0033",
+                        "|value": "мертворожденный",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "пол": [
+                      {
+                        "|code": "at0113",
+                        "|value": "мужчина",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "комментарий": [
+                      "Комментарий 82"
+                    ],
+                    "период_новорожденности": [
+                      {
+                        "период_новорожденности": [
+                          {
+                            "|code": "at0002",
+                            "|value": "доношенный",
+                            "|terminology": "local"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "масса": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "вес": [
+                  {
+                    "|magnitude": 118443.7,
+                    "|unit": "g"
+                  }
+                ],
+                "time": [
+                  "2020-12-17T14:49:10.697+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "рост": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "рост": [
+                  {
+                    "|magnitude": 589.5,
+                    "|unit": "cm"
+                  }
+                ],
+                "time": [
+                  "2020-12-17T14:49:10.697+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "выписан": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "выписан": [
+                  "выписан домой"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "оценка_по_шкале_апгар": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "time": [
+                  "2020-12-17T14:49:10.697+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "данные_о_трудоспособности": [
+      {
+        "трудоспособность": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "трудоспособность": [
+              "утрачена временно"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "листок_нетрудоспособности": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "листок_временной_нетрудоспособности": [
+              {
+                "листок_нетрудоспособности": [
+                  {
+                    "|code": "at0104",
+                    "|value": "нет",
+                    "|terminology": "local"
+                  }
+                ],
+                "по_уходу": [
+                  true
+                ],
+                "к_труду_с": [
+                  {
+                    "к_труду_с": [
+                      "2020-12-17"
+                    ]
+                  }
+                ],
+                "явка_в_поликлинику": [
+                  "2020-12-17T14:48:52.115+03:00"
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "посыльный_лист_на_мсэ": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "посыльный_лист_на_мсэ": [
+              {
+                "|code": "at0101",
+                "|value": "не оформлен",
+                "|terminology": "local"
+              }
+            ],
+            "комментарий": [
+              "Комментарий 68"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "рекомендации": [
+      {
+        "наблюдение_врача_специалиста": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "специальность_врача": [
+              {
+                "|code": "C.69",
+                "|value": "C.69 description",
+                "|terminology": "external"
+              }
+            ],
+            "комментарий": [
+              "Комментарий 14"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "лекарственная_терапия": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "препарат": [
+              {
+                "наименования": [
+                  {
+                    "мнн": [
+                      {
+                        "|code": "A.83",
+                        "|value": "A.83 description",
+                        "|terminology": "external"
+                      }
+                    ],
+                    "тн": [
+                      {
+                        "|code": "E.4",
+                        "|value": "E.4 description",
+                        "|terminology": "external"
+                      }
+                    ]
+                  }
+                ],
+                "доза": [
+                  {
+                    "доза": [
+                      {
+                        "quantity_value": [
+                          {
+                            "|magnitude": 72.86,
+                            "|unit": "1"
+                          }
+                        ]
+                      }
+                    ],
+                    "единица_измерения": [
+                      "Единица измерения 67"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "способ_введения": [
+              {
+                "подробности": [
+                  {
+                    "signa": [
+                      {
+                        "способ_введения": [
+                          {
+                            "|code": "T.95",
+                            "|value": "T.95 description",
+                            "|terminology": "external"
+                          }
+                        ],
+                        "другой_способ_введения": [
+                          "Другой способ введения 51"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "комментарий": [
+                  "Комментарий 32"
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "лабораторное_исследование": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "исследование": [
+              {
+                "|code": "D.76",
+                "|value": "D.76 description",
+                "|terminology": "NSI"
+              }
+            ],
+            "другое_исследование": [
+              "Другое исследование 8"
+            ],
+            "комментарий": [
+              "Комментарий 85"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "инструментальное_исследование": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "исследование": [
+              {
+                "|code": "A.98",
+                "|value": "A.98 description",
+                "|terminology": "NSI"
+              }
+            ],
+            "другое_исследование": [
+              "Другое исследование 13"
+            ],
+            "комментарий": [
+              "Комментарий 68"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "прочие_рекомендации": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "рекомендации": [
+              "Рекомендации 61"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "сведения_о_лечащем_враче_и_заведующем_отделением": [
+      {
+        "сведения_о_лечащем_враче": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "врачи": [
+              {
+                "специальность": [
+                  {
+                    "специальность": [
+                      {
+                        "|code": "F.89",
+                        "|value": "F.89 description",
+                        "|terminology": "external"
+                      }
+                    ]
+                  }
+                ],
+                "фио_врача": [
+                  {
+                    "фио_врача": [
+                      "ФИО врача 65"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "сведения_о_заведующем_отделением": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "заведующий_отделением": [
+              {
+                "специальность": [
+                  {
+                    "специальность": [
+                      {
+                        "|code": "A.84",
+                        "|value": "A.84 description",
+                        "|terminology": "external"
+                      }
+                    ]
+                  }
+                ],
+                "имя": [
+                  {
+                    "фио_заведующего_отделением": [
+                      "ФИО Заведующего отделением 8"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "заведующий_не_указан": [
+              {
+                "заведующий_не_указан": [
+                  "не указан"
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "category": [
+      {
+        "|code": "433",
+        "|value": "event",
+        "|terminology": "openehr"
+      }
+    ],
+    "composer": [
+      {
+        "|id": "EHR Forms User ID",
+        "|id_scheme": "EHR Forms",
+        "|id_namespace": "EHR Forms",
+        "|name": "EHR Forms User"
+      }
+    ]
+  }
+}

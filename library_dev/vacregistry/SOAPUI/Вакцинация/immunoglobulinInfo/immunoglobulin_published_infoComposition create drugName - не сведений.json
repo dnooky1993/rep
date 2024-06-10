@@ -1,0 +1,2264 @@
+{
+   "domain": "default",
+   "ehrUid": "3b58fc13-1b98-441e-b12b-d548cae9d406",
+   "operationType": "create",
+   "eventName": "immunoglobulin_published_infoQueue",
+   "compositionId": "4033bbc8-7a20-4f64-b7d4-c3b6e1a9bc45::default::1",
+   "newResults": [
+      {
+         "version_": "openEHR-EHR-COMPOSITION.immunoglobulin_published_info.v1",
+         "composition_": {
+            "@class": "COMPOSITION",
+            "name": {
+               "@class": "DV_TEXT",
+               "value": "Историческая запись о введении иммуноглобулина"
+            },
+            "uid": {
+               "@class": "OBJECT_VERSION_ID",
+               "value": "4033bbc8-7a20-4f64-b7d4-c3b6e1a9bc45::default::1"
+            },
+            "archetype_details": {
+               "@class": "ARCHETYPED",
+               "archetype_id": {
+                  "@class": "ARCHETYPE_ID",
+                  "value": "openEHR-EHR-COMPOSITION.immunisation_list-simi.v0"
+               },
+               "template_id": {
+                  "@class": "TEMPLATE_ID",
+                  "value": "openEHR-EHR-COMPOSITION.immunoglobulin_published_info.v1"
+               },
+               "rm_version": "1.0.4"
+            },
+            "archetype_node_id": "openEHR-EHR-COMPOSITION.immunisation_list-simi.v0",
+            "language": {
+               "@class": "CODE_PHRASE",
+               "terminology_id": {
+                  "@class": "TERMINOLOGY_ID",
+                  "value": "ISO_639-1"
+               },
+               "code_string": "ru"
+            },
+            "territory": {
+               "@class": "CODE_PHRASE",
+               "terminology_id": {
+                  "@class": "TERMINOLOGY_ID",
+                  "value": "ISO_3166-1"
+               },
+               "code_string": "US"
+            },
+            "category": {
+               "@class": "DV_CODED_TEXT",
+               "value": "event",
+               "defining_code": {
+                  "@class": "CODE_PHRASE",
+                  "terminology_id": {
+                     "@class": "TERMINOLOGY_ID",
+                     "value": "openehr"
+                  },
+                  "code_string": "433"
+               }
+            },
+            "composer": {
+               "@class": "PARTY_IDENTIFIED",
+               "name": "Silvia Blake"
+            },
+            "context": {
+               "@class": "EVENT_CONTEXT",
+               "start_time": {
+                  "@class": "DV_DATE_TIME",
+                  "value": "2022-11-02T14:08:52.664075+03:00"
+               },
+               "setting": {
+                  "@class": "DV_CODED_TEXT",
+                  "value": "other care",
+                  "defining_code": {
+                     "@class": "CODE_PHRASE",
+                     "terminology_id": {
+                        "@class": "TERMINOLOGY_ID",
+                        "value": "openehr"
+                     },
+                     "code_string": "238"
+                  }
+               },
+               "other_context": {
+                  "@class": "ITEM_TREE",
+                  "name": {
+                     "@class": "DV_TEXT",
+                     "value": "*Tree(en)"
+                  },
+                  "archetype_node_id": "at0004",
+                  "items": [
+                     {
+                        "@class": "CLUSTER",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Подробности контекста"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-CLUSTER.composition_context_details_simi.v0"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-CLUSTER.composition_context_details_simi.v0",
+                        "items": [
+                           {
+                              "@class": "ELEMENT",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "ИД события"
+                              },
+                              "archetype_node_id": "at0035",
+                              "value": {
+                                 "@class": "DV_IDENTIFIER",
+                                 "issuer": "Issuer",
+                                 "assigner": "Assigner",
+                                 "id": "c42f90bf-9815-48d5-9a84-3f30a2a34be5",
+                                 "type": "Prescription"
+                              }
+                           },
+                           {
+                              "@class": "ELEMENT",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "ИД документа"
+                              },
+                              "archetype_node_id": "at0073",
+                              "value": {
+                                 "@class": "DV_IDENTIFIER",
+                                 "issuer": "Issuer",
+                                 "assigner": "Assigner",
+                                 "id": "ff500ca9-5630-4a12-b2b1-a113749$patientId",
+                                 "type": "Prescription"
+                              }
+                           },
+                           {
+                              "@class": "ELEMENT",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "ИД пациента"
+                              },
+                              "archetype_node_id": "at0075",
+                              "value": {
+                                 "@class": "DV_IDENTIFIER",
+                                 "issuer": "Issuer",
+                                 "assigner": "Assigner",
+                                 "id": "$patientId",
+                                 "type": "Prescription"
+                              }
+                           },
+                           {
+                              "@class": "CLUSTER",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Автор информации"
+                              },
+                              "archetype_node_id": "at0036",
+                              "items": [
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Идентификатор исполнения должности медработника"
+                                    },
+                                    "archetype_node_id": "at0092",
+                                    "value": {
+                                       "@class": "DV_IDENTIFIER",
+                                       "issuer": "Issuer",
+                                       "assigner": "Assigner",
+                                       "id": "6dcf70a3-dfb8-42a3-aece-91aceb6037ee",
+                                       "type": "Prescription"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование должности"
+                                    },
+                                    "archetype_node_id": "at0037",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование должности 55"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование структурного подразделения"
+                                    },
+                                    "archetype_node_id": "at0038",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование структурного подразделения 44"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование филиала"
+                                    },
+                                    "archetype_node_id": "at0039",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование филиала 47"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование юридического лица"
+                                    },
+                                    "archetype_node_id": "at0040",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование юридического лица 47"
+                                    }
+                                 }
+                              ]
+                           },
+                           {
+                              "@class": "CLUSTER",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Структура медицинской организации"
+                              },
+                              "archetype_node_id": "at0014",
+                              "items": [
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "ИД объекта"
+                                    },
+                                    "archetype_node_id": "at0015",
+                                    "value": {
+                                       "@class": "DV_IDENTIFIER",
+                                       "issuer": "Issuer",
+                                       "assigner": "Assigner",
+                                       "id": "a3f313a3-0818-4289-b9b3-dbe22776ad7d",
+                                       "type": "Prescription"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Тип объекта"
+                                    },
+                                    "archetype_node_id": "at0018",
+                                    "value": {
+                                       "@class": "DV_CODED_TEXT",
+                                       "value": "больница",
+                                       "defining_code": {
+                                          "@class": "CODE_PHRASE",
+                                          "terminology_id": {
+                                             "@class": "TERMINOLOGY_ID",
+                                             "value": "local"
+                                          },
+                                          "code_string": "at0072"
+                                       }
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование"
+                                    },
+                                    "archetype_node_id": "at0016",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Наименование 60"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Родительский ИД"
+                                    },
+                                    "archetype_node_id": "at0017",
+                                    "value": {
+                                       "@class": "DV_IDENTIFIER",
+                                       "issuer": "Issuer",
+                                       "assigner": "Assigner",
+                                       "id": "6e925ebb-99b1-4033-9791-b9a43a4aef9f",
+                                       "type": "Prescription"
+                                    }
+                                 }
+                              ]
+                           },
+                           {
+                              "@class": "CLUSTER",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Адрес медицинской организации"
+                              },
+                              "archetype_node_id": "at0022",
+                              "items": [
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Субъект РФ"
+                                    },
+                                    "archetype_node_id": "at0026",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Субъект РФ 81"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Муниципальный район (городской округ)"
+                                    },
+                                    "archetype_node_id": "at0027",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Муниципальный район (городской округ) 83"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Поселение"
+                                    },
+                                    "archetype_node_id": "at0076",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Поселение 78"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Населенный пункт"
+                                    },
+                                    "archetype_node_id": "at0025",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Населенный пункт 17"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Элемент планировочной структуры"
+                                    },
+                                    "archetype_node_id": "at0078",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Элемент планировочной структуры 11"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Улица"
+                                    },
+                                    "archetype_node_id": "at0079",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Улица 33"
+                                    }
+                                 },
+                                 {
+                                    "@class": "CLUSTER",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Номер здания (сооружения)"
+                                    },
+                                    "archetype_node_id": "at0077",
+                                    "items": [
+                                       {
+                                          "@class": "ELEMENT",
+                                          "name": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер дома"
+                                          },
+                                          "archetype_node_id": "at0024",
+                                          "value": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер дома 95"
+                                          }
+                                       },
+                                       {
+                                          "@class": "ELEMENT",
+                                          "name": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер строения"
+                                          },
+                                          "archetype_node_id": "at0029",
+                                          "value": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер строения 96"
+                                          }
+                                       },
+                                       {
+                                          "@class": "ELEMENT",
+                                          "name": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер корпуса"
+                                          },
+                                          "archetype_node_id": "at0028",
+                                          "value": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер корпуса 88"
+                                          }
+                                       }
+                                    ]
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Номер земельного участка"
+                                    },
+                                    "archetype_node_id": "at0080",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Номер земельного участка 75"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Дополнительная информация"
+                                    },
+                                    "archetype_node_id": "at0081",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Дополнительная информация 68"
+                                    }
+                                 }
+                              ]
+                           },
+                           {
+                              "@class": "CLUSTER",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Информация о месте Cобытия"
+                              },
+                              "archetype_node_id": "at0061",
+                              "items": [
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Событие произошло"
+                                    },
+                                    "archetype_node_id": "at0069",
+                                    "value": {
+                                       "@class": "DV_CODED_TEXT",
+                                       "value": "в медицинской организации",
+                                       "defining_code": {
+                                          "@class": "CODE_PHRASE",
+                                          "terminology_id": {
+                                             "@class": "TERMINOLOGY_ID",
+                                             "value": "local"
+                                          },
+                                          "code_string": "at0070"
+                                       }
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Субъект РФ"
+                                    },
+                                    "archetype_node_id": "at0062",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Субъект РФ 38"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Муниципальный район (городской округ)"
+                                    },
+                                    "archetype_node_id": "at0063",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Муниципальный район (городской округ) 29"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Поселение"
+                                    },
+                                    "archetype_node_id": "at0064",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Поселение 86"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Населенный пункт"
+                                    },
+                                    "archetype_node_id": "at0065",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Населенный пункт 99"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Элемент планировочной структуры"
+                                    },
+                                    "archetype_node_id": "at0066",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Элемент планировочной структуры 20"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Улица"
+                                    },
+                                    "archetype_node_id": "at0067",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Улица 7"
+                                    }
+                                 },
+                                 {
+                                    "@class": "CLUSTER",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Номер здания (сооружения)"
+                                    },
+                                    "archetype_node_id": "at0082",
+                                    "items": [
+                                       {
+                                          "@class": "ELEMENT",
+                                          "name": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер дома"
+                                          },
+                                          "archetype_node_id": "at0085",
+                                          "value": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер дома 32"
+                                          }
+                                       },
+                                       {
+                                          "@class": "ELEMENT",
+                                          "name": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер строения"
+                                          },
+                                          "archetype_node_id": "at0084",
+                                          "value": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер строения 27"
+                                          }
+                                       },
+                                       {
+                                          "@class": "ELEMENT",
+                                          "name": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер корпуса"
+                                          },
+                                          "archetype_node_id": "at0083",
+                                          "value": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Номер корпуса 9"
+                                          }
+                                       }
+                                    ]
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Номер земельного участка"
+                                    },
+                                    "archetype_node_id": "at0030",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Номер земельного участка 90"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Номер помещения"
+                                    },
+                                    "archetype_node_id": "at0031",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Номер помещения 98"
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Дополнительная информация"
+                                    },
+                                    "archetype_node_id": "at0032",
+                                    "value": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Дополнительная информация 97"
+                                    }
+                                 }
+                              ]
+                           },
+                           {
+                              "@class": "CLUSTER",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Дополнительная информация"
+                              },
+                              "archetype_node_id": "at0046",
+                              "items": [
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Профиль медицинской помощи"
+                                    },
+                                    "archetype_node_id": "at0086",
+                                    "value": {
+                                       "@class": "DV_CODED_TEXT",
+                                       "value": "Стоматология",
+                                       "defining_code": {
+                                          "@class": "CODE_PHRASE",
+                                          "terminology_id": {
+                                             "@class": "TERMINOLOGY_ID",
+                                             "value": "local"
+                                          },
+                                          "code_string": "at0091"
+                                       }
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Виды медицинской помощи"
+                                    },
+                                    "archetype_node_id": "at0047",
+                                    "value": {
+                                       "@class": "DV_CODED_TEXT",
+                                       "value": "первичная",
+                                       "defining_code": {
+                                          "@class": "CODE_PHRASE",
+                                          "terminology_id": {
+                                             "@class": "TERMINOLOGY_ID",
+                                             "value": "local"
+                                          },
+                                          "code_string": "at0050"
+                                       }
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Условия оказания медицинской помощи"
+                                    },
+                                    "archetype_node_id": "at0048",
+                                    "value": {
+                                       "@class": "DV_CODED_TEXT",
+                                       "value": "в дневном стационаре",
+                                       "defining_code": {
+                                          "@class": "CODE_PHRASE",
+                                          "terminology_id": {
+                                             "@class": "TERMINOLOGY_ID",
+                                             "value": "local"
+                                          },
+                                          "code_string": "at0056"
+                                       }
+                                    }
+                                 },
+                                 {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Форма оказания медицинской помощи"
+                                    },
+                                    "archetype_node_id": "at0049",
+                                    "value": {
+                                       "@class": "DV_CODED_TEXT",
+                                       "value": "неотложная",
+                                       "defining_code": {
+                                          "@class": "CODE_PHRASE",
+                                          "terminology_id": {
+                                             "@class": "TERMINOLOGY_ID",
+                                             "value": "local"
+                                          },
+                                          "code_string": "at0059"
+                                       }
+                                    }
+                                 }
+                              ]
+                           }
+                        ]
+                     }
+                  ]
+               },
+               "health_care_facility": {
+                  "@class": "PARTY_IDENTIFIED",
+                  "external_ref": {
+                     "@class": "PARTY_REF",
+                     "id": {
+                        "@class": "GENERIC_ID",
+                        "value": "9091",
+                        "scheme": "HOSPITAL-NS"
+                     },
+                     "namespace": "HOSPITAL-NS",
+                     "type": "PARTY"
+                  },
+                  "name": "Hospital"
+               },
+               "participations": [
+                  {
+                     "@class": "PARTICIPATION",
+                     "function": {
+                        "@class": "DV_TEXT",
+                        "value": "requester"
+                     },
+                     "performer": {
+                        "@class": "PARTY_IDENTIFIED",
+                        "external_ref": {
+                           "@class": "PARTY_REF",
+                           "id": {
+                              "@class": "GENERIC_ID",
+                              "value": "199",
+                              "scheme": "HOSPITAL-NS"
+                           },
+                           "namespace": "HOSPITAL-NS",
+                           "type": "ANY"
+                        },
+                        "name": "Dr. Marcus Johnson"
+                     },
+                     "mode": {
+                        "@class": "DV_CODED_TEXT",
+                        "value": "face-to-face communication",
+                        "defining_code": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "openehr"
+                           },
+                           "code_string": "216"
+                        }
+                     }
+                  },
+                  {
+                     "@class": "PARTICIPATION",
+                     "function": {
+                        "@class": "DV_TEXT",
+                        "value": "performer"
+                     },
+                     "performer": {
+                        "@class": "PARTY_IDENTIFIED",
+                        "external_ref": {
+                           "@class": "PARTY_REF",
+                           "id": {
+                              "@class": "GENERIC_ID",
+                              "value": "198",
+                              "scheme": "HOSPITAL-NS"
+                           },
+                           "namespace": "HOSPITAL-NS",
+                           "type": "ANY"
+                        },
+                        "name": "Lara Markham"
+                     },
+                     "mode": {
+                        "@class": "DV_CODED_TEXT",
+                        "value": "not specified",
+                        "defining_code": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "openehr"
+                           },
+                           "code_string": "193"
+                        }
+                     }
+                  }
+               ]
+            },
+            "content": [
+               {
+                  "@class": "SECTION",
+                  "name": {
+                     "@class": "DV_TEXT",
+                     "value": "Информация об исторической записи о введении иммуноглобулина"
+                  },
+                  "archetype_details": {
+                     "@class": "ARCHETYPED",
+                     "archetype_id": {
+                        "@class": "ARCHETYPE_ID",
+                        "value": "openEHR-EHR-SECTION.adhoc.v1"
+                     },
+                     "rm_version": "1.0.4"
+                  },
+                  "archetype_node_id": "openEHR-EHR-SECTION.adhoc.v1",
+                  "items": [
+                     {
+                        "@class": "ADMIN_ENTRY",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Ранее опубликованный документ"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-ADMIN_ENTRY.container_simi.v0"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-ADMIN_ENTRY.container_simi.v0",
+                        "language": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "ISO_639-1"
+                           },
+                           "code_string": "ru"
+                        },
+                        "encoding": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "IANA_character-sets"
+                           },
+                           "code_string": "UTF-8"
+                        },
+                        "subject": {
+                           "@class": "PARTY_SELF"
+                        },
+                        "other_participations": [
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "requester"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "199",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Dr. Marcus Johnson"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "face-to-face communication",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "216"
+                                 }
+                              }
+                           },
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "performer"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "198",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Lara Markham"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "not specified",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "193"
+                                 }
+                              }
+                           }
+                        ],
+                        "data": {
+                           "@class": "ITEM_TREE",
+                           "name": {
+                              "@class": "DV_TEXT",
+                              "value": "Дерево"
+                           },
+                           "archetype_node_id": "at0001",
+                           "items": [
+                              {
+                                 "@class": "CLUSTER",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Ранее опубликованный документ"
+                                 },
+                                 "archetype_details": {
+                                    "@class": "ARCHETYPED",
+                                    "archetype_id": {
+                                       "@class": "ARCHETYPE_ID",
+                                       "value": "openEHR-EHR-CLUSTER.published_document_info_simi.v0"
+                                    },
+                                    "rm_version": "1.0.4"
+                                 },
+                                 "archetype_node_id": "openEHR-EHR-CLUSTER.published_document_info_simi.v0",
+                                 "items": [
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Дата проведения"
+                                       },
+                                       "archetype_node_id": "at0001",
+                                       "value": {
+                                          "@class": "DV_DATE_TIME",
+                                          "value": "2022-11-02T13:14:36.303297+03:00"
+                                       }
+                                    },
+                                    {
+                                       "@class": "CLUSTER",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Организация"
+                                       },
+                                       "archetype_details": {
+                                          "@class": "ARCHETYPED",
+                                          "archetype_id": {
+                                             "@class": "ARCHETYPE_ID",
+                                             "value": "openEHR-EHR-CLUSTER.organisation.v1"
+                                          },
+                                          "rm_version": "1.0.4"
+                                       },
+                                       "archetype_node_id": "openEHR-EHR-CLUSTER.organisation.v1",
+                                       "items": [
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Название организации"
+                                             },
+                                             "archetype_node_id": "at0001",
+                                             "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Название организации 82"
+                                             }
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "@class": "INSTRUCTION",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Назначение на вакцинацию"
+                        },
+                        "uid": {
+                           "@class": "HIER_OBJECT_ID",
+                           "value": "5bbbde60-4e5e-4b50-862a-0a8987873d60"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-INSTRUCTION.medication_order-vaccination-simi.v2"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-INSTRUCTION.medication_order-vaccination-simi.v2",
+                        "language": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "ISO_639-1"
+                           },
+                           "code_string": "ru"
+                        },
+                        "encoding": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "IANA_character-sets"
+                           },
+                           "code_string": "UTF-8"
+                        },
+                        "subject": {
+                           "@class": "PARTY_SELF"
+                        },
+                        "other_participations": [
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "requester"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "199",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Dr. Marcus Johnson"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "face-to-face communication",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "216"
+                                 }
+                              }
+                           },
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "performer"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "198",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Lara Markham"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "not specified",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "193"
+                                 }
+                              }
+                           }
+                        ],
+                        "narrative": {
+                           "@class": "DV_TEXT",
+                           "value": "Human readable instruction narrative"
+                        },
+                        "expiry_time": {
+                           "@class": "DV_DATE_TIME",
+                           "value": "2022-11-02T13:14:36.303752+03:00"
+                        },
+                        "activities": [
+                           {
+                              "@class": "ACTIVITY",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Назначение"
+                              },
+                              "archetype_node_id": "at0001",
+                              "description": {
+                                 "@class": "ITEM_TREE",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Дерево"
+                                 },
+                                 "archetype_node_id": "at0002",
+                                 "items": [
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Препарат"
+                                       },
+                                       "archetype_node_id": "at0070",
+                                       "value": {
+                                          "@class": "DV_TEXT",
+                                          "value": "нет данных о препарате"
+                                       }
+                                    },
+                                    {
+                                       "@class": "CLUSTER",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Подробности"
+                                       },
+                                       "archetype_details": {
+                                          "@class": "ARCHETYPED",
+                                          "archetype_id": {
+                                             "@class": "ARCHETYPE_ID",
+                                             "value": "openEHR-EHR-CLUSTER.medication_substance-simi.v0"
+                                          },
+                                          "rm_version": "1.0.4"
+                                       },
+                                       "archetype_node_id": "openEHR-EHR-CLUSTER.medication_substance-simi.v0",
+                                       "items": [
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Серия и контрольный номер"
+                                             },
+                                             "archetype_node_id": "at0150",
+                                             "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Серия и контрольный номер 8"
+                                             }
+                                          },
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Срок годности"
+                                             },
+                                             "archetype_node_id": "at0003",
+                                             "value": {
+                                                "@class": "DV_DATE_TIME",
+                                                "value": "2022-11-02T13:14:36.303384+03:00"
+                                             }
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Способ введения"
+                                       },
+                                       "archetype_node_id": "at0091",
+                                       "value": {
+                                          "@class": "DV_CODED_TEXT",
+                                          "value": "A.27 description",
+                                          "defining_code": {
+                                             "@class": "CODE_PHRASE",
+                                             "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "external"
+                                             },
+                                             "code_string": "A.27"
+                                          }
+                                       }
+                                    },
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Место введения"
+                                       },
+                                       "archetype_node_id": "at0092",
+                                       "value": {
+                                          "@class": "DV_CODED_TEXT",
+                                          "value": "I.33 description",
+                                          "defining_code": {
+                                             "@class": "CODE_PHRASE",
+                                             "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "external"
+                                             },
+                                             "code_string": "I.33"
+                                          }
+                                       }
+                                    },
+                                    {
+                                       "@class": "CLUSTER",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Назначение"
+                                       },
+                                       "archetype_details": {
+                                          "@class": "ARCHETYPED",
+                                          "archetype_id": {
+                                             "@class": "ARCHETYPE_ID",
+                                             "value": "openEHR-EHR-CLUSTER.therapeutic_direction.v1"
+                                          },
+                                          "rm_version": "1.0.4"
+                                       },
+                                       "archetype_node_id": "openEHR-EHR-CLUSTER.therapeutic_direction.v1",
+                                       "items": [
+                                          {
+                                             "@class": "CLUSTER",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Схема приема/введения препарата"
+                                             },
+                                             "archetype_details": {
+                                                "@class": "ARCHETYPED",
+                                                "archetype_id": {
+                                                   "@class": "ARCHETYPE_ID",
+                                                   "value": "openEHR-EHR-CLUSTER.dosage.v1"
+                                                },
+                                                "rm_version": "1.0.4"
+                                             },
+                                             "archetype_node_id": "openEHR-EHR-CLUSTER.dosage.v1",
+                                             "items": [
+                                                {
+                                                   "@class": "ELEMENT",
+                                                   "name": {
+                                                      "@class": "DV_TEXT",
+                                                      "value": "Доза"
+                                                   },
+                                                   "archetype_node_id": "at0144",
+                                                   "value": {
+                                                      "@class": "DV_QUANTITY",
+                                                      "magnitude": 8.14,
+                                                      "units": "1"
+                                                   }
+                                                },
+                                                {
+                                                   "@class": "ELEMENT",
+                                                   "name": {
+                                                      "@class": "DV_TEXT",
+                                                      "value": "Единица измерения дозы"
+                                                   },
+                                                   "archetype_node_id": "at0145",
+                                                   "value": {
+                                                      "@class": "DV_CODED_TEXT",
+                                                      "value": "D.13 description",
+                                                      "defining_code": {
+                                                         "@class": "CODE_PHRASE",
+                                                         "terminology_id": {
+                                                            "@class": "TERMINOLOGY_ID",
+                                                            "value": "external"
+                                                         },
+                                                         "code_string": "D.13"
+                                                      }
+                                                   }
+                                                }
+                                             ]
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              },
+                              "timing": {
+                                 "@class": "DV_PARSABLE",
+                                 "value": "R1",
+                                 "formalism": "timing"
+                              },
+                              "action_archetype_id": "/.*/"
+                           }
+                        ]
+                     },
+                     {
+                        "@class": "OBSERVATION",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Результат внутрикожной пробы"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-OBSERVATION.epidermic_method_result_simi.v1"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-OBSERVATION.epidermic_method_result_simi.v1",
+                        "language": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "ISO_639-1"
+                           },
+                           "code_string": "ru"
+                        },
+                        "encoding": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "IANA_character-sets"
+                           },
+                           "code_string": "UTF-8"
+                        },
+                        "subject": {
+                           "@class": "PARTY_SELF"
+                        },
+                        "other_participations": [
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "requester"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "199",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Dr. Marcus Johnson"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "face-to-face communication",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "216"
+                                 }
+                              }
+                           },
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "performer"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "198",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Lara Markham"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "not specified",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "193"
+                                 }
+                              }
+                           }
+                        ],
+                        "data": {
+                           "@class": "HISTORY",
+                           "name": {
+                              "@class": "DV_TEXT",
+                              "value": "History"
+                           },
+                           "archetype_node_id": "at0001",
+                           "origin": {
+                              "@class": "DV_DATE_TIME",
+                              "value": "2022-11-02T14:08:52.664075+03:00"
+                           },
+                           "events": [
+                              {
+                                 "@class": "POINT_EVENT",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Любое событие"
+                                 },
+                                 "archetype_node_id": "at0002",
+                                 "time": {
+                                    "@class": "DV_DATE_TIME",
+                                    "value": "2022-11-02T14:08:52.664075+03:00"
+                                 },
+                                 "data": {
+                                    "@class": "ITEM_TREE",
+                                    "name": {
+                                       "@class": "DV_TEXT",
+                                       "value": "Tree"
+                                    },
+                                    "archetype_node_id": "at0003",
+                                    "items": [
+                                       {
+                                          "@class": "ELEMENT",
+                                          "name": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Название пробы"
+                                          },
+                                          "archetype_node_id": "at0005",
+                                          "value": {
+                                             "@class": "DV_CODED_TEXT",
+                                             "value": "N.78 description",
+                                             "defining_code": {
+                                                "@class": "CODE_PHRASE",
+                                                "terminology_id": {
+                                                   "@class": "TERMINOLOGY_ID",
+                                                   "value": "external"
+                                                },
+                                                "code_string": "N.78"
+                                             }
+                                          }
+                                       },
+                                       {
+                                          "@class": "ELEMENT",
+                                          "name": {
+                                             "@class": "DV_TEXT",
+                                             "value": "Результат"
+                                          },
+                                          "archetype_node_id": "at0008",
+                                          "value": {
+                                             "@class": "DV_CODED_TEXT",
+                                             "value": "I.68 description",
+                                             "defining_code": {
+                                                "@class": "CODE_PHRASE",
+                                                "terminology_id": {
+                                                   "@class": "TERMINOLOGY_ID",
+                                                   "value": "external"
+                                                },
+                                                "code_string": "I.68"
+                                             }
+                                          }
+                                       }
+                                    ]
+                                 }
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "@class": "EVALUATION",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Реакция на прививку"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-EVALUATION.adverse_reaction_risk-simi.v1"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-EVALUATION.adverse_reaction_risk-simi.v1",
+                        "language": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "ISO_639-1"
+                           },
+                           "code_string": "ru"
+                        },
+                        "encoding": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "IANA_character-sets"
+                           },
+                           "code_string": "UTF-8"
+                        },
+                        "subject": {
+                           "@class": "PARTY_SELF"
+                        },
+                        "other_participations": [
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "requester"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "199",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Dr. Marcus Johnson"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "face-to-face communication",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "216"
+                                 }
+                              }
+                           },
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "performer"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "198",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Lara Markham"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "not specified",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "193"
+                                 }
+                              }
+                           }
+                        ],
+                        "data": {
+                           "@class": "ITEM_TREE",
+                           "name": {
+                              "@class": "DV_TEXT",
+                              "value": "*Tree(en)"
+                           },
+                           "archetype_node_id": "at0001",
+                           "items": [
+                              {
+                                 "@class": "ELEMENT",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Вещество"
+                                 },
+                                 "archetype_node_id": "at0002",
+                                 "value": {
+                                    "@class": "DV_TEXT",
+                                    "value": "нет сведений о препарате"
+                                 }
+                              },
+                              {
+                                 "@class": "CLUSTER",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Данные о реакции"
+                                 },
+                                 "archetype_node_id": "at0009",
+                                 "items": [
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Проявление"
+                                       },
+                                       "archetype_node_id": "at0011",
+                                       "value": {
+                                          "@class": "DV_CODED_TEXT",
+                                          "value": "E.17 description",
+                                          "defining_code": {
+                                             "@class": "CODE_PHRASE",
+                                             "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "external"
+                                             },
+                                             "code_string": "E.17"
+                                          }
+                                       }
+                                    },
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Описание реакции"
+                                       },
+                                       "archetype_node_id": "at0012",
+                                       "value": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Описание реакции 44"
+                                       }
+                                    }
+                                 ]
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "@class": "EVALUATION",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Отсутствие реакции"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-EVALUATION.exclusion_specific.v0"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-EVALUATION.exclusion_specific.v0",
+                        "language": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "ISO_639-1"
+                           },
+                           "code_string": "ru"
+                        },
+                        "encoding": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "IANA_character-sets"
+                           },
+                           "code_string": "UTF-8"
+                        },
+                        "subject": {
+                           "@class": "PARTY_SELF"
+                        },
+                        "other_participations": [
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "requester"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "199",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Dr. Marcus Johnson"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "face-to-face communication",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "216"
+                                 }
+                              }
+                           },
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "performer"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "198",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Lara Markham"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "not specified",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "193"
+                                 }
+                              }
+                           }
+                        ],
+                        "data": {
+                           "@class": "ITEM_TREE",
+                           "name": {
+                              "@class": "DV_TEXT",
+                              "value": "Дерево"
+                           },
+                           "archetype_node_id": "at0001",
+                           "items": [
+                              {
+                                 "@class": "ELEMENT",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Побочная реакция"
+                                 },
+                                 "archetype_node_id": "at0002",
+                                 "value": {
+                                    "@class": "DV_TEXT",
+                                    "value": "отсутствует"
+                                 }
+                              },
+                              {
+                                 "@class": "ELEMENT",
+                                 "name": {
+                                    "@class": "DV_CODED_TEXT",
+                                    "value": "Медицинский препарат",
+                                    "defining_code": {
+                                       "@class": "CODE_PHRASE",
+                                       "terminology_id": {
+                                          "@class": "TERMINOLOGY_ID",
+                                          "value": "local"
+                                       },
+                                       "code_string": "at0006"
+                                    }
+                                 },
+                                 "archetype_node_id": "at0003",
+                                 "value": {
+                                    "@class": "DV_CODED_TEXT",
+                                    "value": "A.67 description",
+                                    "defining_code": {
+                                       "@class": "CODE_PHRASE",
+                                       "terminology_id": {
+                                          "@class": "TERMINOLOGY_ID",
+                                          "value": "NSI"
+                                       },
+                                       "code_string": "A.67"
+                                    }
+                                 }
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "@class": "EVALUATION",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Утверждение об отсутствии"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-EVALUATION.absence-simi.v1"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-EVALUATION.absence-simi.v1",
+                        "language": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "ISO_639-1"
+                           },
+                           "code_string": "ru"
+                        },
+                        "encoding": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "IANA_character-sets"
+                           },
+                           "code_string": "UTF-8"
+                        },
+                        "subject": {
+                           "@class": "PARTY_SELF"
+                        },
+                        "other_participations": [
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "requester"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "199",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Dr. Marcus Johnson"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "face-to-face communication",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "216"
+                                 }
+                              }
+                           },
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "performer"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "198",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Lara Markham"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "not specified",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "193"
+                                 }
+                              }
+                           }
+                        ],
+                        "data": {
+                           "@class": "ITEM_TREE",
+                           "name": {
+                              "@class": "DV_TEXT",
+                              "value": "Дерево"
+                           },
+                           "archetype_node_id": "at0001",
+                           "items": [
+                              {
+                                 "@class": "ELEMENT",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Реакция на прививку"
+                                 },
+                                 "archetype_node_id": "at0002",
+                                 "value": {
+                                    "@class": "DV_TEXT",
+                                    "value": "не указана"
+                                 }
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "@class": "ADMIN_ENTRY",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Комментарий"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-ADMIN_ENTRY.container_simi.v0"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-ADMIN_ENTRY.container_simi.v0",
+                        "language": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "ISO_639-1"
+                           },
+                           "code_string": "ru"
+                        },
+                        "encoding": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "IANA_character-sets"
+                           },
+                           "code_string": "UTF-8"
+                        },
+                        "subject": {
+                           "@class": "PARTY_SELF"
+                        },
+                        "other_participations": [
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "requester"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "199",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Dr. Marcus Johnson"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "face-to-face communication",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "216"
+                                 }
+                              }
+                           },
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "performer"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "198",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Lara Markham"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "not specified",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "193"
+                                 }
+                              }
+                           }
+                        ],
+                        "data": {
+                           "@class": "ITEM_TREE",
+                           "name": {
+                              "@class": "DV_TEXT",
+                              "value": "Дерево"
+                           },
+                           "archetype_node_id": "at0001",
+                           "items": [
+                              {
+                                 "@class": "CLUSTER",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Комментарий"
+                                 },
+                                 "archetype_details": {
+                                    "@class": "ARCHETYPED",
+                                    "archetype_id": {
+                                       "@class": "ARCHETYPE_ID",
+                                       "value": "openEHR-EHR-CLUSTER.free_text.v1"
+                                    },
+                                    "rm_version": "1.0.4"
+                                 },
+                                 "archetype_node_id": "openEHR-EHR-CLUSTER.free_text.v1",
+                                 "items": [
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Комментарий"
+                                       },
+                                       "archetype_node_id": "at0001",
+                                       "value": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Комментарий 11"
+                                       }
+                                    }
+                                 ]
+                              }
+                           ]
+                        }
+                     }
+                  ]
+               },
+               {
+                  "@class": "SECTION",
+                  "name": {
+                     "@class": "DV_TEXT",
+                     "value": "Информация о выполнении"
+                  },
+                  "archetype_details": {
+                     "@class": "ARCHETYPED",
+                     "archetype_id": {
+                        "@class": "ARCHETYPE_ID",
+                        "value": "openEHR-EHR-SECTION.adhoc.v1"
+                     },
+                     "rm_version": "1.0.4"
+                  },
+                  "archetype_node_id": "openEHR-EHR-SECTION.adhoc.v1",
+                  "items": [
+                     {
+                        "@class": "ACTION",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Вакцинация"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-ACTION.medication-vaccination-simi.v1"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-ACTION.medication-vaccination-simi.v1",
+                        "language": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "ISO_639-1"
+                           },
+                           "code_string": "ru"
+                        },
+                        "encoding": {
+                           "@class": "CODE_PHRASE",
+                           "terminology_id": {
+                              "@class": "TERMINOLOGY_ID",
+                              "value": "IANA_character-sets"
+                           },
+                           "code_string": "UTF-8"
+                        },
+                        "subject": {
+                           "@class": "PARTY_SELF"
+                        },
+                        "other_participations": [
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "requester"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "199",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Dr. Marcus Johnson"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "face-to-face communication",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "216"
+                                 }
+                              }
+                           },
+                           {
+                              "@class": "PARTICIPATION",
+                              "function": {
+                                 "@class": "DV_TEXT",
+                                 "value": "performer"
+                              },
+                              "performer": {
+                                 "@class": "PARTY_IDENTIFIED",
+                                 "external_ref": {
+                                    "@class": "PARTY_REF",
+                                    "id": {
+                                       "@class": "GENERIC_ID",
+                                       "value": "198",
+                                       "scheme": "HOSPITAL-NS"
+                                    },
+                                    "namespace": "HOSPITAL-NS",
+                                    "type": "ANY"
+                                 },
+                                 "name": "Lara Markham"
+                              },
+                              "mode": {
+                                 "@class": "DV_CODED_TEXT",
+                                 "value": "not specified",
+                                 "defining_code": {
+                                    "@class": "CODE_PHRASE",
+                                    "terminology_id": {
+                                       "@class": "TERMINOLOGY_ID",
+                                       "value": "openehr"
+                                    },
+                                    "code_string": "193"
+                                 }
+                              }
+                           }
+                        ],
+                        "time": {
+                           "@class": "DV_DATE_TIME",
+                           "value": "2022-11-02T13:14:36.303894+03:00"
+                        },
+                        "description": {
+                           "@class": "ITEM_TREE",
+                           "name": {
+                              "@class": "DV_TEXT",
+                              "value": "*Tree(en)"
+                           },
+                           "archetype_node_id": "at0017",
+                           "items": [
+                              {
+                                 "@class": "ELEMENT",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Вакцина"
+                                 },
+                                 "archetype_node_id": "at0020",
+                                 "value": {
+                                    "@class": "DV_TEXT",
+                                    "value": "нет сведений о препарате"
+                                 }
+                              }
+                           ]
+                        },
+                        "ism_transition": {
+                           "@class": "ISM_TRANSITION",
+                           "current_state": {
+                              "@class": "DV_CODED_TEXT",
+                              "value": "suspended",
+                              "defining_code": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "openehr"
+                                 },
+                                 "code_string": "530"
+                              }
+                           }
+                        }
+                     }
+                  ]
+               }
+            ]
+         },
+         "patientId": "$patientId"
+      }
+   ],
+   "auditDetails": {
+      "@class": "AUDIT_DETAILS",
+      "system_id": "default",
+      "committer": {
+         "@class": "PARTY_IDENTIFIED",
+         "name": "emias_qa"
+      },
+      "time_committed": {
+         "@class": "DV_DATE_TIME",
+         "value": "2022-11-02T14:08:52.674063+03:00"
+      },
+      "change_type": {
+         "@class": "DV_CODED_TEXT",
+         "value": "creation",
+         "defining_code": {
+            "@class": "CODE_PHRASE",
+            "terminology_id": {
+               "@class": "TERMINOLOGY_ID",
+               "value": "openehr"
+            },
+            "code_string": "249"
+         }
+      }
+   }
+}

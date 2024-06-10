@@ -1,0 +1,5 @@
+inquiryPurposeOrchestrationEndpoint=http://esbcamel.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v1S/ProxyService
+inquiryPurposeOrchestrationDbConnection=
+inquiryPurposeOrchestrationDbLogin=
+inquiryPurposeOrchestrationDbPassword=
+inquiryPurposeOrchestrationFullDbConnection=

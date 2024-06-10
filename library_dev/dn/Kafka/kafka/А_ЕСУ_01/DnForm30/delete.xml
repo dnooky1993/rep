@@ -1,0 +1,57 @@
+{
+  "domain": "default",
+  "ehrUid": "2f058325-88ee-48b4-86ef-a98fc546977d",
+  "operationType": "delete",
+  "eventName": "form30yCompositionQueue",
+  "compositionId": "5a9a9f19-85ad-4400-abc1-950a1e4d9ed2::default::2",
+  "oldResults": [
+    {
+      "patientId": "30000000585961",
+      "uid": "aa8f3864-b8e6-40bd-8246-aad3c4b6f2bc",
+      "timeCommitted": "2021-12-23T13:02:53.97+03:00",
+      "groupCode": "DNA0001",
+      "groupName": "Инфекционные болезни",
+      "doctorFio": "Никитина Юлия Петровна",
+      "employeeId": "10008348",
+      "specialityCode": "50",
+      "specialityName": "Врач-инфекционист",
+      "specializationCode": "24",
+      "specializationName": "Инфекционные болезни",
+      "diagnosisCode": "A00",
+      "diagnosisName": "A00 - Холера",
+      "diagnosis": "укнрарпр",
+      "diagnosisDate": "2021-12-23T13:02:29.487+03:00",
+      "repeat": "диагноз установлен в предыдущ. году или ранее (-)",
+      "startDate": "2021-12-02",
+      "endDate": null,
+      "cancelReasonCode": null,
+      "cancelReasonName": null
+    }
+  ],
+  "newResults": [
+    {
+      "patientId": "1458",
+      "uid": "fb20d746-821c-4928-abc4-8bc6878dc59a",
+      "timeCommitted": "2020-12-23T13:04:07.347+03:00",
+      "groupCode": "DNA0001",
+      "groupName": "Инфекционные болезни",
+      "doctorFio": "Никитина Юлия Петровна",
+      "employeeId": "10008348",
+      "noDoctor": "отсутствует",
+      "specialityCode": "50",
+      "specialityName": "Врач-инфекционист",
+      "specializationCode": "24",
+      "specializationName": "Инфекционные болезни",
+      "diagnosisCode": "A00",
+      "diagnosisName": "A00 - Холера",
+      "diagnosis": "укнрарпр",
+      "diagnosisDate": "2020-12-23T13:02:29.487+03:00",
+      "repeat": "диагноз установлен в предыдущ. году или ранее (-)",
+      "startDate": "2020-12-02",
+      "endDate": null,
+      "cancelReasonCode": null,
+      "cancelReasonName": null
+    }
+  ],
+  "comment": "Modify Composition"
+}

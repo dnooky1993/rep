@@ -1,0 +1,126 @@
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def countTreatment  = testRunner.testCase.getPropertyValue("countTreatment").toInteger()
+
+def getTreatmentsWithMapping(int requiredNumber ){
+
+	tableT=testRunner.testCase.testSuite.project.getPropertyValue("tableT")
+	tableTC=testRunner.testCase.testSuite.project.getPropertyValue("tableTC")
+	tableRTLM=testRunner.testCase.testSuite.project.getPropertyValue("tableRTLM")
+	getTreatmentsWithMapping = "SELECT DISTINCT t.id AS TREATMENT_ID, t.CODE  AS TREATMENT_CODE,tc.CODE  AS TREATMENT_CATEGORY_CODE, t.TREATMENT_CATEGORY_ID FROM "+tableT+" t JOIN "+tableRTLM+"  rtlm ON t.CODE=rtlm.TREATMENT_CODE JOIN "+tableTC+"  tc ON tc.id=t.TREATMENT_CATEGORY_ID WHERE t.ARCHIVED=0 AND tc.ARCHIVED =0 ORDER BY t.id DESC"
+	//log.info(getTreatmentsWithMapping)
+	treatmentsWithMapping=sql.rows(getTreatmentsWithMapping)
+	countTreatmentsWithMapping=treatmentsWithMapping.size()
+	//log.info("countTreatmentsWithMapping="+countTreatmentsWithMapping)
+	sub= requiredNumber-countTreatmentsWithMapping
+	lastId=0
+	listOfTreatmensWithMapping="0"
+	if(countTreatmentsWithMapping>0){
+		if(countTreatmentsWithMapping>requiredNumber){
+			lastId=requiredNumber
+		}
+		else{
+			lastId=countTreatmentsWithMapping
+		}
+		//log.info("lastId1= "+lastId)
+		for(int i=0; i<lastId; i++){
+			nexti=i+1
+			treatmentId = treatmentsWithMapping[i].TREATMENT_ID.toString()
+			treatmentCode = treatmentsWithMapping[i].TREATMENT_CODE.toString()
+			treatmentCategoryId = treatmentsWithMapping[i].TREATMENT_CATEGORY_ID.toString()
+			treatmentCategoryCode = treatmentsWithMapping[i].TREATMENT_CATEGORY_CODE.toString()
+			getMppingCode="SELECT * FROM "+tableRTLM+" WHERE TREATMENT_CODE='"+treatmentCode+"' order by LDP_CODE"
+			//log.info(getMppingCode)
+			mappingCode=sql.rows(getMppingCode)
+			//log.info(mappingCode)
+			mCode=mappingCode[0].LDP_CODE.toString()
+			testRunner.testCase.setPropertyValue("tId"+nexti, treatmentId)
+			testRunner.testCase.setPropertyValue("tCreatedByTest"+nexti, "0")
+			testRunner.testCase.setPropertyValue("tCode"+nexti, treatmentCode)
+			testRunner.testCase.setPropertyValue("tcId"+nexti, treatmentCategoryId)
+			testRunner.testCase.setPropertyValue("tcCreatedByTest"+nexti, "0")			
+			testRunner.testCase.setPropertyValue("tcCode"+nexti, treatmentCategoryCode)
+			testRunner.testCase.setPropertyValue("tMappingCode"+nexti, mCode)
+			testRunner.testCase.setPropertyValue("tMappingCodeCreatedByTest"+nexti, "0")
+			log.info("Для записи №"+nexti+" есть ММ с маппингом, ее id = "+treatmentId)
+			listOfTreatmensWithMapping=listOfTreatmensWithMapping+","+treatmentId.toString()
+		}
+	}
+	if(sub>0){
+		getNonarchivedTreatments = "SELECT DISTINCT t.id AS TREATMENT_ID, t.CODE  AS TREATMENT_CODE,tc.CODE  AS TREATMENT_CATEGORY_CODE, t.TREATMENT_CATEGORY_ID FROM "+tableT+" t JOIN "+tableTC+"  tc ON tc.id=t.TREATMENT_CATEGORY_ID WHERE t.ARCHIVED=0 AND tc.ARCHIVED =0 and t.id not in ("+listOfTreatmensWithMapping+") ORDER BY t.id DESC"
+		//log.info(getNonarchivedTreatments)
+		nonarchivedTreatments=sql.rows(getNonarchivedTreatments)
+		countNonarchivedTreatments=nonarchivedTreatments.size()
+		log.info("countNonarchivedTreatments= "+countNonarchivedTreatments)
+		getNonarchivedTreatmentCategories = "SELECT DISTINCT tc.CODE  AS TREATMENT_CATEGORY_CODE, tc.ID TREATMENT_CATEGORY_ID FROM "+tableTC+" tc WHERE tc.ARCHIVED =0 ORDER BY tc.id DESC"
+		//log.info(getNonarchivedTreatmentCategories)
+		nonarchivedTreatmentCategories=sql.rows(getNonarchivedTreatmentCategories)
+		countNonarchivedTreatmentCategories=nonarchivedTreatmentCategories.size()
+		log.info("countNonarchivedTreatmentCategories= "+countNonarchivedTreatmentCategories)
+		needToCreateTreatmentCategory=true
+		//sub2=sub-countNonarchivedTreatments
+		index=0
+		newLastId=lastId+1
+		for(int i=newLastId; i<=requiredNumber; i++){
+			if(countNonarchivedTreatments>0){
+					treatmentId = nonarchivedTreatments[index].TREATMENT_ID.toString()
+					treatmentCode = nonarchivedTreatments[index].TREATMENT_CODE.toString()
+					treatmentCategoryId = nonarchivedTreatments[index].TREATMENT_CATEGORY_ID.toString()
+					treatmentCategoryCode = nonarchivedTreatments[index].TREATMENT_CATEGORY_CODE.toString()
+					tCreatedByTest="0"
+					tcCreatedByTest="0"
+					countNonarchivedTreatments=countNonarchivedTreatments-1
+					log.info("Для записи №"+i+" есть неархивная ММ без маппинга, ее id = "+treatmentId)
+					index=index+1
+			}
+			else{
+					if(countNonarchivedTreatmentCategories>0){
+						treatmentCategoryId = nonarchivedTreatmentCategories[0].TREATMENT_CATEGORY_ID.toString()
+						treatmentCategoryCode = nonarchivedTreatmentCategories[0].TREATMENT_CATEGORY_CODE.toString()
+						tcCreatedByTest="0"
+					}
+					else{
+						if(needToCreateTreatmentCategory==true){
+							treatmentCategoryId=sql.rows("select max(id)+10 AS ID from "+tableTC)[0].ID
+							treatmentCategoryCode="autotest_treatment_category_code"
+							sql.execute("INSERT INTO "+tableTC+" (ID, CODE, TITLE, ARCHIVED) VALUES ("+treatmentCategoryId+", '"+treatmentCategoryCode+"', 'Категория ММ автотест', '0')")
+							tcCreatedByTest="1"
+							needToCreateTreatmentCategory=false
+							log.info("Требуется создать неархивную Категорию ММ. Создаю Категорию ММ, ее id = "+treatmentCategoryId)
+						}
+					}
+					treatmentId=sql.rows("select max(id)+1 AS ID from "+tableT)[0].ID
+					treatmentCode="autotest_treatment_code"+i.toString()
+					log.info(" Для записи №"+i+" требуется создать неархивную ММ. Создаю ММ, ее id = "+treatmentId)
+					sql.execute("INSERT INTO  "+tableT+"  (ID, ARCHIVED, TITLE, DEFAULT_DURATION, TREATMENT_CATEGORY_ID, CODE) VALUES("+treatmentId+", '0', 'Мед манипуляция №"+i+" автотест ', 60, "+treatmentCategoryId+", '"+treatmentCode+"')")
+					tCreatedByTest="1"
+				}
+			testRunner.testCase.setPropertyValue("tId"+i, treatmentId.toString())
+			testRunner.testCase.setPropertyValue("tCreatedByTest"+i, tCreatedByTest)
+			testRunner.testCase.setPropertyValue("tCode"+i, treatmentCode.toString())
+			testRunner.testCase.setPropertyValue("tcId"+i, treatmentCategoryId.toString())
+			testRunner.testCase.setPropertyValue("tcCreatedByTest"+i, tcCreatedByTest)			
+			testRunner.testCase.setPropertyValue("tcCode"+i, treatmentCategoryCode.toString())
+			mappingId=sql.rows("select max(id)+1 AS ID from "+tableRTLM)[0].ID
+			mCode="autotest_ldp_code"+i
+			log.info("Создаю маппинг для записи №"+i+",  id ММ= "+treatmentId)
+			sql.execute("INSERT INTO "+tableRTLM+" (ID, TREATMENT_CODE, LDP_CODE) VALUES("+mappingId+", '"+treatmentCode+"', '"+mCode+"')")
+			testRunner.testCase.setPropertyValue("tMappingCode"+i, mCode)
+			testRunner.testCase.setPropertyValue("tMappingCodeCreatedByTest"+i, "1")
+		}
+	}
+}
+
+
+
+getTreatmentsWithMapping(countTreatment)

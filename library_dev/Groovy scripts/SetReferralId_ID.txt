@@ -1,0 +1,4 @@
+  UUID uuid = UUID.randomUUID()
+ def referralId = "InstrumentalReferral" + uuid
+testRunner.testCase.setPropertyValue("referralId",referralId)
+  log.info (referralId)

@@ -1,0 +1,12 @@
+.idea/
+*.iml
+*.ipr
+*.iws
+build/
+target/classes
+target/maven-archiver
+target/generated-sources
+target/maven-status
+target/main_groovy_scripts_library-1.0.jar
+target/original-main_groovy_scripts_library-1.0.jar
+

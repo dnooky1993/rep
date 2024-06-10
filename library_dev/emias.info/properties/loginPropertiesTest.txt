@@ -1,0 +1,1 @@
+loginEndpoint=https://login-tech.mos.ru

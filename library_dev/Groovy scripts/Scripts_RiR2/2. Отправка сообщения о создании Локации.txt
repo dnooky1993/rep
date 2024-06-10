@@ -1,0 +1,58 @@
+import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def mfId=testRunner.testCase.testSuite.getPropertyValue("mfId")
+def locId=testRunner.testCase.testSuite.getPropertyValue("locId")
+
+String bootstrapServers = testRunner.testCase.testSuite.getPropertyValue("bootstrapServers")
+//Отправка сообщения в топик
+Properties props = new Properties()
+props.put('zk.connect', '10.2.172.24:2181')
+props.put('bootstrap.servers', bootstrapServers)
+props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+ 
+def producer = new KafkaProducer(props)
+
+def messageSender = { String topic, String message ->
+    log.info( "messageSender: "+topic+"; "+message )
+    def key =  UUID.randomUUID().toString()
+    def Date date = new Date(); 
+   def  long  timestamp= date.getTime()
+   def int partition =0
+    String compoundMessage = "$message"
+    producer.send(
+            new ProducerRecord<String, String>(topic, partition, timestamp,  key, compoundMessage),
+            { RecordMetadata metadata, Exception e ->
+                log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+            } as Callback
+    )
+}
+def sL ="""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns4:location archived="false" id=\""""+locId+"""\" xmlns="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns4:roomTitle>Кабинет Кардиологии №103</ns4:roomTitle><ns4:stage>4</ns4:stage><ns4:building id="13"><ns5:buildingAddress>город Москва, улица Челябинская, дом 16, корпус 2</ns5:buildingAddress></ns4:building><ns4:specializationId>125676817</ns4:specializationId><ns5:medicalFacilityId>"""+mfId+"""</ns5:medicalFacilityId></ns4:location>"""
+//log.info(sL)
+   String messageL =sL.toString()
+String topic= testRunner.testCase.testSuite.getPropertyValue("topicLocation")
+   log.info(topic)
+  messageSender(topic, messageL)
+
+
+producer.close()
+
+//} else {
+//	log.error("Соединение с бд не установлено!");
+//}

@@ -1,0 +1,20 @@
+import groovy.sql.Sql
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("lloLogin")
+password =testRunner.testCase.testSuite.project.getPropertyValue("lloPassword")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("lloConnect")
+
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+patients=sql.rows("""
+		SELECT  pat.EXTERNAL_UID from  PATIENT pat
+WHERE pat.id IN (
+		SELECT p.PATIENT_ID FROM PRESCRIPTION p 
+		WHERE (p.EXPIRATION_DATE >= CURRENT_TIMESTAMP AND p.STATE IN (21,22)) OR 
+		p.STATE IN (22,86) AND rownum<1000
+)
+""")
+
+log.info  patients.size()

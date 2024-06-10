@@ -1,0 +1,3800 @@
+{
+  "форма_030-д_с_у-13_карта_диспансеризации_несовершеннолетнего": {
+    "_uid": [
+      "89c52667-bac1-4ae2-9f92-386c017875f5::default::1"
+    ],
+    "language": [
+      {
+        "|code": "ru",
+        "|terminology": "ISO_639-1"
+      }
+    ],
+    "territory": [
+      {
+        "|code": "ru",
+        "|terminology": "ISO_3166-1"
+      }
+    ],
+    "context": [
+      {
+        "_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "_health_care_facility": [
+          {
+            "|id": "9091",
+            "|id_scheme": "HOSPITAL-NS",
+            "|id_namespace": "HOSPITAL-NS",
+            "|name": "Hospital"
+          }
+        ],
+        "подробности_контекста": [
+          {
+            "ид_события": [
+              {
+                "|id": "623e75f4-f773-4be6-9687-79600b1881a7",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_документа": [
+              {
+                "|id": "fca037a6-762c-48f9-b57c-d8d5a7921230",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_пациента": [
+              {
+                "|id": "334f7c4f-17d4-4793-83ca-ffaaa761230",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "автор_информации": [
+              {
+                "идентификатор_исполнения_должности_медработника": [
+                  {
+                    "|id": "ca2ed43e-e947-4d7c-a490-6c0a4489ad37",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "наименование_должности": [
+                  "Наименование должности 98"
+                ],
+                "наименование_структурного_подразделения": [
+                  "Наименование структурного подразделения 59"
+                ],
+                "наименование_филиала": [
+                  "Наименование филиала 69"
+                ],
+                "наименование_юридического_лица": [
+                  "Наименование юридического лица 15"
+                ]
+              }
+            ],
+            "структура_медицинской_организации": [
+              {
+                "ид_объекта": [
+                  {
+                    "|id": "96b54ad3-ed3c-4093-a328-8966eade2aa6",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "тип_объекта": [
+                  {
+                    "|code": "at0019",
+                    "|value": "амбулаторно-поликлинический центр",
+                    "|terminology": "local"
+                  }
+                ],
+                "наименование": [
+                  "Наименование 45"
+                ],
+                "родительский_ид": [
+                  {
+                    "|id": "8005cec6-0c15-41cf-addc-3e7a86d7b3b2",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ]
+              }
+            ],
+            "адрес_медицинской_организации": [
+              {
+                "субъект_рф": [
+                  "Субъект РФ 2"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 67"
+                ],
+                "поселение": [
+                  "Поселение 47"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 84"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 65"
+                ],
+                "улица": [
+                  "Улица 95"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 7"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 68"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 9"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 72"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 8"
+                ]
+              }
+            ],
+            "информация_о_месте_cобытия": [
+              {
+                "событие_произошло": [
+                  {
+                    "|code": "at0071",
+                    "|value": "вне медицинской организации",
+                    "|terminology": "local"
+                  }
+                ],
+                "субъект_рф": [
+                  "Субъект РФ 3"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 45"
+                ],
+                "поселение": [
+                  "Поселение 96"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 56"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 34"
+                ],
+                "улица": [
+                  "Улица 82"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 71"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 84"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 67"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 62"
+                ],
+                "номер_помещения": [
+                  "Номер помещения 23"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 97"
+                ]
+              }
+            ],
+            "дополнительная_информация": [
+              {
+                "профиль_медицинской_помощи": [
+                  {
+                    "|code": "at0089",
+                    "|value": "Эндокринология",
+                    "|terminology": "local"
+                  }
+                ],
+                "виды_медицинской_помощи": [
+                  {
+                    "|code": "at0052",
+                    "|value": "скорая",
+                    "|terminology": "local"
+                  }
+                ],
+                "условия_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0055",
+                    "|value": "амбулаторно",
+                    "|terminology": "local"
+                  }
+                ],
+                "форма_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0060",
+                    "|value": "плановая",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "start_time": [
+          "2020-08-10T14:14:42.398+03:00"
+        ],
+        "setting": [
+          {
+            "|code": "238",
+            "|value": "other care",
+            "|terminology": "openehr"
+          }
+        ]
+      }
+    ],
+    "сведения_о_стационарном_учреждении": [
+      {
+        "полное_наименование_стационарного_учреждения": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "полное_наименование_стационарного_учреждения": [
+              {
+                "полное_наименование_стационарного_учреждения": [
+                  "Полное наименование стационарного учреждения 79"
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "отсутствие_информации_по_полному_наименованию_стационарного_учреждения": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "заявление_об_отсутствии": [
+              "нет данных"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "прежнее_наименование_в_случае_его_изменения": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "прежнее_наименование_в_случае_его_изменения": [
+              {
+                "прежнее_наименование_в_случае_его_изменения": [
+                  "Прежнее наименование (в случае его изменения) 55"
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "юридический_адрес": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "юридический_адрес_стационарного_учреждения": [
+              {
+                "юридический_адрес_стационарного_учреждения": [
+                  {
+                    "юридический_адрес_стационарного_учреждения": [
+                      "Юридический адрес стационарного учреждения 6"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "отсутствие_информации_о_юридическом_адресе": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "заявление_об_отсутствии": [
+              "нет данных"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "карта_диспансеризации_несовершеннолетнего": [
+      {
+        "карта_диспансеризации_несовершеннолетнего": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "форма_030-д_с_у-13_карта_диспансеризации_несовершеннолетнего": [
+              {
+                "организация": [
+                  {
+                    "ведомственная_принадлежность": [
+                      "органы социальной защиты"
+                    ]
+                  }
+                ],
+                "опека": [
+                  {
+                    "категория_учета_ребенка_ребенка_находящегося_в_трудной_жизненной_ситуации": [
+                      {
+                        "|code": "at0005",
+                        "|value": "ребенок, находящийся в трудной жизненной ситуации",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "на_момент_проведения_диспансеризации_находится": [
+                      "находится в стационарном учреждении"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "отсутствие_информации_о_ведомственной_принадлежности": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "заявление_об_отсутствии": [
+              "нет данных"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "отсутствие_информации_о_категории_учета_ребенка_находящегося_в_трудной_жизненной_ситуации": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "заявление_об_отсутствии": [
+              "нет данных"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "отсутствие_информации_о_нахождении_на_момент_проведения_диспансеризации": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "заявление_об_отсутствии": [
+              "нет данных"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "возраст": [
+      {
+        "возраст": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "возраст": [
+              {
+                "подробности": [
+                  {
+                    "дней": [
+                      10
+                    ],
+                    "месяцев": [
+                      34
+                    ],
+                    "лет": [
+                      15
+                    ]
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "оценка_физического_развития_с_учетом_возраста_на_момент_профилактического_осмотра": [
+      {
+        "для_детей_в_возрасте_0_-_4_лет": [
+          {
+            "масса_тела": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "вес": [
+                  {
+                    "|magnitude": 1.483,
+                    "|unit": "kg"
+                  }
+                ],
+                "time": [
+                  "2020-08-10T14:14:42.398+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_массе_тела": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "рост": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "рост": [
+                  {
+                    "|magnitude": 195.06,
+                    "|unit": "cm"
+                  }
+                ],
+                "time": [
+                  "2020-08-10T14:14:42.398+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_росту": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "окружность_головы": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "окружность_головы": [
+                  {
+                    "|magnitude": 10.4,
+                    "|unit": "cm"
+                  }
+                ],
+                "time": [
+                  "2020-08-10T14:14:42.398+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_окружности_головы": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "физическое_развитие": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "описание": [
+                  "Описание 54"
+                ],
+                "осмотр": [
+                  {
+                    "исследуемая_структура_или_система": [
+                      "Исследуемая структура или система 76"
+                    ],
+                    "физическое_развитие": [
+                      {
+                        "физическое_развитие": [
+                          {
+                            "|code": "at0003",
+                            "|value": "с нарушениями",
+                            "|terminology": "local"
+                          }
+                        ],
+                        "нарушения": [
+                          {
+                            "масса_тела": [
+                              "избыток"
+                            ],
+                            "рост": [
+                              "низкий"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "time": [
+                  "2020-08-10T14:14:42.398+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_физическому_развитию": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "для_детей_в_возрасте_5_-_17_лет_включительно": [
+          {
+            "масса_тела": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "вес": [
+                  {
+                    "|magnitude": 177.918,
+                    "|unit": "kg"
+                  }
+                ],
+                "time": [
+                  "2020-08-10T14:14:42.398+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_массе_тела": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "рост": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "рост": [
+                  {
+                    "|magnitude": 83.74,
+                    "|unit": "cm"
+                  }
+                ],
+                "time": [
+                  "2020-08-10T14:14:42.398+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_росту": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "физическое_развитие": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "описание": [
+                  "Описание 20"
+                ],
+                "осмотр": [
+                  {
+                    "исследуемая_структура_или_система": [
+                      "Исследуемая структура или система 56"
+                    ],
+                    "физическое_развитие": [
+                      {
+                        "физическое_развитие": [
+                          {
+                            "|code": "at0002",
+                            "|value": "нормальное",
+                            "|terminology": "local"
+                          }
+                        ],
+                        "нарушения": [
+                          {
+                            "масса_тела": [
+                              "избыток"
+                            ],
+                            "рост": [
+                              "высокий"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "time": [
+                  "2020-08-10T14:14:42.398+03:00"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_физическому_развитию": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "оценка_психического_развития_состояния": [
+      {
+        "для_детей_в_возрасте_0_-_4_лет": [
+          {
+            "нервно-психическое_развитие_ребенка": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "нервно-психическое_развитие_ребенка": [
+                  {
+                    "эмоциональная_и_социальная_контакт_с_окружающим_миром_функции": [
+                      {
+                        "эмоциональная_и_социальная_контакт_с_окружающим_миром_функции": [
+                          {
+                            "эмоциональная_и_социальная_контакт_с_окружающим_миром_функции": [
+                              {
+                                "|magnitude": 44.71,
+                                "|unit": "mo"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "моторная_функция": [
+                      {
+                        "моторная_функция": [
+                          {
+                            "моторная_функция": [
+                              {
+                                "|magnitude": 19.43,
+                                "|unit": "mo"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "познавательная_функция": [
+                      {
+                        "познавательная_функция": [
+                          {
+                            "|magnitude": 37.15,
+                            "|unit": "mo"
+                          }
+                        ]
+                      }
+                    ],
+                    "предречевое_и_речевое_развитие": [
+                      {
+                        "предречевое_и_речевое_развитие": [
+                          {
+                            "предречевое_и_речевое_развитие": [
+                              {
+                                "|magnitude": 44.54,
+                                "|unit": "mo"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_познавательной_функции": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_моторной_функции": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_эмоциональной_функции": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_речевому_развитию": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "для_детей_в_возрасте_5_-_17_лет": [
+          {
+            "нервно-психическое_развитие": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "нервно-психическое_развитие": [
+                  {
+                    "эмоционально-вегетативная_сфера": [
+                      {
+                        "эмоционально-вегетативная_сфера": [
+                          {
+                            "эмоционально-вегетативная_сфера": [
+                              {
+                                "|code": "at0030",
+                                "|value": "отклонение",
+                                "|terminology": "local"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "психомоторная_сфера": [
+                      {
+                        "психомоторная_сфера": [
+                          {
+                            "психомоторная_сфера": [
+                              {
+                                "|code": "at0053",
+                                "|value": "норма",
+                                "|terminology": "local"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "интеллект": [
+                      {
+                        "интеллект": [
+                          "отклонение"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_психомоторной_сфере": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_интеллекту": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_эмоционально-вегетативной_сфере": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "оценка_полового_развития_с_10_лет": [
+          {
+            "половая_формула_мальчика": [
+              {
+                "половая_формула_мальчика": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "развитие_волос_на_лобке": [
+                      {
+                        "|code": "at0017",
+                        "|value": "P1",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "подробности": [
+                      {
+                        "половая_формула_мальчики": [
+                          {
+                            "развитие_волос_в_подмышечной_области": [
+                              {
+                                "|code": "at0046",
+                                "|value": "Ax0",
+                                "|terminology": "local"
+                              }
+                            ],
+                            "развитие_волос_на_лице": [
+                              {
+                                "|code": "at0035",
+                                "|value": "Fa1",
+                                "|terminology": "local"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "time": [
+                      "2020-08-10T14:14:42.398+03:00"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_по_p": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_по_ax": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_по_fa": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "половая_формула_девочки": [
+              {
+                "половая_формула_девочки": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "развитие_молочной_железы": [
+                      {
+                        "|code": "at0.31",
+                        "|value": "Ma0",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "развитие_волос_на_лобке": [
+                      {
+                        "|code": "at0017",
+                        "|value": "P1",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "подробности": [
+                      {
+                        "половая_формула_девочки": [
+                          {
+                            "развитие_волос_в_подмышечной_области": [
+                              {
+                                "|code": "at0019",
+                                "|value": "Ax3",
+                                "|terminology": "local"
+                              }
+                            ],
+                            "менструальная_функция": [
+                              {
+                                "|code": "at0023",
+                                "|value": "Me0",
+                                "|terminology": "local"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "time": [
+                      "2020-08-10T14:14:42.398+03:00"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_по_p": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_по_ax": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_по_ma": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_по_me": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "характеристика_менструальной_функции": [
+                  {
+                    "описание_менструального_цикла": [
+                      {
+                        "описание_менструального_цикла": [
+                          {
+                            "_other_participation": [
+                              {
+                                "|function": "requester",
+                                "|mode": "face-to-face communication",
+                                "|name": "Dr. Marcus Johnson",
+                                "|id": "199",
+                                "|id_namespace": "HOSPITAL-NS",
+                                "|id_scheme": "HOSPITAL-NS"
+                              },
+                              {
+                                "|function": "performer",
+                                "|mode": "not specified",
+                                "|name": "Lara Markham",
+                                "|id": "198",
+                                "|id_namespace": "HOSPITAL-NS",
+                                "|id_scheme": "HOSPITAL-NS"
+                              }
+                            ],
+                            "описание_менструаций": [
+                              {
+                                "|code": "at0019",
+                                "|value": "Умеренные",
+                                "|terminology": "local"
+                              }
+                            ],
+                            "болезненность": [
+                              "безболезненные"
+                            ],
+                            "time": [
+                              "2020-08-10T14:14:42.398+03:00"
+                            ],
+                            "language": [
+                              {
+                                "|code": "ru",
+                                "|terminology": "ISO_639-1"
+                              }
+                            ],
+                            "encoding": [
+                              {
+                                "|code": "UTF-8",
+                                "|terminology": "IANA_character-sets"
+                              }
+                            ]
+                          }
+                        ],
+                        "сводная_информация_по_менструальному_циклу": [
+                          {
+                            "_other_participation": [
+                              {
+                                "|function": "requester",
+                                "|mode": "face-to-face communication",
+                                "|name": "Dr. Marcus Johnson",
+                                "|id": "199",
+                                "|id_namespace": "HOSPITAL-NS",
+                                "|id_scheme": "HOSPITAL-NS"
+                              },
+                              {
+                                "|function": "performer",
+                                "|mode": "not specified",
+                                "|name": "Lara Markham",
+                                "|id": "198",
+                                "|id_namespace": "HOSPITAL-NS",
+                                "|id_scheme": "HOSPITAL-NS"
+                              }
+                            ],
+                            "лет": [
+                              4
+                            ],
+                            "регулярные": [
+                              {
+                                "|code": "at0.17",
+                                "|value": "нет",
+                                "|terminology": "local"
+                              }
+                            ],
+                            "месяцев": [
+                              {
+                                "подробности": [
+                                  {
+                                    "месяцев": [
+                                      1
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "language": [
+                              {
+                                "|code": "ru",
+                                "|terminology": "ISO_639-1"
+                              }
+                            ],
+                            "encoding": [
+                              {
+                                "|code": "UTF-8",
+                                "|terminology": "IANA_character-sets"
+                              }
+                            ]
+                          }
+                        ],
+                        "отсутствие_информации_по_описанию_менструаций": [
+                          {
+                            "_other_participation": [
+                              {
+                                "|function": "requester",
+                                "|mode": "face-to-face communication",
+                                "|name": "Dr. Marcus Johnson",
+                                "|id": "199",
+                                "|id_namespace": "HOSPITAL-NS",
+                                "|id_scheme": "HOSPITAL-NS"
+                              },
+                              {
+                                "|function": "performer",
+                                "|mode": "not specified",
+                                "|name": "Lara Markham",
+                                "|id": "198",
+                                "|id_namespace": "HOSPITAL-NS",
+                                "|id_scheme": "HOSPITAL-NS"
+                              }
+                            ],
+                            "заявление_об_отсутствии": [
+                              "нет данных"
+                            ],
+                            "language": [
+                              {
+                                "|code": "ru",
+                                "|terminology": "ISO_639-1"
+                              }
+                            ],
+                            "encoding": [
+                              {
+                                "|code": "UTF-8",
+                                "|terminology": "IANA_character-sets"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "отсутствие_информации_по_менструальной_функции": [
+                      {
+                        "_other_participation": [
+                          {
+                            "|function": "requester",
+                            "|mode": "face-to-face communication",
+                            "|name": "Dr. Marcus Johnson",
+                            "|id": "199",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          },
+                          {
+                            "|function": "performer",
+                            "|mode": "not specified",
+                            "|name": "Lara Markham",
+                            "|id": "198",
+                            "|id_namespace": "HOSPITAL-NS",
+                            "|id_scheme": "HOSPITAL-NS"
+                          }
+                        ],
+                        "заявление_об_отсутствии": [
+                          "нет данных"
+                        ],
+                        "language": [
+                          {
+                            "|code": "ru",
+                            "|terminology": "ISO_639-1"
+                          }
+                        ],
+                        "encoding": [
+                          {
+                            "|code": "UTF-8",
+                            "|terminology": "IANA_character-sets"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "состояние_здоровья_до_проведения_диспансеризации": [
+      {
+        "диагнозы": [
+          {
+            "диагноз": [
+              {
+                "диагноз": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "код_по_мкб_10": [
+                      {
+                        "|code": "T.51",
+                        "|value": "T.51 description",
+                        "|terminology": "external"
+                      }
+                    ],
+                    "развернутый_клинический_диагноз": [
+                      "Развернутый клинический диагноз 39"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "группы": [
+          {
+            "группы": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "группы": [
+                  {
+                    "медицинская_группа_для_занятий_физической_культурой": [
+                      {
+                        "|code": "at0005",
+                        "|value": "IV",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "группа_здоровья": [
+                      {
+                        "|code": "at0037",
+                        "|value": "II",
+                        "|terminology": "local"
+                      }
+                    ]
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_группе_здоровья": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_группе_для_занятий_физической_культурой": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "состояние_здоровья_по_результатам_проведения_диспансеризации": [
+      {
+        "диагнозы": [
+          {
+            "диагноз": [
+              {
+                "диагноз": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "код_по_мкб_10": [
+                      {
+                        "|code": "A18.3",
+                        "|value": "A18.3 - Туберкулез кишечника, брюшины и брыжеечных лимфатических узлов",
+                        "|terminology": "external"
+                      }
+                    ],
+                    "развернутый_клинический_диагноз": [
+                      "Развернутый клинический диагноз 31"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "диагноз_назначение_лечения_и_рекомендации": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "назначение_лечения_и_рекомендации": [
+                      {
+                        "назначение_лечения_и_рекомендации": [
+                          {
+                            "лечение_назначено": [
+                              {
+                                "|code": "at0029",
+                                "|value": "нет",
+                                "|terminology": "local"
+                              }
+                            ],
+                            "высокотехнологичная_медицинская_помощь_рекомендована": [
+                              {
+                                "|code": "at0031",
+                                "|value": "да",
+                                "|terminology": "local"
+                              }
+                            ]
+                          }
+                        ],
+                        "дополнительные_консультации_и_исследования_назначены": [
+                          {
+                            "|code": "at0043",
+                            "|value": "да",
+                            "|terminology": "local"
+                          }
+                        ],
+                        "медицинская_реабилитация_и_или_санаторно-курортное_лечение_назначены": [
+                          {
+                            "|code": "at0046",
+                            "|value": "да",
+                            "|terminology": "local"
+                          }
+                        ]
+                      }
+                    ],
+                    "диагноз_установлен_впервые": [
+                      {
+                        "диагноз_установлен_впервые": [
+                          true
+                        ]
+                      }
+                    ],
+                    "диспансерное_наблюдение": [
+                      {
+                        "диспансерное_наблюдение": [
+                          {
+                            "|code": "at0023",
+                            "|value": "не установлено",
+                            "|terminology": "local"
+                          }
+                        ]
+                      }
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_о_назначении_дополнительной_консультации_и_исследований": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_о_назначении_медицинской_реабилитация_и_или_санаторно-курортного_лечения": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_об_установлении_диагноза_впервые": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_о_диспансерном_наблюдении": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "диагноз": [
+              {
+                "диагноз": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "код_по_мкб_10": [
+                      {
+                        "|code": "A18.3",
+                        "|value": "A18.3 - Туберкулез кишечника, брюшины и брыжеечных лимфатических узлов",
+                        "|terminology": "external"
+                      }
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "диагноз_назначение_лечения_и_рекомендации": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "назначение_лечения_и_рекомендации": [
+                      {
+                        "назначение_лечения_и_рекомендации": [
+                          {
+                            "лечение_назначено": [
+                              {
+                                "|code": "at0028",
+                                "|value": "да",
+                                "|terminology": "local"
+                              }
+                            ],
+                            "высокотехнологичная_медицинская_помощь_рекомендована": [
+                              {
+                                "|code": "at0032",
+                                "|value": "нет",
+                                "|terminology": "local"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "диагноз": [
+              {
+                "диагноз": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "код_по_мкб_10": [
+                      {
+                        "|code": "A18.3",
+                        "|value": "A18.3 - Туберкулез кишечника, брюшины и брыжеечных лимфатических узлов",
+                        "|terminology": "external"
+                      }
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_о_назначении_лечения": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ],
+                "отсутствие_информации_о_назначении_высокотехнологичной_помощи": [
+                  {
+                    "_other_participation": [
+                      {
+                        "|function": "requester",
+                        "|mode": "face-to-face communication",
+                        "|name": "Dr. Marcus Johnson",
+                        "|id": "199",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      },
+                      {
+                        "|function": "performer",
+                        "|mode": "not specified",
+                        "|name": "Lara Markham",
+                        "|id": "198",
+                        "|id_namespace": "HOSPITAL-NS",
+                        "|id_scheme": "HOSPITAL-NS"
+                      }
+                    ],
+                    "заявление_об_отсутствии": [
+                      "нет данных"
+                    ],
+                    "language": [
+                      {
+                        "|code": "ru",
+                        "|terminology": "ISO_639-1"
+                      }
+                    ],
+                    "encoding": [
+                      {
+                        "|code": "UTF-8",
+                        "|terminology": "IANA_character-sets"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "инвалидность": [
+          {
+            "инвалидность": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "инвалидность": [
+                  {
+                    "причина_инвалидности": [
+                      {
+                        "заболевания_обусловившие_возникновение_инвалидности": [
+                          {
+                            "|code": "A.79",
+                            "|value": "A.79 description",
+                            "|terminology": "external"
+                          }
+                        ]
+                      }
+                    ],
+                    "наличие_инвалидности": [
+                      "да"
+                    ],
+                    "стойкие_расстройства_функций_организма": [
+                      {
+                        "виды_нарушений_в_состоянии_здоровья": [
+                          {
+                            "|code": "E.23",
+                            "|value": "E.23 description",
+                            "|terminology": "external"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_о_наличие_инвалидности": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_о_ввидах_нарушений_в_состоянии_здоровья": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_о_заболеваниях_обусловившие_возникновение_инвалидности": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "индивидуальная_программа_реабилитации_ребенка_инвалида": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "реабилитация": [
+                  {
+                    "индивидуальная_программа_реабилитации_ребенка_инвалида_выполнение_на_момент_диспансеризации": [
+                      "не выполнена"
+                    ]
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_об_индивидуальной_программе_реабилитации_ребенка_инвалида_выполнение_на_момент_диспансеризации": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "группы": [
+          {
+            "группы": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "группы": [
+                  {
+                    "медицинская_группа_для_занятий_физической_культурой": [
+                      {
+                        "|code": "at0047",
+                        "|value": "не допущен",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "группа_здоровья": [
+                      {
+                        "|code": "at0037",
+                        "|value": "II",
+                        "|terminology": "local"
+                      }
+                    ]
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_группе_здоровья": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_по_группе_для_занятий_физической_культурой": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "перечень_даты_и_результаты_проведения_исследований": [
+      {
+        "перечень_даты_и_результаты_проведения_исследований": [
+          {
+            "перечень_даты_и_результаты_проведения_исследований": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "перечень_даты_и_результаты_проведения_исследований": [
+                  {
+                    "наименование_исследования": [
+                      {
+                        "|code": "C.48",
+                        "|value": "C.48 description",
+                        "|terminology": "external"
+                      }
+                    ],
+                    "дата_исследования": [
+                      "2020-08-10T14:13:24.644+03:00"
+                    ]
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_о_дате_исследования": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "отсутствие_информации_о_перечне_датах_и_результатах_проведения_исследований": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "заявление_об_отсутствии": [
+              "нет данных"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "перечень_и_даты_проведения_осмотров_врачами-специалистами": [
+      {
+        "перечень_и_даты_проведения_осмотров_врачами-специалистами": [
+          {
+            "перечень_и_даты_проведения_осмотров_врачами-специалистами": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "перечень_и_даты_проведения_осмотров_врачами-специалистами": [
+                  {
+                    "перечень_и_даты_проведения_осмотров_врачами-специалистами": [
+                      {
+                        "наименование_осмотра": [
+                          {
+                            "|code": "D.8",
+                            "|value": "D.8 description",
+                            "|terminology": "external"
+                          }
+                        ],
+                        "дата_осмотра": [
+                          "2020-08-10T14:13:24.644+03:00"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ],
+            "отсутствие_информации_о_дате_осмотра": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "заявление_об_отсутствии": [
+                  "нет данных"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "отсутствие_информации_о_перечне_и_дате_проведения_осмотров_врачами-специалистами": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "заявление_об_отсутствии": [
+              "нет данных"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "дата_заключения": [
+      {
+        "_other_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "дата_заключения": [
+          {
+            "дата_заключения": [
+              "2020-08-10"
+            ]
+          }
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "комментарий": [
+      {
+        "_other_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "комментарий": [
+          {
+            "комментарий": [
+              "Комментарий 38"
+            ]
+          }
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "category": [
+      {
+        "|code": "433",
+        "|value": "event",
+        "|terminology": "openehr"
+      }
+    ],
+    "composer": [
+      {
+        "|id": "EHR Forms User ID",
+        "|id_scheme": "EHR Forms",
+        "|id_namespace": "EHR Forms",
+        "|name": "EHR Forms User"
+      }
+    ]
+  }
+}

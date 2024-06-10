@@ -1,0 +1,99 @@
+import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def sendMessageToKafka(String topicName, String textMessage){
+
+	Properties props = new Properties()
+	props.put('zk.connect', '10.2.172.24:2181')
+	props.put('bootstrap.servers', bootstrapServers)
+	props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+	props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+	 	
+	def producer = new KafkaProducer(props)
+	
+	def messageSender = { String topic, String message ->
+	    log.info( "messageSender: "+topic+"; "+message )
+	    def key =  UUID.randomUUID().toString()
+	    def Date date = new Date(); 
+	   def  long  timestamp= date.getTime()
+	   def int partition =0
+	    String compoundMessage = "$message"
+	    producer.send(
+	            new ProducerRecord<String, String>(topic, partition, timestamp,  key, compoundMessage),
+	            { RecordMetadata metadata, Exception e ->
+	                log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+	            } as Callback
+	    )
+	}
+
+	String msg =textMessage.toString()
+	 def topic1= testRunner.testCase.testSuite.project.getPropertyValue(topicName)
+	//log.info(topic1+" "+messageCreateMf)
+	 messageSender(topic1, msg)
+	 
+	 producer.close() 
+}
+
+def id=testRunner.testCase.getPropertyValue("eId1").toInteger()
+def moId=testRunner.testCase.getPropertyValue("moId")
+def mfId=testRunner.testCase.getPropertyValue("mfId1")
+def locId=testRunner.testCase.getPropertyValue("mfId1")
+def archived=testRunner.testCase.getPropertyValue("archived")
+def equipmentModel=testRunner.testCase.getPropertyValue("em")
+def equipmentId=testRunner.testCase.getPropertyValue("equipmentId")
+def equipmentTypeId=testRunner.testCase.getPropertyValue("equipmentTypeId")
+def equipmentProfileId=testRunner.testCase.getPropertyValue("epId1")
+
+def depId=testRunner.testCase.getPropertyValue("depId")
+def depNomTitle=testRunner.testCase.getPropertyValue("depTitle")
+def depNomId=testRunner.testCase.getPropertyValue("dnId1")
+archived =testRunner.testCase.getPropertyValue("archived").toBoolean()
+def personalizedService=testRunner.testCase.getPropertyValue("personalizedService")
+def capacity=testRunner.testCase.getPropertyValue("capacity")
+def tId1=testRunner.testCase.getPropertyValue("tId1")
+def tId2=testRunner.testCase.getPropertyValue("tId2")
+tableRes =testRunner.testCase.testSuite.project.getPropertyValue("tableRes")
+tableE =testRunner.testCase.testSuite.project.getPropertyValue("tableE")
+log.info(tableE+id)
+
+def countResources = testRunner.testCase.getPropertyValue("countResources").toInteger()
+
+for(int i=1; i<=countResources; i++){
+	sendMessageToKafka("topicLocationEquipment.rir2","""<ns4:locationEquipment archived=\""""+archived+"""\" id=\""""+id+"""\" xmlns="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns4:equipmentId>"""+equipmentId+"""</ns4:equipmentId><ns4:equipmentTypeNsiId>"""+equipmentTypeId+"""</ns4:equipmentTypeNsiId><ns4:equipmentProfileId>"""+equipmentProfileId+"""</ns4:equipmentProfileId><ns4:equipmentModel>"""+equipmentModel+"""</ns4:equipmentModel><ns5:medicalOrganizationId>"""+moId+"""</ns5:medicalOrganizationId><ns5:medicalFacilityId>"""+mfId+"""</ns5:medicalFacilityId><ns4:department id=\""""+depId+"""\"><ns5:title>"""+depNomTitle+"""</ns5:title><ns5:nomId>"""+depNomId+"""</ns5:nomId></ns4:department><ns4:locationId>"""+locId+"""</ns4:locationId><ns4:personalizedService>"""+personalizedService+"""</ns4:personalizedService><ns4:capacityForRoom>"""+capacity+"""</ns4:capacityForRoom><ns4:treatments><ns4:treatment><ns4:id>"""+tId1+"""</ns4:id><ns4:useByDefault>true</ns4:useByDefault></ns4:treatment><ns4:treatment><ns4:id>"""+tId2+"""</ns4:id><ns4:useByDefault>false</ns4:useByDefault></ns4:treatment></ns4:treatments></ns4:locationEquipment>""")
+	for (int q = 0; q<=10;q++) {
+		def getLastItem = "SELECT * FROM "+tableE+"  WHERE ID="+id
+		log.info(getLastItem)
+		def lastItem= sql.rows(getLastItem)
+	
+		if ( lastItem.size()== 0){
+				log.info("Оборудование пока не найдено. Подождем")
+				sleep(5000)
+		}
+		else if (q==10){
+			testRunner.fail("Запись в таблице "+tableE+" не найдена")
+		}
+		else {
+			log.info("Оборудование найдено.")
+			testRunner.testCase.setPropertyValue("eId"+i, id.toString())
+			testRunner.testCase.setPropertyValue("eIdCreatedByTest"+i, "1")
+			break;
+		}
+	}
+	id=id+1
+}

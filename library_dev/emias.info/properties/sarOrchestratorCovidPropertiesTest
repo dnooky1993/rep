@@ -1,0 +1,6 @@
+saOrchestratorCovidEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/covidselfapp/CovidSelfAppointment/v1S/ProxyService
+saOrchestratorCovidDbConnection=
+saOrchestratorCovidDbLogin=
+saOrchestratorCovidDbPassword=
+saOrchestratorCovidFullDbConnection=
+saOrchestratorCovidDBDriver=

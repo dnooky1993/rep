@@ -1,0 +1,30 @@
+import java.time.*
+import java.time.format.*;
+import java.time.temporal.*;
+import  java.util.date.*
+import groovy.sql.Sql
+import java.sql.Timestamp
+import java.time.LocalDate
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def ruleId= testRunner.testCase.getPropertyValue("sarTRruleId")
+log.info ("ID правила р асписания ресурса: " + ruleId)
+def mfId= testRunner.testCase.getPropertyValue("mfId1").toInteger()
+
+getJournal = ("SELECT * FROM JOURNAL WHERE ENTITY_ID="+ruleId+" AND EVENT_DATE_TIME>=TO_DATE(SYSDATE) AND CODE = 'CREATE_RULE' AND MU_ID="+mfId)
+if ( sql(getJournal)== 0){
+		testRunner.fail("Запись в таблице JOURNAL не найдена")
+}
+else {
+log.info(getJournal)
+log.info("Запись в таблице JOURNAL найдена")
+}

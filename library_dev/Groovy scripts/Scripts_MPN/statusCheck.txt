@@ -1,0 +1,40 @@
+import groovy.sql.Sql
+import static org.junit.Assert.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
+
+//sleep (60000)
+
+username = testRunner.testCase.testSuite.getPropertyValue("dbUser")
+password = testRunner.testCase.testSuite.getPropertyValue("dbPass")
+dbhost = testRunner.testCase.testSuite.getPropertyValue("dbHost")
+dbname = testRunner.testCase.testSuite.getPropertyValue("dbName")
+templateId = testRunner.testCase.getPropertyValue("templateId")
+
+sql = Sql.newInstance("jdbc:postgresql:"+"//"+dbhost+"/"+dbname+"?user="+username+"&password="+password, username, password, "org.postgresql.Driver")
+
+String sqlQuery = "select * from f_template_pack where id = " + templateId
+log.info sqlQuery
+
+int i = 0
+boolean published = false
+
+while (published == false && i < 40) {
+row = sql.firstRow( sqlQuery)
+if (row.status.equals("PUBLISHED")) {
+  published = true
+  log.info("published")
+  }
+else {
+  sleep(30000)
+  log.info("not published")
+  i++
+  }
+}
+
+if (published == false) {
+	fail("template has not been published")
+	}
+
+sql.close()

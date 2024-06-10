@@ -1,0 +1,1325 @@
+{
+  "протокол_осмотра_тмц_covid-19": {
+    "_uid": [
+      "1049abe6-2531-487a-bfee-7d6cab1e0cc2::default::2"
+    ],
+    "language": [
+      {
+        "|code": "ru",
+        "|terminology": "ISO_639-1"
+      }
+    ],
+    "territory": [
+      {
+        "|code": "US",
+        "|terminology": "ISO_3166-1"
+      }
+    ],
+    "context": [
+      {
+        "_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "_health_care_facility": [
+          {
+            "|id": "9091",
+            "|id_scheme": "HOSPITAL-NS",
+            "|id_namespace": "HOSPITAL-NS",
+            "|name": "Hospital"
+          }
+        ],
+        "подробности_контекста": [
+          {
+            "ид_события": [
+              {
+                "|id": "94fc202b-2422-4729-9568-96ac7811e06c",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_документа": [
+              {
+                "|id": "952d2a04-8aae-494c-acf4-36890d5f1439",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_пациента": [
+              {
+                "|id": "1439",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "автор_информации": [
+              {
+                "идентификатор_исполнения_должности_медработника": [
+                  {
+                    "|id": "c9e8f391-fd83-4400-9605-c788d6f370ac",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "наименование_должности": [
+                  "Наименование должности 25"
+                ],
+                "наименование_структурного_подразделения": [
+                  "Наименование структурного подразделения 53"
+                ],
+                "наименование_филиала": [
+                  "Наименование филиала 41"
+                ],
+                "наименование_юридического_лица": [
+                  "Наименование юридического лица 17"
+                ]
+              }
+            ],
+            "структура_медицинской_организации": [
+              {
+                "ид_объекта": [
+                  {
+                    "|id": "3877962b-d3b0-457b-a3f5-70a2e44f5fe5",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "тип_объекта": [
+                  {
+                    "|code": "at0021",
+                    "|value": "структурное подразделение",
+                    "|terminology": "local"
+                  }
+                ],
+                "наименование": [
+                  "Наименование 40"
+                ],
+                "родительский_ид": [
+                  {
+                    "|id": "47bccc5e-ef7a-4207-a3ef-eba88e4d0070",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ]
+              }
+            ],
+            "адрес_медицинской_организации": [
+              {
+                "субъект_рф": [
+                  "Субъект РФ 27"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 47"
+                ],
+                "поселение": [
+                  "Поселение 48"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 30"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 40"
+                ],
+                "улица": [
+                  "Улица 98"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 46"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 98"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 66"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 47"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 19"
+                ]
+              }
+            ],
+            "информация_о_месте_cобытия": [
+              {
+                "событие_произошло": [
+                  {
+                    "|code": "at0070",
+                    "|value": "в медицинской организации",
+                    "|terminology": "local"
+                  }
+                ],
+                "субъект_рф": [
+                  "Субъект РФ 22"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 74"
+                ],
+                "поселение": [
+                  "Поселение 25"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 36"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 61"
+                ],
+                "улица": [
+                  "Улица 84"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 58"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 94"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 35"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 6"
+                ],
+                "номер_помещения": [
+                  "Номер помещения 74"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 36"
+                ]
+              }
+            ],
+            "дополнительная_информация": [
+              {
+                "профиль_медицинской_помощи": [
+                  {
+                    "|code": "at0089",
+                    "|value": "Эндокринология",
+                    "|terminology": "local"
+                  }
+                ],
+                "виды_медицинской_помощи": [
+                  {
+                    "|code": "at0051",
+                    "|value": "специализированная",
+                    "|terminology": "local"
+                  }
+                ],
+                "условия_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0055",
+                    "|value": "амбулаторно",
+                    "|terminology": "local"
+                  }
+                ],
+                "форма_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0059",
+                    "|value": "неотложная",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "start_time": [
+          "2020-06-17T14:57:36.371+03:00"
+        ],
+        "setting": [
+          {
+            "|code": "238",
+            "|value": "other care",
+            "|terminology": "openehr"
+          }
+        ]
+      }
+    ],
+    "жалобы": [
+      {
+        "_other_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "жалобы": [
+          {
+            "жалобы_предъявляет": [
+              {
+                "|code": "at0002",
+                "|value": "не предъявляет",
+                "|terminology": "local"
+              }
+            ],
+            "комментарий": [
+              "Комментарий 43"
+            ],
+            "повышенная_температура_тела": [
+              {
+                "название_симптома_признака": [
+                  "повышенная температура тела"
+                ],
+                "повышенная_температура_тела": [
+                  "Повышенная температура тела 50"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.2",
+                    "|value": "присутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "кашель": [
+              {
+                "название_симптома_признака": [
+                  "кашель"
+                ],
+                "кашель": [
+                  "с мокротой"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.3",
+                    "|value": "отсутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "насморк": [
+              {
+                "название_симптома_признака": [
+                  "насморк"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.3",
+                    "|value": "отсутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "одышка_затруднённое_дыхание": [
+              {
+                "название_симптома_признака": [
+                  "одышка, затруднённое дыхание"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.2",
+                    "|value": "присутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "ощущение_заложенности_в_груди": [
+              {
+                "название_симптома_признака": [
+                  "ощущение заложенности в груди"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.2",
+                    "|value": "присутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "нарушение_стула": [
+              {
+                "название_симптома_признака": [
+                  "нарушение стула"
+                ],
+                "описание": [
+                  "Описание 28"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.3",
+                    "|value": "отсутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "нарушение_обоняния": [
+              {
+                "название_симптома_признака": [
+                  "нарушение обоняния"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.2",
+                    "|value": "присутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "боль_в_горле": [
+              {
+                "название_симптома_признака": [
+                  "боль в горле"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.2",
+                    "|value": "присутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "головная_боль": [
+              {
+                "название_симптома_признака": [
+                  "головная боль"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.2",
+                    "|value": "присутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "миалгия": [
+              {
+                "название_симптома_признака": [
+                  "миалгия"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0.3",
+                    "|value": "отсутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "time": [
+          "2020-06-17T14:57:36.371+03:00"
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "анамнез_заболевания": [
+      {
+        "анамнез_заболевания": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "анамнез_заболевания": [
+              {
+                "считает_себя_больным_с": [
+                  "2020-06-16T18:10:44.143+03:00"
+                ],
+                "начало": [
+                  {
+                    "|code": "at0011",
+                    "|value": "острое",
+                    "|terminology": "local"
+                  }
+                ],
+                "комментарий": [
+                  "Комментарий 9"
+                ],
+                "выезд_смп_или_врача_на_дом": [
+                  "выезд СМП"
+                ],
+                "осмотр_в_кт_центре": [
+                  {
+                    "|code": "at0.13",
+                    "|value": "да",
+                    "|terminology": "local"
+                  }
+                ],
+                "стационар": [
+                  {
+                    "находился_на_лечении_в_стационаре": [
+                      {
+                        "|code": "at0.5",
+                        "|value": "нет",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "в_каком_стационаре": [
+                      {
+                        "в_каком_стационаре": [
+                          "В каком стационаре? 10"
+                        ]
+                      }
+                    ],
+                    "с": [
+                      "2020-06-16"
+                    ],
+                    "по": [
+                      "2020-06-16"
+                    ]
+                  }
+                ],
+                "административная_информация": [
+                  {
+                    "наличие_подписанного_согласия": [
+                      {
+                        "|code": "at0.16",
+                        "|value": "да",
+                        "|terminology": "local"
+                      }
+                    ]
+                  }
+                ],
+                "прием_медикаментов": [
+                  {
+                    "принимает_противовирусную_терапию": [
+                      "другая"
+                    ],
+                    "схема_противовирусной_терапии": [
+                      "Схема противовирусной терапии 35"
+                    ],
+                    "причина": [
+                      "Причина 56"
+                    ],
+                    "принимает_препараты_по_сопутствующим_заболеваниям": [
+                      {
+                        "|code": "at0.25",
+                        "|value": "нет",
+                        "|terminology": "local"
+                      }
+                    ],
+                    "какие_препараты_по_каким_заболеваниям": [
+                      "Какие препараты, по каким заболеваниям? 29"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "time": [
+              "2020-06-17T14:57:36.371+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "диагноз_по_которому_проходил_лечение_в_стационаре": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "код_по_мкб_10": [
+              {
+                "|code": "N.86",
+                "|value": "N.86 description",
+                "|terminology": "external"
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "наличие_контактов_за_последние_14_дней_с_лицами_у_которых_лабораторно_подтверждён_диагноз_covid-19": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "факторы_риска": [
+              {
+                "фактор_риска": [
+                  "наличие контактов с лицами, у которых подтверждён диагноз COVID-19"
+                ],
+                "наличие": [
+                  {
+                    "|code": "at0019",
+                    "|value": "Отсутствует",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "общий_осмотр": [
+      {
+        "общее_состояние": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "описание": [
+              "Описание 79"
+            ],
+            "осмотр": [
+              {
+                "исследуемая_структура_или_система": [
+                  "Исследуемая структура или система 30"
+                ],
+                "общее_состояние": [
+                  {
+                    "общее_состояние": [
+                      {
+                        "|code": "at0003",
+                        "|value": "средней тяжести",
+                        "|terminology": "local"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "time": [
+              "2020-06-17T14:57:36.371+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "комментарий": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "комментарий": [
+              "Комментарий 81"
+            ],
+            "time": [
+              "2020-06-17T14:57:36.371+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "одышка": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "описание": [
+              "Описание 7"
+            ],
+            "осмотр": [
+              {
+                "исследуемая_структура_или_система": [
+                  "Исследуемая структура или система 10"
+                ],
+                "одышка": [
+                  {
+                    "тест_на_одышку": [
+                      "отрицательный"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "time": [
+              "2020-06-17T14:57:36.371+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "побочные_эффекты_при_приеме_противовирусной_терапии": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "препараты": [
+              "препараты противовирусной терапии"
+            ],
+            "побочные_эффекты": [
+              {
+                "побочные_эффекты_при_приеме_противовирусной_терапии": [
+                  "нет"
+                ],
+                "побочные_эффекты": [
+                  "тошнота"
+                ],
+                "головная_боль": [
+                  {
+                    "название_симптома_признака": [
+                      "головная боль"
+                    ],
+                    "локализация_головной_боли": [
+                      "теменная"
+                    ],
+                    "периодичность_головной_боли": [
+                      "постоянная"
+                    ],
+                    "интенсивность_головной_боли_по_ваш": [
+                      {
+                        "интенсивность": [
+                          {
+                            "интенсивность_головной_боли_по_ваш": [
+                              1
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "диарея": [
+                  {
+                    "название_симптома_признака": [
+                      "диарея"
+                    ],
+                    "диарея": [
+                      "более 3 раз в сутки"
+                    ]
+                  }
+                ],
+                "боль_в_животе": [
+                  {
+                    "название_симптома_признака": [
+                      "боль в животе"
+                    ],
+                    "боль_в_животе": [
+                      "постоянная"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "температура_тела": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "температура": [
+              {
+                "|magnitude": 37.2,
+                "|unit": "Cel"
+              }
+            ],
+            "time": [
+              "2020-06-17T14:57:36.371+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "диагноз": [
+      {
+        "основной_диагноз": [
+          {
+            "основной_диагноз": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "код_по_мкб_10": [
+                  {
+                    "|code": "E.75",
+                    "|value": "E.75 description",
+                    "|terminology": "external"
+                  }
+                ],
+                "тип_диагноза": [
+                  "не подтверждённый"
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "динамика_состояния": [
+      {
+        "степень_тяжести_covid-19": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "степень_тяжести_пациента_по_covid-19": [
+              {
+                "степень_тяжести_пациента_по_covid-19": [
+                  "без симптомов"
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "динамика_заболевания": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "динамика_заболевания": [
+              {
+                "динамика_заболевания": [
+                  "улучшение"
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "действия_в_связи_с_ухудшением_состояния": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "действия_в_связи_с_ухудшением_состояния": [
+              "актив в поликлинику"
+            ],
+            "куда_передана_информация": [
+              {
+                "куда_передана_информация": [
+                  "Куда передана информация? 8"
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ],
+        "госпитализация": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "куда_госпитализирован": [
+              "Куда госпитализирован 40"
+            ],
+            "номер_наряда": [
+              "Номер наряда 4"
+            ],
+            "time": [
+              "2020-06-17T14:57:36.371+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "рекомендации": [
+      {
+        "_other_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "рекомендации": [
+          "Рекомендации 39"
+        ],
+        "language": [
+          {
+            "|code": "ru",
+            "|terminology": "ISO_639-1"
+          }
+        ],
+        "encoding": [
+          {
+            "|code": "UTF-8",
+            "|terminology": "IANA_character-sets"
+          }
+        ]
+      }
+    ],
+    "сведения_о_выполнении_назначения": [
+      {
+        "выполнение": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "ism_transition": [
+              {
+                "current_state": [
+                  {
+                    "|code": "530",
+                    "|value": "suspended",
+                    "|terminology": "openehr"
+                  }
+                ]
+              }
+            ],
+            "специализация": [
+              {
+                "|code": "N.3",
+                "|value": "N.3 description",
+                "|terminology": "external"
+              }
+            ],
+            "обоснование": [
+              "Обоснование 19"
+            ],
+            "причина_отмены": [
+              "Причина отмены 29"
+            ],
+            "ид_запроса_у_инциатора": [
+              {
+                "|id": "baf3586c-8797-4777-b96e-756da6fe1898",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_запроса_у_исполнителя": [
+              {
+                "|id": "5ca759a0-2b53-4a35-a7b0-d140ed30f0ed",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "time": [
+              "2020-06-16T18:10:44.143+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "category": [
+      {
+        "|code": "433",
+        "|value": "event",
+        "|terminology": "openehr"
+      }
+    ],
+    "composer": [
+      {
+        "|name": "Silvia Blake"
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "@type":"PatientChildHealthGroupChanged",
+  "uid": "123e4567-e89b-12d3-a456-4266141744220130951",
+  "patientId": "1236",
+  "code": "II",
+  "changedAt": "2021-04-15"
+}

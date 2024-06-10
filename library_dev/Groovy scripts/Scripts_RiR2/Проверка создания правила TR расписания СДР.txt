@@ -1,0 +1,115 @@
+import java.time.*
+import java.time.format.*;
+import java.time.temporal.*;
+import  java.util.date.*
+import groovy.sql.Sql
+import java.sql.Timestamp
+import java.time.LocalDate
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def sarScheduleId= testRunner.testCase.getPropertyValue("sarScheduleId1")
+log.info ("ID Расписания СДР : " + sarScheduleId)
+def sarSchruleTypeId= testRunner.testCase.getPropertyValue("sarSchruleTRTypeId1").toInteger()
+def mfId= testRunner.testCase.getPropertyValue("mfId1").toInteger()
+def schedulePeriodStart= testRunner.testCase.getPropertyValue("schedulePeriodStart1")
+def schedulePeriodEnd= testRunner.testCase.getPropertyValue("schedulePeriodEnd1")
+def agId= testRunner.testCase.getPropertyValue("agId1").toInteger()
+def tId= testRunner.testCase.getPropertyValue("tId2").toInteger()
+def startTime= testRunner.testCase.getPropertyValue("startTimeTR")
+def endTime= testRunner.testCase.getPropertyValue("endTimeTR")
+//Проверка наличия правила
+getWTsarRules = ("SELECT * FROM SAR_SCHRULE WHERE RESOURCE_SCHEDULE_ID="+sarScheduleId+" AND SAR_SCHRULE_TYPE_ID="+sarSchruleTypeId)
+//log.info(getResources)
+WTsarRules= sql.rows(getWTsarRules)
+countWTsarRules= sql(getWTsarRules)
+if ( countWTsarRules== 0){
+		testRunner.fail("Запись в таблице SAR_SCHRULE не найдена")
+}
+sarRuleId=WTsarRules[0].ID.toString()
+//log.info("sarRuleId "+sarRuleId)
+//Проверка наличия возрастной группы правила
+/*
+getSarRulesAgeGroupe = ("SELECT * FROM SAR_SCHRULE_AGE_GROUP WHERE SAR_SCHRULE_ID="+sarRuleId)
+sarRulesAgeGroupe= sql.rows(getSarRulesAgeGroupe)
+countSarRulesAgeGroupe= sql(getSarRulesAgeGroupe)
+if ( countSarRulesAgeGroupe== 0){
+		testRunner.fail("Запись в таблице SAR_SCHRULE_AGE_GROUP не найдена")
+}
+*/
+//Проверка наличия шаблона дат правила
+getSarRulesDates = ("SELECT * FROM SAR_SCHRULE_DATES WHERE SAR_SCHRULE_ID="+sarRuleId)
+sarRulesDates= sql.rows(getSarRulesDates)
+countSarRulesDates= sql(getSarRulesDates)
+if ( countSarRulesDates== 0){
+		testRunner.fail("Запись в таблице SAR_SCHRULE_DATES не найдена")
+}
+//log.info(sarRulesDates)
+//Проверка наличия временного интервала правила
+getSarRulesTime = ("SELECT * FROM SAR_SCHRULE_TIME_INTERVALS WHERE SAR_SCHRULE_ID="+sarRuleId)
+sarRulesTime= sql.rows(getSarRulesTime)
+countSarRulesTime= sql(getSarRulesTime)
+if ( countSarRulesTime== 0){
+		testRunner.fail("Запись в таблице SAR_SCHRULE_TIME_INTERVALS не найдена")
+}
+
+//Проверка наличия временного интервала правила
+getSarRulesTreatment = ("SELECT * FROM SAR_SCHRULE_TREATMENT WHERE SAR_SCHRULE_ID="+sarRuleId)
+sarRulesTreatment= sql.rows(getSarRulesTreatment)
+countSarRulesTreatment= sql(getSarRulesTreatment)
+if ( countSarRulesTreatment== 0){
+		testRunner.fail("Запись в таблице SAR_SCHRULE_TREATMENT не найдена")
+}
+def ruleStart =  WTsarRules[0].START_DATE.toString()
+def ruleEnd = WTsarRules[0].END_DATE.toString()
+def timeStart =  sarRulesTime[0].START_TIME.toString()
+def timeEnd = sarRulesTime[0].END_TIME.toString()
+//log.info(ruleStart)
+//log.info(ruleEnd)
+//log.info(timeStart.replace(".0","").replace("1970-01-01 ",""))
+//log.info(timeEnd.replace(".0","").replace("1970-01-01 ",""))
+
+
+assert ruleStart.replace(" 00:00:00.0","") == schedulePeriodStart
+assert ruleEnd.replace(" 00:00:00.0","") == schedulePeriodEnd
+assert timeStart.replace(".0","").replace("1970-01-01 ","") == startTime
+assert timeEnd.replace(".0","").replace("1970-01-01 ","") == endTime
+assert WTsarRules[0].VERSION == 0
+assert WTsarRules[0].LOCATION_ID == null
+//assert sarRulesAgeGroupe[0].AGE_GROUP_ID == agId
+//log.info(sarRulesDates[0].TEMPLATE_TYPE_ID.getClass())
+assert sarRulesDates[0].TEMPLATE_TYPE_ID == 1
+assert sarRulesDates[0].EVEN_DAYS == null
+assert sarRulesDates[0].MONDAY == "1"
+assert sarRulesDates[0].TUESDAY == "1"
+assert sarRulesDates[0].WEDNESDAY == "1"
+assert sarRulesDates[0].THURSDAY == "1"
+assert sarRulesDates[0].FRIDAY == "1"
+assert sarRulesDates[0].SATURDAY == "0"
+assert sarRulesDates[0].SUNDAY == "0"
+assert sarRulesDates[0].FIRST_WEEK == null
+assert sarRulesDates[0].SECOND_WEEK == null
+assert sarRulesDates[0].THIRD_WEEK == null
+assert sarRulesDates[0].FORTH_WEEK == null
+assert sarRulesDates[0].FIFTH_WEEK == null
+assert sarRulesDates[0].DAYS_OF_MONTH == null
+assert sarRulesDates[0].IS_EXCLUDED_DATES_DEFINED == "0"
+assert sarRulesDates[0].EXCEPT_HOLIDAYS == null
+assert sarRulesDates[0].EXCEPT_MONDAY == null
+assert sarRulesDates[0].EXCEPT_TUESDAY == null
+assert sarRulesDates[0].EXCEPT_WEDNESDAY == null
+assert sarRulesDates[0].EXCEPT_THURSDAY == null
+assert sarRulesDates[0].EXCEPT_FRIDAY == null
+assert sarRulesDates[0].EXCEPT_SATURDAY == null
+assert sarRulesDates[0].EXCEPT_SUNDAY == null 
+assert sarRulesTreatment[0].TREATMENT_ID == tId
+
+testRunner.testCase.setPropertyValue("sarTRruleId", sarRuleId)

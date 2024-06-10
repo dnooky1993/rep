@@ -1,0 +1,6 @@
+{
+  "@type":"PatientBirthDateChanged",
+  "patientId": "1320",
+  "birthDate": "2020-10-04",
+  "changedBirthDate": "2020-08-04T10:21:54"
+}

@@ -1,0 +1,37 @@
+import groovy.sql.Sql
+import groovy.test.GroovyAssert
+
+if (context.dbConnect != null) {      
+sql = context.dbConnect;
+
+
+
+    def medicalOrganizationId= testRunner.testCase.getPropertyValue("medicalOrganizationId")
+    def medicalOrganizationId2= testRunner.testCase.getPropertyValue("medicalOrganizationId2")   
+    def treatmentId= testRunner.testCase.getPropertyValue("treatmentId")
+    def treatmentCategoryCode= testRunner.testCase.getPropertyValue("treatmentCategoryCode")
+    def treatmentTitle= testRunner.testCase.getPropertyValue("treatmentTitle")
+    def treatmentCode= testRunner.testCase.getPropertyValue("treatmentCode")
+    
+    def receiveTreatmentId_resp= testRunner.testCase.getPropertyValue("receiveTreatmentId_resp")
+    def receiveTreatmentCode_resp= testRunner.testCase.getPropertyValue("receiveTreatmentCode_resp")
+    def receiveTreatmentTitle_resp= testRunner.testCase.getPropertyValue("receiveTreatmentTitle_resp")
+    def receiveTreatmentCatCode_resp= testRunner.testCase.getPropertyValue("receiveTreatmentCatCode_resp")
+    def directMOId_resp= testRunner.testCase.getPropertyValue("directMOId_resp")
+    def receiveMOId_resp= testRunner.testCase.getPropertyValue("receiveMOId_resp")    
+    def ownerMOId_resp= testRunner.testCase.getPropertyValue("ownerMOId_resp")
+    def docId_resp= testRunner.testCase.getPropertyValue("docId_resp")
+        
+   // Проверяю данные из запроса и ответа
+
+   assert  medicalOrganizationId ==ownerMOId_resp
+   assert  treatmentId ==receiveTreatmentId_resp
+   assert  treatmentTitle ==receiveTreatmentTitle_resp
+   assert  treatmentCode ==receiveTreatmentCode_resp
+   assert  treatmentCategoryCode ==receiveTreatmentCatCode_resp
+   assert  medicalOrganizationId ==directMOId_resp
+   assert  medicalOrganizationId2 ==receiveMOId_resp
+   
+} else {
+	log.error("Соединение с бд не установлено!");
+}

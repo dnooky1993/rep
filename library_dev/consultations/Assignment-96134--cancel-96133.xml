@@ -1,0 +1,1943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="3386fdf9-dc7f-4ae4-b1fd-ce20fdca6820" name="Assignment 96134 + cancel 96133" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:testCase id="124f5b3e-1d5f-48ea-aabe-6d1cade0e59a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAssignment_96134" searchProperties="true"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="request" name="CreateDocumentAssignment" id="ad7d0791-7b71-42ea-90a7-7f11eb6dabd3"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>simiServiceBinding</con:interface><con:operation>createDocument</con:operation><con:request name="CreateDocumentAssignment" id="01c2d400-146e-4a40-8553-a87a6e402f7c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#Simi5WSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/simi/simiService/v5/types/" xmlns:v5="http://emias.mos.ru/simi/cct/v5/" xmlns:v51="http://emias.mos.ru/simi/core/v5/">
+     <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+             <wsse:Username>${#TestSuite#systemName}/${#TestSuite#login}</wsse:Username>             
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>${#TestSuite#systemName}</user:systemName>
+         <user:userName>${#TestSuite#login}</user:userName>
+         <user:userRoleId>${#TestSuite#userRoleId}</user:userRoleId>
+                <user:userRights>
+            <!--Zero or more repetitions:-->
+            <user:userRightId>400001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>${#TestSuite#contractId}</user:jobExecutionId>
+             </user:userContext>
+   </soap:Header>
+   <soap:Body>
+      <typ:createDocumentRequest>
+         <v5:cctCode>96134</v5:cctCode>
+         <v51:patientId>${#TestSuite#patientId}</v51:patientId>
+         <v51:careEventId>${=(int)(Math.random()*(100000))}</v51:careEventId>
+         <v51:careEventStarted>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}</v51:careEventStarted>
+            </typ:createDocumentRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ef4020fc-9ddf-4afa-9bb2-27e4f26ee19d"/><con:assertion type="SOAP Fault Assertion" id="7f285a73-eb54-4397-9e86-eb8fae0c4552" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="SetAssignmentId" id="a24cac76-cc1d-4367-8ce9-7f6283f237a5"><con:settings/><con:config><script> UUID uuid = UUID.randomUUID()
+ 
+ def assignmentId = "ConsultationAssignment" + uuid
+ def assignmentStartDate = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())
+ def c = Calendar.getInstance(); 
+        c.setTime(new java.util.Date()); 
+        c.add(Calendar.DATE, 7);
+ def assignmentEndDate = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(c.getTime());
+ 
+ testRunner.testCase.setPropertyValue("assignmentId",assignmentId)
+ testRunner.testCase.setPropertyValue("assignmentStartDate",assignmentStartDate)
+ testRunner.testCase.setPropertyValue("assignmentEndDate",assignmentEndDate)
+ 
+ log.info (assignmentId)
+ log.info (assignmentStartDate)
+ log.info (assignmentEndDate)</script></con:config></con:testStep><con:testStep type="request" name="ConvertAssignmentContentDraft" id="7af8af03-9b96-4dd6-ba18-3729adc22f41"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OpenEhrServiceV4PortBinding</con:interface><con:operation>convertJsonToBase64Tdd</con:operation><con:request name="ConvertAssignmentContentDraft" id="3c759f02-5806-41f2-9517-ee700cf1fa27"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#OpenEhrWSDL}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias.mos.ru/simi/v4/openEhrService/types">\r
+   <soapenv:Header>\r
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">\r
+            <wsse:Username>KPI_DOCTOR_X/${#TestSuite#login}</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">KPI_DOCTOR/ESilenkova</wsse:Password>\r
+         </wsse:UsernameToken>\r
+      </wsse:Security>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <typ:convertJsonToBase64Tdd>\r
+         <typ:templateId>openEHR-EHR-COMPOSITION.t_consultation_order.v3</typ:templateId>\r
+         <typ:structuredJson>{
+    "назначение_на_консультацию": {
+        "language":[{"|code":"ru"}],
+		"territory":[{"|code":"RU"}],
+		"composer":[{
+            "|id":"121397062",
+            "|name":"Кирсанова Галина Петровна",
+            "|id_namespace":"Парус",
+            "|id_scheme":"undefined"
+        }],
+		"context":[{
+            "_health_care_facility":[{
+                "|id":"1117746711180",
+                "|name":"ГБУЗ г. Москвы ГП №107 Департамента здравоохранения г. Москвы",
+                "|id_namespace":"Справочник медицинских организаций",
+                "|id_scheme":"undefined"
+            }],
+            "_participation":[{
+                "|function":"Врач",
+                "|id":"012",
+                "|name":"Тестовый Петр Сергеевич"
+            }],
+            "подробности_контекста":[{
+                "ид_события":[{
+                    "|id":"${CreateDocumentAssignment#Response#//*:careEventId}",
+                    "|issuer":"Issuer",
+                    "|assigner":"Assigner",
+                    "|type":"Prescription"
+                }],
+                "ид_документа":[{
+                    "|id":"${CreateDocumentAssignment#Response#//*:documentId}",
+                    "|issuer":"Issuer",
+                    "|assigner":"Assigner",
+                    "|type":"Prescription"
+                }],
+                "ид_пациента":[{
+                    "|id":"${#TestSuite#patientId}",
+                    "|issuer":"Issuer",
+                    "|assigner":"Assigner",
+                    "|type":"Prescription"
+                }],
+                "автор_информации":[{
+                    "идентификатор_исполнения_должности_медработника":[{
+                        "|id":"${#TestSuite#contractId}",
+                        "|issuer":"Issuer",
+                        "|assigner":"Assigner",
+                        "|type":"Prescription"
+                    }],
+                    "наименование_должности":["Наименование должности 68"],
+                    "наименование_структурного_подразделения":["Наименование структурного подразделения 28"],
+                    "наименование_филиала":["Наименование филиала 38"],
+                    "наименование_юридического_лица":["Наименование юридического лица 26"]
+                }],
+                "структура_медицинской_организации":[{
+                    "ид_объекта":[{
+                        "|id":"${#TestSuite#lpuId}",
+                        "|issuer":"Issuer",
+                        "|assigner":"Assigner",
+                        "|type":"Prescription"
+                    }],
+                    "тип_объекта":[{"|code":"at0019"}],
+                    "наименование":["Наименование 94"],
+                    "родительский_ид":[{
+                        "|id":"790c7a26-a200-4379-b75a-605c9f30f1fe",
+                        "|issuer":"Issuer",
+                        "|assigner":"Assigner",
+                        "|type":"Prescription"
+                    }]
+                }],
+                "адрес_медицинской_организации":[{
+                    "субъект_рф":["Субъект РФ 88"],
+                    "муниципальный_район_городской_округ":["Муниципальный район (городской округ) 66"],
+                    "поселение":["Поселение 76"],
+                    "населенный_пункт":["Населенный пункт 40"],
+                    "элемент_планировочной_структуры":["Элемент планировочной структуры 38"],
+                    "улица":["Улица 6"],
+                    "номер_здания_сооружения":[{
+                        "номер_дома":["Номер дома 60"],
+                        "номер_строения":["Номер строения 92"],
+                        "номер_корпуса":["Номер корпуса 93"]
+                    }],
+                    "номер_земельного_участка":["Номер земельного участка 28"],
+                    "дополнительная_информация":["Дополнительная информация 49"]
+                }],
+                "информация_о_месте_cобытия":[{
+                    "событие_произошло":[{"|code":"at0070"}],
+                    "субъект_рф":["Субъект РФ 51"],
+                    "муниципальный_район_городской_округ":["Муниципальный район (городской округ) 29"],
+                    "поселение":["Поселение 34"],
+                    "населенный_пункт":["Населенный пункт 48"],
+                    "элемент_планировочной_структуры":["Элемент планировочной структуры 96"],
+                    "улица":["Улица 26"],
+                    "номер_здания_сооружения":[{
+                        "номер_дома":["Номер дома 68"],
+                        "номер_строения":["Номер строения 30"],
+                        "номер_корпуса":["Номер корпуса 66"]
+                    }],
+                    "номер_земельного_участка":["Номер земельного участка 27"],
+                    "номер_помещения":["Номер помещения 99"],
+                    "дополнительная_информация":["Дополнительная информация 24"]
+                }],
+             "дополнительная_информация":[{
+                    "профиль_медицинской_помощи":[{"|code":"at0087"}],
+                    "виды_медицинской_помощи":[{"|code":"at0050"}],
+                    "условия_оказания_медицинской_помощи":[{"|code":"at0055"}],
+                    "форма_оказания_медицинской_помощи":[{"|code":"at0060"}]
+                }]
+            }]
+        }],
+    "сведения_о_назначении": [
+      {
+        "диагноз": [{
+                "код_по_мкб": [{"|code": "A04.2", "|value": "A04.2 - Энтерогеморрагическая инфекция, вызванная Escherichia coli"}],
+                "развернутый_клинический_диагноз": ["A04.2 - Энтерогеморрагическая инфекция, вызванная Escherichia coli"]
+            }],
+        "назначение": [
+          {
+            "_uid": ["${#TestCase#assignmentId}"],
+            "запрос": [{
+                    "специализация": [{"|code": "076", "|value": "Терапия"}],
+                    "обоснование": ["Обоснование 69"],
+                "признак_cito": [
+                  ""
+                ],
+                "дата_начала_действия": [
+                  "2022-11-23T12:56:50.913931+03:00"
+                ],
+                "дата_окончания_действия": [
+                  "2022-11-28T12:56:50.913966+03:00"
+                ],
+                "медицинская_манипуляция": [
+                  {
+                    "ид_медицинской_манипуляции": [
+                      {
+                        "|id": "146012955",
+                        "|issuer": "Issuer",
+                        "|assigner": "Assigner",
+                        "|type": "Prescription"
+                      }
+                    ],
+                    "код_и_наименование_медицинской_манипуляции": [
+                      {
+                        "|code": "1113",
+                        "|value": "Магнитно-резонансная артериография интракраниальных артерий; венография интракраниальных вен и синусов"
+                      }
+                    ]
+                  }
+                ],
+                "профиль_должности_врача": [
+                  {
+                    "профессиональные_подробности": [
+                      {
+                        "профиль_должности": [
+                          {
+                            "|code": "76",
+                            "|value": "Терапия"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "информация_о_пациенте": [
+                  {
+                    "код_льготы": [
+                      "902"
+                    ]
+                  }
+                ],
+                "timing": [
+                  {
+                    "|value": "R5/2022-11-23T12:00:00+03:00/P2M"
+                  }
+                ]
+              }
+            ],
+            "expiry_time": [
+              "2022-11-23T12:56:50.914048+03:00"
+            ],
+            "narrative": [
+              "Human readable instruction narrative"
+            ]
+          }
+        ],
+        "направление_для_cito-пациента": [
+          {
+            "ресурс": [
+              {
+                "идентификатор_ресурса": [
+                  {
+                    "|id": "1",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+     "сведения_о_выполнении": [{
+            "выполнение": [{
+                "_instruction_details":[{
+                    "|composition_uid":"$selfComposition",
+                    "|instruction_uid":"${#TestCase#assignmentId}",
+                    "|activity_id":"activities[at0001]",
+                    "|path":"/content[openEHR-EHR-SECTION.adhoc.v1,'Сведения о назначении']/items[openEHR-EHR-INSTRUCTION.service_request_consultation-simi.v1 and uid/value='${#TestCase#assignmentId}']"
+                }],
+                "ism_transition":[{
+                    "current_state":[{"|code":"526"}],
+                    "careflow_step":[{"|code":"at0002"}]
+                }],
+                   "обоснование": [
+              "Обоснование 15"
+            ],
+            "time": [
+              "2022-12-07T13:44:51.902547+03:00"
+            ]
+             }
+        ]
+      }
+    ]
+  }
+}</typ:structuredJson>\r
+      </typ:convertJsonToBase64Tdd>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3606c38f-01e2-40a5-a3d6-2d08188f4033"/><con:assertion type="SOAP Fault Assertion" id="d455933c-3857-4ef8-8281-699c6f1322c4"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SaveDocumentAssignmentDraft" id="1e24fc6e-b2d2-43da-8d09-fcfcc92027bc"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>simiServiceBinding</con:interface><con:operation>saveDocument</con:operation><con:request name="SaveDocumentAssignmentDraft" id="25920ebf-35e1-4c14-a36a-abbf3ec03c9c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#Simi5WSDL}</con:endpoint><con:request><![CDATA[ <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v52="http://emias.mos.ru/simi/cct/v5/" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/simi/simiService/v5/types/" xmlns:v5="http://emias.mos.ru/simi/document/v5/" xmlns:v51="http://emias.mos.ru/simi/core/v5/">
+   <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+             <wsse:Username>${#TestSuite#systemName}/${#TestSuite#login}</wsse:Username>             
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>${#TestSuite#systemName}</user:systemName>
+         <user:userName>${#TestSuite#login}</user:userName>
+         <user:userRoleId>${#TestSuite#userRoleId}</user:userRoleId>
+                <user:userRights>
+            <!--Zero or more repetitions:-->
+            <user:userRightId>400001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>${#TestSuite#contractId}</user:jobExecutionId>
+             </user:userContext>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:saveDocumentRequest>\r
+         <v5:document>\r
+            <metadata status="CREATED" authorLogin="${#TestSuite#login}">\r
+               <v5:documentId>${CreateDocumentAssignment#Response#//*:documentId}</v5:documentId>\r
+               <v5:documentInfo documentCreated="${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}" simiVersion="5">\r
+                  <v51:patientId>${CreateDocumentAssignment#Response#//*:patientId}</v51:patientId>\r
+                  <v51:careEventId>${CreateDocumentAssignment#Response#//*:careEventId}</v51:careEventId>\r
+                  <v51:careEventStarted>${CreateDocumentAssignment#Response#//*:careEventStarted}</v51:careEventStarted>\r
+                  <v5:cctInfo role="Name">
+                     <!--Optional:-->
+                     <schema>ru.emias.simi.terminology.cct</schema>
+                     <!--Optional:-->
+                     <code>96134</code>
+                     <!--Optional:-->
+                     <value>Назначение на консультацию</value>
+                     <v52:cctParameters>
+                        <!--Zero or more repetitions:-->
+                                  <tag role="Name">
+                           <value>Назначение на консультацию</value>
+                        </tag>
+                        <tag role="openEhrTemplateId">
+                           <value>openEHR-EHR-COMPOSITION.t_consultation_order.v3</value>
+                        </tag>
+                                                <tag role="ShortName">
+                           <value>назн</value>
+                        </tag>
+                               <tag role="specificationVersion">
+                           <value>4.1.0</value>
+                        </tag>
+                         <tag role="idEhrForm">
+                           <value>3e56c2c7-a05b-414f-8dba-9f51620cc693:79</value>
+                        </tag>
+                           <tag role="canDeprecateAfterSignChiefMedical">
+                           <value>true</value>
+                        </tag>
+                                          </v52:cctParameters>
+                     <v52:contentTypeInfo mimeClass="APPLICATION">
+                        <!--1 or more repetitions:-->
+                        <mimeType>application/tdd</mimeType>
+                     </v52:contentTypeInfo>
+                  </v5:cctInfo>
+               <tags>
+                    <tag definedByCct="true">
+                        <schema>ru.mos.emias.system.careevent_documentlist_hierarchydelist</schema>
+                        <code>Clinician protocol</code>
+                        <value>{"index": 0,"displayMode": "FULL"}</value>
+                     </tag>
+                     <tag definedByCct="true">
+                        <schema>ru.mos.emias.system.careevent_documentlist_hierarchydescr</schema>
+                        <code>Clinician protocol</code>
+                        <value>{"index":0,"visualizable":true,"group":null}</value>
+                     </tag>
+                                     </tags>
+               </v5:documentInfo>
+                 <v52:visualizations>
+                  <!--Zero or more repetitions:-->
+                  <visualization>
+                    <!--Optional:-->
+                     <v52:visualizationId>300C9753-3354-473E-A996-67BDD751D02B</v52:visualizationId>
+                                       <v52:cctCode>0</v52:cctCode>
+                    <visualizationInfo name="DEFAULT" description="DEFAULT" xsltVersion="XSLT_2_0" signature="false">
+                       <v52:tags>
+                           </v52:tags>
+                     </visualizationInfo>
+                                      </visualization>
+               </v52:visualizations>
+               <confidentialityTags/>
+               <links/>
+               <associations/>
+            </metadata>
+             <v5:content mimeClass="APPLICATION" mimeType="application/tdd" valid="false">
+                            <v5:data>${ConvertAssignmentContentDraft#Response#//*:base64CompositionTdd}</v5:data>
+                            </v5:content>
+         </v5:document>\r
+      </typ:saveDocumentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cded6455-8433-4c24-92ed-ce69811f5d87"/><con:assertion type="SOAP Fault Assertion" id="0b369e87-52a4-4127-b9f0-d3c9a7c35631" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ConvertAssignmentContentSigned" id="b873ab2e-5de7-474a-b4b5-bf03bda55f13"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OpenEhrServiceV4PortBinding</con:interface><con:operation>convertJsonToBase64Tdd</con:operation><con:request name="ConvertAssignmentContentSigned" id="3c759f02-5806-41f2-9517-ee700cf1fa27"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#OpenEhrWSDL}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias.mos.ru/simi/v4/openEhrService/types">\r
+   <soapenv:Header>\r
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">\r
+            <wsse:Username>KPI_DOCTOR_X/${#TestSuite#login}</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">KPI_DOCTOR/ESilenkova</wsse:Password>\r
+         </wsse:UsernameToken>\r
+      </wsse:Security>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <typ:convertJsonToBase64Tdd>\r
+         <typ:templateId>openEHR-EHR-COMPOSITION.t_consultation_order.v3</typ:templateId>\r
+         <typ:structuredJson>{
+    "назначение_на_консультацию": {
+        "language":[{"|code":"ru"}],
+		"territory":[{"|code":"RU"}],
+		"composer":[{
+            "|id":"121397062",
+            "|name":"Кирсанова Галина Петровна",
+            "|id_namespace":"Парус",
+            "|id_scheme":"undefined"
+        }],
+		"context":[{
+            "_health_care_facility":[{
+                "|id":"1117746711180",
+                "|name":"ГБУЗ г. Москвы ГП №107 Департамента здравоохранения г. Москвы",
+                "|id_namespace":"Справочник медицинских организаций",
+                "|id_scheme":"undefined"
+            }],
+            "_participation":[{
+                "|function":"Врач",
+                "|id":"012",
+                "|name":"Кирсанова Галина Петровна"
+            }],
+            "подробности_контекста":[{
+                "ид_события":[{
+                    "|id":"${CreateDocumentAssignment#Response#//*:careEventId}",
+                    "|issuer":"Issuer",
+                    "|assigner":"Assigner",
+                    "|type":"Prescription"
+                }],
+                "ид_документа":[{
+                    "|id":"${CreateDocumentAssignment#Response#//*:documentId}",
+                    "|issuer":"Issuer",
+                    "|assigner":"Assigner",
+                    "|type":"Prescription"
+                }],
+                "ид_пациента":[{
+                    "|id":"${#TestSuite#patientId}",
+                    "|issuer":"Issuer",
+                    "|assigner":"Assigner",
+                    "|type":"Prescription"
+                }],
+                "автор_информации":[{
+                    "идентификатор_исполнения_должности_медработника":[{
+                        "|id":"${#TestSuite#contractId}",
+                        "|issuer":"Issuer",
+                        "|assigner":"Assigner",
+                        "|type":"Prescription"
+                    }],
+                    "наименование_должности":["Наименование должности 68"],
+                    "наименование_структурного_подразделения":["Наименование структурного подразделения 28"],
+                    "наименование_филиала":["Наименование филиала 38"],
+                    "наименование_юридического_лица":["Наименование юридического лица 26"]
+                }],
+                "структура_медицинской_организации":[{
+                    "ид_объекта":[{
+                        "|id":"${#TestSuite#lpuId}",
+                        "|issuer":"Issuer",
+                        "|assigner":"Assigner",
+                        "|type":"Prescription"
+                    }],
+                    "тип_объекта":[{"|code":"at0019"}],
+                    "наименование":["Наименование 94"],
+                    "родительский_ид":[{
+                        "|id":"790c7a26-a200-4379-b75a-605c9f30f1fe",
+                        "|issuer":"Issuer",
+                        "|assigner":"Assigner",
+                        "|type":"Prescription"
+                    }]
+                }],
+                "адрес_медицинской_организации":[{
+                    "субъект_рф":["Субъект РФ 88"],
+                    "муниципальный_район_городской_округ":["Муниципальный район (городской округ) 66"],
+                    "поселение":["Поселение 76"],
+                    "населенный_пункт":["Населенный пункт 40"],
+                    "элемент_планировочной_структуры":["Элемент планировочной структуры 38"],
+                    "улица":["Улица 6"],
+                    "номер_здания_сооружения":[{
+                        "номер_дома":["Номер дома 60"],
+                        "номер_строения":["Номер строения 92"],
+                        "номер_корпуса":["Номер корпуса 93"]
+                    }],
+                    "номер_земельного_участка":["Номер земельного участка 28"],
+                    "дополнительная_информация":["Дополнительная информация 49"]
+                }],
+                "информация_о_месте_cобытия":[{
+                    "событие_произошло":[{"|code":"at0070"}],
+                    "субъект_рф":["Субъект РФ 51"],
+                    "муниципальный_район_городской_округ":["Муниципальный район (городской округ) 29"],
+                    "поселение":["Поселение 34"],
+                    "населенный_пункт":["Населенный пункт 48"],
+                    "элемент_планировочной_структуры":["Элемент планировочной структуры 96"],
+                    "улица":["Улица 26"],
+                    "номер_здания_сооружения":[{
+                        "номер_дома":["Номер дома 68"],
+                        "номер_строения":["Номер строения 30"],
+                        "номер_корпуса":["Номер корпуса 66"]
+                    }],
+                    "номер_земельного_участка":["Номер земельного участка 27"],
+                    "номер_помещения":["Номер помещения 99"],
+                    "дополнительная_информация":["Дополнительная информация 24"]
+                }],
+             "дополнительная_информация":[{
+                    "профиль_медицинской_помощи":[{"|code":"at0087"}],
+                    "виды_медицинской_помощи":[{"|code":"at0050"}],
+                    "условия_оказания_медицинской_помощи":[{"|code":"at0055"}],
+                    "форма_оказания_медицинской_помощи":[{"|code":"at0060"}]
+                }]
+            }]
+        }],
+    "сведения_о_назначении": [
+      {
+        "диагноз": [{
+                "код_по_мкб": [{"|code": "A04.2", "|value": "A04.2 - Энтерогеморрагическая инфекция, вызванная Escherichia coli"}],
+                "развернутый_клинический_диагноз": ["A04.2 - Энтерогеморрагическая инфекция, вызванная Escherichia coli"]
+            }],
+        "назначение": [
+          {
+            "_uid": ["${#TestCase#assignmentId}"],
+            "запрос": [{
+                    "специализация": [{"|code": "076", "|value": "Терапия"}],
+                    "обоснование": ["Обоснование 69"],
+                "признак_cito": [
+                  ""
+                ],
+                "дата_начала_действия": [
+                  "2022-12-16T12:56:50.913931+03:00"
+                ],
+                "дата_окончания_действия": [
+                  "2022-12-26T18:56:50.913966+03:00"
+                ],
+                "медицинская_манипуляция": [
+                  {
+                    "ид_медицинской_манипуляции": [
+                      {
+                        "|id": "146012955",
+                        "|issuer": "Issuer",
+                        "|assigner": "Assigner",
+                        "|type": "Prescription"
+                      }
+                    ],
+                    "код_и_наименование_медицинской_манипуляции": [
+                      {
+                        "|code": "1113",
+                        "|value": "Магнитно-резонансная артериография интракраниальных артерий; венография интракраниальных вен и синусов"
+                      }
+                    ]
+                  }
+                ],
+                "профиль_должности_врача": [
+                  {
+                    "профессиональные_подробности": [
+                      {
+                        "профиль_должности": [
+                          {
+                            "|code": "76",
+                            "|value": "Терапия"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "информация_о_пациенте": [
+                  {
+                    "код_льготы": [
+                      "902"
+                    ]
+                  }
+                ],
+                "timing": [
+                  {
+                    "|value": "R5/2022-12-17T12:00:00+03:00/P2M"
+                  }
+                ]
+              }
+            ],
+            "expiry_time": [
+              "2022-11-23T12:56:50.914048+03:00"
+            ],
+            "narrative": [
+              "Human readable instruction narrative"
+            ]
+          }
+        ],
+        "направление_для_cito-пациента": [
+          {
+            "ресурс": [
+              {
+                "идентификатор_ресурса": [
+                  {
+                    "|id": "1",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+     "сведения_о_выполнении": [{
+            "выполнение": [{
+                "_instruction_details":[{
+                    "|composition_uid":"${SaveDocumentAssignmentDraft#Response#//doc:documentInfo[1]/tags[1]/tag[3]/value[1]/text()[1]}",
+                    "|instruction_uid":"${#TestCase#assignmentId}",
+                    "|activity_id":"activities[at0001]",
+                    "|path":"/content[openEHR-EHR-SECTION.adhoc.v1,'Сведения о назначении']/items[openEHR-EHR-INSTRUCTION.service_request_consultation-simi.v1 and uid/value='${#TestCase#assignmentId}']"
+                }],
+                "ism_transition":[{
+                    "current_state":[{"|code":"526","|value": "planned"}],
+                    "careflow_step":[{"|code":"at0002","|value": "Создание"}]
+                }],
+                   "обоснование": [
+              "Обоснование 15"
+            ],
+            "time": [
+              "2022-12-16T13:44:51.902547+03:00"
+            ]
+             }
+        ]
+      }
+    ]
+  }
+}</typ:structuredJson>\r
+      </typ:convertJsonToBase64Tdd>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3606c38f-01e2-40a5-a3d6-2d08188f4033"/><con:assertion type="SOAP Fault Assertion" id="d455933c-3857-4ef8-8281-699c6f1322c4"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SaveDocumentAssignmentSigned" id="079462af-ab23-455b-842c-6a75876856b5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>simiServiceBinding</con:interface><con:operation>saveDocument</con:operation><con:request name="SaveDocumentAssignmentSigned" id="25920ebf-35e1-4c14-a36a-abbf3ec03c9c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#Simi5WSDL}</con:endpoint><con:request><![CDATA[ <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v52="http://emias.mos.ru/simi/cct/v5/" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/simi/simiService/v5/types/" xmlns:v5="http://emias.mos.ru/simi/document/v5/" xmlns:v51="http://emias.mos.ru/simi/core/v5/" xmlns:ns6="http://www.w3.org/2000/09/xmldsig#">
+   <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+             <wsse:Username>${#TestSuite#systemName}/${#TestSuite#login}</wsse:Username>             
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>${#TestSuite#systemName}</user:systemName>
+         <user:userName>${#TestSuite#login}</user:userName>
+         <user:userRoleId>${#TestSuite#userRoleId}</user:userRoleId>
+                <user:userRights>
+            <!--Zero or more repetitions:-->
+            <user:userRightId>400001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>${#TestSuite#contractId}</user:jobExecutionId>
+             </user:userContext>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:saveDocumentRequest>\r
+         <v5:document>\r
+            <metadata status="SIGNED" authorLogin="${#TestSuite#login}">\r
+               <v5:documentId>${CreateDocumentAssignment#Response#//*:documentId}</v5:documentId>\r
+               <v5:documentInfo documentCreated="${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}" simiVersion="5">\r
+                  <v51:patientId>${CreateDocumentAssignment#Response#//*:patientId}</v51:patientId>\r
+                  <v51:careEventId>${CreateDocumentAssignment#Response#//*:careEventId}</v51:careEventId>\r
+                  <v51:careEventStarted>${CreateDocumentAssignment#Response#//*:careEventStarted}</v51:careEventStarted>\r
+                   <v5:cctInfo role="Name">
+                     <!--Optional:-->
+                     <schema>ru.emias.simi.terminology.cct</schema>
+                     <!--Optional:-->
+                     <code>96134</code>
+                     <!--Optional:-->
+                     <value>Назначение на консультацию</value>
+                     <v52:cctParameters>
+                        <!--Zero or more repetitions:-->
+                                  <tag role="Name">
+                           <value>Назначение на консультацию</value>
+                        </tag>
+                        <tag role="openEhrTemplateId">
+                           <value>openEHR-EHR-COMPOSITION.t_consultation_order.v3</value>
+                        </tag>
+                                                <tag role="ShortName">
+                           <value>назн</value>
+                        </tag>
+                               <tag role="specificationVersion">
+                           <value>4.1.0</value>
+                        </tag>
+                         <tag role="idEhrForm">
+                           <value>3e56c2c7-a05b-414f-8dba-9f51620cc693:79</value>
+                        </tag>
+                           <tag role="canDeprecateAfterSignChiefMedical">
+                           <value>true</value>
+                        </tag>
+                                          </v52:cctParameters>
+                     <v52:contentTypeInfo mimeClass="APPLICATION">
+                        <!--1 or more repetitions:-->
+                        <mimeType>application/tdd</mimeType>
+                     </v52:contentTypeInfo>
+                  </v5:cctInfo>
+               <tags>
+                    <tag definedByCct="true">
+                        <schema>ru.mos.emias.system.careevent_documentlist_hierarchydelist</schema>
+                        <code>Clinician protocol</code>
+                        <value>{"index": 0,"displayMode": "FULL"}</value>
+                     </tag>
+                     <tag definedByCct="true">
+                        <schema>ru.mos.emias.system.careevent_documentlist_hierarchydescr</schema>
+                        <code>Clinician protocol</code>
+                        <value>{"index":0,"visualizable":true,"group":null}</value>
+                     </tag>
+                                     </tags>
+               </v5:documentInfo>\r
+                 <v52:visualizations>
+                  <!--Zero or more repetitions:-->
+                  <visualization>
+                    <!--Optional:-->
+                     <v52:visualizationId>300C9753-3354-473E-A996-67BDD751D02B</v52:visualizationId>
+                                       <v52:cctCode>0</v52:cctCode>
+                    <visualizationInfo name="DEFAULT" description="DEFAULT" xsltVersion="XSLT_2_0" signature="false">
+                       <v52:tags>
+                           </v52:tags>
+                     </visualizationInfo>
+                                      </visualization>
+               </v52:visualizations>
+               <confidentialityTags/>\r
+               <links/>\r
+               <associations/>\r
+            </metadata>\r
+             <v5:content mimeClass="APPLICATION" mimeType="application/tdd" valid="false">
+                            <v5:data>${ConvertAssignmentContentSigned#Response#//*:base64CompositionTdd}</v5:data>
+                            </v5:content>
+                            <v5:signature technicalSignature="true" signeeLogin="${#TestSuite#login}" dateSign="${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}">
+                  <ns6:Signature>
+                  <ns6:SignedInfo>
+                     <ns6:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                     <ns6:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr34102001-gostr3411"/>
+                     <ns6:Reference URI="">
+                        <ns6:Transforms>
+                           <ns6:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                           <ns6:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                              <ns6:XPath>ancestor-or-self::content</ns6:XPath>
+                           </ns6:Transform>
+                        </ns6:Transforms>
+                        <ns6:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr3411"/>
+                        <ns6:DigestValue>bUI1ZlBLTU1oQlNIZ3crRSswTStFNndSQVZhYm5CTllTc1NESTB6V1ZzQT08</ns6:DigestValue>
+                     </ns6:Reference>
+                  </ns6:SignedInfo>
+                  <ns6:SignatureValue>dGVzdA==</ns6:SignatureValue>              
+                  <ns6:KeyInfo>
+                     <ns6:X509Data>
+                        <ns6:X509Certificate>dGVjaG5pY2FsIHNpZ24gc3R1Yg==</ns6:X509Certificate>
+                     </ns6:X509Data>
+                  </ns6:KeyInfo>
+               </ns6:Signature>
+               </v5:signature>
+         </v5:document>\r
+      </typ:saveDocumentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cded6455-8433-4c24-92ed-ce69811f5d87"/><con:assertion type="SOAP Fault Assertion" id="4845f887-9362-49bd-9879-0f9611a3dd79" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="Delay" id="1727a644-7a09-4848-8ddd-f846ac8b02ad"><con:settings/><con:config><delay>5000</delay></con:config></con:testStep><con:testStep type="request" name="GetAssignment" id="7fb48d48-d018-4221-a6ce-2ae841f525ed"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AssignmentServicePortTypeBinding</con:interface><con:operation>getAssignment</con:operation><con:request name="GetAssignment" id="bedc754f-68e2-43f9-a0de-d723105de714"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AssignmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ass="http://emias.mos.ru/consultations/v1/assignment/">
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+            <wsse:Username>CONSULTATIONS/${#TestSuite#login}</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext/>
+   </soap:Header>
+   <soap:Body>
+      <ass:GetAssignmentRequest>
+         <ass:assignmentId>${#TestCase#assignmentId}</ass:assignmentId>
+      </ass:GetAssignmentRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b8231934-c136-4a76-9948-29a4fffae17d"/><con:assertion type="SOAP Fault Assertion" id="99d78b1c-1f50-45a3-a0f3-7a91b5fad5e7"/><con:assertion type="XPath Match" id="6b76f186-9a51-4b22-92cb-c7f85eafadf8" name="Статус AssignmentCreated"><con:configuration><path>//*:assignmentStatus</path><content>&lt;ns2:assignmentStatus  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/" >AssignmentCreated&lt;/ns2:assignmentStatus></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9518184a-b03c-48df-aaaf-ded8b625be5d" name="Документ СИМИ"><con:configuration><path>//*:documentId</path><content>&lt;ns2:documentId  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/" >${CreateDocumentAssignment#Response#//*:documentId}&lt;/ns2:documentId></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="2f9c0d0d-d560-44eb-ac8a-92ef070df961" name="Task Conduct"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/consultations/v1/assignment/types/';
+&lt;Responce>
+{
+for $x in //*:tasks
+return   &lt;ns2:type>Conduct&lt;/ns2:type>
+}
+&lt;/Responce></path><content>&lt;Responce>
+  &lt;ns2:type xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">Conduct&lt;/ns2:type>
+&lt;/Responce></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="2f9c0d0d-d560-44eb-ac8a-92ef070df961" name="Task Created"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/consultations/v1/assignment/types/';
+&lt;Responce>
+{
+for $x in //*:tasks
+return  &lt;ns2:status>{data($x/ns2:status/text())}&lt;/ns2:status>
+}
+&lt;/Responce></path><content>&lt;Responce>
+  &lt;ns2:status xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">Created&lt;/ns2:status>
+&lt;/Responce></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="3d56541a-a939-422e-89a5-0e3a95e9a3b3" name="Есть направление СУПП"><con:configuration><path>//*:options</path><content>&lt;ns3:options xmlns="http://emias.mos.ru/consultations/v1/assignment/" xmlns:ns2="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ns3="http://emias.mos.ru/consultations/v1/assignment/types/" xmlns:ns4="http://emias.mos.ru/system/v1/userContext/" xmlns:ns5="http://emias.mos.ru/system/v1/faults/" xmlns:ns6="http://emias.mos.ru/consultations/v1/task/types/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  &lt;ns2:entry key="suppReferralId">*&lt;/ns2:entry>
+&lt;/ns3:options></content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="6b76f186-9a51-4b22-92cb-c7f85eafadf8" name="allowChange"><con:configuration><path>//*:allowChange</path><content>&lt;ns2:allowChange  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">true&lt;/ns2:allowChange>
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="6b76f186-9a51-4b22-92cb-c7f85eafadf8" name="allowCancel"><con:configuration><path>//*:allowCancel</path><content>&lt;ns2:allowCancel  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">true&lt;/ns2:allowCancel>
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAssignmentByDocumentId" id="017e5812-0cdc-4a99-bae1-2369e2c21d1c" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AssignmentServicePortTypeBinding</con:interface><con:operation>getAssignmentByDocumentId</con:operation><con:request name="GetAssignmentByDocumentId" id="3ea2c26f-5e0f-4d90-bed8-6a6bbac66468"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AssignmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ass="http://emias.mos.ru/consultations/v1/assignment/">\r
+   <soap:Header>\r
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+            <wsse:Username>CONSULTATIONS/${#TestSuite#login}</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext/>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <ass:GetAssignmentByDocumentIdRequest>\r
+         <ass:documentId>${CreateDocumentAssignment#Response#//*:documentId}</ass:documentId>\r
+      </ass:GetAssignmentByDocumentIdRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="acb74e5e-2019-4fab-a5d2-10e9f761bff9"/><con:assertion type="SOAP Fault Assertion" id="ecb40008-b8d8-484b-af0a-9c04e45018da"/><con:assertion type="Simple Contains" id="881b38b3-dea1-4afd-adb6-4745e5d1daa7" name="Contains"><con:configuration><token>suppReferralId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="8ab93637-4f92-4532-9db5-fa6cca7423ca" name="tasks"><con:configuration><token>tasks</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAssignmentByCareEventId" id="c1f22d26-91f2-41ef-b179-690fee5da4c2" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AssignmentServicePortTypeBinding</con:interface><con:operation>getAssignmentByCareEventId</con:operation><con:request name="GetAssignmentByCareEventId" id="6e74c7fa-62a8-4b54-af26-dc89bb430de8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AssignmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ass="http://emias.mos.ru/consultations/v1/assignment/">\r
+   <soap:Header>\r
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+            <wsse:Username>CONSULTATIONS/${#TestSuite#login}</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext/>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <ass:GetAssignmentByCareEventIdRequest>\r
+         <ass:careEventId>${CreateDocumentAssignment#Response#//*:careEventId}</ass:careEventId>\r
+         <ass:includeDrafts>false</ass:includeDrafts>\r
+      </ass:GetAssignmentByCareEventIdRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5a5cf348-337c-4ff4-bef6-4c4802858682"/><con:assertion type="SOAP Fault Assertion" id="be737471-368f-490f-93bb-05ce5be2aa31"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAssignmentByPatient" id="f1d7231c-0d79-42fc-a39e-7983f7074ec8" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AssignmentServicePortTypeBinding</con:interface><con:operation>getAssignmentsByPatient</con:operation><con:request name="GetAssignmentByPatient" id="f285671c-0cb2-456b-8328-79d85a18bebf"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AssignmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ass="http://emias.mos.ru/consultations/v1/assignment/">\r
+   <soap:Header>\r
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+            <wsse:Username>CONSULTATIONS/${#TestSuite#login}</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext/>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <ass:GetAssignmentsByPatientRequest>\r
+         <ass:patientId>${#TestSuite#patientId}</ass:patientId>\r
+      </ass:GetAssignmentsByPatientRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4949a4d0-8bdb-4fd4-9ea0-d4036364657e"/><con:assertion type="SOAP Fault Assertion" id="d9729411-99a2-45ae-b8a4-a004e566dabf"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="deprecateDocument" id="b7c3761e-4dfe-4703-8052-35ee582b0abf" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>simiServiceBinding</con:interface><con:operation>deprecateDocument</con:operation><con:request name="deprecateDocument" id="e747c1dd-649d-4649-90ca-f18e0149ed75"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamel.test.emias.mos.ru/proxy/SIMI/SIMI/v5S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/simi/simiService/v5/types/" xmlns:v5="http://emias.mos.ru/simi/document/v5/">\r
+   <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+             <wsse:Username>EDPS/${#TestSuite#login}</wsse:Username>             
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>EDPS</user:systemName>
+         <user:userName>${#TestSuite#login}</user:userName>
+         <user:userRoleId>${#TestSuite#userRoleId}</user:userRoleId>
+                <user:userRights>
+            <!--Zero or more repetitions:-->
+            <user:userRightId>400001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>${#TestSuite#contractId}</user:jobExecutionId>
+             </user:userContext>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:deprecateDocumentRequest>\r
+         <v5:documentId>${CreateDocumentAssignment#Response#//*:documentId}</v5:documentId>\r
+      </typ:deprecateDocumentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8c0648aa-66c8-4e1b-abef-15e9fb272703"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>assignmentId</con:name><con:value>ConsultationAssignmentb0282cd1-a4a6-41db-b4d3-fd6161b0cf51</con:value></con:property><con:property><con:name>id</con:name><con:value>${=(long)(Math.random()*10000000000000000000)}</con:value></con:property><con:property><con:name>composition_uid</con:name><con:value>2c94131a-8b39-42b4-a09d-06c0a0815955::default::1</con:value></con:property><con:property><con:name>assignmentStartDate</con:name><con:value>2022-12-21T16:36:41</con:value></con:property><con:property><con:name>assignmentEndDate</con:name><con:value>2022-12-28T16:36:41</con:value></con:property></con:properties><con:reportParameters/></con:testCase><con:testCase id="a9649ddb-f7e7-48ef-a0b8-1986c44358ba" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Assignment 96134 + cancel 96133" searchProperties="true"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="request" name="CreateDocumentAssignment" id="7212de5c-9ae3-4055-9af7-c3115fe7c6cc"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>simiServiceBinding</con:interface><con:operation>createDocument</con:operation><con:request name="CreateDocumentAssignment" id="01c2d400-146e-4a40-8553-a87a6e402f7c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#Simi5WSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/simi/simiService/v5/types/" xmlns:v5="http://emias.mos.ru/simi/cct/v5/" xmlns:v51="http://emias.mos.ru/simi/core/v5/">
+     <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+             <wsse:Username>${#TestSuite#systemName}/${#TestSuite#login}</wsse:Username>             
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>${#TestSuite#systemName}</user:systemName>
+         <user:userName>${#TestSuite#login}</user:userName>
+         <user:userRoleId>${#TestSuite#userRoleId}</user:userRoleId>
+                <user:userRights>
+            <!--Zero or more repetitions:-->
+            <user:userRightId>400001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>${#TestSuite#contractId}</user:jobExecutionId>
+             </user:userContext>
+   </soap:Header>
+   <soap:Body>
+      <typ:createDocumentRequest>
+         <v5:cctCode>96134</v5:cctCode>
+         <v51:patientId>${#TestSuite#patientId}</v51:patientId>
+         <v51:careEventId>${=(int)(Math.random()*(100000))}</v51:careEventId>
+         <v51:careEventStarted>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}</v51:careEventStarted>
+            </typ:createDocumentRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ef4020fc-9ddf-4afa-9bb2-27e4f26ee19d"/><con:assertion type="SOAP Fault Assertion" id="7f285a73-eb54-4397-9e86-eb8fae0c4552" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="SetAssignmentId" id="e0a9b2f7-fc31-42ef-8232-6e57933a9379"><con:settings/><con:config><script> UUID uuid = UUID.randomUUID()
+ 
+ def assignmentId = "ConsuAssignment" + uuid
+ def assignmentStartDate = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())
+ def c = Calendar.getInstance(); 
+        c.setTime(new java.util.Date()); 
+        c.add(Calendar.DATE, 7);
+ def assignmentEndDate = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(c.getTime());
+ 
+ testRunner.testCase.setPropertyValue("assignmentId",assignmentId)
+ testRunner.testCase.setPropertyValue("assignmentStartDate",assignmentStartDate)
+ testRunner.testCase.setPropertyValue("assignmentEndDate",assignmentEndDate)
+ 
+ log.info (assignmentId)
+ log.info (assignmentStartDate)
+ log.info (assignmentEndDate)</script></con:config></con:testStep><con:testStep type="request" name="Convert" id="ec891aed-e037-4623-8e94-0ce74f7f9de2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OpenEhrServiceV4PortBinding</con:interface><con:operation>convertJsonToBase64Tdd</con:operation><con:request name="Convert" id="3c759f02-5806-41f2-9517-ee700cf1fa27"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#OpenEhrWSDL}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias.mos.ru/simi/v4/openEhrService/types">\r
+   <soapenv:Header>\r
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">\r
+            <wsse:Username>KPI_DOCTOR_X/${#TestSuite#login}</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">KPI_DOCTOR/ESilenkova</wsse:Password>\r
+         </wsse:UsernameToken>\r
+      </wsse:Security>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <typ:convertJsonToBase64Tdd>\r
+         <typ:templateId>openEHR-EHR-COMPOSITION.t_consultation_order.v3</typ:templateId>\r
+         <typ:structuredJson>{
+   "назначение_на_консультацию": {
+      "language":[{"|code":"ru"}],
+		"territory":[{"|code":"RU"}],
+		"composer":[{
+            "|id":"844 644 695 43",
+            "|name":"Кирсанова Галина Петровна",
+            "|id_namespace":"Парус",
+            "|id_scheme":"HOSPITAL-NS"
+        }],
+    "context": [
+      {
+       "_health_care_facility":[{
+                "|id":"1037719010757",
+                "|name":"Государственное бюджетное учреждение здравоохранения города Москвы Городская поликлиника № 175 Департамента здравоохранения города Москвы",
+                "|id_namespace":"Справочник медицинских организаций",
+                "|id_scheme":"HOSPITAL-NS"
+            }],
+            "_participation":[{
+                "|function":"Врач-нефролог",
+                "|id":"012",
+                "|name":"Тестовый Петр Сергеевич"
+            }],
+        "подробности_контекста": [
+          {
+            "ид_события": [
+              {
+                "|id": "${CreateDocumentAssignment#Response#//*:careEventId}",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_документа": [
+              {
+                "|id": "${CreateDocumentAssignment#Response#//*:documentId}",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_пациента": [
+              {
+                "|id": "${#TestSuite#patientId}",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "автор_информации": [
+              {
+                "идентификатор_исполнения_должности_медработника": [
+                  {
+                    "|id": "${#TestSuite#contractId}",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "наименование_должности": [
+                  "Наименование должности 34"
+                ],
+                "наименование_структурного_подразделения": [
+                  "Наименование структурного подразделения 71"
+                ],
+                "наименование_филиала": [
+                  "Наименование филиала 56"
+                ],
+                "наименование_юридического_лица": [
+                  "Наименование юридического лица 82"
+                ]
+              }
+            ],
+            "структура_медицинской_организации": [
+              {
+                "ид_объекта": [
+                  {
+                    "|id": "${#TestSuite#lpuId}",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "тип_объекта": [
+                  {
+                    "|code": "at0019"
+                  }
+                ],
+                "наименование": [
+                  "Наименование 35"
+                ],
+                "родительский_ид": [
+                  {
+                    "|id": "e20bd123-0a6e-4e27-a95a-29a1e6d8de86",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ]
+              }
+            ],
+            "адрес_медицинской_организации": [
+              {
+                "субъект_рф": [
+                  "Субъект РФ 20"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 26"
+                ],
+                "поселение": [
+                  "Поселение 71"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 54"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 75"
+                ],
+                "улица": [
+                  "Улица 40"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 96"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 26"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 51"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 37"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 52"
+                ]
+              }
+            ],
+            "информация_о_месте_cобытия": [
+              {
+                "событие_произошло": [
+                  {
+                    "|code": "at0070"
+                  }
+                ],
+                "субъект_рф": [
+                  "Субъект РФ 50"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 8"
+                ],
+                "поселение": [
+                  "Поселение 34"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 25"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 38"
+                ],
+                "улица": [
+                  "Улица 89"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 38"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 35"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 77"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 65"
+                ],
+                "номер_помещения": [
+                  "Номер помещения 39"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 18"
+                ]
+              }
+            ],
+            "дополнительная_информация": [
+              {
+                "профиль_медицинской_помощи": [
+                  {
+                    "|code": "at0090"
+                  }
+                ],
+                "виды_медицинской_помощи": [
+                  {
+                    "|code": "at0051"
+                  }
+                ],
+                "условия_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0057"
+                  }
+                ],
+                "форма_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0060"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "сведения_о_назначении": [
+      {
+        "диагноз": [
+          {
+            "код_по_мкб": [
+              {
+                "|code": "A04.2",
+                "|value": "A04.2 - Энтерогеморрагическая инфекция, вызванная Escherichia coli"
+              }
+            ],
+            "развернутый_клинический_диагноз": [
+              "A04.2 - Энтерогеморрагическая инфекция, вызванная Escherichia coli"
+            ]
+          }
+        ],
+        "назначение": [
+          {
+            "_uid": [
+              "${#TestCase#assignmentId}"
+            ],
+            "запрос": [
+              {
+                "специализация": [
+                  {
+                    "|code": "076",
+                    "|value": "Терапия"
+                  }
+                ],
+                "обоснование": [
+                  "Обоснование 72"
+                ],
+                "признак_cito": [
+                  ""
+                ],
+                "дата_начала_действия": [
+                  "${#TestCase#assignmentStartDate}"
+                ],
+                "дата_окончания_действия": [
+                  "${#TestCase#assignmentEndDate}"
+                ],
+                "медицинская_манипуляция": [
+                  {
+                    "ид_медицинской_манипуляции": [
+                      {
+                        "|id": "146012955",
+                        "|issuer": "Issuer",
+                        "|assigner": "Assigner",
+                        "|type": "Prescription"
+                      }
+                    ],
+                    "код_и_наименование_медицинской_манипуляции": [
+                      {
+                        "|code": "1113",
+                        "|value": "Магнитно-резонансная артериография интракраниальных артерий; венография интракраниальных вен и синусов"
+                      }
+                    ]
+                  }
+                ],
+                "профиль_должности_врача": [
+                  {
+                    "профессиональные_подробности": [
+                      {
+                        "профиль_должности": [
+                          {
+                            "|code": "76",
+                            "|value": "Терапия"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "информация_о_пациенте": [
+                  {
+                    "код_льготы": [
+                      "Код льготы 20"
+                    ]
+                  }
+                ],
+                "timing": [
+                  {
+                    "|value": "R5/2022-11-07T13:00:00+03:00/P3M"
+                  }
+                ]
+              }
+            ],
+            "expiry_time": [
+              "2022-11-07T13:44:51.902479+03:00"
+            ],
+            "narrative": [
+              "Human readable instruction narrative"
+            ]
+          }
+        ],
+        "направление_для_cito-пациента": [
+          {
+            "ресурс": [
+              {
+                "идентификатор_ресурса": [
+                  {
+                    "|id": "",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "сведения_о_выполнении": [{
+        "выполнение": [{
+           "_instruction_details":[{
+           	     "|composition_uid":"$selfComposition",
+                    "|instruction_uid":"${#TestCase#assignmentId}",
+                    "|activity_id":"activities[at0001]",
+                    "|path":"/content[openEHR-EHR-SECTION.adhoc.v1,'Сведения о назначении']/items[openEHR-EHR-INSTRUCTION.service_request_consultation-simi.v1 and uid/value='${#TestCase#assignmentId}','Назначение']"
+                }],
+           "ism_transition":[{
+                    "current_state":[{"|code":"526"}],
+                    "careflow_step":[{"|code":"at0002"}]
+                }],
+            "обоснование": [
+              "Обоснование 15"
+            ],
+            "time": [
+              "2022-11-07T13:44:51.902547+03:00"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}</typ:structuredJson>\r
+      </typ:convertJsonToBase64Tdd>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3606c38f-01e2-40a5-a3d6-2d08188f4033"/><con:assertion type="SOAP Fault Assertion" id="d455933c-3857-4ef8-8281-699c6f1322c4"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Save" id="e60ecd2a-ad8b-4025-be76-1595b0f4a949"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>simiServiceBinding</con:interface><con:operation>saveDocument</con:operation><con:request name="Save" id="25920ebf-35e1-4c14-a36a-abbf3ec03c9c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#Simi5WSDL}</con:endpoint><con:request><![CDATA[ <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns6="http://www.w3.org/2000/09/xmldsig#" xmlns:v52="http://emias.mos.ru/simi/cct/v5/" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/simi/simiService/v5/types/" xmlns:v5="http://emias.mos.ru/simi/document/v5/" xmlns:v51="http://emias.mos.ru/simi/core/v5/">
+   <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+             <wsse:Username>${#TestSuite#systemName}/${#TestSuite#login}</wsse:Username>             
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>${#TestSuite#systemName}</user:systemName>
+         <user:userName>${#TestSuite#login}</user:userName>
+         <user:userRoleId>${#TestSuite#userRoleId}</user:userRoleId>
+                <user:userRights>
+            <!--Zero or more repetitions:-->
+            <user:userRightId>400001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>${#TestSuite#contractId}</user:jobExecutionId>
+             </user:userContext>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:saveDocumentRequest>\r
+         <v5:document>\r
+            <metadata status="CREATED" authorLogin="${#TestSuite#login}">\r
+               <v5:documentId>${CreateDocumentAssignment#Response#//*:documentId}</v5:documentId>\r
+               <v5:documentInfo documentCreated="${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}" simiVersion="5">\r
+                  <v51:patientId>${CreateDocumentAssignment#Response#//*:patientId}</v51:patientId>\r
+                  <v51:careEventId>${CreateDocumentAssignment#Response#//*:careEventId}</v51:careEventId>\r
+                  <v51:careEventStarted>${CreateDocumentAssignment#Response#//*:careEventStarted}</v51:careEventStarted>\r
+                 <v5:cctInfo role="Name">
+                   <schema>ru.emias.simi.terminology.cct</schema>
+                     <code>96134</code>
+                     <value>Назначение на консультацию</value>
+                     <v52:cctParameters>
+                       <tag role="Name">
+                           <value>Назначение на консультацию</value>
+                        </tag>
+                        <tag role="openEhrTemplateId">
+                           <value>openEHR-EHR-COMPOSITION.t_consultation_order.v3</value>
+                        </tag>
+                        <tag role="ShortName">
+                           <value>назн</value>
+                        </tag>
+                        <tag role="specificationVersion">
+                           <value>4.1.0</value>
+                        </tag>
+                        <tag role="idEhrForm">
+                           <value>3e56c2c7-a05b-414f-8dba-9f51620cc693:79</value>
+                        </tag>
+                         <tag role="canDeprecateAfterSignChiefMedical">
+                           <value>true</value>
+                        </tag>
+                     </v52:cctParameters>
+                     <v52:contentTypeInfo mimeClass="APPLICATION">\r
+                        <!--1 or more repetitions:-->\r
+                        <mimeType>application/tdd</mimeType>\r
+                     </v52:contentTypeInfo>\r
+                  </v5:cctInfo>\r
+                 <tags>
+                                           <tag definedByCct="true">
+                        <schema>ru.mos.emias.system.careevent_documentlist_hierarchydelist</schema>
+                        <code>Clinician protocol</code>
+                        <value>{"index": 0,"displayMode": "FULL"}</value>
+                     </tag>
+                     <tag definedByCct="true">
+                        <schema>ru.mos.emias.system.careevent_documentlist_hierarchydescr</schema>
+                        <code>Clinician protocol</code>
+                        <value>{"index":0,"visualizable":true,"group":null}</value>
+                     </tag>
+                                     </tags>
+               </v5:documentInfo>\r
+                 <v52:visualizations>
+                  <!--Zero or more repetitions:-->
+                  <visualization>
+                     <!--Optional:-->
+                     <v52:visualizationId>300C9753-3354-473E-A996-67BDD751D02B</v52:visualizationId>
+                     <v52:cctCode>0</v52:cctCode>
+                    <visualizationInfo name="DEFAULT" description="DEFAULT" xsltVersion="XSLT_2_0" signature="false">
+                       <v52:tags>
+                           </v52:tags>
+                     </visualizationInfo>
+                                      </visualization>
+               </v52:visualizations>
+               <confidentialityTags/>\r
+               <links/>\r
+               <associations/>\r
+            </metadata>\r
+             <v5:content mimeClass="APPLICATION" mimeType="application/tdd" valid="false">
+                            <v5:data>${Convert#Response#//*:base64CompositionTdd}</v5:data>
+                            </v5:content>
+                             <v5:signature technicalSignature="true" signeeLogin="${#TestSuite#login}" dateSign="${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}">
+                  <ns6:Signature>
+                  <ns6:SignedInfo>
+                     <ns6:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                     <ns6:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr34102001-gostr3411"/>
+                     <ns6:Reference URI="">
+                        <ns6:Transforms>
+                           <ns6:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                           <ns6:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                              <ns6:XPath>ancestor-or-self::content</ns6:XPath>
+                           </ns6:Transform>
+                        </ns6:Transforms>
+                        <ns6:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr3411"/>
+                        <ns6:DigestValue>bUI1ZlBLTU1oQlNIZ3crRSswTStFNndSQVZhYm5CTllTc1NESTB6V1ZzQT08</ns6:DigestValue>
+                     </ns6:Reference>
+                  </ns6:SignedInfo>
+                  <ns6:SignatureValue>dGVzdA==</ns6:SignatureValue>              
+                  <ns6:KeyInfo>
+                     <ns6:X509Data>
+                        <ns6:X509Certificate>dGVjaG5pY2FsIHNpZ24gc3R1Yg==</ns6:X509Certificate>
+                     </ns6:X509Data>
+                  </ns6:KeyInfo>
+               </ns6:Signature>
+               </v5:signature>
+         </v5:document>\r
+      </typ:saveDocumentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cded6455-8433-4c24-92ed-ce69811f5d87"/><con:assertion type="SOAP Fault Assertion" id="0b369e87-52a4-4127-b9f0-d3c9a7c35631" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="Delay" id="f7d88b34-ba15-4e83-9de1-e9683651f61d"><con:settings/><con:config><delay>5000</delay></con:config></con:testStep><con:testStep type="request" name="GetAssignment" id="4846b3d5-737a-4789-ab05-208f88d39fcd"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AssignmentServicePortTypeBinding</con:interface><con:operation>getAssignment</con:operation><con:request name="GetAssignment" id="bedc754f-68e2-43f9-a0de-d723105de714"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AssignmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ass="http://emias.mos.ru/consultations/v1/assignment/">
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+            <wsse:Username>CONSULTATIONS/${#TestSuite#login}</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext/>
+   </soap:Header>
+   <soap:Body>
+      <ass:GetAssignmentRequest>
+         <ass:assignmentId>${#TestCase#assignmentId}</ass:assignmentId>
+      </ass:GetAssignmentRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b8231934-c136-4a76-9948-29a4fffae17d"/><con:assertion type="SOAP Fault Assertion" id="99d78b1c-1f50-45a3-a0f3-7a91b5fad5e7"/><con:assertion type="XPath Match" id="6b76f186-9a51-4b22-92cb-c7f85eafadf8" name="Статус AssignmentCreated"><con:configuration><path>//*:assignmentStatus</path><content>&lt;ns2:assignmentStatus  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/" >AssignmentCreated&lt;/ns2:assignmentStatus></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9518184a-b03c-48df-aaaf-ded8b625be5d" name="Документ СИМИ"><con:configuration><path>//*:documentId</path><content>&lt;ns2:documentId  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/" >${CreateDocumentAssignment#Response#//*:documentId}&lt;/ns2:documentId></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="2f9c0d0d-d560-44eb-ac8a-92ef070df961" name="Task Conduct"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/consultations/v1/assignment/types/';
+&lt;Responce>
+{
+for $x in //*:tasks
+return   &lt;ns2:type>Conduct&lt;/ns2:type>
+}
+&lt;/Responce></path><content>&lt;Responce>
+  &lt;ns2:type xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">Conduct&lt;/ns2:type>
+&lt;/Responce></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="2f9c0d0d-d560-44eb-ac8a-92ef070df961" name="Task Created"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/consultations/v1/assignment/types/';
+&lt;Responce>
+{
+for $x in //*:tasks
+return  &lt;ns2:status>{data($x/ns2:status/text())}&lt;/ns2:status>
+}
+&lt;/Responce></path><content>&lt;Responce>
+  &lt;ns2:status xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">Created&lt;/ns2:status>
+&lt;/Responce></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="3d56541a-a939-422e-89a5-0e3a95e9a3b3" name="Есть направление СУПП" disabled="true"><con:configuration><path>//*:options</path><content>&lt;ns3:options xmlns="http://emias.mos.ru/consultations/v1/assignment/" xmlns:ns2="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ns3="http://emias.mos.ru/consultations/v1/assignment/types/" xmlns:ns4="http://emias.mos.ru/system/v1/userContext/" xmlns:ns5="http://emias.mos.ru/system/v1/faults/" xmlns:ns6="http://emias.mos.ru/consultations/v1/task/types/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  &lt;ns2:entry key="suppReferralId">*&lt;/ns2:entry>
+&lt;/ns3:options></content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="6b76f186-9a51-4b22-92cb-c7f85eafadf8" name="allowChange"><con:configuration><path>//*:allowChange</path><content>&lt;ns2:allowChange  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">true&lt;/ns2:allowChange>
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="6b76f186-9a51-4b22-92cb-c7f85eafadf8" name="allowCancel"><con:configuration><path>//*:allowCancel</path><content>&lt;ns2:allowCancel  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">true&lt;/ns2:allowCancel>
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="c5cf0b8d-4596-4a1e-83cc-c53afc950b90" name="assignAppointment"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TaskServicePortTypeBinding</con:interface><con:operation>assignAppointment</con:operation><con:request name="assignAppointment" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2579ae5a-e93e-4f0d-a5b3-d92b54adf9a6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://consultations.test.emias.mos.ru/consultations/application/api/TaskService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:task="http://emias.mos.ru/consultations/v1/task/">\r
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-B39FB683EA274D07F71467989313179205">
+            <wsse:Username>HAdiatullina</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext \rxmlns="http://emias.mos.ru/consultations/v1/common/types/">
+         <employeeJobId>204</employeeJobId>
+         <fullName>ФИО</fullName>
+         <position>Должность</position>
+      </typ:ConsultationsUserContext>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <task:AssignAppointmentRequest>\r
+         <task:taskId>${GetAssignment#Response#//ns3:id[1]/text()[1]}</task:taskId>\r
+         <task:appointmentId>123456</task:appointmentId>\r
+         <task:availableResourceId>18674372110</task:availableResourceId>\r
+      </task:AssignAppointmentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5bbefe51-090a-4cf8-afbd-7226b92881a3" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="3d4a2fcb-27f4-4f0f-b2e7-751bb92a2a84" name="Not SOAP Fault"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/consultations/v1/task/soap/TaskServicePortType/assignAppointmentRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetReferralSUPP" id="f25d7526-bf95-40dd-94ee-e7741f63dd27" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AppointmentServiceV1Binding</con:interface><con:operation>getReferralsByIDs</con:operation><con:request name="GetReferralSUPP" id="41eb2dd5-d701-4621-88c5-0915a7994fd9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AppointmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/appointment/v1/">\r
+   <soap:Header>\r
+       <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+      <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+        <wsse:Username>KPI_DOCTOR/${#TestSuite#login}</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">KPI_DOCTOR/ESilenkova</wsse:Password>
+      </wsse:UsernameToken>
+    </wsse:Security>
+      <v1:UserContextInfo>\r
+         <v1:lpuId>${#TestSuite#lpuId}</v1:lpuId>\r
+         <v1:jobId>${#TestSuite#contractId}</v1:jobId>\r
+         <v1:userRoleId>4</v1:userRoleId>\r
+      </v1:UserContextInfo>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <v1:getReferralsByIDs>\r
+         <!--1 or more repetitions:-->\r
+         <v1:referralId>${GetAssignment#Response#//ns3:options/ns2:entry/text()}</v1:referralId>\r
+      </v1:getReferralsByIDs>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f25e1e79-a400-403e-ae8e-ae466855c662"/><con:assertion type="SOAP Fault Assertion" id="9f09b829-1eb0-424b-8de8-5ae39b679067"/><con:assertion type="XPath Match" id="d936dfc9-c817-44f0-8d1d-062c969644d8" name="isActive = true"><con:configuration><path>//*:isActive</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="d936dfc9-c817-44f0-8d1d-062c969644d8" name="isCanceled = false"><con:configuration><path>//*:isCanceled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAssignmentByDocumentId" id="717f32e5-1df6-43b8-ae7a-fd56c4a567ba"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AssignmentServicePortTypeBinding</con:interface><con:operation>getAssignmentByDocumentId</con:operation><con:request name="GetAssignmentByDocumentId" id="3ea2c26f-5e0f-4d90-bed8-6a6bbac66468"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AssignmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ass="http://emias.mos.ru/consultations/v1/assignment/">\r
+   <soap:Header>\r
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+            <wsse:Username>CONSULTATIONS/${#TestSuite#login}</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext/>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <ass:GetAssignmentByDocumentIdRequest>\r
+         <ass:documentId>${CreateDocumentAssignment#Response#//*:documentId}</ass:documentId>\r
+      </ass:GetAssignmentByDocumentIdRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="acb74e5e-2019-4fab-a5d2-10e9f761bff9"/><con:assertion type="SOAP Fault Assertion" id="ecb40008-b8d8-484b-af0a-9c04e45018da"/><con:assertion type="Simple Contains" id="881b38b3-dea1-4afd-adb6-4745e5d1daa7" name="Contains" disabled="true"><con:configuration><token>suppReferralId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="8ab93637-4f92-4532-9db5-fa6cca7423ca" name="tasks"><con:configuration><token>tasks</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAssignmentByCareEventId" id="afa5afe5-aafe-4e59-82c9-cb14d9ddb328"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AssignmentServicePortTypeBinding</con:interface><con:operation>getAssignmentByCareEventId</con:operation><con:request name="GetAssignmentByCareEventId" id="6e74c7fa-62a8-4b54-af26-dc89bb430de8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AssignmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ass="http://emias.mos.ru/consultations/v1/assignment/">\r
+   <soap:Header>\r
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+            <wsse:Username>CONSULTATIONS/${#TestSuite#login}</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext/>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <ass:GetAssignmentByCareEventIdRequest>\r
+         <ass:careEventId>${CreateDocumentAssignment#Response#//*:careEventId}</ass:careEventId>\r
+         <ass:includeDrafts>true</ass:includeDrafts>\r
+      </ass:GetAssignmentByCareEventIdRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5a5cf348-337c-4ff4-bef6-4c4802858682"/><con:assertion type="SOAP Fault Assertion" id="be737471-368f-490f-93bb-05ce5be2aa31"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAssignmentByPatient" id="83839a2a-9aa3-4e16-861a-37414be932cb" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AssignmentServicePortTypeBinding</con:interface><con:operation>getAssignmentsByPatient</con:operation><con:request name="GetAssignmentByPatient" id="f285671c-0cb2-456b-8328-79d85a18bebf"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AssignmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ass="http://emias.mos.ru/consultations/v1/assignment/">\r
+   <soap:Header>\r
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+            <wsse:Username>CONSULTATIONS/${#TestSuite#login}</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext/>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <ass:GetAssignmentsByPatientRequest>\r
+         <ass:patientId>${#TestSuite#patientId}</ass:patientId>\r
+      </ass:GetAssignmentsByPatientRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4949a4d0-8bdb-4fd4-9ea0-d4036364657e"/><con:assertion type="SOAP Fault Assertion" id="d9729411-99a2-45ae-b8a4-a004e566dabf"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="deprecateDocument" id="605963ed-c103-4e37-8ea5-f9ddf26f34fa" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>simiServiceBinding</con:interface><con:operation>deprecateDocument</con:operation><con:request name="deprecateDocument" id="e747c1dd-649d-4649-90ca-f18e0149ed75"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-dtsimihaproxy-bal01.mosgorzdrav.local:8080/Simi2Soap/SimiService/v5/Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/simi/simiService/v5/types/" xmlns:v5="http://emias.mos.ru/simi/document/v5/">\r
+   <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+             <wsse:Username>${#TestSuite#systemName}/${#TestSuite#login}</wsse:Username>             
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>${#TestSuite#systemName}</user:systemName>
+         <user:userName>${#TestSuite#login}</user:userName>
+         <user:userRoleId>${#TestSuite#userRoleId}</user:userRoleId>
+                <user:userRights>
+            <!--Zero or more repetitions:-->
+            <user:userRightId>400001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>${#TestSuite#contractId}</user:jobExecutionId>
+             </user:userContext>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:deprecateDocumentRequest>\r
+         <v5:documentId>${CreateCancel#Response#//*:documentId}</v5:documentId>\r
+      </typ:deprecateDocumentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8c0648aa-66c8-4e1b-abef-15e9fb272703"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="CreateCancel" id="f1ab2cf8-159b-4f37-98a3-cd7b7a3bf13d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>simiServiceBinding</con:interface><con:operation>createDocument</con:operation><con:request name="CreateCancel" id="01c2d400-146e-4a40-8553-a87a6e402f7c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#Simi5WSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/simi/simiService/v5/types/" xmlns:v5="http://emias.mos.ru/simi/cct/v5/" xmlns:v51="http://emias.mos.ru/simi/core/v5/">
+     <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+             <wsse:Username>${#TestSuite#systemName}/${#TestSuite#login}</wsse:Username>             
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>${#TestSuite#systemName}</user:systemName>
+         <user:userName>${#TestSuite#login}</user:userName>
+         <user:userRoleId>${#TestSuite#userRoleId}</user:userRoleId>
+                <user:userRights>
+            <!--Zero or more repetitions:-->
+            <user:userRightId>400001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>${#TestSuite#contractId}</user:jobExecutionId>
+             </user:userContext>
+   </soap:Header>
+   <soap:Body>
+      <typ:createDocumentRequest>
+         <v5:cctCode>96133</v5:cctCode>
+         <v51:patientId>${#TestSuite#patientId}</v51:patientId>
+         <v51:careEventId>${CreateDocumentAssignment#Response#//*:careEventId}</v51:careEventId>
+         <v51:careEventStarted>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}</v51:careEventStarted>
+          <v51:options>
+            <!--Zero or more repetitions:-->
+            <v51:entry key="parentDocument">${CreateDocumentAssignment#Response#//*:documentId}</v51:entry>
+         </v51:options>
+            </typ:createDocumentRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ef4020fc-9ddf-4afa-9bb2-27e4f26ee19d"/><con:assertion type="SOAP Fault Assertion" id="7f285a73-eb54-4397-9e86-eb8fae0c4552" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ConvertCancel" id="45daa010-69f8-4982-a616-b5d6ab8c1e7a"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OpenEhrServiceV4PortBinding</con:interface><con:operation>convertJsonToBase64Tdd</con:operation><con:request name="ConvertCancel" id="3c759f02-5806-41f2-9517-ee700cf1fa27"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#OpenEhrWSDL}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias.mos.ru/simi/v4/openEhrService/types">\r
+   <soapenv:Header>\r
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">\r
+            <wsse:Username>KPI_DOCTOR_X/${#TestSuite#login}</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">KPI_DOCTOR/ESilenkova</wsse:Password>\r
+         </wsse:UsernameToken>\r
+      </wsse:Security>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <typ:convertJsonToBase64Tdd>\r
+         <typ:templateId>openEHR-EHR-COMPOSITION.t_consultation_order_cancellation.v3</typ:templateId>\r
+         <typ:structuredJson>{
+  "ctx/language": "ru",
+  "ctx/territory": "US",
+  "ctx/composer_name": "Silvia Cancelblake",
+  "ctx/id_namespace": "ПАРУС",
+  "ctx/id_scheme": "undefined",
+  "ctx/participation_name": "Маркус Джонсон",
+  "ctx/participation_function": "Дежурный врач",
+  "ctx/participation_mode": "face-to-face communication",
+  "ctx/participation_id": "012",
+  "ctx/participation_name:1": "Lara Markham",
+  "ctx/participation_function:1": "performer",
+  "ctx/participation_id:1": "198",
+  "ctx/health_care_facility|name": "ГБУЗ г. Москвы ГП №107 Департамента здравоохранения г. Москвы",
+  "ctx/health_care_facility|id": "1117746711180",
+  "отмена_назначения_на_консультацию": {
+    "context": [
+      {
+        "подробности_контекста": [
+          {
+            "ид_события": [
+              {
+                "|id": "${CreateCancel#Response#//*:careEventId}",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_документа": [
+              {
+                "|id": "${CreateCancel#Response#//*:documentId}",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_пациента": [
+              {
+                "|id": "${#TestSuite#patientId}",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "автор_информации": [
+              {
+                "идентификатор_исполнения_должности_медработника": [
+                  {
+                    "|id": "${#TestSuite#contractId}",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "наименование_должности": [
+                  "Наименование должности 89"
+                ],
+                "наименование_структурного_подразделения": [
+                  "Наименование структурного подразделения 16"
+                ],
+                "наименование_филиала": [
+                  "Наименование филиала 96"
+                ],
+                "наименование_юридического_лица": [
+                  "Наименование юридического лица 85"
+                ]
+              }
+            ],
+            "структура_медицинской_организации": [
+              {
+                "ид_объекта": [
+                  {
+                    "|id": "${#TestSuite#lpuId}",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "тип_объекта": [
+                  {
+                    "|code": "at0019"
+                  }
+                ],
+                "наименование": [
+                  "Наименование 76"
+                ],
+                "родительский_ид": [
+                  {
+                    "|id": "97f32f2c-51eb-4028-876f-f48a28246439",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ]
+              }
+            ],
+            "адрес_медицинской_организации": [
+              {
+                "субъект_рф": [
+                  "Субъект РФ 84"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 89"
+                ],
+                "поселение": [
+                  "Поселение 35"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 81"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 35"
+                ],
+                "улица": [
+                  "Улица 44"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 48"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 24"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 12"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 16"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 49"
+                ]
+              }
+            ],
+            "информация_о_месте_cобытия": [
+              {
+                "событие_произошло": [
+                  {
+                    "|code": "at0071"
+                  }
+                ],
+                "субъект_рф": [
+                  "Субъект РФ 85"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 47"
+                ],
+                "поселение": [
+                  "Поселение 57"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 83"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 82"
+                ],
+                "улица": [
+                  "Улица 24"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 42"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 48"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 73"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 53"
+                ],
+                "номер_помещения": [
+                  "Номер помещения 12"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 79"
+                ]
+              }
+            ],
+            "дополнительная_информация": [
+              {
+                "профиль_медицинской_помощи": [
+                  {
+                    "|code": "at0088"
+                  }
+                ],
+                "виды_медицинской_помощи": [
+                  {
+                    "|code": "at0053"
+                  }
+                ],
+                "условия_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0056"
+                  }
+                ],
+                "форма_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0058"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "сведения_о_выполнении": [
+      {
+        "выполнение": [
+          {
+           "_instruction_details":[{
+                    "|composition_uid":"${Save#Response#//tags[1]/tag[3]/value[1]/text()[1]}",
+                    "|instruction_uid":"${#TestCase#assignmentId}",
+                    "|activity_id":"activities[at0001]",
+                    "|path":"/content[openEHR-EHR-SECTION.adhoc.v1,'Сведения о назначении']/items[openEHR-EHR-INSTRUCTION.service_request_consultation-simi.v1 and uid/value='${#TestCase#assignmentId}','Назначение']"
+                }],
+            "ism_transition":[{
+                    "current_state":[{"|code":"528"}],
+                    "careflow_step":[{"|code":"at0009"}]
+                }],
+            "комментарий": [
+              "Комментарий 87"
+            ],
+            "причина_отмены": [
+              "4"
+            ],
+            "time": [
+              "2022-10-26T16:54:27.826618+03:00"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}</typ:structuredJson>\r
+      </typ:convertJsonToBase64Tdd>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3606c38f-01e2-40a5-a3d6-2d08188f4033"/><con:assertion type="SOAP Fault Assertion" id="d455933c-3857-4ef8-8281-699c6f1322c4"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SaveCancel" id="5e8d2ce2-a480-4ed8-a051-3f24a1affa95"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>simiServiceBinding</con:interface><con:operation>saveDocument</con:operation><con:request name="SaveCancel" id="25920ebf-35e1-4c14-a36a-abbf3ec03c9c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#Simi5WSDL}</con:endpoint><con:request><![CDATA[ <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns6="http://www.w3.org/2000/09/xmldsig#" xmlns:v52="http://emias.mos.ru/simi/cct/v5/" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/simi/simiService/v5/types/" xmlns:v5="http://emias.mos.ru/simi/document/v5/" xmlns:v51="http://emias.mos.ru/simi/core/v5/">
+   <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+             <wsse:Username>${#TestSuite#systemName}/${#TestSuite#login}</wsse:Username>             
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>${#TestSuite#systemName}</user:systemName>
+         <user:userName>${#TestSuite#login}</user:userName>
+         <user:userRoleId>${#TestSuite#userRoleId}</user:userRoleId>
+                <user:userRights>
+            <!--Zero or more repetitions:-->
+            <user:userRightId>400001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>${#TestSuite#contractId}</user:jobExecutionId>
+             </user:userContext>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:saveDocumentRequest>\r
+         <v5:document>\r
+            <metadata status="CREATED" authorLogin="${#TestSuite#login}">\r
+               <v5:documentId>${CreateCancel#Response#//*:documentId}</v5:documentId>\r
+               <v5:documentInfo documentCreated="${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}" simiVersion="5">\r
+                  <v51:patientId>${CreateCancel#Response#//*:patientId}</v51:patientId>\r
+                  <v51:careEventId>${CreateCancel#Response#//*:careEventId}</v51:careEventId>\r
+                  <v51:careEventStarted>${CreateCancel#Response#//*:careEventStarted}</v51:careEventStarted>\r
+                 <v5:cctInfo role="Name">
+                     <!--Optional:-->
+                     <schema>ru.emias.simi.terminology.cct</schema>
+                     <!--Optional:-->
+                     <code>96133</code>
+                     <!--Optional:-->
+                     <value>Отмена назначения на консультацию</value>
+                     <v52:cctParameters>
+                       <tag role="Name">
+                           <value>Отмена назначения на консультацию</value>
+                        </tag>
+                        <tag role="openEhrTemplateId">
+                           <value>openEHR-EHR-COMPOSITION.t_consultation_order_cancellation.v3</value>
+                        </tag>
+                        <tag role="ShortName">
+                           <value>Отм. назн. конс</value>
+                        </tag>
+                        <tag role="specificationVersion">
+                           <value>3.0.0</value>
+                        </tag>
+                        <tag role="idEhrForm">
+                           <value>3e56c2c7-a05b-414f-8dba-9f51620cc693:79</value>
+                        </tag>
+                     </v52:cctParameters>
+                     <v52:contentTypeInfo mimeClass="APPLICATION">\r
+                        <!--1 or more repetitions:-->\r
+                        <mimeType>application/tdd</mimeType>\r
+                     </v52:contentTypeInfo>\r
+                  </v5:cctInfo>\r
+                 <tags>
+                      <tag definedByCct="true">
+                        <schema>ru.mos.emias.system.document_use</schema>
+                        <code>80</code>
+                        <value>Документ отмены</value>
+                     </tag>
+                     <tag definedByCct="true">
+                        <schema>ru.mos.emias.system.careevent_documentlist_hierarchydelist</schema>
+                        <code>Clinician protocol</code>
+                        <value>{"index": 0,"displayMode": "FULL"}</value>
+                     </tag>
+                     <tag definedByCct="true">
+                        <schema>ru.mos.emias.system.careevent_documentlist_hierarchydescr</schema>
+                        <code>Clinician protocol</code>
+                        <value>{"index":0,"visualizable":true,"group":null}</value>
+                     </tag>
+                                     </tags>
+               </v5:documentInfo>\r
+                 <v52:visualizations>
+                  <!--Zero or more repetitions:-->
+                  <visualization>
+                     <!--Optional:-->
+                     <v52:visualizationId>300C9753-3354-473E-A996-67BDD751D02B</v52:visualizationId>
+                     <v52:cctCode>0</v52:cctCode>
+                    <visualizationInfo name="DEFAULT" description="DEFAULT" xsltVersion="XSLT_2_0" signature="false">
+                       <v52:tags>
+                           </v52:tags>
+                     </visualizationInfo>
+                                      </visualization>
+               </v52:visualizations>
+               <confidentialityTags/>\r
+               <links/>\r
+               <associations/>\r
+            </metadata>\r
+             <v5:content mimeClass="APPLICATION" mimeType="application/tdd" valid="false">
+                            <v5:data>${ConvertCancel#Response#//*:base64CompositionTdd}</v5:data>
+                            </v5:content>
+                             <v5:signature technicalSignature="true" signeeLogin="${#TestSuite#login}" dateSign="${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}">
+                  <ns6:Signature>
+                  <ns6:SignedInfo>
+                     <ns6:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                     <ns6:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr34102001-gostr3411"/>
+                     <ns6:Reference URI="">
+                        <ns6:Transforms>
+                           <ns6:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                           <ns6:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                              <ns6:XPath>ancestor-or-self::content</ns6:XPath>
+                           </ns6:Transform>
+                        </ns6:Transforms>
+                        <ns6:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr3411"/>
+                        <ns6:DigestValue>bUI1ZlBLTU1oQlNIZ3crRSswTStFNndSQVZhYm5CTllTc1NESTB6V1ZzQT08</ns6:DigestValue>
+                     </ns6:Reference>
+                  </ns6:SignedInfo>
+                  <ns6:SignatureValue>dGVzdA==</ns6:SignatureValue>              
+                  <ns6:KeyInfo>
+                     <ns6:X509Data>
+                        <ns6:X509Certificate>dGVjaG5pY2FsIHNpZ24gc3R1Yg==</ns6:X509Certificate>
+                     </ns6:X509Data>
+                  </ns6:KeyInfo>
+               </ns6:Signature>
+               </v5:signature>
+         </v5:document>\r
+      </typ:saveDocumentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cded6455-8433-4c24-92ed-ce69811f5d87"/><con:assertion type="SOAP Fault Assertion" id="0b369e87-52a4-4127-b9f0-d3c9a7c35631" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="Copy of Delay" id="964ebac0-54d3-4105-be22-9a951aa173b7"><con:settings/><con:config><delay>5000</delay></con:config></con:testStep><con:testStep type="request" name="GetAssignment cancel" id="303d9cfd-8854-4191-844a-fa371ffadfa5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AssignmentServicePortTypeBinding</con:interface><con:operation>getAssignment</con:operation><con:request name="GetAssignment cancel" id="bedc754f-68e2-43f9-a0de-d723105de714"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#AssignmentWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ass="http://emias.mos.ru/consultations/v1/assignment/">
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-61ba1c58-5698-41c3-8366-5f0de9147f85">
+            <wsse:Username>CONSULTATIONS/${#TestSuite#login}</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <typ:ConsultationsUserContext/>
+   </soap:Header>
+   <soap:Body>
+      <ass:GetAssignmentRequest>
+         <ass:assignmentId>${#TestCase#assignmentId}</ass:assignmentId>
+      </ass:GetAssignmentRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b8231934-c136-4a76-9948-29a4fffae17d"/><con:assertion type="SOAP Fault Assertion" id="99d78b1c-1f50-45a3-a0f3-7a91b5fad5e7"/><con:assertion type="XPath Match" id="6b76f186-9a51-4b22-92cb-c7f85eafadf8" name="Статус AssignmentCreated"><con:configuration><path>//*:assignmentStatus</path><content>&lt;ns2:assignmentStatus  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/" >Cancelled&lt;/ns2:assignmentStatus></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9518184a-b03c-48df-aaaf-ded8b625be5d" name="Документ СИМИ"><con:configuration><path>//*:documentId</path><content>&lt;ns2:documentId  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/" >${CreateDocumentAssignment#Response#//*:documentId}&lt;/ns2:documentId></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="2f9c0d0d-d560-44eb-ac8a-92ef070df961" name="Task Conduct"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/consultations/v1/assignment/types/';
+&lt;Responce>
+{
+for $x in //*:tasks
+return   &lt;ns2:type>Conduct&lt;/ns2:type>
+}
+&lt;/Responce></path><content>&lt;Responce>
+  &lt;ns2:type xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">Conduct&lt;/ns2:type>
+&lt;/Responce></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="2f9c0d0d-d560-44eb-ac8a-92ef070df961" name="Task Created"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/consultations/v1/assignment/types/';
+&lt;Responce>
+{
+for $x in //*:tasks
+return  &lt;ns2:status>{data($x/ns2:status/text())}&lt;/ns2:status>
+}
+&lt;/Responce></path><content>&lt;Responce>
+  &lt;ns2:status xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">Cancelled&lt;/ns2:status>
+&lt;/Responce></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="3d56541a-a939-422e-89a5-0e3a95e9a3b3" name="Есть направление СУПП" disabled="true"><con:configuration><path>//*:options</path><content>&lt;ns3:options xmlns="http://emias.mos.ru/consultations/v1/assignment/" xmlns:ns2="http://emias.mos.ru/consultations/v1/common/types/" xmlns:ns3="http://emias.mos.ru/consultations/v1/assignment/types/" xmlns:ns4="http://emias.mos.ru/system/v1/userContext/" xmlns:ns5="http://emias.mos.ru/system/v1/faults/" xmlns:ns6="http://emias.mos.ru/consultations/v1/task/types/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  &lt;ns2:entry key="suppReferralId">*&lt;/ns2:entry>
+&lt;/ns3:options></content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="6b76f186-9a51-4b22-92cb-c7f85eafadf8" name="allowChange"><con:configuration><path>//*:allowChange</path><content>&lt;ns2:allowChange  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">false&lt;/ns2:allowChange>
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="6b76f186-9a51-4b22-92cb-c7f85eafadf8" name="allowCancel"><con:configuration><path>//*:allowCancel</path><content>&lt;ns2:allowCancel  xmlns:ns2="http://emias.mos.ru/consultations/v1/assignment/types/">false&lt;/ns2:allowCancel>
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>assignmentId</con:name><con:value>ConsuAssignment7855da42-ff4b-4020-b6cb-a7a63fdd171b</con:value></con:property><con:property><con:name>id</con:name><con:value>${=(long)(Math.random()*10000000000000000000)}</con:value></con:property><con:property><con:name>composition_uid</con:name><con:value>b5f2e671-9856-4e47-a5ed-21590d8f1ed1::default::1</con:value></con:property><con:property><con:name>assignmentStartDate</con:name><con:value>2022-12-30T12:04:47</con:value></con:property><con:property><con:name>assignmentEndDate</con:name><con:value>2023-01-06T12:04:47</con:value></con:property></con:properties><con:reportParameters/></con:testCase><con:properties><con:property><con:name>patientId</con:name><con:value>25392576</con:value></con:property><con:property><con:name>login</con:name><con:value>GaliKirsanova</con:value></con:property><con:property><con:name>contractId</con:name><con:value>121397062</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>10075053</con:value></con:property><con:property><con:name>assignmentStartDate</con:name><con:value>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}</con:value></con:property><con:property><con:name>assignmentEndDate</con:name><con:value>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new java.util.Date())}</con:value></con:property><con:property><con:name>careEventId</con:name><con:value>${=(int)(Math.random()*(100000))}</con:value></con:property><con:property><con:name>receiv_lpuId</con:name><con:value>10000369</con:value></con:property><con:property><con:name>test_careEventId</con:name><con:value>123</con:value></con:property><con:property><con:name>test_availiableRecourceId</con:name><con:value>123</con:value></con:property><con:property><con:name>systemName</con:name><con:value>INSTRUMENTAL</con:value></con:property><con:property><con:name>userRoleId</con:name><con:value>4</con:value></con:property><con:property><con:name>end</con:name><con:value>2022-10-17T17:19:00</con:value></con:property><con:property><con:name>start</con:name><con:value>2022-10-17T17:20:00</con:value></con:property><con:property><con:name>slotId</con:name><con:value>7049250</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties><con:reportParameters/></con:testSuite>

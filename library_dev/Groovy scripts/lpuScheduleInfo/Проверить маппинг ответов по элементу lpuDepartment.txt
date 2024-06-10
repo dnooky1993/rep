@@ -1,0 +1,109 @@
+import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.util.ArrayList
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
+ DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+ today= LocalDate.now()
+ 
+def lpuScheduleInfoResponse = context.expand('${lpuScheduleInfo#Response}')
+def slurperJson = new JsonSlurper()
+def lpuScheduleInfo = slurperJson.parseText(lpuScheduleInfoResponse)
+// log.info lpuScheduleInfo.payload.lpuInfo.lpuId
+
+
+def getLpuScheduleInfoResponse = context.expand('${getLpuScheduleInfo#Response}')
+getLpuScheduleInfo = new XmlSlurper().parseText(getLpuScheduleInfoResponse)
+
+
+// проверить количество lpuDepartment
+
+supplpuDepIds=getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.availableResource.lpuDepartment
+suppAllDepList=[]
+for(int i=0; i<supplpuDepIds.size(); i++){
+	map=[id:supplpuDepIds[i].id.toString(), name:supplpuDepIds[i].name.toString()]
+	suppAllDepList <<map
+	
+}
+suppAllDepList.sort{it.name}
+infolpuDepartmentsCount =lpuScheduleInfo.payload.lpuInfo.lpuDepartment.size()
+
+List<String> suppUniqDepList = new ArrayList<>();
+for (Map  x : suppAllDepList) {
+    if (!suppUniqDepList.contains(x))
+        suppUniqDepList.add(x);
+}
+//log.info "suppUniqDepList "+suppUniqDepList[0].name.getClass()
+suppUniqDepartmentsCount =suppUniqDepList.size()
+
+assert  infolpuDepartmentsCount==suppUniqDepartmentsCount
+//
+ suppDepartments=[]
+ infoDepartments=[]
+medEmployeeMap=[:]
+
+ if (infolpuDepartmentsCount){
+	//проверить каждый lpuDepartment item
+	for(int i=0; i<infolpuDepartmentsCount; i++){
+		def lpuDepartment = lpuScheduleInfo.payload.lpuInfo.lpuDepartment[i]
+		medEmployees=[]
+		if (lpuDepartment){
+			name=lpuDepartment.name.toString()
+			id=lpuDepartment.id.toString()
+			medicalEmployee=lpuDepartment.medicalEmployee
+			for(int m=0; m<medicalEmployee.size();m++){
+				//availableResourceId=lpuDepartment.medicalEmployee[m].availableResourceId.toString()
+				positionId=lpuDepartment.medicalEmployee[m].position.id.toString()
+				positionName=lpuDepartment.medicalEmployee[m].position.name.toString()
+				FIO =lpuDepartment.medicalEmployee[m].fio.toString()
+				medEmployeeMap=[ positionId:positionId, positionName:positionName, FIO:FIO]
+				medEmployees << medEmployeeMap
+			}
+		}
+		def map=[id:id, name:name,medicalEmployee:medEmployees]
+		infoDepartments << map
+	}
+	log.info "infoDepartments  " +infoDepartments
+	
+	suppAvResCount=infolpuDepartmentsCount=getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.availableResource.size()
+	for(int i=0; i<suppUniqDepartmentsCount; i++){
+		arList=[]
+		for(int j=0; j<suppAvResCount; j++){
+			def availableResource = getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.availableResource[j]
+			lpuDepartment=availableResource.lpuDepartment
+			//log.info " suppUniqDepList[i].id "+suppUniqDepList[i].id
+			if (suppUniqDepList[i].id==lpuDepartment.id.toString() ){
+				//availableResourceId=availableResource.id.toString()
+				positionId=availableResource.medicalEmployee.position.id.toString()
+				positionName=availableResource.medicalEmployee.position.shortName.toString()
+				lastName=availableResource.medicalEmployee.lastName.toString()
+				middleName=availableResource.medicalEmployee.middleName.toString()
+				firstName=availableResource.medicalEmployee.firstName.toString()
+				FIO =lastName+' '+firstName+(middleName ? ' '+ middleName : "")
+				//log.info infolpuDepartmentId
+				def map=[ positionId:positionId, positionName:positionName, FIO:FIO]
+				arList << map
+				arList.sort{it.FIO}
+			}
+		}
+		depMap=[id:suppUniqDepList[i].id, name:suppUniqDepList[i].name,medicalEmployee:arList]
+		suppDepartments << depMap
+	}
+log.info "suppDepartments  " +suppDepartments
+	
+	assert infoDepartments.size()==suppDepartments.size()
+	
+	/*
+	 
+	// узнать разницу между департаментами
+	def commons = infoDepartments.intersect(suppDepartments)
+	def difference = infoDepartments.plus(suppDepartments)
+	difference.removeAll(commons)
+	
+	log.info difference
+	 */
+	assert infoDepartments==suppDepartments
+ }
+
+log.info "end"

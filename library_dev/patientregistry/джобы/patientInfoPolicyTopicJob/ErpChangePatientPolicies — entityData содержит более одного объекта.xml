@@ -1,0 +1,285 @@
+{
+            "id": 91211,
+            "operationDate": "2021-12-06T11:09:48.973+03:00",
+            "emiasId": 91211,
+            "uklErp": "91211",
+            "patientType": "I",
+            "patientRecStatus": "Y",
+            "entityName": "policies",
+            "entityData": [
+                {
+                    "attributes": [
+                        {
+                            "name": "policyOMSType",
+                            "type": "dictionary",
+                            "value": {
+                                "code": "N",
+                                "value": "полис ОМС единого образца"
+                            }
+                        },
+                        {
+                            "name": "policyNumber",
+                            "type": "string",
+                            "value": {
+                                "value": "11111111111111"
+                            }
+                        },
+                        {
+                            "name": "policyBeginDate",
+                            "type": "date",
+                            "value": {
+                                "value": "2018-07-30"
+                            }
+                        },
+                        {
+                            "name": "policyEndDate",
+                            "type": "date",
+                            "value": {
+                                "value": "2099-12-31"
+                            }
+                        },
+                        {
+                            "name": "policySMO",
+                            "type": "dictionary",
+                            "value": {
+                                "id": 134750071,
+                                "code": "10002291",
+                                "value": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"СТРАХОВАЯ КОМПАНИЯ \"СОГАЗ-МЕД\""
+                            }
+                        },
+                        {
+                            "name": "isExternalSMO",
+                            "type": "boolean",
+                            "value": {
+                                "value": "false"
+                            }
+                        },
+                        {
+                            "name": "policyInsuranceTerritoryName",
+                            "type": "string",
+                            "value": {
+                                "value": "г.Москва"
+                            }
+                        },
+                        {
+                            "name": "policyInsuranceTerritoryCode",
+                            "type": "string",
+                            "value": {
+                                "value": "45000"
+                            }
+                        },
+                        {
+                            "name": "policySMOOGRN",
+                            "type": "string",
+                            "value": {
+                                "value": "1027739008440"
+                            }
+                        },
+                        {
+                            "name": "policySMOBeginDate",
+                            "type": "date",
+                            "value": {
+                                "value": "2018-07-30"
+                            }
+                        },
+                        {
+                            "name": "policyStatus",
+                            "type": "dictionary",
+                            "value": {
+                                "code": "Y",
+                                "value": "действует"
+                            }
+                        },
+                        {
+                            "name": "policyChangeDate",
+                            "type": "dateTime",
+                            "value": {
+                                "value": "2021-12-11T10:54:54.926154+03:00"
+                            }
+                        }
+                    ]
+                }, {
+                    "attributes": [
+                        {
+                            "name": "policyOMSType",
+                            "type": "dictionary",
+                            "value": {
+                                "code": "N",
+                                "value": "полис ОМС единого образца"
+                            }
+                        },
+                        {
+                            "name": "policyNumber",
+                            "type": "string",
+                            "value": {
+                                "value": "22222222222222"
+                            }
+                        },
+                        {
+                            "name": "policyBeginDate",
+                            "type": "date",
+                            "value": {
+                                "value": "2018-07-30"
+                            }
+                        },
+                        {
+                            "name": "policyEndDate",
+                            "type": "date",
+                            "value": {
+                                "value": "2099-12-31"
+                            }
+                        },
+                        {
+                            "name": "policySMO",
+                            "type": "dictionary",
+                            "value": {
+                                "id": 134750071,
+                                "code": "10002291",
+                                "value": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"СТРАХОВАЯ КОМПАНИЯ \"СОГАЗ-МЕД\""
+                            }
+                        },
+                        {
+                            "name": "isExternalSMO",
+                            "type": "boolean",
+                            "value": {
+                                "value": "false"
+                            }
+                        },
+                        {
+                            "name": "policyInsuranceTerritoryName",
+                            "type": "string",
+                            "value": {
+                                "value": "г.Москва"
+                            }
+                        },
+                        {
+                            "name": "policyInsuranceTerritoryCode",
+                            "type": "string",
+                            "value": {
+                                "value": "45000"
+                            }
+                        },
+                        {
+                            "name": "policySMOOGRN",
+                            "type": "string",
+                            "value": {
+                                "value": "1027739008440"
+                            }
+                        },
+                        {
+                            "name": "policySMOBeginDate",
+                            "type": "date",
+                            "value": {
+                                "value": "2018-07-30"
+                            }
+                        },
+                        {
+                            "name": "policyStatus",
+                            "type": "dictionary",
+                            "value": {
+                                "code": "Y",
+                                "value": "действует"
+                            }
+                        },
+                        {
+                            "name": "policyChangeDate",
+                            "type": "dateTime",
+                            "value": {
+                                "value": "2021-12-13T10:54:54.926154+03:00"
+                            }
+                        }
+                    ]
+                }, {
+                    "attributes": [
+                        {
+                            "name": "policyOMSType",
+                            "type": "dictionary",
+                            "value": {
+                                "code": "N",
+                                "value": "полис ОМС единого образца"
+                            }
+                        },
+                        {
+                            "name": "policyNumber",
+                            "type": "string",
+                            "value": {
+                                "value": "3333333333333333"
+                            }
+                        },
+                        {
+                            "name": "policyBeginDate",
+                            "type": "date",
+                            "value": {
+                                "value": "2018-07-30"
+                            }
+                        },
+                        {
+                            "name": "policyEndDate",
+                            "type": "date",
+                            "value": {
+                                "value": "2099-12-31"
+                            }
+                        },
+                        {
+                            "name": "policySMO",
+                            "type": "dictionary",
+                            "value": {
+                                "id": 134750071,
+                                "code": "10002291",
+                                "value": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"СТРАХОВАЯ КОМПАНИЯ \"СОГАЗ-МЕД\""
+                            }
+                        },
+                        {
+                            "name": "isExternalSMO",
+                            "type": "boolean",
+                            "value": {
+                                "value": "false"
+                            }
+                        },
+                        {
+                            "name": "policyInsuranceTerritoryName",
+                            "type": "string",
+                            "value": {
+                                "value": "г.Москва"
+                            }
+                        },
+                        {
+                            "name": "policyInsuranceTerritoryCode",
+                            "type": "string",
+                            "value": {
+                                "value": "45000"
+                            }
+                        },
+                        {
+                            "name": "policySMOOGRN",
+                            "type": "string",
+                            "value": {
+                                "value": "1027739008440"
+                            }
+                        },
+                        {
+                            "name": "policySMOBeginDate",
+                            "type": "date",
+                            "value": {
+                                "value": "2018-07-30"
+                            }
+                        },
+                        {
+                            "name": "policyStatus",
+                            "type": "dictionary",
+                            "value": {
+                                "code": "Y",
+                                "value": "действует"
+                            }
+                        },
+                        {
+                            "name": "policyChangeDate",
+                            "type": "dateTime",
+                            "value": {
+                                "value": "2021-12-12T10:54:54.926154+03:00"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }

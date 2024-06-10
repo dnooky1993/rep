@@ -1,0 +1,178 @@
+import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.util.ArrayList
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
+ DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+ today= LocalDate.now()
+ 
+def lpuScheduleInfoResponse = context.expand('${lpuScheduleInfo#Response}')
+def slurperJson = new JsonSlurper()
+def lpuScheduleInfo = slurperJson.parseText(lpuScheduleInfoResponse)
+// log.info lpuScheduleInfo.payload.lpuInfo.lpuId
+
+
+def getLpuScheduleInfoResponse = context.expand('${getLpuScheduleInfo#Response}')
+getLpuScheduleInfo = new XmlSlurper().parseText(getLpuScheduleInfoResponse)
+
+// собрать medicalEmployeeSchedule из метода info
+
+infoMedicalEmployeeSchedule=lpuScheduleInfo.payload.lpuInfo.lpuDepartment.medicalEmployee.schedule
+infoMedicalEmployees=[]
+if (infoMedicalEmployeeSchedule){
+	for(int i=0; i<infoMedicalEmployeeSchedule.size(); i++){
+		cabinets=[]
+		availableResourceId=infoMedicalEmployeeSchedule[i].availableResourceId
+		date=infoMedicalEmployeeSchedule[i].date
+		weekDay=infoMedicalEmployeeSchedule[i].weekDay
+		receptionInfo=infoMedicalEmployeeSchedule[i].receptionInfo?infoMedicalEmployeeSchedule[i].receptionInfo:null
+		cabinet=infoMedicalEmployeeSchedule[i].cabinet
+		cabinetMap=[:]
+		if (cabinet){
+			for(int j=0; j<cabinet.size(); j++){
+				receptionTime=[]
+				number=cabinet[j].number
+				addressId=cabinet[j].addressId
+				cabinetReceptionTime=cabinet[j].receptionTime
+				if (cabinetReceptionTime!=null){
+					for(int m=0; m<cabinetReceptionTime.size();m++){
+						start=cabinetReceptionTime[m].start.toString()
+						end=cabinetReceptionTime[m].end.toString()
+						receptionTimeMap=[start:start,end:end]
+					}
+					receptionTime<<receptionTimeMap
+					//log.info " receptionTime "+receptionTime
+				} 
+
+				/*
+				if (receptionTime){
+					receptionTimeMap=[start:receptionTime.start,end:receptionTime.end]
+				}
+				*/
+				cabinetMap=[number:number,addressId:addressId,receptionTime:receptionTime]
+				cabinets<<cabinetMap
+			}
+		}
+		def map=[availableResourceId:availableResourceId, date:date,weekDay:weekDay,receptionInfo:receptionInfo,cabinet:cabinets]
+		infoMedicalEmployees<< map
+//		log.info"i ="+i+ " ресурс "+map
+	}
+}
+
+
+// собрать medicalEmployeeSchedule из метода supp
+def date
+suppMedicalEmployeeSchedule=getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.availableResource
+suppMedicalEmployees=[]
+if (suppMedicalEmployeeSchedule){
+	for(int i=0; i<suppMedicalEmployeeSchedule.size(); i++){
+	//for(int i=87; i<88; i++){
+		cabinets=[]
+		availableResourceId=suppMedicalEmployeeSchedule[i].id.toString()
+		schedule=suppMedicalEmployeeSchedule[i].schedule
+		if (schedule){
+			for(int k=0;k<schedule.size(); k++){
+				dateString=schedule[k].date.toString().replace("+03:00","")
+				date = LocalDate.parse(dateString, formatter)
+				weekDay=schedule[k].weekDay.toString()
+				receptionInfo=schedule[k].receptionInfo.text() != ""?schedule[k].receptionInfo:null
+				cabinet=schedule[k].cabinet
+				cabinetMap=[:]
+				if (cabinet){
+					currentCabinets=[]
+					receptionTime=[]
+					for(int j=0; j<cabinet.size(); j++){
+						receptionTime=[]
+						number=cabinet[j].number
+						addressId=cabinet[j].addressId
+						cabinetReceptionTime=cabinet[j].receptionTime
+						if(availableResourceId=='10477871' && dateString=='2022-07-11'&& cabinetReceptionTime.text()!=""){
+							//log.info "number "+number+" cabinetReceptionTime "+cabinetReceptionTime
+						}
+						if (cabinetReceptionTime.text()!=""){
+							for(int m=0; m<cabinetReceptionTime.size();m++){
+								start=cabinetReceptionTime[m].start.toString().split(".000")[0]
+								end=cabinetReceptionTime[m].end.toString().split(".000")[0]
+								receptionTimeMap=[start:start,end:end]
+							//log.info " receptionTime "+receptionTime
+							}
+							receptionTime<<receptionTimeMap
+						} 
+						if(availableResourceId=='10477871' && dateString=='2022-07-11'){
+							//log.info "number "+number+" receptionTime "+receptionTime+" receptionInfo "+receptionInfo
+							if (receptionInfo==null && receptionTime==[]){
+								//log.info "надо скипнуть number "+number+" receptionTime "+receptionTime
+							}
+						}
+						//log.info "receptionInfo "+receptionInfo+" receptionTime="+receptionTime+" j="+j
+						if (receptionInfo==null && receptionTime==[]) continue
+						else {
+							cabinetMap=[number:number,addressId:addressId,receptionTime:receptionTime]
+							currentCabinets<<cabinetMap
+						}
+					}
+					cabinets=currentCabinets
+					if(date>=today){
+						def map=[availableResourceId:availableResourceId, date:dateString,weekDay:weekDay,receptionInfo:receptionInfo,cabinet:cabinets]
+					//	log.info"i ="+i+ " ресурс "+map
+						suppMedicalEmployees<< map
+					}
+				}
+				//log.info "i ="+i+  " availableResourceId ="+availableResourceId+ " date ="+date+ " cabinets "+currentCabinets
+								
+			}
+		}
+	}
+}
+
+
+//assert  suppMedicalEmployees.size()==infoMedicalEmployees.size()
+log.info "suppMedicalEmployees "+suppMedicalEmployees.size()+  " infoMedicalEmployees ="+infoMedicalEmployees.size()
+for(int i=0; i<infoMedicalEmployees.size(); i++){
+	if (infoMedicalEmployees.get(i).toString()!=suppMedicalEmployees.get(i).toString()){
+		log.info " i ="+i
+		log.info "инфо "+infoMedicalEmployees[i]
+		log.info "супп "+suppMedicalEmployees[i]
+		//assert  suppMedicalEmployees[i]==infoMedicalEmployees[i]
+		//return
+	}
+	//assert infoMedicalEmployees.get(i).toString()==suppMedicalEmployees.get(i).toString()
+}
+log.info " end "
+
+
+
+/* 
+for (int i=1; i<suppMedicalEmployees.size(); i++){
+	value=suppMedicalEmployees[i]
+	if (value.receptionInfo ==null ) {
+		for (int k=0; k<value.cabinet.size(); k++){
+			if (value.cabinet[k].receptionTime!=[]){
+				cab=value.cabinet[k]
+				//log.info "i ="+i+ " k ="+k+" есть receptionTime . ресурс " +value.availableResourceId + " , дата " +value.date + " ,кабинет  " +cab
+			}
+		}
+	}
+	if (value.receptionInfo !=null) {
+		for (int k=0; k<value.cabinet.size(); k++){
+			if (value.cabinet[k].receptionTime==[]){
+					//log.info "i ="+i+" нет receptionTime есть receptionInfo " + value
+			}
+		}
+	}
+}
+
+*/
+//log.info infoMedicalEmployees[0]
+
+//assert infoMedicalEmployees==suppMedicalEmployees
+
+/*
+// узнать разницу между медиками
+	def commons = infoMedicalEmployees.intersect(suppMedicalEmployees)
+	def difference = infoMedicalEmployees.plus(suppMedicalEmployees)
+	difference.removeAll(commons)
+	
+	log.info difference
+*/

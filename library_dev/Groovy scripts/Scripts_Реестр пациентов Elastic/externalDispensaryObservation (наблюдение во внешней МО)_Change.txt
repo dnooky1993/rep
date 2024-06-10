@@ -1,0 +1,66 @@
+import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//  sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+def sendMessageToKafka(String topicName, String textMessage){
+
+  Properties props = new Properties()
+  props.put('zk.connect', '10.2.172.24:2181')
+  props.put('bootstrap.servers', bootstrapServers)
+  props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+  props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+     
+  def producer = new KafkaProducer(props)
+  
+  def messageSender = { String topic, String message ->
+      log.info( "messageSender: "+topic+"; "+message )
+      def key =  UUID.randomUUID().toString()
+      def Date date = new Date(); 
+     def  long  timestamp= date.getTime()
+     def int partition =0
+      String compoundMessage = "$message"
+      producer.send(
+              new ProducerRecord<String, String>(topic, partition, timestamp,  key, compoundMessage),
+              { RecordMetadata metadata, Exception e ->
+                  log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+              } as Callback
+      )
+  }
+
+  String msg =textMessage.toString()
+  //log.info(topic1+" "+messageCreateMf)
+   messageSender(topicName, msg)
+   
+   producer.close() 
+}
+
+def patientId=testRunner.testCase.getPropertyValue("patientId")
+def date=testRunner.testCase.getPropertyValue("date")
+def uid=testRunner.testCase.getPropertyValue("uid")
+
+sendMessageToKafka("DnExternalRecordToDisp","""{
+  "operationType":"change",
+  "patientId": \""""+patientId+"""\",
+  "documentId": \""""+uid+"""\",
+  "compositionId": \""""+uid+"""\",
+  "openedDate": "2021-12-08T12:00:00.000000",
+  "openedMonth": 1,
+  "openedYear": 21,
+  "endDate": "2021-12-09T12:00:00.000000",
+  "moId": "204",
+  "moName": "moName",
+  "diagnosisCode": "A00.1",
+  "diagnosisName": "diagnosisName"
+}""")

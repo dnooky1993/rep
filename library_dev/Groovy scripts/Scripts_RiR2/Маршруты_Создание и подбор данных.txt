@@ -1,0 +1,72 @@
+import groovy.sql.Sql
+
+if (context.dbConnect != null) {      
+sql = context.dbConnect;
+
+      // Добавление МО и МО2
+     String sql_query = "SELECT * FROM MEDICAL_ORGANIZATION WHERE ID = ((SELECT max(ID) FROM MEDICAL_ORGANIZATION ))"
+     def medicalOrganization = sql.rows(sql_query)
+     String medicalOrganizationId =medicalOrganization[0].ID+1
+     String medicalOrganizationId2 =medicalOrganization[0].ID+2
+    
+      sql.execute ("INSERT INTO MEDICAL_ORGANIZATION (ID,ARCHIVED, NAME, NAME_FULL,OGRN, CREATED)" +
+"VALUES ("+ medicalOrganizationId +" , 0, 'Тестовая MO', 'Тестовая Медицинская организация', 1544989849849,  TIMESTAMP '1970-01-01 00:00:00.000000') ")
+
+      sql.execute ("INSERT INTO MEDICAL_ORGANIZATION (ID,ARCHIVED, NAME, NAME_FULL,OGRN, CREATED)" +
+"VALUES ("+ medicalOrganizationId2 +" , 0, 'Тестовая MO', 'Тестовая Медицинская организация2', 1544989849849,  TIMESTAMP '1970-01-01 00:00:00.000000') ")
+       log.info ("ID МО: " + medicalOrganizationId)
+       log.info ("ID МО2: " + medicalOrganizationId2)
+
+      //Получаю МО_Name
+      
+       String sql_query2= "SELECT * FROM MEDICAL_ORGANIZATION WHERE ID ="+ medicalOrganizationId
+       String sql_query3= "SELECT * FROM MEDICAL_ORGANIZATION WHERE ID ="+ medicalOrganizationId2
+       def medicalOrganization1 = sql.rows(sql_query2)
+       def medicalOrganization2 = sql.rows(sql_query3)
+       String medicalOrganizationTitle =medicalOrganization1[0].NAME
+       String medicalOrganizationTitle2 =medicalOrganization2[0].NAME
+       log.info ("ID МО_Name: " + medicalOrganizationTitle)
+       log.info ("ID МО2_Name: " + medicalOrganizationTitle2)
+
+       //Нахожу  TREATMENT
+       String sql_query4 = "SELECT * FROM TREATMENT WHERE ARCHIVED=0"
+       def tres = sql.rows(sql_query4)
+       String  treatmentId = tres[0].ID
+       String  treatmentCode = tres[0].CODE
+       String  treatmentTitle = tres[0].TITLE
+       String  treatmentCategoryId = tres[0].TREATMENT_CATEGORY_ID
+        log.info ("TREATMENT: " +treatmentId)
+
+       String  treatmentId2 = tres[1].ID
+       String  treatmentCode2= tres[1].CODE
+       String  treatmentTitle2 = tres[1].TITLE
+       String  treatmentCategoryId2 = tres[1].TREATMENT_CATEGORY_ID
+        log.info ("TREATMENT2: " +treatmentId2)
+        
+       //Нахожу CATEGORY_CODE
+        String sql_query5 = "SELECT * FROM TREATMENT_CATEGORY WHERE ID ="+ treatmentCategoryId
+       def treatmentCategory = sql.rows(sql_query5)
+       String  treatmentCategoryCode= treatmentCategory[0].CODE  
+        //Нахожу CATEGORY_CODE2
+        String sql_query6 = "SELECT * FROM TREATMENT_CATEGORY WHERE ID ="+ treatmentCategoryId2
+       def treatmentCategory2 = sql.rows(sql_query6)   
+       String  treatmentCategoryCode2= treatmentCategory[0].CODE  
+
+      
+     testRunner.testCase.setPropertyValue("medicalOrganizationId",medicalOrganizationId)
+     testRunner.testCase.setPropertyValue("medicalOrganizationId2",medicalOrganizationId2)
+     testRunner.testCase.setPropertyValue("medicalOrganizationTitle",medicalOrganizationTitle)
+     testRunner.testCase.setPropertyValue("medicalOrganizationTitle2",medicalOrganizationTitle2)
+     testRunner.testCase.setPropertyValue("treatmentId",treatmentId)
+     testRunner.testCase.setPropertyValue("treatmentCode",treatmentCode)
+      testRunner.testCase.setPropertyValue("treatmentTitle",treatmentTitle)
+      testRunner.testCase.setPropertyValue("treatmentCategoryCode",treatmentCategoryCode)
+     testRunner.testCase.setPropertyValue("treatmentId2",treatmentId2)
+     testRunner.testCase.setPropertyValue("treatmentCode2",treatmentCode2)
+      testRunner.testCase.setPropertyValue("treatmentTitle2",treatmentTitle2)
+      testRunner.testCase.setPropertyValue("treatmentCategoryCode2",treatmentCategoryCode2)
+
+        
+} else {
+	log.error("Соединение с бд не установлено!");
+}

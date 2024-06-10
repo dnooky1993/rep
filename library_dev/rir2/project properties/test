@@ -1,0 +1,17 @@
+ScheduleWSDL=http://arschedule.rir2.test.emias.mos.ru/api/Schedule?wsdl
+SystemWSDL=http://arschedule.rir2.test.emias.mos.ru/api/System?wsdl
+SarScheduleWSDL=http://arschedule.rir2.test.emias.mos.ru/api/SarSchedule?wsdl
+ArScheduleWSDL=http://arschedule.rir2.test.emias.mos.ru/api/ArSchedule?wsdl
+RouteWSDL=http://arschedule.rir2.test.emias.mos.ru/api/Route?wsdl
+PushWSDL=http://arschedule.rir2.test.emias.mos.ru/api/push
+journalWSDL=http://arschedule.rir2.test.emias.mos.ru/api/Journal?wsdl
+ResourcesWSDL=http://arschedule.rir2.test.emias.mos.ru/api/Resources
+userName=HAdiatullina
+securityUsername=KPI_APC_METHODIST/HAdiatullina
+systemName=KPI_APC_METHODIST
+userRoleId=7014
+jobExecutionId=112740
+bootstrapServers=10.2.172.24:9092
+db_rir2_con=@//10.2.172.16:1521/rir2.mosgorzdrav.local
+db_rir2_password=EMIAS_RIR2
+db_rir2_user=EMIAS_RIR2

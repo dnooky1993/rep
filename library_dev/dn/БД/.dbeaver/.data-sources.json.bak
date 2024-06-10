@@ -1,0 +1,798 @@
+{
+	"folders": {
+		"ДН и Реестр": {},
+		"МПН": {},
+		"Телик": {}
+	},
+	"connections": {
+		"postgres-jdbc-17cb763c61a-7684322fae3f3f4e": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "ДН test",
+			"save-password": true,
+			"show-system-objects": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.2.172.90",
+				"port": "5432",
+				"database": "dn",
+				"url": "jdbc:postgresql://10.2.172.90:5432/dn",
+				"configurationType": "MANUAL",
+				"home": "PostgreSQL Binaries",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-17cb763db6a-73d81213966e1b6b": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "Опросы",
+			"save-password": true,
+			"configuration": {
+				"host": "10.2.172.75",
+				"port": "5432",
+				"database": "cenotifier",
+				"url": "jdbc:postgresql://10.2.172.75:5432/cenotifier",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-17cb763dbda-58023d7578c62747": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "ДН Solit",
+			"save-password": true,
+			"show-system-objects": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "172.17.5.11",
+				"port": "36322",
+				"database": "dn",
+				"url": "jdbc:postgresql://172.17.5.11:36322/dn",
+				"configurationType": "MANUAL",
+				"home": "postgresql_client",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-17cb763dc39-2699cf683d213c75": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "ДН Прод",
+			"save-password": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "localhost",
+				"port": "5432",
+				"database": "postgres",
+				"url": "jdbc:postgresql://localhost:5432/postgres",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"show-database-statistics": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-17cb763dc99-3d313b65d24d7444": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "ЛУД",
+			"save-password": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.2.172.75",
+				"port": "5432",
+				"database": "lud",
+				"url": "jdbc:postgresql://10.2.172.75:5432/lud",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-17cb763dcf1-48da1502a71b0fc4": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "mpn Solit",
+			"save-password": true,
+			"folder": "МПН",
+			"configuration": {
+				"host": "172.17.5.13",
+				"port": "35323",
+				"database": "mpn",
+				"url": "jdbc:postgresql://172.17.5.13:35323/mpn",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-17cb763dd51-edc25a7f670f683": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "mpn test",
+			"save-password": true,
+			"folder": "МПН",
+			"configuration": {
+				"host": "10.2.172.75",
+				"port": "5432",
+				"database": "mpn",
+				"url": "jdbc:postgresql://10.2.172.75:5432/mpn",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"oracle_thin-17cb763ddc0-49ef21457992a078": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "РП Тест (можно ломать)",
+			"save-password": true,
+			"show-system-objects": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.2.172.16",
+				"port": "1521",
+				"database": "patient_registry.mosgorzdrav.local",
+				"url": "jdbc:oracle:thin:@//10.2.172.16:1521/patient_registry.mosgorzdrav.local",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-17cb763de21-2051b8520e67bad": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "РИР2",
+			"save-password": true,
+			"configuration": {
+				"host": "10.2.172.16",
+				"port": "1521",
+				"database": "rir2.mosgorzdrav.local",
+				"url": "jdbc:oracle:thin:@//10.2.172.16:1521/rir2.mosgorzdrav.local",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"oracle.meta-search-in-synonyms": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-17cb763de87-2f22492a38ed1cda": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "TEST",
+			"save-password": true,
+			"show-system-objects": true,
+			"configuration": {
+				"host": "10.2.172.242",
+				"port": "1521",
+				"database": "emiasdb",
+				"url": "jdbc:oracle:thin:@//10.2.172.242:1521/emiasdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE",
+					"show-only-one-schema@": "false",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"oracle.meta-search-in-synonyms": "false"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-17cb763deef-6151a87b36d64539": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "БД.ЕМИАС.Консультации",
+			"save-password": true,
+			"show-system-objects": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.2.172.21",
+				"port": "1521",
+				"database": "emiasdb",
+				"url": "jdbc:oracle:thin:@//10.2.172.21:1521/emiasdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-17cb763e061-328ac5a4ce8d145c": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "ЕМИАС.ЛЛО Актуальная",
+			"save-password": true,
+			"show-system-objects": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.2.172.241",
+				"port": "1521",
+				"database": "emiasdb",
+				"url": "jdbc:oracle:thin:@//10.2.172.241:1521/emiasdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE",
+					"show-only-one-schema@": "false",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"oracle.meta-search-in-synonyms": "false"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-17cb763e0b9-3651cbfa2f641e78": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "ЕМИАС.СКУУ.РМУ",
+			"save-password": true,
+			"show-system-objects": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.0.54.79",
+				"port": "1521",
+				"database": "ETALONLAN",
+				"url": "jdbc:oracle:thin:@//10.0.54.79:1521/ETALONLAN",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-17cb763e124-61c9441f36586162": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "НОРМА",
+			"save-password": true,
+			"show-system-objects": true,
+			"configuration": {
+				"host": "10.0.48.10",
+				"port": "1521",
+				"database": "emiasdb",
+				"url": "jdbc:oracle:thin:@//10.0.48.10:1521/emiasdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"postgres-jdbc-17cb763e1ba-5350ad5843bb19b1": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "РП Тест",
+			"save-password": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.2.172.75",
+				"port": "5432",
+				"database": "svc_emias_registry",
+				"url": "jdbc:postgresql://10.2.172.75:5432/svc_emias_registry",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false",
+					"show-database-statistics": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"oracle_thin-17cb763e25a-64153ba4903d9944": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "Шина",
+			"save-password": true,
+			"configuration": {
+				"host": "10.2.172.21",
+				"port": "1521",
+				"database": "emiasdb",
+				"url": "jdbc:oracle:thin:@//10.2.172.21:1521/emiasdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"oracle.meta-search-in-synonyms": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-17cbc68a73b-76c6a4669ceb83c8": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "erptest",
+			"save-password": true,
+			"configuration": {
+				"host": "10.0.49.100",
+				"port": "1521",
+				"database": "erptest",
+				"url": "jdbc:oracle:thin:@//10.0.49.100:1521/erptest",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"oracle.meta-search-in-synonyms": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-17cbc68e23c-6bc4b9a969bb2a55": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "ЕМИАС.ЕРП ДН",
+			"save-password": true,
+			"show-system-objects": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.0.49.100",
+				"port": "1521",
+				"database": "erptest",
+				"url": "jdbc:oracle:thin:@//10.0.49.100:1521/erptest",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"postgres-jdbc-17d9e5a01e3-6c5c54aa89939ab0": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "survey",
+			"save-password": true,
+			"configuration": {
+				"host": "10.2.172.90",
+				"port": "5432",
+				"database": "survey",
+				"url": "jdbc:postgresql://10.2.172.90:5432/survey",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"oracle_thin-18075c51e5d-4d742e1a67ebe644": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "ЕМИАС.ЛЛО Старая",
+			"save-password": true,
+			"show-system-objects": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.2.172.21",
+				"port": "1521",
+				"database": "emiasdb",
+				"url": "jdbc:oracle:thin:@//10.2.172.21:1521/emiasdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE",
+					"show-only-one-schema@": "false",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"oracle.meta-search-in-synonyms": "false"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"csvjdbc-1816b25c54d-7efe9d61cd9731c5": {
+			"provider": "generic",
+			"driver": "csvjdbc",
+			"name": "Temp",
+			"save-password": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"database": "c:\\Temp",
+				"url": "jdbc:relique:csv:c:\\Temp",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		},
+		"oracle_thin-181806d6c2c-6a40fad45824a4ea": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "ИД",
+			"save-password": true,
+			"configuration": {
+				"host": "10.2.172.242",
+				"port": "1521",
+				"database": "emiasdb",
+				"url": "jdbc:oracle:thin:@//10.2.172.242:1521/emiasdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"show-only-one-schema@": "false",
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "true",
+					"@dbeaver-meta-use-alternative-table-query@": "false",
+					"oracle.meta-search-in-synonyms": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"postgres-jdbc-181ae413e9f-29cb57b8a19af76c": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "vacregistry_data",
+			"save-password": true,
+			"folder": "ДН и Реестр",
+			"configuration": {
+				"host": "10.2.172.75",
+				"port": "5432",
+				"database": "vacregistry_data",
+				"url": "jdbc:postgresql://10.2.172.75:5432/vacregistry_data",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-13",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"read-keys-with-columns": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-1872d788ecf-8736ad3f6b740e9": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "telik_dev",
+			"save-password": true,
+			"folder": "Телик",
+			"configuration": {
+				"host": "95.163.211.129",
+				"port": "5432",
+				"database": "telik",
+				"url": "jdbc:postgresql://95.163.211.129:5432/telik",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-18732a8ad88-13be14c1aa6e87eb": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "telik_solit",
+			"save-password": true,
+			"folder": "Телик",
+			"configuration": {
+				"host": "95.163.211.129",
+				"port": "5432",
+				"database": "telik_solit",
+				"url": "jdbc:postgresql://95.163.211.129:5432/telik_solit",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-18732aa036f-4be592ff71b4bf9f": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "telik_prod",
+			"save-password": true,
+			"folder": "Телик",
+			"configuration": {
+				"host": "95.163.211.129",
+				"port": "5432",
+				"database": "telik_pred_prod",
+				"url": "jdbc:postgresql://95.163.211.129:5432/telik_pred_prod",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"virtual-models": {
+		"postgres-jdbc-17cb763c61a-7684322fae3f3f4e": {
+			"dn": {
+				"public": {
+					":l_document_mkb10": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					},
+					":l_disp_obs_group_mkb10": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					},
+					":l_disp_obs_group_added_by": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					},
+					":l_disp_obs_group_removed_by": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					},
+					":l_disp_obs_group_watched_by": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					},
+					":l_disp_obs_group_parameter": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					}
+				},
+				"dn": {
+					":l_document_mkb10": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					}
+				}
+			}
+		},
+		"postgres-jdbc-17cb763e1ba-5350ad5843bb19b1": {
+			"svc_emias_registry": {
+				"registry_data": {
+					":eln_base_test": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					},
+					":clinical_examination_result_test": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					},
+					":children_health_group_test": {
+						"constraints": {
+							"VIRTUAL_PK": {
+								"type": "vpk",
+								"useAllColumns": true
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Разработка",
+			"color": "255,255,255",
+			"description": "База данных для разработки",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

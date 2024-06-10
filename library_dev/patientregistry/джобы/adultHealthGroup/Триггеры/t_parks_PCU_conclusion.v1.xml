@@ -1,0 +1,40 @@
+{
+   "domain": "default",
+   "ehrUid": "6cd22e9f-17a8-441e-bb77-fca99b67e9c6",
+   "operationType": "create",
+   "eventName": "dn_parks_PCU_conclusion",
+   "compositionId": "dce061a6-2e4f-4210-9229-5439f3d4f55e::default::1",
+   "newResults": [
+      {
+         "compositionId": "dce061a6-2e4f-4210-9229-5439f3d4f55e::default::1",
+         "templateId": "openEHR-EHR-COMPOSITION.t_parks_PCU_conclusion.v1",
+         "patientId": "1546111",
+         "healthGroup": "IIIa",
+         "dateConclusion": "2022-06-24T15:48:51.556254+03:00"
+      }
+   ],
+   "auditDetails": {
+      "@class": "AUDIT_DETAILS",
+      "system_id": "default",
+      "committer": {
+         "@class": "PARTY_IDENTIFIED",
+         "name": "emias_qa"
+      },
+      "time_committed": {
+         "@class": "DV_DATE_TIME",
+         "value": "2022-06-24T15:48:51.556254+03:00"
+      },
+      "change_type": {
+         "@class": "DV_CODED_TEXT",
+         "value": "creation",
+         "defining_code": {
+            "@class": "CODE_PHRASE",
+            "terminology_id": {
+               "@class": "TERMINOLOGY_ID",
+               "value": "openehr"
+            },
+            "code_string": "249"
+         }
+      }
+   }
+}

@@ -1,0 +1,7 @@
+{
+  "@type":"PatientAreaChanged",
+  "patientId": "1232",
+  "areaId": 12,
+  "sdtTypeCode": 10,
+  "changedAt": "2021-10-06T10:21:54"
+}

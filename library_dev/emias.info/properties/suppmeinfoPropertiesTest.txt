@@ -1,0 +1,6 @@
+suppmeinfoEndpoint=http://esbcamel.test.emias.mos.ru/proxy/suppmeinfo/medicalEmployeeInfoService/v2S/ProxyService
+suppmeinfoDbConnection=10.2.172.90/pmpk
+suppmeinfoDbLogin=pmpk
+suppmeinfoDbPassword=pmpk
+suppmeinfoFullDbConnection=jdbc:postgresql://10.2.172.90/pmpk?user=pmpk&password=pmpk
+suppmeinfoDBDriver=org.postgresql.Driver

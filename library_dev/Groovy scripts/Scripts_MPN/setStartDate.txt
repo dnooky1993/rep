@@ -1,0 +1,9 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
+
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.DATE, 1);
+		String s = new SimpleDateFormat("yyyy-MM-dd").format(c.getTime());
+		log.info(s);
+		testRunner.testCase.setPropertyValue("startDate",s)

@@ -1,0 +1,80 @@
+{
+   "messageId": "5a9d34c0-5089-4575-9b8b-154b87dc41028",
+   "eventTime": "2021-11-18T15:40:26.589+03:00[Europe/Moscow]",
+   "status": "SIGNED",
+   "author": {
+      "fullName": "?",
+      "login": "GDzhampisova"
+   },
+   "tags": [
+      {
+         "description": "828401",
+         "schema": "ru.mos.emias.system.careevent_concomitant_document",
+         "code": "Concomitant",
+         "role": null,
+         "definedByCct": false,
+         "tagType": "TAG"
+      },
+      {
+         "description": "Врач-педиатр участковый",
+         "schema": "ru.mos.emias.system.author_speciality",
+         "code": "759",
+         "role": null,
+         "definedByCct": false,
+         "tagType": "TAG"
+      },
+      {
+         "description": "ГБУЗ ДГП № 110 ДЗМ",
+         "schema": "ru.mos.emias.system.author_facility",
+         "code": "10000290",
+         "role": null,
+         "definedByCct": false,
+         "tagType": "TAG"
+      },
+      {
+         "description": "Джамписова Г. Т.",
+         "schema": "ru.mos.emias.system.author_name",
+         "code": "GDzhampisova",
+         "role": null,
+         "definedByCct": false,
+         "tagType": "TAG"
+      },
+      {
+         "description": "K20 - Эзофагит",
+         "schema": "ru.mos.emias.system.main_diagnosis",
+         "code": "K20",
+         "role": null,
+         "definedByCct": false,
+         "tagType": "TAG"
+      },
+      {
+         "description": "Постановка на наблюдение",
+         "schema": "ru.mos.emias.system.alias",
+         "code": "Постановка на наблюдение",
+         "role": null,
+         "definedByCct": false,
+         "tagType": "TAG"
+      },
+      {
+         "description": "{\"name\": \"Документы\", \"index\": 10, \"children\": { \"name\": \"Постановка на наблюдение\", \"index\": 140, \"children\": { \"index\": 0, \"displayMode\": \"ONLY_NAME\"}}}",
+         "schema": "ru.mos.emias.system.careevent_documentlist_hierarchydelist",
+         "code": "Card 30\\u",
+         "role": null,
+         "definedByCct": true,
+         "tagType": "TAG"
+      },
+      {
+         "description": "{\"index\": 10, \"visualizable\": false, \"group\": { \"name\": \"Прочие\", \"index\": 10, \"visualPattern\": \"DBL_COL_GROUP\", \"group\": null}}",
+         "schema": "ru.mos.emias.system.careevent_documentlist_hierarchydescr",
+         "code": "Card 30\\u",
+         "role": null,
+         "definedByCct": true,
+         "tagType": "TAG"
+      }
+   ],
+   "documentId": "401",
+   "patientId": "828",
+   "signee": {
+      "login": "GDzhampisova"
+   }
+}

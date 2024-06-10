@@ -1,0 +1,36 @@
+import java.time.*
+import java.time.format.*;
+import java.time.temporal.*;
+import  java.util.date.*
+import groovy.sql.Sql
+import java.sql.Timestamp
+import java.time.LocalDate
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def operationId= testRunner.testCase.getPropertyValue("applyOperationId")
+def sarScheduleId= testRunner.testCase.getPropertyValue("sarScheduleId1")
+log.info ("ID операции : " + operationId)
+
+getOperation = ("SELECT * FROM SYSOP WHERE ID="+operationId+" AND MODEL LIKE '%applyChangesToSarSchedule%' AND MODEL LIKE '%"+sarScheduleId+"%'")
+operation= sql.rows(getOperation)
+if ( sql(getOperation)== 0){
+		testRunner.fail("Запись в таблице SYSOP не найдена")
+}
+else {
+	log.info("Запись в таблице SYSOP найдена")
+	 assert operation[0].COMPLETENESS_PROGRESS == 0
+	assert operation[0].IS_COMPLETED == "0"
+	assert operation[0].HAS_SUCCEDED == "0"
+	getOperationErrors=("SELECT * FROM SYSOP_MSG WHERE SYSOP_ID="+operationId)
+	assert sql(getOperationErrors) ==0
+	//log.info(sql.rows(getOperationErrors))
+	log.info("Операция  № "+operationId+" создана без ошибок")
+}

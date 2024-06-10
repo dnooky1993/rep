@@ -1,0 +1,32 @@
+import groovy.sql.Sql
+import groovy.test.GroovyAssert
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def checkSysopOperationStatus(String propertyName, int tryCount=30){
+	def operationId = testRunner.testCase.getPropertyValue(propertyName)
+	//Дожидаться успешности завершения операции
+	for (int i =0; i<=30; i++){
+		String getSchedule=("SELECT * FROM SYSOP WHERE ID="+operationId)
+		operation=sql.rows(getSchedule)
+		if (operation[0].COMPLETENESS_PROGRESS==100 & operation[0].IS_COMPLETED=='1' & operation[0].HAS_SUCCEDED=='1'){
+			log.info("Операция № "+operationId+" завершена успешно.")
+			break
+		}
+		else if( i ==30){
+			testRunner.fail("Операция № "+operationId+" не завершена или завершена неуспешно. Мы устали ждать. Процент завершения = "+operation[0].COMPLETENESS_PROGRESS+", успешность = "+operation[0].IS_COMPLETED+", завершенность = "+operation[0].HAS_SUCCEDED)
+		}
+		else {
+			log.info("Операция № "+operationId+" еще не завершена. Подождем...")
+		}
+		sleep(5000)
+	}
+}
+
+checkSysopOperationStatus("createRuleOperationId")

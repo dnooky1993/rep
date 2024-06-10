@@ -1,0 +1,17 @@
+import groovy.sql.Sql
+//Подготовка соединения с БД
+log.info("Подготовка соединения с БД");
+
+username =testRunner.testCase.testSuite.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.getPropertyValue("db_rir2_con")
+
+if (context.dbConnect == null) {
+	timeZone = TimeZone.getTimeZone("Europe/Moscow");
+     TimeZone.setDefault(timeZone);
+     sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+      log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+  	
+  	context.setProperty("dbConnect", sql)
+  	log.info("Cоединение с БД успешно установлено");
+}

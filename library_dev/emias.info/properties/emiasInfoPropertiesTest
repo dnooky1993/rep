@@ -1,0 +1,6 @@
+emiasInfoEndpoint=http://emiasinfo-application.test.emias.mos.ru
+emiasInfoDbConnection=10.2.172.41:5432/emiasinfo_application
+emiasInfoDbLogin=postgres
+emiasInfoDbPassword=emiasinfo
+emiasInfoFullDbConnection=jdbc:postgresql://10.2.172.41:5432/emiasinfo_application?user=postgres&password=emiasinfo
+emiasInfoDBDriver=org.postgresql.Driver

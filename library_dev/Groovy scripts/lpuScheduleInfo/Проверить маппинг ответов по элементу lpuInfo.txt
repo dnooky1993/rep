@@ -1,0 +1,60 @@
+import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.util.ArrayList
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
+ DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+ today= LocalDate.now()
+ 
+def lpuScheduleInfoResponse = context.expand('${lpuScheduleInfo#Response}')
+def slurperJson = new JsonSlurper()
+def lpuScheduleInfo = slurperJson.parseText(lpuScheduleInfoResponse)
+// log.info lpuScheduleInfo.payload.lpuInfo.lpuId
+
+
+def getLpuScheduleInfoResponse = context.expand('${getLpuScheduleInfo#Response}')
+getLpuScheduleInfo = new XmlSlurper().parseText(getLpuScheduleInfoResponse)
+
+// проверить маппинг lpuId 
+suppLpuId =getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.lpuId.toString()
+infoLpuId = lpuScheduleInfo.payload.lpuInfo.lpuId
+assert  infoLpuId==suppLpuId
+
+
+// проверить маппинг name 
+suppName = getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.name.toString().replace("\\","")
+infoName = lpuScheduleInfo.payload.lpuInfo.name
+assert  infoName==suppName
+
+// проверить адреса
+suppAddress =getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.addressInfo[0].address
+log.info suppAddress
+
+infoAddress =lpuScheduleInfo.payload.lpuInfo.address
+log.info infoAddress
+assert suppAddress==infoAddress
+
+// проверить количество weekDaySchedule
+
+suppWeekDaysCount =getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.weekDaySchedule ?  getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.weekDaySchedule.size(): 0
+infoWeekDaysCount =lpuScheduleInfo.payload.lpuInfo.weekDaySchedule ? lpuScheduleInfo.payload.lpuInfo.weekDaySchedule.size() : 0
+assert  infoWeekDaysCount==suppWeekDaysCount
+
+//проверить каждый weekDaySchedule item
+for(int i=0; i<infoWeekDaysCount; i++){
+	//проверить weekDay
+	suppWeekDay =getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.weekDaySchedule.weekDay[i].toString()
+	infoWeekDay =lpuScheduleInfo.payload.lpuInfo.weekDaySchedule.weekDay[i].toString()
+	assert  infoWeekDay==suppWeekDay
+
+	//проверить workItem.from
+	suppWorkItemF =getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.weekDaySchedule.workItem[i].from.toString()
+	infoWorkItemF =lpuScheduleInfo.payload.lpuInfo.weekDaySchedule.workItem[i].from.toString()
+	assert  infoWorkItemF==suppWorkItemF
+
+		//проверить workItem.to
+	suppWorkItemT =getLpuScheduleInfo.Body.getLpuScheduleInfoResponse.return.weekDaySchedule.workItem[i].to.toString()
+	infoWorkItemT =lpuScheduleInfo.payload.lpuInfo.weekDaySchedule.workItem[i].to.toString()
+	assert  infoWorkItemT==suppWorkItemT
+}

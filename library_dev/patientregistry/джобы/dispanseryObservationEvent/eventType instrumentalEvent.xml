@@ -1,0 +1,31 @@
+{
+   "pdnDocumentId": "12b68104c7-ed21-4b45-9001-bab85281f7ae",
+   "pdnEventId": 16507,
+   "patientId": "142911",
+   "isActual": true,
+   "status": "PLANNED",
+   "start": "2022-05-02T00:00:00",
+   "end": "2023-12-13T21:19:52.879000",
+   "eventType": "instrumentalEvent",
+   "referralCreated": true,
+   "destinationType": "Назначение в текущую МО",
+   "destinationMedicalOrganizationId": "124",
+   "destinationMedicalOrganizationName": "Наименование МО",
+   "passedBeforePDNCreated": true,
+   "eventExecutionType": "Обязательно",
+   "diagnoses": {
+      "diagnosisCode": "A16.5",
+      "diagnosisName": "Туберкулезный плеврит без упоминания о бактериологическом или гистологическом подтверждении"
+   },
+   "instrumentalEvent": {
+      "instrumentalAssignmentId": "123",
+      "instrumentalProtocolDocId": "Идентификатор протокола проведения ИД в СИМИ",
+      "instrumentalResultDocId": "Идентификатор результата проведения ИД в СИМИ ",
+      "mainDiagnosticId": "123",
+      "mainDiagnosticShortTitle": "Краткое наименование из справочника Diagnostic_v2 "
+   },
+   "appointmentStatus": "create",
+   "appointmentStartDate": "2022-03-22T12:00:00.000000",
+   "appointmentEndDate": "2021-12-08T12:00:00.000000",
+   "updateDate": "2021-12-24T14:30:26.621347"
+}

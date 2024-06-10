@@ -1,0 +1,153 @@
+import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//  sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+def sendMessageToKafka(String topicName, String textMessage){
+
+  Properties props = new Properties()
+  props.put('zk.connect', '10.2.172.24:2181')
+  props.put('bootstrap.servers', bootstrapServers)
+  props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+  props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+     
+  def producer = new KafkaProducer(props)
+  
+  def messageSender = { String topic, String message ->
+      log.info( "messageSender: "+topic+"; "+message )
+      def key =  UUID.randomUUID().toString()
+      def Date date = new Date(); 
+     def  long  timestamp= date.getTime()
+     def int partition =0
+      String compoundMessage = "$message"
+      producer.send(
+              new ProducerRecord<String, String>(topic, partition, timestamp,  key, compoundMessage),
+              { RecordMetadata metadata, Exception e ->
+                  log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+              } as Callback
+      )
+  }
+
+  String msg =textMessage.toString()
+  //log.info(topic1+" "+messageCreateMf)
+   messageSender(topicName, msg)
+   
+   producer.close() 
+}
+
+def patientId=testRunner.testCase.getPropertyValue("patientId")
+
+sendMessageToKafka("ErpChangePatientPolicies","""{
+  "id": 30000000525780,
+  "operationDate": "2021-12-06T11:09:48.973+03:00",
+  "emiasId": \""""+patientId+"""\",
+  "uklErp": "30000000525780",
+  "patientType": "I",
+  "patientRecStatus": "Y",
+  "entityName": "policies",
+  "entityData": [
+    {
+      "attributes": [
+        {
+          "name": "policyOMSType",
+          "type": "dictionary",
+          "value": {
+            "code": "N",
+            "value": "полис ОМС единого образца"
+          }
+        },
+        {
+          "name": "policyNumber",
+          "type": "string",
+          "value": {
+            "value": "50529308890014001"
+          }
+        },
+        {
+          "name": "policyBeginDate",
+          "type": "date",
+          "value": {
+            "value": "2018-07-30"
+          }
+        },
+        {
+          "name": "policyEndDate",
+          "type": "date",
+          "value": {
+            "value": "2099-12-31"
+          }
+        },
+        {
+          "name": "policySMO",
+          "type": "dictionary",
+          "value": {
+            "id": 134750071,
+            "code": "10002291",
+            "value": "ОМО"
+          }
+        },
+        {
+          "name": "isExternalSMO",
+          "type": "boolean",
+          "value": {
+            "value": "false"
+          }
+        },
+        {
+          "name": "policyInsuranceTerritoryName",
+          "type": "string",
+          "value": {
+            "value": "г.Москва"
+          }
+        },
+        {
+          "name": "policyInsuranceTerritoryCode",
+          "type": "string",
+          "value": {
+            "value": "45000"
+          }
+        },
+        {
+          "name": "policySMOOGRN",
+          "type": "string",
+          "value": {
+            "value": "1027739008440"
+          }
+        },
+        {
+          "name": "policySMOBeginDate",
+          "type": "date",
+          "value": {
+            "value": "2018-07-30"
+          }
+        },
+        {
+          "name": "policyStatus",
+          "type": "dictionary",
+          "value": {
+            "code": "Y",
+            "value": "действует"
+          }
+        },
+        {
+          "name": "policyChangeDate",
+          "type": "dateTime",
+          "value": {
+            "value": "2021-12-14T10:54:54.926154+03:00"
+          }
+        }
+      ]
+    }
+  ]
+}""")

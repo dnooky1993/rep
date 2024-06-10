@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:medicalFacilityInfoMsg id="1343"
+    xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/"
+    xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1"
+    xmlns:ns1="http://emias.mos.ru/svmr2/producer/v1/types"
+    xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/"
+    xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types">
+    <ns2:create isHead="false">
+        <ns1:medicalOrganization type="MEDICAL_ORGANIZATION" archived="false" id="10074028">
+            <ns1:shortName>ГБУЗ "ДЦ № 5 ДЗМ"</ns1:shortName>
+        </ns1:medicalOrganization>
+        <ns1:name>Государственное бюджетное учреждение здравоохранения города Москвы Диагностический центр № 5 ДЗМ филиал № 5</ns1:name>
+        <ns1:shortName>ГБУЗ ДЦ 5 ДЗМ Филиал 6</ns1:shortName>
+        <ns1:independence id="1">
+            <ns1:code>1</ns1:code>
+            <ns1:title>Филиал</ns1:title>
+        </ns1:independence>
+        <ns1:medicalFacilityType id="125694305">
+            <ns1:code>39</ns1:code>
+            <ns1:title>Городская поликлиника</ns1:title>
+        </ns1:medicalFacilityType>
+        <ns1:periodStart>1991-12-25</ns1:periodStart>
+        <ns1:clo>568</ns1:clo>
+        <ns1:mgfoms>3434</ns1:mgfoms>
+        <ns2:addressObject archived="false" id="376">
+            <ns1:addressShort id="85321317">
+                <ns1:addressString>город Москва, улица Псковская, дом 10, корпус 1</ns1:addressString>
+            </ns1:addressShort>
+        </ns2:addressObject>
+    </ns2:create>
+</ns2:medicalFacilityInfoMsg>

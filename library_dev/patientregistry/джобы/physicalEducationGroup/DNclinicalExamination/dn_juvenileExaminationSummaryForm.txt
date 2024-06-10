@@ -1,0 +1,18 @@
+{
+   "domain": "default",
+   "ehrUid": "09b0ab78-45aa-4a56-a9f7-fe3ca4240d36",
+   "operationType": "update",
+   "eventName": "dn_juvenileExaminationSummaryForm",
+   "compositionId": "9bbb8628-73f4-4ab0-8fc5-6ac09475bb06::default::2",
+   "newResults": [
+      {
+         "compositionId": "9bbb8628-73f4-4ab0-8fc5-6ac09475bb06::default::2",
+         "templateId": "openEHR-EHR-COMPOSITION.t_juvenile_examination_summary_form.v1",
+         "patientId": "1558",
+         "dateConclusion": "2021-08-11",
+         "healthGroup": "II группа",
+         "physicalEducationGroup": "II (подготовительная)"
+      }
+   ],
+   "comment": "Modify Composition"
+}

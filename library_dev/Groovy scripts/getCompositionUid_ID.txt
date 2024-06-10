@@ -1,0 +1,13 @@
+ import groovy.json.JsonSlurper
+ 
+ def data = context.expand('${ConvertAssignmentData#Response#//*:structuredJson}')
+ log.info (data)
+ 
+def slurper = new JsonSlurper()
+def result = slurper.parseText(data)
+def composition_uid = result.назначение_инструментального_исследования.сведения_о_выполнении. инструментальное_исследование[0]._instruction_details[0]."|composition_uid"[0]
+log.info(composition_uid)
+
+testRunner.testCase.setPropertyValue("composition_uid",composition_uid)
+
+

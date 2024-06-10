@@ -1,0 +1,6 @@
+lloEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/LLO/PrescriptionInfo/v4S/ProxyService
+lloDbConnection=@//10.2.172.241:1521/emiasdb
+lloDbLogin=EMIAS_LLO
+lloDbPassword=EMIAS_LLO
+lloFullDbConnection= jdbc:oracle:thin:EMIAS_LLO/EMIAS_LLO@//10.2.172.241:1521/emiasdb
+lloDBDriver=oracle.jdbc.driver.OracleDriver

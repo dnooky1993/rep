@@ -1,0 +1,78 @@
+{
+   "event": {
+      "id": 33606133,
+      "dateTime": "2022-02-21T19:08:23",
+      "eventType": "CLOSE"
+   },
+   "attachmentNewValue": {
+      "attachId": 127636390,
+      "patientId": 30000000100657,
+      "isActual": false,
+      "attachPolType": {
+         "globalId": 125694322,
+         "code": "1",
+         "title": "Обязательное медицинское страхование"
+      },
+      "noSelfAppointment": false,
+      "moId": 204,
+      "muId": 204,
+      "areaId": 173933128,
+      "attachBeginDate": "2022-02-21",
+      "attachEndDate": "2022-02-21",
+      "attachType": {
+         "globalId": 128619858,
+         "code": "1",
+         "title": "базовое терапевтическое"
+      },
+      "processOfAttachment": {
+         "globalId": 135857403,
+         "code": "2",
+         "title": "По заявлению"
+      },
+      "attachChangeType": {
+         "globalId": 128619920,
+         "code": "20",
+         "title": "Выбор мед. организации пациентом"
+      },
+      "attachEndCause": {
+         "globalId": 128619959,
+         "code": "10",
+         "title": "Выбор другой мед. организации пациентом"
+      },
+      "attachForm": {
+         "globalId": 128620009,
+         "code": "10",
+         "title": "По участковому принципу (основное)"
+      }
+   },
+   "attachmentOldValue": {
+      "attachId": 127636390,
+      "patientId": 30000000100657,
+      "isActual": true,
+      "attachPolType": {
+         "globalId": 125694322,
+         "code": "1",
+         "title": "Обязательное медицинское страхование"
+      },
+      "noSelfAppointment": false,
+      "moId": 204,
+      "muId": 204,
+      "areaId": 173933128,
+      "attachBeginDate": "2022-02-21",
+      "attachType": {
+         "globalId": 128619858,
+         "code": "0",
+         "title": "небазовое"
+      },
+      "processOfAttachment": {
+         "globalId": 135857403,
+         "code": "2",
+         "title": "По заявлению"
+      },
+      "attachForm": {
+         "globalId": 128620009,
+         "code": "10",
+         "title": "По участковому принципу (основное)"
+      }
+   }
+}

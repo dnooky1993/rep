@@ -1,0 +1,3 @@
+import org.apache.commons.lang.RandomStringUtils
+result = RandomStringUtils.random(256, (('а'..'я') + ('А'..'Я') + ('0'..'9')).join().toCharArray())
+log.info result

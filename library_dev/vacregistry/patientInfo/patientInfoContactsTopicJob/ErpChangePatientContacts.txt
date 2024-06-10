@@ -1,0 +1,52 @@
+{
+   "id": 1929733,
+   "operationDate": "2022-02-21T16:21:39.608+03:00",
+   "emiasId": 1330,
+   "uklErp": "V3148487",
+   "patientType": "I",
+   "systemCode": "sch",
+   "patientRecStatus": "Y",
+   "entityName": "contacts",
+   "entityData": [
+      {
+         "attributes": [
+            {
+               "name": "contactId",
+               "type": "integer",
+               "value": {
+                  "value": "28011850"
+               }
+            },
+            {
+               "name": "contactValue",
+               "type": "string",
+               "value": {
+                  "value": "1234512"
+               }
+            },
+            {
+               "name": "contactType",
+               "type": "dictionary",
+               "value": {
+                  "code": "E",
+                  "value": "Электронная почта"
+               }
+            },
+            {
+               "name": "contactAllowNotification",
+               "type": "boolean",
+               "value": {
+                  "value": "true"
+               }
+            },
+            {
+               "name": "contactChangeDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T16:13:37+03:00"
+               }
+            }
+         ]
+      }
+   ]
+}

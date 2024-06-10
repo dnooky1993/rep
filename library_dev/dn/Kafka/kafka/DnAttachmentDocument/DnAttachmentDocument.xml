@@ -1,0 +1,14 @@
+{
+  "@type":"DnAttachmentDocument",
+  "patientId": "85822",
+  "groupCode": "DNA0078",
+  "uid": "123e4567-e89b-12d3-a456-4266141149185822",
+  "signedDate": "2021-01-12T09:32:54",
+  "observedFrom": "2021-01-10",
+  "employeeId": "125676819",
+  "noDoctor": "отсуствует",
+  "specialityCode": "Терапия",
+  "specializationCode": "76",
+  "diagnosisCode": "I37.1",
+  "diagnosis": "Lorem ipsum"
+}

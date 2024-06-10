@@ -1,0 +1,185 @@
+import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+import java.time.format.*;
+import java.time.temporal.*;
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def moId = testRunner.testCase.getPropertyValue("moId")
+def counterMF = testRunner.testCase.getPropertyValue("counterMF").toInteger()
+def createEntityInAppointment3 = testRunner.testCase.testSuite.getPropertyValue("createEntityInAppointment3").toBoolean()
+def specId = testRunner.testCase.getPropertyValue("specId1")
+
+//функция проверяет, была ли создана сущность, если нет - ждет и проверяет снова
+def checkCreation(String tableName, String propertyName, int sleepTime =1000, int icount=15) { 
+	String query="SELECT *  FROM  "+tableName+ " WHERE ID = "+propertyName
+	//log.info(query)
+	row = sql(query)
+	//log.info(row)
+	for (int i = 0; i <= icount; i++) {
+	    if (row != 1) {
+		    	if (i==icount){
+		    		testRunner.fail("Запись в таблице "+tableName+" с id = "+propertyName+" не найдена.")
+		    		break;
+		    	}
+		      log.info("Запись в таблице "+tableName+" с id = "+propertyName+" пока не найдена. Подождем...")
+		      sleep(sleepTime)
+		      row = sql(query)
+	    } else {
+	    	    log.info("Запись в таблице "+tableName+" с id = "+propertyName+" создана.")
+	        break;
+	    }
+	}
+} 
+
+//функция проверяет, была ли изначально создана запись в таблице
+def isExisted(String tableName, String id ) { 
+	String query="SELECT *  FROM  "+tableName+ " WHERE ID = "+id
+	//log.info(query)
+	row = sql(query)
+	//log.info(row)
+	return row == 1
+}
+
+def isExistedWithCondition(String tableName, String cond ) { 
+	String query="SELECT *  FROM  "+tableName+ " WHERE "+cond
+	//log.info(query)
+	row = sql(query)
+	//log.info(row)
+	return row == 1
+}
+//функция отправляет указанное сообщение в укаанный топик
+def sendMessageToKafka(String topicName, String s){
+	
+	//Отправка сообщения в топик
+	Properties props = new Properties()
+	props.put('zk.connect', '10.2.172.24:2181')
+	props.put('bootstrap.servers', bootstrapServers)
+	props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+	props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+	
+	def producer = new KafkaProducer(props)
+	
+	def messageSender = { String topic, String message ->
+		log.info( "messageSender: "+topic+"; "+message )
+		def key =  UUID.randomUUID().toString()
+		def Date date = new Date(); 
+		def  long  timestamp= date.getTime()
+		def int partition =0
+		String compoundMessage = "$message"
+		producer.send(
+			new ProducerRecord<String, String>(topic, partition, timestamp,  key, compoundMessage),
+			{ RecordMetadata metadata, Exception e ->
+			log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+			} as Callback
+			)
+			}
+	
+	def mfMsg =s
+	String messageCreateMf =mfMsg.toString()
+	def topic= testRunner.testCase.testSuite.project.getPropertyValue(topicName)
+	String topic1= topic.toString()
+	//log.info(topic1+" "+messageCreateMf)
+	messageSender(topic1, messageCreateMf)
+	
+	producer.close() 
+}
+
+
+def existedMO=isExisted("MEDICAL_ORGANIZATION ",moId) 
+
+if (!isExisted("MEDICAL_ORGANIZATION ",moId) ){
+		//log.info("Отправляю сообщение")
+		sendMessageToKafka("topicMO.rir2","""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:medicalOrganizationInfoMsg id=\""""+moId+"""\" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns1="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"> <ns2:create type="MEDICAL_ORGANIZATION"><ns1:attributes><ns1:name>МО для интеграционного тестирования №"""+moId+"""</ns1:name><ns1:shortName>Автотестовое МО</ns1:shortName><ns1:ogrn>1027739811700</ns1:ogrn><ns1:okopf>75203</ns1:okopf><ns1:inn>7724015205</ns1:inn><ns1:kpp>772401001</ns1:kpp><ns1:regDate>2002-12-18</ns1:regDate><ns1:departmentAffilation ns1:fnsiId="2300229" id="123123123123"><ns1:code>120</ns1:code><ns1:title>Органы исполнительной власти субъектов Российской Федерации, осуществляющие функции в области здравоохранения</ns1:title></ns1:departmentAffilation></ns1:attributes><ns1:medicalOrganizationAttributes><ns1:medicalActivity ns1:fnsiId="106" id="126094986"><ns1:code>106</ns1:code><ns1:title>Лаборатория</ns1:title></ns1:medicalActivity></ns1:medicalOrganizationAttributes></ns2:create></ns2:medicalOrganizationInfoMsg>""")
+		if (createEntityInAppointment3 == true){
+			log.info("Требуется досоздать МО в сервисе Запись.3")
+			sendMessageToKafka("topicMO.APPOINTMENT3","""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:medicalOrganizationInfoMsg id=\""""+moId+"""\" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns1="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"> <ns2:create type="MEDICAL_ORGANIZATION"><ns1:attributes><ns1:name>МО для интеграционного тестирования №"""+moId+"""</ns1:name><ns1:shortName>Автотестовое МО</ns1:shortName><ns1:ogrn>1027739811700</ns1:ogrn><ns1:okopf>75203</ns1:okopf><ns1:inn>7724015205</ns1:inn><ns1:kpp>772401001</ns1:kpp><ns1:regDate>2002-12-18</ns1:regDate><ns1:departmentAffilation ns1:fnsiId="2300229" id="123123123123"><ns1:code>120</ns1:code><ns1:title>Органы исполнительной власти субъектов Российской Федерации, осуществляющие функции в области здравоохранения</ns1:title></ns1:departmentAffilation></ns1:attributes><ns1:medicalOrganizationAttributes><ns1:medicalActivity ns1:fnsiId="106" id="126094986"><ns1:code>106</ns1:code><ns1:title>Лаборатория</ns1:title></ns1:medicalActivity></ns1:medicalOrganizationAttributes></ns2:create></ns2:medicalOrganizationInfoMsg>""")
+		}
+		else {
+			log.info('Не требуется досоздать МО в сервисе Запись.3')
+		}
+		checkCreation("MEDICAL_ORGANIZATION ",moId)
+}
+else {
+	log.info("Медицинская организация с id = "+moId+" уже создана")
+		testRunner.testCase.setPropertyValue("moId",moId)
+}
+
+
+//Проверить, создана ли запись для головного МУ, если нет - досоздать
+if (!isExisted("MEDICAL_FACILITY",moId) ){
+	//log.info("Отправляю сообщение")
+	sendMessageToKafka("topicMF.rir2","""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:medicalFacilityInfoMsg id=\""""+moId+"""\" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns1="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns2:create isHead="true"><ns1:medicalOrganization type="MEDICAL_ORGANIZATION" archived="false" id=\""""+moId+"""\"><ns1:shortName>Тестовая MУ</ns1:shortName></ns1:medicalOrganization><ns1:name>МУ для интеграционного тестирования №"""+moId+"""</ns1:name><ns1:shortName>Нагрзочное МУ</ns1:shortName><ns1:independence id="1"><ns1:code>1</ns1:code><ns1:title>Филиал</ns1:title></ns1:independence><ns1:parentMedicalFacility id="125694305"/><ns1:medicalFacilityType id="125694305"><ns1:code>39</ns1:code><ns1:title>Городская поликлиника</ns1:title></ns1:medicalFacilityType><ns1:periodStart>1991-12-25</ns1:periodStart><ns1:periodEnd>1992-12-25</ns1:periodEnd><ns1:clo>568</ns1:clo><ns1:mgfoms>3434</ns1:mgfoms><ns2:addressObject archived="false" id=\""""+moId+"""\"><ns1:addressShort id="6203000"><ns1:addressString>город Москва, улица Псковская, дом 10, корпус 1</ns1:addressString></ns1:addressShort></ns2:addressObject></ns2:create></ns2:medicalFacilityInfoMsg>""")
+	if (createEntityInAppointment3 == true){
+		log.info("Требуется досоздать МУ в сервисе Запись.3")
+		sendMessageToKafka("topicMF.APPOINTMENT3","""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:medicalFacilityInfoMsg id=\""""+moId+"""\" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns1="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns2:create isHead="true"><ns1:medicalOrganization type="MEDICAL_ORGANIZATION" archived="false" id=\""""+moId+"""\"><ns1:shortName>Тестовая MO</ns1:shortName></ns1:medicalOrganization><ns1:name>МУ для интеграционного тестирования №"""+moId+"""</ns1:name><ns1:shortName>Нагрзочное МУ</ns1:shortName><ns1:independence id="1"><ns1:code>1</ns1:code><ns1:title>Филиал</ns1:title></ns1:independence><ns1:parentMedicalFacility id="125694305"/><ns1:medicalFacilityType id="125694305"><ns1:code>39</ns1:code><ns1:title>Городская поликлиника</ns1:title></ns1:medicalFacilityType><ns1:periodStart>1991-12-25</ns1:periodStart><ns1:periodEnd>1992-12-25</ns1:periodEnd><ns1:clo>568</ns1:clo><ns1:mgfoms>3434</ns1:mgfoms><ns2:addressObject archived="false" id=\""""+moId+"""\"><ns1:addressShort id="6203000"><ns1:addressString>город Москва, улица Псковская, дом 10, корпус 1</ns1:addressString></ns1:addressShort></ns2:addressObject></ns2:create></ns2:medicalFacilityInfoMsg>""")
+	}
+	else {
+		log.info('Не требуется досоздать МУ в сервисе Запись.3')
+	}
+	checkCreation("MEDICAL_FACILITY",moId)
+
+}
+else {
+	log.info("Медицинское учреждение с id = "+moId+" уже создано")
+}
+
+
+// Досоздать необходимое количество МУ, если требуется
+
+int mfId = moId.toInteger()
+for (int i = 1; i <counterMF; i++){
+	mfId = mfId +1
+	if (!isExisted("MEDICAL_FACILITY",mfId.toString()) ){
+		//log.info("Отправляю сообщение")
+		sendMessageToKafka("topicMF.rir2","""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:medicalFacilityInfoMsg id=\""""+mfId+"""\" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns1="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns2:create isHead="false"><ns1:medicalOrganization type="MEDICAL_ORGANIZATION" archived="false" id=\""""+moId+"""\"><ns1:shortName>Тестовая MУ</ns1:shortName></ns1:medicalOrganization><ns1:name>МУ для интеграционного тестирования №"""+mfId+"""</ns1:name><ns1:shortName>Нагрзочное МУ</ns1:shortName><ns1:independence id="1"><ns1:code>1</ns1:code><ns1:title>Филиал</ns1:title></ns1:independence><ns1:parentMedicalFacility id="125694305"/><ns1:medicalFacilityType id="125694305"><ns1:code>39</ns1:code><ns1:title>Городская поликлиника</ns1:title></ns1:medicalFacilityType><ns1:periodStart>1991-12-25</ns1:periodStart><ns1:periodEnd>1992-12-25</ns1:periodEnd><ns1:clo>568</ns1:clo><ns1:mgfoms>3434</ns1:mgfoms><ns2:addressObject archived="false" id=\""""+mfId+"""\"><ns1:addressShort id="6203000"><ns1:addressString>город Москва, улица Псковская, дом 10, корпус 1</ns1:addressString></ns1:addressShort></ns2:addressObject></ns2:create></ns2:medicalFacilityInfoMsg>""")
+		if (createEntityInAppointment3 == true){
+			log.info("Требуется досоздать МУ в сервисе Запись.3")
+			sendMessageToKafka("topicMF.APPOINTMENT3","""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:medicalFacilityInfoMsg id=\""""+mfId+"""\" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns1="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns2:create isHead="false"><ns1:medicalOrganization type="MEDICAL_ORGANIZATION" archived="false" id=\""""+moId+"""\"><ns1:shortName>Тестовая MУ</ns1:shortName></ns1:medicalOrganization><ns1:name>МУ для интеграционного тестирования №"""+mfId+"""</ns1:name><ns1:shortName>Нагрзочное МУ</ns1:shortName><ns1:independence id="1"><ns1:code>1</ns1:code><ns1:title>Филиал</ns1:title></ns1:independence><ns1:parentMedicalFacility id="125694305"/><ns1:medicalFacilityType id="125694305"><ns1:code>39</ns1:code><ns1:title>Городская поликлиника</ns1:title></ns1:medicalFacilityType><ns1:periodStart>1991-12-25</ns1:periodStart><ns1:periodEnd>1992-12-25</ns1:periodEnd><ns1:clo>568</ns1:clo><ns1:mgfoms>3434</ns1:mgfoms><ns2:addressObject archived="false" id=\""""+mfId+"""\"><ns1:addressShort id="6203000"><ns1:addressString>город Москва, улица Псковская, дом 10, корпус 1</ns1:addressString></ns1:addressShort></ns2:addressObject></ns2:create></ns2:medicalFacilityInfoMsg>""")
+		}
+		else {
+			log.info('Не требуется досоздать МУ в сервисе Запись.3')
+		}
+		checkCreation("MEDICAL_FACILITY",mfId.toString())
+	
+	}
+	else {
+		log.info("Медицинское учреждение с id = "+mfId+" уже создано")
+	}
+	testRunner.testCase.setPropertyValue("mfId"+i, mfId.toString())
+	
+}
+
+mfId = moId.toInteger()
+for (int i = 1; i <=counterMF; i++){
+	if (!isExisted("LOCATION",mfId.toString()) ){
+		//log.info("Отправляю сообщение")
+		sendMessageToKafka("topicLocation.rir2","""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns4:location archived="false" id=\""""+mfId+"""\" xmlns="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns4:roomTitle>Локация для интеграционного тестирования №"""+moId+"""</ns4:roomTitle><ns4:stage>1</ns4:stage><ns4:building id="13"><ns5:buildingAddress>город Москва, улица Челябинская, дом 16, корпус 2</ns5:buildingAddress></ns4:building><ns4:specializationId>"""+specId+"""</ns4:specializationId><ns5:medicalFacilityId>"""+mfId+"""</ns5:medicalFacilityId></ns4:location>""")
+		if (createEntityInAppointment3 == true){
+				log.info("Требуется досоздать Локацию в сервисе Запись.3")
+				sendMessageToKafka("topicLocation.APPOINTMENT3","""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns4:location archived="false" id=\""""+mfId+"""\" xmlns="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns4:roomTitle>Локация для интеграционного тестирования №"""+moId+"""</ns4:roomTitle><ns4:stage>1</ns4:stage><ns4:building id="13"><ns5:buildingAddress>город Москва, улица Челябинская, дом 16, корпус 2</ns5:buildingAddress></ns4:building><ns4:specializationId>"""+specId+"""</ns4:specializationId><ns5:medicalFacilityId>"""+moId+"""</ns5:medicalFacilityId></ns4:location>""")
+		}
+		else {
+			log.info('Не требуется досоздать Локацию в сервисе Запись.3')
+		}
+		checkCreation("LOCATION",mfId.toString())
+	}
+	else {
+		log.info("Локация с id = "+mfId+" уже создана")
+	}
+	mfId = mfId+1
+}

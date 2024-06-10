@@ -1,0 +1,22 @@
+{
+   "operationType": "cancellation",
+   "patientId": "2246407404",
+   "groupCode": "DNC0037",
+   "groupName": "Ожирение",
+   "doctorFIO": null,
+   "employeeId": 10503947963,
+   "noDoctor": "",
+   "specialityCode": 50,
+   "specialityName": "Врач - педиатр участковый",
+   "specializationCode": 18,
+   "specializationName": "Детская кардиология",
+   "diagnosisCode": "E66.0",
+   "diagnosisName": "Ожирение, обусловленное избыточным поступлением энергетических ресурсов",
+   "diagnosisDate": "2018-02-05T00:00:00.0",
+   "repeat": "диагноз установлен в предыдущ. году или ранее (-)",
+   "startDate": "2018-02-06",
+   "endDate": null,
+   "cancelReasonCode": null,
+   "cancelReasonName": null,
+   "timeCommitted": "2021-01-20T15:00:58.0"
+}

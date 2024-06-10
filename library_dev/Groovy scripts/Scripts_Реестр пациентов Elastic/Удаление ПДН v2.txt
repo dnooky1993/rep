@@ -1,0 +1,7 @@
+def scripts = new ScriptLibrary(context, testRunner, log)
+ def topic =testRunner.testCase.testSuite.getPropertyValue("topic")
+ String file =scripts.returnFileAsText("directory3")
+ def patientId =testRunner.testCase.getPropertyValue("patientId")
+ String message = file.replace("\$patientId",patientId)
+ //return message
+scripts. sendMessageToKafka(topic, message)

@@ -1,0 +1,180 @@
+{
+   "id": 1928138,
+   "operationDate": "2022-02-21T10:48:13.759+03:00",
+   "emiasId": 930,
+   "uklErp": "V3147770",
+   "patientType": "I",
+   "systemCode": "sch",
+   "patientRecStatus": "Y",
+   "entityName": "personalData",
+   "entityData": [
+      {
+         "attributes": [
+            {
+               "name": "lastName",
+               "type": "string",
+               "value": {
+                  "value": "Фамилия"
+               }
+            },
+            {
+               "name": "firstName",
+               "type": "string",
+               "value": {
+                  "value": "Имя"
+               }
+            },
+            {
+               "name": "middleName",
+               "type": "string",
+               "value": {
+                  "value": "Отчество"
+               }
+            },
+            {
+               "name": "birthDate",
+               "type": "date",
+               "value": {
+                  "value": "1995-01-16"
+               }
+            },
+            {
+               "name": "birthPlace",
+               "type": "string",
+               "value": {
+                  "value": "v_birth_place"
+               }
+            },
+            {
+               "name": "gender",
+               "type": "dictionary",
+               "value": {
+                  "code": "1"
+               }
+            },
+            {
+               "name": "socialStatus",
+               "type": "dictionary",
+               "value": {
+                  "id": 128650422,
+                  "code": "3",
+                  "value": "Работающий"
+               }
+            },
+            {
+               "name": "armyCode",
+               "type": "string",
+               "value": {
+                  "value": "q"
+               }
+            },
+            {
+               "name": "isDependent",
+               "type": "boolean",
+               "value": {
+                  "value": "true"
+               }
+            },
+            {
+               "name": "educationState",
+               "type": "dictionary",
+               "value": {
+                  "id": 156496744,
+                  "code": "6",
+                  "value": "высшее"
+               }
+            },
+            {
+               "name": "citizenship",
+               "type": "dictionary",
+               "value": {
+                  "id": 125676888,
+                  "code": "178",
+                  "value": "Республика Конго"
+               }
+            },
+            {
+               "name": "ethnicGroup",
+               "type": "dictionary",
+               "value": {
+                  "id": 128650302,
+                  "code": "11",
+                  "value": "Грузины"
+               }
+            },
+            {
+               "name": "resident",
+               "type": "dictionary",
+               "value": {
+                  "code": "1",
+                  "value": "Город"
+               }
+            },
+            {
+               "name": "disability",
+               "type": "dictionary",
+               "value": {
+                  "code": "1",
+                  "value": "нет"
+               }
+            },
+            {
+               "name": "comment",
+               "type": "string",
+               "value": {
+                  "value": "v_additional_info"
+               }
+            },
+            {
+               "name": "erzSyncDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "personIdErzl",
+               "type": "guid",
+               "value": {
+                  "value": "2adef495-b318-0146-e053-c0a8c27103b8"
+               }
+            },
+            {
+               "name": "nonresIdErzl",
+               "type": "integer",
+               "value": {
+                  "value": "1323"
+               }
+            },
+            {
+               "name": "nonresDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "erzStatus",
+               "type": "string",
+               "value": {
+                  "value": "Y"
+               }
+            },
+            {
+               "name": "deathDateTime",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "deathDataSource",
+               "type": "string",
+               "value": {
+                  "value": "21.02.22"
+               }
+            }
+         ]
+      }
+   ]
+}

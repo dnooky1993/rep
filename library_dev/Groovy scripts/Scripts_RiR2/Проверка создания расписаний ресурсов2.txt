@@ -1,0 +1,50 @@
+import java.time.*
+import java.time.format.*;
+import java.time.temporal.*;
+import  java.util.date.*
+import groovy.sql.Sql
+import java.sql.Timestamp
+import java.time.LocalDate
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def scheduleId= testRunner.testCase.getPropertyValue("scheduleId2")
+log.info ("ID Расписания: " + scheduleId)
+def mfId= testRunner.testCase.getPropertyValue("mfId1").toInteger()
+
+getResources = ("SELECT * FROM \"RESOURCE\" WHERE SYNC_STATUS= 'OK' AND ARCHIVED=0 AND MEDICAL_FACILITY_ID="+mfId)
+//log.info(getResources)
+resources= sql.rows(getResources)
+countResources= sql(getResources)
+if ( countResources== 0){
+		testRunner.fail("Запись в таблице RESOURCE не найдена")
+}
+
+//log.info("countResources "+countResources)
+
+for (int i=0; i<countResources; i++){
+	//log.info("i = "+i)
+	getResourceSchedule = ("SELECT * FROM RESOURCE_SCHEDULE WHERE SCHEDULE_ID="+scheduleId+" AND RESOURCE_ID="+resources[i].ID)
+	//log.info(getResourceSchedule)
+	resourceSchedule=sql.rows(getResourceSchedule)
+	//log.info("resourceSchedule"+i+" = "+resourceSchedule[0])
+	if ( sql(getResourceSchedule)== 0){
+		testRunner.fail("Запись в таблице RESOURCE_SCHEDULEс SCHEDULE_ID="+scheduleId+" и RESOURCE_ID="+resources[i].ID+" не найдена")
+	}
+	else {
+		//log.info("VERSION = "+resourceSchedule[0].VERSION)
+	assert resourceSchedule[0].VERSION == 0
+	assert resourceSchedule[0].STATUS == "NOT_DEFINED"
+	}
+	log.info("Расписание для ресурса "+resources[i].ID+" создано успешно и соответствует требованиям.")
+}
+
+log.info("Для всех ресурсов успешно созданы расписания.")

@@ -1,0 +1,14 @@
+.idea/
+*.iml
+*.ipr
+*.iws
+build/
+target/classes
+target/maven-archiver
+target/maven-status
+target/generated-sources
+target/original-rir2_library-1.0.jar
+target/rir2_library-1.0-shaded.jar
+
+
+

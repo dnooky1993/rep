@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="fba38ca2-1da4-4423-b360-9cb00fda7dfe" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateSlots" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testStep type="manualTestStep" name="ReadMe" id="f23b9941-1a86-4691-91e7-799a3ee2e005" disabled="true"><con:description>https://wiki.mos.social/pages/viewpage.action?pageId=137636121
+1. Добавить сервисы:
+Управление расписанием(ScheduleService)	http://schedule.rir2.test.emias.mos.ru/api/Schedule?wsdl
+Управление расписанием СДР(SarScheduleService)         http://sarschedule.rir2.test.emias.mos.ru/api/SarSchedule?wsdl
+2. Изменить проперти тест кейса на свои
+3. На шаге CreateSarScheduleRule поменять интервал времени расписания
+
+____________
+number - это номер записи из СКЛ запроса</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult/></con:config></con:testStep><con:testStep type="jdbc" name="GetSARs" id="8698faa8-750c-4c6e-b911-9e2c4ff160e0"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>oracle.jdbc.driver.OracleDriver</con:driver><con:connectionString>jdbc:oracle:thin:${#TestCase#dblogin}/${#TestCase#dbpassword}@${#TestCase#dbconnect}</con:connectionString><con:query> SELECT rs.id AS res_schedule_Id, rs.STATUS AS resource_Schedule_Status, rs.VERSION AS res_schedule_version, s.START_DATE, s.END_DATE ,
+ et.TREATMENT_ID, res.*, s.ID AS mu_schedule_id, s.VERSION AS mu_schedule_version, s.IS_ACTIVE AS mu_schedule_active FROM "RESOURCE" res 
+ JOIN RESOURCE_TYPE rt ON rt.id=res.RESOURCE_TYPE_ID 
+ JOIN MEDICAL_FACILITY mf ON mf.id=res.MEDICAL_FACILITY_ID 
+ JOIN MEDICAL_ORGANIZATION mo ON mo.id=res.MEDICAL_ORGANIZATION_ID 
+ JOIN DEPARTMENT_NOM dn ON dn.id=res.DEPARTMENT_NOM_ID 
+ LEFT JOIN LOCATION l ON l.id=res.LOCATION_ID 
+ LEFT JOIN SPECIALIZATION spec ON spec.id=l.SPECIALIZATION_ID 
+ JOIN EQUIPMENT e ON res.PARENT_ID=e.ID 
+ JOIN EQUIPMENT_PROFILE ep ON ep.id=e.EQUIPMENT_PROFILE_ID 
+ JOIN EQUIPMENT_TREATMENT et ON et.EQUIPMENT_ID=e.ID 
+ JOIN TREATMENT t ON t.id=et.TREATMENT_ID 
+ JOIN TREATMENT_CATEGORY tc ON tc.ID =t.TREATMENT_CATEGORY_ID 
+ JOIN SCHEDULE s ON s.MEDICAL_FACILITY_ID =res.MEDICAL_FACILITY_ID 
+ JOIN RESOURCE_SCHEDULE rs ON rs.SCHEDULE_ID =s.ID 
+ WHERE res.RESOURCE_KIND='SPECIAL_AVAILABLE_RESOURCE'
+ AND res.ARCHIVED =0 AND res.SYNC_STATUS='OK'
+ AND rt.RESOURCE_KIND ='SPECIAL_AVAILABLE_RESOURCE' AND rt.ARCHIVED =0
+ AND mo.ARCHIVED =0 AND mf.ARCHIVED =0
+ AND (dn."END">= CURRENT_TIMESTAMP OR dn."END" IS null)
+ AND (res.LOCATION_ID IS NULL  OR (l.ARCHIVED=0 AND (l.SPECIALIZATION_ID IS NULL OR spec.ARCHIVED=0)))
+ AND e.ARCHIVED =0 AND ep.ARCHIVED=0
+ AND t.ARCHIVED =0 AND tc.ARCHIVED =0
+ AND s.END_DATE >=CURRENT_TIMESTAMP AND rs.STATUS!='CALCULATION' AND rs.RESOURCE_ID=res.ID 
+ AND rs.STATUS = 'NOT_DEFINED'
+ /*AND et.TREATMENT_ID = '${#TestCase#treatment_id}' */
+ AND res.MEDICAL_FACILITY_ID = ${#TestCase#medical_facility_id}</con:query><con:assertion type="Simple Contains" id="aca12651-500f-43e3-a121-187f7eb80b86" name="Contains"><con:configuration><token>&lt;MU_SCHEDULE_ID></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:properties/></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="241c6533-68ac-413b-bc78-c21c38966e2b"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>RES_SHEDULE_ID</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GetSARs</con:sourceStep><con:sourcePath>//Row[${#TestCase#number}]/RES_SCHEDULE_ID[1]/text()</con:sourcePath><con:targetType>RES_SHEDULE_ID</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>MU_SCHEDULE_ID</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GetSARs</con:sourceStep><con:sourcePath>//Row[${#TestCase#number}]/MU_SCHEDULE_ID[1]/text()</con:sourcePath><con:targetType>MU_SCHEDULE_ID</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>MU_SCHEDULE_VERSION</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GetSARs</con:sourceStep><con:sourcePath>//Row[${#TestCase#number}]/MU_SCHEDULE_VERSION[1]/text()</con:sourcePath><con:targetType>MU_SCHEDULE_VERSION</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>LOCATION_ID</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>GetSARs</con:sourceStep><con:sourcePath>//Row[${#TestCase#number}]/LOCATION_ID[1]/text()</con:sourcePath><con:targetType>LOCATION_ID</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="CreateSarScheduleRule" id="378eef18-2cdd-49a1-937e-bf03fc7450e8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>sarScheduleServiceBinding</con:interface><con:operation>createSarScheduleRule</con:operation><con:request name="CreateSarScheduleRule" id="3bdf8179-f1cd-4565-a808-b0d818120016"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sarschedule.rir2.test.emias.mos.ru/api/SarSchedule</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/supp/rir2/sarScheduleService/v1/types/" xmlns:v1="http://emias.mos.ru/supp/rir2/core/v1/">\r
+   <soap:Header>\r
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+    <wsse:Username>KPI_APC_METHODIST/HAdiatullina</wsse:Username>
+   </wsse:UsernameToken>
+  </wsse:Security>
+   <user:userContext>
+     <user:systemName>KPI_APC_METHODIST</user:systemName>
+     <user:userName>HAdiatullina</user:userName>
+     <user:userRoleId>7014</user:userRoleId>     
+     <user:userRights>
+      <!--Zero or more repetitions:-->
+      <user:userRightId>0</user:userRightId>
+     </user:userRights>
+     <user:jobExecutionId>112740</user:jobExecutionId>
+   </user:userContext>
+   </soap:Header>\r
+   <soap:Body>\r
+      <typ:createSarScheduleRuleRequest>
+         <!--1 or more repetitions:-->
+         <typ:ruleInfoWithSarScheduleId>
+            <typ:sarScheduleId>${#TestCase#RES_SHEDULE_ID}</typ:sarScheduleId>
+            <typ:info>
+               <typ:typeId>1</typ:typeId>
+               <!--Optional:-->
+               <typ:comment>wt</typ:comment>
+               <typ:datePeriod>
+               <!--Укажи период для создания расписания-->
+                  <v1:start>2022-10-06</v1:start>
+                  <v1:end>2022-11-06</v1:end>
+               </typ:datePeriod>
+               <typ:dateTemplate xsi:type="v1:DayOfWeekDatesTemplate" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <v1:dayOfWeek>1</v1:dayOfWeek>
+                  <v1:dayOfWeek>2</v1:dayOfWeek>
+                  <v1:dayOfWeek>3</v1:dayOfWeek>
+                  <v1:dayOfWeek>4</v1:dayOfWeek>
+                  <v1:dayOfWeek>5</v1:dayOfWeek>
+               </typ:dateTemplate>
+               <typ:excludedDates>
+                  <v1:isExcludedHoliday>true</v1:isExcludedHoliday>
+               </typ:excludedDates>
+               <typ:timeIntervals>
+                  <!--1 or more repetitions:-->
+                  <typ:timeInterval>
+                     <v1:start>08:00:00</v1:start>
+                     <v1:end>20:00:00</v1:end>
+                  </typ:timeInterval>
+               </typ:timeIntervals>
+               <!--Optional:-->
+               <typ:ageGroups>
+                  <!--1 or more repetitions:-->
+                  <v1:ageGroupId>127631258</v1:ageGroupId>
+                  <v1:ageGroupId>127631257</v1:ageGroupId>
+                  <v1:ageGroupId>127631259</v1:ageGroupId>
+               </typ:ageGroups>
+               <!--Optional:-->
+               <typ:treatments>
+                  <!--1 or more repetitions:-->
+                  <v1:treatmentId>${#TestCase#treatment_id}</v1:treatmentId>
+               </typ:treatments>
+               <!--Optional:-->
+               <typ:location>${#TestCase#LOCATION_ID}</typ:location>
+            </typ:info>
+         </typ:ruleInfoWithSarScheduleId>
+      </typ:createSarScheduleRuleRequest>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="c4dce3c5-0662-48af-a798-fb4a0b9a0461"/><con:assertion type="SOAP Fault Assertion" id="c9c338fa-faeb-4c2c-9b8d-2bcf2ec1aefa" name="Not SOAP Fault"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="05821505-7161-49a1-b536-e34ee18edb17" name="activateScheduleForHead"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>scheduleServiceBinding</con:interface><con:operation>activateScheduleForHead</con:operation><con:request name="activateScheduleForHead" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="67b7a79f-036d-4dae-acc7-c69608d74b84"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://schedule.rir2.test.emias.mos.ru/api/Schedule</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/supp/rir2/scheduleService/v1/types/" xmlns:v1="http://emias.mos.ru/supp/rir2/core/v1/">\r
+   <soap:Header>\r
+       <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+    <wsse:Username>KPI_APC_METHODIST/HAdiatullina</wsse:Username>
+   </wsse:UsernameToken>
+  </wsse:Security>
+   <user:userContext>
+     <user:systemName>KPI_APC_METHODIST</user:systemName>
+     <user:userName>HAdiatullina</user:userName>
+     <user:userRoleId>7014</user:userRoleId>     
+     <user:userRights>
+      <!--Zero or more repetitions:-->
+      <user:userRightId>0</user:userRightId>
+     </user:userRights>
+     <user:jobExecutionId>112740</user:jobExecutionId>
+   </user:userContext>
+   </soap:Header>\r
+   <soap:Body>\r
+      <typ:activateScheduleForHeadRequest>\r
+         <v1:scheduleId>${#TestCase#MU_SCHEDULE_ID}</v1:scheduleId>\r
+         <v1:entityVersion>${#TestCase#MU_SCHEDULE_VERSION}</v1:entityVersion>\r
+         <!--Optional:-->\r
+<!--         <v1:options>\r-->
+            <!--Zero or more repetitions:-->\r
+<!--            <v1:entry key="?">?</v1:entry>\r-->
+<!--         </v1:options>\r-->
+      </typ:activateScheduleForHeadRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1f2690b9-011c-4e4c-ac88-fcfd52bccf12" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="c891da21-6398-405a-b4ca-5109f97aa8fd" name="Not SOAP Fault" disabled="true"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/supp/rir2/scheduleService/v1/scheduleServicePortType/activateScheduleForHeadRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="975a4c8e-0dad-443d-9c79-3f750fba01a7" name="activateScheduleForBranch"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>scheduleServiceBinding</con:interface><con:operation>activateScheduleForBranch</con:operation><con:request name="activateScheduleForBranch" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="28c29d11-5b3d-4760-a9e9-163f813ce6e7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://schedule.rir2.test.emias.mos.ru/api/Schedule</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/supp/rir2/scheduleService/v1/types/" xmlns:v1="http://emias.mos.ru/supp/rir2/core/v1/">\r
+   <soap:Header>
+       <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+    <wsse:Username>KPI_APC_METHODIST/HAdiatullina</wsse:Username>
+   </wsse:UsernameToken>
+  </wsse:Security>
+   <user:userContext>
+     <user:systemName>KPI_APC_METHODIST</user:systemName>
+     <user:userName>HAdiatullina</user:userName>
+     <user:userRoleId>7014</user:userRoleId>     
+     <user:userRights>
+      <!--Zero or more repetitions:-->
+      <user:userRightId>0</user:userRightId>
+     </user:userRights>
+     <user:jobExecutionId>112740</user:jobExecutionId>
+   </user:userContext>
+   </soap:Header>
+   <soap:Body>\r
+      <typ:activateScheduleForBranchRequest>\r
+         <v1:scheduleId>${#TestCase#MU_SCHEDULE_ID}</v1:scheduleId>\r
+         <v1:entityVersion>${#TestCase#MU_SCHEDULE_VERSION}</v1:entityVersion>\r
+         <!--Optional:-->\r
+<!--         <v1:options>\r-->
+            <!--Zero or more repetitions:-->\r
+<!--            <v1:entry key="?">?</v1:entry>\r-->
+<!--         </v1:options>\r-->
+      </typ:activateScheduleForBranchRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="894a8e5a-5075-4600-8d04-9cd3aa1da9a6" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="42824d61-2f7a-4369-b27a-35f752e55273" name="Not SOAP Fault" disabled="true"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/supp/rir2/scheduleService/v1/scheduleServicePortType/activateScheduleForBranchRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetSlots" id="4aba545d-2e9c-4cb0-8502-fdc055767597"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>appointmentsServiceBinding</con:interface><con:operation>getSlots</con:operation><con:request name="GetSlots" id="646d5859-0cdd-4e2d-8b2a-978463bf6bc4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://appointment3appointment.test.emias.mos.ru/appointment3/appointmentService/v1</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/appointment3/appointmentsService/v1/types/" xmlns:v1="http://emias.mos.ru/appointment3/core/v1/">
+	<soap:Header>
+		<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+			<wsse:UsernameToken wsu:Id="UsernameToken-4d95f31b-5db0-44fb-ae73-9a5ce49d7ca7">
+				<wsse:Username>APPOINTMENT/KCHelyabova</wsse:Username>
+			</wsse:UsernameToken>
+		</wsse:Security>
+		<user:userContext>
+			<user:systemName>KCHelyabova</user:systemName>
+			<user:userName>KCHelyabova</user:userName>
+			<user:userRoleId>7007</user:userRoleId>
+			<user:userRights>
+				<!--Zero or more repetitions:-->
+				<user:userRightId>350007</user:userRightId>
+			</user:userRights>
+			<user:jobExecutionId>21813187</user:jobExecutionId>
+		</user:userContext>
+	</soap:Header>
+	<soap:Body>
+		<typ:getSlotsRequest>
+			<typ:resourceFilter>
+				<!--You have a CHOICE of the next 2 items at this level-->
+				<typ:medicalOrganizationResources>
+					<typ:medicalOrganizationIds>
+						<!--1 or more repetitions:-->
+						<v1:medicalOrganizationId>${#TestCase#medical_facility_id}</v1:medicalOrganizationId>
+					</typ:medicalOrganizationIds>
+				</typ:medicalOrganizationResources>
+			</typ:resourceFilter>
+<!--			<typ:treatmentsFilterForSlots>-->
+				<!--You have a CHOICE of the next 2 items at this level-->
+<!--				<typ:treatmentCategoryIds>-->
+					<!--1 or more repetitions:-->
+<!--					<typ:treatmentCategoryId>${#TestCase#treatment_id}</typ:treatmentCategoryId>-->
+<!--				</typ:treatmentCategoryIds>-->
+<!--			</typ:treatmentsFilterForSlots>-->
+			<v1:pagingOptions pageNumber="0" pageSize="1"></v1:pagingOptions>
+		</typ:getSlotsRequest>
+	</soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="64c76804-6d1b-4021-bcb0-c48b37172c2b"/><con:assertion type="SOAP Fault Assertion" id="08373deb-b19f-49dd-8266-ab65f021b752"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>dblogin</con:name><con:value>EMIAS_RESOURCES2</con:value></con:property><con:property><con:name>dbpassword</con:name><con:value>EMIAS_RESOURCES2</con:value></con:property><con:property><con:name>dbconnect</con:name><con:value>10.2.172.16:1521/rir2.mosgorzdrav.local</con:value></con:property><con:property><con:name>treatment_id</con:name><con:value>141478300</con:value></con:property><con:property><con:name>medical_facility_id</con:name><con:value>141</con:value></con:property><con:property><con:name>RES_SHEDULE_ID</con:name><con:value>797798</con:value></con:property><con:property><con:name>MU_SCHEDULE_ID</con:name><con:value>265338</con:value></con:property><con:property><con:name>MU_SCHEDULE_VERSION</con:name><con:value>0</con:value></con:property><con:property><con:name>LOCATION_ID</con:name><con:value>6998</con:value></con:property><con:property><con:name>number</con:name><con:value>1</con:value></con:property></con:properties></con:testCase>

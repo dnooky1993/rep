@@ -1,0 +1,14 @@
+def today = Calendar.getInstance();
+today.set(Calendar.HOUR_OF_DAY, 0);
+today.set(Calendar.MINUTE, 0);
+today.set(Calendar.SECOND, 0);
+today.set(Calendar.MILLISECOND, 0);
+def currentDate = today.getTime() - 2;
+def currentDate_formatted = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(currentDate);
+testRunner.testCase.setPropertyValue( "dateLower", currentDate_formatted )
+def currentDate2 = today.getTime() - 2;
+def currentDate_formatted2 = new java.text.SimpleDateFormat("yyyy-MM-dd").format(currentDate2);
+testRunner.testCase.setPropertyValue( "dateLower2", currentDate_formatted2 )
+def currentDate3 = today.getTime() - 32;
+def currentDate_formatted3 = new java.text.SimpleDateFormat("yyyy-MM-dd").format(currentDate3);
+testRunner.testCase.setPropertyValue( "dateLower3", currentDate_formatted3 )

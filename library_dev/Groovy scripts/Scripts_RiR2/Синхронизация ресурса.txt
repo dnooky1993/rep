@@ -1,0 +1,33 @@
+import groovy.sql.Sql
+
+def locationId = testRunner.testCase.getPropertyValue("locationId")
+def medicalFacilityId = testRunner.testCase.getPropertyValue("medicalFacilityId")
+def treatmentRoomId = testRunner.testCase.getPropertyValue("treatmentRoomId")
+
+if (context.dbConnect != null) {      
+	sql = context.dbConnect;
+Boolean rowCount = false
+String sql_query = "SELECT * FROM \"RESOURCE\" WHERE MEDICAL_FACILITY_ID=" + medicalFacilityId + "and LOCATION_ID = " + locationId + " and SYNC_STATUS='OK' and PARENT_ID= "+ treatmentRoomId
+int counter = 0
+
+while (rowCount == false &&  counter < 30) {
+row = sql(sql_query)
+if (row == 1) {
+  rowCount = true
+  log.info("resource found")
+  }
+else {
+  sleep(10000)
+  log.info("resource not found")
+  counter++
+  }
+}
+
+def resource = sql.rows(sql_query)
+String resourceId =resource[0].ID
+ log.info ("ID ресурса: " +resourceId)
+testRunner.testCase.setPropertyValue("resourceId",resourceId)
+} else {
+	log.error("Соединение с бд не установлено!");
+}
+ 

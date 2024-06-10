@@ -1,0 +1,29 @@
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+
+def sarScheduleId= testRunner.testCase.getPropertyValue("sarScheduleId1")
+log.info ("ID Расписания СДР : " + sarScheduleId)
+
+getResourceSchedule = ("SELECT * FROM RESOURCE_SCHEDULE WHERE ID="+sarScheduleId)
+//log.info(getResourceSchedule)
+resourceSchedule=sql.rows(getResourceSchedule)
+//log.info("resourceSchedule"+i+" = "+resourceSchedule[0])
+if ( sql(getResourceSchedule)== 0){
+	testRunner.fail("Запись в таблице RESOURCE_SCHEDULEс ID="+sarScheduleId+" не найдена")
+}
+else {
+	//log.info("VERSION = "+resourceSchedule[0].VERSION)
+	assert resourceSchedule[0].VERSION == 1
+	assert resourceSchedule[0].STATUS == "DIRTY"
+}
+log.info("Расписание СДР  "+sarScheduleId+" успешно изменено")

@@ -1,0 +1,524 @@
+{
+	"domain": "default",
+	"ehrUid": "2365b7ba-dfb9-4ee0-8b65-98ff3d10712c",
+	"operationType": "create",
+	"eventName": "t_dispensary_observation_programQueue",
+	"compositionId": "806764bd-8952-4e39-bc02-02d730118089::default::1",
+	"newResults": [
+		{
+			"erpPatientId": "1404",
+			"dnDoctorJobExecutionid": "lenamolodec ы",
+			"version_": "openEHR-EHR-COMPOSITION.t_dispensary_observation_program.v1",
+			"login": "sc-ziborov",
+			"documentCommittedDate": "2021-11-11T17:50:59.870777+03:00",
+			"composition_": {
+				"@class": "COMPOSITION",
+				"name": {
+					"@class": "DV_TEXT",
+					"value": "Программа диспансерного наблюдения"
+				},
+				"uid": {
+					"@class": "OBJECT_VERSION_ID",
+					"value": "806764bd-8952-4e39-bc02-02d730118089::default::1"
+				},
+				"archetype_details": {
+					"@class": "ARCHETYPED",
+					"archetype_id": {
+						"@class": "ARCHETYPE_ID",
+						"value": "openEHR-EHR-COMPOSITION.report.v1"
+					},
+					"template_id": {
+						"@class": "TEMPLATE_ID",
+						"value": "openEHR-EHR-COMPOSITION.t_dispensary_observation_program.v1"
+					},
+					"rm_version": "1.0.4"
+				},
+				"archetype_node_id": "openEHR-EHR-COMPOSITION.report.v1",
+				"language": {
+					"@class": "CODE_PHRASE",
+					"terminology_id": {
+						"@class": "TERMINOLOGY_ID",
+						"value": "ISO_639-1"
+					},
+					"code_string": "ru"
+				},
+				"territory": {
+					"@class": "CODE_PHRASE",
+					"terminology_id": {
+						"@class": "TERMINOLOGY_ID",
+						"value": "ISO_3166-1"
+					},
+					"code_string": "ru"
+				},
+				"category": {
+					"@class": "DV_CODED_TEXT",
+					"value": "event",
+					"defining_code": {
+						"@class": "CODE_PHRASE",
+						"terminology_id": {
+							"@class": "TERMINOLOGY_ID",
+							"value": "openehr"
+						},
+						"code_string": "433"
+					}
+				},
+				"composer": {
+					"@class": "PARTY_IDENTIFIED",
+					"external_ref": {
+						"@class": "PARTY_REF",
+						"id": {
+							"@class": "GENERIC_ID",
+							"value": "EHR Forms User ID",
+							"scheme": "EHR Forms"
+						},
+						"namespace": "EHR Forms",
+						"type": "ANY"
+					},
+					"name": "Алевтина Петровна 1"
+				},
+				"context": {
+					"@class": "EVENT_CONTEXT",
+					"start_time": {
+						"@class": "DV_DATE_TIME",
+						"value": "2021-11-10T17:41:59.868005+03:00"
+					},
+					"setting": {
+						"@class": "DV_CODED_TEXT",
+						"value": "other care",
+						"defining_code": {
+							"@class": "CODE_PHRASE",
+							"terminology_id": {
+								"@class": "TERMINOLOGY_ID",
+								"value": "openehr"
+							},
+							"code_string": "238"
+						}
+					},
+					"other_context": {
+						"@class": "ITEM_TREE",
+						"name": {
+							"@class": "DV_TEXT",
+							"value": "*Tree(en)"
+						},
+						"archetype_node_id": "at0001",
+						"items": [
+							{
+								"@class": "CLUSTER",
+								"name": {
+									"@class": "DV_TEXT",
+									"value": "Подробности контекста"
+								},
+								"archetype_details": {
+									"@class": "ARCHETYPED",
+									"archetype_id": {
+										"@class": "ARCHETYPE_ID",
+										"value": "openEHR-EHR-CLUSTER.composition_context_details_simi.v0"
+									},
+									"rm_version": "1.0.4"
+								},
+								"archetype_node_id": "openEHR-EHR-CLUSTER.composition_context_details_simi.v0",
+								"items": [
+									{
+										"@class": "CLUSTER",
+										"name": {
+											"@class": "DV_TEXT",
+											"value": "Автор информации"
+										},
+										"archetype_node_id": "at0036",
+										"items": [
+											{
+												"@class": "ELEMENT",
+												"name": {
+													"@class": "DV_TEXT",
+													"value": "Идентификатор исполнения должности медработника"
+												},
+												"archetype_node_id": "at0092",
+												"value": {
+													"@class": "DV_IDENTIFIER",
+													"issuer": "Issuer",
+													"assigner": "Assigner",
+													"id": "1235044cc-533f-4e20-be71-b23ebb132d1a",
+													"type": "Prescription"
+												}
+											},
+											{
+												"@class": "ELEMENT",
+												"name": {
+													"@class": "DV_TEXT",
+													"value": "Наименование должности123"
+												},
+												"archetype_node_id": "at0037",
+												"value": {
+													"@class": "DV_TEXT",
+													"value": "Врач ухо-горло-нос1"
+												}
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				},
+				"content": [
+					{
+						"@class": "ADMIN_ENTRY",
+						"name": {
+							"@class": "DV_TEXT",
+							"value": "Информация о ПДН"
+						},
+						"archetype_details": {
+							"@class": "ARCHETYPED",
+							"archetype_id": {
+								"@class": "ARCHETYPE_ID",
+								"value": "openEHR-EHR-ADMIN_ENTRY.container_simi.v0"
+							},
+							"rm_version": "1.0.4"
+						},
+						"archetype_node_id": "openEHR-EHR-ADMIN_ENTRY.container_simi.v0",
+						"language": {
+							"@class": "CODE_PHRASE",
+							"terminology_id": {
+								"@class": "TERMINOLOGY_ID",
+								"value": "ISO_639-1"
+							},
+							"code_string": "ru"
+						},
+						"encoding": {
+							"@class": "CODE_PHRASE",
+							"terminology_id": {
+								"@class": "TERMINOLOGY_ID",
+								"value": "IANA_character-sets"
+							},
+							"code_string": "UTF-8"
+						},
+						"subject": {
+							"@class": "PARTY_SELF"
+						},
+						"data": {
+							"@class": "ITEM_TREE",
+							"name": {
+								"@class": "DV_TEXT",
+								"value": "Дерево"
+							},
+							"archetype_node_id": "at0001",
+							"items": [
+								{
+									"@class": "CLUSTER",
+									"name": {
+										"@class": "DV_TEXT",
+										"value": "Общая информация"
+									},
+									"archetype_details": {
+										"@class": "ARCHETYPED",
+										"archetype_id": {
+											"@class": "ARCHETYPE_ID",
+											"value": "openEHR-EHR-CLUSTER.dispensary_observation_program_simi.v1"
+										},
+										"rm_version": "1.0.4"
+									},
+									"archetype_node_id": "openEHR-EHR-CLUSTER.dispensary_observation_program_simi.v1",
+									"items": [
+										{
+											"@class": "ELEMENT",
+											"name": {
+												"@class": "DV_TEXT",
+												"value": "Дата начала действия"
+											},
+											"archetype_node_id": "at0001",
+											"value": {
+												"@class": "DV_DATE_TIME",
+												"value": "2021-11-02T02:00:00+03:00"
+											}
+										},
+										{
+											"@class": "ELEMENT",
+											"name": {
+												"@class": "DV_TEXT",
+												"value": "Дата окончания действия"
+											},
+											"archetype_node_id": "at0002",
+											"value": {
+												"@class": "DV_DATE_TIME",
+												"value": "2022-11-02T03:00:00+03:00"
+											}
+										}
+									]
+								}
+							]
+						}
+					},
+					{
+						"@class": "SECTION",
+						"name": {
+							"@class": "DV_TEXT",
+							"value": "Список диагнозов"
+						},
+						"archetype_details": {
+							"@class": "ARCHETYPED",
+							"archetype_id": {
+								"@class": "ARCHETYPE_ID",
+								"value": "openEHR-EHR-SECTION.adhoc.v1"
+							},
+							"rm_version": "1.0.4"
+						},
+						"archetype_node_id": "openEHR-EHR-SECTION.adhoc.v1",
+						"items": [
+							{
+								"@class": "EVALUATION",
+								"name": {
+									"@class": "DV_TEXT",
+									"value": "Диагноз"
+								},
+								"archetype_details": {
+									"@class": "ARCHETYPED",
+									"archetype_id": {
+										"@class": "ARCHETYPE_ID",
+										"value": "openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+									},
+									"rm_version": "1.0.4"
+								},
+								"archetype_node_id": "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
+								"language": {
+									"@class": "CODE_PHRASE",
+									"terminology_id": {
+										"@class": "TERMINOLOGY_ID",
+										"value": "ISO_639-1"
+									},
+									"code_string": "ru"
+								},
+								"encoding": {
+									"@class": "CODE_PHRASE",
+									"terminology_id": {
+										"@class": "TERMINOLOGY_ID",
+										"value": "IANA_character-sets"
+									},
+									"code_string": "UTF-8"
+								},
+								"subject": {
+									"@class": "PARTY_SELF"
+								},
+								"data": {
+									"@class": "ITEM_TREE",
+									"name": {
+										"@class": "DV_TEXT",
+										"value": "structure"
+									},
+									"archetype_node_id": "at0001",
+									"items": [
+										{
+											"@class": "ELEMENT",
+											"name": {
+												"@class": "DV_TEXT",
+												"value": "Код по МКБ-10"
+											},
+											"archetype_node_id": "at0002",
+											"value": {
+												"@class": "DV_CODED_TEXT",
+												"value": "A19.1 - Острый милиарный туберкулез множественной локализации",
+												"defining_code": {
+													"@class": "CODE_PHRASE",
+													"terminology_id": {
+														"@class": "TERMINOLOGY_ID",
+														"value": "terminology_label"
+													},
+													"code_string": "NULL"
+												}
+											}
+										},
+										{
+											"@class": "CLUSTER",
+											"name": {
+												"@class": "DV_TEXT",
+												"value": "Мероприятия ПДН"
+											},
+											"archetype_details": {
+												"@class": "ARCHETYPED",
+												"archetype_id": {
+													"@class": "ARCHETYPE_ID",
+													"value": "openEHR-EHR-CLUSTER.dispensary_observation_program_simi.v1"
+												},
+												"rm_version": "1.0.4"
+											},
+											"archetype_node_id": "openEHR-EHR-CLUSTER.dispensary_observation_program_simi.v1",
+											"items": [
+												{
+													"@class": "CLUSTER",
+													"name": {
+														"@class": "DV_TEXT",
+														"value": "Лекарственная терапия"
+													},
+													"archetype_details": {
+														"@class": "ARCHETYPED",
+														"archetype_id": {
+															"@class": "ARCHETYPE_ID",
+															"value": "openEHR-EHR-CLUSTER.medication-simi.v1"
+														},
+														"rm_version": "1.0.4"
+													},
+													"archetype_node_id": "openEHR-EHR-CLUSTER.medication-simi.v1",
+													"items": [
+														{
+															"@class": "ELEMENT",
+															"name": {
+																"@class": "DV_TEXT",
+																"value": "Международное непатентованное наименование"
+															},
+															"archetype_node_id": "at0132",
+															"value": {
+																"@class": "DV_CODED_TEXT",
+																"value": "Дапаглифлозин",
+																"defining_code": {
+																	"@class": "CODE_PHRASE",
+																	"terminology_id": {
+																		"@class": "TERMINOLOGY_ID",
+																		"value": "terminology_label"
+																	},
+																	"code_string": "568"
+																}
+															}
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							},
+							{
+								"@class": "EVALUATION",
+								"name": {
+									"@class": "DV_TEXT",
+									"value": "Диагноз #2"
+								},
+								"archetype_details": {
+									"@class": "ARCHETYPED",
+									"archetype_id": {
+										"@class": "ARCHETYPE_ID",
+										"value": "openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+									},
+									"rm_version": "1.0.4"
+								},
+								"archetype_node_id": "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
+								"language": {
+									"@class": "CODE_PHRASE",
+									"terminology_id": {
+										"@class": "TERMINOLOGY_ID",
+										"value": "ISO_639-1"
+									},
+									"code_string": "ru"
+								},
+								"encoding": {
+									"@class": "CODE_PHRASE",
+									"terminology_id": {
+										"@class": "TERMINOLOGY_ID",
+										"value": "IANA_character-sets"
+									},
+									"code_string": "UTF-8"
+								},
+								"subject": {
+									"@class": "PARTY_SELF"
+								},
+								"data": {
+									"@class": "ITEM_TREE",
+									"name": {
+										"@class": "DV_TEXT",
+										"value": "structure"
+									},
+									"archetype_node_id": "at0001",
+									"items": [
+										{
+											"@class": "ELEMENT",
+											"name": {
+												"@class": "DV_TEXT",
+												"value": "Код по МКБ-10"
+											},
+											"archetype_node_id": "at0002",
+											"value": {
+												"@class": "DV_CODED_TEXT",
+												"value": "A20.0 - Бубонная чума",
+												"defining_code": {
+													"@class": "CODE_PHRASE",
+													"terminology_id": {
+														"@class": "TERMINOLOGY_ID",
+														"value": "terminology_label"
+													},
+													"code_string": "null"
+												}
+											}
+										}
+									]
+								}
+							},
+							{
+								"@class": "EVALUATION",
+								"name": {
+									"@class": "DV_TEXT",
+									"value": "Диагноз #3"
+								},
+								"archetype_details": {
+									"@class": "ARCHETYPED",
+									"archetype_id": {
+										"@class": "ARCHETYPE_ID",
+										"value": "openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+									},
+									"rm_version": "1.0.4"
+								},
+								"archetype_node_id": "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
+								"language": {
+									"@class": "CODE_PHRASE",
+									"terminology_id": {
+										"@class": "TERMINOLOGY_ID",
+										"value": "ISO_639-1"
+									},
+									"code_string": "ru"
+								},
+								"encoding": {
+									"@class": "CODE_PHRASE",
+									"terminology_id": {
+										"@class": "TERMINOLOGY_ID",
+										"value": "IANA_character-sets"
+									},
+									"code_string": "UTF-8"
+								},
+								"subject": {
+									"@class": "PARTY_SELF"
+								},
+								"data": {
+									"@class": "ITEM_TREE",
+									"name": {
+										"@class": "DV_TEXT",
+										"value": "structure"
+									},
+									"archetype_node_id": "at0001",
+									"items": [
+										{
+											"@class": "ELEMENT",
+											"name": {
+												"@class": "DV_TEXT",
+												"value": "Код по МКБ-10"
+											},
+											"archetype_node_id": "at0002",
+											"value": {
+												"@class": "DV_CODED_TEXT",
+												"value": "A20.0 - Бубонная чума",
+												"defining_code": {
+													"@class": "CODE_PHRASE",
+													"terminology_id": {
+														"@class": "TERMINOLOGY_ID",
+														"value": "terminology_label"
+													},
+													"code_string": ""
+												}
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,59 @@
+import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def moId=testRunner.testCase.testSuite.getPropertyValue("moId")
+def mfId=testRunner.testCase.testSuite.getPropertyValue("mfId")
+def aoId=testRunner.testCase.testSuite.getPropertyValue("aoId")
+
+String bootstrapServers = testRunner.testCase.testSuite.getPropertyValue("bootstrapServers")
+//Отправка сообщения в топик
+Properties props = new Properties()
+props.put('zk.connect', '10.2.172.24:2181')
+props.put('bootstrap.servers', bootstrapServers)
+props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+ 
+def producer = new KafkaProducer(props)
+
+def messageSender = { String topic, String message ->
+    log.info( "messageSender: "+topic+"; "+message )
+    def key =  UUID.randomUUID().toString()
+    def Date date = new Date(); 
+   def  long  timestamp= date.getTime()
+   def int partition =0
+    String compoundMessage = "$message"
+    producer.send(
+            new ProducerRecord<String, String>(topic, partition, timestamp,  key, compoundMessage),
+            { RecordMetadata metadata, Exception e ->
+                log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+            } as Callback
+    )
+}
+def sL ="""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:medicalFacilityInfoMsg id=\""""+mfId+"""\" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns1="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns2:change isHead="true"><ns1:medicalOrganization type="MEDICAL_ORGANIZATION" archived="false" id=\""""+moId+"""\"><ns1:shortName>Тестовая MO</ns1:shortName></ns1:medicalOrganization><ns1:name>Тестовое Медицинское Учреждение 1</ns1:name><ns1:shortName>Тестовое МУ 1</ns1:shortName><ns1:independence id="1"><ns1:code>1</ns1:code><ns1:title>Филиал</ns1:title></ns1:independence><ns1:parentMedicalFacility id="125694305"/><ns1:medicalFacilityType id="125694305"><ns1:code>39</ns1:code><ns1:title>Городская поликлиника</ns1:title></ns1:medicalFacilityType><ns1:periodStart>2000-12-25</ns1:periodStart><ns1:periodEnd>2100-12-25</ns1:periodEnd><ns1:clo>568</ns1:clo><ns1:mgfoms>3434</ns1:mgfoms></ns2:change></ns2:medicalFacilityInfoMsg>"""
+//log.info(sL)
+   String messageL =sL.toString()
+String topic= testRunner.testCase.testSuite.getPropertyValue("topicMUMsg")
+   log.info(topic)
+  messageSender(topic, messageL)
+
+
+producer.close()
+
+//} else {
+//	log.error("Соединение с бд не установлено!");
+//}

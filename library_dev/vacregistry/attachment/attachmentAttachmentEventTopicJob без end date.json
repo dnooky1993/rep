@@ -1,0 +1,42 @@
+{
+   "event": {
+      "id": 33606129,
+      "dateTime": "2022-02-21T15:41:54",
+      "eventType": "CREATE"
+   },
+   "attachmentNewValue": {
+      "attachId": 127636388,
+      "patientId": 30000010786583,
+      "isActual": true,
+      "attachPolType": {
+         "globalId": 125694322,
+         "code": "1",
+         "title": "Обязательное медицинское страхование"
+      },
+      "noSelfAppointment": false,
+      "moId": 204,
+      "muId": 204,
+      "areaId": 173933126,
+      "attachBeginDate": "2022-02-21",
+      "attachType": {
+         "globalId": 128619858,
+         "code": "1",
+         "title": "базовое терапевтическое"
+      },
+      "processOfAttachment": {
+         "globalId": 135857403,
+         "code": "2",
+         "title": "По заявлению"
+      },
+      "attachChangeType": {
+         "globalId": 128619920,
+         "code": "20",
+         "title": "Выбор мед. организации пациентом"
+      },
+      "attachForm": {
+         "globalId": 128620009,
+         "code": "10",
+         "title": "По участковому принципу (основное)"
+      }
+   }
+}

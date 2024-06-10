@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="45bf6470-75ab-4859-9113-b3d367de69ec" activeEnvironment="Default" name="Сервис системных операций не используется" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" encryptionMode="Not encrypted" updated="3.10.0 2021-09-14T15:18:10Z" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="861275a1-74ca-44d1-8f2f-a66d0cb6e897" wsaVersion="NONE" name="systemOperationServiceBinding" type="wsdl" bindingName="{http://emias.mos.ru/dn/systemOperation/v1/}systemOperationServiceBinding" soapVersion="1_2" anonymous="optional" definition="http://dn.test.emias.mos.ru/api/SystemOperation?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://dn.test.emias.mos.ru/api/SystemOperation?wsdl"><con:part><con:url>http://dn.test.emias.mos.ru/api/SystemOperation?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="dnService" targetNamespace="http://emias.mos.ru/dn/systemOperation/v1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns:tns="http://emias.mos.ru/dn/systemOperation/v1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:nsf="http://emias.mos.ru/system/v1/faults/" xmlns:ns1="http://emias.mos.ru/dn/systemOperation/v1/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/">
+  <wsdl:documentation>Версия 1.0.0</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../system/v1/emias.system.v1.userContext.xsd"/>
+      <xs:import namespace="http://emias.mos.ru/system/v1/faults/" schemaLocation="http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../system/v1/emias.system.v1.faults.xsd"/>
+      <xs:import namespace="http://emias.mos.ru/dn/systemOperation/v1/types/" schemaLocation="http://dn.test.emias.mos.ru/api/SystemOperation?xsd=dn.systemOperation.types.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="userContext">
+    <wsdl:documentation>Контекст пользователя</wsdl:documentation>
+    <wsdl:part element="uctx:userContext" name="userContext"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fault">
+    <wsdl:documentation>Ошибка</wsdl:documentation>
+    <wsdl:part element="nsf:fault" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOperationStatusOutput">
+    <wsdl:part element="ns1:getOperationStatusResponse" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOperationStatusInput">
+    <wsdl:part element="ns1:getOperationStatusRequest" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="systemOperationPortType">
+    <wsdl:operation name="getOperationStatus">
+      <wsdl:input message="tns:getOperationStatusInput"></wsdl:input>
+      <wsdl:output message="tns:getOperationStatusOutput"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="systemOperationServiceBinding" type="tns:systemOperationPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getOperationStatus">
+      <soap:operation soapAction="getOperationStatus"/>
+      <wsdl:input>
+        <soap:header message="tns:userContext" part="userContext" use="literal"></soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="systemOperationService">
+    <wsdl:port binding="tns:systemOperationServiceBinding" name="systemOperationPort">
+      <soap:address location="http://dn.test.emias.mos.ru/api/SystemOperation"/>
+    </wsdl:port>
+    <wsp:PolicyReference URI="#authPolicy"/>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="authPolicy">
+    <sp:SupportingTokens xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+      <wsp:Policy>
+        <sp:UsernameToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+          <wsp:Policy>
+            <sp:NoPassword/>
+          </wsp:Policy>
+        </sp:UsernameToken>
+      </wsp:Policy>
+    </sp:SupportingTokens>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../system/v1/emias.system.v1.userContext.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:core="http://emias.mos.ru/system/v1/" xmlns="http://emias.mos.ru/system/v1/userContext/">
+  <xs:include schemaLocation="http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../system/v1/emias.system.v1.xsd"/>
+  <xs:element name="userContext" type="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="systemName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Шифр системы-потребителя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя пользователя (логин)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRoleId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Идентификатор Роли пользователя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="isUserRoleSystemWide" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак "Общесистемная Роль пользователя"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRights">
+        <xs:annotation>
+          <xs:documentation>Коллекция Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>ИД Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jobExecutionId" type="ID"/>
+      <xs:element minOccurs="0" name="hostIp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>IP адрес хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hostName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../system/v1/emias.system.v1.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--error message description-->
+  <xs:complexType name="ErrorMessageCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция сообщений об ошибках</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="message" type="ErrorMessage">
+        <xs:annotation>
+          <xs:documentation>Сообщение об ошибке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorMessage">
+    <xs:annotation>
+      <xs:documentation>Сообщение об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parameters">
+            <xs:annotation>
+              <xs:documentation>Коллекция параметров сообщения</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="parameter" type="KeyValuePair">
+                  <xs:annotation>
+                    <xs:documentation>Параметр сообщения</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Сопутствующие сообщения об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="ErrorMessageTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип сообщения</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ErrorMessageTypes">
+    <xs:annotation>
+      <xs:documentation>Тип сообщения об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation>Ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WARNING">
+        <xs:annotation>
+          <xs:documentation>Предупреждение (не блокирующая ошибка)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INFO">
+        <xs:annotation>
+          <xs:documentation>Информационное сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:complexType name="KeyValuePair">
+    <xs:annotation>
+      <xs:documentation>Представляет тип "ключ/значение"</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Ключ</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Message">
+    <xs:annotation>
+      <xs:documentation>Сообщение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Текст сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../system/v1/emias.system.v1.faults.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/faults/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns="http://emias.mos.ru/system/v1/faults/">
+  <xs:include schemaLocation="http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../system/v1/emias.system.v1.xsd"/>
+  <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../system/v1/emias.system.v1.userContext.xsd"/>
+  <!--faults-->
+  <xs:element name="fault" type="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Базовый тип ошибки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SecurityFault">
+    <xs:annotation>
+      <xs:documentation>Ошибка безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element ref="uctx:userContext"/>
+          <xs:choice>
+            <xs:element name="unauthorizedRequestSecurityException" type="UnauthorizedRequestSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="otherSecurityException" type="OtherSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute fixed="SECURITY" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BusinessFault">
+    <xs:annotation>
+      <xs:documentation>Бизнес ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Коллекция Сообщений об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="hasErrors" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак наличия ошибок в списке сообщений</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="BUSINESS" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnexpectedFault">
+    <xs:annotation>
+      <xs:documentation>Непредвиденная ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="version" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Версия продукта-сервиса</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stackTrace">
+            <xs:annotation>
+              <xs:documentation>Стек вызова (последние 10  записей)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="10" name="stackTraceRecord">
+                  <xs:annotation>
+                    <xs:documentation>Запись StackTrace</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="declaringClass" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование класса, содержащего метод</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="methodName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование метода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="fileName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование файла</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="lineNumber" type="xs:int">
+                        <xs:annotation>
+                          <xs:documentation>Номер строки кода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="UNEXPECTED" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Описание базового типа описания ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--security exceptions-->
+  <xs:complexType name="UnauthorizedRequestSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="requiredRights">
+        <xs:annotation>
+          <xs:documentation>Перечень идентификаторов недостающих Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Идентификатор Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="UNAUTHORIZED_REQUEST_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="OtherSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="message" type="Message">
+        <xs:annotation>
+          <xs:documentation>Сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="OTHER_SECURITY_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:simpleType name="SecurityExceptionTypes">
+    <xs:annotation>
+      <xs:documentation>Типы исключений безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNAUTHORIZED_REQUEST_EXCEPTION"/>
+      <xs:enumeration value="OTHER_SECURITY_EXCEPTION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--components-->
+  <xs:simpleType name="FaultTypes">
+    <xs:annotation>
+      <xs:documentation>Тип ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SECURITY">
+        <xs:annotation>
+          <xs:documentation>Непредвиденная ошибка приложения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUSINESS">
+        <xs:annotation>
+          <xs:documentation>Бизнес ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UNEXPECTED">
+        <xs:annotation>
+          <xs:documentation>Ошибка безопасности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/SystemOperation?xsd=dn.systemOperation.types.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/dn/systemOperation/v1/types/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:core="http://emias.mos.ru/dn/core/v1/" xmlns="http://emias.mos.ru/dn/systemOperation/v1/types/">
+  <xs:import namespace="http://emias.mos.ru/dn/core/v1/" schemaLocation="http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../dn.core.v1.xsd"/>
+  <xs:element name="getOperationStatusRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="operationId" type="xs:long">
+          <xs:annotation>
+            <xs:documentation>Идентификатор операции.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOperationStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="status" type="core:OperationExecutionStatus">
+          <xs:annotation>
+            <xs:documentation>Статус выполнения операции</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../dn.core.v1.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/dn/core/v1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://emias.mos.ru/dn/core/v1/">
+  <xs:include schemaLocation="http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../core/v1/emias.core.v1.xsd"/>
+  <xs:complexType name="NsiBase">
+    <xs:annotation>
+      <xs:documentation>Базовый тип для справочников</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="title" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="code" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Код</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="archived" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Архивность элемента справочника</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="MedicalSpecialization">
+    <xs:annotation>
+      <xs:documentation>Медицинская специализация</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="NsiBase"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AgeGroup">
+    <xs:annotation>
+      <xs:documentation>Сведения о возратсной группе.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>ID</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="age_from" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>С какого возраста</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="age_to" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>До какого возраста</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="archived" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Архивность элемента справочника</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="Diagnosis">
+    <xs:annotation>
+      <xs:documentation>Сведения о диагнозе.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="NsiBase"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DispensaryObservationGroup">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="diagnoses" type="Diagnosis">
+        <xs:annotation>
+          <xs:documentation>Диагнозы по МКБ10, попадающие в эту группу</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="canBeAddedBy" type="MedicalSpecialization">
+        <xs:annotation>
+          <xs:documentation>Специализации, которые могут ставить на учет в эту группу ДН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="canBeRemovedBy" type="MedicalSpecialization">
+        <xs:annotation>
+          <xs:documentation>Специализации, которые могут снять с учета этой группы ДН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="canBeObservedBy" type="MedicalSpecialization">
+        <xs:annotation>
+          <xs:documentation>Специализации, которые могут вести эту группу ДН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ageGroup" type="AgeGroup">
+        <xs:annotation>
+          <xs:documentation>ID возрастной группы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="title" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="code" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Код</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="archived" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Архивность элемента справочника</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../core/v1/emias.core.v1.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://dn.test.emias.mos.ru/api/SystemOperation?xsd=../../../system/v1/emias.system.v1.xsd"/>
+  <!--references-->
+  <xs:element name="medicalOrganizationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинской организации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="medicalFacilityId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинского учреждения</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--async operation status-->
+  <xs:element name="operationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор операции</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="OperationExecutionStatus">
+    <xs:annotation>
+      <xs:documentation>Статус выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="isCompleted" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак окончания выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="completenessProgress" type="OperationCompletenessBase">
+        <xs:annotation>
+          <xs:documentation>Сведения о текущем статусе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasSucceded" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак успешности выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+        <xs:annotation>
+          <xs:documentation>Коллекция сообщений, порожденных в ходе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор операции</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType abstract="false" name="OperationCompletenessPercentage">
+    <xs:annotation>
+      <xs:documentation>Описание текущего статуса выполнения операции в процентах (0%-100%)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="OperationCompletenessBase">
+        <xs:sequence>
+          <xs:element name="completenessStatus">
+            <xs:annotation>
+              <xs:documentation>Статус (0%-100%)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:unsignedByte">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="OperationCompletenessBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип для описания текущего статуса выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--calling methods' options-->
+  <xs:element name="options" type="Options">
+    <xs:annotation>
+      <xs:documentation>Параметры вызова метода</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Options">
+    <xs:annotation>
+      <xs:documentation>Набор именованных значений</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="KeyValuePair">
+        <xs:annotation>
+          <xs:documentation>Именованное значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--pagination-->
+  <xs:element name="pagingOptions" type="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType abstract="true" name="PagingResults">
+    <xs:annotation>
+      <xs:documentation>Список с пагинацией</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageTotal" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество страниц</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="morePagesAvailable" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Флаг доступности других страниц с результатами для "постраничного листания" (true - если доступны еще страницы; false - иначе)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="totalItemsCount" type="xs:long" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество элементов (на всех страницах)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="sortingOptions"/>
+    </xs:sequence>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--sorting-->
+  <xs:element name="sortingOptions" type="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры сортировки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Условия сортировки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="3" name="sortOrder" type="SortOrder">
+        <xs:annotation>
+          <xs:documentation>Условия сортировки
+(используются в соответствии с
+переданной последовательностью)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SortOrder">
+    <xs:annotation>
+      <xs:documentation>Сортировка</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="attributeName" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование поля, по которому должна быть произведена сортировка</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute default="false" name="desceding" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>Направление сортировки</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--void response-->
+  <xs:element fixed="true" name="result">
+    <xs:annotation>
+      <xs:documentation>Элемент для использования в методах, не предполагающих возврат какого-либо значения</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:boolean"/>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--base types-->
+  <xs:complexType name="TimeInterval">
+    <xs:annotation>
+      <xs:documentation>Временной период (время)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время начала интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время окончания интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DatePeriod">
+    <xs:annotation>
+      <xs:documentation>Временной период (дата)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата окончания периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://dn.test.emias.mos.ru/api/SystemOperation</con:endpoint></con:endpoints><con:operation id="8ed6ada1-50f2-4741-a06c-7e4871747a73" isOneWay="false" action="getOperationStatus" name="getOperationStatus" bindingOperationName="getOperationStatus" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="43ecd804-a95b-439a-b80e-5c8624c914d0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://dn.test.emias.mos.ru/api/SystemOperation</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/systemOperation/v1/types/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>?</user:systemName>
+         <user:userName>?</user:userName>
+         <user:userRoleId>?</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>?</user:jobExecutionId>
+      </user:userContext>
+   </soap:Header>
+   <soap:Body>
+      <typ:getOperationStatusRequest>
+         <typ:operationId>?</typ:operationId>
+      </typ:getOperationStatusRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/dn/systemOperation/v1/systemOperationPortType/getOperationStatusRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="da524d85-70a2-4ad7-81a2-35460481f509" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="85bc520c-cd82-4e1d-b221-2f59bb4bf1b8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" name="Main" id="a5f1589a-0e83-4f7d-b58a-95268ea636bf"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>systemOperationServiceBinding</con:interface><con:operation>getOperationStatus</con:operation><con:request name="Main" id="4da290b2-9837-455a-8357-46f1adbf6c46"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Op}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/systemOperation/v1/types/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security></soap:Header>
+   <soap:Body>
+      <typ:getOperationStatusRequest>
+         <typ:operationId>100</typ:operationId>
+      </typ:getOperationStatusRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="187dd4be-99a3-485c-bec2-dd0f1c18133b"/><con:assertion type="Schema Compliance" id="73586968-d441-4d56-8997-58a4ac14a957" disabled="true"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="1b9e74f6-28c4-4e9b-895e-aa0dfd40c16e"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Операция не найдена" id="fb5453b8-7720-4d10-88d8-e486c526568f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>systemOperationServiceBinding</con:interface><con:operation>getOperationStatus</con:operation><con:request name="Операция не найдена" id="4da290b2-9837-455a-8357-46f1adbf6c46"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_Op}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/systemOperation/v1/types/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security></soap:Header>
+   <soap:Body>
+      <typ:getOperationStatusRequest>
+         <typ:operationId>100</typ:operationId>
+      </typ:getOperationStatusRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="187dd4be-99a3-485c-bec2-dd0f1c18133b"/><con:assertion type="Schema Compliance" id="73586968-d441-4d56-8997-58a4ac14a957" disabled="true"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="1b9e74f6-28c4-4e9b-895e-aa0dfd40c16e"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="4fd2b7a2-07e0-497c-aa30-351f09bd1eb7" name="Autotest"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7f19df22-7afa-4e38-a802-ecbc604e4694" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getOperationStatusRequest" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="Get Operation" id="d2daf7dd-d44f-44cf-8c7c-fd632765ebeb"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>select * from f_system_operation fso where id not in (select operation_id from f_system_operation_message)</con:query><con:properties/></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="6eca2687-c4cc-4f9d-bdb6-8cdd9f8e1d6a"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>operationId</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION.ID</con:sourcePath><con:targetType>operationId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>isCompleted</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION.IS_COMPLETED</con:sourcePath><con:targetType>isCompleted</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>completenessProgress</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION.COMPLETENESS_PROGRESS</con:sourcePath><con:targetType>completenessStatus</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>hasSucceded</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION.HAS_SUCCEDED</con:sourcePath><con:targetType>hasSucceded</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="c138f632-ed3c-4876-9598-682fc0a5bcff"><con:settings/><con:config><script>def isCompletedProperty = context.expand( '${#TestCase#isCompleted}' )
+if (isCompletedProperty == 'f')
+{
+    testRunner.testCase.setPropertyValue( "isCompleted", 'false' )
+}
+else
+{
+   testRunner.testCase.setPropertyValue( "isCompleted", 'true' )
+}
+
+def hasSuccededProperty = context.expand( '${#TestCase#hasSucceded}' )
+if (hasSuccededProperty == 'f')
+{
+    testRunner.testCase.setPropertyValue( "hasSucceded", 'false' )
+}
+else
+{
+   testRunner.testCase.setPropertyValue( "hasSucceded", 'true' )
+}</script></con:config></con:testStep><con:testStep type="request" name="#70944 Step 1" id="a301c853-3329-4e27-a4a8-9211e8610fe8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>systemOperationServiceBinding</con:interface><con:operation>getOperationStatus</con:operation><con:request name="#70944 Step 1" id="4da290b2-9837-455a-8357-46f1adbf6c46"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_OpAuto}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/systemOperation/v1/types/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security></soap:Header>
+   <soap:Body>
+      <typ:getOperationStatusRequest>
+         <typ:operationId>${#TestCase#operationId}</typ:operationId>
+      </typ:getOperationStatusRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="187dd4be-99a3-485c-bec2-dd0f1c18133b"/><con:assertion type="Schema Compliance" id="73586968-d441-4d56-8997-58a4ac14a957"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="1b9e74f6-28c4-4e9b-895e-aa0dfd40c16e"/><con:assertion type="XPath Match" id="a64e0e9a-a180-4f1e-a22a-b6813345b120" name="XPath Match"><con:configuration><path>//*:status</path><content><![CDATA[<ns5:status id="${#TestCase#operationId}" xmlns:ns2="http://emias.mos.ru/dn/core/v1/" xmlns:ns3="http://emias.mos.ru/system/v1/userContext/" xmlns:ns4="http://emias.mos.ru/system/v1/faults/" xmlns:ns5="http://emias.mos.ru/dn/systemOperation/v1/types/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <ns2:isCompleted>${#TestCase#isCompleted}</ns2:isCompleted>
+  <ns2:completenessProgress xsi:type="ns2:OperationCompletenessPercentage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ns2:completenessStatus>${#TestCase#completenessStatus}</ns2:completenessStatus>
+  </ns2:completenessProgress>
+  <ns2:hasSucceded>${#TestCase#hasSucceded}</ns2:hasSucceded>
+  <ns2:messages/>
+</ns5:status>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="084d1fd3-c113-4157-af64-428df46bb97c" name="Not Contains"><con:configuration><token>parameters</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="jdbc" name="Get Operation With Error" id="001412e9-605f-4a06-9fae-c057710fde46"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?stringtype=unspecified&amp;user=dn&amp;passowd=dn</con:connectionString><con:connectionProperties/><con:query>select * from f_system_operation fso
+join f_system_operation_message fsom on fso.id = fsom.operation_id 
+join f_system_operation_message_param fsomp on fsom.id = fsomp.system_operation_message_id </con:query><con:properties/></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer 2" id="d1d045b1-770c-4d85-b872-715ad8d863e3"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>operationId</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation With Error</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION.ID</con:sourcePath><con:targetType>operationId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>isCompleted</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation With Error</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION.IS_COMPLETED</con:sourcePath><con:targetType>isCompleted</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>completenessProgress</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation With Error</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION.COMPLETENESS_PROGRESS</con:sourcePath><con:targetType>completenessStatus</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>hasSucceded</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation With Error</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION.HAS_SUCCEDED</con:sourcePath><con:targetType>hasSucceded</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>messageType</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation With Error</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION_MESSAGE.TYPE</con:sourcePath><con:targetType>messageType</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>messageCode</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation With Error</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION_MESSAGE.CODE</con:sourcePath><con:targetType>messageCode</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>messageKey</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation With Error</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION_MESSAGE_PARAM.KEY</con:sourcePath><con:targetType>messageKey</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>messageValue</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Get Operation With Error</con:sourceStep><con:sourcePath>//F_SYSTEM_OPERATION_MESSAGE_PARAM.VALUE</con:sourcePath><con:targetType>messageValue</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath xsi:nil="true"/><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script 2" id="cda321e5-8420-404c-8082-afd522bb3b67"><con:settings/><con:config><script>def isCompletedProperty = context.expand( '${#TestCase#isCompleted}' )
+if (isCompletedProperty == 'f')
+{
+    testRunner.testCase.setPropertyValue( "isCompleted", 'false' )
+}
+else
+{
+   testRunner.testCase.setPropertyValue( "isCompleted", 'true' )
+}
+
+def hasSuccededProperty = context.expand( '${#TestCase#hasSucceded}' )
+if (hasSuccededProperty == 'f')
+{
+    testRunner.testCase.setPropertyValue( "hasSucceded", 'false' )
+}
+else
+{
+   testRunner.testCase.setPropertyValue( "hasSucceded", 'true' )
+}</script></con:config></con:testStep><con:testStep type="request" name="#70944 Step 2" id="5011201a-8852-4689-822c-3607cdedcfa5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>systemOperationServiceBinding</con:interface><con:operation>getOperationStatus</con:operation><con:request name="#70944 Step 2" id="4da290b2-9837-455a-8357-46f1adbf6c46"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_OpAuto}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/systemOperation/v1/types/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security></soap:Header>
+   <soap:Body>
+      <typ:getOperationStatusRequest>
+         <typ:operationId>${#TestCase#operationId}</typ:operationId>
+      </typ:getOperationStatusRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="187dd4be-99a3-485c-bec2-dd0f1c18133b"/><con:assertion type="Schema Compliance" id="73586968-d441-4d56-8997-58a4ac14a957"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="1b9e74f6-28c4-4e9b-895e-aa0dfd40c16e"/><con:assertion type="XPath Match" id="a64e0e9a-a180-4f1e-a22a-b6813345b120" name="XPath Match"><con:configuration><path>//*:status</path><content><![CDATA[<ns5:status id="${#TestCase#operationId}" xmlns:ns2="http://emias.mos.ru/dn/core/v1/" xmlns:ns3="http://emias.mos.ru/system/v1/userContext/" xmlns:ns4="http://emias.mos.ru/system/v1/faults/" xmlns:ns5="http://emias.mos.ru/dn/systemOperation/v1/types/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  <ns2:isCompleted>${#TestCase#isCompleted}</ns2:isCompleted>
+  <ns2:completenessProgress xsi:type="ns2:OperationCompletenessPercentage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ns2:completenessStatus>${#TestCase#completenessStatus}</ns2:completenessStatus>
+  </ns2:completenessProgress>
+  <ns2:hasSucceded>${#TestCase#hasSucceded}</ns2:hasSucceded>
+  <ns2:messages>
+    <ns2:message type="${#TestCase#messageType}">
+      <ns2:code>${#TestCase#messageCode}</ns2:code>
+      <ns2:parameters>
+        <ns2:parameter key="${#TestCase#messageKey}">${#TestCase#messageValue}</ns2:parameter>
+      </ns2:parameters>
+    </ns2:message>
+  </ns2:messages>
+</ns5:status>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="#75776 Step 1" id="ef56efb6-7f20-433b-a02f-a21541f1a559"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>systemOperationServiceBinding</con:interface><con:operation>getOperationStatus</con:operation><con:request name="#75776 Step 1" id="4da290b2-9837-455a-8357-46f1adbf6c46"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#wsdl_OpAuto}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/dn/systemOperation/v1/types/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>http-test</user:systemName>
+         <user:userName>test</user:userName>
+         <user:userRoleId>0</user:userRoleId>
+         <user:userRights>
+            </user:userRights>
+         <user:jobExecutionId>1</user:jobExecutionId>
+      </user:userContext>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_PACKAGECONS/FAhmedov</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security></soap:Header>
+   <soap:Body>
+      <typ:getOperationStatusRequest>
+         <typ:operationId>000</typ:operationId>
+      </typ:getOperationStatusRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="187dd4be-99a3-485c-bec2-dd0f1c18133b"/><con:assertion type="Schema Compliance" id="73586968-d441-4d56-8997-58a4ac14a957"><con:configuration/></con:assertion><con:assertion type="Simple Contains" id="6f7e1b8c-6cc5-4416-8797-f5f7d0b99587" name="Contains"><con:configuration><token>[ERROR] E026:  Операция с идентификатором 0 отсутствует</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>operationId</con:name><con:value>116</con:value></con:property><con:property><con:name>isCompleted</con:name><con:value>true</con:value></con:property><con:property><con:name>completenessStatus</con:name><con:value>100</con:value></con:property><con:property><con:name>hasSucceded</con:name><con:value>false</con:value></con:property><con:property><con:name>messageType</con:name><con:value>WARNING</con:value></con:property><con:property><con:name>messageCode</con:name><con:value>E015</con:value></con:property><con:property><con:name>messageKey</con:name><con:value>patientId</con:value></con:property><con:property><con:name>messageValue</con:name><con:value>30000000794015</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>dbConnect</con:name><con:value>10.2.172.90:5432/dn</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>wsdl_OpTest</con:name><con:value>http://dn.test.emias.mos.ru/api/SystemOperation</con:value></con:property><con:property><con:name>wsdl_Op</con:name><con:value>http://esbcamel.test.emias.mos.ru/proxy/dn/systemOperation/v1S/ProxyService</con:value></con:property><con:property><con:name>wsdl_OpAuto</con:name><con:value>http://dn.test.emias.mos.ru/api/SystemOperation</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:jmsConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:authRepository/><con:tags/></con:soapui-project>

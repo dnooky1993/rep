@@ -1,0 +1,39 @@
+import org.apache.kafka.clients.producer.Callback;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
+
+import java.util.Properties;
+import java.util.UUID;
+
+        Properties props = new Properties();
+        props.put("bootstrap.servers", "10.2.172.24:9092,10.2.172.25:9092,10.2.172.26:9092");
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+        String topic = testRunner.testCase.getPropertyValue("topicName");
+        String key = UUID.randomUUID().toString();
+        String message = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<ns2:medicalOrganizationInfoMsg id=\"778\"\n" +
+                "    xmlns:ns5=\"http://emias.mos.ru/skuu/svmr/core/v1/\"\n" +
+                "    xmlns:ns2=\"http://emias.mos.ru/svmr2/systemInformerService/v1\"\n" +
+                "    xmlns:ns1=\"http://emias.mos.ru/svmr2/producer/v1/types\"\n" +
+                "    xmlns:ns4=\"http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/\"\n" +
+                "    xmlns:ns3=\"http://emias.mos.ru/svmr2/core/v1/types\">\n" +
+                "    <ns2:archive archived=\"true\"/>\n" +
+                "</ns2:medicalOrganizationInfoMsg>";
+
+         KafkaProducer producer = new KafkaProducer(props); 
+         ProducerRecord record = new ProducerRecord(topic, key, message);
+         producer.send(record,
+                new Callback() {
+                    public void onCompletion(RecordMetadata metadata, Exception e) {
+                        if(e != null) {
+                           log.info("Error has occured");
+                        } else {
+                            log.info("The offset of the record we just sent is: " + metadata.offset());
+                        }
+                    }
+                });
+        producer.close();
+             

@@ -1,0 +1,594 @@
+{
+  "вакцинация": {
+    "_uid": [
+      "c8c66f0d-f229-4144-876f-b2ce58aae707::default::1"
+    ],
+    "language": [
+      {
+        "|code": "ru",
+        "|terminology": "ISO_639-1"
+      }
+    ],
+    "territory": [
+      {
+        "|code": "ru",
+        "|terminology": "ISO_3166-1"
+      }
+    ],
+    "context": [
+      {
+        "_participation": [
+          {
+            "|function": "requester",
+            "|mode": "face-to-face communication",
+            "|name": "Dr. Marcus Johnson",
+            "|id": "199",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          },
+          {
+            "|function": "performer",
+            "|mode": "not specified",
+            "|name": "Lara Markham",
+            "|id": "198",
+            "|id_namespace": "HOSPITAL-NS",
+            "|id_scheme": "HOSPITAL-NS"
+          }
+        ],
+        "_health_care_facility": [
+          {
+            "|id": "9091",
+            "|id_scheme": "HOSPITAL-NS",
+            "|id_namespace": "HOSPITAL-NS",
+            "|name": "Hospital"
+          }
+        ],
+        "подробности_контекста": [
+          {
+            "ид_события": [
+              {
+                "|id": "89b8e4d0-1e55-4dd1-bac9-eee075f4aff0",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_документа": [
+              {
+                "|id": "d046f2a9-35cd-4933-b63e-64b66bd51111",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "ид_пациента": [
+              {
+                "|id": "3345454",
+                "|issuer": "Issuer",
+                "|assigner": "Assigner",
+                "|type": "Prescription"
+              }
+            ],
+            "автор_информации": [
+              {
+                "идентификатор_исполнения_должности_медработника": [
+                  {
+                    "|id": "73d99725-d3bf-4414-80e0-39cff3046f4c",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "наименование_должности": [
+                  "Наименование должности 35"
+                ],
+                "наименование_структурного_подразделения": [
+                  "Наименование структурного подразделения 13"
+                ],
+                "наименование_филиала": [
+                  "Наименование филиала 34"
+                ],
+                "наименование_юридического_лица": [
+                  "Наименование юридического лица 40"
+                ]
+              }
+            ],
+            "структура_медицинской_организации": [
+              {
+                "ид_объекта": [
+                  {
+                    "|id": "23883f54-8559-4f74-ab0d-3430d28f6670",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ],
+                "тип_объекта": [
+                  {
+                    "|code": "at0020",
+                    "|value": "филиал",
+                    "|terminology": "local"
+                  }
+                ],
+                "наименование": [
+                  "Наименование 23"
+                ],
+                "родительский_ид": [
+                  {
+                    "|id": "155700f8-5ff8-4cd0-806c-ccc1b48ab636",
+                    "|issuer": "Issuer",
+                    "|assigner": "Assigner",
+                    "|type": "Prescription"
+                  }
+                ]
+              }
+            ],
+            "адрес_медицинской_организации": [
+              {
+                "субъект_рф": [
+                  "Субъект РФ 4"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 52"
+                ],
+                "поселение": [
+                  "Поселение 25"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 68"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 68"
+                ],
+                "улица": [
+                  "Улица 88"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 32"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 85"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 9"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 71"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 71"
+                ]
+              }
+            ],
+            "информация_о_месте_cобытия": [
+              {
+                "событие_произошло": [
+                  {
+                    "|code": "at0070",
+                    "|value": "в медицинской организации",
+                    "|terminology": "local"
+                  }
+                ],
+                "субъект_рф": [
+                  "Субъект РФ 38"
+                ],
+                "муниципальный_район_городской_округ": [
+                  "Муниципальный район (городской округ) 36"
+                ],
+                "поселение": [
+                  "Поселение 75"
+                ],
+                "населенный_пункт": [
+                  "Населенный пункт 31"
+                ],
+                "элемент_планировочной_структуры": [
+                  "Элемент планировочной структуры 17"
+                ],
+                "улица": [
+                  "Улица 29"
+                ],
+                "номер_здания_сооружения": [
+                  {
+                    "номер_дома": [
+                      "Номер дома 10"
+                    ],
+                    "номер_строения": [
+                      "Номер строения 56"
+                    ],
+                    "номер_корпуса": [
+                      "Номер корпуса 71"
+                    ]
+                  }
+                ],
+                "номер_земельного_участка": [
+                  "Номер земельного участка 14"
+                ],
+                "номер_помещения": [
+                  "Номер помещения 45"
+                ],
+                "дополнительная_информация": [
+                  "Дополнительная информация 84"
+                ]
+              }
+            ],
+            "дополнительная_информация": [
+              {
+                "профиль_медицинской_помощи": [
+                  {
+                    "|code": "at0089",
+                    "|value": "Эндокринология",
+                    "|terminology": "local"
+                  }
+                ],
+                "виды_медицинской_помощи": [
+                  {
+                    "|code": "at0053",
+                    "|value": "паллиативная",
+                    "|terminology": "local"
+                  }
+                ],
+                "условия_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0057",
+                    "|value": "в стационаре",
+                    "|terminology": "local"
+                  }
+                ],
+                "форма_оказания_медицинской_помощи": [
+                  {
+                    "|code": "at0059",
+                    "|value": "неотложная",
+                    "|terminology": "local"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "start_time": [
+          "2020-06-18T15:42:19.613+03:00"
+        ],
+        "setting": [
+          {
+            "|code": "238",
+            "|value": "other care",
+            "|terminology": "openehr"
+          }
+        ]
+      }
+    ],
+    "общая_информация": [
+      {
+        "ранее_опубликованный_документ": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "ранее_опубликованный_документ": [
+              {
+                "дата_проведения": [
+                  "2020-06-18T15:42:06.992+03:00"
+                ],
+                "организация": [
+                  {
+                    "название_организации": [
+                      "Название организации 46"
+                    ],
+                    "адрес": [
+                      {
+                        "адрес": [
+                          {
+                            "адрес": [
+                              "Адрес 13"
+                            ],
+                            "структурированный_адрес": [
+                              {
+                                "номер_здания": [
+                                  "Номер здания 53"
+                                ],
+                                "номер_кабинета": [
+                                  "Номер кабинета 30"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "автор": [
+                  {
+                    "имя": [
+                      {
+                        "фио": [
+                          "ФИО 7"
+                        ]
+                      }
+                    ],
+                    "профессиональные_подробности": [
+                      {
+                        "специальность": [
+                          "Специальность 91"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "информация_о_выполнении": [
+      {
+        "вакцинация": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "ism_transition": [
+              {
+                "current_state": [
+                  {
+                    "|code": "530",
+                    "|value": "suspended",
+                    "|terminology": "openehr"
+                  }
+                ]
+              }
+            ],
+            "вакцина": [
+              {
+                "|code": "E.3",
+                "|value": "E.3 description",
+                "|terminology": "NSI"
+              }
+            ],
+            "производитель": [
+              {
+                "производитель": [
+                  "Производитель 92"
+                ],
+                "серия_и_контрольный_номер": [
+                  "Серия и контрольный номер 40"
+                ],
+                "срок_годности_препарата": [
+                  "2020-06-18T15:42:06.993+03:00"
+                ]
+              }
+            ],
+            "сведения_о_способе_введения": [
+              {
+                "способ_введения": [
+                  {
+                    "|code": "B.91",
+                    "|value": "B.91 description",
+                    "|terminology": "external"
+                  }
+                ],
+                "место_введения": [
+                  {
+                    "|code": "N.72",
+                    "|value": "N.72 description",
+                    "|terminology": "external"
+                  }
+                ]
+              }
+            ],
+            "назначение": [
+              {
+                "схема_приема_введения_препарата": [
+                  {
+                    "доза": [
+                      {
+                        "|magnitude": 85.21,
+                        "|unit": "1"
+                      }
+                    ],
+                    "единица_измерения_дозы": [
+                      {
+                        "|code": "F.53",
+                        "|value": "F.53 description",
+                        "|terminology": "external"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "подробности_вакцинации": [
+              {
+                "вид_вакцинации_и_кратность": [
+                  {
+                    "вид_вакцинации_иммунодиагностики": [
+                      {
+                        "|code": "I.23",
+                        "|value": "I.23 description",
+                        "|terminology": "NSI"
+                      }
+                    ],
+                    "кратность": [
+                      {
+                        "|code": "C.18",
+                        "|value": "C.18 description",
+                        "|terminology": "NSI"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "time": [
+              "2020-06-18T15:42:06.993+03:00"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "заключение": [
+      {
+        "заключение": [
+          {
+            "_other_participation": [
+              {
+                "|function": "requester",
+                "|mode": "face-to-face communication",
+                "|name": "Dr. Marcus Johnson",
+                "|id": "199",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              },
+              {
+                "|function": "performer",
+                "|mode": "not specified",
+                "|name": "Lara Markham",
+                "|id": "198",
+                "|id_namespace": "HOSPITAL-NS",
+                "|id_scheme": "HOSPITAL-NS"
+              }
+            ],
+            "заключение": [
+              "Заключение 5"
+            ],
+            "language": [
+              {
+                "|code": "ru",
+                "|terminology": "ISO_639-1"
+              }
+            ],
+            "encoding": [
+              {
+                "|code": "UTF-8",
+                "|terminology": "IANA_character-sets"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "диагноз": [
+      {
+        "основной_диагноз": [
+          {
+            "диагноз": [
+              {
+                "_other_participation": [
+                  {
+                    "|function": "requester",
+                    "|mode": "face-to-face communication",
+                    "|name": "Dr. Marcus Johnson",
+                    "|id": "199",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  },
+                  {
+                    "|function": "performer",
+                    "|mode": "not specified",
+                    "|name": "Lara Markham",
+                    "|id": "198",
+                    "|id_namespace": "HOSPITAL-NS",
+                    "|id_scheme": "HOSPITAL-NS"
+                  }
+                ],
+                "код_по_мкб_10": [
+                  {
+                    "|code": "A.9",
+                    "|value": "A.9 description",
+                    "|terminology": "NSI"
+                  }
+                ],
+                "language": [
+                  {
+                    "|code": "ru",
+                    "|terminology": "ISO_639-1"
+                  }
+                ],
+                "encoding": [
+                  {
+                    "|code": "UTF-8",
+                    "|terminology": "IANA_character-sets"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "category": [
+      {
+        "|code": "433",
+        "|value": "event",
+        "|terminology": "openehr"
+      }
+    ],
+    "composer": [
+      {
+        "|id": "EHR Forms User ID",
+        "|id_scheme": "EHR Forms",
+        "|id_namespace": "EHR Forms",
+        "|name": "EHR Forms User"
+      }
+    ]
+  }
+}

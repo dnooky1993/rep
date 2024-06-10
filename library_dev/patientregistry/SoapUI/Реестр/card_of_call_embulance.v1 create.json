@@ -1,0 +1,591 @@
+{
+   "domain": "default",
+   "ehrUid": "31f78af6-e365-4484-99e1-cef0b17dca2f",
+   "operationType": "create",
+   "eventName": "card_of_call_embulanceQueue",
+   "compositionId": "6008184c-3d8e-4ab0-8262-c547abe44e5a::default::1",
+   "newResults": [
+      {
+         "version_": "openEHR-EHR-COMPOSITION.card_of_call_embulance.v1",
+         "login": "emias_qa",
+         "documentCommittedDate": "2022-12-12T10:23:45.2362+03:00",
+         "patientId": "$patientId",
+         "composition_": {
+            "@class": "COMPOSITION",
+            "name": {
+               "@class": "DV_TEXT",
+               "value": "Карта вызова"
+            },
+            "uid": {
+               "@class": "OBJECT_VERSION_ID",
+               "value": "6008184c-3d8e-4ab0-8262-c547abe$uid::default::1"
+            },
+            "archetype_details": {
+               "@class": "ARCHETYPED",
+               "archetype_id": {
+                  "@class": "ARCHETYPE_ID",
+                  "value": "openEHR-EHR-COMPOSITION.card_of_call_embulance.v1"
+               },
+               "template_id": {
+                  "@class": "TEMPLATE_ID",
+                  "value": "openEHR-EHR-COMPOSITION.card_of_call_embulance.v1"
+               },
+               "rm_version": "1.0.4"
+            },
+            "archetype_node_id": "openEHR-EHR-COMPOSITION.card_of_call_embulance.v1",
+            "language": {
+               "@class": "CODE_PHRASE",
+               "terminology_id": {
+                  "@class": "TERMINOLOGY_ID",
+                  "value": "ISO_639-1"
+               },
+               "code_string": "ru"
+            },
+            "territory": {
+               "@class": "CODE_PHRASE",
+               "terminology_id": {
+                  "@class": "TERMINOLOGY_ID",
+                  "value": "ISO_3166-1"
+               },
+               "code_string": "RU"
+            },
+            "category": {
+               "@class": "DV_CODED_TEXT",
+               "value": "event",
+               "defining_code": {
+                  "@class": "CODE_PHRASE",
+                  "terminology_id": {
+                     "@class": "TERMINOLOGY_ID",
+                     "value": "openehr"
+                  },
+                  "code_string": "433"
+               }
+            },
+            "composer": {
+               "@class": "PARTY_IDENTIFIED",
+               "name": "AMBULANCE"
+            },
+            "context": {
+               "@class": "EVENT_CONTEXT",
+               "start_time": {
+                  "@class": "DV_DATE_TIME",
+                  "value": "2022-12-12T10:23:45.230449+03:00"
+               },
+               "setting": {
+                  "@class": "DV_CODED_TEXT",
+                  "value": "other care",
+                  "defining_code": {
+                     "@class": "CODE_PHRASE",
+                     "terminology_id": {
+                        "@class": "TERMINOLOGY_ID",
+                        "value": "openehr"
+                     },
+                     "code_string": "238"
+                  }
+               }
+            },
+            "content": [
+               {
+                  "@class": "SECTION",
+                  "name": {
+                     "@class": "DV_TEXT",
+                     "value": "Карта вызова"
+                  },
+                  "archetype_details": {
+                     "@class": "ARCHETYPED",
+                     "archetype_id": {
+                        "@class": "ARCHETYPE_ID",
+                        "value": "openEHR-EHR-SECTION.adhoc.v1"
+                     },
+                     "rm_version": "1.0.4"
+                  },
+                  "archetype_node_id": "openEHR-EHR-SECTION.adhoc.v1",
+                  "items": [
+                     {
+                        "@class": "SECTION",
+                        "name": {
+                           "@class": "DV_TEXT",
+                           "value": "Общие сведения"
+                        },
+                        "archetype_details": {
+                           "@class": "ARCHETYPED",
+                           "archetype_id": {
+                              "@class": "ARCHETYPE_ID",
+                              "value": "openEHR-EHR-SECTION.adhoc.v1"
+                           },
+                           "rm_version": "1.0.4"
+                        },
+                        "archetype_node_id": "openEHR-EHR-SECTION.adhoc.v1",
+                        "items": [
+                           {
+                              "@class": "ADMIN_ENTRY",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Медицинская организация"
+                              },
+                              "archetype_details": {
+                                 "@class": "ARCHETYPED",
+                                 "archetype_id": {
+                                    "@class": "ARCHETYPE_ID",
+                                    "value": "openEHR-EHR-ADMIN_ENTRY.health_institution.v1"
+                                 },
+                                 "rm_version": "1.0.4"
+                              },
+                              "archetype_node_id": "openEHR-EHR-ADMIN_ENTRY.health_institution.v1",
+                              "language": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "ISO_639-1"
+                                 },
+                                 "code_string": "ru"
+                              },
+                              "encoding": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "IANA_character-sets"
+                                 },
+                                 "code_string": "UTF-8"
+                              },
+                              "subject": {
+                                 "@class": "PARTY_SELF"
+                              },
+                              "data": {
+                                 "@class": "ITEM_TREE",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Tree"
+                                 },
+                                 "archetype_node_id": "at0001",
+                                 "items": [
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Медицинская организация"
+                                       },
+                                       "archetype_node_id": "at0005",
+                                       "value": {
+                                          "@class": "DV_TEXT",
+                                          "value": "еуеу"
+                                       }
+                                    },
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Адрес медицинской организации"
+                                       },
+                                       "archetype_node_id": "at0002",
+                                       "value": {
+                                          "@class": "DV_TEXT",
+                                          "value": "еуеу"
+                                       }
+                                    },
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Телефон медицинской организации"
+                                       },
+                                       "archetype_node_id": "at0003",
+                                       "value": {
+                                          "@class": "DV_TEXT",
+                                          "value": "123"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {
+                              "@class": "ADMIN_ENTRY",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Общие сведения"
+                              },
+                              "archetype_details": {
+                                 "@class": "ARCHETYPED",
+                                 "archetype_id": {
+                                    "@class": "ARCHETYPE_ID",
+                                    "value": "openEHR-EHR-ADMIN_ENTRY.card_of_call_ambulance.v1"
+                                 },
+                                 "rm_version": "1.0.4"
+                              },
+                              "archetype_node_id": "openEHR-EHR-ADMIN_ENTRY.card_of_call_ambulance.v1",
+                              "language": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "ISO_639-1"
+                                 },
+                                 "code_string": "ru"
+                              },
+                              "encoding": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "IANA_character-sets"
+                                 },
+                                 "code_string": "UTF-8"
+                              },
+                              "subject": {
+                                 "@class": "PARTY_SELF"
+                              },
+                              "data": {
+                                 "@class": "ITEM_TREE",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Дерево"
+                                 },
+                                 "archetype_node_id": "at0001",
+                                 "items": [
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Номер карты вызова"
+                                       },
+                                       "archetype_node_id": "at0002",
+                                       "value": {
+                                          "@class": "DV_TEXT",
+                                          "value": "14221"
+                                       }
+                                    },
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Дата карты вызова"
+                                       },
+                                       "archetype_node_id": "at0003",
+                                       "value": {
+                                          "@class": "DV_DATE",
+                                          "value": "$dateLower2"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {
+                              "@class": "ADMIN_ENTRY",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Бригада скорой медицинской помощи"
+                              },
+                              "archetype_details": {
+                                 "@class": "ARCHETYPED",
+                                 "archetype_id": {
+                                    "@class": "ARCHETYPE_ID",
+                                    "value": "openEHR-EHR-ADMIN_ENTRY.emergency_team.v1"
+                                 },
+                                 "rm_version": "1.0.4"
+                              },
+                              "archetype_node_id": "openEHR-EHR-ADMIN_ENTRY.emergency_team.v1",
+                              "language": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "ISO_639-1"
+                                 },
+                                 "code_string": "ru"
+                              },
+                              "encoding": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "IANA_character-sets"
+                                 },
+                                 "code_string": "UTF-8"
+                              },
+                              "subject": {
+                                 "@class": "PARTY_SELF"
+                              },
+                              "data": {
+                                 "@class": "ITEM_TREE",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Дерево"
+                                 },
+                                 "archetype_node_id": "at0001",
+                                 "items": [
+                                    {
+                                       "@class": "ELEMENT",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Номер фельдшера по приему вызова"
+                                       },
+                                       "archetype_node_id": "at0010",
+                                       "value": {
+                                          "@class": "DV_TEXT",
+                                          "value": "123"
+                                       }
+                                    }
+                                 ]
+                              }
+                           },
+                           {
+                              "@class": "ADMIN_ENTRY",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Время (часы, минуты)"
+                              },
+                              "archetype_details": {
+                                 "@class": "ARCHETYPED",
+                                 "archetype_id": {
+                                    "@class": "ARCHETYPE_ID",
+                                    "value": "openEHR-EHR-ADMIN_ENTRY.card_of_call_ambulance.v1"
+                                 },
+                                 "rm_version": "1.0.4"
+                              },
+                              "archetype_node_id": "openEHR-EHR-ADMIN_ENTRY.card_of_call_ambulance.v1",
+                              "language": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "ISO_639-1"
+                                 },
+                                 "code_string": "ru"
+                              },
+                              "encoding": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "IANA_character-sets"
+                                 },
+                                 "code_string": "UTF-8"
+                              },
+                              "subject": {
+                                 "@class": "PARTY_SELF"
+                              },
+                              "data": {
+                                 "@class": "ITEM_TREE",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Дерево"
+                                 },
+                                 "archetype_node_id": "at0001",
+                                 "items": [
+                                    {
+                                       "@class": "CLUSTER",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Время (часы, минуты)"
+                                       },
+                                       "archetype_node_id": "at0004",
+                                       "items": [
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Приема вызова"
+                                             },
+                                             "archetype_node_id": "at0005",
+                                             "value": {
+                                                "@class": "DV_TIME",
+                                                "value": "11:11:00"
+                                             }
+                                          },
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Передачи вызова бригаде скорой медицинской помощи"
+                                             },
+                                             "archetype_node_id": "at0006",
+                                             "value": {
+                                                "@class": "DV_TIME",
+                                                "value": "11:11:00"
+                                             }
+                                          },
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Выезда на вызов"
+                                             },
+                                             "archetype_node_id": "at0007",
+                                             "value": {
+                                                "@class": "DV_TIME",
+                                                "value": "11:11:00"
+                                             }
+                                          },
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Окончания вызова"
+                                             },
+                                             "archetype_node_id": "at0011",
+                                             "value": {
+                                                "@class": "DV_TIME",
+                                                "value": "12:12:00"
+                                             }
+                                          },
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Затраченное на выполнение вызова"
+                                             },
+                                             "archetype_node_id": "at0013",
+                                             "value": {
+                                                "@class": "DV_QUANTITY",
+                                                "magnitude": 22,
+                                                "units": "min",
+                                                "precision": 1
+                                             }
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              }
+                           },
+                           {
+                              "@class": "ADMIN_ENTRY",
+                              "name": {
+                                 "@class": "DV_TEXT",
+                                 "value": "Адрес"
+                              },
+                              "archetype_details": {
+                                 "@class": "ARCHETYPED",
+                                 "archetype_id": {
+                                    "@class": "ARCHETYPE_ID",
+                                    "value": "openEHR-EHR-ADMIN_ENTRY.address.v1"
+                                 },
+                                 "rm_version": "1.0.4"
+                              },
+                              "archetype_node_id": "openEHR-EHR-ADMIN_ENTRY.address.v1",
+                              "language": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "ISO_639-1"
+                                 },
+                                 "code_string": "ru"
+                              },
+                              "encoding": {
+                                 "@class": "CODE_PHRASE",
+                                 "terminology_id": {
+                                    "@class": "TERMINOLOGY_ID",
+                                    "value": "IANA_character-sets"
+                                 },
+                                 "code_string": "UTF-8"
+                              },
+                              "subject": {
+                                 "@class": "PARTY_SELF"
+                              },
+                              "data": {
+                                 "@class": "ITEM_TREE",
+                                 "name": {
+                                    "@class": "DV_TEXT",
+                                    "value": "Tree"
+                                 },
+                                 "archetype_node_id": "at0001",
+                                 "items": [
+                                    {
+                                       "@class": "CLUSTER",
+                                       "name": {
+                                          "@class": "DV_TEXT",
+                                          "value": "Адрес"
+                                       },
+                                       "archetype_node_id": "at0013",
+                                       "items": [
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Район"
+                                             },
+                                             "archetype_node_id": "at0004",
+                                             "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "sfdsfds"
+                                             }
+                                          },
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Город/село"
+                                             },
+                                             "archetype_node_id": "at0020",
+                                             "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "sdfds"
+                                             }
+                                          },
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Населенный пункт"
+                                             },
+                                             "archetype_node_id": "at0005",
+                                             "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "sdfdf"
+                                             }
+                                          },
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Улица (ИД Улицы ОМК УМ)"
+                                             },
+                                             "archetype_node_id": "at0014",
+                                             "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "sdfds"
+                                             }
+                                          },
+                                          {
+                                             "@class": "ELEMENT",
+                                             "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Название улицы"
+                                             },
+                                             "archetype_node_id": "at0006",
+                                             "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "sdfsd"
+                                             }
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   ],
+   "auditDetails": {
+      "@class": "AUDIT_DETAILS",
+      "system_id": "default",
+      "committer": {
+         "@class": "PARTY_IDENTIFIED",
+         "name": "emias_qa"
+      },
+      "time_committed": {
+         "@class": "DV_DATE_TIME",
+         "value": "$dateLower2T10:23:45.2362+03:00"
+      },
+      "change_type": {
+         "@class": "DV_CODED_TEXT",
+         "value": "creation",
+         "defining_code": {
+            "@class": "CODE_PHRASE",
+            "terminology_id": {
+               "@class": "TERMINOLOGY_ID",
+               "value": "openehr"
+            },
+            "code_string": "249"
+         }
+      }
+   }
+}

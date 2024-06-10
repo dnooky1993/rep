@@ -1,0 +1,189 @@
+import java.time.*
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+def countTreatment  = testRunner.testCase.getPropertyValue("countTreatment").toInteger()
+def moId = testRunner.testCase.getPropertyValue("moId")
+
+
+def findEntitiesInDBwithConditionOrCreate (String tableName, String columns, String values , String propertyName, int count, String condition=""  ){
+	table = testRunner.testCase.testSuite.project.getPropertyValue(tableName)
+	String query = "SELECT * FROM "+table+ " "+condition
+	//log.info("insert into  "+table+ " ("+columns+") values( "+values+") ")
+	log.info(query)
+	def result =sql.rows(query)
+	def rows = result.size()
+	sub=count-rows
+	//log.info("sub "+sub+" count "+count+" rows"+rows)
+	if (rows >0){
+		int n=0
+		if(sub>=0){
+			n=rows
+		}
+		else{
+			n=	count
+		}
+		for(int i=0; i<n;i++){
+			nextI=i+1
+			resultId= result[i].ID
+			log.info("Таблица "+table+ " имеет подходящую запись № "+nextI+" с id = "+resultId)
+			testRunner.testCase.setPropertyValue(propertyName+nextI, resultId.toString())
+			testRunner.testCase.setPropertyValue(propertyName+"CreatedByTest"+nextI, "0")
+		}
+	}
+	if(sub>0){
+		for( int i=rows; i<count ; i++){
+			nextI=i+1
+			//log.info("В таблице  "+table+ " нет или недостаточно записей по условию, создаю новую запись.")
+			sql.execute("insert into  "+table+ " ("+columns+") values( "+values+") ")
+			String query2 = "SELECT * FROM "+table+ " "+condition+"order by id"
+			//log.info(query2)
+			def result2 =sql.rows(query2)
+			resultId= result2[i].ID
+			log.info("В таблице  "+table+ " нет или недостаточно записей по условию, создаю новую запись № "+nextI+"  с id ="+resultId)
+			testRunner.testCase.setPropertyValue(propertyName+nextI, resultId.toString())
+			testRunner.testCase.setPropertyValue(propertyName+"CreatedByTest"+nextI, "1")
+		}
+	}
+}
+
+def getDoesntExisted (String tableName,String propertyName, int counter=1){
+	table = testRunner.testCase.testSuite.project.getPropertyValue(tableName)
+	for(int i=1; i<=counter; i++){
+		String query = "SELECT max(id)+"+i+" as ID FROM "+table
+		def result =sql.rows(query)
+		testRunner.testCase.setPropertyValue(propertyName+i, result[0].ID.toString())
+		log.info("ID несуществубщей записи в таблице  "+table+ " = "+result[0].ID.toString())
+	}
+}
+
+def checkExistenceResourceType (String resourceType ){
+	String CreatedByTest="0"
+	String propertyName1
+	String propertyName2
+	String result1
+	String result2
+	String tableName1="RESOURCE_TYPE"
+	String tableName2
+		if(resourceType=="SPECIAL_AVAILABLE_RESOURCE") { 
+			//log.info("СДР")
+			propertyName1="resTypeForSarId"
+			propertyName2="epId"
+			tableName2="EQUIPMENT_PROFILE"
+			String query = "SELECT rt.ID as RESOURCE_TYPE_ID, ep.id as EQUIPMENT_PROFILE_ID FROM RESOURCE_TYPE rt JOIN EQUIPMENT_PROFILE ep ON ep.RESOURCE_TYPE_ID =rt.ID WHERE rt.RESOURCE_KIND ='SPECIAL_AVAILABLE_RESOURCE' AND rt.ARCHIVED =0 AND ep.ARCHIVED =0"
+			//log.info(query)
+			def row = sql(query)
+			//log.info(row)
+			def result =sql.rows(query)
+			//log.info(result)
+			if (row == 0){
+					log.info("В таблицах EQUIPMENT_PROFILE  и RESOURCE_TYPE  нет подходящих записей для корректного подбора типа ресурса, создаю новую запись.")
+					sql.execute("insert into  RESOURCE_TYPE (ID,TITLE,RESOURCE_KIND,ARCHIVED) values( -3, 'Тип CДР для нагрузочного тестирования','SPECIAL_AVAILABLE_RESOURCE',0)")
+					sql.execute("insert into  EQUIPMENT_PROFILE  (ID, ARCHIVED,RESOURCE_TYPE_ID) values( -3, 0, -3)")
+					result1="-3"
+					result2="-3"
+					CreatedByTest="1"
+				}
+			else {
+				 result1= result[0].RESOURCE_TYPE_ID.toString()
+				 result2= result[0].EQUIPMENT_PROFILE_ID.toString()
+				log.info("Таблицы RESOURCE_TYPE и EQUIPMENT_PROFILE имеют подходящие записи.")
+				}
+		} else if(resourceType=="AVAILABLE_RESOURCE") { 
+		   	log.info("ДР")
+		   	tableName2="POSITION_NOM"
+		   	propertyName1="resTypeForArId"
+			propertyName2="pnId"
+			String query1 = "SELECT rt.ID as RESOURCE_TYPE_ID, pn.id as POSITION_NOM_ID  FROM RESOURCE_TYPE rt JOIN POSITION_NOM pn ON pn.RESOURCE_TYPE_ID =rt.id WHERE rt.ARCHIVED =0 AND rt.RESOURCE_KIND ='AVAILABLE_RESOURCE'"
+			//log.info(query)
+			def row1 = sql(query1)
+			//log.info(row)
+			def result =sql.rows(query1)
+			//log.info(result)
+			if (row1 == 0){
+					log.info("В таблицах POSITION_NOM  и RESOURCE_TYPE  нет подходящих записей для корректного подбора типа ресурса, создаю новую запись.")
+					sql.execute("insert into  RESOURCE_TYPE (ID,TITLE,RESOURCE_KIND,ARCHIVED) values( -4, 'Тип ДР для нагрузочного тестирования','AVAILABLE_RESOURCE',0)")
+					sql.execute("insert into  POSITION_NOM (ID,TITLE,RESOURCE_TYPE_ID) values( -2,'Должность для нагрузочного тестирования', -4)")
+					result1="-4"
+					result2="-4"
+					CreatedByTest="1"
+				}
+			else {
+				 result1= result[0].RESOURCE_TYPE_ID.toString()
+				 result2= result[0].POSITION_NOM_ID.toString()
+				log.info("Таблицы RESOURCE_TYPE и POSITION_NOM имеют подходящие записи.")
+				}
+		} else { 
+		  testRunner.fail("Передан некорректный тип ресурса")
+		}
+
+	testRunner.testCase.setPropertyValue(propertyName1, result1)
+	testRunner.testCase.setPropertyValue(propertyName2, result2)
+	testRunner.testCase.setPropertyValue(propertyName1+"CreatedByTest", CreatedByTest)
+	testRunner.testCase.setPropertyValue(propertyName2+"CreatedByTest", CreatedByTest)
+	log.info("Записан  параметр"+tableName1+ ".ID= "+result1)
+	log.info("Записан  параметр "+tableName2+ ".ID= "+result2)
+
+
+	}
+	
+checkExistenceResourceType("SPECIAL_AVAILABLE_RESOURCE")
+
+//checkExistenceResourceType("AVAILABLE_RESOURCE")
+
+//шаблончик вызова метода
+//checkExistence("", "", "", "","")//"where archived = 0" )
+
+//Подобрать ММ с маппингом
+
+
+findEntitiesInDBwithConditionOrCreate("tableSpec", "ID,ARCHIVED,TITLE", "-2,0,'Специализация для нагрузочного тестирования'","specId",1,"where archived = 0" )
+
+findEntitiesInDBwithConditionOrCreate("tableEP", "ID,ARCHIVED", "-2,0", "epId",1,"where archived = 0" )
+
+//findEntitiesInDBwithConditionOrCreate("tableRPCM", "ID,NSI_POSITION_CODE_CODE,SUPP_POSITION_CODE_CODE", "-2,'2','2'", "rpcmId",1)
+
+//findEntitiesInDBwithConditionOrCreate("tablePosNom","ID, TITLE, RESOURCE_TYPE_ID", "--"+i+"0 ,'Должность автотест РиР2'","existedPosNomId"+i, "where id not in ("+listPosNomIds+")")
+
+findEntitiesInDBwithConditionOrCreate("tableDepNom", "ID,TITLE,\"START\" ", "-2, 'Департамент для нагрузочного тестирования',  TIMESTAMP '2015-11-01 00:00:00.000000' ", "dnId",1)
+
+//findEntitiesInDBwithConditionOrCreate("tablePCalendar", "ID,\"DATE\",PARTICULARITY,ARCHIVED", "-2,TIMESTAMP '2018-01-01 00:00:00.000000', 'HOLIDAY', 0", "prodCalId",1,"where archived = 0" )
+
+findEntitiesInDBwithConditionOrCreate("tableAG", "ID,CODE,TITLE,ARCHIVED,\"FROM\"", "(select min(id)-1),'CODE','Возрастная группа для нагрузочного тестирования',0,0", "agId",1,"where archived = 0 ")
+
+//findEntitiesInDBwithConditionOrCreate("tableArRuleType", "ID,ARCHIVED,TITLE,DESCRIPTION,KIND,PRIORITY", "-2, 0, 'Правило рабочего времени ДР для нагрузочного тестирования','Устанавливает возможность записи на Доступный ресурс пациентов всех возрастных групп на указанные в правиле Медицинские манипуляции, в указанную Локацию','WORK_TIME_DEFINITION',50", "arSchruleWTTypeId",1,"where archived = 0 and KIND='WORK_TIME_DEFINITION'" )
+
+//findEntitiesInDBwithConditionOrCreate("tableArRuleType", "ID,ARCHIVED,TITLE,DESCRIPTION,KIND,PRIORITY", "-3, 0, 'Правило ДР типа REJECTION для нагрузочного тестирования','Устанавливает возможность записи на Доступный ресурс','REJECTION',1", "arSchruleRejectionTypeId",1,"where archived = 0 and KIND='REJECTION'" )
+
+//findEntitiesInDBwithConditionOrCreate("tableArRuleType", "ID,ARCHIVED,TITLE,DESCRIPTION,KIND,PRIORITY", "-4, 0, 'Правило ДР типа TREATMENT_REDEFINITION для нагрузочного тестирования','Устанавливает возможность записи на Доступный ресурс','TREATMENT_REDEFINITION',30", "arSchruleTRTypeId",1,"where archived = 0 and KIND='TREATMENT_REDEFINITION'" )
+
+//findEntitiesInDBwithConditionOrCreate("tableArRuleType", "ID,ARCHIVED,TITLE,DESCRIPTION,KIND,PRIORITY", "-5, 0, 'Правило ДР типа AGE_GROUP_RESTRICTION для нагрузочного тестирования','Устанавливает возможность записи на Доступный ресурс','AGE_GROUP_RESTRICTION',32", "arSchruleAGTypeId",1,"where archived = 0 and KIND='AGE_GROUP_RESTRICTION'" )
+
+findEntitiesInDBwithConditionOrCreate("tableSarRuleType", "ID,ARCHIVED,TITLE,DESCRIPTION,KIND,PRIORITY", "-2, 0, 'Правило рабочего времени CДР для нагрузочного тестирования','Устанавливает возможность записи на Специальный Доступный ресурс пациентов всех возрастных групп на указанные в правиле Медицинские манипуляции, в указанную Локацию','WORK_TIME_DEFINITION',50", "sarSchruleWTTypeId",1,"where archived = 0 and KIND='WORK_TIME_DEFINITION'" )
+
+findEntitiesInDBwithConditionOrCreate("tableSarRuleType", "ID,ARCHIVED,TITLE,DESCRIPTION,KIND,PRIORITY", "-3, 0, 'Правило CДР типа REJECTION для нагрузочного тестирования','Устанавливает возможность записи на Специальный Доступный ресурс','REJECTION',1", "sarSchruleRejectionTypeId",1,"where archived = 0 and KIND='REJECTION' " )
+
+findEntitiesInDBwithConditionOrCreate("tableSarRuleType", "ID,ARCHIVED,TITLE,DESCRIPTION,KIND,PRIORITY", "-4, 0, 'Правило CДР типа AGE_GROUP_RESTRICTION для нагрузочного тестирования','Устанавливает возможность записи на Специальный Доступный ресурс','AGE_GROUP_RESTRICTION',8", "sarSchruleAGTypeId",1,"where archived = 0 and KIND='AGE_GROUP_RESTRICTION' " )
+
+findEntitiesInDBwithConditionOrCreate("tableSarRuleType", "ID,ARCHIVED,TITLE,DESCRIPTION,KIND,PRIORITY", "-5, 0, 'Правило CДР типа TREATMENT_REDEFINITION для нагрузочного тестирования','Устанавливает возможность записи на Специальный Доступный ресурс','TREATMENT_REDEFINITION',7", "sarSchruleTRTypeId",1,"where archived = 0 and KIND='TREATMENT_REDEFINITION' " )
+
+findEntitiesInDBwithConditionOrCreate("tableSarRuleType", "ID,ARCHIVED,TITLE,DESCRIPTION,KIND,PRIORITY", "-6, 0, 'Правило CДР типа ROUTE_REDEFINITIONCTION для нагрузочного тестирования','Устанавливает возможность записи на Специальный Доступный ресурс','ROUTE_REDEFINITION',9", "sarSchruleRRTypeId",1,"where archived = 0 and KIND='ROUTE_REDEFINITION' " )
+
+findEntitiesInDBwithConditionOrCreate("tableAG", "ID,CODE,TITLE,ARCHIVED,\"FROM\"", "-5,'CODE','Архивная возрастная группа для автотестирования',1,0", "archivedAgId",1,"where archived = 1 ")
+
+getDoesntExisted("tableAG", "nonexistentAgId")
+
+getDoesntExisted("tableSarRuleType", "nonexistentSarRuleTypeId")
+
+getDoesntExisted("tableE", "eId")
+
+//getDoesntExisted("JOB_EXECUTION", "JeId")

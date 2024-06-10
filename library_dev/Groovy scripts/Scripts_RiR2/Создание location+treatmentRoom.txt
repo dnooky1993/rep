@@ -1,0 +1,123 @@
+import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+if (context.dbConnect != null) {      
+	sql = context.dbConnect;
+
+
+
+//Выбор TREATMENT_ROOM_KIND
+String sql_query = "SELECT * FROM TREATMENT_ROOM_KIND WHERE ARCHIVED= 0"
+def treKs = sql.rows(sql_query)
+String treatRoomKindId =treKs[0].ID
+ log.info ("TREATMENT_ROOM_KIND: " + treatRoomKindId)
+
+//Выбор TREATMENT_ROOM_PROFILE_ID
+String sql_query1 = "SELECT * FROM TREATMENT_ROOM_PROFILE WHERE ARCHIVED=0"
+def trePs = sql.rows(sql_query1)
+String treatRoomProfileId =trePs[0].ID
+ log.info ("TREATMENT_ROOM_PROFILE: " + treatRoomProfileId)
+
+ //Выбор TREATMENT_ID
+String sql_query2 = "SELECT * FROM TREATMENT WHERE ARCHIVED=0"
+def tres = sql.rows(sql_query2)
+String  treatmentId = tres[0].ID
+ log.info ("TREATMENT: " +treatmentId)
+ testRunner.testCase.setPropertyValue("treatmentId",treatmentId)
+
+//Выбор DEPARTMENT_NOM_ID
+String sql_query3 = "SELECT * FROM DEPARTMENT_NOM"
+def noms = sql.rows(sql_query3)
+String  nomId = noms[0].ID
+ log.info ("DEPARTMENT_NOM: " +nomId)
+
+//Выбор SPECIALIZATION_ID
+String sql_query4 = "SELECT * FROM SPECIALIZATION"
+def specializations = sql.rows(sql_query4)
+String  specializationId = specializations[0].ID
+ log.info ("SPECIALIZATION: " +specializationId)
+
+//Выбор LOCATION_ID
+String sql_query5 = "SELECT * FROM LOCATION WHERE  ID = ((SELECT max(ID) FROM LOCATION ))"
+def locations = sql.rows(sql_query5)
+String  locationId = locations[0].ID + 1
+ log.info ("locationId: " +locationId)
+
+//Выбор TREATMENT_ROOM_ID
+String sql_query6 = "SELECT * FROM TREATMENT_ROOM WHERE  ID = ((SELECT max(ID) FROM TREATMENT_ROOM ))"
+def treatmentRooms = sql.rows(sql_query6)
+String treatmentRoomId = treatmentRooms[0].ID + 1
+ log.info ("treatmentRoomId: " +treatmentRoomId)
+
+ 
+ def medicalFacilityId= testRunner.testCase.getPropertyValue("medicalFacilityId")
+ def medicalOrganizationId= testRunner.testCase.getPropertyValue("medicalOrganizationId")
+ //def locationId= testRunner.testCase.getPropertyValue("locationId")
+// def treatmentRoomId= testRunner.testCase.getPropertyValue("treatmentRoomId")
+
+Properties props = new Properties()
+props.put('zk.connect', '10.2.172.24:2181')
+props.put('bootstrap.servers', '10.2.172.24:9092')
+props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+ 
+def producer = new KafkaProducer(props)
+ 
+def messageSender = { String topic, String message ->
+    log.info( "topic")
+    def key =  UUID.randomUUID().toString()
+    def Date date = new Date(); 
+   def  long  timestamp= date.getTime()
+   def int partition =0
+    String compoundMessage = "$message"
+    producer.send(
+            new ProducerRecord<String, String>(topic, partition, timestamp,  key, compoundMessage),
+            { RecordMetadata metadata, Exception e ->
+                log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+            } as Callback
+    )
+}
+ def sL ="""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns4:location archived="false" id=\"""" +locationId+ """\" xmlns="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns4:roomTitle>Тестовая Н</ns4:roomTitle><ns4:stage>7</ns4:stage><ns4:building id="215"><ns5:buildingAddress>город Москва, бульвар Сиреневый, дом 8</ns5:buildingAddress></ns4:building><ns4:specializationId>"""+specializationId+"""</ns4:specializationId><ns5:medicalFacilityId>"""+ medicalFacilityId + """</ns5:medicalFacilityId></ns4:location>"""
+ String messageL =sL.toString()
+  def topicLocation= testRunner.testCase.testSuite.getPropertyValue("topicLocation")
+   log.info(topicLocation)
+  String topicLocation1= topicLocation.toString()
+  messageSender(topicLocation1, messageL)
+
+ def sT ="""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns4:treatmentRoom archived="false" id=\"""" + treatmentRoomId+ """\" xmlns="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns4:treatmentRoomKindId>"""+ treatRoomKindId +"""</ns4:treatmentRoomKindId><ns4:treatmentRoomProfileId fnsiId="3">"""+ treatRoomProfileId + """</ns4:treatmentRoomProfileId><ns4:specializationId>"""+specializationId+"""</ns4:specializationId><ns5:medicalOrganizationId>"""+ medicalOrganizationId +"""</ns5:medicalOrganizationId><ns5:medicalFacilityId>"""+medicalFacilityId+"""</ns5:medicalFacilityId><ns4:department id="5902191878"><ns5:title>Отделение медицинской помощи взрослому населению на дому</ns5:title><ns5:nomId>"""+nomId+ """</ns5:nomId></ns4:department><ns4:locationId>"""+ locationId +"""</ns4:locationId><ns4:treatments><ns4:treatment><ns4:id>""" + treatmentId + """</ns4:id><ns4:useByDefault>true</ns4:useByDefault></ns4:treatment></ns4:treatments><ns4:equipments><ns4:equipment id="294"><ns5:title>model2020_xxx008</ns5:title></ns4:equipment></ns4:equipments></ns4:treatmentRoom>"""
+//def s ="""<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns4:treatmentRoom archived="false" id=\"""" + treatmentRoomId+ """\" xmlns="http://emias.mos.ru/svmr2/systemInformerService/v1" xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/" xmlns:ns2="http://emias.mos.ru/svmr2/producer/v1/types" xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/" xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types"><ns4:treatmentRoomKindId>134692977</ns4:treatmentRoomKindId><ns4:treatmentRoomProfileId fnsiId="3">134694386</ns4:treatmentRoomProfileId><ns4:specializationId>125676843</ns4:specializationId><ns5:medicalOrganizationId>204</ns5:medicalOrganizationId><ns5:medicalFacilityId>204</ns5:medicalFacilityId><ns4:department id="5902191878"><ns5:title>Отделение медицинской помощи взрослому населению на дому</ns5:title><ns5:nomId>125692859</ns5:nomId></ns4:department><ns4:locationId>322</ns4:locationId><ns4:treatments><ns4:treatment><ns4:id>128309466</ns4:id><ns4:useByDefault>true</ns4:useByDefault></ns4:treatment></ns4:treatments><ns4:equipments><ns4:equipment id="294"><ns5:title>model2020_xxx008</ns5:title></ns4:equipment></ns4:equipments></ns4:treatmentRoom>"""
+ String messageT =sT.toString()
+  def topicTreatmentRoom= testRunner.testCase.testSuite.getPropertyValue("topicTreatmentRoom")
+   log.info(topicLocation)
+  String topicTreatmentRoom1= topicTreatmentRoom.toString()
+   messageSender(topicTreatmentRoom1, messageT)
+
+producer.close()
+
+//Поиск созданного кабинета
+Boolean rowCount = false
+String sql_query_trId = "SELECT * FROM TREATMENT_ROOM WHERE ID=" + treatmentRoomId
+int counter = 0
+
+while (rowCount == false &&  counter < 30) {
+row = sql (sql_query_trId)
+if (row == 1) {
+  rowCount = true
+  log.info("treatmentRoom found")
+  }
+else {
+  sleep(10000)
+  log.info("treatmentRoom not found")
+  counter++
+  }
+}
+ testRunner.testCase.setPropertyValue("locationId",locationId)
+  testRunner.testCase.setPropertyValue("treatmentRoomId",treatmentRoomId)
+} else {
+	log.error("Соединение с бд не установлено!");
+}

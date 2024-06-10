@@ -1,0 +1,11 @@
+{
+   "id": 1929486,
+   "operationDate": "2022-02-21T16:20:59.799+03:00",
+   "emiasId": -150000001,
+   "uklErp": "V3148461",
+   "patientType": "I",
+   "systemCode": "sch",
+   "patientRecStatus": "Y",
+   "entityName": "workInfo",
+   "entityData": []
+}

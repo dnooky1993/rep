@@ -1,0 +1,40 @@
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+tableRes =testRunner.testCase.testSuite.project.getPropertyValue("tableRes")
+
+def countResources = testRunner.testCase.getPropertyValue("countResources").toInteger()
+
+for(int i=1; i<=countResources; i++){
+	def id=testRunner.testCase.getPropertyValue("eId"+i)
+	String querySar="select * from "+tableRes+" where RESOURCE_KIND ='SPECIAL_AVAILABLE_RESOURCE' AND PARENT_ID="+id
+	for (int j = 0; j < 23; j++) {
+		
+		//log.info(querySar)
+		rowsSar = sql.rows(querySar)
+		// log.info(rowsSar)
+		if (rowsSar[0].SYNC_STATUS=='IN_PROGRESS') {
+			log.info("Идет синхронизация ресруса. Подождём...")
+			sleep(6000)
+		}
+		else {
+			log.info("Синхрнизация ресурса завершена.")
+			break;
+		}
+	 }
+	if (rowsSar[0].SYNC_STATUS=='ERROR'){
+		getResSyncError=(" SELECT DISTINCT rsem.code, rsemp.\"KEY\" as entity , rsemp.VALUE FROM RESOURCE_SYNC_ERROR rse JOIN "+tableRes+" res ON res.id=rse.RESOURCE_ID  JOIN RESOURCE_SYNC_ERROR_MSG rsem ON RSE.ID=RSEM.RESOURCE_SYNC_ERROR_ID JOIN RESOURCE_SYNC_ERROR_MSG_PR rsemp ON rsemp.RESOURCE_SYNC_ERROR_MSG_ID=rsem.id WHERE res.RESOURCE_KIND ='SPECIAL_AVAILABLE_RESOURCE' AND res.PARENT_ID ="+id)
+		errors=sql.rows(getResSyncError)
+		testRunner.fail("Синхронизация ресурса "+rowsSar[0].ID+"завершена с ошибкой. Код ошибки "+errors[0].CODE+". Сущность, из-за которой произошла ошибка: "+errors[0].entity+", id="+errors[0].VALUE)
+	}
+	
+	testRunner.testCase.setPropertyValue("sarId"+i, rowsSar[0].ID.toString())
+}

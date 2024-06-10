@@ -1,0 +1,6 @@
+covidLabsEndpoint=http://10.2.180.42
+covidLabsDbConnection=
+covidLabsDbLogin=
+covidLabsDbPassword=
+covidLabsFullDbConnection=
+covidLabsDBDriver=

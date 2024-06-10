@@ -1,0 +1,5 @@
+CLSDbConnection=@10.2.172.235:1521/srv_dtcls_ora01.mosgorzdrav.local
+CLSDbLogin=EMIAS_CLS
+CLSDbPassword=EMIAS_CLS
+CLSFullDbConnection= jdbc:oracle:thin:EMIAS_CLS/EMIAS_CLS@10.2.172.235:1521/srv_dtcls_ora01.mosgorzdrav.local
+CLSDBDriver=oracle.jdbc.driver.OracleDriver

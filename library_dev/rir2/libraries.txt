@@ -1,0 +1,2 @@
+rir2\rir2_library\target\rir2_library-1.0.jar
+main_library\target\main_groovy_scripts_library-1.0.jar

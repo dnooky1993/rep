@@ -1,0 +1,42 @@
+import java.time.*
+import java.time.format.*;
+import java.time.temporal.*;
+
+def monthsNumberInSchedule = testRunner.testCase.getPropertyValue("countMonthsInSchedule").toInteger()
+
+def schedulePeriodStart=LocalDate.now()
+def schedulePeriodNextDay=schedulePeriodStart.plusDays(1)
+def scheduleNewPeriodStart=schedulePeriodStart.plusMonths(monthsNumberInSchedule-1)
+def schedulePeriodEnd=scheduleNewPeriodStart.with(TemporalAdjusters.lastDayOfMonth())
+def yesterday = schedulePeriodStart.minusDays(1)
+def schedulePeriodNextDay2=schedulePeriodStart.plusMonths(1)
+log.info("schedulePeriodNextDay "+schedulePeriodNextDay)
+log.info("schedulePeriodNextDay2 "+schedulePeriodNextDay2)
+log.info("Период расписания с "+schedulePeriodStart+" по "+schedulePeriodEnd)
+
+testRunner.testCase.setPropertyValue("schedulePeriodNextDay",schedulePeriodNextDay.toString());
+testRunner.testCase.setPropertyValue("schedulePeriodNextDay2",schedulePeriodNextDay2.toString());
+testRunner.testCase.setPropertyValue("schedulePeriodStart1",schedulePeriodStart.toString());
+testRunner.testCase.setPropertyValue("schedulePeriodEnd1", schedulePeriodEnd.toString())
+testRunner.testCase.setPropertyValue("schedulePeriodStart",schedulePeriodStart.toString());
+testRunner.testCase.setPropertyValue("schedulePeriodEnd", schedulePeriodEnd.toString())
+log.info("Период расписания №1 с "+schedulePeriodStart+" по "+schedulePeriodEnd)
+ospe=schedulePeriodEnd
+
+
+	
+for (int i=2; i <5; i++ ){
+	sps=ospe.plusDays(1)
+	spe1=ospe.plusMonths(monthsNumberInSchedule)
+	spe=spe1.with(TemporalAdjusters.lastDayOfMonth())
+	testRunner.testCase.setPropertyValue("schedulePeriodStart"+i,sps.toString());
+	testRunner.testCase.setPropertyValue("schedulePeriodEnd"+i, spe.toString())
+	log.info("Период расписания №"+i+" с "+sps+" по "+spe)
+	ospe=spe
+}
+def lastDayOfCurrentMounth=schedulePeriodStart.with(TemporalAdjusters.lastDayOfMonth())
+def schedulePeriodEndPlusYear=lastDayOfCurrentMounth.plusMonths(monthsNumberInSchedule+13)
+testRunner.testCase.setPropertyValue("schedulePeriodEndPlusYear", schedulePeriodEndPlusYear.toString())
+log.info("schedulePeriodEndPlusYear: "+schedulePeriodEndPlusYear)
+testRunner.testCase.setPropertyValue("yesterday", yesterday.toString())
+log.info("yesterday: "+yesterday)

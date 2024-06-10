@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="searchSoap" elementType="Argument">
+            <stringProp name="Argument.name">searchSoap</stringProp>
+            <stringProp name="Argument.value">esbcamel.test.emias.mos.ru</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">конфигурационный файл с переменными</stringProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Load Data" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Load CSV Data" enabled="true"/>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Load json bodies" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">String[] lines = new File(&quot;/JMSearch/json.csv&quot;).readLines();
+Random rnd = new Random()
+
+def getLine = { return lines[rnd.nextInt(lines.length)] };
+
+props.put(&quot;getLine&quot;, getLine);
+
+log.info(&quot;------------------------------&gt; load file json.csv&quot;);</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="Search methods" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">stopthread</stringProp>
+        <stringProp name="TargetLevel">${__P(threads,1)}</stringProp>
+        <stringProp name="RampUp">${__P(rampUpTime,0.1)}</stringProp>
+        <stringProp name="Steps">${__P(rampUpStepsCount,10)}</stringProp>
+        <stringProp name="Hold">${__P(holdRateTime,0.05)}</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="searchSoapRequest" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:typ=&quot;http://emias.mos.ru/registry/searchService/v1/types/&quot;&gt;&#xd;
+&lt;soap:Header&gt;&#xd;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot;&gt;&#xd;
+      &lt;wsse:UsernameToken wsu:Id=&quot;UsernameToken-778a5123-8149-49ea-ba5e-2589cedf2cb9&quot;&gt;&#xd;
+        &lt;wsse:Username&gt;KPI_DOCTOR_X/ESofronova&lt;/wsse:Username&gt;&#xd;
+      &lt;/wsse:UsernameToken&gt;&#xd;
+    &lt;/wsse:Security&gt;&#xd;
+    &lt;userContext xmlns=&quot;http://emias.mos.ru/system/v1/userContext/&quot;&gt;&#xd;
+      &lt;systemName&gt;KPI_DOCTOR_X&lt;/systemName&gt;&#xd;
+      &lt;userName&gt;ESofronova&lt;/userName&gt;&#xd;
+      &lt;userRoleId&gt;4&lt;/userRoleId&gt;&#xd;
+      &lt;isUserRoleSystemWide&gt;false&lt;/isUserRoleSystemWide&gt;&#xd;
+      &lt;userRights&gt;&#xd;
+        &lt;userRightId&gt;75010&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;470016&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;21000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;33033&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;4107&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;4108&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;75020&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;10001&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;75030&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500511&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500510&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;320031&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;20000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500004&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500002&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500001&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201003&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500015&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201002&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201001&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500013&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;20011&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201007&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500011&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201006&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500010&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201005&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500009&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201004&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201011&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201010&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;190000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201009&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;350007&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201008&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201015&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;350001&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201014&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201013&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;350003&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500017&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201012&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201019&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201018&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;500030&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201017&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201016&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;9020&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;19004&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201023&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;350009&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;9021&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201022&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201021&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201020&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;350010&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201027&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;200002&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201026&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;75075&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;200001&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201025&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201024&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201031&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201030&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201029&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;350019&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201028&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201035&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201034&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201033&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201032&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201039&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201038&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201036&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201042&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201041&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201040&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201047&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201046&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201045&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;150101&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201044&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201050&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201049&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201048&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201055&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201053&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201052&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201059&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201063&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201061&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;11111&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201060&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;17000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201067&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201066&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201065&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201068&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201075&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201074&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201073&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201076&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201080&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201086&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;16000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201091&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;400004&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;400005&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201095&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201093&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201092&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;400001&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201099&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201098&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201097&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201096&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201101&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;201100&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;421524&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;421522&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;90004&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;421523&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;421520&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;15001&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;421532&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;421530&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;421528&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;421529&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;4000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;300207&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;300212&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;300213&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;300214&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;300208&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;3000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2502&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;13000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;333002&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2001&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;3025&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;461526&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;505302&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2002&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;3026&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;505301&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2003&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;3027&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;461524&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2004&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;3028&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2005&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;3029&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2006&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;461521&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2007&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;461520&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2008&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;23000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2009&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;23001&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2010&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;23003&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;23004&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2015&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;2017&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;300005&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;300007&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;12005&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;12006&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;300002&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;1000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;12009&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;3056&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;310002&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;481520&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;470015&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;75000&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;3066&lt;/userRightId&gt;&#xd;
+        &lt;userRightId&gt;300005&lt;/userRightId&gt;&#xd;
+      &lt;/userRights&gt;&#xd;
+      &lt;jobExecutionId&gt;9231180984&lt;/jobExecutionId&gt;&#xd;
+      &lt;hostIp&gt;10.42.63.22&lt;/hostIp&gt;&#xd;
+      &lt;hostName&gt;10.42.63.22&lt;/hostName&gt;&#xd;
+    &lt;/userContext&gt;&#xd;
+  &lt;/soap:Header&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;typ:searchRequest&gt;&#xd;
+         &lt;typ:systemName&gt;default&lt;/typ:systemName&gt;&#xd;
+         &lt;typ:index&gt;registry&lt;/typ:index&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;typ:groupId&gt;${moId}&lt;/typ:groupId&gt;&#xd;
+         &lt;typ:request&gt;${JsonBody}&lt;/typ:request&gt;&#xd;
+      &lt;/typ:searchRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${searchSoap}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/proxy/patientregistry/SearchService/v1S/ProxyService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">&quot;http://emias.mos.ru/registry/searchService/v1/searchServicePortType/searchRequest&quot;</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-type</stringProp>
+                  <stringProp name="Header.value">application/soap+xml;charset=UTF-8;action=&quot;search&quot;</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="PARAMS  Random CSV Data Set Config" enabled="true">
+              <stringProp name="filename">/JMSearch/params.csv</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="delimiter">,</stringProp>
+              <stringProp name="variableNames">areaId,moId</stringProp>
+              <boolProp name="randomOrder">true</boolProp>
+              <boolProp name="ignoreFirstLine">false</boolProp>
+              <boolProp name="rewindOnTheEndOfList">true</boolProp>
+              <boolProp name="independentListPerThread">false</boolProp>
+            </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="load json body" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">def getLine = props.get(&quot;getLine&quot;);
+
+String jsonBody = getLine().replace(&quot;{moId}&quot;, &quot;${moId}&quot;).replace(&quot;{areaId}&quot;, &quot;${areaId}&quot;);
+vars.put(&quot;JsonBody&quot;, jsonBody);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+          </hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugSampler>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

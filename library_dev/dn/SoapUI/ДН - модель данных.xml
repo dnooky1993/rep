@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b6862093-30d6-43fd-b88f-1db684a7f8e9" activeEnvironment="Default" name="ДН Модель данных" resourceRoot="${projectDir}" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" encryptionMode="Not encrypted" updated="3.10.0 2021-09-14T15:18:10Z" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="&lt;all>"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:testSuite id="9ddc191d-9b4d-4f5d-a3b5-9a1a31cb46aa" name="d_task_type"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="8d2980b6-2d10-40e8-9c92-276d027d19a6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="#183423" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="Check Table" id="5f1450b6-5b56-4f30-8520-b6ab15e649e8"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dbConnectionName xsi:nil="true"/><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://${#TestSuite#dbConnect}?stringtype=unspecified&amp;user=dn&amp;password=dn</con:connectionString><con:connectionProperties/><con:query>select * from d_task_type
+order by id</con:query><con:assertion type="Simple Contains" id="4ac284d1-d987-4182-87d1-27d026d86c78" name="Содержимое таблицы полностью соответсвует"><con:configuration><token><![CDATA[<Results>
+    <ResultSet fetchSize="0">
+        <Row rowNumber="1">
+            <D_TASK_TYPE.ID>1</D_TASK_TYPE.ID>
+            <D_TASK_TYPE.TASK_CODE>DIGITIZED_DOCUMENT</D_TASK_TYPE.TASK_CODE>
+            <D_TASK_TYPE.DOCUMENT_CODE>Оцифрованная карта № 030/У</D_TASK_TYPE.DOCUMENT_CODE>
+            <D_TASK_TYPE.TITLE>Оцифрованная карта № 030/У</D_TASK_TYPE.TITLE>
+            <D_TASK_TYPE.IS_DOCUMENT_BASED>t</D_TASK_TYPE.IS_DOCUMENT_BASED>
+            <D_TASK_TYPE.PRIORITY>10</D_TASK_TYPE.PRIORITY>
+        </Row>
+        <Row rowNumber="2">
+            <D_TASK_TYPE.ID>2</D_TASK_TYPE.ID>
+            <D_TASK_TYPE.TASK_CODE>CONTINUED_OBS</D_TASK_TYPE.TASK_CODE>
+            <D_TASK_TYPE.DOCUMENT_CODE/>
+            <D_TASK_TYPE.TITLE>Продолжение наблюдения пациента</D_TASK_TYPE.TITLE>
+            <D_TASK_TYPE.IS_DOCUMENT_BASED>f</D_TASK_TYPE.IS_DOCUMENT_BASED>
+            <D_TASK_TYPE.PRIORITY>20</D_TASK_TYPE.PRIORITY>
+        </Row>
+        <Row rowNumber="3">
+            <D_TASK_TYPE.ID>3</D_TASK_TYPE.ID>
+            <D_TASK_TYPE.TASK_CODE>AREA</D_TASK_TYPE.TASK_CODE>
+            <D_TASK_TYPE.DOCUMENT_CODE/>
+            <D_TASK_TYPE.TITLE>Знакомство с пациентом</D_TASK_TYPE.TITLE>
+            <D_TASK_TYPE.IS_DOCUMENT_BASED>f</D_TASK_TYPE.IS_DOCUMENT_BASED>
+            <D_TASK_TYPE.PRIORITY>30</D_TASK_TYPE.PRIORITY>
+        </Row>
+        <Row rowNumber="4">
+            <D_TASK_TYPE.ID>4</D_TASK_TYPE.ID>
+            <D_TASK_TYPE.TASK_CODE>HOSPITAL_DISCHARGE_DOCUMENT</D_TASK_TYPE.TASK_CODE>
+            <D_TASK_TYPE.DOCUMENT_CODE>Выписной эпикриз</D_TASK_TYPE.DOCUMENT_CODE>
+            <D_TASK_TYPE.TITLE>Выписной эпикриз</D_TASK_TYPE.TITLE>
+            <D_TASK_TYPE.IS_DOCUMENT_BASED>t</D_TASK_TYPE.IS_DOCUMENT_BASED>
+            <D_TASK_TYPE.PRIORITY>40</D_TASK_TYPE.PRIORITY>
+        </Row>
+        <Row rowNumber="5">
+            <D_TASK_TYPE.ID>5</D_TASK_TYPE.ID>
+            <D_TASK_TYPE.TASK_CODE>PREVENTIVE_EXAMINATION_DOCUMENT</D_TASK_TYPE.TASK_CODE>
+            <D_TASK_TYPE.DOCUMENT_CODE>Протокол профосмотра/диспансеризации</D_TASK_TYPE.DOCUMENT_CODE>
+            <D_TASK_TYPE.TITLE>Протокол профосмотра/диспансеризации</D_TASK_TYPE.TITLE>
+            <D_TASK_TYPE.IS_DOCUMENT_BASED>t</D_TASK_TYPE.IS_DOCUMENT_BASED>
+            <D_TASK_TYPE.PRIORITY>50</D_TASK_TYPE.PRIORITY>
+        </Row>
+        <Row rowNumber="6">
+            <D_TASK_TYPE.ID>6</D_TASK_TYPE.ID>
+            <D_TASK_TYPE.TASK_CODE>ADULT_PREVENTIVE_EXAMINATION</D_TASK_TYPE.TASK_CODE>
+            <D_TASK_TYPE.DOCUMENT_CODE>Протокол врача ОМП по итогам чекапа в парке</D_TASK_TYPE.DOCUMENT_CODE>
+            <D_TASK_TYPE.TITLE>Протокол врача ОМП по итогам чекапа в парке</D_TASK_TYPE.TITLE>
+            <D_TASK_TYPE.IS_DOCUMENT_BASED>t</D_TASK_TYPE.IS_DOCUMENT_BASED>
+            <D_TASK_TYPE.PRIORITY>60</D_TASK_TYPE.PRIORITY>
+        </Row>
+        <Row rowNumber="7">
+            <D_TASK_TYPE.ID>7</D_TASK_TYPE.ID>
+            <D_TASK_TYPE.TASK_CODE>JOB_EXECUTION_EXPIRATION</D_TASK_TYPE.TASK_CODE>
+            <D_TASK_TYPE.DOCUMENT_CODE/>
+            <D_TASK_TYPE.TITLE>Отсутствие врача, ведущего ДН</D_TASK_TYPE.TITLE>
+            <D_TASK_TYPE.IS_DOCUMENT_BASED>f</D_TASK_TYPE.IS_DOCUMENT_BASED>
+            <D_TASK_TYPE.PRIORITY>35</D_TASK_TYPE.PRIORITY>
+        </Row>
+    </ResultSet>
+</Results>
+]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:properties/></con:config></con:testStep><con:properties><con:property><con:name>topicName</con:name><con:value>DnIndex</con:value></con:property><con:property><con:name>patientId</con:name><con:value>5298</con:value></con:property><con:property><con:name>areaId</con:name><con:value>422</con:value></con:property><con:property><con:name>date</con:name><con:value>2022-08-12T00:00:00</con:value></con:property><con:property><con:name>date2</con:name><con:value>2022-08-12</con:value></con:property><con:property><con:name>time</con:name><con:value>00:00:00</con:value></con:property><con:property><con:name>dateLower</con:name><con:value>2022-08-11T00:00:00</con:value></con:property><con:property><con:name>dateLower2</con:name><con:value>2022-08-11</con:value></con:property><con:property><con:name>areaIdNew</con:name><con:value>1${#TestCase#areaId}</con:value></con:property><con:property><con:name>dateHigher</con:name><con:value>2022-08-13T00:00:00</con:value></con:property><con:property><con:name>dateHigher2</con:name><con:value>2022-08-13</con:value></con:property><con:property><con:name>dateEvenHigher</con:name><con:value>2022-08-15T00:00:00</con:value></con:property><con:property><con:name>dateEvenHigher2</con:name><con:value>2022-08-15</con:value></con:property></con:properties><con:reportParameters/></con:testCase><con:properties><con:property><con:name>dbConnect</con:name><con:value>10.2.172.90:5432/dn</con:value></con:property></con:properties><con:reportParameters/></con:testSuite><con:requirements/><con:properties><con:property><con:name>bootstrapServers</con:name><con:value>10.2.172.24:9092</con:value></con:property><con:property><con:name>dbType</con:name><con:value>postgre</con:value></con:property><con:property><con:name>dbLogin</con:name><con:value>dn</con:value></con:property><con:property><con:name>dbPassword</con:name><con:value>dn</con:value></con:property><con:property><con:name>dbConnect</con:name><con:value>10.2.172.90:5432/dn</con:value></con:property><con:property><con:name>topicDNexternal</con:name><con:value>DnExternalRecordToDisp</con:value></con:property><con:property><con:name>topicDNForm30ToDisp</con:name><con:value>DnForm30ToDisp</con:value></con:property><con:property><con:name>patientId</con:name><con:value>9903</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer><con:databaseConnection><con:name>DN</con:name><con:driver>org.postgresql.Driver</con:driver><con:connectionString>jdbc:postgresql://10.2.172.41:5432/dn?user=dn&amp;password=PASS_VALUE</con:connectionString><con:password>dn</con:password><con:connectionProperties/></con:databaseConnection></con:databaseConnectionContainer><con:jmsConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:authRepository/><con:tags/></con:soapui-project>

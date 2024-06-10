@@ -1,0 +1,2 @@
+INSERT INTO f_dispensary_obs_group (id, title, code, age_group_id, specialization_id, archived) VALUES(51, 'Тиф и паратиф', 'DNC0032', 2, 125676815, false);
+INSERT INTO f_disp_obs_group_mkb10 (dispensary_obs_group_id, mkb10_id, id) VALUES(51, 125676815, 1000);

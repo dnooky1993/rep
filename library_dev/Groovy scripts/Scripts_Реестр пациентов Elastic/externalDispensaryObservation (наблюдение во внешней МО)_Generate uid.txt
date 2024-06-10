@@ -1,0 +1,7 @@
+Random rnd = new Random()
+log.info(rnd.nextInt(10000)) // 2 bits of random number that is, one of the following: 0,1,2,3
+
+String testString = (rnd.nextInt(10000)) 
+testRunner.testCase.setPropertyValue( "uid", testString )
+def getLocalPropValue = testRunner.testCase.getPropertyValue("uid")
+log.info(getLocalPropValue)

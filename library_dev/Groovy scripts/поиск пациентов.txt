@@ -1,0 +1,33 @@
+limit =testRunner.testCase.testSuite.project.getPropertyValue("limit").toInteger()
+
+patientId =testRunner.testCase.testSuite.project.getPropertyValue("patientId").toInteger()
+
+patientFound = false
+
+i=0
+
+while (patientFound==false && i<limit){
+
+	testRunner.testCase.setPropertyValue("patientId", patientId.toString())
+
+	testRunner.runTestStepByName( "search")
+
+	obj = context.testCase.getTestStepByName("search")
+	
+	assertions = obj.getAssertionList()
+	//errors=assertions[0].getErrors().toString()
+	//log.info assertions[4].status
+	patientId=patientId+1
+	
+	assertions.each{ //log.info(it.name + ' --> ' + it.status)
+		stat = (it.status).toString()
+		//log.info stat
+	 	 if(stat == "VALID"){
+	 	 	log.info " статус "+stat+" пациент "+(patientId-1)
+	 	 	testRunner.testCase.testSuite.project.setPropertyValue("patientId",patientId.toString())
+			patientFound=true
+	   }
+	}
+	i=i+1
+}
+  

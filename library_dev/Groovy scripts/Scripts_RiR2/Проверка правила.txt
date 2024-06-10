@@ -1,0 +1,31 @@
+import groovy.sql.Sql
+import groovy.test.GroovyAssert
+if (context.dbConnect != null) {    
+	sql = context.dbConnect;
+//username =testRunner.testCase.testSuite.getPropertyValue("db_rir2_user")
+//password =testRunner.testCase.testSuite.getPropertyValue("db_rir2_password")
+//dbconstring =testRunner.testCase.testSuite.getPropertyValue("db_rir2_con")
+
+//sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+        
+    def sarSheduleRuleId= testRunner.testCase.getPropertyValue("sarSheduleRuleId")
+     log.info ("ID правила: " + sarSheduleRuleId)
+     
+     def scheduleId= testRunner.testCase.getPropertyValue("scheduleId")
+     log.info ("ID Расписания: " + scheduleId)
+     
+     def resourceId= testRunner.testCase.getPropertyValue("resourceId")
+      log.info ("ID композитного ресурса: " + resourceId)
+      
+	 //Проверка, что изменился статус расписание композитного ресурса
+	 
+     String sql_query_rS ="select  * from RESOURCE_SCHEDULE WHERE SCHEDULE_ID ="+scheduleId+"AND RESOURCE_ID =" + resourceId
+     def rSchedule = sql.rows(sql_query_rS)
+     String rScheduleStatus =rSchedule[0].STATUS
+     assert rScheduleStatus=='DIRTY'
+     
+ } else {
+	log.error("Соединение с бд не установлено!");
+}	

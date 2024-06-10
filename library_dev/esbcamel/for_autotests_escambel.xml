@@ -1,0 +1,2246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="559683be-de0a-45c2-8b36-b31ec034554f" activeEnvironment="Default" name="for_autotests_escambel" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="1a0fce27-882d-46be-82cd-9257338815ec" wsaVersion="NONE" name="journalServiceBinding" type="wsdl" bindingName="{http://emias.mos.ru/supp/rir2/journalService/v1/}journalServiceBinding" soapVersion="1_2" anonymous="optional" definition="http://journal.rir2.test.emias.mos.ru/api/Journal?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://journal.rir2.test.emias.mos.ru/api/Journal?wsdl"><con:part><con:url>http://journal.rir2.test.emias.mos.ru/api/Journal?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="journalService" targetNamespace="http://emias.mos.ru/supp/rir2/journalService/v1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns:tns="http://emias.mos.ru/supp/rir2/journalService/v1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:nsf="http://emias.mos.ru/system/v1/faults/" xmlns:ns1="http://emias.mos.ru/supp/rir2/journalService/v1/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/">
+  <wsdl:documentation>Версия 1.2.0</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../system/v1/emias.system.v1.userContext.xsd"/>
+      <xs:import namespace="http://emias.mos.ru/system/v1/faults/" schemaLocation="http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../system/v1/emias.system.v1.faults.xsd"/>
+      <xs:import namespace="http://emias.mos.ru/supp/rir2/journalService/v1/types/" schemaLocation="http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=supp.rir2.journalService.v1.types.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="fault">
+    <wsdl:documentation>Ошибка</wsdl:documentation>
+    <wsdl:part element="nsf:fault" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="userContext">
+    <wsdl:documentation>Контекст пользователя</wsdl:documentation>
+    <wsdl:part element="uctx:userContext" name="userContext"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getJournalInput">
+    <wsdl:part element="ns1:getJournalRequest" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getJournalOutput">
+    <wsdl:part element="ns1:getJournalResponse" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="journalServicePortType">
+    <wsdl:operation name="getJournal">
+      <wsdl:input message="tns:getJournalInput"></wsdl:input>
+      <wsdl:output message="tns:getJournalOutput"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="journalServiceBinding" type="tns:journalServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getJournal">
+      <soap:operation soapAction="getJournal"/>
+      <wsdl:input>
+        <soap:header message="tns:userContext" part="userContext" use="literal"></soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="journalService">
+    <wsdl:port binding="tns:journalServiceBinding" name="journalServicePort">
+      <soap:address location="http://journal.rir2.test.emias.mos.ru/api/Journal"/>
+    </wsdl:port>
+    <wsp:PolicyReference URI="#authPolicy"/>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="authPolicy">
+    <sp:SupportingTokens xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+      <wsp:Policy>
+        <sp:UsernameToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+          <wsp:Policy>
+            <sp:NoPassword/>
+          </wsp:Policy>
+        </sp:UsernameToken>
+      </wsp:Policy>
+    </sp:SupportingTokens>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../system/v1/emias.system.v1.userContext.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://emias.mos.ru/system/v1/userContext/">
+  <xs:include schemaLocation="http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../core/v1/emias.core.v1.xsd"/>
+  <xs:element name="userContext" type="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="systemName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Шифр системы-потребителя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя пользователя (логин)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRoleId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Код Роли</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="isUserRoleSystemWide" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак "Общесистемная Роль"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRights">
+        <xs:annotation>
+          <xs:documentation>Коллекция Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Код Полномочия</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jobExecutionId" type="ID"/>
+      <xs:element minOccurs="0" name="hostIp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>IP адрес хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hostName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="options" type="Options">
+        <xs:annotation>
+          <xs:documentation>Набор именованных значений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../core/v1/emias.core.v1.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../system/v1/emias.system.v1.xsd"/>
+  <!--references-->
+  <xs:element name="medicalOrganizationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинской организации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="medicalFacilityId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинского учреждения</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--async operation status-->
+  <xs:element name="operationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор операции</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="OperationExecutionStatus">
+    <xs:annotation>
+      <xs:documentation>Статус выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="isCompleted" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак окончания выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="completenessProgress" type="OperationCompletenessBase">
+        <xs:annotation>
+          <xs:documentation>Сведения о текущем статусе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasSucceded" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак успешности выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+        <xs:annotation>
+          <xs:documentation>Коллекция сообщений, порожденных в ходе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор операции</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType abstract="false" name="OperationCompletenessPercentage">
+    <xs:annotation>
+      <xs:documentation>Описание текущего статуса выполнения операции в процентах (0%-100%)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="OperationCompletenessBase">
+        <xs:sequence>
+          <xs:element name="completenessStatus">
+            <xs:annotation>
+              <xs:documentation>Статус (0%-100%)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:unsignedByte">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="OperationCompletenessBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип для описания текущего статуса выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--calling methods' options-->
+  <xs:element name="options" type="Options">
+    <xs:annotation>
+      <xs:documentation>Параметры вызова метода</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Options">
+    <xs:annotation>
+      <xs:documentation>Набор именованных значений</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="KeyValuePair">
+        <xs:annotation>
+          <xs:documentation>Именованное значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--pagination-->
+  <xs:element name="pagingOptions" type="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType abstract="true" name="PagingResults">
+    <xs:annotation>
+      <xs:documentation>Список с пагинацией</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageTotal" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество страниц</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="morePagesAvailable" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Флаг доступности других страниц с результатами для "постраничного листания" (true - если доступны еще страницы; false - иначе)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="sortingOptions"/>
+    </xs:sequence>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--sorting-->
+  <xs:element name="sortingOptions" type="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры сортировки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Условия сортировки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="3" name="sortOrder" type="SortOrder">
+        <xs:annotation>
+          <xs:documentation>Условия сортировки
+						(используются в соответствии с
+						переданной последовательностью)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SortOrder">
+    <xs:annotation>
+      <xs:documentation>Сортировка</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="attributeName" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование поля, по которому должна быть произведена сортировка</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute default="false" name="desceding" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>Направление сортировки</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--void response-->
+  <xs:element fixed="true" name="result">
+    <xs:annotation>
+      <xs:documentation>Элемент для использования в методах, не предполагающих возврат какого-либо значения</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:boolean"/>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--base types-->
+  <xs:complexType name="TimeInterval">
+    <xs:annotation>
+      <xs:documentation>Временной период (время)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время начала интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время окончания интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DatePeriod">
+    <xs:annotation>
+      <xs:documentation>Временной период (дата)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата окончания периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../system/v1/emias.system.v1.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--error message description-->
+  <xs:complexType name="ErrorMessageCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция сообщений об ошибках</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="message" type="ErrorMessage">
+        <xs:annotation>
+          <xs:documentation>Сообщение об ошибке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorMessage">
+    <xs:annotation>
+      <xs:documentation>Сообщение об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parameters">
+            <xs:annotation>
+              <xs:documentation>Коллекция параметров сообщения</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="parameter" type="KeyValuePair">
+                  <xs:annotation>
+                    <xs:documentation>Параметр сообщения</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Сопутствующие сообщения об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="ErrorMessageTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип сообщения</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ErrorMessageTypes">
+    <xs:annotation>
+      <xs:documentation>Тип сообщения об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation>Ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WARNING">
+        <xs:annotation>
+          <xs:documentation>Предупреждение (не блокирующая ошибка)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INFO">
+        <xs:annotation>
+          <xs:documentation>Информационное сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:simpleType name="GUID">
+    <xs:annotation>
+      <xs:documentation>Глобальный 128-битный идентификатор (Globally Unique Identifier)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="KeyValuePair">
+    <xs:annotation>
+      <xs:documentation>Представляет тип "ключ/значение"</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Ключ</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Message">
+    <xs:annotation>
+      <xs:documentation>Сообщение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Текст сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../system/v1/emias.system.v1.faults.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/faults/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns="http://emias.mos.ru/system/v1/faults/">
+  <xs:include schemaLocation="http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../system/v1/emias.system.v1.xsd"/>
+  <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../system/v1/emias.system.v1.userContext.xsd"/>
+  <!--faults-->
+  <xs:element name="fault" type="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Базовый тип ошибки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SecurityFault">
+    <xs:annotation>
+      <xs:documentation>Ошибка безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element ref="uctx:userContext"/>
+          <xs:choice>
+            <xs:element name="unauthorizedRequestSecurityException" type="UnauthorizedRequestSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="otherSecurityException" type="OtherSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute fixed="SECURITY" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BusinessFault">
+    <xs:annotation>
+      <xs:documentation>Бизнес ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Коллекция Сообщений об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="hasErrors" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак наличия ошибок в списке сообщений</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="BUSINESS" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnexpectedFault">
+    <xs:annotation>
+      <xs:documentation>Непредвиденная ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="version" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Версия продукта-сервиса</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stackTrace">
+            <xs:annotation>
+              <xs:documentation>Стек вызова (последние 10  записей)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="10" name="stackTraceRecord">
+                  <xs:annotation>
+                    <xs:documentation>Запись StackTrace</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="declaringClass" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование класса, содержащего метод</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="methodName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование метода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="fileName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование файла</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="lineNumber" type="xs:int">
+                        <xs:annotation>
+                          <xs:documentation>Номер строки кода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="UNEXPECTED" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Описание базового типа описания ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--security exceptions-->
+  <xs:complexType name="UnauthorizedRequestSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="requiredRights">
+        <xs:annotation>
+          <xs:documentation>Перечень идентификаторов недостающих Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Идентификатор Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="UNAUTHORIZED_REQUEST_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="OtherSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="message" type="Message">
+        <xs:annotation>
+          <xs:documentation>Сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="OTHER_SECURITY_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:simpleType name="SecurityExceptionTypes">
+    <xs:annotation>
+      <xs:documentation>Типы исключений безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNAUTHORIZED_REQUEST_EXCEPTION"/>
+      <xs:enumeration value="OTHER_SECURITY_EXCEPTION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--components-->
+  <xs:simpleType name="FaultTypes">
+    <xs:annotation>
+      <xs:documentation>Тип ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SECURITY">
+        <xs:annotation>
+          <xs:documentation>Непредвиденная ошибка приложения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUSINESS">
+        <xs:annotation>
+          <xs:documentation>Бизнес ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UNEXPECTED">
+        <xs:annotation>
+          <xs:documentation>Ошибка безопасности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=supp.rir2.journalService.v1.types.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/supp/rir2/journalService/v1/types/" version="Версия 1.3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:core="http://emias.mos.ru/supp/rir2/core/v1/" xmlns="http://emias.mos.ru/supp/rir2/journalService/v1/types/">
+  <xs:import namespace="http://emias.mos.ru/supp/rir2/core/v1/" schemaLocation="http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=supp.rir2.core.v1.xsd"/>
+  <xs:element name="getJournalRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="searchParams">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="medicalFacilityId" type="core:ID">
+                <xs:annotation>
+                  <xs:documentation>Идентификаторы МУ, по которым нужно отобрать изменения</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="resourceId" type="core:ID">
+                <xs:annotation>
+                  <xs:documentation>Идентификаторы ресурсов, по которым нужно отобрать изменения</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="operationType" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>Тип изменений в данных, которые нужны в выходных параметрах.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element minOccurs="0" name="datePeriod" type="core:DatePeriod">
+                <xs:annotation>
+                  <xs:documentation>Период дат, за которые нужен журнал</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="options" type="core:Options">
+          <xs:annotation>
+            <xs:documentation>Период дат, за которые нужен журнал</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="pagingOptions" type="core:PagingOptions">
+          <xs:annotation>
+            <xs:documentation>Параметры пагинации и сортировки</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getJournalResponse">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="core:PagingResults">
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="logs">
+              <xs:annotation>
+                <xs:documentation>Данные для составления журнала</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" type="core:ID"/>
+                  <xs:element minOccurs="0" name="userName" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Логин автора</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="userRoleId" type="xs:long">
+                    <xs:annotation>
+                      <xs:documentation>Роль автора</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="jobExecutionId" type="core:ID">
+                    <xs:annotation>
+                      <xs:documentation>Исполнение должности автора</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="dateTime" type="xs:dateTime">
+                    <xs:annotation>
+                      <xs:documentation>Дата и время применения изменений</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="operationType" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Тип операции внесения изменений</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="entityID" type="core:ID">
+                    <xs:annotation>
+                      <xs:documentation>Идентификатор объекта</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="resourceID" type="core:ID">
+                    <xs:annotation>
+                      <xs:documentation>Идентификатор ресурса</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="muID" type="core:ID">
+                    <xs:annotation>
+                      <xs:documentation>Идентификатор МУ</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="details" type="JournalEntryDetail">
+                    <xs:annotation>
+                      <xs:documentation>Измененные атрибуты/объекты</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="resources">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" type="core:ID"/>
+                  <xs:element name="title" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType abstract="true" name="JournalEntryDetail"></xs:complexType>
+  <xs:complexType name="NoJournalDetail">
+    <xs:complexContent>
+      <xs:extension base="JournalEntryDetail"></xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CopyRulesEventDetail">
+    <xs:complexContent>
+      <xs:extension base="JournalEntryDetail">
+        <xs:sequence>
+          <xs:element name="targetResourceName" type="xs:string"/>
+          <xs:element name="targetSchedulePeriod" type="core:SchedulePeriod"/>
+          <xs:element name="sourceResourceName" type="xs:string"/>
+          <xs:element name="sourcesMuId" type="core:ID"/>
+          <xs:element name="sourceSchedulePeriod" type="core:SchedulePeriod"/>
+          <xs:element maxOccurs="unbounded" name="kinds" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CRUDRuleEventDetail">
+    <xs:complexContent>
+      <xs:extension base="JournalEntryDetail">
+        <xs:sequence>
+          <xs:element name="sourceSchedulePeriod" type="core:SchedulePeriod"/>
+          <xs:element name="ruleKind" type="xs:string"/>
+          <xs:element name="rulePeriod" type="core:DatePeriod"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ChangeSchedulePeriodEventDetail">
+    <xs:complexContent>
+      <xs:extension base="JournalEntryDetail">
+        <xs:sequence>
+          <xs:element name="targetSchedulePeriod" type="core:SchedulePeriod"/>
+          <xs:element name="isActive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ChangeScheduleStatusEventDetail">
+    <xs:complexContent>
+      <xs:extension base="JournalEntryDetail">
+        <xs:sequence>
+          <xs:element name="targetSchedulePeriod" type="core:SchedulePeriod"/>
+          <xs:element name="isActive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CopyScheduleEventDetail">
+    <xs:complexContent>
+      <xs:extension base="JournalEntryDetail">
+        <xs:sequence>
+          <xs:element name="targetSchedulePeriod" type="core:SchedulePeriod"/>
+          <xs:element name="sourceSchedulePeriod" type="core:SchedulePeriod"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ScheduleEventDetail">
+    <xs:complexContent>
+      <xs:extension base="JournalEntryDetail">
+        <xs:sequence>
+          <xs:element name="targetSchedulePeriod" type="core:SchedulePeriod"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SetWorkHoursEventDetail">
+    <xs:annotation>
+      <xs:documentation>Детальные сведения события установки графика работы МУ</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="JournalEntryDetail">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="setWorkHours">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element ref="core:dayOfWeek"/>
+                <xs:element minOccurs="0" name="description" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation>Комментарий пользователя</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="oldWorkHours" type="core:RuleTimeInterval">
+                    <xs:annotation>
+                      <xs:documentation>Старый график работы</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="newWorkHours" type="core:RuleTimeInterval">
+                    <xs:annotation>
+                      <xs:documentation>Новый график работы</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RemoveWorkHoursEventDetail">
+    <xs:annotation>
+      <xs:documentation>Детальные сведения события удаление графика работы МУ</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="JournalEntryDetail">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="oldWorkHours" type="core:WorkHoursForDayOfWeek"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=supp.rir2.core.v1.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by DIT (DIT)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/supp/rir2/core/v1/" version="Версия 1.3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://emias.mos.ru/supp/rir2/core/v1/">
+  <xs:include schemaLocation="http://journal.rir2.test.emias.mos.ru/api/Journal?xsd=../../core/v1/emias.core.v1.xsd"/>
+  <!--rules components-->
+  <xs:complexType name="TreatmentsIdCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция идентификаторов Медицинских манипуляций</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="treatmentId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Идентификатор Медицинской манипуляции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AgeGroupsIdCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция идентификаторов Возрастных групп</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="ageGroupId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Идентификатор Возрастной группы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RuleTimeInterval">
+    <xs:annotation>
+      <xs:documentation>Временной интервал Правила расписания</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="TimeInterval">
+        <xs:sequence>
+          <xs:element name="start" type="xs:time">
+            <xs:annotation>
+              <xs:documentation>Время начала интервала</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="end" type="xs:time">
+            <xs:annotation>
+              <xs:documentation>Время окончания интервала</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="RuleTypeId">
+    <xs:annotation>
+      <xs:documentation>Идентификатор типа Правила расписания</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="ID"/>
+  </xs:simpleType>
+  <xs:simpleType name="LocationId">
+    <xs:annotation>
+      <xs:documentation>Идентификатор локации</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="ID"/>
+  </xs:simpleType>
+  <xs:complexType name="RuleDatePeriod">
+    <xs:annotation>
+      <xs:documentation>Период действия Правила расписания</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="DatePeriod">
+        <xs:sequence>
+          <xs:element name="start" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>Дата начала периода</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="end" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>Дата окончания периода</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--excluded dates definition-->
+  <xs:complexType name="ExcludedDates">
+    <xs:annotation>
+      <xs:documentation>Описание исключаемых дней</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="excludedDay" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Исключаемые даты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="isExcludedHoliday" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак "Исключая праздничные дни" (в соответствии с производственным
+                        календарем)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="7" minOccurs="0" name="excludedDayOfWeek" type="DayOfWeekNumber">
+        <xs:annotation>
+          <xs:documentation>Исключаемые дни недели</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--date templates definitions-->
+  <xs:complexType name="DayOfMonthDatesTemplate">
+    <xs:annotation>
+      <xs:documentation>Шаблон дат "Ежемесячно в заданные даты каждого календарного месяца"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DatesTemplate">
+        <xs:sequence>
+          <xs:element maxOccurs="31" name="dayOfMonth" type="DayOfMonthNumber">
+            <xs:annotation>
+              <xs:documentation>Номер дня месяца (число от 1 до 31)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DayOfWeekByMonthDatesTemplate">
+    <xs:annotation>
+      <xs:documentation>Шаблон дат "Ежемесячно по дням недели" (например, каждый 3-й понедельник месяца)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DatesTemplate">
+        <xs:sequence>
+          <xs:element maxOccurs="5" name="week" type="WeekOfMonthNumber">
+            <xs:annotation>
+              <xs:documentation>Номер недели месяца (число от 1 до 5)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dayOfWeek" type="DayOfWeekNumber">
+            <xs:annotation>
+              <xs:documentation>Номер дня недели (число от 1 до 7)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SpecialDayDatesTemplate">
+    <xs:annotation>
+      <xs:documentation>Шаблон дат "В конкретные даты" (например, 25 января 2015 года и т. д)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DatesTemplate">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="day" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>Дата</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EvenDatesTemplate">
+    <xs:annotation>
+      <xs:documentation>Шаблон дат "По четным или нечетным числам"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DatesTemplate">
+        <xs:sequence>
+          <xs:element name="isEven" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак «Четные числа»</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DayOfWeekDatesTemplate">
+    <xs:annotation>
+      <xs:documentation>Шаблон дат "По дням недели"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DatesTemplate">
+        <xs:sequence>
+          <xs:element maxOccurs="7" name="dayOfWeek" type="DayOfWeekNumber">
+            <xs:annotation>
+              <xs:documentation>Номер дня недели (число от 1 до 7)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="DatesTemplate">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип описания Шаблона дат</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:element name="dayOfWeek">
+    <xs:annotation>
+      <xs:documentation>День недели</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:int">
+        <xs:minInclusive value="1"/>
+        <xs:maxInclusive value="7"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <!--templates components-->
+  <xs:simpleType name="DayOfWeekNumber">
+    <xs:annotation>
+      <xs:documentation>Номер дня недели</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="7"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DayOfMonthNumber">
+    <xs:annotation>
+      <xs:documentation>Номер дня месяца</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="31"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WeekOfMonthNumber">
+    <xs:annotation>
+      <xs:documentation>Номер недели месяца</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--composite resources schedule-->
+  <xs:complexType name="CompositeResourceSchedule">
+    <xs:annotation>
+      <xs:documentation>Сущность "Расписание композитного ресурса"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ResourceScheduleBase">
+        <xs:sequence>
+          <xs:element name="compositeResource" type="CompositeResource">
+            <xs:annotation>
+              <xs:documentation>Композитный ресурс</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CompositeResourceScheduleInfo">
+    <xs:annotation>
+      <xs:documentation>Сведения о Расписании композитного ресурса</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ResourceScheduleBase">
+        <xs:sequence>
+          <xs:element name="scheduleInfo">
+            <xs:annotation>
+              <xs:documentation>Сведения о Расписании МО/МУ, которому принадлежит Расписание СДР</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element ref="schedulePeriod"/>
+                <xs:element ref="scheduleActiveState"/>
+              </xs:sequence>
+              <xs:attribute name="isLocked" type="xs:boolean" use="optional">
+                <xs:annotation>
+                  <xs:documentation>Признак блокировки Расписания МО/МУ, определяющий невозможность
+                                        внесения изменений в определение его содержания</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="ResourceScheduleBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип для описания сущности "Расписание композитного ресурса"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="VersionedEntityBase">
+        <xs:sequence>
+          <xs:element ref="resourceScheduleStatus">
+            <xs:annotation>
+              <xs:documentation>Статус</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="completeness" type="xs:unsignedByte">
+            <xs:annotation>
+              <xs:documentation>Полнота расписания</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="resourceScheduleStatus" type="ResourceScheduleStatuses">
+    <xs:annotation>
+      <xs:documentation>Статус Расписания композитного ресурса</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:simpleType name="ResourceScheduleStatuses">
+    <xs:annotation>
+      <xs:documentation>Статусы Расписания композитного ресурса</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOT_DEFINED"/>
+      <xs:enumeration value="DIRTY"/>
+      <xs:enumeration value="READY"/>
+      <xs:enumeration value="CALCULATION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CopySarScheduleRuleTypeKinds">
+    <xs:annotation>
+      <xs:documentation>Виды Типов правил расписания СДР подлежащих копированию</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="SarScheduleRuleTypeKinds">
+      <xs:enumeration value="REJECTION"/>
+      <xs:enumeration value="TREATMENT_REDEFINITION"/>
+      <xs:enumeration value="AGE_GROUP_RESTRICTION"/>
+      <xs:enumeration value="ROUTE_REDEFINITION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SarScheduleRuleTypeKinds">
+    <xs:annotation>
+      <xs:documentation>Виды Типов правил расписания СДР</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WORK_TIME_DEFINITION"/>
+      <xs:enumeration value="REJECTION"/>
+      <xs:enumeration value="TREATMENT_REDEFINITION"/>
+      <xs:enumeration value="AGE_GROUP_RESTRICTION"/>
+      <xs:enumeration value="ROUTE_REDEFINITION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CopyArScheduleRuleTypeKinds">
+    <xs:annotation>
+      <xs:documentation>Виды Типов правил расписания ДР подлежащих копированию</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="ArScheduleRuleTypeKinds">
+      <xs:enumeration value="REJECTION"/>
+      <xs:enumeration value="TREATMENT_REDEFINITION"/>
+      <xs:enumeration value="AGE_GROUP_RESTRICTION"/>
+      <xs:enumeration value="LOCATION_REDEFINITION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ArScheduleRuleTypeKinds">
+    <xs:annotation>
+      <xs:documentation>Виды Типов правил расписания ДР</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WORK_TIME_DEFINITION"/>
+      <xs:enumeration value="REJECTION"/>
+      <xs:enumeration value="TREATMENT_REDEFINITION"/>
+      <xs:enumeration value="AGE_GROUP_RESTRICTION"/>
+      <xs:enumeration value="LOCATION_REDEFINITION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--composite resources-->
+  <xs:complexType name="SpecialAvailableResource">
+    <xs:annotation>
+      <xs:documentation>Сущность "Специальный доступный ресурс"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ResourceBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parent" type="Equipment">
+            <xs:annotation>
+              <xs:documentation>Родительская сущность "Специализированный кабинет"</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="SPECIAL_AVAILABLE_RESOURCE" name="kind" type="ResourceKinds" use="required">
+          <xs:annotation>
+            <xs:documentation>Вид Композитного ресурса</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AvailableResource">
+    <xs:annotation>
+      <xs:documentation>Сущность "Доступный ресурс"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ResourceBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parent" type="JobExecution">
+            <xs:annotation>
+              <xs:documentation>Родительская сущность "Исполнение должности"</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="AVAILABLE_RESOURCE" name="kind" type="ResourceKinds" use="required">
+          <xs:annotation>
+            <xs:documentation>Вид Композитного ресурса</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CompositeResource">
+    <xs:annotation>
+      <xs:documentation>Сущность "Композитный ресурс"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ResourceBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="info" type="CompositeResourceInfo">
+            <xs:annotation>
+              <xs:documentation>Сведения о Композитном ресурсе</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CompositeResourceWithTreatments">
+    <xs:annotation>
+      <xs:documentation>Сущность "Композитный ресурс" со сведениями о проводимых манипуляциях.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="directMedicalOrganization" type="ID"/>
+      <xs:element maxOccurs="unbounded" name="treatmentId" type="ID"/>
+      <xs:element name="resource" type="CompositeResourceForAssignment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CompositeResourceForAssignment">
+    <xs:annotation>
+      <xs:documentation>Краткие сведения о ресурсе</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="medicalOrganization" type="MedicalOrganizationShort"/>
+      <xs:element name="medicalFacility" type="MedicalFacilityShort"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="MedicalOrganizationShort">
+    <xs:annotation>
+      <xs:documentation>Краткие сведения о Медицинской организации</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EntityBase">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="shortName" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MedicalFacilityShort">
+    <xs:annotation>
+      <xs:documentation>Краткие сведения о Медицинской организации</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EntityBase">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="shortName" type="xs:string"/>
+          <xs:element name="addressObject" type="AddressObjectShort"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AddressObjectShort">
+    <xs:annotation>
+      <xs:documentation>Краткие сведения об Адресном объекте</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EntityBase">
+        <xs:sequence>
+          <xs:element name="addressShort" type="AddressShort"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AddressShort">
+    <xs:annotation>
+      <xs:documentation>Краткие сведения об адресе</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EntityBase">
+        <xs:sequence>
+          <xs:element name="addressString" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CompositeResourceInfo">
+    <xs:annotation>
+      <xs:documentation>Сведения о Композитном ресурсе</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="resourceKind">
+        <xs:annotation>
+          <xs:documentation>Вид Композитного ресурса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="parentId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Хранит идентификатор сущности, принадлежащей ЕМИАС.СКУУ.СВМР, на основании которой
+						был сформирован Композитный ресурс.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="type" type="CompositeResourceType">
+        <xs:annotation>
+          <xs:documentation>Тип Композитного ресурса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="specialization" type="Specialization">
+        <xs:annotation>
+          <xs:documentation>Специализация Композитного ресурса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="medicalOrganizationId">
+        <xs:annotation>
+          <xs:documentation>Идентификатор МО, которой принадлежит Композитный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="department" type="Department">
+        <xs:annotation>
+          <xs:documentation>Структурное подразделение МО, которому принадлежит Композитный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="functionTitle" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование функции Композитного ресурса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="functionVolume" type="xs:float">
+        <xs:annotation>
+          <xs:documentation>Объем функции Композитного ресурса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="medicalFacilityId">
+        <xs:annotation>
+          <xs:documentation>Идентификатор МУ, которому принадлежит Композитный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="location" type="Location">
+        <xs:annotation>
+          <xs:documentation>Локация, связанная с Композитным ресурсом</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CompositeResourceType">
+    <xs:annotation>
+      <xs:documentation>Сведения о типе Композитного ресурса</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="NsiBase">
+        <xs:sequence>
+          <xs:element name="title" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Наименование</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="ID" use="required">
+          <xs:annotation>
+            <xs:documentation>Идентификатор</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="archived" type="xs:boolean" use="prohibited">
+          <xs:annotation>
+            <xs:documentation>Признак "Архивная запись"</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="ResourceBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип для описания сущности "Композитный ресурс"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EntityBase">
+        <xs:sequence>
+          <xs:element name="title" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Наименование</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="syncStatus" type="ResourceSyncStatuses">
+            <xs:annotation>
+              <xs:documentation>Статус синхронизации</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="parameters" type="ResourceParameterCollection">
+            <xs:annotation>
+              <xs:documentation>Параметры</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResourceParameterCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция Параметров ресурса</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="parameter" type="ResourceParameter">
+        <xs:annotation>
+          <xs:documentation>Параметр ресурса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResourceParameter">
+    <xs:annotation>
+      <xs:documentation>Параметр ресурса</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="KeyValuePair">
+        <xs:attribute name="ownerSystemName" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Владелец параметра (шифр системы-потребителя, породившего параметр)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="resourceKind" type="ResourceKinds">
+    <xs:annotation>
+      <xs:documentation>Вид Композитного ресурса</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:simpleType name="ResourceKinds">
+    <xs:annotation>
+      <xs:documentation>Виды Композитного ресурса</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AVAILABLE_RESOURCE"/>
+      <xs:enumeration value="SPECIAL_AVAILABLE_RESOURCE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResourceSyncStatuses">
+    <xs:annotation>
+      <xs:documentation>Статусы синхронизации Композитных ресурсов</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IN_PROGRESS"/>
+      <xs:enumeration value="PROCESSING"/>
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="ERROR"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--MO/MU shedule and its components-->
+  <xs:complexType name="Schedule">
+    <xs:annotation>
+      <xs:documentation>Сущность "Расписаниие МО/МУ"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="VersionedEntityBase">
+        <xs:sequence>
+          <xs:element ref="medicalFacilityId"/>
+          <xs:element ref="schedulePeriod"/>
+          <xs:element ref="scheduleActiveState"/>
+        </xs:sequence>
+        <xs:attribute name="isMo" type="xs:boolean" use="optional">
+          <xs:annotation>
+            <xs:documentation>Признак принадлежности расписания МО</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isLocked" type="xs:boolean" use="optional">
+          <xs:annotation>
+            <xs:documentation>Признак блокировки Расписания МО/МУ, определяющий невозможность внесения
+                            изменений в определение его содержания</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="scheduleId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Расписания МО/МУ</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="scheduleActiveState" type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>Статус "Действующее" для Расписания МО/МУ</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schedulePeriod" type="SchedulePeriod">
+    <xs:annotation>
+      <xs:documentation>Период действия Расписания МО/МУ</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SchedulePeriod">
+    <xs:annotation>
+      <xs:documentation>Период действия Расписания МО/МУ</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="DatePeriod">
+        <xs:sequence>
+          <xs:element name="start" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>Дата начала периода</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="end" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>Дата окончания периода</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="WorkHoursForDayOfWeekDefinition">
+    <xs:annotation>
+      <xs:documentation>Сведения о расписании в конкретный день</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="dayOfWeek"/>
+      <xs:sequence>
+        <xs:element name="workHours" type="RuleTimeInterval">
+          <xs:annotation>
+            <xs:documentation>Временной интервал рабочих часов Медицинского учреждения</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WorkHoursForDayOfWeek">
+    <xs:annotation>
+      <xs:documentation>Сведения о расписании в конкретный день</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="dayOfWeek"/>
+      <xs:element minOccurs="0" name="description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Комментарий пользователя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:sequence>
+        <xs:element name="workHours" type="RuleTimeInterval">
+          <xs:annotation>
+            <xs:documentation>Временной интервал рабочих часов Медицинского учреждения</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WorkHoursCollection">
+    <xs:annotation>
+      <xs:documentation>Сведения о расписании работы учереждения</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="7" minOccurs="0" name="workHoursForDayOfWeek" type="WorkHoursForDayOfWeekDefinition">
+        <xs:annotation>
+          <xs:documentation>Элемент Сведения о расписании в конкретный день</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--business entities which belong to SVMR and their components-->
+  <xs:complexType name="JobExecution">
+    <xs:annotation>
+      <xs:documentation>Сущность "Исполнение должности"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignEntityBase">
+        <xs:sequence>
+          <xs:element name="title" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Наименование должности в ЕМИАС.СКУУ.СВМР</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="nomId" type="ID">
+            <xs:annotation>
+              <xs:documentation>Идентификатор должности (в соответствии с Номенклатурой должностей
+                                медицинских организаций)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="employee" type="Employee">
+            <xs:annotation>
+              <xs:documentation>Сведения о работнике МО</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="jobExecutionVolume" type="xs:float">
+            <xs:annotation>
+              <xs:documentation>Ставка</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="jobExecutionPeriod">
+            <xs:annotation>
+              <xs:documentation>Период исполнения должности</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:restriction base="DatePeriod">
+                  <xs:sequence>
+                    <xs:element name="start" type="xs:date">
+                      <xs:annotation>
+                        <xs:documentation>Дата начала периода</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="end" type="xs:date">
+                      <xs:annotation>
+                        <xs:documentation>Дата окончания периода</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:restriction>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element ref="medicalOrganizationId"/>
+          <xs:element name="department" type="Department">
+            <xs:annotation>
+              <xs:documentation>Структурное подразделение МО</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="specialization" type="Specialization">
+            <xs:annotation>
+              <xs:documentation>Специализация</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="maternityLeave" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак "Декретный отпуск"</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="defaultMedicalFacilityId" type="ID">
+            <xs:annotation>
+              <xs:documentation>Идентификатор МУ в котором "по умолчанию" осуществляется деятельность
+                                работника</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="defaultLocation" type="Location">
+            <xs:annotation>
+              <xs:documentation>Локация, в которой "по умолчанию" осуществляется деятельность работника</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Location">
+    <xs:annotation>
+      <xs:documentation>Сущность "Локация"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignEntityBase">
+        <xs:sequence>
+          <xs:element name="roomTitle" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Наименование кабинета (номер на табличке двери кабинета)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stage" type="xs:short">
+            <xs:annotation>
+              <xs:documentation>Этаж, на котором располагается Локация</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="subBuilding" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Корпус (строение) - используется в случае, если по адресу Адресного
+                                объекта располагается несколько "корпусов"</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="building" type="Building">
+            <xs:annotation>
+              <xs:documentation>Сведения об Адресном объекте</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="specialization" type="Specialization">
+            <xs:annotation>
+              <xs:documentation>Специализация</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="medicalFacilityId">
+            <xs:annotation>
+              <xs:documentation>Идентификатор МУ, которому принадлежит Локация</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="ForeignEntityBase">
+    <xs:annotation>
+      <xs:documentation>Базовый тип для сущностей ЕМИАС.СКУУ.СВМР</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignBase">
+        <xs:attribute name="archived" type="xs:boolean" use="optional">
+          <xs:annotation>
+            <xs:documentation>Признак "Архивная сущность"</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EquipmentProfile">
+    <xs:annotation>
+      <xs:documentation>Элемент справочника "Профиль оборудования".</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="NsiBase"></xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Equipment">
+    <xs:annotation>
+      <xs:documentation>Оборудование</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignBase">
+        <xs:sequence>
+          <xs:element name="title" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Наименование оборудования в ЕМИАС.СКУУ.СВМР</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="equipmentProfile" type="EquipmentProfile">
+            <xs:annotation>
+              <xs:documentation>Профиль Оборудования</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="equipmentTypeId" type="ID">
+            <xs:annotation>
+              <xs:documentation>Наименование оборудования в ЕМИАС.СКУУ.СВМР</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="treatmentRoomKind" type="TreatmentRoomKind">
+            <xs:annotation>
+              <xs:documentation>Вид специализированного  кабинета</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="specialization" type="Specialization">
+            <xs:annotation>
+              <xs:documentation>Специализация</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="medicalOrganizationId" type="ID">
+            <xs:annotation>
+              <xs:documentation>Идентификатор МО</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="medicalFacilityId" type="ID">
+            <xs:annotation>
+              <xs:documentation>Идентификатор МУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="department" type="Department">
+            <xs:annotation>
+              <xs:documentation>Структурное подразделение МО</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="personalizedService" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак индивидуального обслуживания</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="capacityForRoom" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>Количество одновременно обслуживаемых пациентов с учетом ограничивающих условий Локации МУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="defaultLocation" type="Location">
+            <xs:annotation>
+              <xs:documentation>Локация, к которой прикреплено оборудование</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="treatments">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="treatment">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="info" type="Treatment">
+                        <xs:annotation>
+                          <xs:documentation>Сведения о Медицинской манипуляции</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element name="useByDefault" type="xs:boolean">
+                        <xs:annotation>
+                          <xs:documentation>Признак "Использовать по умолчанию" в определении Правила рабочего времени.</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="archived" type="xs:boolean" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Department">
+    <xs:annotation>
+      <xs:documentation>Структурное подразделение</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignBase">
+        <xs:sequence>
+          <xs:element name="title" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Наименование структурного подразделения МО в ЕМИАС.СКУУ.СВМР</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="nomId" type="ID">
+            <xs:annotation>
+              <xs:documentation>Идентификатор структурного подразделения (в соответствии с Номенклатурой
+                                структурных подразделений медицинских организаций)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Employee">
+    <xs:annotation>
+      <xs:documentation>Сведения о работнике МО</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignBase">
+        <xs:sequence>
+          <xs:element name="snils" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>СНИЛС</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="lastName" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Фамилия</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="firstName" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Имя</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="middleName" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Отчество</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Building">
+    <xs:annotation>
+      <xs:documentation>Адресный объект</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignBase">
+        <xs:sequence>
+          <xs:element name="buildingAddress" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Строковое представление адреса Адресного объекта</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="ForeignBase">
+    <xs:annotation>
+      <xs:documentation>Базовый тип для компонентов сущностей ЕМИАС.СКУУ.СВМР</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор (совпадает с идентификатором с ЕМИАС.СКУУ.СВМР)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--nsi-->
+  <xs:complexType name="Treatment">
+    <xs:annotation>
+      <xs:documentation>Медицинская манипуляция</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="NsiBase">
+        <xs:sequence>
+          <xs:element name="categoryCode" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Код категории медицинской манипуляции. Соответствует полю "code" справочника "Категории медицинских манипуляций".</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="code" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Код элемента справочника</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TreatmentRoomKind">
+    <xs:annotation>
+      <xs:documentation>Вид специализированного кабинета</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="NsiBase"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Specialization">
+    <xs:annotation>
+      <xs:documentation>Специализация</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="NsiBase"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="NsiBase">
+    <xs:annotation>
+      <xs:documentation>Базовый тип для справочников</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="archived" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>Признак "Архивная запись"</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--base types and elements-->
+  <xs:element name="entityVersion" type="xs:long">
+    <xs:annotation>
+      <xs:documentation>Версия сущности ЕМИАС.СУПП.РиР</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType abstract="true" name="VersionedEntityBase">
+    <xs:annotation>
+      <xs:documentation>Версионированная сущность ЕМИАС.СУПП.РиР</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EntityBase">
+        <xs:attribute name="version" type="xs:long" use="required">
+          <xs:annotation>
+            <xs:documentation>Версия сущности</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="EntityBase">
+    <xs:annotation>
+      <xs:documentation>Базовая сущность ЕМИАС.СУПП.РиР</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор сущности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:element name="warnings" type="ErrorMessageCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция сообщений (предупреждений) об ошибках</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType abstract="true" name="ProcessingResultBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип, определяющий результат выполнения операции обработки сущностей
+                или их компонентов</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="succeededNumber" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Количество обработанных сущностей (или компоненотов сущности)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalNumber" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Общее количество сущностей (или компонентов сущности), подлежащих обработке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://journal.rir2.test.emias.mos.ru/api/Journal</con:endpoint></con:endpoints><con:operation id="8a82a08e-657e-464c-901b-fd1c9475f038" isOneWay="false" action="getJournal" name="getJournal" bindingOperationName="getJournal" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="450f9e1f-9ce6-4584-86cb-e97ce318d52e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://journal.rir2.test.emias.mos.ru/api/Journal</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/supp/rir2/journalService/v1/types/" xmlns:v1="http://emias.mos.ru/supp/rir2/core/v1/">\r
+   <soap:Header>\r
+      <user:userContext>\r
+         <user:systemName>?</user:systemName>\r
+         <user:userName>?</user:userName>\r
+         <user:userRoleId>?</user:userRoleId>\r
+         <!--Optional:-->\r
+         <user:isUserRoleSystemWide>?</user:isUserRoleSystemWide>\r
+         <user:userRights>\r
+            <!--Zero or more repetitions:-->\r
+            <user:userRightId>?</user:userRightId>\r
+         </user:userRights>\r
+         <user:jobExecutionId>?</user:jobExecutionId>\r
+         <!--Optional:-->\r
+         <user:hostIp>?</user:hostIp>\r
+         <!--Optional:-->\r
+         <user:hostName>?</user:hostName>\r
+         <!--Optional:-->\r
+         <user:options>\r
+            <!--Zero or more repetitions:-->\r
+            <user:entry key="?">?</user:entry>\r
+         </user:options>\r
+      </user:userContext>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <typ:getJournalRequest>\r
+         <typ:searchParams>\r
+            <!--Zero or more repetitions:-->\r
+            <typ:medicalFacilityId>?</typ:medicalFacilityId>\r
+            <!--Zero or more repetitions:-->\r
+            <typ:resourceId>?</typ:resourceId>\r
+            <!--Zero or more repetitions:-->\r
+            <typ:operationType>?</typ:operationType>\r
+            <!--Optional:-->\r
+            <typ:datePeriod>\r
+               <!--Optional:-->\r
+               <v1:start>?</v1:start>\r
+               <!--Optional:-->\r
+               <v1:end>?</v1:end>\r
+            </typ:datePeriod>\r
+         </typ:searchParams>\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <v1:entry key="?">?</v1:entry>\r
+         </typ:options>\r
+         <!--Optional:-->\r
+         <typ:pagingOptions pageNumber="?" pageSize="?">\r
+            <!--Optional:-->\r
+            <v1:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v1:sortOrder attributeName="?" desceding="false"/>\r
+            </v1:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getJournalRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/supp/rir2/journalService/v1/journalServicePortType/getJournalRequest"/></con:call></con:operation></con:interface><con:testSuite id="0ea5e54c-d983-409d-9ba8-a08694cecba1" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7956ea75-5c44-444b-897f-45603e449f10" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase_ID81283" searchProperties="true"><con:settings/><con:testStep type="request" name="SOAP Request" id="a2194fe4-b441-4506-ab4c-04fd3b48b1bc"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>journalServiceBinding</con:interface><con:operation>getJournal</con:operation><con:request name="SOAP Request" id="0dc888a8-8fb8-4182-a2de-e63c973419c0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#journalWSDL}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/supp/rir2/journalService/v1/types/" xmlns:v1="http://emias.mos.ru/supp/rir2/core/v1/">
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-25145CA5C92E7F5041155145445404887">
+            <wsse:Username>KPI_APC_METHODIST/HAdiatullina</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <user:userContext>
+         <user:systemName>KPI_APC_METHODIST</user:systemName>
+         <user:userName>HAdiatullina</user:userName>
+         <user:userRoleId>7014</user:userRoleId>
+         <user:userRights>
+            <user:userRightId>0</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>112740</user:jobExecutionId>
+      </user:userContext>
+   </soap:Header>
+   <soap:Body>
+      <typ:getJournalRequest>
+         <typ:searchParams>
+            <typ:medicalFacilityId>141</typ:medicalFacilityId>
+         </typ:searchParams>
+      </typ:getJournalRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="6acd68d4-7690-4ac6-8ea8-7ff682792aed"/><con:assertion type="SOAP Fault Assertion" id="15f2eebd-ec9b-417a-beae-a796a31e9079" name="Not SOAP Fault"/><con:assertion type="Simple Contains" id="541dbd43-51b1-48f2-83e9-6cd6579ff81c" name="Contains"><con:configuration><token>log</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="42f590f8-aa56-417a-b87b-a08e12625dc0"><con:settings/><con:config><script>import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//	sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+sql.execute("select * from Resource_parameter")
+
+//Отправка сообщения в топик
+Properties props = new Properties()
+props.put('zk.connect', '10.2.172.24:2181')
+props.put('bootstrap.servers', '10.2.172.24:9092')
+props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+ 
+def producer = new KafkaProducer(props)
+
+def messageSender = { String topic, String message ->
+    log.info( "messageSender: "+topic+"; "+message )
+    def key =  UUID.randomUUID().toString()
+    def Date date = new Date(); 
+   def  long  timestamp= date.getTime()
+   def int partition =0
+    String compoundMessage = "$message"
+    producer.send(
+            new ProducerRecord&lt;String, String>(topic, partition, timestamp,  key, compoundMessage),
+            { RecordMetadata metadata, Exception e ->
+                log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+            } as Callback
+    )
+}
+   def sL ="1"
+   String messageL =sL.toString()
+  def topicChangeProcessing= testRunner.testCase.testSuite.project.getPropertyValue("topic")
+   log.info(topicChangeProcessing)
+  String topicChangeProcessing1= topicChangeProcessing.toString()
+  messageSender(topicChangeProcessing1, messageL)
+
+
+producer.close()
+
+//} else {
+//	log.error("Соединение с бд не установлено!");
+//}
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>db_rir2_user</con:name><con:value/></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>journalWSDL</con:name><con:value>http://arschedule.rir2.test.emias.mos.ru/api/Journal?wsdl</con:value></con:property><con:property><con:name>topic</con:name><con:value>ScheduleChangeProcessingStatusTest</con:value></con:property><con:property><con:name>db_rir2_password</con:name><con:value>EMIAS_RIR2</con:value></con:property><con:property><con:name>db_rir2_con</con:name><con:value>@//10.2.172.16:1521/rir2.mosgorzdrav.local</con:value></con:property><con:property><con:name>db_rir2_user</con:name><con:value>EMIAS_RIR2</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

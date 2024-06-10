@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="388faf7c-5a16-4f45-a626-74b0f29db528" activeEnvironment="Default" name="Реестр пациентов с иммунодиагностикой в медблоках" resourceRoot="${projectDir}" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="d61a4d96-4481-47ea-875a-74a3396bd247" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint></con:endpoints><con:resource name="_search" path="/default_registry_immuno_medical_room/_search" id="49d9130b-b4e2-4fb0-925f-f3d38c23c383"><con:settings/><con:parameters/><con:method name="_search 1" id="e96301ed-7dc3-4d52-929f-ff47748a84ef" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:_se="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry_immuno_medical_room/_search">_se:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="19b6e5ce-18bf-4faf-9d81-0bc63e7f6f74" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource></con:interface><con:testSuite id="b8d3fcf0-49dc-402c-8635-f773b9249c4b" name="immunoDiagnostic (Иммунодиагностика)"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="d8c96eb6-3bff-4712-829a-346d8181c9b6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="#237508" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Find patient" id="47ee0906-a06f-43ae-b7d9-06dc65a665ee"><con:settings/><con:config><script>limit =testRunner.testCase.testSuite.project.getPropertyValue("limit").toInteger()
+
+patientId =testRunner.testCase.getPropertyValue("patientId").toInteger()
+
+patientFound = false
+
+i=0
+
+while (patientFound==false &amp;&amp; i&lt;limit){
+
+	testRunner.testCase.setPropertyValue("patientId", patientId.toString())
+
+	testRunner.runTestStepByName( "search")
+
+	obj = context.testCase.getTestStepByName("search")
+	
+	assertions = obj.getAssertionList()
+	//errors=assertions[0].getErrors().toString()
+	//log.info assertions[4].status
+	patientId=patientId+1
+	
+	assertions.each{ //log.info(it.name + ' --> ' + it.status)
+		stat = (it.status).toString()
+		//log.info stat
+	 	 if(stat == "VALID"){
+	 	 	log.info " статус "+stat+" пациент "+(patientId-1)
+	 	 	testRunner.testCase.testSuite.project.setPropertyValue("patientId",patientId.toString())
+			patientFound=true
+	   }
+	}
+	i=i+1
+}
+  </script></con:config></con:testStep><con:testStep type="groovy" name="Create" id="ad4ff532-f5a3-4ffa-8f2e-fe1c1c6c5359"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+def topic =testRunner.testCase.testSuite.getPropertyValue("topic")
+String file =scripts.returnFileAsText("create")
+def patientId =testRunner.testCase.getPropertyValue("patientId")
+String message = file.replace("\$patientId",patientId)
+//return message
+scripts.sendMessageToKafka(topic, message)</script></con:config></con:testStep><con:testStep type="restrequest" name="search" id="ae2eff3b-fcd0-4ceb-836f-73a43596741d" disabled="true"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="search" id="bad5a89b-cd6c-4eda-b44c-5810d8492023" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry_immuno_medical_room/_search</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Check immunoDiagnostics" id="2bcdee82-4355-44bc-93b8-bbe79d3e3e93"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Check immunoDiagnostics" id="da114997-8e92-4c1f-b8b6-43cdc396fd3a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry/_search</con:originalUri><con:assertion type="JsonPath Match" id="dde77dc5-02dd-41b8-8573-ad82ea383ca3" name="Создался блок nimmunoDiagnostics"><con:configuration><path>$.hits.hits..nimmunoDiagnostics</path><content>[[{"immunoTestDate":"2022-03-11","immunoTestKind":"Диаскинтест","compositionId":"953139a4-66af-4144-b6b2-${#TestCase#patientId}::default::1","referralDate":"2022-03-11","immunoTestKindCode":"2","medicalRoomId":"2886"}]]</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>965431345</con:value></con:property><con:property><con:name>create</con:name><con:value>\immunoDiagnostic (Иммунодиагностика)\ImmunoResult shool образовательная организация.json</con:value></con:property></con:properties></con:testCase><con:testCase id="52b4008c-0af4-4a7f-82ae-3aa2559863f1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="#237509" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Find patient" id="46a7ada5-4bcf-4945-b979-87e18e009a69"><con:settings/><con:config><script>limit =testRunner.testCase.testSuite.project.getPropertyValue("limit").toInteger()
+
+patientId =testRunner.testCase.getPropertyValue("patientId").toInteger()
+
+patientFound = false
+
+i=0
+
+while (patientFound==false &amp;&amp; i&lt;limit){
+
+	testRunner.testCase.setPropertyValue("patientId", patientId.toString())
+
+	testRunner.runTestStepByName( "search")
+
+	obj = context.testCase.getTestStepByName("search")
+	
+	assertions = obj.getAssertionList()
+	//errors=assertions[0].getErrors().toString()
+	//log.info assertions[4].status
+	patientId=patientId+1
+	
+	assertions.each{ //log.info(it.name + ' --> ' + it.status)
+		stat = (it.status).toString()
+		//log.info stat
+	 	 if(stat == "VALID"){
+	 	 	log.info " статус "+stat+" пациент "+(patientId-1)
+	 	 	testRunner.testCase.testSuite.project.setPropertyValue("patientId",patientId.toString())
+			patientFound=true
+	   }
+	}
+	i=i+1
+}
+  </script></con:config></con:testStep><con:testStep type="restrequest" name="search" id="693764bd-59c0-4abf-83a1-5a446523bfda" disabled="true"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="search" id="bad5a89b-cd6c-4eda-b44c-5810d8492023" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry_immuno_medical_room/_search</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Create" id="15054d9a-4e26-4a70-a2ff-2990d3609330"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+def topic =testRunner.testCase.testSuite.getPropertyValue("topic")
+String file =scripts.returnFileAsText("create")
+def patientId =testRunner.testCase.getPropertyValue("patientId")
+String message = file.replace("\$patientId",patientId)
+//return message
+scripts. sendMessageToKafka(topic, message)</script></con:config></con:testStep><con:testStep type="restrequest" name="Check immunoDiagnostics" id="7554f2d8-9f88-405f-89e4-dbe030bbcebb"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Check immunoDiagnostics" id="da114997-8e92-4c1f-b8b6-43cdc396fd3a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry/_search</con:originalUri><con:assertion type="JsonPath Match" id="dde77dc5-02dd-41b8-8573-ad82ea383ca3" name="JsonPath Match"><con:configuration><path>$.hits.hits..immunoDiagnostics</path><content>[]</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>984651333</con:value></con:property><con:property><con:name>create</con:name><con:value>\immunoDiagnostic (Иммунодиагностика)\ImmunoResult shool поликлиника.json</con:value></con:property></con:properties></con:testCase><con:testCase id="28382cfc-3e89-4f9a-9ad2-4f13fe4009ae" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="#237510" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Find patient" id="a2268f4a-062b-4941-8c8c-994f8173e946"><con:settings/><con:config><script>limit =testRunner.testCase.testSuite.project.getPropertyValue("limit").toInteger()
+
+patientId =testRunner.testCase.getPropertyValue("patientId").toInteger()
+
+patientFound = false
+
+i=0
+
+while (patientFound==false &amp;&amp; i&lt;limit){
+
+	testRunner.testCase.setPropertyValue("patientId", patientId.toString())
+
+	testRunner.runTestStepByName( "search")
+
+	obj = context.testCase.getTestStepByName("search")
+	
+	assertions = obj.getAssertionList()
+	//errors=assertions[0].getErrors().toString()
+	//log.info assertions[4].status
+	patientId=patientId+1
+	
+	assertions.each{ //log.info(it.name + ' --> ' + it.status)
+		stat = (it.status).toString()
+		//log.info stat
+	 	 if(stat == "VALID"){
+	 	 	log.info " статус "+stat+" пациент "+(patientId-1)
+	 	 	testRunner.testCase.testSuite.project.setPropertyValue("patientId",patientId.toString())
+			patientFound=true
+	   }
+	}
+	i=i+1
+}
+  </script></con:config></con:testStep><con:testStep type="restrequest" name="search" id="5fb50a2c-67c6-4ba9-bdf1-6ab00a7083ec" disabled="true"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="search" id="bad5a89b-cd6c-4eda-b44c-5810d8492023" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry_immuno_medical_room/_search</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Create" id="36438318-f1d6-41e8-aa39-83c92d75ed75"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+def topic =testRunner.testCase.testSuite.getPropertyValue("topic")
+String file =scripts.returnFileAsText("create")
+def patientId =testRunner.testCase.getPropertyValue("patientId")
+String message = file.replace("\$patientId",patientId)
+//return message
+scripts. sendMessageToKafka(topic, message)</script></con:config></con:testStep><con:testStep type="restrequest" name="Check immunoDiagnostics" id="c3cfedce-bfb5-4abd-b0a2-832405da3355"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Check immunoDiagnostics" id="da114997-8e92-4c1f-b8b6-43cdc396fd3a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry/_search</con:originalUri><con:assertion type="JsonPath Match" id="dde77dc5-02dd-41b8-8573-ad82ea383ca3" name="JsonPath Match"><con:configuration><path>$.hits.hits..immunoDiagnostics</path><content>[]</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>1000594</con:value></con:property><con:property><con:name>create</con:name><con:value>\immunoDiagnostic (Иммунодиагностика)\ImmunoResult accepted is false.json</con:value></con:property></con:properties></con:testCase><con:testCase id="e12e990b-cb3a-4c48-b2cc-8c0efdcd1a50" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="#237512" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Find patient" id="883b8f54-702f-4860-9f86-a0e236743586"><con:settings/><con:config><script>limit =testRunner.testCase.testSuite.project.getPropertyValue("limit").toInteger()
+
+patientId =testRunner.testCase.getPropertyValue("patientId").toInteger()
+
+patientFound = false
+
+i=0
+
+while (patientFound==false &amp;&amp; i&lt;limit){
+
+	testRunner.testCase.setPropertyValue("patientId", patientId.toString())
+
+	testRunner.runTestStepByName( "search")
+
+	obj = context.testCase.getTestStepByName("search")
+	
+	assertions = obj.getAssertionList()
+	//errors=assertions[0].getErrors().toString()
+	//log.info assertions[4].status
+	patientId=patientId+1
+	
+	assertions.each{ //log.info(it.name + ' --> ' + it.status)
+		stat = (it.status).toString()
+		//log.info stat
+	 	 if(stat == "VALID"){
+	 	 	log.info " статус "+stat+" пациент "+(patientId-1)
+	 	 	testRunner.testCase.testSuite.project.setPropertyValue("patientId",patientId.toString())
+			patientFound=true
+	   }
+	}
+	i=i+1
+}
+  </script></con:config></con:testStep><con:testStep type="restrequest" name="search" id="975fffd2-16df-483d-bbd3-fb341bf01896" disabled="true"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="search" id="bad5a89b-cd6c-4eda-b44c-5810d8492023" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry_immuno_medical_room/_search</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Create" id="4347a32e-6ad1-42f5-b607-520b4da3a39b"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+def topic =testRunner.testCase.testSuite.getPropertyValue("topic")
+String file =scripts.returnFileAsText("create")
+def patientId =testRunner.testCase.getPropertyValue("patientId")
+String message = file.replace("\$patientId",patientId)
+//return message
+scripts. sendMessageToKafka(topic, message)</script></con:config></con:testStep><con:testStep type="restrequest" name="Check immunoDiagnostics" id="2e2cb3ef-1d8c-4fc3-b3da-ad1ae6976737"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Check immunoDiagnostics" id="da114997-8e92-4c1f-b8b6-43cdc396fd3a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry/_search</con:originalUri><con:assertion type="JsonPath Match" id="dde77dc5-02dd-41b8-8573-ad82ea383ca3" name="JsonPath Match"><con:configuration><path>$.hits.hits..immunoDiagnostics</path><content>[]</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>1000865</con:value></con:property><con:property><con:name>create</con:name><con:value>\immunoDiagnostic (Иммунодиагностика)\ImmunoResult operation !.json</con:value></con:property></con:properties></con:testCase><con:testCase id="1cc93560-373b-4d61-8b11-135b5aed7020" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="#237513" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Find patient" id="0e3b5516-a9cc-494d-9fb2-df6268c06c5a"><con:settings/><con:config><script>limit =testRunner.testCase.testSuite.project.getPropertyValue("limit").toInteger()
+
+patientId =testRunner.testCase.getPropertyValue("patientId").toInteger()
+
+patientFound = false
+
+i=0
+
+while (patientFound==false &amp;&amp; i&lt;limit){
+
+	testRunner.testCase.setPropertyValue("patientId", patientId.toString())
+
+	testRunner.runTestStepByName( "search")
+
+	obj = context.testCase.getTestStepByName("search")
+	
+	assertions = obj.getAssertionList()
+	//errors=assertions[0].getErrors().toString()
+	//log.info assertions[4].status
+	patientId=patientId+1
+	
+	assertions.each{ //log.info(it.name + ' --> ' + it.status)
+		stat = (it.status).toString()
+		//log.info stat
+	 	 if(stat == "VALID"){
+	 	 	log.info " статус "+stat+" пациент "+(patientId-1)
+	 	 	testRunner.testCase.testSuite.project.setPropertyValue("patientId",patientId.toString())
+			patientFound=true
+	   }
+	}
+	i=i+1
+}
+  </script></con:config></con:testStep><con:testStep type="restrequest" name="search" id="1c276924-abb1-4b24-b600-171c60275a46" disabled="true"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="search" id="bad5a89b-cd6c-4eda-b44c-5810d8492023" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry_immuno_medical_room/_search</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Create" id="a81106a1-ae7c-4a21-8b34-367ad6e02820"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+def topic =testRunner.testCase.testSuite.getPropertyValue("topic")
+String file =scripts.returnFileAsText("create")
+def patientId =testRunner.testCase.getPropertyValue("patientId")
+String message = file.replace("\$patientId",patientId)
+//return message
+scripts. sendMessageToKafka(topic, message)</script></con:config></con:testStep><con:testStep type="restrequest" name="Check immunoDiagnostics" id="38b22725-9351-4ec0-adef-3a722b965b6b"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Check immunoDiagnostics" id="da114997-8e92-4c1f-b8b6-43cdc396fd3a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry/_search</con:originalUri><con:assertion type="JsonPath Match" id="dde77dc5-02dd-41b8-8573-ad82ea383ca3" name="JsonPath Match"><con:configuration><path>$.hits.hits..immunoDiagnostics</path><content>[]</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>1000964</con:value></con:property><con:property><con:name>create</con:name><con:value>\immunoDiagnostic (Иммунодиагностика)\ImmunoResult shool is null.json</con:value></con:property></con:properties></con:testCase><con:testCase id="44a120ee-b31d-4c88-8084-d7fe0c6fd6b2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="#237514" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Find patient" id="3937cc1e-a6bc-474d-8c64-ed5140669558"><con:settings/><con:config><script>limit =testRunner.testCase.testSuite.project.getPropertyValue("limit").toInteger()
+
+patientId =testRunner.testCase.getPropertyValue("patientId").toInteger()
+
+patientFound = false
+
+i=0
+
+while (patientFound==false &amp;&amp; i&lt;limit){
+
+	testRunner.testCase.setPropertyValue("patientId", patientId.toString())
+
+	testRunner.runTestStepByName( "search")
+
+	obj = context.testCase.getTestStepByName("search")
+	
+	assertions = obj.getAssertionList()
+	//errors=assertions[0].getErrors().toString()
+	//log.info assertions[4].status
+	patientId=patientId+1
+	
+	assertions.each{ //log.info(it.name + ' --> ' + it.status)
+		stat = (it.status).toString()
+		//log.info stat
+	 	 if(stat == "VALID"){
+	 	 	log.info " статус "+stat+" пациент "+(patientId-1)
+	 	 	testRunner.testCase.testSuite.project.setPropertyValue("patientId",patientId.toString())
+			patientFound=true
+	   }
+	}
+	i=i+1
+}
+  </script></con:config></con:testStep><con:testStep type="restrequest" name="search" id="7c282089-ced8-45ae-95a5-7d4df0bf2e8b" disabled="true"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="search" id="bad5a89b-cd6c-4eda-b44c-5810d8492023" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry_immuno_medical_room/_search</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Create" id="e32a9bf0-a9c6-43b7-a34f-61808fff7dca"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+def topic =testRunner.testCase.testSuite.getPropertyValue("topic")
+String file =scripts.returnFileAsText("create")
+def patientId =testRunner.testCase.getPropertyValue("patientId")
+String message = file.replace("\$patientId",patientId)
+//return message
+scripts. sendMessageToKafka(topic, message)</script></con:config></con:testStep><con:testStep type="restrequest" name="Check immunoDiagnostics" id="ea21ec37-bc27-4197-b4f7-27652b20d516"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Check immunoDiagnostics" id="da114997-8e92-4c1f-b8b6-43cdc396fd3a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry/_search</con:originalUri><con:assertion type="JsonPath Match" id="dde77dc5-02dd-41b8-8573-ad82ea383ca3" name="JsonPath Match"><con:configuration><path>$.hits.hits..nimmunoDiagnostics</path><content>[[{"immunoTestDate":"2022-03-11","immunoTestKind":"Диаскинтест","compositionId":"953139a4-66af-4144-b6b2-${#TestCase#patientId}::default::1","referralDate":"2022-03-11","immunoTestKindCode":"2","medicalRoomId":"2886"}]]</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Delete" id="7edcc02a-c600-4843-9861-a769beaced21"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+def topic =testRunner.testCase.testSuite.getPropertyValue("topic")
+String file =scripts.returnFileAsText("delete")
+def patientId =testRunner.testCase.getPropertyValue("patientId")
+String message = file.replace("\$patientId",patientId)
+//return message
+scripts. sendMessageToKafka(topic, message)</script></con:config></con:testStep><con:testStep type="restrequest" name="Check immunoDiagnostics delete" id="bf34d5a9-35d1-49a1-9603-c7ac56677ffa"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Check immunoDiagnostics delete" id="da114997-8e92-4c1f-b8b6-43cdc396fd3a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry/_search</con:originalUri><con:assertion type="Simple NotContains" id="3827b207-80f0-4562-80dc-5e0c9bf1276b" name="Not Contains"><con:configuration><token>immunoDiagnostics</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="894a6003-d276-4cab-8b67-ec8a2c53179a" name="Not Contains 2"><con:configuration><token>nimmunoDiagnostics</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>32135188</con:value></con:property><con:property><con:name>delete</con:name><con:value>\immunoDiagnostic (Иммунодиагностика)\ImmunoResult delete.json</con:value></con:property><con:property><con:name>create</con:name><con:value>\immunoDiagnostic (Иммунодиагностика)\ImmunoResult shool образовательная организация.json</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>limit</con:name><con:value>100</con:value></con:property><con:property><con:name>patientId</con:name><con:value>1000000</con:value></con:property><con:property><con:name>topic</con:name><con:value>ImmunoResult</con:value></con:property></con:properties></con:testSuite><con:testSuite id="c6936f92-8b6f-4a74-8e76-97732eae3fa7" name="patientInfo (Информация о пациенте)"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="8ff392e3-4af2-4758-ad43-6965dcba15f8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Формирование общих данных о пациенте из топика" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Find patientId" id="b6399335-115d-4e21-92ce-86369a04e2b7"><con:settings/><con:config><script>limit =testRunner.testCase.testSuite.project.getPropertyValue("limit").toInteger()
+
+patientId =testRunner.testCase.getPropertyValue("patientId").toInteger()
+
+patientFound = false
+
+i=0
+
+while (patientFound==false &amp;&amp; i&lt;limit){
+
+	testRunner.testCase.setPropertyValue("patientId", patientId.toString())
+
+	testRunner.runTestStepByName( "search")
+
+	obj = context.testCase.getTestStepByName("search")
+	
+	assertions = obj.getAssertionList()
+	//errors=assertions[0].getErrors().toString()
+	//log.info assertions[4].status
+	patientId=patientId+1
+	
+	assertions.each{ //log.info(it.name + ' --> ' + it.status)
+		stat = (it.status).toString()
+		//log.info stat
+	 	 if(stat == "VALID"){
+	 	 	log.info " статус "+stat+" пациент "+(patientId-1)
+	 	 	testRunner.testCase.testSuite.project.setPropertyValue("patientId",patientId.toString())
+			patientFound=true
+	   }
+	}
+	i=i+1
+}
+  </script></con:config></con:testStep><con:testStep type="restrequest" name="search" id="8c18bfb7-6490-4fc7-9ff5-55644fb2ea08" disabled="true"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="search" id="da114997-8e92-4c1f-b8b6-43cdc396fd3a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry/_search</con:originalUri><con:assertion type="Simple NotContains" id="8d52577f-6d09-444d-9a3c-2d2bfa3b78cd" name="Not Contains"><con:configuration><token>patientId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="&lt;18" id="be069e94-810a-41ee-86c3-5a00bcb441f0"><con:settings/><con:config><script>import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//  sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+def sendMessageToKafka(String topicName, String textMessage){
+
+  Properties props = new Properties()
+  props.put('zk.connect', '10.2.172.24:2181')
+  props.put('bootstrap.servers', bootstrapServers)
+  props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+  props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+     
+  def producer = new KafkaProducer(props)
+  
+  def messageSender = { String topic, String message ->
+      log.info( "messageSender: "+topic+"; "+message )
+      def key =  UUID.randomUUID().toString()
+      def Date date = new Date(); 
+     def  long  timestamp= date.getTime()
+     def int partition =0
+      String compoundMessage = "$message"
+      producer.send(
+              new ProducerRecord&lt;String, String>(topic, partition, timestamp,  key, compoundMessage),
+              { RecordMetadata metadata, Exception e ->
+                  log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+              } as Callback
+      )
+  }
+
+  String msg =textMessage.toString()
+  //log.info(topic1+" "+messageCreateMf)
+   messageSender(topicName, msg)
+   
+   producer.close() 
+}
+
+def patientId=testRunner.testCase.getPropertyValue("patientId")
+def areaId=testRunner.testCase.getPropertyValue("areaId")
+def date=testRunner.testCase.getPropertyValue("date")
+
+sendMessageToKafka("ErpChangePatientPersonalData","""{
+   "id": 1928138,
+   "operationDate": "2022-07-11T10:48:13.759+03:00",
+   "emiasId": """+patientId+""",
+   "uklErp": "V3147770",
+   "patientType": "I",
+   "systemCode": "sch",
+   "patientRecStatus": "Y",
+   "entityName": "personalData",
+   "entityData": [
+      {
+         "attributes": [
+            {
+               "name": "lastName",
+               "type": "string",
+               "value": {
+                  "value": "Фамилия"
+               }
+            },
+            {
+               "name": "firstName",
+               "type": "string",
+               "value": {
+                  "value": "Имя"
+               }
+            },
+            {
+               "name": "middleName",
+               "type": "string",
+               "value": {
+                  "value": "Отчество"
+               }
+            },
+            {
+               "name": "birthDate",
+               "type": "date",
+               "value": {
+                  "value": "2022-02-28"
+               }
+            },
+            {
+               "name": "birthPlace",
+               "type": "string",
+               "value": {
+                  "value": "v_birth_place"
+               }
+            },
+            {
+               "name": "gender",
+               "type": "dictionary",
+               "value": {
+                  "code": "2"
+               }
+            },
+            {
+               "name": "socialStatus",
+               "type": "dictionary",
+               "value": {
+                  "id": 128650422,
+                  "code": "3",
+                  "value": "Работающий"
+               }
+            },
+            {
+               "name": "armyCode",
+               "type": "string",
+               "value": {
+                  "value": "q"
+               }
+            },
+            {
+               "name": "isDependent",
+               "type": "boolean",
+               "value": {
+                  "value": "true"
+               }
+            },
+            {
+               "name": "educationState",
+               "type": "dictionary",
+               "value": {
+                  "id": 156496744,
+                  "code": "6",
+                  "value": "высшее"
+               }
+            },
+            {
+               "name": "citizenship",
+               "type": "dictionary",
+               "value": {
+                  "id": 125676888,
+                  "code": "178",
+                  "value": "Республика Конго"
+               }
+            },
+            {
+               "name": "ethnicGroup",
+               "type": "dictionary",
+               "value": {
+                  "id": 128650302,
+                  "code": "11",
+                  "value": "Грузины"
+               }
+            },
+            {
+               "name": "resident",
+               "type": "dictionary",
+               "value": {
+                  "code": "1",
+                  "value": "Город"
+               }
+            },
+            {
+               "name": "disability",
+               "type": "dictionary",
+               "value": {
+                  "code": "2",
+                  "value": "нет"
+               }
+            },
+            {
+               "name": "comment",
+               "type": "string",
+               "value": {
+                  "value": "v_additional_info"
+               }
+            },
+            {
+               "name": "erzSyncDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "personIdErzl",
+               "type": "guid",
+               "value": {
+                  "value": "2adef495-b318-0146-e053-c0a8c27103b8"
+               }
+            },
+            {
+               "name": "nonresIdErzl",
+               "type": "integer",
+               "value": {
+                  "value": "1323"
+               }
+            },
+            {
+               "name": "nonresDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "erzStatus",
+               "type": "string",
+               "value": {
+                  "value": "Y"
+               }
+            },
+            {
+               "name": "deathDateTime",
+               "type": "dateTime",
+               "value": {
+                  "value": null
+               }
+            },
+            {
+               "name": "deathDataSource",
+               "type": "string",
+               "value": {
+                  "value": "21.02.22"
+               }
+            }
+         ]
+      }
+   ]
+}""")</script></con:config></con:testStep><con:testStep type="groovy" name=">18" id="0777edc7-6cd8-4e60-8658-145ea6ec29e1"><con:settings/><con:config><script>import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//  sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+def sendMessageToKafka(String topicName, String textMessage){
+
+  Properties props = new Properties()
+  props.put('zk.connect', '10.2.172.24:2181')
+  props.put('bootstrap.servers', bootstrapServers)
+  props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+  props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+     
+  def producer = new KafkaProducer(props)
+  
+  def messageSender = { String topic, String message ->
+      log.info( "messageSender: "+topic+"; "+message )
+      def key =  UUID.randomUUID().toString()
+      def Date date = new Date(); 
+     def  long  timestamp= date.getTime()
+     def int partition =0
+      String compoundMessage = "$message"
+      producer.send(
+              new ProducerRecord&lt;String, String>(topic, partition, timestamp,  key, compoundMessage),
+              { RecordMetadata metadata, Exception e ->
+                  log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+              } as Callback
+      )
+  }
+
+  String msg =textMessage.toString()
+  //log.info(topic1+" "+messageCreateMf)
+   messageSender(topicName, msg)
+   
+   producer.close() 
+}
+
+def patientId=testRunner.testCase.getPropertyValue("patientId")
+def areaId=testRunner.testCase.getPropertyValue("areaId")
+def date=testRunner.testCase.getPropertyValue("date")
+
+sendMessageToKafka("ErpChangePatientPersonalData","""{
+   "id": 1928138,
+   "operationDate": "2022-02-19T10:48:13.759+03:00",
+   "emiasId": """+patientId+""",
+   "uklErp": "V3147770",
+   "patientType": "I",
+   "systemCode": "sch",
+   "patientRecStatus": "Y",
+   "entityName": "personalData",
+   "entityData": [
+      {
+         "attributes": [
+            {
+               "name": "lastName",
+               "type": "string",
+               "value": {
+                  "value": "Фамилия2"
+               }
+            },
+            {
+               "name": "firstName",
+               "type": "string",
+               "value": {
+                  "value": "Имя2"
+               }
+            },
+            {
+               "name": "middleName",
+               "type": "string",
+               "value": {
+                  "value": "Отчество2"
+               }
+            },
+            {
+               "name": "birthDate",
+               "type": "date",
+               "value": {
+                  "value": "1996-01-16"
+               }
+            },
+            {
+               "name": "birthPlace",
+               "type": "string",
+               "value": {
+                  "value": "v_birth_place"
+               }
+            },
+            {
+               "name": "gender",
+               "type": "dictionary",
+               "value": {
+                  "code": "1"
+               }
+            },
+            {
+               "name": "socialStatus",
+               "type": "dictionary",
+               "value": {
+                  "id": 128650422,
+                  "code": "3",
+                  "value": "Работающий"
+               }
+            },
+            {
+               "name": "armyCode",
+               "type": "string",
+               "value": {
+                  "value": "q"
+               }
+            },
+            {
+               "name": "isDependent",
+               "type": "boolean",
+               "value": {
+                  "value": "true"
+               }
+            },
+            {
+               "name": "educationState",
+               "type": "dictionary",
+               "value": {
+                  "id": 156496744,
+                  "code": "6",
+                  "value": "высшее"
+               }
+            },
+            {
+               "name": "citizenship",
+               "type": "dictionary",
+               "value": {
+                  "id": 125676888,
+                  "code": "178",
+                  "value": "Республика Конго"
+               }
+            },
+            {
+               "name": "ethnicGroup",
+               "type": "dictionary",
+               "value": {
+                  "id": 128650302,
+                  "code": "11",
+                  "value": "Грузины"
+               }
+            },
+            {
+               "name": "resident",
+               "type": "dictionary",
+               "value": {
+                  "code": "1",
+                  "value": "Город"
+               }
+            },
+            {
+               "name": "disability",
+               "type": "dictionary",
+               "value": {
+                  "code": "1",
+                  "value": "нет"
+               }
+            },
+            {
+               "name": "comment",
+               "type": "string",
+               "value": {
+                  "value": "v_additional_info"
+               }
+            },
+            {
+               "name": "erzSyncDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "personIdErzl",
+               "type": "guid",
+               "value": {
+                  "value": "2adef495-b318-0146-e053-c0a8c27103b8"
+               }
+            },
+            {
+               "name": "nonresIdErzl",
+               "type": "integer",
+               "value": {
+                  "value": "1323"
+               }
+            },
+            {
+               "name": "nonresDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "erzStatus",
+               "type": "string",
+               "value": {
+                  "value": "Y"
+               }
+            },
+            {
+               "name": "deathDateTime",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "deathDataSource",
+               "type": "string",
+               "value": {
+                  "value": "21.02.22"
+               }
+            }
+         ]
+      }
+   ]
+}""")</script></con:config></con:testStep><con:testStep type="groovy" name="entityName != personalData" id="4c9e72c6-dd5d-46f8-83f8-3089cbb84ba2"><con:settings/><con:config><script>import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//  sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+def sendMessageToKafka(String topicName, String textMessage){
+
+  Properties props = new Properties()
+  props.put('zk.connect', '10.2.172.24:2181')
+  props.put('bootstrap.servers', bootstrapServers)
+  props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+  props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+     
+  def producer = new KafkaProducer(props)
+  
+  def messageSender = { String topic, String message ->
+      log.info( "messageSender: "+topic+"; "+message )
+      def key =  UUID.randomUUID().toString()
+      def Date date = new Date(); 
+     def  long  timestamp= date.getTime()
+     def int partition =0
+      String compoundMessage = "$message"
+      producer.send(
+              new ProducerRecord&lt;String, String>(topic, partition, timestamp,  key, compoundMessage),
+              { RecordMetadata metadata, Exception e ->
+                  log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+              } as Callback
+      )
+  }
+
+  String msg =textMessage.toString()
+  //log.info(topic1+" "+messageCreateMf)
+   messageSender(topicName, msg)
+   
+   producer.close() 
+}
+
+def patientId=testRunner.testCase.getPropertyValue("patientId")
+def areaId=testRunner.testCase.getPropertyValue("areaId")
+def date=testRunner.testCase.getPropertyValue("date")
+
+sendMessageToKafka("ErpChangePatientPersonalData","""{
+   "id": 1928138,
+   "operationDate": "2022-02-19T10:48:13.759+03:00",
+   "emiasId": """+patientId+""",
+   "uklErp": "V3147770",
+   "patientType": "I",
+   "systemCode": "sch",
+   "patientRecStatus": "Y",
+   "entityName": "personalData1",
+   "entityData": [
+      {
+         "attributes": [
+            {
+               "name": "lastName",
+               "type": "string",
+               "value": {
+                  "value": "Фамилия2"
+               }
+            },
+            {
+               "name": "firstName",
+               "type": "string",
+               "value": {
+                  "value": "Имя2"
+               }
+            },
+            {
+               "name": "middleName",
+               "type": "string",
+               "value": {
+                  "value": "Отчество2"
+               }
+            },
+            {
+               "name": "birthDate",
+               "type": "date",
+               "value": {
+                  "value": "1996-01-16"
+               }
+            },
+            {
+               "name": "birthPlace",
+               "type": "string",
+               "value": {
+                  "value": "v_birth_place"
+               }
+            },
+            {
+               "name": "gender",
+               "type": "dictionary",
+               "value": {
+                  "code": "1"
+               }
+            },
+            {
+               "name": "socialStatus",
+               "type": "dictionary",
+               "value": {
+                  "id": 128650422,
+                  "code": "3",
+                  "value": "Работающий"
+               }
+            },
+            {
+               "name": "armyCode",
+               "type": "string",
+               "value": {
+                  "value": "q"
+               }
+            },
+            {
+               "name": "isDependent",
+               "type": "boolean",
+               "value": {
+                  "value": "true"
+               }
+            },
+            {
+               "name": "educationState",
+               "type": "dictionary",
+               "value": {
+                  "id": 156496744,
+                  "code": "6",
+                  "value": "высшее"
+               }
+            },
+            {
+               "name": "citizenship",
+               "type": "dictionary",
+               "value": {
+                  "id": 125676888,
+                  "code": "178",
+                  "value": "Республика Конго"
+               }
+            },
+            {
+               "name": "ethnicGroup",
+               "type": "dictionary",
+               "value": {
+                  "id": 128650302,
+                  "code": "11",
+                  "value": "Грузины"
+               }
+            },
+            {
+               "name": "resident",
+               "type": "dictionary",
+               "value": {
+                  "code": "1",
+                  "value": "Город"
+               }
+            },
+            {
+               "name": "disability",
+               "type": "dictionary",
+               "value": {
+                  "code": "1",
+                  "value": "нет"
+               }
+            },
+            {
+               "name": "comment",
+               "type": "string",
+               "value": {
+                  "value": "v_additional_info"
+               }
+            },
+            {
+               "name": "erzSyncDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "personIdErzl",
+               "type": "guid",
+               "value": {
+                  "value": "2adef495-b318-0146-e053-c0a8c27103b8"
+               }
+            },
+            {
+               "name": "nonresIdErzl",
+               "type": "integer",
+               "value": {
+                  "value": "1323"
+               }
+            },
+            {
+               "name": "nonresDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "erzStatus",
+               "type": "string",
+               "value": {
+                  "value": "Y"
+               }
+            },
+            {
+               "name": "deathDateTime",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T10:44:25+03:00"
+               }
+            },
+            {
+               "name": "deathDataSource",
+               "type": "string",
+               "value": {
+                  "value": "21.02.22"
+               }
+            }
+         ]
+      }
+   ]
+}""")</script></con:config></con:testStep><con:testStep type="restrequest" name="Check Patient" id="356d08ad-814b-4488-81b7-4baf8ed386bb"><con:settings/><con:config service="http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru" methodName="_search 1" resourcePath="/default_registry_immuno_medical_room/_search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Check Patient" id="da114997-8e92-4c1f-b8b6-43cdc396fd3a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru</con:endpoint><con:request>{"size":20,"track_total_hits":false,"query":{"match":{"patientId":"${#TestCase#patientId}"}}}</con:request><con:originalUri>http://ehr-index-elasticsearch.svc-emias-registry.test.emias.mos.ru/default_registry/_search</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>1000163</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>topic</con:name><con:value>ErpChangePatientPersonalData</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>bootstrapServers</con:name><con:value>10.2.172.24:9092</con:value></con:property><con:property><con:name>dbConnect</con:name><con:value>10.2.172.90:5432/dn</con:value></con:property><con:property><con:name>dbLogin</con:name><con:value>dn</con:value></con:property><con:property><con:name>dbPassword</con:name><con:value>dn</con:value></con:property><con:property><con:name>dbType</con:name><con:value>postgre</con:value></con:property><con:property><con:name>limit</con:name><con:value>100</con:value></con:property><con:property><con:name>patientId</con:name><con:value>1000163</con:value></con:property><con:property><con:name>registryConnect</con:name><con:value>@//10.0.49.100:1521/erptest</con:value></con:property><con:property><con:name>registryLogin</con:name><con:value>erp_dn_view</con:value></con:property><con:property><con:name>registryPassword</con:name><con:value>wd#0311FD8</con:value></con:property><con:property><con:name>registryTestConnect</con:name><con:value>@//10.2.172.16:1521/patient_registry.mosgorzdrav.local</con:value></con:property><con:property><con:name>registryTestLogin</con:name><con:value>PATIENT_REGISTRY_TEST</con:value></con:property><con:property><con:name>registryTestPassword</con:name><con:value>PATIENT_REGISTRY_TEST</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

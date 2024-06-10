@@ -1,0 +1,12 @@
+{
+   "domain": "default",
+   "ehrUid": "71e6bc88-8103-4d1c-8e75-45a4c47af3f9",
+   "operationType": "delete",
+   "eventName": "DNFoundationDocumentsCompositionQueueSPED",
+   "compositionId": "ba023c5a-e314-4bf9-a5a8-8eb4238d22f0::default::2",
+   "oldResults": [
+      {
+         "documentId": "d8040617-f686-49b3-b18a-9dc741d628ee"
+      }
+   ]
+}

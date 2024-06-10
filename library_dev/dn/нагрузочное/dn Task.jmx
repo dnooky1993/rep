@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="searchSoap" elementType="Argument">
+            <stringProp name="Argument.name">searchSoap</stringProp>
+            <stringProp name="Argument.value">esbcamel.test.emias.mos.ru</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">конфигурационный файл с переменными</stringProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Load Data" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Load CSV Data" enabled="true"/>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Load json bodies" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">String[] lines = new File(&quot;/JMSearch/tasks/json.csv&quot;).readLines();
+Random rnd = new Random()
+
+def getLine = { return lines[rnd.nextInt(lines.length)] };
+
+props.put(&quot;getLine&quot;, getLine);
+
+log.info(&quot;------------------------------&gt; load file json.csv&quot;);</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="Search methods" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">stopthread</stringProp>
+        <stringProp name="TargetLevel">${__P(threads,1)}</stringProp>
+        <stringProp name="RampUp">${__P(rampUpTime,0.1)}</stringProp>
+        <stringProp name="Steps">${__P(rampUpStepsCount,10)}</stringProp>
+        <stringProp name="Hold">${__P(holdRateTime,0.05)}</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getOpenTasks Основной" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:user=&quot;http://emias.mos.ru/system/v1/userContext/&quot; xmlns:typ=&quot;http://emias.mos.ru/dn/task/v2/types/&quot; xmlns:v2=&quot;http://emias.mos.ru/dn/core/v2/&quot;&gt;&#xd;
+   &lt;soap:Header&gt;&#xd;
+      &lt;user:userContext&gt;&#xd;
+         &lt;user:systemName&gt;http-test&lt;/user:systemName&gt;&#xd;
+         &lt;user:userName&gt;test&lt;/user:userName&gt;&#xd;
+         &lt;user:userRoleId&gt;0&lt;/user:userRoleId&gt;&#xd;
+         &lt;user:userRights&gt;&#xd;
+            &lt;/user:userRights&gt;&#xd;
+         &lt;user:jobExecutionId&gt;1&lt;/user:jobExecutionId&gt;&#xd;
+      &lt;/user:userContext&gt;&#xd;
+   &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot;&gt;&#xd;
+         &lt;wsse:UsernameToken wsu:Id=&quot;UsernameToken-25145CA5C92E7F5041155145445404887&quot;&gt;&#xd;
+            &lt;wsse:Username&gt;KPI_PACKAGECONS/FAhmedov&lt;/wsse:Username&gt;&#xd;
+         &lt;/wsse:UsernameToken&gt;&#xd;
+      &lt;/wsse:Security&gt;&lt;/soap:Header&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;typ:getOpenTasksRequest areaId=&quot;${areaId}&quot; moId=&quot;${moId}&quot;&gt;&#xd;
+         &lt;typ:pagingOptions pageNumber=&quot;0&quot; pageSize=&quot;50&quot;&gt;&#xd;
+            &lt;/typ:pagingOptions&gt;&#xd;
+      &lt;/typ:getOpenTasksRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${searchSoap}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/proxy/dn/task/v2S/ProxyService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">&quot;http://emias.mos.ru/registry/searchService/v1/searchServicePortType/searchRequest&quot;</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-type</stringProp>
+                  <stringProp name="Header.value">application/soap+xml;charset=UTF-8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="PARAMS  Random CSV Data Set Config" enabled="true">
+              <stringProp name="filename">/JMSearch/tasks/params.csv</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="delimiter">;</stringProp>
+              <stringProp name="variableNames">areaId,moId</stringProp>
+              <boolProp name="randomOrder">true</boolProp>
+              <boolProp name="ignoreFirstLine">false</boolProp>
+              <boolProp name="rewindOnTheEndOfList">true</boolProp>
+              <boolProp name="independentListPerThread">false</boolProp>
+            </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="load json body" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">def getLine = props.get(&quot;getLine&quot;);
+
+String jsonBody = getLine().replace(&quot;{moId}&quot;, &quot;${moId}&quot;).replace(&quot;{areaId}&quot;, &quot;${areaId}&quot;);
+vars.put(&quot;JsonBody&quot;, jsonBody);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getOpenTasks с документом" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:user=&quot;http://emias.mos.ru/system/v1/userContext/&quot; xmlns:typ=&quot;http://emias.mos.ru/dn/task/v2/types/&quot; xmlns:v2=&quot;http://emias.mos.ru/dn/core/v2/&quot;&gt;&#xd;
+   &lt;soap:Header&gt;&#xd;
+      &lt;user:userContext&gt;&#xd;
+         &lt;user:systemName&gt;http-test&lt;/user:systemName&gt;&#xd;
+         &lt;user:userName&gt;test&lt;/user:userName&gt;&#xd;
+         &lt;user:userRoleId&gt;0&lt;/user:userRoleId&gt;&#xd;
+         &lt;user:userRights&gt;&#xd;
+            &lt;/user:userRights&gt;&#xd;
+         &lt;user:jobExecutionId&gt;1&lt;/user:jobExecutionId&gt;&#xd;
+      &lt;/user:userContext&gt;&#xd;
+   &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot;&gt;&#xd;
+         &lt;wsse:UsernameToken wsu:Id=&quot;UsernameToken-25145CA5C92E7F5041155145445404887&quot;&gt;&#xd;
+            &lt;wsse:Username&gt;KPI_PACKAGECONS/FAhmedov&lt;/wsse:Username&gt;&#xd;
+         &lt;/wsse:UsernameToken&gt;&#xd;
+      &lt;/wsse:Security&gt;&lt;/soap:Header&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;typ:getOpenTasksRequest areaId=&quot;${areaId}&quot; moId=&quot;${moId}&quot;&gt;&#xd;
+         &lt;typ:pagingOptions pageNumber=&quot;0&quot; pageSize=&quot;50&quot;&gt;&#xd;
+            &lt;/typ:pagingOptions&gt;&#xd;
+            &lt;typ:taskType&gt;${documentType}&lt;/typ:taskType&gt;&#xd;
+      &lt;/typ:getOpenTasksRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${searchSoap}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/proxy/dn/task/v2S/ProxyService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">&quot;http://emias.mos.ru/registry/searchService/v1/searchServicePortType/searchRequest&quot;</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-type</stringProp>
+                  <stringProp name="Header.value">application/soap+xml;charset=UTF-8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="PARAMS  Random CSV Data Set Config" enabled="true">
+              <stringProp name="filename">/JMSearch/tasks/params.csv</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="delimiter">;</stringProp>
+              <stringProp name="variableNames">areaId,moId,documentType</stringProp>
+              <boolProp name="randomOrder">true</boolProp>
+              <boolProp name="ignoreFirstLine">false</boolProp>
+              <boolProp name="rewindOnTheEndOfList">true</boolProp>
+              <boolProp name="independentListPerThread">false</boolProp>
+            </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="load json body" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">def getLine = props.get(&quot;getLine&quot;);
+
+String jsonBody = getLine().replace(&quot;{moId}&quot;, &quot;${moId}&quot;).replace(&quot;{areaId}&quot;, &quot;${areaId}&quot;).replace(&quot;{documentType}&quot;, &quot;${documentType}&quot;);
+vars.put(&quot;JsonBody&quot;, jsonBody);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getOpenTasks с датой" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:user=&quot;http://emias.mos.ru/system/v1/userContext/&quot; xmlns:typ=&quot;http://emias.mos.ru/dn/task/v2/types/&quot; xmlns:v2=&quot;http://emias.mos.ru/dn/core/v2/&quot;&gt;&#xd;
+   &lt;soap:Header&gt;&#xd;
+      &lt;user:userContext&gt;&#xd;
+         &lt;user:systemName&gt;http-test&lt;/user:systemName&gt;&#xd;
+         &lt;user:userName&gt;test&lt;/user:userName&gt;&#xd;
+         &lt;user:userRoleId&gt;0&lt;/user:userRoleId&gt;&#xd;
+         &lt;user:userRights&gt;&#xd;
+            &lt;/user:userRights&gt;&#xd;
+         &lt;user:jobExecutionId&gt;1&lt;/user:jobExecutionId&gt;&#xd;
+      &lt;/user:userContext&gt;&#xd;
+   &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot;&gt;&#xd;
+         &lt;wsse:UsernameToken wsu:Id=&quot;UsernameToken-25145CA5C92E7F5041155145445404887&quot;&gt;&#xd;
+            &lt;wsse:Username&gt;KPI_PACKAGECONS/FAhmedov&lt;/wsse:Username&gt;&#xd;
+         &lt;/wsse:UsernameToken&gt;&#xd;
+      &lt;/wsse:Security&gt;&lt;/soap:Header&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;typ:getOpenTasksRequest areaId=&quot;${areaId}&quot; moId=&quot;${moId}&quot;&gt;&#xd;
+         &lt;typ:pagingOptions pageNumber=&quot;0&quot; pageSize=&quot;50&quot;&gt;&#xd;
+            &lt;/typ:pagingOptions&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+         &lt;typ:openedPeriod&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;v2:start&gt;${opened}&lt;/v2:start&gt;&#xd;
+         &lt;/typ:openedPeriod&gt;&#xd;
+      &lt;/typ:getOpenTasksRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${searchSoap}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/proxy/dn/task/v2S/ProxyService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">&quot;http://emias.mos.ru/registry/searchService/v1/searchServicePortType/searchRequest&quot;</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-type</stringProp>
+                  <stringProp name="Header.value">application/soap+xml;charset=UTF-8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="PARAMS  Random CSV Data Set Config" enabled="true">
+              <stringProp name="filename">/JMSearch/tasks/params.csv</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="delimiter">;</stringProp>
+              <stringProp name="variableNames">areaId,moId,documentType,opened</stringProp>
+              <boolProp name="randomOrder">true</boolProp>
+              <boolProp name="ignoreFirstLine">false</boolProp>
+              <boolProp name="rewindOnTheEndOfList">true</boolProp>
+              <boolProp name="independentListPerThread">false</boolProp>
+            </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="load json body" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">def getLine = props.get(&quot;getLine&quot;);
+
+String jsonBody = getLine().replace(&quot;{moId}&quot;, &quot;${moId}&quot;).replace(&quot;{areaId}&quot;, &quot;${areaId}&quot;).replace(&quot;{opened}&quot;, &quot;${opened}&quot;);
+vars.put(&quot;JsonBody&quot;, jsonBody);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getOpenTasks с сортировкой" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:user=&quot;http://emias.mos.ru/system/v1/userContext/&quot; xmlns:typ=&quot;http://emias.mos.ru/dn/task/v2/types/&quot; xmlns:v2=&quot;http://emias.mos.ru/dn/core/v2/&quot;&gt;&#xd;
+   &lt;soap:Header&gt;&#xd;
+      &lt;user:userContext&gt;&#xd;
+         &lt;user:systemName&gt;http-test&lt;/user:systemName&gt;&#xd;
+         &lt;user:userName&gt;test&lt;/user:userName&gt;&#xd;
+         &lt;user:userRoleId&gt;0&lt;/user:userRoleId&gt;&#xd;
+         &lt;user:userRights&gt;&#xd;
+            &lt;/user:userRights&gt;&#xd;
+         &lt;user:jobExecutionId&gt;1&lt;/user:jobExecutionId&gt;&#xd;
+      &lt;/user:userContext&gt;&#xd;
+   &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot; xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot;&gt;&#xd;
+         &lt;wsse:UsernameToken wsu:Id=&quot;UsernameToken-25145CA5C92E7F5041155145445404887&quot;&gt;&#xd;
+            &lt;wsse:Username&gt;KPI_PACKAGECONS/FAhmedov&lt;/wsse:Username&gt;&#xd;
+         &lt;/wsse:UsernameToken&gt;&#xd;
+      &lt;/wsse:Security&gt;&lt;/soap:Header&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;typ:getOpenTasksRequest areaId=&quot;${areaId}&quot; moId=&quot;${moId}&quot;&gt;&#xd;
+         &lt;typ:pagingOptions pageNumber=&quot;0&quot; pageSize=&quot;50&quot;&gt;&#xd;
+           &lt;v2:sortingOptions&gt;&#xd;
+               &lt;!--1 to 3 repetitions:--&gt;&#xd;
+               &lt;v2:sortOrder attributeName=&quot;opened&quot; desceding=&quot;${logic}&quot;/&gt;&#xd;
+            &lt;/v2:sortingOptions&gt;&#xd;
+            &lt;/typ:pagingOptions&gt;&#xd;
+      &lt;/typ:getOpenTasksRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${searchSoap}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/proxy/dn/task/v2S/ProxyService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">&quot;http://emias.mos.ru/registry/searchService/v1/searchServicePortType/searchRequest&quot;</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-type</stringProp>
+                  <stringProp name="Header.value">application/soap+xml;charset=UTF-8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="PARAMS  Random CSV Data Set Config" enabled="true">
+              <stringProp name="filename">/JMSearch/tasks/params.csv</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="delimiter">;</stringProp>
+              <stringProp name="variableNames">areaId,moId,documentType,opened,logic</stringProp>
+              <boolProp name="randomOrder">true</boolProp>
+              <boolProp name="ignoreFirstLine">false</boolProp>
+              <boolProp name="rewindOnTheEndOfList">true</boolProp>
+              <boolProp name="independentListPerThread">false</boolProp>
+            </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="load json body" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">def getLine = props.get(&quot;getLine&quot;);
+
+String jsonBody = getLine().replace(&quot;{moId}&quot;, &quot;${moId}&quot;).replace(&quot;{areaId}&quot;, &quot;${areaId}&quot;).replace(&quot;{logic}&quot;, &quot;${logic}&quot;);
+vars.put(&quot;JsonBody&quot;, jsonBody);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+          </hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugSampler>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

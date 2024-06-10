@@ -1,0 +1,6 @@
+lkDbConnection=
+lkDbLogin=
+lkDbPassword=
+lkFullDbConnection=
+lkEndpoint=https://lkservice.test.emias.mos.ru
+lkDBDriver=

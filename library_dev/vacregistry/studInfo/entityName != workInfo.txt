@@ -1,0 +1,97 @@
+{
+   "id": 1929486,
+   "operationDate": "2022-02-21T16:20:59.799+03:00",
+   "emiasId": -150000001,
+   "uklErp": "V3148461",
+   "patientType": "I",
+   "systemCode": "sch",
+   "patientRecStatus": "Y",
+   "entityName": "test",
+   "entityData": [
+      {
+         "attributes": [
+            {
+               "name": "workId",
+               "type": "integer",
+               "value": {
+                  "value": "435040"
+               }
+            },
+            {
+               "name": "isWorkStudy",
+               "type": "dictionary",
+               "value": {
+                  "code": "S",
+                  "value": "место учебы"
+               }
+            },
+            {
+               "name": "workPlace",
+               "type": "string",
+               "value": {
+                  "value": "1"
+               }
+            },
+            {
+               "name": "workProfession",
+               "type": "string",
+               "value": {
+                  "value": "1"
+               }
+            },
+            {
+               "name": "workPosition",
+               "type": "string",
+               "value": {
+                  "value": "1"
+               }
+            },
+            {
+               "name": "workBeginDate",
+               "type": "date",
+               "value": {
+                  "value": "2022-02-21"
+               }
+            },
+            {
+               "name": "educationFacility",
+               "type": "dictionary",
+               "value": {
+                  "id": 156520022,
+                  "code": "45",
+                  "value": "Муниципальное бюджетное общеобразовательное учреждение Вологодского муниципального района \"Ермаковская средняя школа\""
+               }
+            },
+            {
+               "name": "educationFacilityAddress",
+               "type": "string",
+               "value": {
+                  "value": "160521, Вологодская область, Вологодский район, п. Ермаково, ул. Строителей, д. 19"
+               }
+            },
+            {
+               "name": "class",
+               "type": "string",
+               "value": {
+                  "value": "Тест"
+               }
+            },
+            {
+               "name": "workStatus",
+               "type": "dictionary",
+               "value": {
+                  "code": "Y",
+                  "value": "актуальная"
+               }
+            },
+            {
+               "name": "workChangeDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-21T16:13:40+03:00"
+               }
+            }
+         ]
+      }
+   ]
+}

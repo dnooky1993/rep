@@ -1,0 +1,49 @@
+import groovy.sql.Sql
+
+//if (context.dbConnect != null) {      
+//sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.getPropertyValue("db_rir2_con")
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+
+    def medicalFacilityId= testRunner.testCase.getPropertyValue("medicalFacilityId")
+    def medicalFacilityId2= testRunner.testCase.getPropertyValue("medicalFacilityId2")
+    def medicalOrganizationId= testRunner.testCase.getPropertyValue("medicalOrganizationId")
+    def locationId= testRunner.testCase.getPropertyValue("locationId")
+    def treatmentRoomId= testRunner.testCase.getPropertyValue("treatmentRoomId")
+    def resourceId= testRunner.testCase.getPropertyValue("resourceId")
+    def scheduleId= testRunner.testCase.getPropertyValue("scheduleId")
+    def scheduleId2= testRunner.testCase.getPropertyValue("scheduleId2")
+    
+      
+// Удаляем оборудование TREATMENT_ROOM_EQUIPMENT
+      sql.execute ("DELETE FROM  TREATMENT_ROOM_EQUIPMENT WHERE TREATMENT_ROOM_ID="+treatmentRoomId)
+      
+    // Удаляем ММ TREATMENT_ROOM_TREATMENT
+   sql.execute ("DELETE from TREATMENT_ROOM_TREATMENT WHERE TREATMENT_ROOM_ID="+treatmentRoomId)
+
+   // Удаляем кабинет TREATMENT_ROOM
+   sql.execute ("DELETE from TREATMENT_ROOM WHERE ID ="+treatmentRoomId)
+
+   // Удаляем ресурс "RESOURCE"
+   sql.execute ("DELETE from \"RESOURCE\" WHERE LOCATION_ID ="+locationId)
+
+   // Удаляем локацию LOCATION
+   sql.execute ("DELETE from  LOCATION WHERE ID ="+locationId)
+
+   // Удаляем МУ MEDICAL_FACILITY
+   sql.execute ("DELETE  from  MEDICAL_FACILITY WHERE ID ="+medicalFacilityId)
+
+   // Удаляем МУ2 MEDICAL_FACILITY
+   sql.execute ("DELETE  from  MEDICAL_FACILITY WHERE ID ="+medicalFacilityId2)
+
+   // Удаляем МО MEDICAL_ORGANIZATION
+   sql.execute ("DELETE  from  MEDICAL_ORGANIZATION WHERE ID ="+medicalOrganizationId)
+   
+//} else {
+//	log.error("Соединение с бд не установлено!");
+//}

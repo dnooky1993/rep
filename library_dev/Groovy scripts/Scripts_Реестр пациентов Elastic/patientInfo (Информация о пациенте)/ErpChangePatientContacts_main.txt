@@ -1,0 +1,183 @@
+import org.apache.kafka.clients.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.clients.producer.RecordMetadata
+import java.time.*
+
+import groovy.sql.Sql
+//if (context.dbConnect != null) {      
+//  sql = context.dbConnect;
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+def sendMessageToKafka(String topicName, String textMessage){
+
+  Properties props = new Properties()
+  props.put('zk.connect', '10.2.172.24:2181')
+  props.put('bootstrap.servers', bootstrapServers)
+  props.put('key.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+  props.put('value.serializer', 'org.apache.kafka.common.serialization.StringSerializer')
+     
+  def producer = new KafkaProducer(props)
+  
+  def messageSender = { String topic, String message ->
+      log.info( "messageSender: "+topic+"; "+message )
+      def key =  UUID.randomUUID().toString()
+      def Date date = new Date(); 
+     def  long  timestamp= date.getTime()
+     def int partition =0
+      String compoundMessage = "$message"
+      producer.send(
+              new ProducerRecord<String, String>(topic, partition, timestamp,  key, compoundMessage),
+              { RecordMetadata metadata, Exception e ->
+                  log.info( "The offset of the record we just sent is: ${metadata.offset()}")
+              } as Callback
+      )
+  }
+
+  String msg =textMessage.toString()
+  //log.info(topic1+" "+messageCreateMf)
+   messageSender(topicName, msg)
+   
+   producer.close() 
+}
+
+def patientId=testRunner.testCase.getPropertyValue("patientId")
+def areaId=testRunner.testCase.getPropertyValue("areaId")
+def date=testRunner.testCase.getPropertyValue("date")
+
+sendMessageToKafka("ErpChangePatientContacts","""{
+   "id": 5146566,
+   "operationDate": "2022-02-08T19:00:51.092+03:00",
+   "emiasId": """+patientId+""",
+   "uklErp": "20309545",
+   "patientType": "I",
+   "patientRecStatus": "Y",
+   "entityName": "contacts",
+   "entityData": [
+      {
+         "attributes": [
+            {
+               "name": "contactId",
+               "type": "integer",
+               "value": {
+                  "value": "27017111"
+               }
+            },
+            {
+               "name": "contactValue",
+               "type": "string",
+               "value": {
+                  "value": "9100866535"
+               }
+            },
+            {
+               "name": "contactType",
+               "type": "dictionary",
+               "value": {
+                  "code": "M",
+                  "value": "Мобильный телефон"
+               }
+            },
+            {
+               "name": "contactAllowNotification",
+               "type": "boolean",
+               "value": {
+                  "value": "true"
+               }
+            },
+            {
+               "name": "contactChangeDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-09T18:44:46.859339+03:00"
+               }
+            }
+         ]
+      },
+      {
+         "attributes": [
+            {
+               "name": "contactId",
+               "type": "integer",
+               "value": {
+                  "value": "28737693"
+               }
+            },
+            {
+               "name": "contactValue",
+               "type": "string",
+               "value": {
+                  "value": "9100866536"
+               }
+            },
+            {
+               "name": "contactType",
+               "type": "dictionary",
+               "value": {
+                  "code": "T",
+                  "value": "Домашний телефон"
+               }
+            },
+            {
+               "name": "contactAllowNotification",
+               "type": "boolean",
+               "value": {
+                  "value": "false"
+               }
+            },
+            {
+               "name": "contactChangeDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-08T18:44:46.859339+03:00"
+               }
+            }
+         ]
+      },
+      {
+         "attributes": [
+            {
+               "name": "contactId",
+               "type": "integer",
+               "value": {
+                  "value": "28737688"
+               }
+            },
+            {
+               "name": "contactValue",
+               "type": "string",
+               "value": {
+                  "value": "araik.bagdasaryan@mail.ru"
+               }
+            },
+            {
+               "name": "contactType",
+               "type": "dictionary",
+               "value": {
+                  "code": "E",
+                  "value": "Электронная почта"
+               }
+            },
+            {
+               "name": "contactAllowNotification",
+               "type": "boolean",
+               "value": {
+                  "value": "false"
+               }
+            },
+            {
+               "name": "contactChangeDate",
+               "type": "dateTime",
+               "value": {
+                  "value": "2022-02-05T18:44:27.324439+03:00"
+               }
+            }
+         ]
+      }
+   ]
+}""")

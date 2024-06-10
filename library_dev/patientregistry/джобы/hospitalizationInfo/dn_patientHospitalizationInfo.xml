@@ -1,0 +1,18 @@
+{
+   "domain": "default",
+   "ehrUid": "00c343ea-7a82-452e-a238-39431c3145f0",
+   "operationType": "create",
+   "eventName": "dn_patientHospitalizationInfo",
+   "compositionId": "b0d646a1-90ab-4e86-a740-4409bd714b45::default::1",
+   "newResults": [
+      {
+         "compositionId": "b0d646a1-90ab-4e86-a740-4409bd714b45::default::1",
+         "templateId": "openEHR-EHR-COMPOSITION.t_ER_patient_hospitalization_info.v1",
+         "timeCommitted": "2021-11-15T13:53:17.933203+03:00",
+         "patientId": "92811",
+         "medicalOrganisation": "ГБУЗ1  Психиатрическая больница № 1 им. Н.А. Алексеева ДЗМ",
+         "date": "2021-05-12T09:07:30+03:00",
+         "diagnosis": "I80.2"
+      }
+   ]
+}

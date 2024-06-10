@@ -1,0 +1,40 @@
+import java.time.*;
+import java.time.format.*;
+import java.time.temporal.*;
+import groovy.sql.Sql
+
+if (context.dbConnect != null) {      
+	sql = context.dbConnect;
+	
+def medicalFacilityId = testRunner.testCase.getPropertyValue("medicalFacilityId")
+
+maxEndResource = sql.firstRow("select max(END_DATE) as dt from schedule where medical_facility_id = "+medicalFacilityId);
+
+	if (maxEndResource != null && maxEndResource.dt != null) {
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.A");
+		maxDayDate = LocalDate.parse(maxEndResource.dt.stringValue(), formatter);	
+
+		if (maxDayDate.plusDays(1) <  LocalDate.now() ) {
+			maxDayDate = LocalDate.now()
+			log.info("11")
+			lastDayDate = maxDayDate.with(TemporalAdjusters.lastDayOfMonth());
+			testRunner.testCase.setPropertyValue("schedulePeriodEnd", lastDayDate.toString());
+	          testRunner.testCase.setPropertyValue("schedulePeriodStart", maxDayDate.toString());
+		     log.info("Даты расписания:" + maxDayDate.toString()+ "-" + lastDayDate.toString());
+			} else {
+			    lastDayDate = maxDayDate.plusDays(1).with(TemporalAdjusters.lastDayOfMonth());
+		         testRunner.testCase.setPropertyValue("schedulePeriodEnd", lastDayDate.toString());
+              	    testRunner.testCase.setPropertyValue("schedulePeriodStart", maxDayDate.plusDays(1).toString());
+		
+		         log.info("Даты расписания:" + maxDayDate.plusDays(1).toString()+ "-" + lastDayDate.toString());
+				}		
+	} else {
+		testRunner.testCase.setPropertyValue("schedulePeriodStart", LocalDate.now().toString());
+		testRunner.testCase.setPropertyValue("schedulePeriodEnd",  LocalDate.now().with(TemporalAdjusters.lastDayOfMonth()).toString());
+
+		log.info("Даты расписания:" + LocalDate.now().toString()+ "-" + LocalDate.now().with(TemporalAdjusters.lastDayOfMonth()).toString());
+	}
+} else {
+	log.error("Соединение с бд не установлено!");
+}	

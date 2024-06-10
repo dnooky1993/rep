@@ -1,0 +1,19 @@
+{
+   "pdnDocumentId": "b58104c7-ed21-4b45-9001-bab85281f7ae",
+   "patientId": 14201,
+   "status": "PLANNED",
+   "start": "2021-12-01T21:19:52.879000",
+   "end": "2021-12-13T21:19:52.879000",
+   "eventType": "consultationEvent",
+   "consultationEvent": {
+      "consultationAssignmentId": null,
+      "consultationResultDocId": "123",
+      "consultationCancelDocId": null,
+      "specializationCode": "76",
+      "specializationTitle": "Педиатрия"
+   },
+   "appointmentStatus": "cancel",
+   "appointmentStartDate": "2021-12-08T11:30:00.000000",
+   "appointmentEndDate": "2021-12-08T12:00:00.000000",
+   "updateDate": "2021-12-21T14:30:26.621347"
+}

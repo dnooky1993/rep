@@ -1,0 +1,63 @@
+import org.apache.kafka.clients.producer.Callback;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
+
+import java.util.Properties;
+import java.util.UUID;
+
+        Properties props = new Properties();
+        props.put("bootstrap.servers", "10.2.172.24:9092,10.2.172.25:9092,10.2.172.26:9092");
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+        String topic = testRunner.testCase.getPropertyValue("topicName");
+        String key = UUID.randomUUID().toString();
+        String message = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<medicalOrganizationInfoMsg xmlns=\"http://emias.mos.ru/svmr2/systemInformerService/v1\" xmlns:ns2=\"http://emias.mos.ru/svmr2/producer/v1/types\" xmlns:ns3=\"http://emias.mos.ru/svmr2/core/v1/types\" xmlns:ns4=\"http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/\" xmlns:ns5=\"http://emias.mos.ru/skuu/svmr/core/v1/\" ns2:oid=\"1.2.643.5.1.13.13.12.2.77.7985\" \n" +
+                "id=\"11133\">\n" +
+                "   <change>\n" +
+                "      <organizationAttributes>\n" +
+                "         <ns2:name>Государственное бюджетное учреждение здравоохранения города Москвы \"Детская городская клиническая больница имени Н.Ф. Филатова Департамента здравоохранения города Москвы\"</ns2:name>\n" +
+                "         <ns2:shortName></ns2:shortName>\n" +
+                "         <ns2:ogrn></ns2:ogrn>\n" +
+                "         <ns2:okopf>75203</ns2:okopf>\n" +
+                "         <ns2:inn>7703111067</ns2:inn>\n" +
+                "         <ns2:kpp>770301001</ns2:kpp>\n" +
+                "         <ns2:regDate>2002-09-17</ns2:regDate>\n" +
+                "         <ns2:departmentAffilation ns2:fnsiId=\"2300229\" id=\"134689106\">\n" +
+                "            <ns2:code>120</ns2:code>\n" +
+                "            <ns2:title>Органы исполнительной власти субъектов Российской Федерации, осуществляющие функции в области здравоохранения</ns2:title>\n" +
+                "            <ns2:parent id=\"134689014\">\n" +
+                "               <ns2:code>110</ns2:code>\n" +
+                "               <ns2:title>Органы исполнительной власти субъектов Российской Федерации</ns2:title>\n" +
+                "            </ns2:parent>\n" +
+                "         </ns2:departmentAffilation>\n" +
+                "      </organizationAttributes>\n" +
+                "      <medicalOrganizationAttributes>\n" +
+                "         <ns2:medicalActivity ns2:fnsiId=\"1\" id=\"126094906\">\n" +
+                "            <ns2:code>1</ns2:code>\n" +
+                "            <ns2:title>Больница (в том числе детская)</ns2:title>\n" +
+                "         </ns2:medicalActivity>\n" +
+                "         <ns2:IsCertForPeopleWithDisabilities>true</ns2:IsCertForPeopleWithDisabilities>\n" +
+                "         <ns2:medicalOrganizationLevel ns2:fnsiId=\"3\" id=\"134750438\">\n" +
+                "            <ns2:code>3</ns2:code>\n" +
+                "            <ns2:title>III уровень</ns2:title>\n" +
+                "         </ns2:medicalOrganizationLevel>\n" +
+                "      </medicalOrganizationAttributes>\n" +
+                "   </change>\n" +
+                "</medicalOrganizationInfoMsg>";
+
+        KafkaProducer producer = new KafkaProducer(props);
+        ProducerRecord record = new ProducerRecord(topic, key, message);
+        producer.send(record,
+                new Callback() {
+                    public void onCompletion(RecordMetadata metadata, Exception e) {
+                        if(e != null) {
+                            log.info("Error has occured");
+                        } else {
+                            log.info("The offset of the record we just sent is: " + metadata.offset());
+                        }
+                    }
+                });
+        producer.close();

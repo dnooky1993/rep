@@ -1,0 +1,66 @@
+import org.apache.kafka.clients.consumer.*
+import org.apache.kafka.clients.producer.Callback
+import org.apache.kafka.clients.consumer.KafkaConsumer
+import org.apache.kafka.clients.consumer.ConsumerRecord
+import java.time.*
+import groovy.sql.Sql
+import groovy.test.GroovyAssert
+//if (context.dbConnect != null) {    
+//	sql = context.dbConnect;
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+    def operationId= testRunner.testCase.getPropertyValue("applyOperationId")
+     log.info ("ID операции: " + operationId)
+
+Properties props = new Properties()
+props.put('zk.connect', '10.2.172.24:2181')
+props.put('bootstrap.servers',bootstrapServers)
+props.put('group.id', UUID.randomUUID().toString())
+props.put("enable.auto.commit", "false")
+props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
+props.put('key.deserializer', 'org.apache.kafka.common.serialization.StringDeserializer')
+props.put('value.deserializer', 'org.apache.kafka.common.serialization.StringDeserializer')
+def offset =null
+def value =null
+def consumer = new KafkaConsumer(props)
+
+ consumer.subscribe(['ScheduleChange'])
+
+ long t = System.currentTimeMillis()
+long end = t + 18000;
+while (System.currentTimeMillis()<end)
+{
+log.info ( "while ")
+ConsumerRecords<String, String> records = consumer.poll(18000)
+log.info ( "records")
+for (ConsumerRecord<String, String> record : records)
+{
+	def rootNode = new XmlSlurper().parseText(record.value())
+	if (rootNode.operationId ==operationId) {
+		log.info("Есть сообщение с operationId= "+ operationId)
+		value= record.value()
+		log.info ("Сообщение:"+value)
+		consumer.close()
+		log.info ( "close ")
+		return
+		}
+log.info ( "offset = " + record.offset() +" value = " + record.value())
+//offset= record.offset()
+//value= record.value()
+}
+}
+consumer.close()
+log.info ( "close ")
+//log.info (offset)
+log.info (value)
+//def valueScheduleChange = value
+
+//} else {
+//	log.error("Соединение с бд не установлено!");
+//}	

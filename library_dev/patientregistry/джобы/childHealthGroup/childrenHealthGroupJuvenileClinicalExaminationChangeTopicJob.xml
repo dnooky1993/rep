@@ -1,0 +1,15 @@
+{
+    "patientId": "18154317",
+    "childrenHealthGroup": {
+        "childrenHealthGroupCode": "1",
+        "childrenHealthGroupName": "I группа",
+        "dateConclusion": "2018-11-13",
+        "isAnnuled": false
+    },
+    "physicalEducationGroup": {
+        "physicalEducationGroupCode": "2",
+        "physicalEducationGroupName": "II (подготовительная)",
+        "dateConclusion": "2019-01-10",
+        "isAnnuled": false
+    }
+}

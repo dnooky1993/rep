@@ -1,0 +1,23 @@
+{
+   "operationType": "cancel",
+   "patientId": "30000000505871",
+   "groupCode": "DNC0411",
+   "groupName": "Ожирение",
+   "doctorFIO": "Никитина Юлия Петровна",
+   "employeeId": 10002704,
+   "noDoctor": "",
+   "specialityCode": 50,
+   "specialityName": "Врач-инфекционист",
+   "specializationCode": 24,
+   "specializationName": "Инфекционные болезни",
+   "dnDoctorJobExecutionId":"123",
+   "diagnosisCode": "E66.0",
+   "diagnosisName": "Ожирение, обусловленное избыточным поступлением энергетических ресурсов",
+   "diagnosisDate": "2020-12-23T13:02:29.487",
+   "repeat": "диагноз установлен в предыдущ. году или ранее (-)",
+   "startDate": "2020-12-02",
+   "endDate": null,
+   "cancelReasonCode": null,
+   "cancelReasonName": null,
+   "timeCommitted": "2020-12-23T13:02:53.97"
+}

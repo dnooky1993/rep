@@ -1,0 +1,36 @@
+import groovy.sql.Sql
+import groovy.test.GroovyAssert
+
+username =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_user")
+password =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_password")
+dbconstring =testRunner.testCase.testSuite.project.getPropertyValue("db_rir2_con")
+bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+sql = Sql.newInstance("jdbc:oracle:thin:"+username+"/"+password+dbconstring, username, password, "oracle.jdbc.driver.OracleDriver")
+//log.info("jdbc:oracle:thin:"+username+"/"+password+dbconstring);
+
+        
+    def operationId1= testRunner.testCase.getPropertyValue("operationId1")
+     log.info ("ID операции: " + operationId1)
+      
+ //Проверка, что статус операции изменился
+ 
+Boolean rowCount = false
+String sql_query = "select  * from  SYSOP WHERE id="+operationId1
+int counter = 0
+
+while (rowCount == false &&  counter < 30) {
+   row = sql.rows(sql_query)
+   
+   def hasSucceded =row[0].HAS_SUCCEDED
+   //def completenessProgress = row[0].COMPLETENESS_PROGRESS  & (completenessProgress =='100' ) 
+   if ( hasSucceded =='1' ) {
+       rowCount = true
+       log.info("статус операции успешен")
+     }
+    else {
+      sleep(10000)
+      log.info("статус операции пока не успешен")
+      counter++
+   }
+}

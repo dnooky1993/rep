@@ -1,0 +1,15 @@
+{
+    "diagnosisFromLUD": {
+        "patientId": 1258,
+        "documentId": "00000000-0000-0000-0000-00000001258",
+		"documentCreated": "2021-09-29",
+        "eventType": "CREATE_DIAGNOSIS",
+        "diagnosis": {
+            "mkbCode": "A87",
+            "dateDiagnosed": [
+                null
+            ],
+            "sourceArchived": false
+        }
+    }
+}

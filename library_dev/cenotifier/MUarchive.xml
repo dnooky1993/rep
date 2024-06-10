@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:medicalFacilityInfoMsg id="1341"
+    xmlns:ns5="http://emias.mos.ru/skuu/svmr/core/v1/"
+    xmlns:ns2="http://emias.mos.ru/svmr2/systemInformerService/v1"
+    xmlns:ns1="http://emias.mos.ru/svmr2/producer/v1/types"
+    xmlns:ns4="http://emias.mos.ru/skuu/svmr/systemInformerService/v1/types/"
+    xmlns:ns3="http://emias.mos.ru/svmr2/core/v1/types">
+    <ns2:archive archived="true"/>
+</ns2:medicalFacilityInfoMsg>

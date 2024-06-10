@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d142cb3f-612b-49b1-ac3a-badbbd938970" activeEnvironment="Default" name="NEWS2" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="91ea281d-3348-4dcd-8920-3793f093b024" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://srv-prpjauth-kube01.m34.dzm" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://srv-prpjauth-kube01.m34.dzm</con:endpoint></con:endpoints><con:resource name="Login" path="/api/v2/login" id="c4402f1a-e443-4945-925e-37ac3bdbce83"><con:settings/><con:parameters><con:parameter><con:name>в</con:name><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>Authorization</con:name><con:style>HEADER</con:style></con:parameter></con:parameters><con:method name="Login 1" id="956a5b33-6a48-44da-bdd4-9a61651be7b7" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:log="http://srv-prpjauth-kube01.m34.dzm/api/v2/login">log:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:log="http://srv-prpjauth-kube01.m34.dzm/api/v2/login">log:Response</con:element></con:representation><con:request name="Request 1" id="89f4ee39-a08b-4fa9-aa9d-70bedabf3ec7" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpjauth-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpjauth-kube01.m34.dzm/api/v2/login</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic 0KHQmNCc0JDQmtCe0JLQkNCi0J06MQ=="/>
+  <con:entry key="в" value="вв"/>
+</con:parameters><con:parameterOrder><con:entry>в</con:entry><con:entry/></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="880063e7-b0a0-4965-acc9-202a4bb35b91" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://srv-prpmobileapi-kube01.m34.dzm" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://srv-prpmobileapi-kube01.m34.dzm</con:endpoint></con:endpoints><con:resource name="Score" path="/api/v1/news2/case/{id}/score" id="ce867ab7-9718-4f6d-b277-9e8e4b41a649"><con:settings/><con:parameters><con:parameter><con:name>token</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>id</con:name><con:style>TEMPLATE</con:style></con:parameter></con:parameters><con:method name="Score 1" id="4df9bf9c-3359-479e-8cfb-dc1f7d2632b8" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>401 500 404</con:status><con:params/><con:element xmlns:scor="http://srv-prpmobileapi-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score">scor:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:scor="http://srv-prpmobileapi-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score">scor:Response</con:element></con:representation><con:request name="createMark" id="d3e3c577-ba2d-4fec-b3a5-fda40da4a233" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpmobileapi-kube01.m34.dzm</con:endpoint><con:request>{
+    "scoreDeleteInterval": 300,
+    "values": {
+        "confirmDateTime": "2043-02-20T18:20:00+0300",
+        "consciousnessCode": 2,
+        "consciousnessName": "спутанное",
+        "diastolic": 80,
+        "heartRate": 100,
+        "insufflation": 3,
+        "oxygenDeviceCode": 2,
+        "oxygenDeviceName": "Маска",
+        "respiratoryRate": 50,
+        "saturation": 100,
+        "systolic": 180,
+        "temperature": 36.6,
+        "value": 11,
+        "urgencyCode": 4,
+        "urgencyName": "Критичный параметр"
+    }
+}</con:request><con:originalUri>http://srv-prpmobileapi-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="id" value="8eae5b23-e7cd-4c19-ac5d-225f768f0f9f"/>
+  <con:entry key="token" value="772b5a08.4C8VYDsnZTXVuMW++armNda0y3jYSAbpTgP2sdaU172AmYqt2ej6EVauAAtSwnVt74teuoK5i1FS/SA5es8soHNWH8ZVvxBV4MXnOItYUF/8ii5V3FGAVaeatM3Y/ANLefhKggbXj2gM0w==:s7SXuA2o"/>
+</con:parameters><con:parameterOrder><con:entry>token</con:entry><con:entry>id</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="68c5f08d-5153-48d5-a9d7-6f2cc9ef57c2" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://srv-prpnews2p1-kube01.m34.dzm" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint></con:endpoints><con:resource name="Score" path="/api/v1/news2/score/{score}" id="ff668d3d-b28a-4b00-a759-919d8b2fe04d"><con:settings/><con:parameters><con:parameter><con:name>score</con:name><con:value/><con:style>TEMPLATE</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>employeeId</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Score 1" id="dbf2e094-9476-4439-b845-b997d5cb27ad" method="DELETE"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>409</con:status><con:params/><con:element xmlns:b02="http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/score/b025c34f-0875-483b-a36d-09ff8a8d2d18">b02:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="delete" id="9ccbf701-233f-454e-93bc-17cbff150099" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/score/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>score</con:entry><con:entry>employeeId</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="76b2b1f0-27cb-4a6e-8fcb-198ea91a310a" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://srv-prpnews2p1-kube01.m34.dzm" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint></con:endpoints><con:resource name="Score" path="/api/v1/news2/case/{ehrCaseId}/score" id="37f8bd71-ba40-457a-b482-8ef1cb0bb955"><con:settings/><con:parameters><con:parameter><con:name>limit</con:name><con:value>0</con:value><con:style>QUERY</con:style><con:default>0</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>employeeId</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>ehrCaseId</con:name><con:value/><con:style>TEMPLATE</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Score 1" id="89017960-639d-45a4-be0c-b7d5028b0185" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="getScore" id="a1029588-e416-409d-b1a6-dd57a98f08f8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="limit" value="0"/>
+  <con:entry key="employeeId" value="849c4c98-7e26-4258-bbf6-b0edde15cdfa"/>
+  <con:entry key="ehrCaseId" value="8eae5b23-e7cd-4c19-ac5d-225f768f0f9f"/>
+</con:parameters><con:parameterOrder><con:entry>limit</con:entry><con:entry>employeeId</con:entry><con:entry>ehrCaseId</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="score" path="api/v1/news2/score" id="718e7b9d-19b1-4d76-94f7-fdbf0e96824c"><con:settings/><con:parameters/><con:method name="Method 1" id="be9f3367-367f-4c72-bb50-18f1870b149e" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>404 409</con:status><con:params/><con:element xmlns:scor="http://srv-prpnews2p1-kube01.m34.dzm/news2/score">scor:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:scor="http://srv-prpnews2p1-kube01.m34.dzm/news2/score">scor:Response</con:element></con:representation><con:request name="postScore" id="3ef42056-b893-4838-83a8-a4b4b9f3d04f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request>{
+    "consciousnessCode":1,
+    "diastolic":0,
+    "heartRate":51,
+    "insufflation":0,
+    "oxygenDeviceCode":1,
+    "respiratoryRate":12,
+    "saturation":96,
+    "systolic":111,
+    "temperature":36.1
+
+}</con:request><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/news2/score</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="b560f2bb-5bf2-4a2f-b0a8-72d4089248c9" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.134.4.61:8081" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://10.134.4.61:8081</con:endpoint></con:endpoints><con:resource name="{uid}" path="/rest/v1/composition/{uuid}" id="c85e0cf9-6af1-47d2-bb38-d77cf0936601"><con:settings/><con:parameters><con:parameter><con:name>uuid</con:name><con:value>uid</con:value><con:style>TEMPLATE</con:style><con:default>uid</con:default></con:parameter><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Method 1" id="7e3019d0-d1d9-4b81-bb89-a26664e4d7e1" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=iso-8859-1</con:mediaType><con:status>401</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ce0="http://10.134.4.61/rest/v1/composition/ce025d30-05e0-4054-9065-67459d6ee50f">ce0:Response</con:element></con:representation><con:request name="Request 1" id="faff7171-f552-4dc3-9185-c641dfc0bfd8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.134.4.61:8081</con:endpoint><con:request/><con:originalUri>http://10.134.4.61/rest/v1/composition/ce025d30-05e0-4054-9065-67459d6ee50f</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2lzOjhiMTZlMTBl"/>
+  <con:entry key="uid" value="ce025d30-05e0-4054-9065-67459d6ee50f"/>
+</con:parameters><con:parameterOrder><con:entry>uid</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="cfe9cef6-5fb6-4658-b979-675c0821f363" name="fastTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="a075a427-5d8a-4ccf-aa44-8bc646013e48" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="deleteScore, CreateMark, getScore" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="getToken" id="e0ef92a7-7438-4cd0-a36e-1c54115e5dc9"><con:settings/><con:config service="http://srv-prpjauth-kube01.m34.dzm" methodName="Login 1" resourcePath="/api/v2/login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getToken" id="c084f602-e429-4d56-9f4f-9e84a98b008c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpjauth-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpjauth-kube01.m34.dzm/api/v2/login</con:originalUri><con:assertion type="Simple Contains" id="0ad48761-1fb1-4ea1-b45e-ad73e9e00c86" name="Ответ сожержит token"><con:configuration><token>token</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="1d4ee82d-9d34-4ba0-b16a-f90da52ccf02" name="Contains"><con:configuration><token>employeeId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="${#TestCase#Autorization}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать token и emploeeId" id="240e661b-9617-4ef9-891e-25a35d1523ff"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def getTokenResponse =testRunner.testCase.getTestStepByName('getToken').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(getTokenResponse)
+
+log.info " token= "+jsonResponse.profiles.token[0].toString()+",employeeId =  "+jsonResponse.profiles.employeeId[0].toString()
+
+testRunner.testCase.setPropertyValue("token", jsonResponse.profiles.token[0].toString())
+testRunner.testCase.setPropertyValue("employeeId", jsonResponse.profiles.employeeId[0].toString())</script></con:config></con:testStep><con:testStep type="restrequest" name="createMark" id="6f2dd863-358d-4d0c-9b9c-d3da15481d49"><con:settings/><con:config service="http://srv-prpmobileapi-kube01.m34.dzm" methodName="Score 1" resourcePath="/api/v1/news2/case/{id}/score" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createMark" id="56f83fac-103e-4949-a555-af0b686e4a29" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpmobileapi-kube01.m34.dzm</con:endpoint><con:request>{
+    "scoreDeleteInterval": 300,
+    "values": {
+        "confirmDateTime": "2043-02-20T18:20:00+0300",
+        "consciousnessCode": 2,
+        "consciousnessName": "спутанное",
+        "diastolic": 80,
+        "heartRate": 100,
+        "insufflation": 3,
+        "oxygenDeviceCode": 2,
+        "oxygenDeviceName": "Маска",
+        "respiratoryRate": 50,
+        "saturation": 100,
+        "systolic": 180,
+        "temperature": 36.6,
+        "value": 11,
+        "urgencyCode": 4,
+        "urgencyName": "Критичный параметр"
+    }
+}</con:request><con:originalUri>http://srv-prpmobileapi-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score</con:originalUri><con:assertion type="Simple Contains" id="cf076d74-2c3f-4c9b-8bc0-84a271113536" name="Contains"><con:configuration><token>id</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="id" value="${#TestCase#case}"/>
+  <con:entry key="token" value="${#TestCase#token}"/>
+</con:parameters><con:parameterOrder><con:entry>token</con:entry><con:entry>id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать id" id="85cec1ad-5690-4084-9591-403b0d3befa6"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def createMarkResponse =testRunner.testCase.getTestStepByName('createMark').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(createMarkResponse)
+
+log.info " id= "+jsonResponse.id.toString()
+
+testRunner.testCase.setPropertyValue("id", jsonResponse.id.toString())
+</script></con:config></con:testStep><con:testStep type="groovy" name="Записать ehrCaseId" id="d059580a-a206-4865-a2a3-07fd7841d3e6"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+def id =testRunner.testCase.getPropertyValue("id")
+
+query="select * from "+schema+".ew_score where id='"+id+"'"
+log.info query
+score=sql.firstRow(query)
+
+testRunner.testCase.setPropertyValue("ehrCaseId", score.ehr_case_id.toString())
+log.info score.ehr_case_id</script></con:config></con:testStep><con:testStep type="restrequest" name="getScore" id="3a1cb099-c1e0-474a-b48c-5667c2a18a18"><con:settings/><con:config service="http://srv-prpnews2p1-kube01.m34.dzm" resourcePath="/api/v1/news2/case/{ehrCaseId}/score" methodName="Score 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getScore" id="a1029588-e416-409d-b1a6-dd57a98f08f8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score</con:originalUri><con:assertion type="Simple Contains" id="65216bca-a492-4ee5-a835-e513612ce095" name="Contains created id"><con:configuration><token>${#TestCase#id}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="limit" value="50"/>
+  <con:entry key="employeeId" value="${#TestCase#employeeId}"/>
+  <con:entry key="ehrCaseId" value="${#TestCase#ehrCaseId}"/>
+</con:parameters><con:parameterOrder><con:entry>limit</con:entry><con:entry>employeeId</con:entry><con:entry>ehrCaseId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="delete" id="dec571c8-133b-471f-9217-08c796765791"><con:settings/><con:config service="http://srv-prpnews2p1-kube01.m34.dzm" resourcePath="/api/v1/news2/score/{score}" methodName="Score 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete" id="9ccbf701-233f-454e-93bc-17cbff150099" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/score/b025c34f-0875-483b-a36d-09ff8a8d2d18</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9675acee-9185-40ce-ac29-bc0abc7c4ba0" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="score" value="${#TestCase#id}"/>
+  <con:entry key="employeeId" value="${#TestCase#employeeId}"/>
+</con:parameters><con:parameterOrder><con:entry>score</con:entry><con:entry>employeeId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>autorization</con:name><con:value>Basic 0KHQmNCc0JDQmtCe0JLQkNCi0J06MQ==</con:value></con:property><con:property><con:name>token</con:name><con:value>c4b4637e.YedQP2lUdl+4nLTDfB+kxTWXPCqiKvmpQCtY3aAk6mWBvBIA7zwl0ItiOuN48Te9gHx8ZjwmdI7WIQ8ZgbyNBLlFPZGcnfBJ6rG2cysw93qpHJr2pOCcvWk1tdRoKfrqqyD+umApGr1xPQ==:dcEvBIDS</con:value></con:property><con:property><con:name>employeeId</con:name><con:value>849c4c98-7e26-4258-bbf6-b0edde15cdfa</con:value></con:property><con:property><con:name>case</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property><con:property><con:name>id</con:name><con:value>fef7f8a6-06c3-4219-af22-9f9da353bbb1</con:value></con:property><con:property><con:name>ehrCaseId</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property></con:properties></con:testCase><con:testCase id="fbe78508-8798-4a85-808f-64dcdd7d4cd9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="postScore" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="postScore" id="26b5109b-05b1-45df-a64b-a161de8d8fe2"><con:settings/><con:config service="http://srv-prpnews2p1-kube01.m34.dzm" resourcePath="/api/v1/news2/score" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="postScore" id="3ef42056-b893-4838-83a8-a4b4b9f3d04f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request>{
+    "consciousnessCode":${#TestCase#cc_1},
+    "diastolic":${#TestCase#d_1},
+    "heartRate":${#TestCase#hr_1},
+    "insufflation":${#TestCase#ins_1},
+    "oxygenDeviceCode":${#TestCase#oxdc_1},
+    "respiratoryRate":${#TestCase#rr_1},
+    "saturation":${#TestCase#sat_1},
+    "systolic":${#TestCase#sys_1},
+    "temperature":${#TestCase#temp_1}
+
+}</con:request><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/news2/score</con:originalUri><con:assertion type="JsonPath Match" id="8c872625-e742-4e3b-923f-9c2c4302d539" name="JsonPath Match id"><con:configuration><path>$['urgency']['id']</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d5ccab15-4ae9-46b5-83ca-c508d9e465c8" name="JsonPath Match code"><con:configuration><path>$['urgency']['code']</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d5ccab15-4ae9-46b5-83ca-c508d9e465c8" name="JsonPath Match name"><con:configuration><path>$['urgency']['name']</path><content>Без отклонений</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d5ccab15-4ae9-46b5-83ca-c508d9e465c8" name="JsonPath Match shortName"><con:configuration><path>$['urgency']['shortName']</path><content>Без отклонений</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d5ccab15-4ae9-46b5-83ca-c508d9e465c8" name="JsonPath Match archived"><con:configuration><path>$['urgency']['archived']</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d5ccab15-4ae9-46b5-83ca-c508d9e465c8" name="JsonPath Match score"><con:configuration><path>$['score']</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d5ccab15-4ae9-46b5-83ca-c508d9e465c8" name="JsonPath Match scoreDeleteInterval"><con:configuration><path>$['scoreDeleteInterval']</path><content>300</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>cc_1</con:name><con:value>1</con:value></con:property><con:property><con:name>d_1</con:name><con:value>0</con:value></con:property><con:property><con:name>hr_1</con:name><con:value>51</con:value></con:property><con:property><con:name>ins_1</con:name><con:value>0</con:value></con:property><con:property><con:name>oxdc_1</con:name><con:value>1</con:value></con:property><con:property><con:name>rr_1</con:name><con:value>12</con:value></con:property><con:property><con:name>sat_1</con:name><con:value>96</con:value></con:property><con:property><con:name>sys_1</con:name><con:value>111</con:value></con:property><con:property><con:name>temp_1</con:name><con:value>36.1</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:testSuite id="ceb6712e-e471-4565-a6c4-cc95ce312d1c" name="delete"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e7b2e08a-f0ed-4ebe-a356-3f29ef01d413" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Удаление оценки ID139834" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="getToken" id="a531fb6d-c771-4880-b8c0-e025df87c23f"><con:settings/><con:config service="http://srv-prpjauth-kube01.m34.dzm" methodName="Login 1" resourcePath="/api/v2/login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getToken" id="c084f602-e429-4d56-9f4f-9e84a98b008c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpjauth-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpjauth-kube01.m34.dzm/api/v2/login</con:originalUri><con:assertion type="Simple Contains" id="0ad48761-1fb1-4ea1-b45e-ad73e9e00c86" name="Ответ сожержит token"><con:configuration><token>token</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="1d4ee82d-9d34-4ba0-b16a-f90da52ccf02" name="Contains"><con:configuration><token>employeeId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="${#TestCase#Autorization}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать token и emploeeId" id="07f9d7f4-9702-48a0-b32b-b50ef30c07fd"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def getTokenResponse =testRunner.testCase.getTestStepByName('getToken').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(getTokenResponse)
+
+
+ 
+log.info " token= "+jsonResponse.profiles.token[0].toString()+",employeeId =  "+jsonResponse.profiles.employeeId[0].toString()
+
+testRunner.testCase.setPropertyValue("token", jsonResponse.profiles.token[0].toString())
+testRunner.testCase.setPropertyValue("employeeId", jsonResponse.profiles.employeeId[0].toString())
+</script></con:config></con:testStep><con:testStep type="restrequest" name="createMark" id="aa093262-b88e-4d54-8e7c-28ef0bc46cf9"><con:settings/><con:config service="http://srv-prpmobileapi-kube01.m34.dzm" methodName="Score 1" resourcePath="/api/v1/news2/case/{id}/score" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createMark" id="56f83fac-103e-4949-a555-af0b686e4a29" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpmobileapi-kube01.m34.dzm</con:endpoint><con:request>{
+    "scoreDeleteInterval": 300,
+    "values": {
+        "confirmDateTime": "2043-02-20T18:20:00+0300",
+        "consciousnessCode": 2,
+        "consciousnessName": "спутанное",
+        "diastolic": 80,
+        "heartRate": 100,
+        "insufflation": 3,
+        "oxygenDeviceCode": 2,
+        "oxygenDeviceName": "Маска",
+        "respiratoryRate": 50,
+        "saturation": 100,
+        "systolic": 180,
+        "temperature": 36.6,
+        "value": 11,
+        "urgencyCode": 4,
+        "urgencyName": "Критичный параметр"
+    }
+}</con:request><con:originalUri>http://srv-prpmobileapi-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score</con:originalUri><con:assertion type="Simple Contains" id="cf076d74-2c3f-4c9b-8bc0-84a271113536" name="Contains"><con:configuration><token>id</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="id" value="${#TestCase#case}"/>
+  <con:entry key="token" value="${#TestCase#token}"/>
+</con:parameters><con:parameterOrder><con:entry>token</con:entry><con:entry>id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать id" id="d88ecbd9-b080-446e-b8bb-96893622b8de"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def createMarkResponse =testRunner.testCase.getTestStepByName('createMark').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(createMarkResponse)
+
+log.info " id= "+jsonResponse.id.toString()
+
+testRunner.testCase.setPropertyValue("id", jsonResponse.id.toString())
+</script></con:config></con:testStep><con:testStep type="delay" name="Delay2" id="f670f85a-05ca-4b3f-bb53-212287c6b995"><con:settings/><con:config><delay>5000</delay></con:config></con:testStep><con:testStep type="groovy" name="Записать ehrCaseId" id="6b12704e-b7a0-4d7b-bde4-c39af79d30b2"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+def id =testRunner.testCase.getPropertyValue("id")
+
+query="select * from "+schema+".ew_score where id='"+id+"'"
+log.info query
+score=sql.firstRow(query)
+
+testRunner.testCase.setPropertyValue("ehrCaseId", score.ehr_case_id.toString())
+log.info score.ehr_case_id</script></con:config></con:testStep><con:testStep type="restrequest" name="delete" id="dd3de0a9-2bde-4b54-bcd3-151d0b37dd13"><con:settings/><con:config service="http://srv-prpnews2p1-kube01.m34.dzm" resourcePath="/api/v1/news2/score/{score}" methodName="Score 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete" id="9ccbf701-233f-454e-93bc-17cbff150099" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/score/b025c34f-0875-483b-a36d-09ff8a8d2d18</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9675acee-9185-40ce-ac29-bc0abc7c4ba0" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="score" value="${#TestCase#id}"/>
+  <con:entry key="employeeId" value="${#TestCase#employeeId}"/>
+</con:parameters><con:parameterOrder><con:entry>score</con:entry><con:entry>employeeId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="delay" name="Delay" id="169ea122-30a0-4dc8-bbb6-c1ee316acbb9"><con:settings/><con:config><delay>6000</delay></con:config></con:testStep><con:testStep type="groovy" name="Проверить удаление в БД" id="816ffbcb-e3f6-4c33-a451-55aa6dedae96"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+def id =testRunner.testCase.getPropertyValue("id")
+
+query="select * from "+schema+".ew_score where id='"+id+"'"
+//log.info query
+score=sql.rows(query)
+assert score.size()==0</script></con:config></con:testStep><con:testStep type="restrequest" name="getEHRcomposition" id="56977409-66f4-463d-a929-a16181660f7d"><con:settings/><con:config service="http://10.134.4.61:8081" resourcePath="/rest/v1/composition/{uuid}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getEHRcomposition" id="faff7171-f552-4dc3-9185-c641dfc0bfd8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.134.4.61:8081</con:endpoint><con:request/><con:originalUri>http://10.134.4.61/rest/v1/composition/ce025d30-05e0-4054-9065-67459d6ee50f</con:originalUri><con:assertion type="JsonPath Match" id="27dfcc05-f892-4f5c-ab02-6dca334649bb" name="JsonPath Match lifecycleState"><con:configuration><path>$.lifecycleState</path><content>DELETED</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2lzOjhiMTZlMTBl"/>
+  <con:entry key="uuid" value="${#TestCase#id}"/>
+</con:parameters><con:parameterOrder><con:entry>uid</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>autorization</con:name><con:value>Basic 0KHQmNCc0JDQmtCe0JLQkNCi0J06MQ==</con:value></con:property><con:property><con:name>token</con:name><con:value>8b59b9e9.vAw8pE1Mvb0P9Cy4+RbXaoea16cV4njHapKpoOD8DsJhFtUX9u9w17iByUP395Joxa5CR5a0lR8eQCg16rvXdjnbLxFi9VzbzIkoxLOINkR+x9aKJ8ktpvfNSE4EKG0YCwTaQNEsmYu+xg==:0oHcldh6</con:value></con:property><con:property><con:name>employeeId</con:name><con:value>849c4c98-7e26-4258-bbf6-b0edde15cdfa</con:value></con:property><con:property><con:name>case</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property><con:property><con:name>id</con:name><con:value>006b1c15-2e3a-490b-957d-4d616febef7d</con:value></con:property><con:property><con:name>ehrCaseId</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property></con:properties></con:testCase><con:testCase id="f9cf7a2a-319e-4ce7-be48-e074506c1e94" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Удаление несуществующей оценки(E009) ID139836" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Найти несуществущий id" id="86e0f3ad-c327-41c3-b046-e4e9fccb09e2"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+finded = false
+id = ""
+
+while (finded==false){
+	 id =  UUID.randomUUID().toString()
+	query="select * from "+schema+".ew_score where id='"+id+"'"
+	//log.info query
+	count=sql.rows(query).size()
+	if (count==0){
+		finded = true
+		break
+	}
+}
+
+testRunner.testCase.setPropertyValue("id", id)
+</script></con:config></con:testStep><con:testStep type="restrequest" name="delete" id="e5d0495e-3a76-452f-899c-15d0df56e28f"><con:settings/><con:config service="http://srv-prpnews2p1-kube01.m34.dzm" resourcePath="/api/v1/news2/score/{score}" methodName="Score 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete" id="9ccbf701-233f-454e-93bc-17cbff150099" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/score/b025c34f-0875-483b-a36d-09ff8a8d2d18</con:originalUri><con:assertion type="JsonPath Match" id="3ca3cd50-1595-4d40-8759-c5412750df3a" name="JsonPath Match id"><con:configuration><path>$.message</path><content>Оценка с идентификатором ${#TestCase#id} не найдена</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="3ca3cd50-1595-4d40-8759-c5412750df3a" name="JsonPath Match code "><con:configuration><path>$.code</path><content>E009</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="score" value="${#TestCase#id}"/>
+  <con:entry key="employeeId" value="${#TestCase#employeeId}"/>
+</con:parameters><con:parameterOrder><con:entry>score</con:entry><con:entry>employeeId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>autorization</con:name><con:value>Basic 0KHQmNCc0JDQmtCe0JLQkNCi0J06MQ==</con:value></con:property><con:property><con:name>token</con:name><con:value>1050d3ac.bpEZ1HcAkMypDP02gvY7NbeWkceXfH78oFIHkWRlu2VaQJPIUjw53PnPVVV61g7SYuhsUl7lkJXKE0vBo3UuzEEQE0uZhV7jN+nT9/ku2TRcNRNhaNAFCWFRXBID7ys6AxBFAD1xOt9U6Jc=:SBM8yLu+</con:value></con:property><con:property><con:name>employeeId</con:name><con:value>849c4c98-7e26-4258-bbf6-b0edde15cdfa</con:value></con:property><con:property><con:name>case</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property><con:property><con:name>id</con:name><con:value>3ba70ac3-a77d-4c7d-8e3e-cc9572193c5e</con:value></con:property><con:property><con:name>ehrCaseId</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property></con:properties></con:testCase><con:testCase id="4c144def-bd71-40cc-808a-5d62ee18875d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Удаление оценки, у которой истекло время на удаление(E012) ID139837" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="getToken" id="a7a472bf-98cd-44d1-a2dd-73a8aecc7e73"><con:settings/><con:config service="http://srv-prpjauth-kube01.m34.dzm" methodName="Login 1" resourcePath="/api/v2/login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getToken" id="c084f602-e429-4d56-9f4f-9e84a98b008c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpjauth-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpjauth-kube01.m34.dzm/api/v2/login</con:originalUri><con:assertion type="Simple Contains" id="0ad48761-1fb1-4ea1-b45e-ad73e9e00c86" name="Ответ сожержит token"><con:configuration><token>token</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="1d4ee82d-9d34-4ba0-b16a-f90da52ccf02" name="Contains"><con:configuration><token>employeeId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="${#TestCase#Autorization}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать token и emploeeId" id="cab2050b-99c5-47f6-b597-d44cc7853cae"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def getTokenResponse =testRunner.testCase.getTestStepByName('getToken').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(getTokenResponse)
+
+
+ 
+log.info " token= "+jsonResponse.profiles.token[0].toString()+",employeeId =  "+jsonResponse.profiles.employeeId[0].toString()
+
+testRunner.testCase.setPropertyValue("token", jsonResponse.profiles.token[0].toString())
+testRunner.testCase.setPropertyValue("employeeId", jsonResponse.profiles.employeeId[0].toString())
+</script></con:config></con:testStep><con:testStep type="groovy" name="Записать текущее время - 5 мин" id="54ccfd9d-d1ad-4bfb-9530-2e3966e81389"><con:settings/><con:config><script>import java.text.SimpleDateFormat 
+import java.util.Date
+
+Date date = new Date(System.currentTimeMillis() - 300 * 1000);
+
+ df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+
+
+log.info( df.format(date)+"+0300")
+
+testRunner.testCase.setPropertyValue("dt", df.format(date).toString()+"+0300" )</script></con:config></con:testStep><con:testStep type="restrequest" name="createMark" id="238ceae8-bda8-47ef-9c85-475838b80a30"><con:settings/><con:config service="http://srv-prpmobileapi-kube01.m34.dzm" methodName="Score 1" resourcePath="/api/v1/news2/case/{id}/score" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createMark" id="56f83fac-103e-4949-a555-af0b686e4a29" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpmobileapi-kube01.m34.dzm</con:endpoint><con:request>{
+    "scoreDeleteInterval": 300,
+    "values": {
+        "confirmDateTime": "${#TestCase#dt}",
+        "consciousnessCode": 2,
+        "consciousnessName": "спутанное",
+        "diastolic": 80,
+        "heartRate": 100,
+        "insufflation": 3,
+        "oxygenDeviceCode": 2,
+        "oxygenDeviceName": "Маска",
+        "respiratoryRate": 50,
+        "saturation": 100,
+        "systolic": 180,
+        "temperature": 36.6,
+        "value": 11,
+        "urgencyCode": 4,
+        "urgencyName": "Критичный параметр"
+    }
+}</con:request><con:originalUri>http://srv-prpmobileapi-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score</con:originalUri><con:assertion type="Simple Contains" id="cf076d74-2c3f-4c9b-8bc0-84a271113536" name="Contains"><con:configuration><token>id</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="id" value="${#TestCase#case}"/>
+  <con:entry key="token" value="${#TestCase#token}"/>
+</con:parameters><con:parameterOrder><con:entry>token</con:entry><con:entry>id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать id" id="df0440c0-5704-4656-a9d0-61fcce8a571f"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def createMarkResponse =testRunner.testCase.getTestStepByName('createMark').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(createMarkResponse)
+
+log.info " id= "+jsonResponse.id.toString()
+
+testRunner.testCase.setPropertyValue("id", jsonResponse.id.toString())
+</script></con:config></con:testStep><con:testStep type="delay" name="Delay2" id="627b4806-3229-4b2e-af08-1ab36a8ddf52"><con:settings/><con:config><delay>3000</delay></con:config></con:testStep><con:testStep type="groovy" name="Записать ehrCaseId" id="72aea642-14bf-40c7-8270-734080e81218" disabled="true"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+def id =testRunner.testCase.getPropertyValue("id")
+
+query="select * from "+schema+".ew_score where id='"+id+"'"
+log.info query
+score=sql.firstRow(query)
+
+testRunner.testCase.setPropertyValue("ehrCaseId", score.ehr_case_id.toString())
+log.info score.ehr_case_id</script></con:config></con:testStep><con:testStep type="restrequest" name="delete" id="cbae14da-342f-46b0-9fa6-1f47357b5675"><con:settings/><con:config service="http://srv-prpnews2p1-kube01.m34.dzm" resourcePath="/api/v1/news2/score/{score}" methodName="Score 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete" id="9ccbf701-233f-454e-93bc-17cbff150099" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/score/b025c34f-0875-483b-a36d-09ff8a8d2d18</con:originalUri><con:assertion type="JsonPath Match" id="aca8c91a-bd9a-46f4-8fb3-2840f74ed142" name="JsonPath Match message"><con:configuration><path>message</path><content>Удаление оценки не возможно. Истекло время доступное для удаления</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c10f444f-e1f3-473b-a7e8-5530b0736c8a" name="JsonPath Match code"><con:configuration><path>code</path><content>E012</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="score" value="${#TestCase#id}"/>
+  <con:entry key="employeeId" value="${#TestCase#employeeId}"/>
+</con:parameters><con:parameterOrder><con:entry>score</con:entry><con:entry>employeeId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="delay" name="Delay" id="c331bc92-ff08-428e-8ac4-f8a8e46047d6"><con:settings/><con:config><delay>6000</delay></con:config></con:testStep><con:testStep type="groovy" name="Проверить удаление в БД" id="3e2cb505-bb0a-4a09-9aee-eb707832467a"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+def id =testRunner.testCase.getPropertyValue("id")
+
+query="select * from "+schema+".ew_score where id='"+id+"'"
+//log.info query
+score=sql.rows(query)
+assert score.size()==1</script></con:config></con:testStep><con:testStep type="restrequest" name="getEHRcomposition" id="ec89c0ab-bfd2-430a-b593-f0f08a418e94"><con:settings/><con:config service="http://10.134.4.61:8081" resourcePath="/rest/v1/composition/{uuid}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getEHRcomposition" id="faff7171-f552-4dc3-9185-c641dfc0bfd8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.134.4.61:8081</con:endpoint><con:request/><con:originalUri>http://10.134.4.61/rest/v1/composition/ce025d30-05e0-4054-9065-67459d6ee50f</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="19dfd70a-1bc6-470f-b353-a2debec17bf7" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="f67e87f5-42be-4ba4-b406-a28d7a1ff312" name="Script Assertion" disabled="true"><con:configuration><scriptText>import com.eviware.soapui.support.JsonUtil
+
+def resp = new JsonUtil( messageExchange.responseContentAsJson)
+
+assert resp.lifecycleState!="DELETED"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2lzOjhiMTZlMTBl"/>
+  <con:entry key="uid" value="${#TestCase#id}"/>
+  <con:entry key="uuid" value="${#TestCase#id}"/>
+</con:parameters><con:parameterOrder><con:entry>uid</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Проверить статус композиции" id="4c1a595e-6b0f-462f-9700-79a2c19142fb"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+
+response = testRunner.testCase.getTestStepByName('getEHRcomposition').properties.Response.value
+
+jsonResponse=new JsonSlurper().parseText(response)
+
+assert jsonResponse.lifecycleState!="DELETED"</script></con:config></con:testStep><con:properties><con:property><con:name>autorization</con:name><con:value>Basic 0KHQmNCc0JDQmtCe0JLQkNCi0J06MQ==</con:value></con:property><con:property><con:name>token</con:name><con:value>1050d3ac.bpEZ1HcAkMypDP02gvY7NbeWkceXfH78oFIHkWRlu2VaQJPIUjw53PnPVVV61g7SYuhsUl7lkJXKE0vBo3UuzEEQE0uZhV7jN+nT9/ku2TRcNRNhaNAFCWFRXBID7ys6AxBFAD1xOt9U6Jc=:SBM8yLu+</con:value></con:property><con:property><con:name>employeeId</con:name><con:value>849c4c98-7e26-4258-bbf6-b0edde15cdfa</con:value></con:property><con:property><con:name>case</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property><con:property><con:name>id</con:name><con:value>eaf53d58-c5db-4188-9bb9-ea28b06fb2a2</con:value></con:property><con:property><con:name>ehrCaseId</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property><con:property><con:name>dt</con:name><con:value>2022-05-11T16:55:14+0300</con:value></con:property></con:properties></con:testCase><con:testCase id="0c4e78da-acbe-414e-b5d8-7be644b99bed" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Попытка удаления оценки пользователем, не являющим тем, кто подтвердил оценку(E011) ID139839" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="getToken" id="3ad15137-6cca-4fe8-a7fd-b300bc2df8eb"><con:settings/><con:config service="http://srv-prpjauth-kube01.m34.dzm" methodName="Login 1" resourcePath="/api/v2/login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getToken" id="c084f602-e429-4d56-9f4f-9e84a98b008c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpjauth-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpjauth-kube01.m34.dzm/api/v2/login</con:originalUri><con:assertion type="Simple Contains" id="0ad48761-1fb1-4ea1-b45e-ad73e9e00c86" name="Ответ сожержит token"><con:configuration><token>token</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="1d4ee82d-9d34-4ba0-b16a-f90da52ccf02" name="Contains"><con:configuration><token>employeeId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="${#TestCase#Autorization}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать token и emploeeId" id="ed7a715d-a1aa-4b51-a8ce-94428e3610e1"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def getTokenResponse =testRunner.testCase.getTestStepByName('getToken').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(getTokenResponse)
+
+
+ 
+log.info " token= "+jsonResponse.profiles.token[0].toString()+",employeeId =  "+jsonResponse.profiles.employeeId[0].toString()
+
+testRunner.testCase.setPropertyValue("token", jsonResponse.profiles.token[0].toString())
+testRunner.testCase.setPropertyValue("employeeId", jsonResponse.profiles.employeeId[0].toString())
+</script></con:config></con:testStep><con:testStep type="groovy" name="Записать текущее время" id="d10fcc61-bd9e-4720-a852-e36ac4144cd1"><con:settings/><con:config><script>import java.text.SimpleDateFormat 
+import java.util.Date
+
+Date date = new Date();
+
+ df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+
+
+log.info( df.format(date)+"+0300")
+
+testRunner.testCase.setPropertyValue("dt", df.format(date).toString()+"+0300" )</script></con:config></con:testStep><con:testStep type="restrequest" name="createMark" id="24aa706f-f07a-4a43-ba8b-9105e68ee0fc"><con:settings/><con:config service="http://srv-prpmobileapi-kube01.m34.dzm" methodName="Score 1" resourcePath="/api/v1/news2/case/{id}/score" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createMark" id="56f83fac-103e-4949-a555-af0b686e4a29" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpmobileapi-kube01.m34.dzm</con:endpoint><con:request>{
+    "scoreDeleteInterval": 300,
+    "values": {
+        "confirmDateTime": "${#TestCase#dt}",
+        "consciousnessCode": 2,
+        "consciousnessName": "спутанное",
+        "diastolic": 80,
+        "heartRate": 100,
+        "insufflation": 3,
+        "oxygenDeviceCode": 2,
+        "oxygenDeviceName": "Маска",
+        "respiratoryRate": 50,
+        "saturation": 100,
+        "systolic": 180,
+        "temperature": 36.6,
+        "value": 11,
+        "urgencyCode": 4,
+        "urgencyName": "Критичный параметр"
+    }
+}</con:request><con:originalUri>http://srv-prpmobileapi-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score</con:originalUri><con:assertion type="Simple Contains" id="cf076d74-2c3f-4c9b-8bc0-84a271113536" name="Contains"><con:configuration><token>id</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="id" value="${#TestCase#case}"/>
+  <con:entry key="token" value="${#TestCase#token}"/>
+</con:parameters><con:parameterOrder><con:entry>token</con:entry><con:entry>id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать id" id="4fc2f067-38fb-45d8-96ee-b6ed0969d1ba"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def createMarkResponse =testRunner.testCase.getTestStepByName('createMark').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(createMarkResponse)
+
+log.info " id= "+jsonResponse.id.toString()
+
+testRunner.testCase.setPropertyValue("id", jsonResponse.id.toString())
+</script></con:config></con:testStep><con:testStep type="delay" name="Delay2" id="2699dd19-cca8-420f-9ff4-a7e96bcd21d7"><con:settings/><con:config><delay>6000</delay></con:config></con:testStep><con:testStep type="groovy" name="Записать ehrCaseId" id="65e273b8-38c5-497d-ac59-0f82ecb9a9a2" disabled="true"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+def id =testRunner.testCase.getPropertyValue("id")
+
+query="select * from "+schema+".ew_score where id='"+id+"'"
+log.info query
+score=sql.firstRow(query)
+
+testRunner.testCase.setPropertyValue("ehrCaseId", score.ehr_case_id.toString())
+log.info score.ehr_case_id</script></con:config></con:testStep><con:testStep type="groovy" name="Сгенерировать новый UUID для emploeeId" id="544b99d4-f7b2-4db0-abfa-697760dd3ae9"><con:settings/><con:config><script>employeeId2 =  UUID.randomUUID().toString()
+
+testRunner.testCase.setPropertyValue("employeeId2", employeeId2)
+</script></con:config></con:testStep><con:testStep type="restrequest" name="delete" id="ee1970ab-8421-4ef6-8f7d-b71160bd7eee"><con:settings/><con:config service="http://srv-prpnews2p1-kube01.m34.dzm" resourcePath="/api/v1/news2/score/{score}" methodName="Score 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete" id="9ccbf701-233f-454e-93bc-17cbff150099" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/score/b025c34f-0875-483b-a36d-09ff8a8d2d18</con:originalUri><con:assertion type="JsonPath Match" id="aca8c91a-bd9a-46f4-8fb3-2840f74ed142" name="JsonPath Match message"><con:configuration><path>message</path><content>Удаление оценки доступно только пользователю, подтвердившему эту оценку</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c10f444f-e1f3-473b-a7e8-5530b0736c8a" name="JsonPath Match code"><con:configuration><path>code</path><content>E011</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="score" value="${#TestCase#id}"/>
+  <con:entry key="employeeId" value="${#TestCase#employeeId2}"/>
+</con:parameters><con:parameterOrder><con:entry>score</con:entry><con:entry>employeeId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="delay" name="Delay" id="e9ed6b5c-d4a1-4b5f-8d10-081204b8f6d0"><con:settings/><con:config><delay>6000</delay></con:config></con:testStep><con:testStep type="groovy" name="Проверить удаление в БД" id="4a447c52-7a4d-479c-b009-86a5dee9de9b"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+def id =testRunner.testCase.getPropertyValue("id")
+
+query="select * from "+schema+".ew_score where id='"+id+"'"
+//log.info query
+score=sql.rows(query)
+assert score.size()==1</script></con:config></con:testStep><con:testStep type="restrequest" name="getEHRcomposition" id="837436b9-463f-420f-a450-66296f5eafc2"><con:settings/><con:config service="http://10.134.4.61:8081" resourcePath="/rest/v1/composition/{uuid}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getEHRcomposition" id="faff7171-f552-4dc3-9185-c641dfc0bfd8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.134.4.61:8081</con:endpoint><con:request/><con:originalUri>http://10.134.4.61/rest/v1/composition/ce025d30-05e0-4054-9065-67459d6ee50f</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="19dfd70a-1bc6-470f-b353-a2debec17bf7" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="f67e87f5-42be-4ba4-b406-a28d7a1ff312" name="Script Assertion" disabled="true"><con:configuration><scriptText>import com.eviware.soapui.support.JsonUtil
+
+def resp = new JsonUtil( messageExchange.responseContentAsJson)
+
+assert resp.lifecycleState!="DELETED"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2lzOjhiMTZlMTBl"/>
+  <con:entry key="uid" value="${#TestCase#id}"/>
+  <con:entry key="uuid" value="${#TestCase#id}"/>
+</con:parameters><con:parameterOrder><con:entry>uid</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Проверить статус композиции" id="f5b94358-23bd-4b49-a565-9e2a584f7ed6"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+
+response = testRunner.testCase.getTestStepByName('getEHRcomposition').properties.Response.value
+
+jsonResponse=new JsonSlurper().parseText(response)
+
+assert jsonResponse.lifecycleState!="DELETED"</script></con:config></con:testStep><con:properties><con:property><con:name>autorization</con:name><con:value>Basic 0KHQmNCc0JDQmtCe0JLQkNCi0J06MQ==</con:value></con:property><con:property><con:name>token</con:name><con:value>542aa9f2.6fhtigN26AfMKZSv2wuyqQ1lxKIWo4XqLssoI4oJ1IhTXIxZHap9JhD1azgVr0dBtYJukY0g2hfDt4xnlEan3XFZmUpOR3zFB0CXM15QPhV5EFTMoECk5zTGD6x/uW7kvvFdXObd3mT5RBM=:ATufqRWU</con:value></con:property><con:property><con:name>employeeId</con:name><con:value>849c4c98-7e26-4258-bbf6-b0edde15cdfa</con:value></con:property><con:property><con:name>case</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property><con:property><con:name>id</con:name><con:value>b9acf973-0ab3-4a57-9767-abcd8869830f</con:value></con:property><con:property><con:name>ehrCaseId</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property><con:property><con:name>dt</con:name><con:value>2022-05-11T17:24:39+0300</con:value></con:property><con:property><con:name>employeeId2</con:name><con:value>fbb2521f-e09a-4717-b125-2123c5c0ac60</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:testSuite id="efe1d531-9173-47ab-b9de-ef871f4ed73b" name="getApprovedScores"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="2fe9f7e3-0410-4903-86c7-5e1397d70416" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Получение списка оценок доступных для удаления пользователем, подтвердившим оценку без limit  ID139824" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="getToken" id="6ae02470-e995-43ae-92e2-5cdfab8752d6"><con:settings/><con:config service="http://srv-prpjauth-kube01.m34.dzm" methodName="Login 1" resourcePath="/api/v2/login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getToken" id="c084f602-e429-4d56-9f4f-9e84a98b008c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpjauth-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpjauth-kube01.m34.dzm/api/v2/login</con:originalUri><con:assertion type="Simple Contains" id="0ad48761-1fb1-4ea1-b45e-ad73e9e00c86" name="Ответ сожержит token"><con:configuration><token>token</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="1d4ee82d-9d34-4ba0-b16a-f90da52ccf02" name="Contains"><con:configuration><token>employeeId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Authorization" value="${#TestCase#Autorization}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать token и emploeeId" id="ae26f16f-f016-4f52-ac61-5de73421bbb7"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def getTokenResponse =testRunner.testCase.getTestStepByName('getToken').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(getTokenResponse)
+ 
+log.info " token= "+jsonResponse.profiles.token[0].toString()+",employeeId =  "+jsonResponse.profiles.employeeId[0].toString()
+
+testRunner.testCase.setPropertyValue("token", jsonResponse.profiles.token[0].toString())
+testRunner.testCase.setPropertyValue("employeeId", jsonResponse.profiles.employeeId[0].toString())
+</script></con:config></con:testStep><con:testStep type="groovy" name="Создать запись в ew_score" id="d55191ea-0afa-43c8-b26f-4af9a7e5945b"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+
+def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+ def getTokenResponse =testRunner.testCase.getTestStepByName('getToken').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(getTokenResponse)
+
+employeeId =  jsonResponse.profiles.employeeId[0].toString()
+ 
+log.info " employeeId =  "+employeeId
+
+testRunner.testCase.setPropertyValue("employeeId",employeeId)
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+ id =  UUID.randomUUID().toString()
+ mdocId =  UUID.randomUUID().toString()
+ehrCaseId =  UUID.randomUUID().toString()
+
+query= "INSERT INTO "+schema+".ew_score"+
+" (id, mdoc_id, dt, respirations, oxygen_saturation, oxygen_use, vol_in_min, oxygen_device_id, bp_systo, bp_disto, pulse, consciousness_id, t, total, ew_score_level_id, freq, escalation, emp_fio, ehr_case_id, monitor_id, employee_id) "+
+"VALUES('"+id+"'::uuid, '"+mdocId+"'::uuid, '2026-02-20 18:20:00.000', 50, 100.0, 1, 3.0, 2, 180, 0, 100, 2, 36.6, 11, 4, NULL, NULL, 'СИМАКОВА Т.Н.', '"+ehrCaseId+"'::uuid, NULL, '"+employeeId+"'::uuid)"
+
+log.info query
+sql.execute(query)
+
+testRunner.testCase.setPropertyValue("id", id)
+testRunner.testCase.setPropertyValue("mdocId", mdocId)
+testRunner.testCase.setPropertyValue("ehrCaseId", ehrCaseId)
+</script></con:config></con:testStep><con:testStep type="restrequest" name="createMark" id="62bc6856-498a-4a2d-a9aa-b7639405f135" disabled="true"><con:settings/><con:config service="http://srv-prpmobileapi-kube01.m34.dzm" methodName="Score 1" resourcePath="/api/v1/news2/case/{id}/score" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createMark" id="56f83fac-103e-4949-a555-af0b686e4a29" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpmobileapi-kube01.m34.dzm</con:endpoint><con:request>{
+    "scoreDeleteInterval": 300,
+    "values": {
+        "confirmDateTime": "2043-02-20T18:20:00+0300",
+        "consciousnessCode": 2,
+        "consciousnessName": "спутанное",
+        "diastolic": 80,
+        "heartRate": 100,
+        "insufflation": 3,
+        "oxygenDeviceCode": 2,
+        "oxygenDeviceName": "Маска",
+        "respiratoryRate": 50,
+        "saturation": 100,
+        "systolic": 180,
+        "temperature": 36.6,
+        "value": 11,
+        "urgencyCode": 4,
+        "urgencyName": "Критичный параметр"
+    }
+}</con:request><con:originalUri>http://srv-prpmobileapi-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score</con:originalUri><con:assertion type="Simple Contains" id="cf076d74-2c3f-4c9b-8bc0-84a271113536" name="Contains"><con:configuration><token>id</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="id" value="${#TestCase#case}"/>
+  <con:entry key="token" value="${#TestCase#token}"/>
+</con:parameters><con:parameterOrder><con:entry>token</con:entry><con:entry>id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Записать id" id="88fa5fe9-d398-49ce-be50-e033fce1d8f6" disabled="true"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+ 
+ def createMarkResponse =testRunner.testCase.getTestStepByName('createMark').properties.Response.value
+
+jsonResponse = new JsonSlurper().parseText(createMarkResponse)
+
+log.info " id= "+jsonResponse.id.toString()
+
+testRunner.testCase.setPropertyValue("id", jsonResponse.id.toString())
+</script></con:config></con:testStep><con:testStep type="delay" name="Delay2" id="d174bb50-61d5-4741-8fc3-e2ed8eb0e6b0" disabled="true"><con:settings/><con:config><delay>5000</delay></con:config></con:testStep><con:testStep type="restrequest" name="getScore" id="f039d454-0455-429f-9db8-cbbeb26194d7"><con:settings/><con:config service="http://srv-prpnews2p1-kube01.m34.dzm" resourcePath="/api/v1/news2/case/{ehrCaseId}/score" methodName="Score 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getScore" id="a1029588-e416-409d-b1a6-dd57a98f08f8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/case/8eae5b23-e7cd-4c19-ac5d-225f768f0f9f/score</con:originalUri><con:assertion type="Simple Contains" id="65216bca-a492-4ee5-a835-e513612ce095" name="Contains created id"><con:configuration><token>${#TestCase#id}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="634c9f24-f78c-4f5e-9b36-023849374663" name="JsonPath Match id"><con:configuration><path>$[0].id</path><content>${#TestCase#id}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="634c9f24-f78c-4f5e-9b36-023849374663" name="JsonPath Match urgency.id"><con:configuration><path>$[0].urgency.id</path><content>4</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="634c9f24-f78c-4f5e-9b36-023849374663" name="JsonPath Match urgency.code"><con:configuration><path>$[0].urgency.id</path><content>4</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="634c9f24-f78c-4f5e-9b36-023849374663" name="JsonPath Match urgency.name"><con:configuration><path>$[0].urgency.name</path><content>Критичный параметр</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="limit" value="50"/>
+  <con:entry key="employeeId" value="${#TestCase#employeeId}"/>
+  <con:entry key="ehrCaseId" value="${#TestCase#ehrCaseId}"/>
+</con:parameters><con:parameterOrder><con:entry>limit</con:entry><con:entry>employeeId</con:entry><con:entry>ehrCaseId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="delete" id="9fcc9661-a1c9-442c-9002-5bbd81b8c2ff" disabled="true"><con:settings/><con:config service="http://srv-prpnews2p1-kube01.m34.dzm" resourcePath="/api/v1/news2/score/{score}" methodName="Score 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete" id="9ccbf701-233f-454e-93bc-17cbff150099" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://srv-prpnews2p1-kube01.m34.dzm</con:endpoint><con:request/><con:originalUri>http://srv-prpnews2p1-kube01.m34.dzm/api/v1/news2/score/b025c34f-0875-483b-a36d-09ff8a8d2d18</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9675acee-9185-40ce-ac29-bc0abc7c4ba0" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="score" value="${#TestCase#id}"/>
+  <con:entry key="employeeId" value="${#TestCase#employeeId}"/>
+</con:parameters><con:parameterOrder><con:entry>score</con:entry><con:entry>employeeId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="delay" name="Delay" id="7fe6ced2-f49b-42bf-acf9-a50445b95eda" disabled="true"><con:settings/><con:config><delay>6000</delay></con:config></con:testStep><con:testStep type="groovy" name="Проверить удаление в БД" id="b9e645af-fe03-4fd5-a2a9-90b51438e4ea" disabled="true"><con:settings/><con:config><script>def scripts = new ScriptLibrary(context, testRunner, log)
+
+sql=scripts.createDBConnection()
+
+def schema =testRunner.testCase.testSuite.project.getPropertyValue("schema")
+
+def id =testRunner.testCase.getPropertyValue("id")
+
+query="select * from "+schema+".ew_score where id='"+id+"'"
+//log.info query
+score=sql.rows(query)
+assert score.size()==0</script></con:config></con:testStep><con:testStep type="restrequest" name="getEHRcomposition" id="2a90b537-3792-4954-9190-5154329c727f" disabled="true"><con:settings/><con:config service="http://10.134.4.61:8081" resourcePath="/rest/v1/composition/{uuid}" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getEHRcomposition" id="faff7171-f552-4dc3-9185-c641dfc0bfd8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.134.4.61:8081</con:endpoint><con:request/><con:originalUri>http://10.134.4.61/rest/v1/composition/ce025d30-05e0-4054-9065-67459d6ee50f</con:originalUri><con:assertion type="JsonPath Match" id="27dfcc05-f892-4f5c-ab02-6dca334649bb" name="JsonPath Match lifecycleState"><con:configuration><path>$.lifecycleState</path><content>DELETED</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2lzOjhiMTZlMTBl"/>
+  <con:entry key="uuid" value="${#TestCase#id}"/>
+</con:parameters><con:parameterOrder><con:entry>uid</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>autorization</con:name><con:value>Basic 0KHQmNCc0JDQmtCe0JLQkNCi0J06MQ==</con:value></con:property><con:property><con:name>token</con:name><con:value>c495cc06.h5WoqYPWpXsn721hdcGMiveHTcqQPoozoWbX42gzAy4mNCKTP6mnaGlKfWMsYAjvM3lxoTiW7281u9uGArEBbxixyzulPZHUQne1W9qgadjlUMkvplmQ/MScphhs/CUFZxnMrvy9JqcT2Io=:equPPZpN</con:value></con:property><con:property><con:name>employeeId</con:name><con:value>849c4c98-7e26-4258-bbf6-b0edde15cdfa</con:value></con:property><con:property><con:name>case</con:name><con:value>8eae5b23-e7cd-4c19-ac5d-225f768f0f9f</con:value></con:property><con:property><con:name>id</con:name><con:value>706ec224-b05d-4b1a-94d9-fb5769cbda1d</con:value></con:property><con:property><con:name>ehrCaseId</con:name><con:value>8f5c0df0-156a-4ef2-9dbf-9fd23786a747</con:value></con:property><con:property><con:name>mdocId</con:name><con:value>f592cdf3-a5c1-45b6-a304-534a1e312be4</con:value></con:property></con:properties></con:testCase><con:testCase id="df921846-9997-4246-a9d5-61e2ec2ae184" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="маппинг ответа" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>dbLogin</con:name><con:value>XPWW</con:value></con:property><con:property><con:name>dbPassword</con:name><con:value>c4d504412b61b0560d442686dfad27</con:value></con:property><con:property><con:name>dbConnect</con:name><con:value>10.134.4.63:5432/sklif</con:value></con:property><con:property><con:name>dbType</con:name><con:value>postgre</con:value></con:property><con:property><con:name>schema</con:name><con:value>mm</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

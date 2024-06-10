@@ -1,0 +1,1 @@
+select * from f_attachment_event fae where attachment_id in (select ID from f_attachment fa where patient_id = 17921942)

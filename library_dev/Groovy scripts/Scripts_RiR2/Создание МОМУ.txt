@@ -1,0 +1,64 @@
+import groovy.sql.Sql
+
+if (context.dbConnect != null) {      
+sql = context.dbConnect;
+
+// def medicalFacilityId= testRunner.testCase.getPropertyValue("medicalFacilityId")
+ // def medicalFacilityId2= testRunner.testCase.getPropertyValue("medicalFacilityId2")
+// def medicalOrganizationId= testRunner.testCase.getPropertyValue("medicalOrganizationId")
+
+// Добавление МО
+      sql.execute ("INSERT INTO MEDICAL_ORGANIZATION (ID,ARCHIVED, NAME, NAME_FULL,OGRN, CREATED)" +
+"VALUES ((SELECT MAX(ID)+1 FROM MEDICAL_ORGANIZATION ) , 0, 'Тестовая MO', 'Тестовая Медицинская организация', 1544989849849,  TIMESTAMP '1970-01-01 00:00:00.000000') ")
+
+     String sql_query = "SELECT * FROM MEDICAL_ORGANIZATION WHERE ID = ((SELECT max(ID) FROM MEDICAL_ORGANIZATION ))"
+
+     def medicalOrganization = sql.rows(sql_query)
+
+    String medicalOrganizationId =medicalOrganization[0].ID
+       log.info ("ID МО: " + medicalOrganizationId)
+
+
+// Добавление МУ
+      sql.execute ("INSERT INTO MEDICAL_FACILITY (ID, ARCHIVED, MEDICAL_ORGANIZATION_ID, NAME_SHORT, NAME, NAME_FULL, IS_HEAD)" +
+"VALUES (  (SELECT MAX(ID)+1 FROM MEDICAL_FACILITY) , 0," +medicalOrganizationId +", 'Тестовое МУ', 'Тестовое Медицинское Учреждение', 'Тестовое Медицинское Учреждение',  0) ")
+
+      sql.execute ("INSERT INTO MEDICAL_FACILITY (ID, ARCHIVED, MEDICAL_ORGANIZATION_ID, NAME_SHORT, NAME, NAME_FULL, IS_HEAD)" +
+"VALUES (   (SELECT MAX(ID)+1 FROM MEDICAL_FACILITY), 0," +medicalOrganizationId +", 'Тестовое МУ', 'Тестовое Медицинское Учреждение', 'Тестовое Медицинское Учреждение',  0) ")
+
+     String sql_query2= "SELECT * FROM MEDICAL_FACILITY WHERE ID = ((SELECT max(ID) FROM MEDICAL_FACILITY ))"
+     String sql_query3= "SELECT * FROM MEDICAL_FACILITY WHERE ID = ((SELECT max(ID)-1 FROM MEDICAL_FACILITY ))"
+    def medicalFacility = sql.rows(sql_query2)
+    def medicalFacility2 = sql.rows(sql_query3)
+     String medicalFacilityId =medicalFacility[0].ID
+     String medicalFacilityId2 =medicalFacility2[0].ID
+      log.info ("ID МУ: " +medicalFacilityId)
+      log.info ("ID МУ2: " +medicalFacilityId2)
+      
+    testRunner.testCase.setPropertyValue("medicalOrganizationId",medicalOrganizationId)
+     testRunner.testCase.setPropertyValue("medicalFacilityId",medicalFacilityId)
+     testRunner.testCase.setPropertyValue("medicalFacilityId2",medicalFacilityId2)
+
+     //Выбор typeId с kind=WORK_TIME_DEFINITION ( typeWorkTimeDId)
+       String sql_query4 = "SELECT * FROM SAR_SCHRULE_TYPE WHERE KIND = 'WORK_TIME_DEFINITION'"
+       def types_W = sql.rows(sql_query4)
+       String  typeWorkTimeDId =types_W[0].ID
+       testRunner.testCase.setPropertyValue("typeWorkTimeDId",typeWorkTimeDId)
+
+       //Выбор typeId с kind=TREATMENT_REDEFINITION ( typeTreatmentRedefinitionId)
+       String sql_query5 = "SELECT * FROM SAR_SCHRULE_TYPE WHERE KIND = 'TREATMENT_REDEFINITION'"
+       def types_T = sql.rows(sql_query5)
+       String  typeTreatmentRedefinitionId =types_T[0].ID
+       String  typeTreatmentRedefinitionKind =types_T[0].KIND
+       testRunner.testCase.setPropertyValue("typeTreatmentRedefinitionId",typeTreatmentRedefinitionId)
+       testRunner.testCase.setPropertyValue("typeTreatmentRedefinitionKind",typeTreatmentRedefinitionKind)
+       
+        // Выбор  неархивной возрастной группы  ageGroupId   (ageGroupId)
+       String sql_query6 = "SELECT * FROM AGE_GROUP WHERE ARCHIVED =0"
+       def ageGroups = sql.rows(sql_query6)
+       String ageGroupId =ageGroups[0].ID
+       testRunner.testCase.setPropertyValue("ageGroupId",ageGroupId)
+        log.info ("ID неархивной возрастной группы: " + ageGroupId)
+} else {
+	log.error("Соединение с бд не установлено!");
+}
