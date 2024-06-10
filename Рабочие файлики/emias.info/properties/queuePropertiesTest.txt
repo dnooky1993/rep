@@ -1,0 +1,2 @@
+queueBoardManageEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/eboard/boardManageService/v3S/ProxyService
+queueTicketEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/eboard/ticketService/v1S/ProxyService

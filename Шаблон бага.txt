@@ -1,0 +1,82 @@
+Шаблон бага
+
+{code:java}
+http://application.emiasinfo-services.test.emias.mos.ru/
+Проект собран из репозитория: https://git.emias.mos.ru/emias-info/services
+Версия: 1.4.1
+Ветка: release_1.4.1
+Ревизия: 68f89b9551a11ef2fc076b5c732eb924554966bc
+{code}
+
+*Описание:*
+Согласно постановке [get pillbox|https://wiki.mos.social/pages/viewpage.action?pageId=414240175] если в ответе getPatientPillboxList totalItemsCount<=1, то medicationsCount=totalItemsCount, а schedulesCount=количество назначений, для которых medication.pillboxStatus = scheduled
+ !Постановка.png|thumbnail! 
+но вместо этого отрабатывает АС2 и возвращается ошибка LN_MEDS_ERROR
+ !Ошибка.png|thumbnail! 
+
+*Шаги:*
+1. Выполнить запрос в соответствии с примером.
+
+Пример:
+{code:java}
+curl -X 'GET' \
+  'http://emiasinfo1.emias.solit-clouds.ru/api/v2/medication/pillbox?patientId=23522176' \
+  -H 'accept: application/json' \
+  -H 'EI-token: cXDXWf9cgqok7HAL4QPlScF7X8_KipsEsNPrLJ4REVo'
+{code}
+
+*Ожидаемый результат:*
+В ответе вернулись medicationsCount=0 и schedulesCount=0
+
+*Фактический результат:*
+В ответе вернулась ошибка LN_MEDS_ERROR
+
+
+{color:#ffab00}*Не исправлено*{color}
+Теперь на все запросы возвращается ошибка HOSP_LIST_ERROR
+!Ошибка2.png|thumbnail! 
+Проверено на:
+{code:java}
+http://application-emiasinfo4.emias.solit-clouds.ru/
+Проект собран из репозитория: https://git.emias.mos.ru/emias-info/services
+Версия: 1.7.0 (new)
+Ветка: release_1.7.0 (new)
+Ревизия: 275aed62b0197c221c6dff0bf4e7397a392259b0
+{code}
+
+
+Закрытие бага
+{color:#00875a}*Исправлено*{color}
+Постановка на шаге 4
+ !шаг6.png|thumbnail!
+Реализация. Для архивных симптоматических назначений возвращается dayHistory = true/false
+ !Исправлено с true.png|thumbnail!  !Исправлено с false.png|thumbnail! 
+Проверено на:
+{code:java}
+http://emiasinfo3.emias.solit-clouds.ru/
+Проект собран из репозитория: https://git.emias.mos.ru/emias-info/services
+Версия: 1.4.1
+Ветка: release_1.4.1
+Ревизия: 68f89b9551a11ef2fc076b5c732eb924554966bc
+{code}
+
+
+
+Закрытие задачи
+{color:#00875a}Проверено полностью{color}
+За исключение вопроса [EINFOSRV-2359|https://jira.mos.social/browse/EINFOSRV-2359]. Ожидается ответ
+{code:java}
+http://application-emiasinfo1.emias.solit-clouds.ru/
+Проект собран из репозитория: https://git.emias.mos.ru/emias-info/services
+Версия: 1.11.0
+Ветка: release_1.1.0
+Ревизия: 88c3a91961d009dec7f856e7a11f7d1189ba5c84
+{code}
+
+Проверены:
+1. Получение пустого и не пустого списка заказов
+2. Получение активных и архивных заказов
+3. Обязательность и множественность параметров
+4. Все АС
+5. Написана [документация|https://testit.solit-clouds.ru/projects/145062/tests?isolatedSection=dc965adc-adcd-4fd8-b54b-4f665c04912b]
+6. Написан АТ. Выгружен в репозиторий

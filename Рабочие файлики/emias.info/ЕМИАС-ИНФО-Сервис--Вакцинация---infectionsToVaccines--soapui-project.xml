@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e56daa9d-45b5-4d31-b94d-c83aec56002d" activeEnvironment="Default" name="ЕМИАС.ИНФО Сервис &quot;Вакцинация&quot; (infectionsToVaccines)" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="629f1652-89c6-41ed-8c8c-f35f7fb056e9" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://application-emiasinfo2.emias.solit-clouds.ru" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://application-emiasinfo2.emias.solit-clouds.ru</con:endpoint></con:endpoints><con:resource name="" path="/api/v1/vaccinations/infectionsToVaccines" id="98f08077-4d45-434c-bc21-ff0e87a94fd8"><con:settings/><con:parameters><con:parameter><con:name>X-Access-JWT</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>type</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="1" id="177e18c6-9c3c-4da9-a64f-8238d541963c" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:inf="http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines">inf:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>401 500 400</con:status><con:params/><con:element xmlns:inf="http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines">inf:Fault</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=UTF-8</con:mediaType><con:status>400 404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="596e6842-5fc1-4e1c-8a71-84ee30aab90b" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="VACCINE"/>
+</con:parameters><con:parameterOrder><con:entry>X-Access-JWT</con:entry><con:entry>type</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="185fffdc-9871-47cd-ac2a-424f25972ded" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://lkservice.test.emias.ru" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://lkservice.test.emias.ru</con:endpoint></con:endpoints><con:resource name="vaccines" path="/api/1/reference/nsi/vaccines" id="1b509769-316b-4f50-9dea-25f3140b2580"><con:settings/><con:parameters><con:parameter><con:name>X-Access-JWT</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="1" id="18ef0697-a2c5-4a84-bf73-54124f747931" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>401</con:status><con:params/><con:element xmlns:vac="https://lkservice.test.emias.ru/1/reference/nsi/vaccines">vac:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:vac="https://lkservice.test.emias.ru/1/reference/nsi/vaccines">vac:Response</con:element></con:representation><con:request name="Request 1" id="319d9ec0-3d18-404e-90d8-2da5ee2f9ced" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://lkservice.test.emias.ru</con:endpoint><con:request/><con:originalUri>https://lkservice.test.emias.ru/1/reference/nsi/vaccines</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>X-Access-JWT</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="infections" path="/api/1/reference/nsi/infections" id="5c43eaa7-9d16-4ab6-afd2-fb5e57885eb2"><con:settings/><con:parameters><con:parameter><con:name>type</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Method 1" id="50f4bcf6-a7e6-46ab-9496-18a0ace57ae3" method="GET"><con:settings/><con:parameters><con:parameter><con:name>X-Access-JWT</con:name><con:value/><con:style>HEADER</con:style><con:default/></con:parameter></con:parameters><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:inf="https://lkservice.test.emias.ru/api/1/reference/nsi/infections">inf:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:inf="https://lkservice.test.emias.ru/api/1/reference/nsi/infections">inf:Response</con:element></con:representation><con:request name="Request 1" id="100408ef-e9d8-4ec7-9092-9525f949a5e4" mediaType="application/json"><con:settings/><con:endpoint>https://lkservice.test.emias.ru</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="X-Access-JWT" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>X-Access-JWT</con:entry><con:entry>type</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="infections-to-vaccines" path="/api/1/reference/nsi/infections-to-vaccines" id="2ebb54c9-e610-4079-a092-ea0a0fc3cbf8"><con:settings/><con:parameters><con:parameter><con:name>X-Access-JWT</con:name><con:style>HEADER</con:style></con:parameter></con:parameters><con:method name="Method 1" id="7e99ef6b-9d2d-4bdc-b0c5-66645f03d9bc" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:inf="https://lkservice.test.emias.ru/api/1/reference/nsi/infections-to-vaccines">inf:Response</con:element></con:representation><con:request name="Request 1" id="6ad20a71-bf53-497c-95da-868a732d72fb" mediaType="application/json"><con:settings/><con:endpoint>https://lkservice.test.emias.ru</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>X-Access-JWT</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="9de47bd1-da8d-468f-a7ae-fec8e0629d6c" name="POST infectionsToVaccines"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="95a8f5a0-9c50-4e01-8deb-fcfc60937221" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411091_ОС. Получение вакцин, инфекций и маппинга инфекции-вакцины (type = VACCINE)" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="vaccines" id="d09fcf04-6e7c-4332-ac43-6301083139c1"><con:settings/><con:config service="https://lkservice.test.emias.ru" resourcePath="/api/1/reference/nsi/vaccines" methodName="1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="vaccines" id="319d9ec0-3d18-404e-90d8-2da5ee2f9ced" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#LkEndpoint}</con:endpoint><con:request/><con:originalUri>https://lkservice.test.emias.ru/api/1/reference/nsi/vaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="36b1d8df-8946-42a3-b9c1-a07fbe9c2b33" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="X-Access-JWT" value="${#Project#X-Access-JWT}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>X-Access-JWT</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infections" id="5062c939-81ba-4c8c-a34d-b54735f7b02c"><con:settings/><con:config service="https://lkservice.test.emias.ru" resourcePath="/api/1/reference/nsi/infections" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infections" id="100408ef-e9d8-4ec7-9092-9525f949a5e4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#LkEndpoint}</con:endpoint><con:request/><con:originalUri>https://lkservice.test.emias.ru/api/1/reference/nsi/infections</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="0d54e0d1-3f11-4f15-aa70-fa980165051a" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters><con:parameterOrder><con:entry>X-Access-JWT</con:entry><con:entry>type</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infections-to-vaccines" id="42c9e66e-0155-4ea3-a138-871746a87870"><con:settings/><con:config service="https://lkservice.test.emias.ru" resourcePath="/api/1/reference/nsi/infections-to-vaccines" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infections-to-vaccines" id="6ad20a71-bf53-497c-95da-868a732d72fb" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#LkEndpoint}</con:endpoint><con:request/><con:originalUri>https://lkservice.test.emias.ru/api/1/reference/nsi/infections-to-vaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ad8b08df-4338-42c0-b3af-c441a542835b" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="X-Access-JWT" value="${#Project#X-Access-JWT}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>X-Access-JWT</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infectionsToVaccines" id="80f38409-d993-434c-b83e-24031a689fac"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Проверка количества объектов vaccines" id="eef879c4-0156-4911-a198-c530859a0890"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import java.util.ArrayList
+
+def slurperJson = new JsonSlurper()
+
+def vaccinesResponse = context.expand('${vaccines#Response}')
+def vaccines = slurperJson.parseText(vaccinesResponse).vaccines
+
+def infectionsResponse = context.expand('${infections#Response}')
+def infections = slurperJson.parseText(infectionsResponse).infections
+
+def infectionsToVaccinesLKResponse = context.expand('${infections-to-vaccines#Response}')
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLKResponse).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+
+// Получить уникальные вакцины из ответа vaccines
+def uniqueVaccines = vaccines.unique { [(it.mnnId + it.name)] }
+
+// Отфильтровать уникальные вакцины по isRequired = true в ответе infections-to-vaccines
+def filteredVaccines = uniqueVaccines.findAll { it.mnnId in infectionsToVaccines.findAll { it.isRequired }.vaccineId }
+
+// Подсчитать количество отфильтрованных вакцин
+def countVaccinesLK = filteredVaccines.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+checkParameter("vaccines", countVaccinesLK, vaccinesINFO.size())</script></con:config></con:testStep><con:testStep type="groovy" name="Проверка количества объектов infections" id="7230b485-7f87-479d-a141-8526d188b664"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import java.util.ArrayList
+
+def slurperJson = new JsonSlurper()
+
+def vaccinesResponse = context.expand('${vaccines#Response}')
+def vaccines = slurperJson.parseText(vaccinesResponse).vaccines
+
+def infectionsResponse = context.expand('${infections#Response}')
+def infections = slurperJson.parseText(infectionsResponse).infections
+
+def infectionsToVaccinesLKResponse = context.expand('${infections-to-vaccines#Response}')
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLKResponse).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def infectionsINFO = infectionsToVaccinesINFO.infections
+
+// Получить уникальные вакцины из ответа vaccines
+def uniqueInfections = infections.unique { [ it.id ] }
+
+// Отфильтровать уникальные вакцины по isRequired = true в ответе infections-to-vaccines
+def filterednfections = uniqueInfections.findAll { it.id in infectionsToVaccines.findAll { it.isRequired }.infectionId }
+
+// Подсчитать количество отфильтрованных вакцин
+def countnfectionsLK = filterednfections.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+checkParameter("infections", countnfectionsLK, infectionsINFO.size())</script></con:config></con:testStep><con:testStep type="groovy" name="Маппинг vaccines" id="3ff9e30d-1072-4c6d-b5c4-013d1fc12cf6"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import java.util.ArrayList
+
+def slurperJson = new JsonSlurper()
+
+def vaccinesResponse = context.expand('${vaccines#Response}')
+def vaccines = slurperJson.parseText(vaccinesResponse).vaccines
+
+def infectionsResponse = context.expand('${infections#Response}')
+def infections = slurperJson.parseText(infectionsResponse).infections
+
+def infectionsToVaccinesLKResponse = context.expand('${infections-to-vaccines#Response}')
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLKResponse).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+
+countBundlesLK = infectionsToVaccines.size() // Количество всех связок инфекций-вакцин
+
+// Считаю связки, исключая те, у которых isRequired = false; создаю массив вакцин и инфекций, попадающих под условия выборки
+countBundlesIsRequiredTrueLK = 0
+infIdsVacIds = [] // Массив для связок
+infectionArr = []
+vaccineArr = []
+for(i=0; i<countBundlesLK; i++){
+	if(infectionsToVaccines[i].isRequired == true){
+		countBundlesIsRequiredTrueLK = countBundlesIsRequiredTrueLK+1
+		infIdsVacIds << infectionsToVaccines[i]
+		}
+	}
+log.info infIdsVacIds
+
+// Извлекаю вакцины, которые есть в связке из метода vaccines + infections к каждой найденной vaccine
+for(i=0; i<vaccines.size(); i++){
+	//log.info "Зашли в for1 i = "+i
+	for(j=0; j<infIdsVacIds.size(); j++){
+		//log.info "Зашли в for1 j = "+j
+		if(vaccines[i].mnnId == infIdsVacIds.vaccineId[j]){
+			//log.info "Зашли в if1 i = "+i + " j = "+ j
+			for(h=0; h<infections.size(); h++){
+				//log.info "Зашли в for3 h = "+ h
+				if(infections[h].id == infIdsVacIds.infectionId[j]){
+					//log.info "Зашли в if2 h = "+h + " j = "+ j
+					vaccineArr.add(mnnId: vaccines[i].mnnId, name: vaccines[i].name, infectionId: infections[h].id, infectionName: infections[h].name, infectionFrequency: infections[h].frequency);
+					}
+				}
+			}
+		}
+	}
+	
+log.info vaccineArr.size()
+log.info vaccinesINFO*.frequency.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+// Сравниваю с методом ИНФО
+for(j=0; j<vaccineArr.size(); j++){
+	for(i=0; i<vaccinesINFO.size(); i++){
+		//log.info "Зашли в for i = " +i +" j = "+j
+		if(vaccinesINFO[i].id.toString() == vaccineArr[j].mnnId && vaccinesINFO[i].name == vaccineArr[j].name){
+			//checkParameter("vaccines.name", vaccineArr[j].name, vaccinesINFO[i].name)
+			//assert vaccinesINFO[i].name == vaccineArr[j].name // Сравниваем name вакцины
+			for(h=0; h<vaccinesINFO[i].infections.size(); h++){
+				if(vaccinesINFO[i].infections[h].id.toString() == vaccineArr[j].infectionId){
+					//log.info "Сравниванию j = " +j+ " i = " +i+ " h = " +h + " Фактическое vaccinesINFO[i].infections[h].frequency = " + vaccinesINFO[i].infections[h].frequency + " Ожидаемое vaccineArr[j].infectionFrequency =  " + vaccineArr[j].infectionFrequency
+					checkParameter("infectionFrequency", vaccineArr[j].infectionFrequency, vaccinesINFO[i].infections[h].frequency)
+					checkParameter("infectionName", vaccineArr[j].infectionName, vaccinesINFO[i].infections[h].name)
+					//assert vaccinesINFO[i].infections[h].frequency == vaccineArr[j].infectionFrequency // Сравниваем frequency инфекции
+					//assert vaccinesINFO[i].infections[h].name == vaccineArr[j].infectionName // Сравниваем name инфекции
+					}
+					
+				}
+			}
+		}
+	}]]></script></con:config></con:testStep><con:testStep type="groovy" name="Маппинг infections" id="5c3e7692-1dc4-47b8-9c82-7117dbb46162"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import java.util.ArrayList
+
+def slurperJson = new JsonSlurper()
+
+def vaccinesResponse = context.expand('${vaccines#Response}')
+def vaccines = slurperJson.parseText(vaccinesResponse).vaccines
+
+def infectionsResponse = context.expand('${infections#Response}')
+def infections = slurperJson.parseText(infectionsResponse).infections
+
+def infectionsToVaccinesLKResponse = context.expand('${infections-to-vaccines#Response}')
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLKResponse).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+def infectionsINFO = infectionsToVaccinesINFO.infections
+
+countBundlesLK = infectionsToVaccines.size() // Количество всех связок инфекций-вакцин
+
+// Считаю связки, исключая те, у которых isRequired = false; создаю массив вакцин и инфекций, попадающих под условия выборки
+countBundlesIsRequiredTrueLK = 0
+infIdsVacIds = [] // Массив для связок
+infectionArr = []
+vaccineArr = []
+for(i=0; i<countBundlesLK; i++){
+	if(infectionsToVaccines[i].isRequired == true){
+		countBundlesIsRequiredTrueLK = countBundlesIsRequiredTrueLK+1
+		infIdsVacIds << infectionsToVaccines[i]
+		}
+	}
+
+
+// Извлекаю инфекции, которые есть в связке из метода vaccines + infections к каждой найденной infection
+for(i=0; i<infections.size(); i++){
+	//log.info "Зашли в for1 i = "+i
+	for(j=0; j<infIdsVacIds.size(); j++){
+		//log.info "Зашли в for1 j = "+j
+		if(infections[i].id == infIdsVacIds.infectionId[j]){
+			//log.info "Зашли в if1 i = "+i + " j = "+ j
+			for(h=0; h<vaccines.size(); h++){
+				//log.info "Зашли в for3 h = "+ h
+				if(vaccines[h].mnnId == infIdsVacIds.vaccineId[j]){
+					//log.info "Зашли в if2 h = "+h + " j = "+ j
+					infectionArr.add(id: infections[i].id, frequency: infections[i].frequency, name: infections[i].name, type: infections[i].type, archived: infections[i].archived, vaccineId: vaccines[h].id, vaccineName: vaccines[h].name);
+					}
+				}
+			}
+		}
+	}
+	
+
+infectionArr = infectionArr.sort{it.vaccineName}
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Параметр "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+// Сравниваю с методом ИНФО
+for(j=0; j<infectionArr.size(); j++){
+	for(i=0; i<infectionsINFO.size(); i++){
+		//log.info "Зашли в for i = " +i +" j = "+j
+		if(infectionsINFO[i].id.toString() == infectionArr[j].id){
+			checkParameter("infections.frequency", infectionArr[j].frequency, infectionsINFO[i].frequency)
+			checkParameter("infections.type", infectionArr[j].type, infectionsINFO[i].type)
+			checkParameter("infections.name", infectionArr[j].name, infectionsINFO[i].name)
+			checkParameter("infections.archived", infectionArr[j].archived, infectionsINFO[i].archived)
+			for(h=0; h<infectionsINFO[i].vaccines.size(); h++){
+				if(infectionsINFO[i].vaccines[h].id.toString() == infectionArr[j].vaccineId){
+					checkParameter("vaccines.name", infectionArr[j].vaccineName, infectionsINFO[i].vaccines[h].name)
+					}
+					
+				}
+			}
+		}
+	}]]></script></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property></con:properties></con:testCase><con:testCase id="2ddfba84-5845-4ffd-a12b-b2d3e1c355e4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411164_ОС. Получение вакцин, инфекций и маппинга инфекции-вакцины (type = IMMUNODIAGNOSTIC)" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="vaccines" id="eaf7b12e-25e4-4263-a31a-1cd64ef65a68"><con:settings/><con:config service="https://lkservice.test.emias.ru" resourcePath="/api/1/reference/nsi/vaccines" methodName="1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="vaccines" id="319d9ec0-3d18-404e-90d8-2da5ee2f9ced" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#LkEndpoint}</con:endpoint><con:request/><con:originalUri>https://lkservice.test.emias.ru/api/1/reference/nsi/vaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="36b1d8df-8946-42a3-b9c1-a07fbe9c2b33" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="X-Access-JWT" value="${#Project#X-Access-JWT}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>X-Access-JWT</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infections" id="0a92c475-7900-4061-b175-d0cf322b7982"><con:settings/><con:config service="https://lkservice.test.emias.ru" resourcePath="/api/1/reference/nsi/infections" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infections" id="100408ef-e9d8-4ec7-9092-9525f949a5e4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#LkEndpoint}</con:endpoint><con:request/><con:originalUri>https://lkservice.test.emias.ru/api/1/reference/nsi/infections</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="0d54e0d1-3f11-4f15-aa70-fa980165051a" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters><con:parameterOrder><con:entry>X-Access-JWT</con:entry><con:entry>type</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infections-to-vaccines" id="35a8032f-0f88-42ae-8067-7cd3c8a42b94"><con:settings/><con:config service="https://lkservice.test.emias.ru" resourcePath="/api/1/reference/nsi/infections-to-vaccines" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infections-to-vaccines" id="6ad20a71-bf53-497c-95da-868a732d72fb" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#LkEndpoint}</con:endpoint><con:request/><con:originalUri>https://lkservice.test.emias.ru/api/1/reference/nsi/infections-to-vaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ad8b08df-4338-42c0-b3af-c441a542835b" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="X-Access-JWT" value="${#Project#X-Access-JWT}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>X-Access-JWT</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infectionsToVaccines" id="06316d1e-0aba-41ea-af08-27c44b24081f"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Проверка количества объектов vaccines" id="212341d3-2956-4b4b-a641-a09d9463b801"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import java.util.ArrayList
+
+def slurperJson = new JsonSlurper()
+
+def vaccinesResponse = context.expand('${vaccines#Response}')
+def vaccines = slurperJson.parseText(vaccinesResponse).vaccines
+
+def infectionsResponse = context.expand('${infections#Response}')
+def infections = slurperJson.parseText(infectionsResponse).infections
+
+def infectionsToVaccinesLKResponse = context.expand('${infections-to-vaccines#Response}')
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLKResponse).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+
+// Получить уникальные вакцины из ответа vaccines
+def uniqueVaccines = vaccines.unique { [(it.mnnId + it.name)] }
+
+// Отфильтровать уникальные вакцины по isRequired = true в ответе infections-to-vaccines
+def filteredVaccines = uniqueVaccines.findAll { it.mnnId in infectionsToVaccines.findAll { it.isRequired }.vaccineId }
+
+// Подсчитать количество отфильтрованных вакцин
+def countVaccinesLK = filteredVaccines.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+checkParameter("vaccines", countVaccinesLK, vaccinesINFO.size())</script></con:config></con:testStep><con:testStep type="groovy" name="Проверка количества объектов infections" id="ada8f2ba-6bb2-44b9-8e86-483906896627"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import java.util.ArrayList
+
+def slurperJson = new JsonSlurper()
+
+def vaccinesResponse = context.expand('${vaccines#Response}')
+def vaccines = slurperJson.parseText(vaccinesResponse).vaccines
+
+def infectionsResponse = context.expand('${infections#Response}')
+def infections = slurperJson.parseText(infectionsResponse).infections
+
+def infectionsToVaccinesLKResponse = context.expand('${infections-to-vaccines#Response}')
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLKResponse).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def infectionsINFO = infectionsToVaccinesINFO.infections
+
+// Получить уникальные вакцины из ответа vaccines
+def uniqueInfections = infections.unique { [ it.id ] }
+
+// Отфильтровать уникальные вакцины по isRequired = true в ответе infections-to-vaccines
+def filterednfections = uniqueInfections.findAll { it.id in infectionsToVaccines.findAll { it.isRequired }.infectionId }
+
+// Подсчитать количество отфильтрованных вакцин
+def countnfectionsLK = filterednfections.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+checkParameter("infections", countnfectionsLK, infectionsINFO.size())</script></con:config></con:testStep><con:testStep type="groovy" name="Маппинг vaccines" id="09c3da7c-d650-4424-9ae0-d1a30fdba882"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import java.util.ArrayList
+
+def slurperJson = new JsonSlurper()
+
+def vaccinesResponse = context.expand('${vaccines#Response}')
+def vaccines = slurperJson.parseText(vaccinesResponse).vaccines
+
+def infectionsResponse = context.expand('${infections#Response}')
+def infections = slurperJson.parseText(infectionsResponse).infections
+
+def infectionsToVaccinesLKResponse = context.expand('${infections-to-vaccines#Response}')
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLKResponse).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+
+countBundlesLK = infectionsToVaccines.size() // Количество всех связок инфекций-вакцин
+
+// Считаю связки, исключая те, у которых isRequired = false; создаю массив вакцин и инфекций, попадающих под условия выборки
+countBundlesIsRequiredTrueLK = 0
+infIdsVacIds = [] // Массив для связок
+infectionArr = []
+vaccineArr = []
+for(i=0; i<countBundlesLK; i++){
+	if(infectionsToVaccines[i].isRequired == true){
+		countBundlesIsRequiredTrueLK = countBundlesIsRequiredTrueLK+1
+		infIdsVacIds << infectionsToVaccines[i]
+		}
+	}
+log.info infIdsVacIds
+
+// Извлекаю вакцины, которые есть в связке из метода vaccines + infections к каждой найденной vaccine
+for(i=0; i<vaccines.size(); i++){
+	//log.info "Зашли в for1 i = "+i
+	for(j=0; j<infIdsVacIds.size(); j++){
+		//log.info "Зашли в for1 j = "+j
+		if(vaccines[i].mnnId == infIdsVacIds.vaccineId[j]){
+			//log.info "Зашли в if1 i = "+i + " j = "+ j
+			for(h=0; h<infections.size(); h++){
+				//log.info "Зашли в for3 h = "+ h
+				if(infections[h].id == infIdsVacIds.infectionId[j]){
+					//log.info "Зашли в if2 h = "+h + " j = "+ j
+					vaccineArr.add(mnnId: vaccines[i].mnnId, name: vaccines[i].name, infectionId: infections[h].id, infectionName: infections[h].name, infectionFrequency: infections[h].frequency);
+					}
+				}
+			}
+		}
+	}
+	
+log.info vaccineArr.size()
+log.info vaccinesINFO*.frequency.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+// Сравниваю с методом ИНФО
+for(j=0; j<vaccineArr.size(); j++){
+	for(i=0; i<vaccinesINFO.size(); i++){
+		//log.info "Зашли в for i = " +i +" j = "+j
+		if(vaccinesINFO[i].id.toString() == vaccineArr[j].mnnId && vaccinesINFO[i].name == vaccineArr[j].name){
+			//checkParameter("vaccines.name", vaccineArr[j].name, vaccinesINFO[i].name)
+			//assert vaccinesINFO[i].name == vaccineArr[j].name // Сравниваем name вакцины
+			for(h=0; h<vaccinesINFO[i].infections.size(); h++){
+				if(vaccinesINFO[i].infections[h].id.toString() == vaccineArr[j].infectionId){
+					//log.info "Сравниванию j = " +j+ " i = " +i+ " h = " +h + " Фактическое vaccinesINFO[i].infections[h].frequency = " + vaccinesINFO[i].infections[h].frequency + " Ожидаемое vaccineArr[j].infectionFrequency =  " + vaccineArr[j].infectionFrequency
+					checkParameter("infectionFrequency", vaccineArr[j].infectionFrequency, vaccinesINFO[i].infections[h].frequency)
+					checkParameter("infectionName", vaccineArr[j].infectionName, vaccinesINFO[i].infections[h].name)
+					//assert vaccinesINFO[i].infections[h].frequency == vaccineArr[j].infectionFrequency // Сравниваем frequency инфекции
+					//assert vaccinesINFO[i].infections[h].name == vaccineArr[j].infectionName // Сравниваем name инфекции
+					}
+					
+				}
+			}
+		}
+	}]]></script></con:config></con:testStep><con:testStep type="groovy" name="Маппинг infections" id="5d8578a6-0cac-48b2-babe-dee4efd2bd61"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import java.util.ArrayList
+
+def slurperJson = new JsonSlurper()
+
+def vaccinesResponse = context.expand('${vaccines#Response}')
+def vaccines = slurperJson.parseText(vaccinesResponse).vaccines
+
+def infectionsResponse = context.expand('${infections#Response}')
+def infections = slurperJson.parseText(infectionsResponse).infections
+
+def infectionsToVaccinesLKResponse = context.expand('${infections-to-vaccines#Response}')
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLKResponse).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+def infectionsINFO = infectionsToVaccinesINFO.infections
+
+countBundlesLK = infectionsToVaccines.size() // Количество всех связок инфекций-вакцин
+
+// Считаю связки, исключая те, у которых isRequired = false; создаю массив вакцин и инфекций, попадающих под условия выборки
+countBundlesIsRequiredTrueLK = 0
+infIdsVacIds = [] // Массив для связок
+infectionArr = []
+vaccineArr = []
+for(i=0; i<countBundlesLK; i++){
+	if(infectionsToVaccines[i].isRequired == true){
+		countBundlesIsRequiredTrueLK = countBundlesIsRequiredTrueLK+1
+		infIdsVacIds << infectionsToVaccines[i]
+		}
+	}
+
+
+// Извлекаю инфекции, которые есть в связке из метода vaccines + infections к каждой найденной infection
+for(i=0; i<infections.size(); i++){
+	//log.info "Зашли в for1 i = "+i
+	for(j=0; j<infIdsVacIds.size(); j++){
+		//log.info "Зашли в for1 j = "+j
+		if(infections[i].id == infIdsVacIds.infectionId[j]){
+			//log.info "Зашли в if1 i = "+i + " j = "+ j
+			for(h=0; h<vaccines.size(); h++){
+				//log.info "Зашли в for3 h = "+ h
+				if(vaccines[h].mnnId == infIdsVacIds.vaccineId[j]){
+					//log.info "Зашли в if2 h = "+h + " j = "+ j
+					infectionArr.add(id: infections[i].id, frequency: infections[i].frequency, name: infections[i].name, type: infections[i].type, archived: infections[i].archived, vaccineId: vaccines[h].id, vaccineName: vaccines[h].name);
+					}
+				}
+			}
+		}
+	}
+	
+
+infectionArr = infectionArr.sort{it.vaccineName}
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Параметр "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+// Сравниваю с методом ИНФО
+for(j=0; j<infectionArr.size(); j++){
+	for(i=0; i<infectionsINFO.size(); i++){
+		//log.info "Зашли в for i = " +i +" j = "+j
+		if(infectionsINFO[i].id.toString() == infectionArr[j].id){
+			checkParameter("infections.frequency", infectionArr[j].frequency, infectionsINFO[i].frequency)
+			checkParameter("infections.type", infectionArr[j].type, infectionsINFO[i].type)
+			checkParameter("infections.name", infectionArr[j].name, infectionsINFO[i].name)
+			checkParameter("infections.archived", infectionArr[j].archived, infectionsINFO[i].archived)
+			for(h=0; h<infectionsINFO[i].vaccines.size(); h++){
+				if(infectionsINFO[i].vaccines[h].id.toString() == infectionArr[j].vaccineId){
+					checkParameter("vaccines.name", infectionArr[j].vaccineName, infectionsINFO[i].vaccines[h].name)
+					}
+					
+				}
+			}
+		}
+	}]]></script></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>IMMUNODIAGNOSTIC</con:value></con:property></con:properties></con:testCase><con:testCase id="5aa5ca8f-b9bd-4582-8368-9033fbb6529a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411092_АС1. LK_INFECTIONS_VACCINATIONS_ERROR" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines (ошибка от vaccines)" id="ad0e4706-5780-4a0a-a662-2ce3548e946d"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines (ошибка от vaccines)" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411092/1" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8626c469-f014-4835-999b-8f5af3beaa4a" name="error.code = LK_INFECTIONS_VACCINATIONS_ERROR"><con:configuration><path>$.error.code</path><content>LK_INFECTIONS_VACCINATIONS_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8626c469-f014-4835-999b-8f5af3beaa4a" name="error.description = Не удалось получить маппинг инфекций и вакцинаций"><con:configuration><path>$.error.description</path><content>Не удалось получить маппинг инфекций и вакцинаций</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8626c469-f014-4835-999b-8f5af3beaa4a" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infectionsToVaccines (ошибка от infections)" id="ae7e4003-5b03-4770-b812-28b7f36ba4c3"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines (ошибка от infections)" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411092/2" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8626c469-f014-4835-999b-8f5af3beaa4a" name="error.code = LK_INFECTIONS_VACCINATIONS_ERROR"><con:configuration><path>$.error.code</path><content>LK_INFECTIONS_VACCINATIONS_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8626c469-f014-4835-999b-8f5af3beaa4a" name="error.description = Не удалось получить маппинг инфекций и вакцинаций"><con:configuration><path>$.error.description</path><content>Не удалось получить маппинг инфекций и вакцинаций</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8626c469-f014-4835-999b-8f5af3beaa4a" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infectionsToVaccines (ошибка от infections-to-vaccines)" id="ce39f2fe-0dec-43cf-914e-8648ead0cd8c"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines (ошибка от infections-to-vaccines)" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411092/3" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8626c469-f014-4835-999b-8f5af3beaa4a" name="error.code = LK_INFECTIONS_VACCINATIONS_ERROR"><con:configuration><path>$.error.code</path><content>LK_INFECTIONS_VACCINATIONS_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8626c469-f014-4835-999b-8f5af3beaa4a" name="error.description = Не удалось получить маппинг инфекций и вакцинаций"><con:configuration><path>$.error.description</path><content>Не удалось получить маппинг инфекций и вакцинаций</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8626c469-f014-4835-999b-8f5af3beaa4a" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property></con:properties></con:testCase><con:testCase id="8154a683-6455-4ac3-ba0b-cb891a5d093a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411158_АС2. LK_AUTH_TOKEN_EXPIRED" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines (ошибка от vaccines)" id="828266ff-2659-4218-9711-9cb0ebe12c7c"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines (ошибка от vaccines)" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411158/1" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 401"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7bd7b107-1dec-4c3f-abdd-3259311648fa" name="error.code = LK_AUTH_TOKEN_EXPIRED"><con:configuration><path>$.error.code</path><content>LK_AUTH_TOKEN_EXPIRED</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7bd7b107-1dec-4c3f-abdd-3259311648fa" name="error.description = Токен авторизации не действителен"><con:configuration><path>$.error.description</path><content>Токен авторизации не действителен</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7bd7b107-1dec-4c3f-abdd-3259311648fa" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infectionsToVaccines (ошибка от infections)" id="089eb543-5493-4146-806d-7ccdca379d44"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines (ошибка от infections)" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411158/2" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 401"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7bd7b107-1dec-4c3f-abdd-3259311648fa" name="error.code = LK_AUTH_TOKEN_EXPIRED"><con:configuration><path>$.error.code</path><content>LK_AUTH_TOKEN_EXPIRED</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7bd7b107-1dec-4c3f-abdd-3259311648fa" name="error.description = Токен авторизации не действителен"><con:configuration><path>$.error.description</path><content>Токен авторизации не действителен</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7bd7b107-1dec-4c3f-abdd-3259311648fa" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infectionsToVaccines (ошибка от infections-to-vaccines)" id="26cf1eb9-ad27-45ab-b97e-0cff6c40cdfc"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines (ошибка от infections-to-vaccines)" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411158/3" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 401"><con:configuration><codes>401</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7bd7b107-1dec-4c3f-abdd-3259311648fa" name="error.code = LK_AUTH_TOKEN_EXPIRED"><con:configuration><path>$.error.code</path><content>LK_AUTH_TOKEN_EXPIRED</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7bd7b107-1dec-4c3f-abdd-3259311648fa" name="error.description = Токен авторизации не действителен"><con:configuration><path>$.error.description</path><content>Токен авторизации не действителен</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7bd7b107-1dec-4c3f-abdd-3259311648fa" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property></con:properties></con:testCase><con:testCase id="97f37045-ab79-4713-bcc4-b5953233ee58" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411166_Обязательность входных параметров" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines (только type)" id="24b133b9-1369-4c1a-b584-640714ef6e82"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines (только type)" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6b5d5ce2-35f0-41f1-b4c5-86fe4058e41c" name="error.code = BAD_REQUEST"><con:configuration><path>$.error.code</path><content>BAD_REQUEST</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6b5d5ce2-35f0-41f1-b4c5-86fe4058e41c" name="error.description = Некорректные входные данные"><con:configuration><path>$.error.description</path><content>Некорректные входные данные</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6b5d5ce2-35f0-41f1-b4c5-86fe4058e41c" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="type" value="${#TestCase#type}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="infectionsToVaccines (только X-Access-JWT)" id="0b3b5cff-0d74-4382-badf-f3f231ab5dad"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines (только X-Access-JWT)" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6b5d5ce2-35f0-41f1-b4c5-86fe4058e41c" name="error.code = BAD_REQUEST"><con:configuration><path>$.error.code</path><content>BAD_REQUEST</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6b5d5ce2-35f0-41f1-b4c5-86fe4058e41c" name="error.description = Некорректные входные данные"><con:configuration><path>$.error.description</path><content>Некорректные входные данные</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6b5d5ce2-35f0-41f1-b4c5-86fe4058e41c" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="X-Access-JWT" value="${#Project#X-Access-JWT}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property></con:properties></con:testCase><con:testCase id="871c4960-174a-4245-a1b9-9504b9bfe1d1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411172_Передан type, отличный от допустимых значений" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines" id="02ef866b-502f-4149-8174-d5de857beaa4"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="0dafd71f-dbd4-4c3d-8d3c-54bc3f87f8e6" name="error.code = BAD_REQUEST"><con:configuration><path>$.error.code</path><content>BAD_REQUEST</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="0dafd71f-dbd4-4c3d-8d3c-54bc3f87f8e6" name="error.description = Некорректные входные данные"><con:configuration><path>$.error.description</path><content>Некорректные входные данные</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="0dafd71f-dbd4-4c3d-8d3c-54bc3f87f8e6" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>TEST</con:value></con:property></con:properties></con:testCase><con:testCase id="e4489a4c-5bf9-4a74-8264-c3056078ae78" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411576_В ответе vaccines отсутствует объект с mnnId = vaccineId из ответа infections-to-vaccines" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines" id="675bc091-e66f-4755-a2c1-ab28dd5daa83"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411576" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Count" id="d26c6302-6b8d-49b6-b180-fabe1dffd0c0" name="Массив vaccines пустой"><con:configuration><path>$.vaccines</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property></con:properties></con:testCase><con:testCase id="302df24d-b4cb-49f8-b846-0ca893f9ee34" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411492_В ответе infections-to-vaccines отсутствует объект с infectionId = infections.id из ответа infections" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines" id="6d645ea1-eb4d-4833-b7c6-43be3404e76b"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411492" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Count" id="59921396-c568-4b56-8812-1727ab083a88" name="Массив infections пустой"><con:configuration><path>$.infections</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property></con:properties></con:testCase><con:testCase id="7bfcb7ec-4e5b-44ed-9826-84c5e5ab9b7d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411673_Проверка сортировки объектов vaccines по алфавиту vaccines.name" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines" id="5e84c734-5c7a-403e-bdcd-eb8675b65da5"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411673" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Проверка сортировки" id="309db4d6-7bf1-4156-8816-96e23e2705e3"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import java.util.ArrayList
+import groovy.sql.Sql
+
+def slurperJson = new JsonSlurper()
+
+path = testRunner.testCase.getPropertyValue("path") // В переменной path записан путь до мока "/mock/305855/getDoctorsInfo"
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+query="select response from template_response where \"path\"= '"+path+"'"
+def response = sql.firstRow(query).response
+
+vaccinesMock = new JsonSlurper().parseText(response)
+
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse).vaccines
+
+vaccinesNamesInfo = infectionsToVaccinesINFO.name
+vaccinesNamesLK = vaccinesMock.vaccines.name
+sortedVaccinesNamesLK = vaccinesNamesLK.sort()
+
+assert vaccinesNamesInfo == sortedVaccinesNamesLK
+</script></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property><con:property><con:name>path</con:name><con:value>/mock/411673/1/reference/nsi/vaccines</con:value></con:property></con:properties></con:testCase><con:testCase id="96213026-f1fd-46db-84f7-99f23cd2f810" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411163_ОС. Получение вакцин, инфекций и маппинга инфекции-вакцины (type = VACCINE) (в ответе infections-to-vaccines все объекты с bundles.isRequired = false)" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines" id="43826697-ddb3-4370-9771-b466e3d63f03"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411163" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Count" id="5d38ce52-b577-4f8b-b7fc-48785048274d" name="Количество объектов в vaccines = 0"><con:configuration><path>$.vaccines</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Count" id="5d38ce52-b577-4f8b-b7fc-48785048274d" name="Количество объектов в infections = 0"><con:configuration><path>$.infections</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property><con:property><con:name>path</con:name><con:value>/mock/411163/1/reference/nsi/vaccines</con:value></con:property></con:properties></con:testCase><con:testCase id="79e747bc-c8f1-459e-b430-447e71d9412b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="411091_ОС. Получение вакцин, инфекций и маппинга инфекции-вакцины (type = VACCINE) (с моком)" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines" id="6e572c52-fa41-4c10-a204-65719ecfa502"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/411091" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Проверка количества объектов vaccines" id="eab5381f-c6ce-45a5-80fa-655de44a26d0"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import java.util.ArrayList
+import groovy.sql.Sql
+
+pathInfToVac = testRunner.testCase.getPropertyValue("path_inf-to-vac") // В переменной path записан путь до мока "/mock/305855/getDoctorsInfo"
+pathInf = testRunner.testCase.getPropertyValue("path_inf")
+pathVac = testRunner.testCase.getPropertyValue("path_vac")
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+query1="select response from template_response where \"path\"= '"+pathInfToVac+"'"
+def infectionsToVaccinesLK = sql.firstRow(query1).response
+
+query2="select response from template_response where \"path\"= '"+pathInf+"'"
+def infectionsLK = sql.firstRow(query2).response
+
+query3="select response from template_response where \"path\"= '"+pathVac+"'"
+def vaccinesLK = sql.firstRow(query3).response
+
+def slurperJson = new JsonSlurper()
+
+// Ответы от ЛК
+def vaccines = slurperJson.parseText(vaccinesLK).vaccines
+def infections = slurperJson.parseText(infectionsLK).infections
+//log.info infections
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLK).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+
+// Получить уникальные вакцины из ответа vaccines
+def uniqueVaccines = vaccines.unique { [(it.mnnId + it.name)] }
+
+// Отфильтровать уникальные вакцины по isRequired = true в ответе infections-to-vaccines
+def filteredVaccines = uniqueVaccines.findAll { it.mnnId in infectionsToVaccines.findAll { it.isRequired }.vaccineId }
+
+// Подсчитать количество отфильтрованных вакцин
+def countVaccinesLK = filteredVaccines.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+checkParameter("vaccines", countVaccinesLK, vaccinesINFO.size())</script></con:config></con:testStep><con:testStep type="groovy" name="Проверка количества объектов infections" id="f7ac854e-9378-45f7-96e5-58e884a36b4c"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import java.util.ArrayList
+import groovy.sql.Sql
+
+pathInfToVac = testRunner.testCase.getPropertyValue("path_inf-to-vac") // В переменной path записан путь до мока "/mock/305855/getDoctorsInfo"
+pathInf = testRunner.testCase.getPropertyValue("path_inf")
+pathVac = testRunner.testCase.getPropertyValue("path_vac")
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+query1="select response from template_response where \"path\"= '"+pathInfToVac+"'"
+def infectionsToVaccinesLK = sql.firstRow(query1).response
+
+query2="select response from template_response where \"path\"= '"+pathInf+"'"
+def infectionsLK = sql.firstRow(query2).response
+
+query3="select response from template_response where \"path\"= '"+pathVac+"'"
+def vaccinesLK = sql.firstRow(query3).response
+
+def slurperJson = new JsonSlurper()
+
+// Ответы от ЛК
+def vaccines = slurperJson.parseText(vaccinesLK).vaccines
+def infections = slurperJson.parseText(infectionsLK).infections
+//log.info infections
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLK).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def infectionsINFO = infectionsToVaccinesINFO.infections
+
+// Получить уникальные вакцины из ответа vaccines
+def uniqueInfections = infections.unique { [ it.id ] }
+
+// Отфильтровать уникальные вакцины по isRequired = true в ответе infections-to-vaccines
+def filterednfections = uniqueInfections.findAll { it.id in infectionsToVaccines.findAll { it.isRequired }.infectionId }
+
+// Подсчитать количество отфильтрованных вакцин
+def countnfectionsLK = filterednfections.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+checkParameter("infections", countnfectionsLK, infectionsINFO.size())</script></con:config></con:testStep><con:testStep type="groovy" name="Маппинг vaccines" id="dd6c164f-9a98-4c91-9c84-2990082a302e"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import java.util.ArrayList
+import groovy.sql.Sql
+
+pathInfToVac = testRunner.testCase.getPropertyValue("path_inf-to-vac") // В переменной path записан путь до мока "/mock/305855/getDoctorsInfo"
+pathInf = testRunner.testCase.getPropertyValue("path_inf")
+pathVac = testRunner.testCase.getPropertyValue("path_vac")
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+query1="select response from template_response where \"path\"= '"+pathInfToVac+"'"
+def infectionsToVaccinesLK = sql.firstRow(query1).response
+
+query2="select response from template_response where \"path\"= '"+pathInf+"'"
+def infectionsLK = sql.firstRow(query2).response
+
+query3="select response from template_response where \"path\"= '"+pathVac+"'"
+def vaccinesLK = sql.firstRow(query3).response
+
+def slurperJson = new JsonSlurper()
+
+// Ответы от ЛК
+def vaccines = slurperJson.parseText(vaccinesLK).vaccines
+def infections = slurperJson.parseText(infectionsLK).infections
+//log.info infections
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLK).bundles
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+
+countBundlesLK = infectionsToVaccines.size() // Количество всех связок инфекций-вакцин
+
+// Считаю связки, исключая те, у которых isRequired = false; создаю массив вакцин и инфекций, попадающих под условия выборки
+countBundlesIsRequiredTrueLK = 0
+infIdsVacIds = [] // Массив для связок
+infectionArr = []
+vaccineArr = []
+for(i=0; i<countBundlesLK; i++){
+	if(infectionsToVaccines[i].isRequired == true){
+		countBundlesIsRequiredTrueLK = countBundlesIsRequiredTrueLK+1
+		infIdsVacIds << infectionsToVaccines[i]
+		}
+	}
+log.info infIdsVacIds
+
+// Извлекаю вакцины, которые есть в связке из метода vaccines + infections к каждой найденной vaccine
+for(i=0; i<vaccines.size(); i++){
+	//log.info "Зашли в for1 i = "+i
+	for(j=0; j<infIdsVacIds.size(); j++){
+		//log.info "Зашли в for1 j = "+j
+		if(vaccines[i].mnnId == infIdsVacIds.vaccineId[j]){
+			//log.info "Зашли в if1 i = "+i + " j = "+ j
+			for(h=0; h<infections.size(); h++){
+				//log.info "Зашли в for3 h = "+ h
+				if(infections[h].id == infIdsVacIds.infectionId[j]){
+					//log.info "Зашли в if2 h = "+h + " j = "+ j
+					vaccineArr.add(mnnId: vaccines[i].mnnId, name: vaccines[i].name, infectionId: infections[h].id, infectionName: infections[h].name, infectionFrequency: infections[h].frequency);
+					}
+				}
+			}
+		}
+	}
+	
+log.info vaccineArr.size()
+log.info vaccinesINFO*.frequency.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+// Сравниваю с методом ИНФО
+for(j=0; j<vaccineArr.size(); j++){
+	for(i=0; i<vaccinesINFO.size(); i++){
+		//log.info "Зашли в for i = " +i +" j = "+j
+		if(vaccinesINFO[i].id.toString() == vaccineArr[j].mnnId && vaccinesINFO[i].name == vaccineArr[j].name){
+			//checkParameter("vaccines.name", vaccineArr[j].name, vaccinesINFO[i].name)
+			//assert vaccinesINFO[i].name == vaccineArr[j].name // Сравниваем name вакцины
+			for(h=0; h<vaccinesINFO[i].infections.size(); h++){
+				if(vaccinesINFO[i].infections[h].id.toString() == vaccineArr[j].infectionId){
+					//log.info "Сравниванию j = " +j+ " i = " +i+ " h = " +h + " Фактическое vaccinesINFO[i].infections[h].frequency = " + vaccinesINFO[i].infections[h].frequency + " Ожидаемое vaccineArr[j].infectionFrequency =  " + vaccineArr[j].infectionFrequency
+					checkParameter("infectionFrequency", vaccineArr[j].infectionFrequency, vaccinesINFO[i].infections[h].frequency)
+					checkParameter("infectionName", vaccineArr[j].infectionName, vaccinesINFO[i].infections[h].name)
+					//assert vaccinesINFO[i].infections[h].frequency == vaccineArr[j].infectionFrequency // Сравниваем frequency инфекции
+					//assert vaccinesINFO[i].infections[h].name == vaccineArr[j].infectionName // Сравниваем name инфекции
+					}
+					
+				}
+			}
+		}
+	}]]></script></con:config></con:testStep><con:testStep type="groovy" name="Маппинг infections" id="661a9632-8e79-48b4-8b67-4d9ef2a9ad46"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import java.util.ArrayList
+import groovy.sql.Sql
+
+pathInfToVac = testRunner.testCase.getPropertyValue("path_inf-to-vac") // В переменной path записан путь до мока "/mock/305855/getDoctorsInfo"
+pathInf = testRunner.testCase.getPropertyValue("path_inf")
+pathVac = testRunner.testCase.getPropertyValue("path_vac")
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+query1="select response from template_response where \"path\"= '"+pathInfToVac+"'"
+def infectionsToVaccinesLK = sql.firstRow(query1).response
+
+query2="select response from template_response where \"path\"= '"+pathInf+"'"
+def infectionsLK = sql.firstRow(query2).response
+
+query3="select response from template_response where \"path\"= '"+pathVac+"'"
+def vaccinesLK = sql.firstRow(query3).response
+
+def slurperJson = new JsonSlurper()
+
+// Ответы от ЛК
+def vaccines = slurperJson.parseText(vaccinesLK).vaccines
+def infections = slurperJson.parseText(infectionsLK).infections
+//log.info infections
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLK).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+def infectionsINFO = infectionsToVaccinesINFO.infections
+
+countBundlesLK = infectionsToVaccines.size() // Количество всех связок инфекций-вакцин
+
+// Считаю связки, исключая те, у которых isRequired = false; создаю массив вакцин и инфекций, попадающих под условия выборки
+countBundlesIsRequiredTrueLK = 0
+infIdsVacIds = [] // Массив для связок
+infectionArr = []
+vaccineArr = []
+for(i=0; i<countBundlesLK; i++){
+	if(infectionsToVaccines[i].isRequired == true){
+		countBundlesIsRequiredTrueLK = countBundlesIsRequiredTrueLK+1
+		infIdsVacIds << infectionsToVaccines[i]
+		}
+	}
+
+
+/// Извлекаю инфекции, которые есть в связке из метода vaccines + infections к каждой найденной infection
+for(i=0; i<infections.size(); i++){
+	//log.info "Зашли в for1 i = "+i
+	for(j=0; j<infIdsVacIds.size(); j++){
+		//log.info "Зашли в for1 j = "+j
+		if(infections[i].id == infIdsVacIds.infectionId[j]){
+			//log.info "Зашли в if1 i = "+i + " j = "+ j
+			for(h=0; h<vaccines.size(); h++){
+				//log.info "Зашли в for3 h = "+ h
+				if(vaccines[h].mnnId == infIdsVacIds.vaccineId[j]){
+					//log.info "Зашли в if2 h = "+h + " j = "+ j
+					infectionArr.add(id: infections[i].id, frequency: infections[i].frequency, name: infections[i].name, type: infections[i].type, archived: infections[i].archived, vaccineId: vaccines[h].id, vaccineName: vaccines[h].name);
+					}
+				}
+			}
+		}
+	}
+	
+
+infectionArr = infectionArr.sort{it.vaccineName}
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Параметр "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+// Сравниваю с методом ИНФО
+for(j=0; j<infectionArr.size(); j++){
+	for(i=0; i<infectionsINFO.size(); i++){
+		//log.info "Зашли в for i = " +i +" j = "+j
+		if(infectionsINFO[i].id.toString() == infectionArr[j].id){
+			checkParameter("infections.frequency", infectionArr[j].frequency, infectionsINFO[i].frequency)
+			checkParameter("infections.type", infectionArr[j].type, infectionsINFO[i].type)
+			checkParameter("infections.name", infectionArr[j].name, infectionsINFO[i].name)
+			checkParameter("infections.archived", infectionArr[j].archived, infectionsINFO[i].archived)
+			for(h=0; h<infectionsINFO[i].vaccines.size(); h++){
+				if(infectionsINFO[i].vaccines[h].id.toString() == infectionArr[j].vaccineId){
+					checkParameter("vaccines.name", infectionArr[j].vaccineName, infectionsINFO[i].vaccines[h].name)
+					}
+					
+				}
+			}
+		}
+	}]]></script></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property><con:property><con:name>path_inf-to-vac</con:name><con:value>/mock/411091/1/reference/nsi/infections-to-vaccines</con:value></con:property><con:property><con:name>path_inf</con:name><con:value>/mock/411091/1/reference/nsi/infections</con:value></con:property><con:property><con:name>path_vac</con:name><con:value>/mock/411091/1/reference/nsi/vaccines</con:value></con:property></con:properties></con:testCase><con:testCase id="f2c8fde2-ce0e-4195-9be2-5410eae40100" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="415894_Проверка выходных параметров (все необязательные поля есть в ответе от ЛК)" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="infectionsToVaccines" id="d30326d1-4648-4183-9c04-34581bdbddc0"><con:settings/><con:config service="http://application-emiasinfo2.emias.solit-clouds.ru" methodName="1" resourcePath="/api/v1/vaccinations/infectionsToVaccines" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="infectionsToVaccines" id="a52fc1b4-3e45-4dd6-bef1-775fd4c00e1f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Mock-lk" value="${#Project#MockUrl}/415894" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://application-emiasinfo2.emias.solit-clouds.ru/api/v1/vaccinations/infectionsToVaccines</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="ab86c113-0281-4a52-a66a-422ca9b243e5" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="X-Access-JWT" value="${#Project#X-Access-JWT}"/>
+  <con:entry key="type" value="${#TestCase#type}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Проверка количества объектов vaccines" id="61b20067-2947-4f89-9baa-9906c7696977"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import java.util.ArrayList
+import groovy.sql.Sql
+
+pathInfToVac = testRunner.testCase.getPropertyValue("path_inf-to-vac") // В переменной path записан путь до мока "/mock/305855/getDoctorsInfo"
+pathInf = testRunner.testCase.getPropertyValue("path_inf")
+pathVac = testRunner.testCase.getPropertyValue("path_vac")
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+query1="select response from template_response where \"path\"= '"+pathInfToVac+"'"
+def infectionsToVaccinesLK = sql.firstRow(query1).response
+
+query2="select response from template_response where \"path\"= '"+pathInf+"'"
+def infectionsLK = sql.firstRow(query2).response
+
+query3="select response from template_response where \"path\"= '"+pathVac+"'"
+def vaccinesLK = sql.firstRow(query3).response
+
+def slurperJson = new JsonSlurper()
+
+// Ответы от ЛК
+def vaccines = slurperJson.parseText(vaccinesLK).vaccines
+def infections = slurperJson.parseText(infectionsLK).infections
+//log.info infections
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLK).bundles
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+
+// Получить уникальные вакцины из ответа vaccines
+def uniqueVaccines = vaccines.unique { [(it.mnnId + it.name)] }
+
+// Отфильтровать уникальные вакцины по isRequired = true в ответе infections-to-vaccines
+def filteredVaccines = uniqueVaccines.findAll { it.mnnId in infectionsToVaccines.findAll { it.isRequired }.vaccineId }
+
+// Подсчитать количество отфильтрованных вакцин
+def countVaccinesLK = filteredVaccines.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+checkParameter("vaccines", countVaccinesLK, vaccinesINFO.size())</script></con:config></con:testStep><con:testStep type="groovy" name="Проверка количества объектов infections" id="c9a5031c-8ae4-4b82-a671-c8eac397a6a2"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import java.util.ArrayList
+import groovy.sql.Sql
+
+pathInfToVac = testRunner.testCase.getPropertyValue("path_inf-to-vac") // В переменной path записан путь до мока "/mock/305855/getDoctorsInfo"
+pathInf = testRunner.testCase.getPropertyValue("path_inf")
+pathVac = testRunner.testCase.getPropertyValue("path_vac")
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+query1="select response from template_response where \"path\"= '"+pathInfToVac+"'"
+def infectionsToVaccinesLK = sql.firstRow(query1).response
+
+query2="select response from template_response where \"path\"= '"+pathInf+"'"
+def infectionsLK = sql.firstRow(query2).response
+
+query3="select response from template_response where \"path\"= '"+pathVac+"'"
+def vaccinesLK = sql.firstRow(query3).response
+
+def slurperJson = new JsonSlurper()
+
+// Ответы от ЛК
+def vaccines = slurperJson.parseText(vaccinesLK).vaccines
+def infections = slurperJson.parseText(infectionsLK).infections
+//log.info infections
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLK).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def infectionsINFO = infectionsToVaccinesINFO.infections
+
+// Получить уникальные вакцины из ответа vaccines
+def uniqueInfections = infections.unique { [ it.id ] }
+
+// Отфильтровать уникальные вакцины по isRequired = true в ответе infections-to-vaccines
+def filterednfections = uniqueInfections.findAll { it.id in infectionsToVaccines.findAll { it.isRequired }.infectionId }
+
+// Подсчитать количество отфильтрованных вакцин
+def countnfectionsLK = filterednfections.size()
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+checkParameter("infections", countnfectionsLK, infectionsINFO.size())</script></con:config></con:testStep><con:testStep type="groovy" name="Маппинг vaccines" id="0328a6f7-626b-44b5-8f04-21b3780f9fb3"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import java.util.ArrayList
+import groovy.sql.Sql
+
+pathInfToVac = testRunner.testCase.getPropertyValue("path_inf-to-vac") // В переменной path записан путь до мока "/mock/305855/getDoctorsInfo"
+pathInf = testRunner.testCase.getPropertyValue("path_inf")
+pathVac = testRunner.testCase.getPropertyValue("path_vac")
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+query1="select response from template_response where \"path\"= '"+pathInfToVac+"'"
+def infectionsToVaccinesLK = sql.firstRow(query1).response
+
+query2="select response from template_response where \"path\"= '"+pathInf+"'"
+def infectionsLK = sql.firstRow(query2).response
+
+query3="select response from template_response where \"path\"= '"+pathVac+"'"
+def vaccinesLK = sql.firstRow(query3).response
+
+def slurperJson = new JsonSlurper()
+
+// Ответы от ЛК
+def vaccines = slurperJson.parseText(vaccinesLK).vaccines
+def infections = slurperJson.parseText(infectionsLK).infections
+//log.info infections
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLK).bundles
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+
+countBundlesLK = infectionsToVaccines.size() // Количество всех связок инфекций-вакцин
+
+// Считаю связки, исключая те, у которых isRequired = false; создаю массив вакцин и инфекций, попадающих под условия выборки
+countBundlesIsRequiredTrueLK = 0
+infIdsVacIds = [] // Массив для связок
+infectionArr = []
+vaccineArr = []
+for(i=0; i<countBundlesLK; i++){
+	if(infectionsToVaccines[i].isRequired == true){
+		countBundlesIsRequiredTrueLK = countBundlesIsRequiredTrueLK+1
+		infIdsVacIds << infectionsToVaccines[i]
+		}
+	}
+log.info infIdsVacIds
+
+// Извлекаю вакцины, которые есть в связке из метода vaccines + infections к каждой найденной vaccine
+for(i=0; i<vaccines.size(); i++){
+	//log.info "Зашли в for1 i = "+i
+	for(j=0; j<infIdsVacIds.size(); j++){
+		//log.info "Зашли в for1 j = "+j
+		if(vaccines[i].mnnId == infIdsVacIds.vaccineId[j]){
+			//log.info "Зашли в if1 i = "+i + " j = "+ j
+			for(h=0; h<infections.size(); h++){
+				//log.info "Зашли в for3 h = "+ h
+				if(infections[h].id == infIdsVacIds.infectionId[j]){
+					//log.info "Зашли в if2 h = "+h + " j = "+ j
+					vaccineArr.add(mnnId: vaccines[i].mnnId, name: vaccines[i].name, infectionId: infections[h].id, infectionName: infections[h].name, infectionFrequency: infections[h].frequency);
+					}
+				}
+			}
+		}
+	}
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Количество "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+// Сравниваю с методом ИНФО
+for(j=0; j<vaccineArr.size(); j++){
+	for(i=0; i<vaccinesINFO.size(); i++){
+		//log.info "Зашли в for i = " +i +" j = "+j
+		if(vaccinesINFO[i].id.toString() == vaccineArr[j].mnnId && vaccinesINFO[i].name == vaccineArr[j].name){
+			//checkParameter("vaccines.name", vaccineArr[j].name, vaccinesINFO[i].name)
+			//assert vaccinesINFO[i].name == vaccineArr[j].name // Сравниваем name вакцины
+			for(h=0; h<vaccinesINFO[i].infections.size(); h++){
+				if(vaccinesINFO[i].infections[h].id.toString() == vaccineArr[j].infectionId){
+					//log.info "Сравниванию j = " +j+ " i = " +i+ " h = " +h + " Фактическое vaccinesINFO[i].infections[h].frequency = " + vaccinesINFO[i].infections[h].frequency + " Ожидаемое vaccineArr[j].infectionFrequency =  " + vaccineArr[j].infectionFrequency
+					checkParameter("infectionFrequency", vaccineArr[j].infectionFrequency, vaccinesINFO[i].infections[h].frequency)
+					checkParameter("infectionName", vaccineArr[j].infectionName, vaccinesINFO[i].infections[h].name)
+					//assert vaccinesINFO[i].infections[h].frequency == vaccineArr[j].infectionFrequency // Сравниваем frequency инфекции
+					//assert vaccinesINFO[i].infections[h].name == vaccineArr[j].infectionName // Сравниваем name инфекции
+					}
+					
+				}
+			}
+		}
+	}]]></script></con:config></con:testStep><con:testStep type="groovy" name="Маппинг infections" id="c94ddc2a-bcf7-406e-84b2-bdf14781b632"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import java.util.ArrayList
+import groovy.sql.Sql
+
+pathInfToVac = testRunner.testCase.getPropertyValue("path_inf-to-vac") // В переменной path записан путь до мока "/mock/305855/getDoctorsInfo"
+pathInf = testRunner.testCase.getPropertyValue("path_inf")
+pathVac = testRunner.testCase.getPropertyValue("path_vac")
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+query1="select response from template_response where \"path\"= '"+pathInfToVac+"'"
+def infectionsToVaccinesLK = sql.firstRow(query1).response
+
+query2="select response from template_response where \"path\"= '"+pathInf+"'"
+def infectionsLK = sql.firstRow(query2).response
+
+query3="select response from template_response where \"path\"= '"+pathVac+"'"
+def vaccinesLK = sql.firstRow(query3).response
+
+def slurperJson = new JsonSlurper()
+
+// Ответы от ЛК
+def vaccines = slurperJson.parseText(vaccinesLK).vaccines
+def infections = slurperJson.parseText(infectionsLK).infections
+//log.info infections
+def infectionsToVaccines = slurperJson.parseText(infectionsToVaccinesLK).bundles
+
+// Ответ ИНФО
+def infectionsToVaccinesINFOResponse = context.expand('${infectionsToVaccines#Response}')
+def infectionsToVaccinesINFO = slurperJson.parseText(infectionsToVaccinesINFOResponse)
+def vaccinesINFO = infectionsToVaccinesINFO.vaccines
+def infectionsINFO = infectionsToVaccinesINFO.infections
+
+countBundlesLK = infectionsToVaccines.size() // Количество всех связок инфекций-вакцин
+
+// Считаю связки, исключая те, у которых isRequired = false; создаю массив вакцин и инфекций, попадающих под условия выборки
+countBundlesIsRequiredTrueLK = 0
+infIdsVacIds = [] // Массив для связок
+infectionArr = []
+vaccineArr = []
+for(i=0; i<countBundlesLK; i++){
+	if(infectionsToVaccines[i].isRequired == true){
+		countBundlesIsRequiredTrueLK = countBundlesIsRequiredTrueLK+1
+		infIdsVacIds << infectionsToVaccines[i]
+		}
+	}
+
+
+/// Извлекаю инфекции, которые есть в связке из метода vaccines + infections к каждой найденной infection
+for(i=0; i<infections.size(); i++){
+	//log.info "Зашли в for1 i = "+i
+	for(j=0; j<infIdsVacIds.size(); j++){
+		//log.info "Зашли в for1 j = "+j
+		if(infections[i].id == infIdsVacIds.infectionId[j]){
+			//log.info "Зашли в if1 i = "+i + " j = "+ j
+			for(h=0; h<vaccines.size(); h++){
+				//log.info "Зашли в for3 h = "+ h
+				if(vaccines[h].mnnId == infIdsVacIds.vaccineId[j]){
+					//log.info "Зашли в if2 h = "+h + " j = "+ j
+					infectionArr.add(id: infections[i].id, frequency: infections[i].frequency, name: infections[i].name, type: infections[i].type, archived: infections[i].archived, vaccineId: vaccines[h].id, vaccineName: vaccines[h].name);
+					}
+				}
+			}
+		}
+	}
+	
+
+infectionArr = infectionArr.sort{it.vaccineName}
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("Параметр "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+// Сравниваю с методом ИНФО
+for(j=0; j<infectionArr.size(); j++){
+	for(i=0; i<infectionsINFO.size(); i++){
+		//log.info "Зашли в for i = " +i +" j = "+j
+		if(infectionsINFO[i].id.toString() == infectionArr[j].id){
+			checkParameter("infections.frequency", infectionArr[j].frequency, infectionsINFO[i].frequency)
+			checkParameter("infections.type", infectionArr[j].type, infectionsINFO[i].type)
+			checkParameter("infections.name", infectionArr[j].name, infectionsINFO[i].name)
+			checkParameter("infections.archived", infectionArr[j].archived, infectionsINFO[i].archived)
+			for(h=0; h<infectionsINFO[i].vaccines.size(); h++){
+				if(infectionsINFO[i].vaccines[h].id.toString() == infectionArr[j].vaccineId){
+					checkParameter("vaccines.name", infectionArr[j].vaccineName, infectionsINFO[i].vaccines[h].name)
+					}
+					
+				}
+			}
+		}
+	}]]></script></con:config></con:testStep><con:properties><con:property><con:name>type</con:name><con:value>VACCINE</con:value></con:property><con:property><con:name>path_inf-to-vac</con:name><con:value>/mock/415894/1/reference/nsi/infections-to-vaccines</con:value></con:property><con:property><con:name>path_inf</con:name><con:value>/mock/415894/1/reference/nsi/infections</con:value></con:property><con:property><con:name>path_vac</con:name><con:value>/mock/415894/1/reference/nsi/vaccines</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>emiasInfoEndpoint</con:name><con:value>http://application-emiasinfo1.emias.solit-clouds.ru/</con:value></con:property><con:property><con:name>LkEndpoint</con:name><con:value>https://lkservice.test.emias.ru</con:value></con:property><con:property><con:name>MockUrl</con:name><con:value>http://application-mock.emias.solit-clouds.ru/mock</con:value></con:property><con:property><con:name>mockDbFullConnection</con:name><con:value>jdbc:postgresql://172.17.5.13:29107/emias_info_mock?user=emias_info&amp;password=emias_info</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

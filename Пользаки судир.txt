@@ -1,0 +1,13 @@
+{
+    "guid": "af3e4ac5-96dd-4167-afb3-244eb7187aba",
+    "family_name": "Волкова",
+    "trusted": true,
+    "sub": "af3e4ac5-96dd-4167-afb3-244eb7187aba",
+    "LastName": "Волкова",
+    "MiddleName": "Михайловна",
+    "name": "Яна",
+    "FirstName": "Яна",
+    "middle_name": "Михайловна"
+}
+
+10d59080-73a2-4587-9931-c18fb90831b2

@@ -1,0 +1,1812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cb8519a0-bd6f-45bc-ba89-9d1fe543fa81" activeEnvironment="Default" name="ЕМИАС.ИНФО сервис &quot;Запись на ПИН&quot; (pin)" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="6388c5ea-8cd2-4300-a8fb-1ff150b27bf2" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://emiasinfo3.emias.solit-clouds.ru" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://emiasinfo3.emias.solit-clouds.ru</con:endpoint></con:endpoints><con:resource name="getReferenceTypes" path="/api/v2/pin/getReferenceTypes" id="eeb458cf-8ec5-4246-9941-5fb2e2b58f38"><con:settings/><con:parameters/><con:method name="Method 1" id="778b86d5-5632-4fb2-a07d-bd8e60057fea" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:get="http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getReferenceTypes">get:Response</con:element></con:representation><con:request name="Request 1" id="97736de3-f519-4436-a1ae-7c92d61159a8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://emiasinfo3.emias.solit-clouds.ru</con:endpoint><con:request/><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getReferenceTypes</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="getLpuList" path="/api/v2/pin/getLpuList" id="ed12bc57-0398-450f-92e0-98942ebcf394"><con:settings/><con:parameters/><con:method name="Method 1" id="941f3b1a-ce07-467a-8c56-d40b4bae7f42" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:get="http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getLpuList">get:Response</con:element></con:representation><con:request name="Request 1" id="3fb512da-a429-41f6-a174-e803d46ed50d" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="getPinArSchedule" path="/api/v2/pin/getPinArSchedule" id="c199ff94-128a-4f8e-88dc-c5258de7e931"><con:settings/><con:parameters/><con:method name="Method 1" id="bf8c2379-72a0-459f-8607-a170d529d8e3" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>500 400</con:status><con:params/><con:element xmlns:get="http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getPinArSchedule">get:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:get="http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getPinArSchedule">get:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="402e7a77-1466-4af4-9a8a-0f7de5e0936f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getPinArSchedule</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="createPinAppointment" path="/api/v2/pin/createPinAppointment" id="ac2d1578-551e-4abd-b347-6d4ccd3d2c5e"><con:settings/><con:parameters/><con:method name="Method 1" id="ef6da579-ac28-4679-bfe6-9b5952fc0887" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400 500</con:status><con:params/><con:element xmlns:cre="http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment">cre:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cre="http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment">cre:Response</con:element></con:representation><con:request name="Request 1" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#startDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="cancelPinAppointment" path="/api/v2/pin/cancelPinAppointment" id="cd249cdf-db95-467b-9859-7e57a4c85909"><con:settings/><con:parameters/><con:method name="Method 1" id="90c2888d-5762-4095-8679-799505215149" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400 500</con:status><con:params/><con:element xmlns:can="http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/cancelPinAppointment">can:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="8a20d4bd-44bf-44de-bab0-e4027467e1a4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://emiasinfo3.emias.solit-clouds.ru</con:endpoint><con:request>{
+  "appointmentId": "452185"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/cancelPinAppointment</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="transferPinAppointment" path="/api/v2/pin/transferPinAppointment" id="ffdb5c50-305f-405b-b08b-dbee50e9e8f4"><con:settings/><con:parameters/><con:method name="Method 1" id="4e25ec26-5357-40ec-b16d-b962246e20eb" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tran="http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/transferPinAppointment">tran:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>500 400</con:status><con:params/><con:element xmlns:tran="http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/transferPinAppointment">tran:Fault</con:element></con:representation><con:request name="Request 1" id="778cddb4-0190-49f2-929e-6e47c491ccde" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://emiasinfo3.emias.solit-clouds.ru</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:WsdlInterface" id="43776e9b-40ef-4779-816a-d807ea79564e" wsaVersion="NONE" name="EmiasGibddAppointmentBinding" type="wsdl" bindingName="{http://emias2.gov.ru/emias/appointment/v1/soap/}EmiasGibddAppointmentBinding" soapVersion="1_2" anonymous="optional" definition="http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?wsdl"><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?wsdl</con:url><con:content><![CDATA[<definitions name="EmiasGibddAppointment" targetNamespace="http://emias2.gov.ru/emias/appointment/v1/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:anw="http://emias2.gov.ru/emias/appointment/v1/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://emias2.gov.ru/emias/appointment/v1/soap/">
+  <documentation>version="1.0"</documentation>
+  <import location="http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?wsdl=AAAADHAjUCM4P2cuZURELj5RSlgzK2dAjd_SqktYBl5MQzZneqwqv6LRr8dwVApKYKYfYAxtOjSjDGmxAeZ_phaf5bE179GWAye7P4cbluUFG8_.1TEhKq7sXewYC90.s01CgI12df8Vf05Vk12bRmQBJW8jZ_CaSXGh6B5yYzPjskuepI3OlhkVE7gantaTFTyd2dUh6I_R6g--" namespace="http://emias2.gov.ru/emias/appointment/v1/"></import>
+  <types></types>
+  <binding name="EmiasGibddAppointmentBinding" type="anw:EmiasGibddAppointmentService">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetAvailableResourceScheduleInfo">
+      <soap12:operation soapAction="GetAvailableResourceScheduleInfo"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+      <fault name="AppointmentCodeError">
+        <soap12:fault name="AppointmentCodeError"/>
+      </fault>
+    </operation>
+    <operation name="CreateAppointment">
+      <soap12:operation soapAction="CreateAppointment"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+      <fault name="AppointmentCodeError">
+        <soap12:fault name="AppointmentCodeError"/>
+      </fault>
+    </operation>
+    <operation name="GetAppointmentReceptionsByPatient">
+      <soap12:operation soapAction="GetAppointmentReceptionsByPatient"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+      <fault name="AppointmentCodeError">
+        <soap12:fault name="AppointmentCodeError"/>
+      </fault>
+    </operation>
+    <operation name="CancelAppointment">
+      <soap12:operation soapAction="CancelAppointment"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+      <fault name="AppointmentCodeError">
+        <soap12:fault name="AppointmentCodeError"/>
+      </fault>
+    </operation>
+    <operation name="TransferAppointment">
+      <soap12:operation soapAction="TransferAppointment"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+      <fault name="AppointmentCodeError">
+        <soap12:fault name="AppointmentCodeError"/>
+      </fault>
+    </operation>
+    <operation name="GetReferenceTypes">
+      <soap12:operation soapAction="GetReferenceTypes"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+      <fault name="AppointmentCodeError">
+        <soap12:fault name="AppointmentCodeError"/>
+      </fault>
+    </operation>
+    <operation name="GetLpuList">
+      <soap12:operation soapAction="GetLpuList"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+      <fault name="AppointmentCodeError">
+        <soap12:fault name="AppointmentCodeError"/>
+      </fault>
+    </operation>
+    <operation name="GetLpuList2">
+      <soap12:operation soapAction="GetLpuList2"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+      <fault name="AppointmentCodeError">
+        <soap12:fault name="AppointmentCodeError"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="EmiasGibddAppointment">
+    <port binding="tns:EmiasGibddAppointmentBinding" name="EmiasGibddAppointmentBinding">
+      <soap12:address location="http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?wsdl=AAAADHAjUCM4P2cuZURELj5RSlgzK2dAjd_SqktYBl5MQzZneqwqv6LRr8dwVApKYKYfYAxtOjSjDGmxAeZ_phaf5bE179GWAye7P4cbluUFG8_.1TEhKq7sXewYC90.s01CgI12df8Vf05Vk12bRmQBJW8jZ_CaSXGh6B5yYzPjskuepI3OlhkVE7gantaTFTyd2dUh6I_R6g--</con:url><con:content><![CDATA[<definitions name="EmiasGibddAppointment" targetNamespace="http://emias2.gov.ru/emias/appointment/v1/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:base="http://emias2.gov.ru/emias/gibdd/v1/types/" xmlns:tns="http://emias2.gov.ru/emias/appointment/v1/" xmlns:uni-fault="http://emias2.gov.ru/universal/v1/types/exceptions/">
+  <documentation>version="1.0"</documentation>
+  <types>
+    <schema targetNamespace="http://emias2.gov.ru/emias/appointment/v1/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ttns="http://emias2.gov.ru/emias/appointment/v1/types/">
+      <import namespace="http://emias2.gov.ru/emias/appointment/v1/types/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELj5RSlgzK2dAjd_SqktYBl5MQzZneqwqv6LRr8dwVApKYKYfYAxtOjSjDGmxAeZ_phaf5bE179GWAye7P4cbluUFG8_.1TEhKq7sXewYC90.s01CgI12df8Vf05Vk12bRmQBJW8jaPCaGC2w6AF0ZCn6ukCE_dfAlRgK84SdIA51nxaRZhXxP7XHJg.pbjw-"/>
+      <import namespace="http://emias2.gov.ru/emias/gibdd/v1/types/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELj5RSlgzK2dAjd_SqktYBl5MQzZneqwqv6LRr8dwVApKYKYfYAxtOjSjDGmxAeZ_phaf5bE179GWAye7P4cbluUFG8_.1TEhKq7sXewYC90.s01CgI12df8Vf05Vk12bRmQBJW8jaPCaGCup.gp5Jynur0uD_tvKgdKC8CtHhryu4yGJ_YKADYg-"/>
+      <import namespace="http://emias2.gov.ru/universal/v1/types/exceptions/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELj5RSlgzK2dAjd_SqktYBl5MQzZneqwqv6LRr8dwVApKYKYfYAxtOjSjDGmxAeZ_phaf5bE179GWAye7P4cbluUFG8_.1TEhKq7sXewYC90.s01CgI12df8Vf05Vk12bRmQBJW8jaPCaGCqh7QJpeXPvrEpoDJ.q7_f05j3gqY9nDBNh"/>
+      <element name="GetAvailableResourceScheduleInfoRequest">
+        <complexType>
+          <sequence>
+            <element name="lpuId" type="base:LpuKey"/>
+            <element name="referenceId" type="long"/>
+            <element name="startDate" type="dateTime"/>
+            <element name="endDate" type="dateTime"/>
+            <element default="false" minOccurs="0" name="actual" type="boolean"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAvailableResourceScheduleInfoResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="arScheduleContainers" type="ttns:ARScheduleContainer"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="slot" type="base:Slot"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAppointmentReceptionsByPatientRequest">
+        <complexType>
+          <sequence>
+            <element default="false" minOccurs="0" name="upcoming" type="boolean"/>
+            <element name="oms" type="string"/>
+            <element name="birthDate" type="date"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetAppointmentReceptionsByPatientResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="appointments" type="ttns:Appointment"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelAppointmentRequest">
+        <complexType>
+          <sequence>
+            <element name="appointmentId" type="long"/>
+            <element minOccurs="0" name="cancelReason" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelAppointmentResponse">
+        <complexType>
+          <sequence>
+            <element name="code" type="string"/>
+            <element name="messageText" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetReferenceTypesRequest">
+        <complexType>
+          <sequence></sequence>
+        </complexType>
+      </element>
+      <element name="GetReferenceTypesResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="referenceType" type="ttns:ReferenceType"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLpuListRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" name="lpuId" type="base:LpuKey"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLpuListResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="lpu" type="base:Lpu"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLpuList2Request">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" name="lpuId" type="base:LpuKey"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLpuList2Response">
+        <complexType>
+          <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="lpu" type="ttns:Lpu2"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateAppointmentRequest">
+        <complexType>
+          <sequence>
+            <element name="oms" type="string"/>
+            <element name="birthday" type="date"/>
+            <element name="availableResourceId" type="base:AvailableResourceKey"/>
+            <element name="startDate" type="dateTime"/>
+            <element name="referenceId" type="long"/>
+            <element minOccurs="0" name="comment" type="string"/>
+            <element minOccurs="0" name="recChannel" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateAppointmentResponse">
+        <complexType>
+          <sequence>
+            <element name="id" type="long"/>
+            <element minOccurs="0" name="number" type="string"/>
+            <element minOccurs="0" name="fio" type="string"/>
+            <element minOccurs="0" name="roomCode" type="string"/>
+            <element minOccurs="0" name="roomTitle" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="TransferAppointmentRequest">
+        <complexType>
+          <sequence>
+            <element name="appointmentId" type="long"/>
+            <element minOccurs="0" name="transferReason" type="string"/>
+            <element name="availableResourceId" type="base:AvailableResourceKey"/>
+            <element name="startDate" type="dateTime"/>
+            <!--<element name="referenceId" type="long"/>-->
+            <element minOccurs="0" name="comment" type="string"/>
+            <element minOccurs="0" name="recChannel" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="GetAvailableResourceScheduleInfo">
+    <part element="tns:GetAvailableResourceScheduleInfoRequest" name="body"></part>
+  </message>
+  <message name="GetLpuList">
+    <part element="tns:GetLpuListRequest" name="body"></part>
+  </message>
+  <message name="AvailableResourceScheduleInfo">
+    <part element="tns:GetAvailableResourceScheduleInfoResponse" name="body"></part>
+  </message>
+  <message name="GetAppointmentReceptionsByPatient">
+    <part element="tns:GetAppointmentReceptionsByPatientRequest" name="body"></part>
+  </message>
+  <message name="CreateAppointmentResponse">
+    <part element="tns:CreateAppointmentResponse" name="body"></part>
+  </message>
+  <message name="CancelAppointment">
+    <part element="tns:CancelAppointmentRequest" name="body"></part>
+  </message>
+  <message name="LpuList">
+    <part element="tns:GetLpuListResponse" name="body"></part>
+  </message>
+  <message name="GetReferenceTypes">
+    <part element="tns:GetReferenceTypesRequest" name="body"></part>
+  </message>
+  <message name="ReferenceTypes">
+    <part element="tns:GetReferenceTypesResponse" name="body"></part>
+  </message>
+  <message name="AppointmentCodeError">
+    <part element="uni-fault:GibddCodeErrorFaultInfo" name="dody"></part>
+  </message>
+  <message name="AppointmentReceptionsByPatient">
+    <part element="tns:GetAppointmentReceptionsByPatientResponse" name="body"></part>
+  </message>
+  <message name="CreateAppointment">
+    <part element="tns:CreateAppointmentRequest" name="body"></part>
+  </message>
+  <message name="LpuList2">
+    <part element="tns:GetLpuList2Response" name="body"></part>
+  </message>
+  <message name="GetLpuList2">
+    <part element="tns:GetLpuList2Request" name="body"></part>
+  </message>
+  <message name="TransferAppointmentResponse">
+    <part element="tns:CreateAppointmentResponse" name="body"></part>
+  </message>
+  <message name="TransferAppointment">
+    <part element="tns:TransferAppointmentRequest" name="body"></part>
+  </message>
+  <message name="ObjectNotFoundException">
+    <documentation>Объект/сущность не были найдены</documentation>
+    <part element="uni-fault:objectNotFoundFaultInfo" name="body"></part>
+  </message>
+  <message name="CancelAppointmentResponse">
+    <part element="tns:CancelAppointmentResponse" name="body"></part>
+  </message>
+  <portType name="EmiasGibddAppointmentService">
+    <operation name="CreateAppointment">
+      <input message="tns:CreateAppointment"></input>
+      <output message="tns:CreateAppointmentResponse"></output>
+      <fault message="tns:AppointmentCodeError" name="AppointmentCodeError"></fault>
+    </operation>
+    <operation name="GetAvailableResourceScheduleInfo">
+      <input message="tns:GetAvailableResourceScheduleInfo"></input>
+      <output message="tns:AvailableResourceScheduleInfo"></output>
+      <fault message="tns:AppointmentCodeError" name="AppointmentCodeError"></fault>
+    </operation>
+    <operation name="GetAppointmentReceptionsByPatient">
+      <input message="tns:GetAppointmentReceptionsByPatient"></input>
+      <output message="tns:AppointmentReceptionsByPatient"></output>
+      <fault message="tns:AppointmentCodeError" name="AppointmentCodeError"></fault>
+    </operation>
+    <operation name="CancelAppointment">
+      <input message="tns:CancelAppointment"></input>
+      <output message="tns:CancelAppointmentResponse"></output>
+      <fault message="tns:AppointmentCodeError" name="AppointmentCodeError"></fault>
+    </operation>
+    <operation name="TransferAppointment">
+      <input message="tns:TransferAppointment"></input>
+      <output message="tns:TransferAppointmentResponse"></output>
+      <fault message="tns:AppointmentCodeError" name="AppointmentCodeError"></fault>
+    </operation>
+    <operation name="GetReferenceTypes">
+      <input message="tns:GetReferenceTypes"></input>
+      <output message="tns:ReferenceTypes"></output>
+      <fault message="tns:AppointmentCodeError" name="AppointmentCodeError"></fault>
+    </operation>
+    <operation name="GetLpuList">
+      <input message="tns:GetLpuList"></input>
+      <output message="tns:LpuList"></output>
+      <fault message="tns:AppointmentCodeError" name="AppointmentCodeError"></fault>
+    </operation>
+    <operation name="GetLpuList2">
+      <input message="tns:GetLpuList2"></input>
+      <output message="tns:LpuList2"></output>
+      <fault message="tns:AppointmentCodeError" name="AppointmentCodeError"></fault>
+    </operation>
+  </portType>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELj5RSlgzK2dAjd_SqktYBl5MQzZneqwqv6LRr8dwVApKYKYfYAxtOjSjDGmxAeZ_phaf5bE179GWAye7P4cbluUFG8_.1TEhKq7sXewYC90.s01CgI12df8Vf05Vk12bRmQBJW8jaPCaGC2w6AF0ZCn6ukCE_dfAlRgK84SdIA51nxaRZhXxP7XHJg.pbjw-</con:url><con:content><![CDATA[<schema elementFormDefault="qualified" targetNamespace="http://emias2.gov.ru/emias/appointment/v1/types/" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:base="http://emias2.gov.ru/emias/gibdd/v1/types/" xmlns:tns="http://emias2.gov.ru/emias/appointment/v1/types/">
+  <import namespace="http://emias2.gov.ru/emias/gibdd/v1/types/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELj5RSlgzK2dAjd_SqktYBl5MQzZneqwqv6LRr8dwVApKYKYfYAxtOjSjDGmxAeZ_phaf5bE179GWAye7P4cbluUFG8_.1TEhKq7sXewYC90.s01CgI12df8Vf05Vk12bRmQBJW8jaPCaGCup.gp5Jynur0uD_tvKgdKC8CtHhryu4yGJ_YKADYg-"/>
+  <simpleType name="NumberId">
+    <restriction base="long"/>
+  </simpleType>
+  <complexType name="ARScheduleContainer">
+    <annotation>
+      <documentation>Контейнер ИД ДР и слотов расписания</documentation>
+    </annotation>
+    <sequence>
+      <element name="arId" type="long"/>
+      <element maxOccurs="unbounded" name="scheduleContainer">
+        <complexType>
+          <sequence>
+            <element name="scheduleId" type="base:AvailableResourceScheduleKey"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="slot" type="base:Slot">
+              <annotation>
+                <documentation>Слоты расписания ДР для записи</documentation>
+              </annotation>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="Patient">
+    <annotation>
+      <documentation>Пациент</documentation>
+    </annotation>
+    <sequence>
+      <element name="birthday" type="dateTime"/>
+      <element name="oms" type="string"/>
+      <element minOccurs="0" name="mobilePhone" type="string"/>
+      <element minOccurs="0" name="email" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="ReferenceType">
+    <annotation>
+      <documentation>Вид справки</documentation>
+    </annotation>
+    <sequence>
+      <element name="referenceTypeId" type="long"/>
+      <element name="referenceTypeName" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="Appointment">
+    <annotation>
+      <documentation>Запись</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="long"/>
+      <element name="patient" type="tns:Patient"/>
+      <element minOccurs="0" name="appointmentNum" type="string"/>
+      <element name="startDate" type="dateTime"/>
+      <element name="endDate" type="dateTime"/>
+      <element name="actual" type="boolean"/>
+      <element minOccurs="0" name="comments" type="string"/>
+      <element name="availableResource">
+        <complexType>
+          <sequence>
+            <element name="availableResourceId" type="long"/>
+            <element name="availableResourceTitle" type="string"/>
+            <element name="roomCode" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="lpu" type="base:LpuShort"/>
+      <element name="referenceType" type="tns:ReferenceType"/>
+      <element minOccurs="0" name="cancelType" type="string"/>
+      <element name="createDate" type="dateTime"/>
+      <element minOccurs="0" name="editDate" type="dateTime"/>
+    </sequence>
+  </complexType>
+  <complexType name="Lpu2">
+    <annotation>
+      <documentation>ЛПУ</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="base:LpuKey"/>
+      <element name="name" type="string"/>
+      <element name="shortName" type="string"/>
+      <element name="moId" type="base:LpuKey"/>
+      <element name="lpuAddress" type="string"/>
+      <element name="phone" type="string"/>
+      <element name="website" type="string"/>
+      <element name="email" type="string"/>
+      <element name="lpuSchedule" type="base:LpuScheduleShort"/>
+    </sequence>
+  </complexType>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELj5RSlgzK2dAjd_SqktYBl5MQzZneqwqv6LRr8dwVApKYKYfYAxtOjSjDGmxAeZ_phaf5bE179GWAye7P4cbluUFG8_.1TEhKq7sXewYC90.s01CgI12df8Vf05Vk12bRmQBJW8jaPCaGCup.gp5Jynur0uD_tvKgdKC8CtHhryu4yGJ_YKADYg-</con:url><con:content><![CDATA[<schema elementFormDefault="qualified" targetNamespace="http://emias2.gov.ru/emias/gibdd/v1/types/" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://emias2.gov.ru/emias/gibdd/v1/types/">
+  <simpleType name="NumberId">
+    <restriction base="long"/>
+  </simpleType>
+  <simpleType name="NsiCodeType">
+    <annotation>
+      <documentation>Тип, определяющий код записи НСИ</documentation>
+    </annotation>
+    <restriction base="string"/>
+  </simpleType>
+  <simpleType name="NsiName">
+    <annotation>
+      <documentation>Тип, описывающий значение записи НСИ</documentation>
+    </annotation>
+    <restriction base="string"/>
+  </simpleType>
+  <complexType name="Speciality">
+    <annotation>
+      <documentation>МО</documentation>
+    </annotation>
+    <sequence>
+      <element name="nsiCodeType" type="tns:NsiCodeType"/>
+      <element name="nsiName" type="tns:NsiName"/>
+    </sequence>
+  </complexType>
+  <simpleType name="LpuKey">
+    <annotation>
+      <documentation>ИД МУ</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <simpleType name="QuotaRuleKey">
+    <annotation>
+      <documentation>ИД Квоты</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <complexType name="Lpu">
+    <annotation>
+      <documentation>МО</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="tns:LpuKey"/>
+      <element name="name" type="string"/>
+      <element name="shortName" type="string"/>
+      <element name="moId" type="tns:LpuKey"/>
+      <element name="lpuAddress" type="string"/>
+      <element name="lpuSchedule" type="tns:LpuScheduleShort"/>
+    </sequence>
+  </complexType>
+  <complexType name="LpuShort">
+    <annotation>
+      <documentation>Краткое МО</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="tns:LpuKey"/>
+      <element name="name" type="string"/>
+      <element name="shortName" type="string"/>
+      <element name="lpuAddress" type="string"/>
+      <element name="moId" type="tns:LpuKey"/>
+    </sequence>
+  </complexType>
+  <complexType name="LpuSchedule">
+    <annotation>
+      <documentation>Расписание ЛПУ</documentation>
+    </annotation>
+    <sequence>
+      <element name="LpuId" type="tns:LpuKey"/>
+      <element name="begin" type="tns:LpuScheduleStartTime"/>
+      <element name="end" type="tns:LpuScheduleEndTime"/>
+      <element name="arSchedules" type="tns:ScheduleKey"/>
+    </sequence>
+  </complexType>
+  <complexType name="LpuScheduleShort">
+    <annotation>
+      <documentation>Расписание ЛПУ</documentation>
+    </annotation>
+    <sequence>
+      <element name="LpuScheduleId" type="tns:LpuKey"/>
+      <element name="begin" type="dateTime"/>
+      <element name="end" type="dateTime"/>
+    </sequence>
+  </complexType>
+  <complexType name="LpuScheduleStartTime">
+    <annotation>
+      <documentation>Дата начала действия</documentation>
+    </annotation>
+    <sequence>
+      <element name="startTime" type="date"/>
+    </sequence>
+  </complexType>
+  <complexType name="LpuScheduleEndTime">
+    <annotation>
+      <documentation>Дата окончания действия</documentation>
+    </annotation>
+    <sequence>
+      <element name="endTime" type="date"/>
+    </sequence>
+  </complexType>
+  <complexType name="DayOfWeekSchedule">
+    <annotation>
+      <documentation>Расписание по дням недели</documentation>
+    </annotation>
+    <sequence>
+      <element name="dayOfWeek" type="tns:DayOfWeek"/>
+      <element name="startTime" type="tns:ScheduleTime"/>
+      <element name="endTime" type="tns:ScheduleTime"/>
+    </sequence>
+  </complexType>
+  <simpleType name="DayOfWeek">
+    <annotation>
+      <documentation>Номер дня недели</documentation>
+    </annotation>
+    <restriction base="tns:NumberId">
+      <minInclusive value="1"/>
+      <maxInclusive value="7"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="ScheduleTime">
+    <annotation>
+      <documentation>Время из расписание</documentation>
+    </annotation>
+    <restriction base="time">
+      <pattern value="([0-1][0-9]|[2][0-3]):[0-5][0-9]:00"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="ScheduleKey">
+    <annotation>
+      <documentation>ИД расписания</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <simpleType name="AvailableResourceKey">
+    <annotation>
+      <documentation>Идентификатор доступного ресурса</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <simpleType name="GridSize">
+    <annotation>
+      <documentation>Среднее время приёма</documentation>
+    </annotation>
+    <restriction base="unsignedInt"/>
+  </simpleType>
+  <simpleType name="Horizon">
+    <annotation>
+      <documentation>Горизонт записи в днях</documentation>
+    </annotation>
+    <restriction base="unsignedInt"/>
+  </simpleType>
+  <simpleType name="AvailableResourceScheduleKey">
+    <annotation>
+      <documentation>ИД расписания ДР</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <complexType name="AvailableResourceSchedule">
+    <annotation>
+      <documentation>Расписание ДР</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="tns:AvailableResourceScheduleKey"/>
+      <element name="availableResource" type="tns:AvailableResource"/>
+      <element name="gridSize" type="tns:GridSize"/>
+      <element name="horizon" type="tns:Horizon"/>
+      <element maxOccurs="unbounded" minOccurs="0" name="quotaRule" type="tns:QuotaRule"/>
+    </sequence>
+  </complexType>
+  <complexType name="AvailableResource">
+    <sequence>
+      <element name="id" type="tns:AvailableResourceKey"/>
+      <element name="name" type="tns:AvailableResourceName"/>
+      <element name="selfAppointment" type="boolean"/>
+      <element maxOccurs="unbounded" name="doctors" type="tns:MedicalEmployeeAvailableResource"/>
+      <element name="roomCode" type="string"/>
+    </sequence>
+  </complexType>
+  <simpleType name="AvailableResourceName">
+    <annotation>
+      <documentation>Имя доступного ресурса</documentation>
+    </annotation>
+    <restriction base="string"/>
+  </simpleType>
+  <complexType name="MedicalEmployee">
+    <annotation>
+      <documentation>Исполнение должности сотрудника</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="tns:NumberId"/>
+      <element name="lastName" type="string"/>
+      <element name="firstName" type="string"/>
+      <element minOccurs="0" name="secondName" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="MedicalEmployeeAvailableResource">
+    <annotation>
+      <documentation>Исполнение должности сотрудника в ДР</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="tns:MedicalEmployee">
+        <sequence>
+          <!--<element name="isMain" type="boolean"/>
+                    <element name="isRelevance" type="boolean"/>-->
+          <element name="speciality" type="tns:Speciality"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="Rule">
+    <annotation>
+      <documentation>Правило рабочего времени, Правило установки квот, Правило отмены записи</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="tns:NumberId"/>
+      <element name="begin" type="date"/>
+      <element name="end" type="date"/>
+      <element minOccurs="0" name="excludedDates" type="tns:excludedDates"/>
+      <element name="lastEditDate" type="date"/>
+      <element name="datesTemplate" type="tns:DatesTemplate"/>
+      <element maxOccurs="unbounded" minOccurs="0" name="ruleCapacity" type="tns:RuleCapacity"/>
+      <element maxOccurs="unbounded" name="quotaTypeId" type="tns:QuotaTypeKey"/>
+      <element maxOccurs="unbounded" name="referenceTypeId" type="tns:ReferenceTypeKey"/>
+      <element name="arId" type="tns:NumberId"/>
+    </sequence>
+  </complexType>
+  <complexType name="QuotaRule">
+    <annotation>
+      <documentation>Правила</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="tns:QuotaRuleKey"/>
+      <element name="startTime" type="time"/>
+      <element name="endTime" type="time"/>
+      <element name="startDate" type="date"/>
+      <element name="endDate" type="date"/>
+      <element name="template" type="tns:DatesTemplate"/>
+      <element minOccurs="0" name="referenceType" type="long"/>
+      <element name="quotaTypeCode" type="long"/>
+      <element name="selectedDatesContainer" type="tns:SelectedDates"/>
+    </sequence>
+  </complexType>
+  <complexType name="SelectedDates">
+    <annotation>
+      <documentation>Выбранные даты</documentation>
+    </annotation>
+    <sequence>
+      <element maxOccurs="unbounded" name="dates" type="date"/>
+    </sequence>
+  </complexType>
+  <complexType name="excludedDates">
+    <annotation>
+      <documentation>Исключаемые Исключаемые даты</documentation>
+    </annotation>
+    <sequence>
+      <element maxOccurs="unbounded" name="excludedDay" type="date">
+        <annotation>
+          <documentation>Исключаемые даты</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <simpleType name="DayOfWeekNumber">
+    <annotation>
+      <documentation>Номер дня недели</documentation>
+    </annotation>
+    <restriction base="tns:NumberId">
+      <minInclusive value="1"/>
+      <maxInclusive value="7"/>
+    </restriction>
+  </simpleType>
+  <complexType abstract="true" name="DatesTemplate">
+    <annotation>
+      <documentation>Общий шаблон</documentation>
+    </annotation>
+    <sequence>
+      <element minOccurs="0" name="templateName" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="DayOfWeekDatesTemplate">
+    <annotation>
+      <documentation>По дням недели</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="tns:DatesTemplate">
+        <sequence>
+          <element maxOccurs="7" name="dayOfWeek" type="tns:DayOfWeekNumber"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EvenDatesTemplate">
+    <annotation>
+      <documentation>По четным или нечетным числам</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="tns:DatesTemplate">
+        <sequence>
+          <element name="isEven" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="RuleCapacity">
+    <sequence>
+      <element name="begin" type="tns:RuleTime">
+        <annotation>
+          <documentation>Время с</documentation>
+        </annotation>
+      </element>
+      <element name="end" type="tns:RuleTime">
+        <annotation>
+          <documentation>Время по</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <simpleType name="RuleTime">
+    <annotation>
+      <documentation>Время объема правила</documentation>
+    </annotation>
+    <restriction base="time">
+      <pattern value="([0-1][0-9]|[2][0-3]):[0-5][0-9]:00"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="QuotaTypeKey">
+    <annotation>
+      <documentation>ИД вида квоты</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <simpleType name="ReferenceTypeKey">
+    <annotation>
+      <documentation>ИД вида справки</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <simpleType name="ReferenceTypeTitle">
+    <annotation>
+      <documentation>Название вида справки</documentation>
+    </annotation>
+    <restriction base="string"/>
+  </simpleType>
+  <simpleType name="arId">
+    <annotation>
+      <documentation>ИД ДР</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <simpleType name="RuleKey">
+    <annotation>
+      <documentation>ИД правила</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <simpleType name="AppointmentTypeKey">
+    <annotation>
+      <documentation>ИД типа справки</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <simpleType name="AppointmentKey">
+    <annotation>
+      <documentation>ИД справки</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <complexType name="QuotaType">
+    <annotation>
+      <documentation>Вид квоты</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="tns:QuotaTypeKey"/>
+      <element name="shortName" type="string"/>
+      <element name="fullName" type="string"/>
+      <element name="code" type="long"/>
+      <element name="quotaTypeMode" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="Slot">
+    <annotation>
+      <documentation>Слот расписания ДР</documentation>
+    </annotation>
+    <sequence>
+      <element name="startTime" type="dateTime"/>
+      <element name="endTime" type="dateTime"/>
+      <element maxOccurs="unbounded" minOccurs="0" name="quotaRuleId" type="tns:QuotaRuleKey"/>
+      <element name="arId" type="long"/>
+      <element name="isAvailable" type="boolean"/>
+      <element name="isBusy" type="boolean"/>
+    </sequence>
+  </complexType>
+  <complexType name="AvailableResourceEmployee">
+    <annotation>
+      <documentation>Медработник в доступном ресурсе</documentation>
+    </annotation>
+    <sequence>
+      <element name="id" type="tns:StaffUnitKey"/>
+      <!--<element name="isMain" type="boolean"/>-->
+    </sequence>
+  </complexType>
+  <simpleType name="StaffUnitKey">
+    <annotation>
+      <documentation>ИД медработника в подразделении. Оно же - исполнение должности</documentation>
+    </annotation>
+    <restriction base="tns:NumberId"/>
+  </simpleType>
+  <complexType name="AvailableResourceIds">
+    <annotation>
+      <documentation>Список ID доступных ресурсов</documentation>
+    </annotation>
+    <sequence>
+      <element maxOccurs="unbounded" name="availableResourceId" type="tns:AvailableResourceKey">
+        <annotation>
+          <documentation>ID доступных ресурсов</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELj5RSlgzK2dAjd_SqktYBl5MQzZneqwqv6LRr8dwVApKYKYfYAxtOjSjDGmxAeZ_phaf5bE179GWAye7P4cbluUFG8_.1TEhKq7sXewYC90.s01CgI12df8Vf05Vk12bRmQBJW8jaPCaGCqh7QJpeXPvrEpoDJ.q7_f05j3gqY9nDBNh</con:url><con:content><![CDATA[<schema elementFormDefault="qualified" targetNamespace="http://emias2.gov.ru/universal/v1/types/exceptions/" version="1" xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="objectNotFoundFaultInfo">
+    <complexType>
+      <sequence>
+        <element name="code" type="string"/>
+        <element name="objectId" type="string"/>
+        <element name="objectType" type="string"/>
+        <element name="reason" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="objectIsOutdatedFaultInfo">
+    <complexType>
+      <sequence>
+        <element name="code" type="string"/>
+        <element name="reason" type="string"/>
+        <element name="entityId" type="string"/>
+        <element name="entityType" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="GibddCodeErrorFaultInfo">
+    <complexType>
+      <annotation>
+        <documentation>Ошибка</documentation>
+      </annotation>
+      <sequence>
+        <element name="code" type="string"/>
+        <element name="messageText" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint></con:endpoints><con:operation id="025108df-e369-4163-a149-5097a2ed9569" isOneWay="false" action="CancelAppointment" name="CancelAppointment" bindingOperationName="CancelAppointment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5c7e2e53-2bc5-4205-a238-090a395315a2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v1:CancelAppointmentRequest>\r
+         <appointmentId>?</appointmentId>\r
+         <!--Optional:-->\r
+         <cancelReason>?</cancelReason>\r
+      </v1:CancelAppointmentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/emias/appointment/v1/soap/EmiasGibddAppointmentService/CancelAppointmentRequest"/></con:call></con:operation><con:operation id="d03f643d-4181-4995-a13b-c8b64952a0bf" isOneWay="false" action="CreateAppointment" name="CreateAppointment" bindingOperationName="CreateAppointment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="94608e80-f1a6-4bd9-9ea3-bc2c66fa6ca8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v1:CreateAppointmentRequest>\r
+         <oms>?</oms>\r
+         <birthday>?</birthday>\r
+         <availableResourceId>?</availableResourceId>\r
+         <startDate>?</startDate>\r
+         <referenceId>?</referenceId>\r
+         <!--Optional:-->\r
+         <comment>?</comment>\r
+         <!--Optional:-->\r
+         <recChannel>?</recChannel>\r
+      </v1:CreateAppointmentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/emias/appointment/v1/soap/EmiasGibddAppointmentService/CreateAppointmentRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b234b3e4-f8ea-4d7c-8da8-f5b400865194" isOneWay="false" action="GetAppointmentReceptionsByPatient" name="GetAppointmentReceptionsByPatient" bindingOperationName="GetAppointmentReceptionsByPatient" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a82a8a05-e1bd-431a-a6d8-9562fa598879" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">
+<soap:Header>
+ <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+  <wsse:UsernameToken>
+   <wsse:Username>EIP</wsse:Username>
+  </wsse:UsernameToken>
+ </wsse:Security>
+</soap:Header>
+   <soap:Body>
+      <v1:GetAppointmentReceptionsByPatientRequest>
+         <upcoming>true</upcoming>
+         <oms>7793899793001224</oms>
+         <birthDate>2001-06-06</birthDate>
+      </v1:GetAppointmentReceptionsByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/emias/appointment/v1/soap/EmiasGibddAppointmentService/GetAppointmentReceptionsByPatientRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4faf321d-123b-4cc4-83f9-5fc5217126b6" isOneWay="false" action="GetAvailableResourceScheduleInfo" name="GetAvailableResourceScheduleInfo" bindingOperationName="GetAvailableResourceScheduleInfo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1cecc89b-834d-42ce-9e74-e94a06408d63" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>?</lpuId>\r
+         <referenceId>?</referenceId>\r
+         <startDate>?</startDate>\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <actual>false</actual>\r
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/emias/appointment/v1/soap/EmiasGibddAppointmentService/GetAvailableResourceScheduleInfoRequest"/></con:call><con:call id="0b98bd5b-4f7a-4541-b01a-42ac327c1f0b" name="Request 2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>?</lpuId>\r
+         <referenceId>?</referenceId>\r
+         <startDate>?</startDate>\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <actual>false</actual>\r
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/emias/appointment/v1/soap/EmiasGibddAppointmentService/GetAvailableResourceScheduleInfoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="17c447ae-c661-4442-9b4f-69e19c2c704a" isOneWay="false" action="GetLpuList" name="GetLpuList" bindingOperationName="GetLpuList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="944d9ead-824c-475e-ad75-9959a56e37b6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v1:GetLpuListRequest>\r
+         <!--Optional:-->\r
+         <lpuId>?</lpuId>\r
+      </v1:GetLpuListRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/emias/appointment/v1/soap/EmiasGibddAppointmentService/GetLpuListRequest"/></con:call></con:operation><con:operation id="7c65f66f-5f2d-4d01-bb31-7ac03c83bdaa" isOneWay="false" action="GetLpuList2" name="GetLpuList2" bindingOperationName="GetLpuList2" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2276fd85-c567-4f14-ba4a-0ae5d74dc8f5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v1:GetLpuList2Request>\r
+         <!--Optional:-->\r
+         <lpuId>?</lpuId>\r
+      </v1:GetLpuList2Request>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/emias/appointment/v1/soap/EmiasGibddAppointmentService/GetLpuList2Request"/></con:call></con:operation><con:operation id="d120c850-78de-4e8e-ac1e-acce0e7f7b18" isOneWay="false" action="GetReferenceTypes" name="GetReferenceTypes" bindingOperationName="GetReferenceTypes" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a6baa771-7a1c-4583-b682-2b463b0544e3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v1:GetReferenceTypesRequest/>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/emias/appointment/v1/soap/EmiasGibddAppointmentService/GetReferenceTypesRequest"/></con:call></con:operation><con:operation id="1044454a-c3c8-4330-8041-d141080b8cb4" isOneWay="false" action="TransferAppointment" name="TransferAppointment" bindingOperationName="TransferAppointment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="eb52dc6a-1ab4-4671-8b41-101c67e6834f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v1:TransferAppointmentRequest>\r
+         <appointmentId>?</appointmentId>\r
+         <!--Optional:-->\r
+         <transferReason>?</transferReason>\r
+         <availableResourceId>?</availableResourceId>\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <comment>?</comment>\r
+         <!--Optional:-->\r
+         <recChannel>?</recChannel>\r
+      </v1:TransferAppointmentRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/emias/appointment/v1/soap/EmiasGibddAppointmentService/TransferAppointmentRequest"/></con:call></con:operation></con:interface><con:testSuite id="82a95418-a8b7-41c3-ae30-b5dc55a095dc" name="GET getReferenceTypes"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="98fd4f49-27d2-4b85-9484-472df5456b61" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ОС" searchProperties="true"><con:settings/><con:testStep type="request" name="getReferenceTypes" id="8b0fb0c5-0e87-4059-bea2-c4f31be690a3"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetReferenceTypes</con:operation><con:request name="getReferenceTypes" id="84f40f70-2ec7-4297-929c-ed13f77a03ac"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetReferenceTypesRequest/>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="011f126a-8173-4ac7-910e-e90005283b70"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="GET getReferenceTypes" id="0e898285-4ad9-432f-9d80-e1c4ea2b927c"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/getReferenceTypes" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET getReferenceTypes" id="97736de3-f519-4436-a1ae-7c92d61159a8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getReferenceTypes</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="640ce8d7-a54b-413d-89e9-ee7a9b73fa12" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="bfa0405b-2f27-4165-b9a4-0b7244e402c3" name="Contains referenceType"><con:configuration><token>referenceType</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Маппинг ответа и сортировка" id="552878ed-dff3-4f02-9430-51be6cecbab4"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.util.ArrayList
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
+def getReferenceTypesResponse = context.expand('${GET getReferenceTypes#Response}')
+def slurperJson = new JsonSlurper()
+def getReferenceTypesINFO = slurperJson.parseText(getReferenceTypesResponse)
+// log.info lpuScheduleInfo.payload.lpuInfo.lpuId
+
+def getReferenceTypesPINResponse = context.expand('${getReferenceTypes#Response}')
+getReferenceTypesPIN = new XmlSlurper().parseText(getReferenceTypesPINResponse)
+
+typesPIN = getReferenceTypesPIN.Body.GetReferenceTypesResponse.referenceType
+typesINFO = getReferenceTypesINFO.referenceType
+
+// Проверяем количество referenceType
+typesPINcount = typesPIN.size()
+typesINFOcount = typesINFO.size()
+assert typesPINcount == typesINFOcount
+
+// Проверяем referenceType.id
+typesIdPIN = new HashSet<>();
+typesNamePIN = []
+if (typesPINcount>0){
+	for(int i=0; i<typesPINcount; i++){
+		for ( x : typesPIN[i].referenceTypeId) {
+   			 typesIdPIN.add(x);
+   			 typesNamePIN << typesPIN[i].referenceTypeName
+		}
+	}
+}
+typesIdINFO = new HashSet<>();
+if (typesINFOcount>0){
+	for(int i=0; i<typesINFOcount; i++){
+		for ( x : getReferenceTypesINFO.referenceType[i].id) {
+   			 typesIdINFO.add(x);
+		}
+	}
+}
+assert typesIdPIN == typesIdINFO
+
+// Проверяем referenceType.name
+typesNameINFO = []
+typesNameINFO << typesINFO.name
+assert typesNamePIN == typesNameINFO.get(0).reverse()
+
+// Проверяем сортировку
+for (int i=0; i<typesINFOcount-1; i++){
+	assert getReferenceTypesINFO.referenceType.id.get(i) < getReferenceTypesINFO.referenceType.id.get(i+1)
+}
+
+]]></script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="cd79e703-ff01-4d2d-ab71-9fc96abf1ca9" name="GET getLpuList"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="d38d3a96-b4d0-49b6-b2e1-5fd40e63b010" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ОС" searchProperties="true"><con:settings/><con:testStep type="request" name="getLpuList2" id="deccf2b7-b0f4-48eb-94b2-876158ed15ff"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetLpuList2</con:operation><con:request name="getLpuList2" id="9701e5f7-0d0f-49f6-be6e-0b5af4abb88c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetLpuList2Request/>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="642b280c-cd62-4184-9ef7-aafb9e77fd3a"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="GET getLpuList" id="4c963785-1b8a-4266-aa2d-849f7a57d7a1"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/getLpuList" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET getLpuList" id="3fb512da-a429-41f6-a174-e803d46ed50d" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getLpuList</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Маппинг ответа и сортировка" id="a633ffea-2184-4b98-bfb4-9a33ea0b9761" disabled="true"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.util.ArrayList
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import groovy.lang.*
+import java.lang.*
+
+def getLpuListResponse = context.expand('${GET getLpuList#Response}')
+def slurperJson = new JsonSlurper()
+def getLpuListINFO = slurperJson.parseText(getLpuListResponse)
+// log.info lpuScheduleInfo.payload.lpuInfo.lpuId
+
+def getLpuListPINResponse = context.expand('${getLpuList2#Response}')
+getLpuListPIN = new XmlSlurper().parseText(getLpuListPINResponse)
+
+lpuPIN = getLpuListPIN.Body.GetLpuList2Response.lpu
+lpuINFO = getLpuListINFO.lpu
+
+//log.info lpuINFO[1].id
+//log.info lpuINFO
+
+// Проверяем количество lpu
+lpuPINcount = lpuPIN.size()
+lpuINFOcount = lpuINFO.size()
+assert lpuPINcount == lpuINFOcount
+
+// Проверяем lpu.id
+lpuIdPIN = new HashSet<>();
+lpuNamePIN = []
+if (lpuPINcount>0){
+	for(int i=0; i<lpuPINcount; i++){
+		for ( x : lpuPIN[i].id) {
+   			 lpuIdPIN.add(x);
+   			 lpuNamePIN << lpuPIN[i].shortName
+		}
+	}
+}
+lpuIdINFO = new HashSet<>();
+if (lpuINFOcount>0){
+	for(int i=0; i<lpuINFOcount; i++){
+		for ( x : lpuINFO[i].id) {
+   			 lpuIdINFO.add(x);
+		}
+	}
+}
+//log.info lpuIdPIN.sort()
+//log.info lpuIdINFO.sort()
+assert lpuIdPIN == lpuIdINFO
+assert lpuIdPIN.sort() == lpuIdINFO.sort()
+
+// Проверяем lpu.shortName
+lpuNameINFO = []
+lpuNameINFO << lpuINFO.shortName
+//log.info lpuNamePIN
+//log.info lpuNameINFO.get(0).sort()
+log.info lpuNamePIN
+
+sortlpuNamePIN = lpuNamePIN.sort(java.text.Collator.getInstance(new Locale("ru", "RU")))
+lof.info sortlpuNamePIN
+assert lpuNamePIN.sort() == lpuNameINFO.get(0).sort()
+
+log.info lpuNameINFO
+log.info lpuNamePIN
+
+//// Проверяем сортировку
+//for (int i=0; i<typesINFOcount-1; i++){
+//	assert getReferenceTypesINFO.referenceType.id.get(i) < getReferenceTypesINFO.referenceType.id.get(i+1)
+//}
+
+]]></script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="121503f4-745d-4666-af13-ec969510e86f" name="POST getPinArSchedule"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="63494c18-ff4c-48f8-a7e8-609141328f83" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ОС" searchProperties="true"><con:settings/><con:testStep type="request" name="getAvailableResourceScheduleInfo" id="19dbb48e-f42c-4e42-9567-aefeb174403a"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAvailableResourceScheduleInfo</con:operation><con:request name="getAvailableResourceScheduleInfo" id="90bba17e-0186-4bd9-ba83-50454daeb11d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>${#TestCase#lpuId}</lpuId>\r
+         <referenceId>${#TestCase#referenceId}</referenceId>\r
+         <startDate>${#TestCase#startDate}</startDate>\r
+         <endDate>${#TestCase#endDate}</endDate>\r
+         <actual>true</actual>
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4cb515b9-d3a0-444e-90a4-62e0b08fe547"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="POST getPinArSchedule" id="4932ebed-6d4a-4d90-9b7f-9b1371efc00f"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/getPinArSchedule" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST getPinArSchedule" id="402e7a77-1466-4af4-9a8a-0f7de5e0936f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"lpuId": ${#TestCase#lpuId},
+	"referenceId": ${#TestCase#referenceId},
+	"startDate": "${#TestCase#startDate}",
+	"endDate": "${#TestCase#endDate}"
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getPinArSchedule</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="f34cab88-e294-4bf8-8fe9-824f6840bdf2" name="Valid HTTP Status Code = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Маппинг ответа и сортировка" id="25729e2c-1217-4a5c-bae3-ac874305669c"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.util.ArrayList
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
+def getReferenceTypesResponse = context.expand('${GET getReferenceTypes#Response}')
+def slurperJson = new JsonSlurper()
+def getReferenceTypesINFO = slurperJson.parseText(getReferenceTypesResponse)
+// log.info lpuScheduleInfo.payload.lpuInfo.lpuId
+
+def getReferenceTypesPINResponse = context.expand('${getReferenceTypes#Response}')
+getReferenceTypesPIN = new XmlSlurper().parseText(getReferenceTypesPINResponse)
+
+typesPIN = getReferenceTypesPIN.Body.GetReferenceTypesResponse.referenceType
+typesINFO = getReferenceTypesINFO.referenceType
+
+// Проверяем количество referenceType
+typesPINcount = typesPIN.size()
+typesINFOcount = typesINFO.size()
+assert typesPINcount == typesINFOcount
+
+// Проверяем referenceType.id
+typesIdPIN = new HashSet<>();
+typesNamePIN = []
+if (typesPINcount>0){
+	for(int i=0; i<typesPINcount; i++){
+		for ( x : typesPIN[i].referenceTypeId) {
+   			 typesIdPIN.add(x);
+   			 typesNamePIN << typesPIN[i].referenceTypeName
+		}
+	}
+}
+typesIdINFO = new HashSet<>();
+if (typesINFOcount>0){
+	for(int i=0; i<typesINFOcount; i++){
+		for ( x : getReferenceTypesINFO.referenceType[i].id) {
+   			 typesIdINFO.add(x);
+		}
+	}
+}
+assert typesIdPIN == typesIdINFO
+
+// Проверяем referenceType.name
+typesNameINFO = []
+typesNameINFO << typesINFO.name
+assert typesNamePIN == typesNameINFO.get(0).reverse()
+
+// Проверяем сортировку
+for (int i=0; i<typesINFOcount-1; i++){
+	assert getReferenceTypesINFO.referenceType.id.get(i) < getReferenceTypesINFO.referenceType.id.get(i+1)
+}
+
+]]></script></con:config></con:testStep><con:properties><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>21</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-22T15:00:00</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-09-23T10:00:00</con:value></con:property></con:properties></con:testCase><con:testCase id="c3db542f-ec59-4be5-bb36-dfeb714eda3a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС3. Пустой ответ" searchProperties="true"><con:settings/><con:testStep type="request" name="getAvailableResourceScheduleInfo" id="05e12694-5778-4920-b6cb-7accaebc8f5a"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAvailableResourceScheduleInfo</con:operation><con:request name="getAvailableResourceScheduleInfo" id="90bba17e-0186-4bd9-ba83-50454daeb11d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>${#TestCase#lpuId}</lpuId>\r
+         <referenceId>${#TestCase#referenceId}</referenceId>\r
+         <startDate>${#TestCase#startDate}</startDate>\r
+         <endDate>${#TestCase#endDate}</endDate>\r
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4cb515b9-d3a0-444e-90a4-62e0b08fe547"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="POST getPinArSchedule" id="f7beebe0-9044-42f2-835f-64661f1d23e7"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/getPinArSchedule" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST getPinArSchedule" id="402e7a77-1466-4af4-9a8a-0f7de5e0936f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"lpuId": ${#TestCase#lpuId},
+	"referenceId": ${#TestCase#referenceId},
+	"startDate": "${#TestCase#startDate}",
+	"endDate": "${#TestCase#endDate}"
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getPinArSchedule</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="2e7b4004-0b05-4fef-b984-70e57c610802" name="Valid HTTP Status Code = 204"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>lpuId</con:name><con:value>6</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>21</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-21T10:00:00</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-09-22T10:00:00</con:value></con:property></con:properties></con:testCase><con:testCase id="bf214e27-7cc5-4da9-879d-772f93a2c147" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС2. PIN_SCHEDULE_INFO_ERROR" searchProperties="true"><con:settings/><con:testStep type="request" name="getAvailableResourceScheduleInfo" id="240e1294-97c9-40f6-920e-f88d9f1a0ede"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAvailableResourceScheduleInfo</con:operation><con:request name="getAvailableResourceScheduleInfo" id="90bba17e-0186-4bd9-ba83-50454daeb11d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>${#TestCase#lpuId}</lpuId>\r
+         <referenceId>${#TestCase#referenceId}</referenceId>\r
+         <startDate>${#TestCase#startDate}</startDate>\r
+         <endDate>${#TestCase#endDate}</endDate>\r
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4cb515b9-d3a0-444e-90a4-62e0b08fe547"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="POST getPinArSchedule" id="573f218e-18ca-4a07-9885-affecf9b0626"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/getPinArSchedule" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST getPinArSchedule" id="402e7a77-1466-4af4-9a8a-0f7de5e0936f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"lpuId": ${#TestCase#lpuId},
+	"referenceId": ${#TestCase#referenceId},
+	"startDate": "${#TestCase#startDate}",
+	"endDate": "${#TestCase#endDate}"
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/getPinArSchedule</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6f2c0aca-0e20-47bc-b50e-bb1b8579e6d7" name="Valid HTTP Status Code = 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6913ab85-a7c1-4f85-9337-465265d2320f" name="error.code = PIN_SCHEDULE_INFO_ERROR"><con:configuration><path>$.error.code</path><content>PIN_SCHEDULE_INFO_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="4201dcb2-4076-4364-99fe-97af140d9c3b" name="error.description = Не удалось получить список слотов для записи на освидетельствование"><con:configuration><path>$.error.description</path><content>Не удалось получить список слотов для записи на освидетельствование</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c51c2805-8872-47aa-aeb7-dfa07d9a4923" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>lpuId</con:name><con:value>100</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>21</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-21T10:00:00</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-09-22T10:00:00</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:testSuite id="5aabc5d0-cbc1-418a-9913-7ad511e2de7e" name="POST createPinAppointment"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="4e66478a-53d2-479a-b239-29274e3b6607" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ОС. Создать запись на мед.освидетельствование" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Запись текущей и будущей даты в переменные" id="179eaed7-f614-4ee7-9510-c8a6a4c21870"><con:settings/><con:config><script>import java.text.SimpleDateFormat; 
+
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE,+7); 
+endDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal.getTime());
+log.info(endDate)
+
+Calendar cal1 = Calendar.getInstance();
+startDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal1.getTime());
+log.info(startDate)
+
+testRunner.testCase.setPropertyValue("startDate",startDate)
+testRunner.testCase.setPropertyValue("endDate",endDate)</script></con:config></con:testStep><con:testStep type="request" name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="957a0e9a-9854-4ac9-a8eb-ed8abe1a6e43"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAvailableResourceScheduleInfo</con:operation><con:request name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="90bba17e-0186-4bd9-ba83-50454daeb11d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>${#TestCase#lpuId}</lpuId>\r
+         <referenceId>${#TestCase#referenceId}</referenceId>\r
+         <startDate>${#TestCase#startDate}</startDate>\r
+         <endDate>${#TestCase#endDate}</endDate>\r
+         <actual>true</actual>
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4cb515b9-d3a0-444e-90a4-62e0b08fe547"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Записать в переменную начало свободного слота и доступный ресурс" id="674614a5-b193-4d2d-9e53-2c414c36df2e"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+
+def getAvailableResourceScheduleInfo = context.expand('${Получение слотов для записи (getAvailableResourceScheduleInfo)#Response}')
+getAvailableResourceScheduleInfo = new XmlSlurper().parseText(getAvailableResourceScheduleInfo)
+
+String slot = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].startTime
+log.info (slot)
+
+testRunner.testCase.setPropertyValue("FreeSlotStartDate", slot)
+
+String arId = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].arId
+log.info (arId)
+
+testRunner.testCase.setPropertyValue("arId", arId)</script></con:config></con:testStep><con:testStep type="restrequest" name="POST createPinAppointment" id="cccd97f4-02bc-4ea5-842a-a027f1f980ec"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/createPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST createPinAppointment" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#FreeSlotStartDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c45dfdcd-e0c4-4e6f-ab8d-69c598e3d5cc" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="7dd3d322-327a-4d4d-a1e0-8271c4b10093" name="Содержит appointmentId"><con:configuration><token>appointmentId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="7dd3d322-327a-4d4d-a1e0-8271c4b10093" name="Содержит appointmentNumber"><con:configuration><token>appointmentNumber</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="7dd3d322-327a-4d4d-a1e0-8271c4b10093" name="Содержит roomCode"><con:configuration><token>roomCode</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="request" name="getAppointmentReceptionsByPatient" id="074452c4-1e1e-4455-b7e1-d4bcf21f14d4"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAppointmentReceptionsByPatient</con:operation><con:request name="getAppointmentReceptionsByPatient" id="ccdc904c-c02b-4378-b540-b829e5d1b764"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">
+<soap:Header>
+ <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+  <wsse:UsernameToken>
+   <wsse:Username>EIP</wsse:Username>
+  </wsse:UsernameToken>
+ </wsse:Security>
+</soap:Header>
+   <soap:Body>
+      <v1:GetAppointmentReceptionsByPatientRequest>
+         <upcoming>true</upcoming>
+         <oms>${#TestCase#omsNumber}</oms>
+         <birthDate>${#TestCase#birthDate}</birthDate>
+      </v1:GetAppointmentReceptionsByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="439192fc-b999-4e18-9795-cc7c8e7040d7"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Проверка параметров записи" id="ff9ca89b-3943-4e74-92c4-fa1d45170534"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+
+def createPinAppointmentResponse = context.expand('${POST createPinAppointment#Response}')
+def slurperJson = new JsonSlurper()
+def createPinAppointmentINFO = slurperJson.parseText(createPinAppointmentResponse)
+
+def getAppointmentReceptionsByPatientResponse = context.expand('${getAppointmentReceptionsByPatient#Response}')
+getAppointmentReceptionsByPatient = new XmlSlurper().parseText(getAppointmentReceptionsByPatientResponse)
+
+String appointmentId = createPinAppointmentINFO.appointmentId
+testRunner.testCase.setPropertyValue("appointmentId", appointmentId)
+
+appointments = getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments
+appointmentsCount = appointments.size()
+
+//ищем в ответе от ГИБДД созданную нами запись
+def count;
+
+for(int i=0; i&lt;appointmentsCount; i++){
+	if (getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[i].id.toString() == appointmentId){
+		count = i;
+	}
+}
+
+//сравниваем appointmentId 
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].id.toString() == appointmentId
+
+//сравниваем birthDate пациента для которого создали запись 
+def birthDate = testRunner.testCase.getPropertyValue('birthDate')
+String CutBirthDateFromSoap = getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].patient.birthday.toString()
+CutBirthDateFromSoap = CutBirthDateFromSoap.substring(0,10)
+assert CutBirthDateFromSoap == birthDate
+
+//сравниваем omsNumber пациента для которого создали запись 
+def omsNumber = testRunner.testCase.getPropertyValue('omsNumber')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].patient.oms.toString() == omsNumber
+
+//сравниваем appointmentNumber из ответа ГИБДД и ИНФО
+def appointmentNumber = createPinAppointmentINFO.appointmentNumber
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].appointmentNum == appointmentNumber
+
+//сравниваем startDate для созданной записи
+def startDate = testRunner.testCase.getPropertyValue('FreeSlotStartDate')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].startDate.toString() == startDate
+
+//проверяем что запись актуальна
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].actual == true
+
+//сравниваем availableResource для созданой записи
+def arId = testRunner.testCase.getPropertyValue('arId')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].availableResource.availableResourceId.toString() == arId
+
+//сравниваем roomCode из ответа ГИБДД и ИНФО
+def roomCode = createPinAppointmentINFO.roomCode
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].availableResource.roomCode.toString() == roomCode
+
+//сравниваем lpuId для созданной записи
+def lpuId =  testRunner.testCase.getPropertyValue('lpuId')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].lpu.id.toString() == lpuId
+
+//сравниваем referenceId для созданной записи
+def referenceId =  testRunner.testCase.getPropertyValue('referenceId')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].referenceType.referenceTypeId.toString() == referenceId
+</script></con:config></con:testStep><con:testStep type="restrequest" name="Постусловие. Удаление записи (POST cancelPinAppointment)" id="77650537-bde2-4826-9065-b96dd90b53b6"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/cancelPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Постусловие. Удаление записи (POST cancelPinAppointment)" id="8a20d4bd-44bf-44de-bab0-e4027467e1a4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/cancelPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="69ee3910-b143-40cd-b831-b91312e7a9ab" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5501</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-10-06T11:10:02.273Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-13T11:10:02.272Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-10-06T14:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452473</con:value></con:property></con:properties></con:testCase><con:testCase id="f102c5ed-c055-489b-8329-9a4a548fe62d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС0. Непредвиденная ошибка" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="POST createPinAppointment" id="089ec8a7-27dd-4f57-a274-1fd613c47f39"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/createPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST createPinAppointment" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#FreeSlotStartDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c45dfdcd-e0c4-4e6f-ab8d-69c598e3d5cc" name="Valid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.code = SERVER_ERROR"><con:configuration><path>$.error.code</path><content>SERVER_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.description = Ошибка выполнения метода"><con:configuration><path>$.error.description</path><content>Ошибка выполнения метода</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.type = TECHNICAL"><con:configuration><path>$.error.type</path><content>TECHNICAL</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5482</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-29 15:00:38.299Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-02T15:00:38.298Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>5</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-09-29 18:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452195</con:value></con:property></con:properties></con:testCase><con:testCase id="b2232ce5-d440-4b28-a2a6-e00f2c6ba485" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС2. Дата и время начала записи меньше текущей" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="POST createPinAppointment" id="41d38f00-eb88-4e3a-a73d-6416dd089695"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/createPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST createPinAppointment" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#FreeSlotStartDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c45dfdcd-e0c4-4e6f-ab8d-69c598e3d5cc" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.code = PIN_PAST_TIME_START"><con:configuration><path>$.error.code</path><content>PIN_PAST_TIME_START</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.description = Время начала приема уже прошло"><con:configuration><path>$.error.description</path><content>Время начала приема уже прошло</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5482</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-29T15:00:38.299Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-02T15:00:38.298Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>5</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-09-28T18:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452195</con:value></con:property></con:properties></con:testCase><con:testCase id="57858081-3d4f-4a8e-b105-23bf26ca2e1e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС3. Слот занят для записи" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Запись текущей и будущей даты в переменные" id="fb5c7cce-fd22-4b7a-9800-b66301746312"><con:settings/><con:config><script>import java.text.SimpleDateFormat; 
+
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE,+7); 
+endDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal.getTime());
+log.info(endDate)
+
+Calendar cal1 = Calendar.getInstance();
+startDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal1.getTime());
+log.info(startDate)
+
+testRunner.testCase.setPropertyValue("startDate",startDate)
+testRunner.testCase.setPropertyValue("endDate",endDate)</script></con:config></con:testStep><con:testStep type="request" name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="c595352a-12a2-4cc4-857f-316bb2363b5b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAvailableResourceScheduleInfo</con:operation><con:request name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="90bba17e-0186-4bd9-ba83-50454daeb11d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>${#TestCase#lpuId}</lpuId>\r
+         <referenceId>${#TestCase#referenceId}</referenceId>\r
+         <startDate>${#TestCase#startDate}</startDate>\r
+         <endDate>${#TestCase#endDate}</endDate>\r
+         <actual>true</actual>
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4cb515b9-d3a0-444e-90a4-62e0b08fe547"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Записать в переменную начало свободного слота и доступный ресурс" id="edb831a1-44ca-4898-a4df-5ddd0109639e"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+
+def getAvailableResourceScheduleInfo = context.expand('${Получение слотов для записи (getAvailableResourceScheduleInfo)#Response}')
+getAvailableResourceScheduleInfo = new XmlSlurper().parseText(getAvailableResourceScheduleInfo)
+
+String slot = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].startTime
+log.info (slot)
+
+testRunner.testCase.setPropertyValue("FreeSlotStartDate", slot)
+
+String arId = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].arId
+log.info (arId)
+
+testRunner.testCase.setPropertyValue("arId", arId)</script></con:config></con:testStep><con:testStep type="restrequest" name="POST createPinAppointment" id="356eefb2-78cc-45e1-8bd2-0dcddd3331e4"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/createPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST createPinAppointment" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#FreeSlotStartDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c45dfdcd-e0c4-4e6f-ab8d-69c598e3d5cc" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Записать appointmentId в переменную" id="d00a5652-546d-4c4f-ba41-085fcc39e7df"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>appointmentId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>POST createPinAppointment</con:sourceStep><con:sourcePath>$appointmentId</con:sourcePath><con:targetType>appointmentId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="POST createPinAppointment на тоже время" id="9688bc7d-4ba3-47e5-bb3e-d5d527c1b491"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/createPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST createPinAppointment на тоже время" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#FreeSlotStartDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c45dfdcd-e0c4-4e6f-ab8d-69c598e3d5cc" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.code = PIN_SLOT_IS_BUSY"><con:configuration><path>$.error.code</path><content>PIN_SLOT_IS_BUSY</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.description = На выбранное время уже есть запись"><con:configuration><path>$.error.description</path><content>На выбранное время уже есть запись</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Постусловие. Удаление записи (POST cancelPinAppointment)" id="72fa0748-6f9d-4e49-95a0-751674466b85"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/cancelPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Постусловие. Удаление записи (POST cancelPinAppointment)" id="8a20d4bd-44bf-44de-bab0-e4027467e1a4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/cancelPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="69ee3910-b143-40cd-b831-b91312e7a9ab" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5501</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-10-06T11:10:03.157Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-13T11:10:03.157Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-10-06T14:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452474</con:value></con:property></con:properties></con:testCase><con:testCase id="36db07dd-5fea-4e3d-b599-6e48bc911b03" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС4. Не удалось создать запись" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Запись текущей и будущей даты в переменные" id="5c262420-ca0b-4c95-9228-ca288e770f43"><con:settings/><con:config><script>import java.text.SimpleDateFormat; 
+
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE,+7); 
+endDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal.getTime());
+log.info(endDate)
+
+Calendar cal1 = Calendar.getInstance();
+startDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal1.getTime());
+log.info(startDate)
+
+testRunner.testCase.setPropertyValue("startDate",startDate)
+testRunner.testCase.setPropertyValue("endDate",endDate)</script></con:config></con:testStep><con:testStep type="request" name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="5dd44cad-ac12-436b-9224-7be44b29b876"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAvailableResourceScheduleInfo</con:operation><con:request name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="90bba17e-0186-4bd9-ba83-50454daeb11d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>${#TestCase#lpuId}</lpuId>\r
+         <referenceId>${#TestCase#referenceId}</referenceId>\r
+         <startDate>${#TestCase#startDate}</startDate>\r
+         <endDate>${#TestCase#endDate}</endDate>\r
+         <actual>true</actual>
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4cb515b9-d3a0-444e-90a4-62e0b08fe547"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Записать в переменную начало свободного слота и доступный ресурс" id="adb5bdc4-7127-44fb-a2fe-c7db64292367"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+
+def getAvailableResourceScheduleInfo = context.expand('${Получение слотов для записи (getAvailableResourceScheduleInfo)#Response}')
+getAvailableResourceScheduleInfo = new XmlSlurper().parseText(getAvailableResourceScheduleInfo)
+
+String slot = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].startTime
+log.info (slot)
+
+testRunner.testCase.setPropertyValue("FreeSlotStartDate", slot)
+
+String arId = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].arId
+log.info (arId)
+
+testRunner.testCase.setPropertyValue("arId", arId)</script></con:config></con:testStep><con:testStep type="restrequest" name="POST createPinAppointment" id="33c9a94f-2838-405e-b2e2-881487803881"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/createPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST createPinAppointment" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#FreeSlotStartDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c45dfdcd-e0c4-4e6f-ab8d-69c598e3d5cc" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.code = PIN_CREATE_ERROR"><con:configuration><path>$.error.code</path><content>PIN_CREATE_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.description = Не удалось создать запись на освидетельствование"><con:configuration><path>$.error.description</path><content>Не удалось создать запись на освидетельствование</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="388cec7f-c0b3-43d8-bab7-b69488b61f3b" name="error.type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>99999999999999999</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5501</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-10-06T11:10:03.863Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-13T11:10:03.863Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-10-06T14:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452195</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:testSuite id="497ec929-e111-4fce-ba99-82332ec1d8cc" name="POST cancelPinAppointment"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="f8383f7a-9443-4cf7-8f64-f052be54903d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ОС. Отменить запись на мед.освидетельствование" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Запись текущей и будущей даты в переменные" id="d80039bc-eb6c-4bc8-81a1-58b7c544cf86"><con:settings/><con:config><script>import java.text.SimpleDateFormat; 
+
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE,+10); 
+endDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal.getTime());
+log.info(endDate)
+
+Calendar cal1 = Calendar.getInstance();
+startDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal1.getTime());
+log.info(startDate)
+
+testRunner.testCase.setPropertyValue("startDate",startDate)
+testRunner.testCase.setPropertyValue("endDate",endDate)</script></con:config></con:testStep><con:testStep type="request" name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="e05d0463-de9e-4a16-b956-977f097843c7"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAvailableResourceScheduleInfo</con:operation><con:request name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="90bba17e-0186-4bd9-ba83-50454daeb11d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>${#TestCase#lpuId}</lpuId>\r
+         <referenceId>${#TestCase#referenceId}</referenceId>\r
+         <startDate>${#TestCase#startDate}</startDate>\r
+         <endDate>${#TestCase#endDate}</endDate>\r
+         <actual>true</actual>
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4cb515b9-d3a0-444e-90a4-62e0b08fe547"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Записать в переменную начало свободного слота и доступный ресурс" id="c4943ab9-14c6-4c86-b892-30a922a27a8a"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+
+def getAvailableResourceScheduleInfo = context.expand('${Получение слотов для записи (getAvailableResourceScheduleInfo)#Response}')
+getAvailableResourceScheduleInfo = new XmlSlurper().parseText(getAvailableResourceScheduleInfo)
+
+String slot = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].startTime
+log.info (slot)
+
+testRunner.testCase.setPropertyValue("FreeSlotStartDate", slot)
+
+String arId = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].arId
+log.info (arId)
+
+testRunner.testCase.setPropertyValue("arId", arId)</script></con:config></con:testStep><con:testStep type="restrequest" name="POST createPinAppointment" id="07e57dee-fae7-4baf-9b03-887d6ba828f1"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/createPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST createPinAppointment" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#FreeSlotStartDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c45dfdcd-e0c4-4e6f-ab8d-69c598e3d5cc" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Записать appointmentId в переменную" id="69094418-14aa-4186-96ba-b26ab9702975"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>appointmentId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>POST createPinAppointment</con:sourceStep><con:sourcePath>$appointmentId</con:sourcePath><con:targetType>appointmentId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="POST cancelPinAppointment" id="96e5abba-8459-4534-a099-31f04662fcd6"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/cancelPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST cancelPinAppointment" id="8a20d4bd-44bf-44de-bab0-e4027467e1a4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/cancelPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="69ee3910-b143-40cd-b831-b91312e7a9ab" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="request" name="getAppointmentReceptionsByPatient" id="01368f6b-7a06-4115-a355-9ffab424cbf8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAppointmentReceptionsByPatient</con:operation><con:request name="getAppointmentReceptionsByPatient" id="ccdc904c-c02b-4378-b540-b829e5d1b764"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">
+<soap:Header>
+ <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+  <wsse:UsernameToken>
+   <wsse:Username>EIP</wsse:Username>
+  </wsse:UsernameToken>
+ </wsse:Security>
+</soap:Header>
+   <soap:Body>
+      <v1:GetAppointmentReceptionsByPatientRequest>
+         <upcoming>true</upcoming>
+         <oms>${#TestCase#omsNumber}</oms>
+         <birthDate>${#TestCase#birthDate}</birthDate>
+      </v1:GetAppointmentReceptionsByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="439192fc-b999-4e18-9795-cc7c8e7040d7"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Проверка, что запись удалилась" id="907cc735-89ef-4d75-899c-5f79b1346677"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+
+def createPinAppointmentResponse = context.expand('${POST createPinAppointment#Response}')
+def slurperJson = new JsonSlurper()
+def createPinAppointmentINFO = slurperJson.parseText(createPinAppointmentResponse)
+
+def getAppointmentReceptionsByPatientResponse = context.expand('${getAppointmentReceptionsByPatient#Response}')
+getAppointmentReceptionsByPatient = new XmlSlurper().parseText(getAppointmentReceptionsByPatientResponse)
+
+String appointmentId = createPinAppointmentINFO.appointmentId
+testRunner.testCase.setPropertyValue("appointmentId", appointmentId)
+
+appointments = getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments
+appointmentsCount = appointments.size()
+
+//ищем в ответе от ГИБДД созданную нами запись
+def count = 0;
+
+for(int i=0; i&lt;appointmentsCount; i++){
+	if (getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[i].id.toString() == appointmentId){
+		count = i;
+	}
+}
+
+assert count == 0</script></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5501</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-10-06T11:10:06.862Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-16T11:10:06.862Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-10-06T14:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452475</con:value></con:property></con:properties></con:testCase><con:testCase id="0ef8f817-0793-4224-95d7-6d93a228aa6c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС0. Непредвиденная ошибка" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="POST cancelPinAppointment" id="979ef584-fb23-4101-b234-81975f65aa4f"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/cancelPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST cancelPinAppointment" id="8a20d4bd-44bf-44de-bab0-e4027467e1a4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "тест"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/cancelPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="69ee3910-b143-40cd-b831-b91312e7a9ab" name="Valid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="73f7c0bc-bddf-4899-a6f9-20e9b93377f5" name="error.code = SERVER_ERROR"><con:configuration><path>$error.code</path><content>SERVER_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="73f7c0bc-bddf-4899-a6f9-20e9b93377f5" name="description = Ошибка выполнения метода"><con:configuration><path>$error.description</path><content>Ошибка выполнения метода</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="deabc6bf-5d77-4049-97d0-bece4fbe0cec" name="error.type = TECHNICAL"><con:configuration><path>$error.type</path><content>TECHNICAL</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5482</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-29T15:22:01.274Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-02T15:22:01.274Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-09-29T18:45:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452202</con:value></con:property></con:properties></con:testCase><con:testCase id="ded0cdea-882c-46b5-9ff2-77c8f377f947" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС2. Ошибка от сервиса СправкиГИБДД" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="POST cancelPinAppointment" id="e3cf88c4-b1d6-429f-8c2c-3212e1ed32a0"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/cancelPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST cancelPinAppointment" id="8a20d4bd-44bf-44de-bab0-e4027467e1a4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "9999999999"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/cancelPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="69ee3910-b143-40cd-b831-b91312e7a9ab" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="73f7c0bc-bddf-4899-a6f9-20e9b93377f5" name="error.code = PIN_CANCEL_ERROR"><con:configuration><path>$error.code</path><content>PIN_CANCEL_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="73f7c0bc-bddf-4899-a6f9-20e9b93377f5" name="description = Не удалось отменить запись на освидетельствование"><con:configuration><path>$error.description</path><content>Не удалось отменить запись на освидетельствование</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="deabc6bf-5d77-4049-97d0-bece4fbe0cec" name="error.type = BUSINESS"><con:configuration><path>$error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5482</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-29T15:22:01.274Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-02T15:22:01.274Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-09-29T18:45:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452202</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:testSuite id="edbad8ba-0535-4668-8bd3-f35d3a9fc099" name="POST transferPinAppointment"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="78e35dc0-1e90-404a-8c9e-9928334d43fc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ОС. Перенести запись на мед.освидетельствование" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Запись текущей и будущей даты в переменные" id="206025eb-9da2-4161-a51a-cfc60ffe40a4"><con:settings/><con:config><script>import java.text.SimpleDateFormat; 
+
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE,+7); 
+endDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal.getTime());
+log.info(endDate)
+
+Calendar cal1 = Calendar.getInstance();
+startDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal1.getTime());
+log.info(startDate)
+
+testRunner.testCase.setPropertyValue("startDate",startDate)
+testRunner.testCase.setPropertyValue("endDate",endDate)</script></con:config></con:testStep><con:testStep type="request" name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="3280ad0a-e706-473a-a149-eb379dc374e8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAvailableResourceScheduleInfo</con:operation><con:request name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="90bba17e-0186-4bd9-ba83-50454daeb11d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>${#TestCase#lpuId}</lpuId>\r
+         <referenceId>${#TestCase#referenceId}</referenceId>\r
+         <startDate>${#TestCase#startDate}</startDate>\r
+         <endDate>${#TestCase#endDate}</endDate>\r
+         <actual>true</actual>
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4cb515b9-d3a0-444e-90a4-62e0b08fe547"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Записать в переменную начало свободного слота и доступный ресурс" id="0efd1045-1b2b-4034-bc5f-493e7af7dc02"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+
+def getAvailableResourceScheduleInfo = context.expand('${Получение слотов для записи (getAvailableResourceScheduleInfo)#Response}')
+getAvailableResourceScheduleInfo = new XmlSlurper().parseText(getAvailableResourceScheduleInfo)
+
+String slot = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].startTime
+log.info (slot)
+
+testRunner.testCase.setPropertyValue("FreeSlotStartDate", slot)
+
+String slot2 = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[11].startTime
+log.info (slot)
+
+testRunner.testCase.setPropertyValue("FreeSlotStartDate_forTransfer", slot2)
+
+String arId = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].arId
+log.info (arId)
+
+testRunner.testCase.setPropertyValue("arId", arId)</script></con:config></con:testStep><con:testStep type="restrequest" name="POST createPinAppointment" id="63175f32-a263-439e-af1a-c6062a2f3738"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/createPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST createPinAppointment" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#FreeSlotStartDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c45dfdcd-e0c4-4e6f-ab8d-69c598e3d5cc" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Записать appointmentId в переменную" id="035883e8-9e36-470d-accb-629db24f33c9"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>appointmentId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>POST createPinAppointment</con:sourceStep><con:sourcePath>$appointmentId</con:sourcePath><con:targetType>appointmentId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="POST transferPinAppointment" id="d0fd4a83-b0dc-4c4a-b7bb-cdd7368d2795"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/transferPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST transferPinAppointment" id="778cddb4-0190-49f2-929e-6e47c491ccde" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId}",
+  "availableResourceId": ${#TestCase#arId},
+  "startDate": "${#TestCase#FreeSlotStartDate_forTransfer}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/transferPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="f68a4d0a-8df7-4acd-b150-d5dfcc8b6cb6" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="be7423a9-666d-4444-9a85-ba726d08c3d2" name="Содержит appointmentId"><con:configuration><token>appointmentId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="be7423a9-666d-4444-9a85-ba726d08c3d2" name="Содержит appointmentNumber"><con:configuration><token>appointmentNumber</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="be7423a9-666d-4444-9a85-ba726d08c3d2" name="Содержит roomCode"><con:configuration><token>roomCode</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="request" name="getAppointmentReceptionsByPatient" id="8a345229-4681-435d-9517-f991bf2fb346"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAppointmentReceptionsByPatient</con:operation><con:request name="getAppointmentReceptionsByPatient" id="ccdc904c-c02b-4378-b540-b829e5d1b764"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">
+<soap:Header>
+ <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+  <wsse:UsernameToken>
+   <wsse:Username>EIP</wsse:Username>
+  </wsse:UsernameToken>
+ </wsse:Security>
+</soap:Header>
+   <soap:Body>
+      <v1:GetAppointmentReceptionsByPatientRequest>
+         <upcoming>true</upcoming>
+         <oms>${#TestCase#omsNumber}</oms>
+         <birthDate>${#TestCase#birthDate}</birthDate>
+      </v1:GetAppointmentReceptionsByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="439192fc-b999-4e18-9795-cc7c8e7040d7"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Проверка перенесенной записи и отмены предыдущий записи" id="1ae8b06c-c94c-42d7-95fc-996e3255944a"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+
+def transferPinAppointmenttResponse = context.expand('${POST transferPinAppointment#Response}')
+def slurperJson = new JsonSlurper()
+def transferPinAppointmentINFO = slurperJson.parseText(transferPinAppointmenttResponse)
+
+def getAppointmentReceptionsByPatientResponse = context.expand('${getAppointmentReceptionsByPatient#Response}')
+getAppointmentReceptionsByPatient = new XmlSlurper().parseText(getAppointmentReceptionsByPatientResponse)
+
+String appointmentId = transferPinAppointmentINFO.appointmentId
+testRunner.testCase.setPropertyValue("appointmentId_forTransfer", appointmentId)
+
+appointments = getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments
+appointmentsCount = appointments.size()
+
+//ищем в ответе от ГИБДД перенесенную нами запись
+def count;
+
+for(int i=0; i&lt;appointmentsCount; i++){
+	if (getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[i].id.toString() == appointmentId){
+		count = i;
+	}
+}
+
+//сравниваем appointmentId 
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].id.toString() == appointmentId
+
+//сравниваем birthDate пациента для которого перенесли запись 
+def birthDate = testRunner.testCase.getPropertyValue('birthDate')
+String CutBirthDateFromSoap = getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].patient.birthday.toString()
+CutBirthDateFromSoap = CutBirthDateFromSoap.substring(0,10)
+assert CutBirthDateFromSoap == birthDate
+
+//сравниваем omsNumber пациента для которого перенесли запись 
+def omsNumber = testRunner.testCase.getPropertyValue('omsNumber')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].patient.oms.toString() == omsNumber
+
+//сравниваем appointmentNumber из ответа ГИБДД и ИНФО
+def appointmentNumber = transferPinAppointmentINFO.appointmentNumber
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].appointmentNum == appointmentNumber
+
+//сравниваем startDate для перенесенной записи
+def startDate = testRunner.testCase.getPropertyValue('FreeSlotStartDate_forTransfer')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].startDate.toString() == startDate
+
+//проверяем что запись актуальна
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].actual == true
+
+//сравниваем availableResource для перенесенной записи
+def arId = testRunner.testCase.getPropertyValue('arId')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].availableResource.availableResourceId.toString() == arId
+
+//сравниваем roomCode из ответа ГИБДД и ИНФО
+def roomCode = transferPinAppointmentINFO.roomCode
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].availableResource.roomCode.toString() == roomCode
+
+//сравниваем lpuId для перенесенной записи
+def lpuId =  testRunner.testCase.getPropertyValue('lpuId')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].lpu.id.toString() == lpuId
+
+//сравниваем referenceId для созданной записи
+def referenceId =  testRunner.testCase.getPropertyValue('referenceId')
+assert getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[count].referenceType.referenceTypeId.toString() == referenceId
+
+
+//проверяем что предыдущая запись отменилась
+def appointmentIdCreate = testRunner.testCase.getPropertyValue('appointmentId')
+def countCreate = 0;
+
+for(int i=0; i&lt;appointmentsCount; i++){
+	if (getAppointmentReceptionsByPatient.Body.GetAppointmentReceptionsByPatientResponse.appointments[i].id.toString() == appointmentIdCreate){
+		countCreate = i;
+	}
+}
+
+assert countCreate == 0</script></con:config></con:testStep><con:testStep type="restrequest" name="Постусловие. Удаление записи (POST cancelPinAppointment)" id="a0a75e13-e78a-4bae-b64c-bea41d19b8b8"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/cancelPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Постусловие. Удаление записи (POST cancelPinAppointment)" id="8a20d4bd-44bf-44de-bab0-e4027467e1a4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId_forTransfer}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/cancelPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="69ee3910-b143-40cd-b831-b91312e7a9ab" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5501</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-10-06T11:10:10.102Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-13T11:10:10.102Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-10-06T14:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452476</con:value></con:property><con:property><con:name>FreeSlotStartDate_forTransfer</con:name><con:value>2023-10-06T14:30:00</con:value></con:property><con:property><con:name>appointmentId_forTransfer</con:name><con:value>452477</con:value></con:property></con:properties></con:testCase><con:testCase id="c13cefb6-3c0b-47c9-8683-23016b0513b2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС0. Непредвиденная ошибка" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="POST transferPinAppointment" id="30755da9-293d-493c-bdf5-62157d8f6d30"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/transferPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST transferPinAppointment" id="778cddb4-0190-49f2-929e-6e47c491ccde" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId}",
+  "availableResourceId": ${#TestCase#arId},
+  "startDate": "${#TestCase#FreeSlotStartDate_forTransfer}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/transferPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="f68a4d0a-8df7-4acd-b150-d5dfcc8b6cb6" name="Valid HTTP Status Codes"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6fba4c65-815e-4607-8cdc-ed6a5ba95240" name="error.code =SERVER_ERROR"><con:configuration><path>$error.code</path><content>SERVER_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6fba4c65-815e-4607-8cdc-ed6a5ba95240" name="error.description = Ошибка выполнения метода"><con:configuration><path>$error.description</path><content>Ошибка выполнения метода</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6fba4c65-815e-4607-8cdc-ed6a5ba95240" name="error.type = TECHNICAL"><con:configuration><path>$error.type</path><content>TECHNICAL</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5482</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-29T15:48:32.065Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-02T15:48:32.064Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-09-29T19:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452213</con:value></con:property><con:property><con:name>FreeSlotStartDate_forTransfer</con:name><con:value>2023-09-29 19:30:00</con:value></con:property><con:property><con:name>appointmentId_forTransfer</con:name><con:value>452214</con:value></con:property></con:properties></con:testCase><con:testCase id="d0444eda-f020-4274-b730-f9be8193b250" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС2. Дата и время меньше текущей даты" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="POST transferPinAppointment" id="52260ac1-d3fb-4e46-bf9d-b177daa0981a"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/transferPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST transferPinAppointment" id="778cddb4-0190-49f2-929e-6e47c491ccde" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId}",
+  "availableResourceId": ${#TestCase#arId},
+  "startDate": "${#TestCase#FreeSlotStartDate_forTransfer}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/transferPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="f68a4d0a-8df7-4acd-b150-d5dfcc8b6cb6" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6fba4c65-815e-4607-8cdc-ed6a5ba95240" name="error.code =PIN_PAST_TIME_START"><con:configuration><path>$error.code</path><content>PIN_PAST_TIME_START</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6fba4c65-815e-4607-8cdc-ed6a5ba95240" name="error.description = Время начала приема уже прошло"><con:configuration><path>$error.description</path><content>Время начала приема уже прошло</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6fba4c65-815e-4607-8cdc-ed6a5ba95240" name="error.type = BUSINESS"><con:configuration><path>$error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5482</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-29T15:48:32.065Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-02T15:48:32.064Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-09-29T19:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452213</con:value></con:property><con:property><con:name>FreeSlotStartDate_forTransfer</con:name><con:value>2023-09-28T19:30:00</con:value></con:property><con:property><con:name>appointmentId_forTransfer</con:name><con:value>452214</con:value></con:property></con:properties></con:testCase><con:testCase id="ce211fb3-93b1-4bd3-9042-a56055b45980" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС3. Слот занят для записи" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Запись текущей и будущей даты в переменные" id="a36f5099-85e5-4fec-a16f-bd6974a6ebf7"><con:settings/><con:config><script>import java.text.SimpleDateFormat; 
+
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.DATE,+7); 
+endDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal.getTime());
+log.info(endDate)
+
+Calendar cal1 = Calendar.getInstance();
+startDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(cal1.getTime());
+log.info(startDate)
+
+testRunner.testCase.setPropertyValue("startDate",startDate)
+testRunner.testCase.setPropertyValue("endDate",endDate)</script></con:config></con:testStep><con:testStep type="request" name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="028ca789-6450-41cd-91ef-4c50305b4377"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EmiasGibddAppointmentBinding</con:interface><con:operation>GetAvailableResourceScheduleInfo</con:operation><con:request name="Получение слотов для записи (getAvailableResourceScheduleInfo)" id="90bba17e-0186-4bd9-ba83-50454daeb11d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v1="http://emias2.gov.ru/emias/appointment/v1/">\r
+<soap:Header>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:UsernameToken>
+      <wsse:Username>EIP</wsse:Username>
+    </wsse:UsernameToken>
+  </wsse:Security>
+</soap:Header>
+   <soap:Body>\r
+      <v1:GetAvailableResourceScheduleInfoRequest>\r
+         <lpuId>${#TestCase#lpuId}</lpuId>\r
+         <referenceId>${#TestCase#referenceId}</referenceId>\r
+         <startDate>${#TestCase#startDate}</startDate>\r
+         <endDate>${#TestCase#endDate}</endDate>\r
+         <actual>true</actual>
+      </v1:GetAvailableResourceScheduleInfoRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4cb515b9-d3a0-444e-90a4-62e0b08fe547"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Записать в переменную начало свободного слота и доступный ресурс" id="c62e7b94-4177-4d7e-8aac-0e17a6e9408c"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+
+def getAvailableResourceScheduleInfo = context.expand('${Получение слотов для записи (getAvailableResourceScheduleInfo)#Response}')
+getAvailableResourceScheduleInfo = new XmlSlurper().parseText(getAvailableResourceScheduleInfo)
+
+String slot = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].startTime
+log.info (slot)
+
+testRunner.testCase.setPropertyValue("FreeSlotStartDate", slot)
+
+String slot2 = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[11].startTime
+log.info (slot)
+
+testRunner.testCase.setPropertyValue("FreeSlotStartDate_forTransfer", slot2)
+
+String arId = getAvailableResourceScheduleInfo.Body.GetAvailableResourceScheduleInfoResponse.slot[10].arId
+log.info (arId)
+
+testRunner.testCase.setPropertyValue("arId", arId)</script></con:config></con:testStep><con:testStep type="restrequest" name="POST createPinAppointment" id="f12e84bc-4491-4add-8f43-ecc2a3e027e0"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/createPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST createPinAppointment" id="4a102e00-1055-4e65-a19c-f94cac85cae1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+	"omsNumber": ${#TestCase#omsNumber},
+	"birthDate": "${#TestCase#birthDate}",
+	"availableResourceId": ${#TestCase#arId},
+	"startDate": "${#TestCase#FreeSlotStartDate}",
+	"referenceId": ${#TestCase#referenceId}
+	}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/createPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c45dfdcd-e0c4-4e6f-ab8d-69c598e3d5cc" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Записать appointmentId в переменную" id="febe97ec-0d7a-433c-afe5-93612bf97566"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>appointmentId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>POST createPinAppointment</con:sourceStep><con:sourcePath>$appointmentId</con:sourcePath><con:targetType>appointmentId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="POST transferPinAppointment" id="57c7d905-fef8-48e6-8682-2f559d49e843"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/transferPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST transferPinAppointment" id="778cddb4-0190-49f2-929e-6e47c491ccde" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId}",
+  "availableResourceId": ${#TestCase#arId},
+  "startDate": "${#TestCase#FreeSlotStartDate}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/transferPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="f68a4d0a-8df7-4acd-b150-d5dfcc8b6cb6" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="01e62967-ee4a-48dc-a1bf-103de0eed114" name="error.code = PIN_SLOT_IS_BUSY"><con:configuration><path>$error.code</path><content>PIN_SLOT_IS_BUSY</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="01e62967-ee4a-48dc-a1bf-103de0eed114" name="error.description = На выбранное время уже есть запись"><con:configuration><path>$error.description</path><content>На выбранное время уже есть запись</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="01e62967-ee4a-48dc-a1bf-103de0eed114" name="error.type = BUSINESS"><con:configuration><path>$error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Постусловие. Удаление записи (POST cancelPinAppointment)" id="0b4ca14e-7151-4168-ae14-b9e87ecd53ca"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/cancelPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Постусловие. Удаление записи (POST cancelPinAppointment)" id="8a20d4bd-44bf-44de-bab0-e4027467e1a4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/cancelPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="69ee3910-b143-40cd-b831-b91312e7a9ab" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5501</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-10-06T11:10:11.447Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-13T11:10:11.447Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-10-06T14:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>452478</con:value></con:property><con:property><con:name>FreeSlotStartDate_forTransfer</con:name><con:value>2023-10-06T14:30:00</con:value></con:property><con:property><con:name>appointmentId_forTransfer</con:name><con:value>452214</con:value></con:property></con:properties></con:testCase><con:testCase id="a2c83cf4-f855-4f41-843a-f57fd893af21" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС4. Не удалось перенести запись" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="POST transferPinAppointment" id="f95c9f33-e99a-4a18-bcc6-0fddcb7314ad"><con:settings/><con:config service="http://emiasinfo3.emias.solit-clouds.ru" resourcePath="/api/v2/pin/transferPinAppointment" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST transferPinAppointment" id="778cddb4-0190-49f2-929e-6e47c491ccde" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "appointmentId": "${#TestCase#appointmentId}",
+  "availableResourceId": ${#TestCase#arId},
+  "startDate": "${#TestCase#FreeSlotStartDate_forTransfer}"
+}</con:request><con:originalUri>http://emiasinfo3.emias.solit-clouds.ru/api/v2/pin/transferPinAppointment</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="f68a4d0a-8df7-4acd-b150-d5dfcc8b6cb6" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6fba4c65-815e-4607-8cdc-ed6a5ba95240" name="error.code =PIN_TRANSFER_ERROR"><con:configuration><path>$error.code</path><content>PIN_TRANSFER_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6fba4c65-815e-4607-8cdc-ed6a5ba95240" name="error.description = Не удалось перенести запись на освидетельствование"><con:configuration><path>$error.description</path><content>Не удалось перенести запись на освидетельствование</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="6fba4c65-815e-4607-8cdc-ed6a5ba95240" name="error.type = BUSINESS"><con:configuration><path>$error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>omsNumber</con:name><con:value>7793899793001224</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>2001-06-06</con:value></con:property><con:property><con:name>arId</con:name><con:value>5482</con:value></con:property><con:property><con:name>startDate</con:name><con:value>2023-09-29T15:48:32.065Z</con:value></con:property><con:property><con:name>referenceId</con:name><con:value>1</con:value></con:property><con:property><con:name>endDate</con:name><con:value>2023-10-02T15:48:32.064Z</con:value></con:property><con:property><con:name>lpuId</con:name><con:value>1</con:value></con:property><con:property><con:name>FreeSlotStartDate</con:name><con:value>2023-09-29T19:15:00</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>999999999999999</con:value></con:property><con:property><con:name>FreeSlotStartDate_forTransfer</con:name><con:value>2023-09-28T19:30:00</con:value></con:property><con:property><con:name>appointmentId_forTransfer</con:name><con:value>452214</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>emiasInfoEndpoint</con:name><con:value>http://emiasinfo1.emias.solit-clouds.ru</con:value></con:property><con:property><con:name>emiasInfoDbConnection</con:name><con:value>172.17.5.11:29100/emiasinfo</con:value></con:property><con:property><con:name>emiasInfoDbLogin</con:name><con:value>emiasinfo</con:value></con:property><con:property><con:name>emiasInfoDbPassword</con:name><con:value>emiasinfo</con:value></con:property><con:property><con:name>emiasInfoFullDbConnection</con:name><con:value>jdbc:postgresql://172.17.5.11:29100/emiasinfo?user=emiasinfo&amp;password=emiasinfo</con:value></con:property><con:property><con:name>emiasInfoDBDriver</con:name><con:value>org.postgresql.Driver</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

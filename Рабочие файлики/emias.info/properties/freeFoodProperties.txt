@@ -1,0 +1,2 @@
+freeFoodEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v1S/ProxyService
+

@@ -1,0 +1,6 @@
+pinRegestryEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/pindata/pnExternalService/v1S/ProxyService
+pinRegestryDbConnection=10.2.172.254:5432/pindata
+pinRegestryDbLogin=pindata
+pinRegestryDbPassword=pindata
+pinRegestryFullDbConnection=jdbc:postgresql://10.2.172.254:5432/pindata?user=pindata&password=pindata
+pinRegestryDBDriver=org.postgresql.Driver

@@ -1,0 +1,30 @@
+{
+  "patientInfo": {
+    "emiasId": "12003",
+    "caseNum": "53209-23-С",
+    "caseDate": "2023-12-19"
+  },
+  "moInfo": {
+    "moId": "10492228",
+    "moName": "ГБУЗ \"НИИ СП им. Н.В. Склифосовского ДЗМ\""
+  },
+  "mdInfo": {
+    "mdSurname": "ВРАЧ",
+    "mdName": "НЕ",
+    "mdPatron": "ТРОГАТЬ",
+    "mdPosition": "Инженер"
+  },
+  "hospInfo": {
+    "patientId": "9b6848cb-16cf-45ef-970c-b38027a18996",
+    "naz_id": "9bd00beb-6837-492b-9097-a50014d41808",
+    "case_id": "c9c4bd4d-5b28-49f1-93cc-17cd5cd9579f"
+  },
+  "appointment": {
+    "state": "cancel",
+	"create_dt": "2023-12-10T10:41:56.098Z",
+    "timestamp": "2023-12-19T17:39:35.821Z",
+    "name": "Консультация врача",
+    "type": "consult",
+    "urgency": "Экстренная"
+  }
+}

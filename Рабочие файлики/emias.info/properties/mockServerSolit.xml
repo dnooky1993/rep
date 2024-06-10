@@ -1,0 +1,2 @@
+mockUrl=http://application-mock.emias.solit-clouds.ru
+mockDbFullConnection=jdbc:postgresql://172.17.5.13:29107/emias_info_mock?user=emias_info&password=emias_info

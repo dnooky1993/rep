@@ -1,0 +1,29 @@
+1. В БД СУПП берем таблицу patient
+2. В таблице patient отбираем пациентов по OMS_REGION_ASSURANCE_SERIES = '770000', среди них выбираем удовлетворяющих условию
+3. Идем в метод ЛКП https://lkservice.test.emias.mos.ru/swagger/api-gateway/doc#/request_from_emias/post_api_internal_1_user_grant_permission
+4. Используем запрос на добаление пациента в Медкарту. userInfo - всегда статично, меняется только patientInfo
+{
+  "documentId": "string",
+  "id": "string",
+  "permissionType": "CHILD",
+  "userInfo": {
+    "userName": "Сергей Вячеславович В.",
+    "phoneNum": "79159679230",
+    "ssoId": "83294bda-5f39-44c3-a5e6-bb0d348a794b"
+  },
+  "createDate": "2022-04-05",
+  "patientInfo": {
+    "patientName": "Дарья Алексеевна Д.",
+    "birthday": "2009-05-10",
+    "emiasId": 23709987,
+    "policyNum": "770000 0058104509"
+  }
+}
+5. Идем в метод ЛКП https://lkservice.test.emias.mos.ru/swagger/api-gateway/doc#/profile/get_api_2_profile
+Используем access-token для пациента с ehrd 8d075820-b3cb-4fbe-9666-3106776652d2. Получаем список relatives.
+6. В полученном списке находим добавленного нами пациента, его profileId = ehrID
+
+c48cfe91-abf4-4057-93d5-af11d5420da2 все прививки
+
+токен, вроде подходящий для любого пациента:
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1c2VyX2F1dGgiLCJleHAiOjQ3NTkwMjY4NDIsImF1ZCI6IlBBVElFTlQiLCJzdWIiOiJiYjVlYjg1OC1lZjc2LTQyOTUtOTg1OS1jOWQ2YTI1MWIzNTAiLCJzaWQiOiJmMzI3NTUyNy1jZTkyLTQ4MGMtODljYy1kMjQ4M2RmMWM4MjEiLCJwaG9uZSI6Ijc5MTU5Njc5MjMwIiwic3NvX2lkIjoiSFlrbGU2WFc3aWZybFQ3d0N1dUswaVo5Um9lUFhtMk5HOTJiVGFMb3dmTUE4UC95dzg1TWkvV3JWSG84OVdEaFdGZ1J0NjZFVTNNQnRRM1NFaGhrcndPT0xqTkZpamNSZVZGMnhlZ1I0RSt3eGdCUzJKUnQzQ1NQNG1RZnc0WUVFSkNQcHJVVUMyS1BCVytja2tIeXQ5d09hUnE0VFFqWjIvd1R0ZEhERXlSczJzWUlNMVdVWlBnYzM5dlJScGZLR012NGtlYWMvZWlycTlQbFRmUFFhdVFkeG5HSjlaRHpRYkFzVU1VTFZiRlcwbTc4S0tSNUp6QUZwbDdZRkV4MW85ZVVUNzBYZEJaRGhmZFZsbGpBK1QreVJJT3BXMlNPWk9FcFZoWUFaOHFUVk90S2NKazA2MGJEbmRZZFVkMWdRMHg2Y2tUMStDZ094UUViZWZpL1l3PT0iLCJlbWFpbCI6Inlhci5wcm9tby56YXBvdi5hQGdtYWlsLmNvbSIsImZpcnN0X25hbWUiOiJcdTA0MjFcdTA0MzVcdTA0NDBcdTA0MzNcdTA0MzVcdTA0MzkiLCJzZWNvbmRfbmFtZSI6Ilx1MDQxMi4iLCJtaWRkbGVfbmFtZSI6Ilx1MDQxMlx1MDQ0Zlx1MDQ0N1x1MDQzNVx1MDQ0MVx1MDQzYlx1MDQzMFx1MDQzMlx1MDQzZVx1MDQzMlx1MDQzOFx1MDQ0NyIsImJpcnRoX2RhdGUiOiIxOTc4LTAzLTIxIn0.dErz7ETQCxAJUOECLgysHVZZPZDQDJvvTQOi8_glDkqiWNaU1QTPKao0eueTw5_ydAE1KuGcGmI1yqeUhYDfp9ZMj97xKv4SYyE3lhdpgaiSALyoiuYcdxUEYj7cJiwZ0Bzjce8GOF__wI76cYKn-mVbZkuxPzRtn1SIvStR-zkiok3kW_Qg6HJFTP7mF1T_Z4p7OILvPYtErbJJHWJ-pVOLMjQYfk2RCjWJesIEuWs2sLr953xhQeodp-bBIYZCjCvxUSEgsHXNMkCvoRkujm9kpJFVHMgKYuwqmiHbZ6B7_3DuOiRsRRWrPJwn2dXZUwhlhzsutwCfIBE13SbfJqO9w14ud_GWrPsofO8T4j7UiGwTvzxXVycJZMMU6XElz35aQRGRVNV53NUQWCc2DqBlmsWHjW8Lg__A5NEjkgDPiRYKWp_Gdz9_I4YQY3x0ZFPIToUNFx2Lt8ei5zcLGL5hzvSdelUzmz0QirECbejcDJdXS8HxEe-XsCDLSh51hwweEpJILfdG4AlWhHFh9_NuKI-zoFx_48wB4d0-miMaxtiscQR1_0IwQFO0kujoMyIn432fPU2waJOjj41_SgX3AQsMPn3FQk4gV8MrHU9vfAoROXrBSbMS7ty5rwWczYdaijFYrNpsUprBRtL7EFSWgRnvFOU7ekNoy_AzpfA

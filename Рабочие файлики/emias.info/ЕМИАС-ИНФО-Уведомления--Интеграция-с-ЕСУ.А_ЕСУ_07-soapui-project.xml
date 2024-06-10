@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="a5b0a303-bd51-45ba-8bed-536045076cdb" activeEnvironment="Default" name="ЕМИАС.ИНФО Уведомления. Интеграция с ЕСУ. А_ЕСУ_07" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testSuite id="5059c23f-2fc3-4f45-b93f-1a32241adf01" name="А_ЕСУ_07 для модуля application - Получение сообщений о записи в стационары (запись в КДО)"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b73c1913-54f6-4209-b4a3-5de208facf70" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Отправка уведомления" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Отправить уведомление" id="d58b483d-1ac0-4c1f-a9b9-3a8f67f60a49"><con:settings/><con:config><script>def mainScripts = new ScriptLibrary(context, testRunner, log)
+tc = testRunner.testCase.testSuite.getPropertyValue("testCase")
+log.info "Отправить сообщение по ТК \""+tc+"\""
+
+def removeEmptyOptinalParams(String message, String paramName, String value){
+	if(value == ""){
+		toRemove= "\""+paramName+"\": ,"
+		message=message.replace(toRemove,"")
+	}
+	return message
+}
+// сформировать сообщение
+//eventId = testRunner.testCase.getPropertyValue("eventId")
+appointmentId = testRunner.testCase.testSuite.getPropertyValue("appointmentId")
+eventDate = testRunner.testCase.testSuite.getPropertyValue("eventDate2")
+eventTime = testRunner.testCase.testSuite.getPropertyValue("eventTime2")
+eventType = testRunner.testCase.testSuite.getPropertyValue("eventType2")
+emiasId = testRunner.testCase.testSuite.getPropertyValue("emiasId2")
+patientId = testRunner.testCase.testSuite.getPropertyValue("patientId2")
+phoneNum = testRunner.testCase.testSuite.getPropertyValue("phoneNum")
+expertName = testRunner.testCase.testSuite.getPropertyValue("expertName2")
+expertSpeciality = testRunner.testCase.testSuite.getPropertyValue("expertSpeciality2")
+procedureName = testRunner.testCase.testSuite.getPropertyValue("procedureName2")
+office = testRunner.testCase.testSuite.getPropertyValue("office2")
+address = testRunner.testCase.testSuite.getPropertyValue("address2")
+nameMO = testRunner.testCase.testSuite.getPropertyValue("nameMO2")
+
+message="{ "+
+    "\"appointmentId\": \""+appointmentId+"\","+
+    "\"eventDate\": \""+eventDate+"\","+
+    "\"eventTime\": \""+eventTime+"\","+
+    "\"eventType\": \""+eventType+"\","+
+    "\"emiasId\": "+emiasId+","+
+    "\"patientId\": \""+patientId+"\","+
+    "\"phoneNum\": "+phoneNum+","+
+    "\"resource\": {"+
+        "\"type\": \"expert\","+
+        "\"expertName\": "+expertName+","+
+        "\"expertSpeciality\": "+expertSpeciality+","+
+        "\"procedureName\": "+procedureName+","+
+        "\"office\": "+office+","+
+        "\"address\": \""+address+"\","+
+        "\"nameMO\": \""+nameMO+"\""+
+   " }"+
+"}"
+
+message= removeEmptyOptinalParams( message,  "phoneNum",  phoneNum)
+message= removeEmptyOptinalParams( message,  "emiasId",  emiasId)
+message= removeEmptyOptinalParams( message,  "expertName",  expertName)
+message= removeEmptyOptinalParams( message,  "expertSpeciality",  expertSpeciality)
+message= removeEmptyOptinalParams( message,  "procedureName",  procedureName)
+message= removeEmptyOptinalParams( message,  "office",  office)
+//return message
+//sleep(2000)
+// отправить сообщение    
+topicName = testRunner.testCase.testSuite.getPropertyValue("topic")
+mainScripts.kafka().sendMessageToKafka(topicName,message)</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b215c493-78d2-4992-b03e-3accb6f448ad" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Создание записи в БД application в f_hospitalizations_appointment" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Создать запись" id="b652955f-8287-4219-acea-7fab17c86dd9"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoFullDbConnection")
+sql = Sql.newInstance(connection)
+
+appointmentId=UUID.randomUUID().toString()
+
+eventDate = testRunner.testCase.testSuite.getPropertyValue("eventDate1")
+eventTime = testRunner.testCase.testSuite.getPropertyValue("eventTime1")
+eventType = testRunner.testCase.testSuite.getPropertyValue("eventType1")
+emiasId = testRunner.testCase.testSuite.getPropertyValue("emiasId1").replace("\"","\'")
+expertName = testRunner.testCase.testSuite.getPropertyValue("expertName1").replace("\"","\'")
+expertSpeciality = testRunner.testCase.testSuite.getPropertyValue("expertSpeciality1").replace("\"","\'")
+procedureName = testRunner.testCase.testSuite.getPropertyValue("procedureName1").replace("\"","\'")
+office = testRunner.testCase.testSuite.getPropertyValue("office1").replace("\"","\'")
+address = testRunner.testCase.testSuite.getPropertyValue("address1")
+nameMO = testRunner.testCase.testSuite.getPropertyValue("nameMO1")
+
+query="INSERT INTO f_hospitalizations_appointment "+
+"(id, appointment_id, patient_id, event_type, event_date, event_time, resource_speciality, resource_name, resource_procedure, resource_office, resource_address, resource_mo) "+
+"VALUES(nextval('f_hospitalizations_appointment_sequence'), '"+appointmentId+"', "+emiasId+", '"+eventType+"', '"+eventDate+"', '"+eventTime+"', "+expertSpeciality+", "+expertName+", "+procedureName+", "+office+", '"+address+"', '"+nameMO+"')"
+sql.execute(query)
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="1c593a7d-ef8f-4fdc-9041-34f949b351d1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверка соответствия записи в БД application в f_hospitalizations_appointment" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить" id="5e827422-a948-4f3b-b5d8-e872a0a8c0b0"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoFullDbConnection")
+sql = Sql.newInstance(connection)
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("значение "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+def getOptionalParameter(String propertyName){
+	value =  testRunner.testCase.testSuite.getPropertyValue(propertyName)
+	if(value == "" || value.toLowerCase() == "null")	return "null"
+	else return value.replace("\"","")
+}
+
+def getExpextedValue(String propertyName, String howToChange, Boolean optional=false ){
+	value=""
+	switch (howToChange) {
+		case "all":
+			value =optional ? getOptionalParameter(propertyName+"2") : testRunner.testCase.testSuite.getPropertyValue( propertyName+"2")
+			return value
+			break;
+		case "nothing":
+			value  =optional ? getOptionalParameter(propertyName+"1") : testRunner.testCase.testSuite.getPropertyValue( propertyName+"1")
+			return value
+			break;
+		case "cancel":
+			if(propertyName == "eventType" ) return "cancelled"
+			else{
+				value  =optional ? getOptionalParameter(propertyName+"1") : testRunner.testCase.testSuite.getPropertyValue( propertyName+"1")
+				return value
+			}
+			break;
+		default:
+			log.info  "Получено недопустимое значение howToChange="+howToChange
+			testRunner.fail()
+			break;
+	}
+}
+
+appointmentId = testRunner.testCase.testSuite.getPropertyValue("appointmentId")
+howToChange = testRunner.testCase.testSuite.getPropertyValue("howToChange")
+	
+query="select * from  f_hospitalizations_appointment where appointment_id= '"+appointmentId+"' "
+appointment=sql.firstRow(query)
+//log.info appointment
+if(howToChange == "no value"){
+//	log.info "howToChange "+howToChange
+	if(appointment) testRunner.fail("В бд найдена запись, хотя не должна была создасться. Данные записи  "+appointment)
+}
+else{
+//	log.info "проскочили проверку howToChange "
+	eventType = getExpextedValue("eventType", howToChange)
+	eventDate = getExpextedValue("eventDate", howToChange)
+	eventTime = getExpextedValue("eventTime", howToChange)
+	emiasId = getExpextedValue("emiasId", howToChange, true)
+	expertName = getExpextedValue("expertName", howToChange, true)
+	expertSpeciality = getExpextedValue("expertSpeciality", howToChange, true)
+	procedureName = getExpextedValue("procedureName", howToChange, true)
+	office =getExpextedValue("office", howToChange, true)
+	address = getExpextedValue("address", howToChange)
+	nameMO = getExpextedValue("nameMO", howToChange)
+	checkParameter("patient_id",emiasId, appointment.patient_id.toString())
+	checkParameter("event_type",eventType, appointment.event_type.toString())
+	checkParameter("event_date",eventDate, appointment.event_date.toString())
+	checkParameter("event_time",eventTime, appointment.event_time.toString())
+	checkParameter("resource_speciality",expertSpeciality, appointment.resource_speciality.toString())
+	checkParameter("resource_name",expertName, appointment.resource_name.toString())
+	checkParameter("resource_procedure",procedureName, appointment.resource_procedure.toString())
+	checkParameter("resource_office",office, appointment.resource_office.toString())
+	checkParameter("resource_address",address, appointment.resource_address.toString())
+	checkParameter("resource_mo",nameMO, appointment.resource_mo.toString())
+}</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="fb99e8db-cb49-4550-8b7b-65334cc78f6d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Очистка созданных данных" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Очистить данные" id="787b3d52-10f2-4b8e-bdd1-73ae28b05fa8"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoFullDbConnection")
+sql = Sql.newInstance(connection)
+appointmentId = testRunner.testCase.testSuite.getPropertyValue("appointmentId")
+query="delete from  f_hospitalizations_appointment where appointment_id= '"+appointmentId+"' "
+appointment=sql.execute(query)
+tc = testRunner.testCase.testSuite.getPropertyValue("testCase")
+log.info "Завершен  ТК \""+tc+"\""</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="5634838d-2bf0-486f-820c-a56ac1aa8d74" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=created, в БД application нет записи с appointmentId из уведомления. _ID413063" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="c2424d3c-fea3-47ae-af6c-812d1618c6cc"><con:settings/><con:config><script>appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","all")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="c449184b-5b72-42f1-b656-2801fb5f23b2"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="04157669-ccf0-4743-a43a-54d595fd5355"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="842abb0c-f3cf-410c-b171-5892baf23e13"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2af56303-a939-409f-b74f-585ddfce323a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=created, в БД application есть запись с appointmentId из уведомления_ID413066" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="e26451cd-1cf6-4a27-b0f3-4e66efce006c"><con:settings/><con:config><script>testRunner.testCase.testSuite.setPropertyValue("eventType1","created")
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("emiasId1","\"12300\"")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality1","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Акулист\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName1","\"Виталий Третьяков\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName1","\"МРТ\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office1","\"смотровая\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","nothing")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Создать запись" id="7b7dd360-173c-4804-98bf-92a39689c29a"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b215c493-78d2-4992-b03e-3accb6f448ad</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="defe209d-dd8a-45bd-9e44-098c3caff48d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="2883f9a6-9021-44d9-8613-f3873b9895f9"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="0cc1a114-acd6-474c-9842-90fb057dff75"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0447bfe4-e8e6-4bcd-96d7-1be96dd40349" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=edited, в БД application нет записи с appointmentId из уведомления. Заполнены только обязательные параметры(значения=null) _ID413068" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="98767172-d8e5-4c52-9bbd-bbda547d8083"><con:settings/><con:config><script>appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","null")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","null")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","null")
+testRunner.testCase.testSuite.setPropertyValue("office2","null")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","all")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="99bbf02f-e736-4a1e-9933-f90d2eb348b7"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="c2b2c144-bbe3-41f6-8f86-0b07b0358553"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="27e8d451-ee56-4996-abd7-a9c3160a17a9"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f9d4dd93-2037-4016-86cd-43889bb23b77" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Маппинг . Заполнены только обязательные параметры(значения=&quot;&quot;)" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="c1193fda-1d00-444e-95d4-fcd7d3814b35"><con:settings/><con:config><script>appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","all")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="cb6a33d8-5828-4bff-a98e-76b3c8256404"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="77ab67f9-841e-4fab-bdd7-e7ab5af4a2b5"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="a9c7811e-668e-4dea-9105-e8c641cd0e26"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="3574f177-f8b1-4a9f-aae0-67a50d0f78f7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Маппинг . Заполнены только обязательные параметры(нет необязательных параметров)" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="6ec86809-3af5-4341-bcce-9134c35809a4"><con:settings/><con:config><script>appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","")
+testRunner.testCase.testSuite.setPropertyValue("office2","")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","all")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="903041ce-7dda-4108-a95c-54dd537a8567"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="72c80028-8d48-41ce-b705-c443f60a601c"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="229f34ac-8094-4d73-acc4-974fde4b7a62"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9a84eaf6-1093-4f22-ba9e-2cdded39b4c8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Маппинг. Заполнены все параметры максимальными значениями" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="0579411c-0346-4040-9abc-d3eea57993ba"><con:settings/><con:config><script>appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"ОфтальмоурологОфтальмоурологОфтальмоурологОфтальмоурологОфтальмоурологОфтальмоурологОфтальмоуролог12\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский Офтальмоуролог Офтальмоуролог Офтальмоуролог Офтальмоуролог Офтальмоуролог 12345\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ УЗИ1\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 1 кабинет 1 кабинет 1 кабинет 1 кабинет 1 кабинет 1 кабинет 1 кабинет 1 кабинет 1 кабинет 12\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","all")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="717994ce-d7a4-4717-a4c8-25e0d0e4ee27"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="0b902705-e55c-469c-910c-f6c02c03607d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="4f5e92ce-0b11-4c16-be6d-fbae5394f654"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="3b7470d4-f6a2-4545-8a24-52c6fcbd736c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=edited, в БД application у записи с appointmentId из уведомления event_type=created" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="84b9b5e7-cdcd-4262-a368-4052b2e657ec"><con:settings/><con:config><script>testRunner.testCase.testSuite.setPropertyValue("eventType1","created")
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("emiasId1","\"12300\"")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality1","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Акулист\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName1","\"Виталий Третьяков\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName1","\"МРТ\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office1","\"смотровая\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","all")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Создать запись" id="d6130e29-8547-4e20-915d-6c3bc16321e4"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b215c493-78d2-4992-b03e-3accb6f448ad</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="a95e90d0-8d97-492a-b425-10c667d8a206"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="f4826f78-4a99-476a-8692-77dece976723"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="48b48a41-f773-4da5-bf7a-cd4d03248230"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="6178aad0-9845-4b3c-b240-8a1f7c1accf2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=edited, в БД application у записи с appointmentId из уведомления event_type=edited" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="a8a5d2b1-1b59-4081-a68b-fb6956582b55"><con:settings/><con:config><script>testRunner.testCase.testSuite.setPropertyValue("eventType1","edited")
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("emiasId1","\"12300\"")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality1","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Акулист\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName1","\"Виталий Третьяков\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName1","\"МРТ\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office1","\"смотровая\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","all")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Создать запись" id="15b2bfc7-4bc8-437b-bf82-7f15b9c8de48"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b215c493-78d2-4992-b03e-3accb6f448ad</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="36f4bca0-8942-4346-9e30-5c9860d375ac"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="720cfb14-dad9-40af-ace3-8af0605ef644"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="ee29b708-e488-49a1-bc56-3445413cc6d4"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="7791dbaf-cc5a-4120-9307-3ba6524bb5b9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=edited, в БД application у записи с appointmentId из уведомления event_type=cancelled" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="14b8798a-8a90-47ec-bcce-8da88c17bbce"><con:settings/><con:config><script>testRunner.testCase.testSuite.setPropertyValue("eventType1","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("emiasId1","\"12300\"")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality1","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Акулист\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName1","\"Виталий Третьяков\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName1","\"МРТ\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office1","\"смотровая\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","all")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Создать запись" id="4865f667-2790-40ce-af3c-ef3f67b73428"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b215c493-78d2-4992-b03e-3accb6f448ad</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="45424a19-f115-4fcf-8546-5df22a85e74e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="bbb8263a-f7a0-404d-bb15-0ba80c87ded4"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="55cc67d5-802a-461a-930c-1b9de36f4ec7"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="789178b7-3be8-41e0-a260-f7ea7f20f5e8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=cancelled, в БД application нет записи с appointmentId из уведомления" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="eeeb89ae-b03c-4f13-a6c8-a1167d255a63"><con:settings/><con:config><script>appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","no value")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="b5f88a81-69b3-452e-96ec-a4aaa22e85e3"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="b6ae43e4-d229-48ba-96ef-a3269a5e428f"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="18c8e082-6131-46f2-925c-234b6999bbb5"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a8cdd046-a53b-420e-9de9-8f986fb091cb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=cancelled, в БД application у записи с appointmentId из уведомления event_type=created" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="eebd85c0-d741-4a82-92b3-152f08e3e032"><con:settings/><con:config><script>testRunner.testCase.testSuite.setPropertyValue("eventType1","created")
+testRunner.testCase.testSuite.setPropertyValue("eventType2","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("emiasId1","\"12300\"")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality1","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Акулист\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName1","\"Виталий Третьяков\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName1","\"МРТ\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office1","\"смотровая\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","cancel")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Создать запись" id="47379af6-f947-48fb-9786-7f5c08bac06c"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b215c493-78d2-4992-b03e-3accb6f448ad</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="d88a0ffd-caca-45e5-b2d4-422a360409da"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="7f47981e-16a2-46db-9a27-00a0d803f4fb"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="bc9530aa-4c91-4f34-8fe6-22cc78a1ce85"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="67440b30-2902-443a-b501-0d1ea63a8ed7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=cancelled, в БД application у записи с appointmentId из уведомления event_type=edited" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="033a605d-78cc-4153-96d7-dc8cd8911300"><con:settings/><con:config><script>testRunner.testCase.testSuite.setPropertyValue("eventType1","edited")
+testRunner.testCase.testSuite.setPropertyValue("eventType2","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("emiasId1","\"12300\"")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality1","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Акулист\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName1","\"Виталий Третьяков\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName1","\"МРТ\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office1","\"смотровая\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","cancel")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Создать запись" id="8cdb08ca-87a7-41d1-bd5c-092fe09257e3"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b215c493-78d2-4992-b03e-3accb6f448ad</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="dcdf570d-a46b-497b-bb71-bca0465c8549"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="32fdd358-5909-4a4b-9941-2d142c583f88"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="49cd1071-a7c3-48a7-8a13-5460f4d95393"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4d2a9d7e-5dd0-4e9c-915c-d97b6e596206" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=cancelled, в БД application у записи с appointmentId из уведомления event_type=cancelled" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="410bd099-ecfc-440e-a760-eef61337616a"><con:settings/><con:config><script>testRunner.testCase.testSuite.setPropertyValue("eventType1","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("eventType2","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("emiasId1","\"12300\"")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality1","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Акулист\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName1","\"Виталий Третьяков\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName1","\"МРТ\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office1","\"смотровая\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","cancel")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Создать запись" id="0bbc50bb-9dc9-49fa-b71b-a8334ce3acd5"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b215c493-78d2-4992-b03e-3accb6f448ad</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="b99baf48-7427-4b2f-a8b9-907ee7a285ea"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="2ac94d00-fc5f-4082-a33b-3d7c5de2165c"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="460d9735-4514-4989-a1a9-edba6d84dd8d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="649fabc4-e5c3-4dbf-bcc1-ebcfa9b3c6fa" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления без emiasId, в БД application нет записи с appointmentId из уведомления" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="f16cbc1d-e044-4e8c-9f06-366b15abf51c"><con:settings/><con:config><script>appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","no value")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="89a7cb4a-8f40-48a1-8ae6-129549bbdefc"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="b0be772e-fa7b-492c-abe6-3cc2c5180e5b"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="217c3330-ad3e-48bd-b85d-5489c6592616"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d6d9d9c9-0590-40a2-81c3-295865fc8a1a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с emiasId = null,  в БД application есть запись с appointmentId из уведомления" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="4d532d79-dd74-4e18-9a41-f80cef84cadf"><con:settings/><con:config><script>testRunner.testCase.testSuite.setPropertyValue("eventType1","created")
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("emiasId1","\"12300\"")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","null")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality1","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Акулист\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName1","\"Виталий Третьяков\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName1","\"МРТ\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office1","\"смотровая\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","nothing")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Создать запись" id="3a771149-68c5-491f-a772-d6144269a5f9"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b215c493-78d2-4992-b03e-3accb6f448ad</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="7d247731-b941-45f2-84f9-560ee88de8fa"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="9832098b-9eab-483c-a249-bbcfca1692e7"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="88b25af5-6b97-4b91-8ca6-1ba6632cde51"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="8ee1710f-1b01-47d8-b6f8-c29638bd560b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с пустым emiasId, в БД application нет записи с appointmentId из уведомления" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="63b01848-6774-4788-90be-a2ee05e067e6"><con:settings/><con:config><script>appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","no value")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="ae522cf6-96ac-43b7-b9a2-4bee5724a0d9"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="8f802c1b-b6c1-4cd5-b2a3-918e0a21acdb"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="0e88b678-0acf-47ed-b651-d354fa7b01eb"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="fd9eb17e-0695-4c04-9e21-902328d020e0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с некорректным eventType, в БД application нет записи с appointmentId из уведомления" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="55daf30d-9999-44e4-baff-b351ca94a26f"><con:settings/><con:config><script>appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","create")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\"12301\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("howToChange","no value")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="b84c14cf-d32c-46ff-83ad-1e493e211766"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>b73c1913-54f6-4209-b4a3-5de208facf70</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить созданную запись в бд" id="e026bab9-e398-4994-baf1-2640ab3f2249"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1c593a7d-ef8f-4fdc-9041-34f949b351d1</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить данные" id="d7997a6b-23bf-411d-b6f2-1fa9b3da77ff"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>fb99e8db-cb49-4550-8b7b-65334cc78f6d</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>topic</con:name><con:value>KIS_appointment_changer</con:value></con:property><con:property><con:name>appointmentId1</con:name><con:value>890809809809</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>b8fae0c7-6761-4fa8-af12-59e4f581225c</con:value></con:property><con:property><con:name>patientId1</con:name><con:value>54628b9d-d4af-458c-82b2-33536288b484</con:value></con:property><con:property><con:name>patientId2</con:name><con:value>5aff02c7-8cb7-4f09-a277-159c03a1d319</con:value></con:property><con:property><con:name>emiasId1</con:name><con:value>"12300"</con:value></con:property><con:property><con:name>emiasId2</con:name><con:value>"12301"</con:value></con:property><con:property><con:name>phoneNum</con:name><con:value>"00000000000"</con:value></con:property><con:property><con:name>type</con:name><con:value>device</con:value></con:property><con:property><con:name>eventType1</con:name><con:value>created</con:value></con:property><con:property><con:name>eventType2</con:name><con:value>created</con:value></con:property><con:property><con:name>eventDate1</con:name><con:value>1960-01-01</con:value></con:property><con:property><con:name>eventDate2</con:name><con:value>1960-01-03</con:value></con:property><con:property><con:name>eventTime1</con:name><con:value>23:15</con:value></con:property><con:property><con:name>eventTime2</con:name><con:value>23:20</con:value></con:property><con:property><con:name>expertSpeciality1</con:name><con:value>"Офтальмоуролог"</con:value></con:property><con:property><con:name>expertSpeciality2</con:name><con:value>"Офтальмоуролог"</con:value></con:property><con:property><con:name>expertName1</con:name><con:value>"Виталий Третьяков"</con:value></con:property><con:property><con:name>expertName2</con:name><con:value>"Анатолий Бердянский"</con:value></con:property><con:property><con:name>procedureName1</con:name><con:value>"МРТ"</con:value></con:property><con:property><con:name>procedureName2</con:name><con:value>"узи"</con:value></con:property><con:property><con:name>office1</con:name><con:value>"смотровая"</con:value></con:property><con:property><con:name>office2</con:name><con:value>"кабинет 123"</con:value></con:property><con:property><con:name>address1</con:name><con:value>ул. Приозёрная, д. 24</con:value></con:property><con:property><con:name>address2</con:name><con:value>ул. Приозёрная, д. 24 к.1</con:value></con:property><con:property><con:name>nameMO1</con:name><con:value>ГБУЗ «ГКБ № 40 ДЗМ»</con:value></con:property><con:property><con:name>nameMO2</con:name><con:value>ГБУЗ «ГКБ № 40 к.2 ДЗМ»</con:value></con:property><con:property><con:name>testCase</con:name><con:value>Обработка уведомления с eventType=created, в БД application нет записи с appointmentId из уведомления. _ID413063</con:value></con:property><con:property><con:name>howToChange</con:name><con:value>all</con:value></con:property></con:properties></con:testSuite><con:testSuite id="a12e99da-080e-4b80-8a43-9afc079dc90d" name="А_ЕСУ_07 для модуля notification- Получение сообщений о записи в стационары (запись в КДО)"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="8b02303a-6777-41ea-82a5-b12e2458b742" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверить наличие пациента со всеми девайсами" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить пациента с девайсами со всеми настройками" id="3870bc31-4f3e-4b74-b28d-5a2cdab939ad"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+//в этом кейсе создадутся все минмально необходимые левайсы с настройками для проверки А_ЕСУ_07 шаг 4.2
+// и  А_ВА_15
+
+// функция, проверяющая есть ли девайс с нужной комбинацией параметров. если нет - досоздает. также вызывает функцию  checkSettings
+def checkDevice(long userId, def a, def d, def v,  int i){
+			log.info "проверяю девайс номер "+i+"с параметрами a="+a+" d="+d+" v="+v
+			voipCondition= v != null ? "="+v : "is null"
+			deviceQuery="select fud.device_guid from f_user_device fud "+
+							"left join f_device_settings fds on fds.device_guid =fud.device_guid "+
+							"where fud.user_id ="+userId+" and fud.authentication ="+a+
+							" and fud.deleted ="+d+" and fud.voip  "+voipCondition
+//			log.info deviceQuery
+			device=sql.firstRow(deviceQuery)
+//			log.info "device result "+device
+			guid=""
+			newDevice=false
+//			log.info device
+			if(device){
+				guid=device.device_guid
+			}
+			else{
+//				log.info deviceQuery
+				guid= java.util.UUID.randomUUID()
+				cloud= java.util.UUID.randomUUID()
+				devQuery="INSERT INTO f_device (device_guid, app_version, platform, device_cloud_id, cloud_token_delete) VALUES('"+guid+"', '1.3.2', 'ANDROID','"+cloud+"', NULL)"
+				userDevQuery="INSERT INTO f_user_device (id, device_guid, user_id, authentication, deleted, deleted_date, esia_authentication, main_policy, voip) VALUES(nextval('f_user_device_sequence'), '"+guid+"', "+userId+", "+a.toString()+", "+d.toString()+", NULL, NULL, NULL, "+v.toString()+")"
+//				log.info "device devQuery "+devQuery
+//				log.info "device userDevQuery "+userDevQuery
+				sql.execute(devQuery)
+				sql.execute(userDevQuery)
+				newDevice=true
+			}
+			log.info guid
+			testRunner.testCase.testSuite.setPropertyValue("deviceGuid"+i, guid.toString())
+}
+
+// проверить, что пациент с идентификатором в сьюте есть в бд
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+oms =testRunner.testCase.testSuite.getPropertyValue("oms")
+user=sql.firstRow("select * from f_user where patient_id="+patientId)
+//log.info user
+userId=0
+if( !user){
+	query="INSERT INTO f_user VALUES(nextval('f_user_sequence'), "+patientId+", '"+oms+"', '2012-06-07') RETURNING id "
+	userId=sql.firstRow(query).id 
+}
+else{
+//	log.info("пациент есть")
+	userId=user.id
+}
+//log.info userId
+testRunner.testCase.testSuite.setPropertyValue("userId", userId.toString())
+
+//для каждого важного параметра в f_user_device собрать возможные значения
+auth=[true, false]
+deleted=[true, false]
+voip=[true, false, null]
+// в массиве собраны те комбинации параметров f_user_device, для которых должна быть отправка 
+specialDevSettings=[
+							[auth:true, del:false, voip:null ],
+							[auth:true, del:false, voip:false]
+							]
+
+allDeviseParamCombinations=[]
+// собрать все комбинации параметров в f_user_device
+auth.each{ a ->
+	deleted.each{ d ->
+		voip.each{ v ->
+			devParams=[auth:a, del:d, voip:v ]
+			allDeviseParamCombinations &lt;&lt; devParams
+		}
+	}
+}
+
+i=1
+//список индексов девайсов, по которым должна будет осуществиться отправка уведомлений
+devicesToSend=[]
+
+//для каждой комбинации основных параметров создать девайс с соответствующими настройками
+allDeviseParamCombinations.eachWithIndex{it, index1 ->
+	checkDevice(userId,  it.auth,  it.del,  it.voip, i)
+	// если комбинация параметров  есть в списке specialDevSettings определить для них особые значения настроек и создать/обновить данные
+	specialDevSettings.each{ spec ->
+		if (spec == it) devicesToSend &lt;&lt; i
+	}
+	i +=1
+}
+
+devicesCount=i-1
+testRunner.testCase.testSuite.setPropertyValue("devicesToSend", devicesToSend.toString().replace('[','').replace(']',''))
+testRunner.testCase.testSuite.setPropertyValue("devicesCount", devicesCount.toString())</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="18a624ac-aa00-46a2-966a-76108fb91ed9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Отправка уведомления" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Отправить уведомление" id="f6746b97-2189-43ec-bb71-512450c5be34"><con:settings/><con:config><script>def mainScripts = new ScriptLibrary(context, testRunner, log)
+tc = testRunner.testCase.testSuite.getPropertyValue("testCase")
+log.info "Отправить сообщение по ТК \""+tc+"\""
+
+def removeEmptyOptinalParams(String message, String paramName, String value){
+	if(value == ""){
+		toRemove= "\""+paramName+"\": ,"
+		message=message.replace(toRemove,"")
+	}
+	return message
+}
+// сформировать сообщение
+//eventId = testRunner.testCase.getPropertyValue("eventId")
+appointmentId = testRunner.testCase.testSuite.getPropertyValue("appointmentId")
+eventDate = testRunner.testCase.testSuite.getPropertyValue("eventDate2")
+eventTime = testRunner.testCase.testSuite.getPropertyValue("eventTime2")
+eventType = testRunner.testCase.testSuite.getPropertyValue("eventType2")
+emiasId = testRunner.testCase.testSuite.getPropertyValue("emiasId2")
+patientId = testRunner.testCase.testSuite.getPropertyValue("patientId2")
+phoneNum = testRunner.testCase.testSuite.getPropertyValue("phoneNum")
+expertName = testRunner.testCase.testSuite.getPropertyValue("expertName2")
+expertSpeciality = testRunner.testCase.testSuite.getPropertyValue("expertSpeciality2")
+procedureName = testRunner.testCase.testSuite.getPropertyValue("procedureName2")
+office = testRunner.testCase.testSuite.getPropertyValue("office2")
+address = testRunner.testCase.testSuite.getPropertyValue("address2")
+nameMO = testRunner.testCase.testSuite.getPropertyValue("nameMO2")
+
+message="{ "+
+    "\"appointmentId\": \""+appointmentId+"\","+
+    "\"eventDate\": \""+eventDate+"\","+
+    "\"eventTime\": \""+eventTime+"\","+
+    "\"eventType\": \""+eventType+"\","+
+    "\"emiasId\": "+emiasId+","+
+    "\"patientId\": \""+patientId+"\","+
+    "\"phoneNum\": "+phoneNum+","+
+    "\"resource\": {"+
+        "\"type\": \"expert\","+
+        "\"expertName\": "+expertName+","+
+        "\"expertSpeciality\": "+expertSpeciality+","+
+        "\"procedureName\": "+procedureName+","+
+        "\"office\": "+office+","+
+        "\"address\": \""+address+"\","+
+        "\"nameMO\": \""+nameMO+"\""+
+   " }"+
+"}"
+log.info message
+message= removeEmptyOptinalParams( message,  "phoneNum",  phoneNum)
+message= removeEmptyOptinalParams( message,  "emiasId",  emiasId)
+message= removeEmptyOptinalParams( message,  "expertName",  expertName)
+message= removeEmptyOptinalParams( message,  "expertSpeciality",  expertSpeciality)
+message= removeEmptyOptinalParams( message,  "procedureName",  procedureName)
+message= removeEmptyOptinalParams( message,  "office",  office)
+//return message
+//sleep(2000)
+// отправить сообщение    
+topicName = testRunner.testCase.testSuite.getPropertyValue("topic")
+mainScripts.kafka().sendMessageToKafka(topicName,message)</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Получить timestamp сообщения" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Получить timestamp" id="d9349dcb-7057-454a-86b2-724d02a19cd2"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import org.apache.kafka.clients.consumer. *
+import java.sql.Timestamp
+//import org.json.JSONObject;
+
+
+def parsePath(Object node, String path){
+	String[] arr = path.replace("[",".").replace("]","").split("\\.");
+	Object obj=node
+	for (int i = 0; i < arr.size(); i++) {
+		def key = arr[i].isInteger()  ? Integer.parseInt(arr[i]) : arr[i]
+		obj = obj.get(key);
+	}
+	return obj
+}
+
+
+
+def getKafkaLastMessageJson( String topicName, String parameter, String value, Long time=18000){
+        String topic =testRunner.testCase.testSuite.getPropertyValue(topicName);
+//        topic="KIS_appointment_changer.EMIASINFO_SOLIT_TEST_1"
+        String bootstrapServers =testRunner.testCase.testSuite.project.getPropertyValue("bootstrapServers")
+
+        Properties props = new Properties()
+        props.put('zk.connect', '10.2.172.24:2181')
+        props.put('bootstrap.servers',bootstrapServers)
+        props.put('group.id', UUID.randomUUID().toString())
+        props.put("enable.auto.commit", "false")
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
+        props.put('key.deserializer', 'org.apache.kafka.common.serialization.StringDeserializer')
+        props.put('value.deserializer', 'org.apache.kafka.common.serialization.StringDeserializer')
+        def consumer = new KafkaConsumer(props)
+
+        consumer.subscribe([topic])
+        def messageToReturn = null;
+        long t = System.currentTimeMillis();
+        long end = t + time;
+        while (System.currentTimeMillis()<end && messageToReturn == null)
+        {
+            log.info ( "while ")
+            ConsumerRecords<String, String> records = consumer.poll(time)
+            for (ConsumerRecord<String, String> record : records)
+            {
+                def rootNode
+                try {
+                    rootNode = new JsonSlurper().parseText(record.value())
+                } catch(Exception e) {continue}
+                String messageParamValue=parsePath(rootNode, parameter)
+                if (messageParamValue == value ) {
+                    log.info("Новое сообщение : "+record.value()+" время "+ new Timestamp(record.timestamp()));
+                    messageToReturn= new Timestamp(record.timestamp())
+                }
+            }
+        }
+        consumer.close()
+        log.info ( "close ")
+        return messageToReturn
+    }
+
+appointmentId = testRunner.testCase.testSuite.getPropertyValue("appointmentId")    
+time=getKafkaLastMessageJson("topic","appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("messageTimestamp",time.toString())]]></script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a27b825d-c0ca-4935-ab53-13142bd0614a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Очистка созданных данных" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Очистить данные" id="135ce4c4-6157-48b0-8388-7af0c629f2a4"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+notificationId = testRunner.testCase.testSuite.getPropertyValue("notificationId")
+query1="delete from f_notification_task where notification_id="+notificationId
+query2="delete from f_notification_hospital_appointment where notification_id="+notificationId
+query3="delete from f_notification where id="+notificationId
+//log.info query
+sql.execute(query1)
+sql.execute(query2)
+sql.execute(query3)
+tc = testRunner.testCase.testSuite.getPropertyValue("testCase")
+log.info "Завершен  ТК \""+tc+"\""</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="e99d1657-36c1-41c3-b89c-5c404365e500" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверка создания записи в таблице f_notification" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить создание записи в f_notification" id="1bda66cb-9147-40f1-bf40-cab37199b595"><con:settings/><con:config><script>import groovy.sql.Sql
+import java.util.Date
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("значение "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+def getOptionalParameter(String propertyName){
+	value =  testRunner.testCase.testSuite.getPropertyValue(propertyName)
+	if(value == "" || value.toLowerCase() == "null")	return ""
+	else return value.replace("\"","")
+}
+
+def getDescriptionSecondPart(){
+	expertName = getOptionalParameter("expertName2")
+	expertSpeciality = getOptionalParameter("expertSpeciality2")
+	procedureName = getOptionalParameter("procedureName2")
+	office =getOptionalParameter("office2")
+	nameMO = testRunner.testCase.testSuite.getPropertyValue("nameMO2")
+	eventDate = testRunner.testCase.testSuite.getPropertyValue("eventDate2")
+	eventTime = testRunner.testCase.testSuite.getPropertyValue("eventTime2")
+	desc=expertSpeciality+" "+expertName+" "+procedureName
+	desc=desc.trim()
+	if(expertSpeciality || expertName || procedureName) desc += ", "
+	desc += nameMO+","
+	if(office) desc += " "+office+","
+	Date date = Date.parse( 'yyyy-MM-dd', eventDate )
+	String newEventDate = date.format( 'dd.MM.yyyy' )
+	desc += " "+newEventDate +" в "+eventTime
+	return desc
+}
+
+def checkDescription( String description){
+	eventType = testRunner.testCase.testSuite.getPropertyValue("eventType2")
+	dbDescDependentPart=""
+	switch(eventType){
+		case "created":
+			dbDescDependentPart="Вы записаны: "
+			break
+		case "edited":
+			dbDescDependentPart="Запись изменена: "
+			break
+		case "cancelled":
+			dbDescDependentPart="Запись отменена: "
+			break
+		default:
+		testRunner.fail(" В своствах кейса некорректный eventType2='"+eventType+"'. должен быть один из: created, edited, cancelled")
+		break
+	}
+	secondPartDesc=	getDescriptionSecondPart()
+	expectedDesc= dbDescDependentPart + secondPartDesc		
+	checkParameter("notification.description",expectedDesc,description)
+}
+
+def checkNotificationTitle(String title){
+	eventType = testRunner.testCase.testSuite.getPropertyValue("eventType2")
+	dbTitle=""
+	switch(eventType){
+		case "created":
+			dbTitle="Запись на прием в КДО"
+			break
+		case "edited":
+			dbTitle="Изменение записи на прием в КДО"
+			break
+		case "cancelled":
+			dbTitle="Отмена записи на прием в КДО"
+			break
+		default:
+		testRunner.fail(" В своствах кейса некорректный eventType2='"+eventType+"'. должен быть один из: created, edited, cancelled")
+		break
+	}
+	checkParameter("notification.title",dbTitle,title)	
+}
+
+
+userId = testRunner.testCase.testSuite.getPropertyValue("userId")
+currentDateTimeForDB= testRunner.testCase.testSuite.getPropertyValue("currentDateTimeForDB")
+notificationTypeId=testRunner.testCase.getPropertyValue("notificationTypeId")
+query="SELECT * FROM f_notification WHERE user_id = "+userId+" AND notification_type_id=(select id from d_notification_type where title='hospitalAppointment') and  create_date > '"+currentDateTimeForDB+"'"
+//log.info query
+notifications=sql.rows(query)
+if(notifications.size() == 1){
+	notification=notifications[0]
+	testRunner.testCase.testSuite.setPropertyValue("notificationId",notification.id.toString())
+	checkNotificationTitle(notification.title)
+	checkDescription(notification.description)
+	checkParameter("notification.deleted",false,notification.deleted )
+	checkParameter("notification.viewed",false,notification.viewed )
+	testRunner.testCase.setPropertyValue("notificationId", notification.id.toString())
+}
+else{ 
+	testRunner.testCase.testSuite.setPropertyValue("notificationId","")
+	testRunner.fail("Количество записей в f_notification не равно 1. фактическое ="+notifications.size())
+}
+log.info "проверка создания записи в f_notification завершена"</script></con:config></con:testStep><con:properties><con:property><con:name>notificationId</con:name><con:value>203288</con:value></con:property></con:properties></con:testCase><con:testCase id="7f1ae3af-c2a2-479a-819d-e5fff2daa24e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверка соответствия записи в БД notification в f_notification_hospital_appointment" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить" id="221aa9fd-942e-46d9-9dc1-88a1442b8c6e"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("значение "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+def getOptionalParameter(String propertyName){
+	value =  testRunner.testCase.testSuite.getPropertyValue(propertyName)
+	if(value == "" || value.toLowerCase() == "null")	return "null"
+	else return value.replace("\"","")
+}
+
+notificationId = testRunner.testCase.testSuite.getPropertyValue("notificationId")
+if(notificationId != "null"){	
+	query="select * from  f_notification_hospital_appointment where notification_id= "+notificationId
+	appointments=sql.rows(query)
+	if(appointments.size() == 1){
+		//log.info appointment
+		//	log.info "проскочили проверку howToChange "
+		appointment=appointments[0]
+		appointmentId = testRunner.testCase.testSuite.getPropertyValue("appointmentId")
+		eventType = testRunner.testCase.testSuite.getPropertyValue("eventType2")
+		eventDate = testRunner.testCase.testSuite.getPropertyValue("eventDate2")
+		eventTime = testRunner.testCase.testSuite.getPropertyValue("eventTime2")
+		expertName = getOptionalParameter("expertName2")
+		expertSpeciality = getOptionalParameter("expertSpeciality2")
+		procedureName = getOptionalParameter("procedureName2")
+		office = getOptionalParameter("office2",)
+		address = testRunner.testCase.testSuite.getPropertyValue("address2")
+		nameMO = testRunner.testCase.testSuite.getPropertyValue("nameMO2")
+		messageTimestamp = testRunner.testCase.testSuite.getPropertyValue("messageTimestamp")
+		checkParameter("appointment_id",appointmentId, appointment.appointment_id)
+		checkParameter("event_type",eventType, appointment.event_type.toString())
+		checkParameter("event_date",eventDate, appointment.event_date.toString())
+		checkParameter("event_time",eventTime, appointment.event_time.toString())
+		checkParameter("resource_speciality",expertSpeciality, appointment.resource_speciality.toString())
+		checkParameter("resource_name",expertName, appointment.resource_name.toString())
+		checkParameter("resource_procedure",procedureName, appointment.resource_procedure.toString())
+		checkParameter("resource_office",office, appointment.resource_office.toString())
+		checkParameter("resource_address",address, appointment.resource_address.toString())
+		checkParameter("resource_mo",nameMO, appointment.resource_mo.toString())
+		checkParameter("message_datetime",messageTimestamp, appointment.message_datetime.toString())
+
+	}
+	else testRunner.fail("Количество записей в f_notification_hospital_appointment не равно 1. фактическое ="+appointments.size())
+}
+else{
+	log.info "Не проверяю f_notification_hospital_appointment, т.к. не найдена запись в f_notification"
+}
+log.info "проверка создания записи в f_notification_hospital_appointment завершена"</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="46f9c32e-8a19-4512-b986-ecc3c14845ef" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверка соответствия записи в БД notification в f_notification_task" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить создание записей в f_notification_task" id="6e912cfb-4001-41f1-a4b6-f28c389ef159"><con:settings/><con:config><script>import groovy.sql.Sql
+import java.text.SimpleDateFormat
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+
+log.info "проверка создания записи в f_notification_task завершена"
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("значение "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+notificationId = testRunner.testCase.testSuite.getPropertyValue("notificationId")
+if(notificationId != "null"){	
+	devicesCount = testRunner.testCase.testSuite.getPropertyValue("devicesCount").toInteger()
+	currentDateTimeForDB = testRunner.testCase.testSuite.getPropertyValue("currentDateTimeForDB")
+	
+	sendDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(currentDateTimeForDB)
+	log.info sendDate
+	
+	devicesToSend=testRunner.testCase.testSuite.getPropertyValue("devicesToSend")
+	devicesToSendList=devicesToSend.split(',').collect{it as int}
+	
+	for(i=1; i &lt;=devicesCount; i++ ){
+	//	log.info statuses
+		deviceGuid=testRunner.testCase.testSuite.getPropertyValue("deviceGuid"+i)
+		tasks=sql.rows("select * from f_notification_task where notification_id="+notificationId+" and device_guid='"+deviceGuid+"'")
+	//	log.info "Проверяю notification task для девайса "+deviceGuid
+		if(devicesToSendList.contains(i)){
+			if( tasks.size()==1){
+				task=tasks[0]
+				checkParameter("task status","SEND",task.status)
+				task.send_date.each{
+						if( it &lt; sendDate) testRunner.fail("значение sendDate не соответствует ожидаемому. ожидаемое : больше "+currentDateTimeForDB+", фактическое ="+it.toString())
+				}
+			}
+			else testRunner.fail("Количество записей в f_notification_task не равно 1. фактическое ="+tasks.size())
+		}
+		else{
+			if(tasks.size()>0) testRunner.fail("Количество записей в f_notification_task не равно 0. фактическое ="+tasks.size())
+		}
+	}
+}
+else{
+	log.info "Не проверяю f_notification_task, т.к. не найдена запись в f_notification"
+}
+log.info "проверка создания записи в f_notification_task завершена"</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Фильтры для кибаны" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="залогировать фильтры для кибаны" id="c10e54a5-fd8e-4821-9406-954559a6d31a"><con:settings/><con:config><script>notificationId = testRunner.testCase.testSuite.getPropertyValue("notificationId")
+log.info ("KIBANA start")
+log.info("фильтр для поиска в кибана: \"events/send\" AND "+notificationId)
+log.info("уведомления должны быть отправлены только по девайсам со следующими device_guid")
+devicesToSend=testRunner.testCase.testSuite.getPropertyValue("devicesToSend")
+devicesToSendList=devicesToSend.split(',').collect{it as int}
+devicesToSendList.each{
+	deviceGuid=testRunner.testCase.testSuite.getPropertyValue("deviceGuid"+it)
+	log.info deviceGuid
+}
+log.info ("KIBANA end")</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f7636735-39c2-42a5-8ed6-dac60d5010c3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверить наличие пациента, у которого все девайсы не подходящие" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить пациента с девайсами со всеми настройками" id="eea968b2-c4af-45a7-be9e-810d8a212761"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+//в этом кейсе создадутся все минмально необходимые левайсы с настройками для проверки А_ЕСУ_07 шаг 4.2
+// и  А_ВА_15
+
+// функция, проверяющая есть ли девайс с нужной комбинацией параметров. если нет - досоздает. также вызывает функцию  checkSettings
+def checkDevice(long userId, def a, def d, def v,  int i){
+			log.info "проверяю девайс номер "+i+"с параметрами a="+a+" d="+d+" v="+v
+			voipCondition= v != null ? "="+v : "is null"
+			deviceQuery="select fud.device_guid from f_user_device fud "+
+							"left join f_device_settings fds on fds.device_guid =fud.device_guid "+
+							"where fud.user_id ="+userId+" and fud.authentication ="+a+
+							" and fud.deleted ="+d+" and fud.voip  "+voipCondition
+//			log.info deviceQuery
+			device=sql.firstRow(deviceQuery)
+//			log.info "device result "+device
+			guid=""
+			newDevice=false
+//			log.info device
+			if(device){
+				guid=device.device_guid
+			}
+			else{
+//				log.info deviceQuery
+				guid= java.util.UUID.randomUUID()
+				cloud= java.util.UUID.randomUUID()
+				devQuery="INSERT INTO f_device (device_guid, app_version, platform, device_cloud_id, cloud_token_delete) VALUES('"+guid+"', '1.3.2', 'ANDROID','"+cloud+"', NULL)"
+				userDevQuery="INSERT INTO f_user_device (id, device_guid, user_id, authentication, deleted, deleted_date, esia_authentication, main_policy, voip) VALUES(nextval('f_user_device_sequence'), '"+guid+"', "+userId+", "+a.toString()+", "+d.toString()+", NULL, NULL, NULL, "+v.toString()+")"
+//				log.info "device devQuery "+devQuery
+//				log.info "device userDevQuery "+userDevQuery
+				sql.execute(devQuery)
+				sql.execute(userDevQuery)
+				newDevice=true
+			}
+			log.info guid
+			testRunner.testCase.testSuite.setPropertyValue("deviceGuid"+i, guid.toString())
+}
+
+// проверить, что пациент с идентификатором в сьюте есть в бд
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientBadDevices")
+oms =testRunner.testCase.testSuite.getPropertyValue("oms2")
+user=sql.firstRow("select * from f_user where patient_id="+patientId)
+//log.info user
+userId=0
+if( !user){
+	query="INSERT INTO f_user VALUES(nextval('f_user_sequence'), "+patientId+", '"+oms+"', '2012-06-07') RETURNING id "
+	userId=sql.firstRow(query).id 
+}
+else{
+//	log.info("пациент есть")
+	userId=user.id
+}
+//log.info userId
+testRunner.testCase.testSuite.setPropertyValue("userId", userId.toString())
+
+//для каждого важного параметра в f_user_device собрать возможные значения
+auth=[true, false]
+deleted=[true, false]
+voip=[true, false, null]
+// в массиве собраны те комбинации параметров f_user_device, для которых должна быть отправка 
+specialDevSettings=[
+							[auth:true, del:false, voip:null ],
+							[auth:true, del:false, voip:false]
+							]
+
+allDeviseParamCombinations=[]
+// собрать все комбинации параметров в f_user_device
+auth.each{ a ->
+	deleted.each{ d ->
+		voip.each{ v ->
+			devParams=[auth:a, del:d, voip:v ]
+			allDeviseParamCombinations &lt;&lt; devParams
+		}
+	}
+}
+
+i=1
+specialDevSettings.each{
+	allDeviseParamCombinations.remove(it)
+}
+
+
+//для каждой комбинации основных параметров создать девайс с соответствующими настройками
+allDeviseParamCombinations.eachWithIndex{it, index1 ->
+	checkDevice(userId,  it.auth,  it.del,  it.voip, i)
+	i +=1
+}
+
+devicesCount=i-1
+
+testRunner.testCase.testSuite.setPropertyValue("devicesCount", devicesCount.toString())</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="12e8bf99-6641-4202-a904-db36eed090bc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверка отсутствия записи в таблице f_notification" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить создание записи в f_notification" id="dbbf5f6b-6ba3-4dd3-bae0-41c966453612"><con:settings/><con:config><script>import groovy.sql.Sql
+import java.util.Date
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+
+userId = testRunner.testCase.testSuite.getPropertyValue("userId")
+currentDateTimeForDB= testRunner.testCase.testSuite.getPropertyValue("currentDateTimeForDB")
+notificationTypeId=testRunner.testCase.getPropertyValue("notificationTypeId")
+query="SELECT * FROM f_notification WHERE user_id = "+userId+" AND notification_type_id=(select id from d_notification_type where title='hospitalAppointment') and  create_date > '"+currentDateTimeForDB+"'"
+//log.info query
+notifications=sql.rows(query)
+if(notifications.size() > 0){
+testRunner.fail("Количество записей в f_notification не равно 0. фактическое ="+notifications.size())
+}
+log.info "проверка создания записи в f_notification завершена"</script></con:config></con:testStep><con:properties><con:property><con:name>notificationId</con:name><con:value>200502</con:value></con:property></con:properties></con:testCase><con:testCase id="24e5e4ba-209e-45cd-8c21-cc0767a299f5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверить наличие пациента без девайсов" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="удалить все девайсы пациента" id="69f49384-5f61-4faa-bf6d-6074b64bdaf9"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+
+// проверить, что пациент с идентификатором в сьюте есть в бд
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientNoDevices")
+oms =testRunner.testCase.testSuite.getPropertyValue("oms3")
+user=sql.firstRow("select * from f_user where patient_id="+patientId)
+//log.info user
+userId=0
+if( !user){
+	query="INSERT INTO f_user VALUES(nextval('f_user_sequence'), "+patientId+", '"+oms+"', '2012-06-07') RETURNING id "
+	userId=sql.firstRow(query).id 
+}
+else{
+//	log.info("пациент есть")
+	userId=user.id
+}
+//log.info userId
+testRunner.testCase.testSuite.setPropertyValue("userId", userId.toString())
+
+deviceQuery="select * from f_user_device where user_id="+userId
+devices=sql.rows(deviceQuery)
+if(devices) sql.execute("delete from f_user_device where user_id="+userId)</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="5ba24310-d20a-4b73-a9b1-ca0603d4c496" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Открой кибану, чтоб в параллель смотреть логи" searchProperties="true"><con:settings/><con:properties/></con:testCase><con:testCase id="18121600-df09-4192-9b47-96a91f8abb6a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=created, в БД notification нет записи с appointmentId из уведомления. Заполнены все параметры" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="db5492fb-0316-4117-aaa6-4d7f89e674b3"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="878717a3-dfc6-4b5f-93b5-b36a91010042"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="74d05901-537d-4436-99ee-df9a46ece850"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="9065c4df-8add-4175-99bf-a35cf64edb6e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="c8a10901-f263-4fdd-9e7a-027c2037054b"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="3950de50-8ec1-4376-9324-860d103eeb75"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="327d6215-1f62-4725-a07c-06154a8006c8"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="93ce9fe7-e225-426a-8676-d47ea2eed614"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="7ec61d8a-e9ed-4fb9-b26b-a4674cdb73e5"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="c388e0cc-232e-4fe1-8085-0f11895e2f6c"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="bdafd899-0c93-47d5-9b00-03576ed2c525" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=created. Заполнены только обязательные параметры(значения необяз.=null)" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="bb53c900-c856-4af8-97e5-95a6342c38e0"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="b55d47e4-3fa2-438d-8cce-7a2158d40c3d"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","null")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","null")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","null")
+testRunner.testCase.testSuite.setPropertyValue("office2","null")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="88755dde-e05c-4971-afac-9cae19024292"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="fd9fd32b-c1b9-4082-a3ae-2ef4126d2075"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="b0ad9a10-2970-4032-8767-8e817f42bd06"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="48e9fa41-3b3e-4976-9ba8-63d9c29e576d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="32117f36-548e-4dfb-b1e0-3620865ade4a"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="96afec5e-cf81-44f8-b516-e75b5d72536d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="2531c52c-1e5e-4213-a60a-8ce154ea7e29"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="206d3127-1fce-4bad-ae5d-64cbfccfa922"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0050ff89-9dc1-4a91-90ce-19c8570f6c7e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=created. Заполнены только обязательные параметры(значения необяз.=&quot;&quot;)" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="f570d904-06bf-4ea8-af62-b967824f70ce"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="b9e2f68e-6209-4dab-9fef-c25e39b830cb"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="fbed7640-2d5b-4fcd-b0cb-d665b3fe67d8"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="b7dc6a88-e635-487f-9c41-4054cad541c0"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="d852224a-70c7-4caa-a5ef-07efe2f25d88"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="6f70d2f3-1153-44fa-a0a5-49e1aa8c34e7"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="a2c9c7e4-526d-45db-951e-f083625693da"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="86ed7acf-b404-4d05-a19e-fb0329ada865"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="8b3b2131-7ac6-4571-ab75-db8e130bb761"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="d38194e5-a08f-4f1f-868d-d83470e0a89c"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4dde55e3-3b34-485f-9863-0d0d8e384a16" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=created. Заполнены только обязательные параметры(необяз. отсутствуют)" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="1cf1167b-e8d5-4d29-a0f8-a9d172803336"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="69ad5f86-14da-4a80-a7f2-05198bbfcd15"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","")
+testRunner.testCase.testSuite.setPropertyValue("office2","")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="23dbf96f-c9ef-4ee0-b130-d49edf3e7e23"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="c1998300-b415-45b0-92ee-20bbbdcedcfb"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="4c435383-5415-4eb9-9c04-07f435a25170"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="3e43735f-f4b9-4be2-a84e-b9a65461c308"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="e678dd19-172e-4891-a1a0-4738601b30ee"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="dfe2bcbc-7eda-4ec0-8b9d-1b1e7e67f981"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="76842691-cd43-4bec-8738-04b534e0f9e0"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="f3d84565-91d9-4bf1-a3df-a37c8a63c5bc"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b1ac7ce3-225d-4ead-8e19-3d2b87c4d322" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=edited, в БД notification нет записи с appointmentId из уведомления. Заполнены все параметры" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="2c257395-0dff-4583-b6ca-708a9c791cbf"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="291c3eed-d7d7-4f59-af49-be62500c9d5e"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="71e3e7ad-678a-4e18-bbc7-33af988f9ae2"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="906cb005-f292-4e6b-80d2-eac5305a81cc"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="6217e81f-5979-4571-afb8-fdd03bbdb004"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="691a3c3e-9aec-4b5f-950d-2aaa51ccda73"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="cc6d7dbc-d061-4465-b915-11371f2896bd"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="7aa4781e-85cb-4d3d-951a-c2f06ec165e4"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="328d2a0b-452f-4bb1-94d5-49fa177eb8b7"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="65048775-4a9d-4281-8273-5a7a50bf2630"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="89b1f1d9-27b6-4c0c-9ef2-08bc23958756" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=edited. Заполнены только обязательные параметры(значения необяз.=null)" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="a5d4f707-ab56-4b75-8b73-68dbc7481e80"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="57bda09f-8699-4cdb-9d50-f95b45c04a92"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","null")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","null")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","null")
+testRunner.testCase.testSuite.setPropertyValue("office2","null")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="97d6dbe7-8bd5-45cc-89cb-3d187fdb8fd4"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="372d4916-8b54-4d7c-801e-72c877916f6f"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="5189ea6a-ddf6-47a4-ac09-575bfc16567e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="e4d6958b-2926-4a42-9193-d4bd207db558"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="ba224c54-14fc-4075-aa15-0b9e7e343e90"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="86a15a35-c9d5-4aef-9f7c-cd8798032348"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="46f945a2-7a42-4100-9633-fedc96152ca6"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="e9729e14-09ad-467c-a731-b3497965d8b1"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0c679326-76f0-4ff0-8d1c-81feca842ab2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=edited. Заполнены только обязательные параметры(значения необяз.=&quot;&quot;)" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="abef7a65-47c5-4bfc-9888-d8b75c732b0d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="b32346fb-9123-4a23-a494-5209fe0cbc30"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="44fa139e-6a20-4850-ac18-a2ec13d64869"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="4bbfc039-5f27-4348-a917-c28726d27223"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="bc54b13f-192b-443b-b6df-73bacf3d961e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="88337a61-bff0-4c05-b405-d45e22f28762"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="7957555b-19b4-4592-9370-348c8dd2828b"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="e27df52b-3477-490b-a369-27e169d4332a"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="b719d462-e551-465a-820e-7d9471a4ce38"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="a00dafe3-bf47-4bb3-a0c0-f35279998271"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="1ae5844b-b67c-4a31-9abe-7efd80ed2653" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=edited. Заполнены только обязательные параметры(необяз. отсутствуют)" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="1c259baa-4751-4256-89f6-865e0fe4a585"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="61c3da1c-b37d-4f3a-a50f-ab460d6fa020"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","")
+testRunner.testCase.testSuite.setPropertyValue("office2","")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="f2100743-a306-4ecd-9fc7-066123bb3db3"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="7207e4f6-b928-4ac4-9b0a-7cb5b48ba087"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="13892c5c-c400-4a7a-8a1f-2f2ba817429d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="c131fa99-e133-4bbf-a6a3-c7a3ae43ce36"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="da51a6ed-9fe3-4597-958a-ec82a60a00e8"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="0307f486-673f-4e80-9be3-9b39ea4d5884"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="3cfd0a62-4275-4e4a-ad5c-bf66c8003758"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="367c50d2-86d3-47c4-a325-287f1ed0b968"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ffc0b266-2a0b-4e12-b2a8-f6d1fb529015" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=cancelled, в БД notification нет записи с appointmentId из уведомления. Заполнены все параметры" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="4a875cd6-192f-4e25-8530-d8e5cff9f63e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="89ebeae9-aaac-44e9-90e8-d4fae16865a2"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="fb9b2cf7-7b30-4632-8b1e-9a64f656ecd2"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="ae6c639d-b4be-4ace-af6c-ce3fe150e18e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="f335b972-e225-4531-adb0-00c10e51985d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="2c0a0a36-defc-4c0c-bf80-ac9187f7a566"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="bf5cab0e-c16b-4de7-8e59-3df4fc26710f"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="9d1a6687-13d1-4a82-90bf-d548aeb5f84f"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="675e53c8-b185-4d45-9bb9-cfba38824342"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="4ddba714-7d4e-477e-a8df-7db72e75d29f"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ac668854-0486-4f37-b04b-5be950e7c2b1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=cancelled. Заполнены только обязательные параметры(значения необяз.=null)" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="3e14365a-71f2-4ca6-867e-5f789e87b785"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="bda554ce-bc13-4ade-af7d-a61b0c7a5e8d"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","null")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","null")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","null")
+testRunner.testCase.testSuite.setPropertyValue("office2","null")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="f3a1a21a-cf92-4bd7-b406-887d6ed88101"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="5cd22ef1-78e4-4f05-a4ea-df3740485e86"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="58754a27-388d-4a2d-b11b-368d5dd95e94"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="38a09bf4-4d28-47f2-9ab3-541fd3f1bdbd"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="69ba9a3e-fe13-4042-afc7-7c14e7ebd65b"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="7f54d93e-4c83-4e3a-abd2-a342d596b507"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="7451ac0a-9184-4f40-8edd-66c9e07f3dab"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="1c1c424c-d725-4a33-9cb0-2ac4939444fe"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0335565e-09ca-4c53-8e6a-5bec355e324a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Несколько уведомлений по 1 пациенту. создание, изменение, отмена записи" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные в статусе created" id="cf281b41-993c-4ee4-a6ff-bb5bd4d3b70d"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="ae931804-3679-48aa-b064-5db37aa0be56"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="dad01dbb-fdb2-4726-b6f6-5cadeb934644"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="3786b399-606b-40d1-9693-95b55fa5149b"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Записать notificationId" id="47d3d0dd-526c-46a4-a0ad-fc8dbe4a7e77"><con:settings/><con:config><script>notifications =  testRunner.testCase.testSuite.getPropertyValue("notificationId")
+
+testRunner.testCase.testSuite.setPropertyValue("notifications",notifications)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="3b3751e8-b706-48ef-9611-32d6281049fc"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="f811904e-06d9-411a-868e-390af7024b30"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="7ba81aae-8024-45aa-a64c-1e568d415564"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="28523448-da9b-4fc8-95e6-9e26ca794c86"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные в статусе edited" id="b3ea73e1-e489-4182-9707-5049bc54f4af"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+//appointmentId=UUID.randomUUID().toString()
+//testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","edited")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление 2" id="cc9b4e5e-d5d8-42ce-8124-44b9ec12fb2a"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения 2" id="313dccb7-8168-443c-8b7f-ac509b6efed4"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification 2" id="ddcff0e6-7f66-439c-8ef0-ed2a2ce1d4c6"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Записать notificationId 2" id="0ccd28f8-9a40-4464-add2-1cda93ca0485"><con:settings/><con:config><script>notificationId =  testRunner.testCase.testSuite.getPropertyValue("notificationId")
+notifications =  testRunner.testCase.testSuite.getPropertyValue("notifications")
+notifications += "," + notificationId
+
+testRunner.testCase.testSuite.setPropertyValue("notifications",notifications)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment 2" id="34b2f6ed-c8f6-48a1-ad36-a5e24bc91aad"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task 2" id="33eb8d21-8ad0-44c6-a05c-a671e69d974e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid 2" id="87af6fa6-29a3-41c1-8c4f-2262efe12364"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане 2" id="a82d17c1-4879-46b1-a741-587889d5cca2"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные в статусе cancelled" id="aec41f29-4855-46e1-8cbd-cb401cd83f4a"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+//appointmentId=UUID.randomUUID().toString()
+//testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление 3" id="c19681a6-38dd-466c-9ad7-d392e901597e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения 3" id="64bf0151-aaa8-4efb-a3ea-80e8df6b6e19"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification 3" id="83aacfc6-1cb7-4664-9390-62fc2c82391c"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Записать notificationId 3" id="90faf0a8-583a-4bfc-8318-166b69fde4c9"><con:settings/><con:config><script>notificationId =  testRunner.testCase.testSuite.getPropertyValue("notificationId")
+notifications =  testRunner.testCase.testSuite.getPropertyValue("notifications")
+notifications += "," + notificationId
+
+testRunner.testCase.testSuite.setPropertyValue("notifications",notifications)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment 3" id="15e80aaf-7973-4f40-a967-753c7457a80a"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task 3" id="d42e16c6-feb0-4475-b4d7-2bbb5e56f1b4"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid 3" id="0bcd6a84-d609-46e6-bf49-5b800d5a6107"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане 3" id="9b32893c-c436-49e7-96af-f828c722a516"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:testStep type="groovy" name="Очистить данные в БД" id="e57a7334-431d-4ce9-83c5-63d9490fffe5"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+notifications = testRunner.testCase.testSuite.getPropertyValue("notifications")
+query1="delete from f_notification_task where notification_id in ("+notifications+")"
+query2="delete from f_notification_hospital_appointment where notification_id in ("+notifications+")"
+query3="delete from f_notification where id in ("+notifications+")"
+//log.info query
+sql.execute(query1)
+sql.execute(query2)
+sql.execute(query3)
+tc = testRunner.testCase.testSuite.getPropertyValue("testCase")
+log.info "Завершен  ТК \""+tc+"\""</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b81eccce-0a67-45bd-981c-64867b0ae6a9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=cancelled. Заполнены только обязательные параметры(значения необяз.=&quot;&quot;)" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="eb07b80e-e3fc-43ac-99a7-f9c5ccd7b6f4"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="296c547e-c2b5-4bc5-a9af-ceef1f6259b0"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="844cee8b-e003-4e79-aa69-d0d5f28ad564"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="a41fab13-2d3a-44ec-ba6e-58797b03a414"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="8470e65a-16ec-4179-842d-033f070ce406"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="b3986178-1069-43e6-9d97-2d4565c5f370"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="1ccba0d7-94d9-4aa7-acab-d596d10798f5"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="8cc2b26f-4525-4b6c-9001-5154fcd77f9f"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="e649b7ad-2bc9-44c2-a19c-3cb232204340"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="ca2d474b-50cf-4c4b-980d-4b1f7f6cd090"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0dfaa8d1-fdd2-4197-9754-fffe88ef6b8b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с eventType=cancelled. Заполнены только обязательные параметры(необяз. отсутствуют)" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="b5d64a97-d7d3-451e-9c8c-4df300c65e56"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="c81adf11-85cb-4da0-b4ed-0c3434f43a6e"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","cancelled")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","")
+testRunner.testCase.testSuite.setPropertyValue("office2","")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)
+</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="9ad31cb0-3d48-490e-a53c-8e3b68875ad3"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="12ee05fa-bc4b-4c5b-8766-812526eb1be4"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification" id="68a2066b-2d20-4879-9d4a-fd8f7dcfe20f"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>e99d1657-36c1-41c3-b89c-5c404365e500</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notification_hospital_appointment" id="d9eb2bed-ac3f-42b4-bb32-6c6590885859"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7f1ae3af-c2a2-479a-819d-e5fff2daa24e</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить создание записи в f_notifictation_task" id="66ece20a-4485-4c54-a978-73e2a9cfdd6a"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>46f9c32e-8a19-4512-b986-ecc3c14845ef</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Очистить созданные данные" id="22e748c2-e611-4970-8455-513166745706"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>a27b825d-c0ca-4935-ab53-13142bd0614a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Залогиоровать фильтры для кибаны и ожидаемые device_guid" id="53bbf770-0e94-40a2-b56d-1109a9581bd5"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>6ccb7e3f-75c6-46b4-88e1-573ec5ca0ccf</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="0dd7af84-d652-48a0-9c56-e4ee50be826b"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="03acc72a-52f7-4eab-b563-978eb528d517" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления по пациенту, у которого только неподходящие для создания уведомления девайсы" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Создать неподходящие данные для пациента" id="26abb57c-ff4b-4e5c-8263-408ded362dcd"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>f7636735-39c2-42a5-8ed6-dac60d5010c3</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="bcad70c4-8368-4900-afce-ea32ee0cb7ea"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientBadDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="3174316e-98be-440e-aa5d-380be9363109"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="fb5fd6d8-5f7a-4d40-94de-bebe1d7dbc91"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить отсутствие записи в таблице f_notification" id="71cf7464-1b66-47f1-9267-aa99036ef9cc"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>12e8bf99-6641-4202-a904-db36eed090bc</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="залогировать запрос кибаны" id="a138e34a-1ca7-41db-b978-715ab96973f9"><con:settings/><con:config><script>oms =testRunner.testCase.testSuite.getPropertyValue("oms2")
+log.info ("KIBANA start")
+log.info("фильтр для поиска в кибана: \"events/send\" AND hospitalAppointment AND "+oms)
+log.info("по этому фильтру не должно быть логов")
+log.info ("KIBANA end")</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="8458ed95-9426-4458-89ad-0cbef1919224"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0298c861-83bb-4b92-ac84-5fc0cde86659" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления по пациенту без девайса" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить пациента без девайсов" id="66a3e5cb-b8bc-4437-ba43-458eb228f4bf"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>24e5e4ba-209e-45cd-8c21-cc0767a299f5</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="4c5cd4f9-d03e-4dc6-a874-bd9dd4163b6b"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientBadDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","created")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="f837bfd9-1bfd-48ac-86a3-309df658698d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="f0797527-16fa-4bbc-a458-5cbda0254940"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить отсутствие записи в таблице f_notification" id="2e1697a0-6bb2-4ec7-824f-d81963c7da5f"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>12e8bf99-6641-4202-a904-db36eed090bc</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="залогировать запрос кибаны" id="97e5bd33-85df-4b9f-a5cc-05461bd34aa2"><con:settings/><con:config><script>oms =testRunner.testCase.testSuite.getPropertyValue("oms3")
+log.info ("KIBANA start")
+log.info("фильтр для поиска в кибана: \"events/send\" AND hospitalAppointment AND "+oms)
+log.info("по этому фильтру не должно быть логов")
+log.info ("KIBANA end")</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="0e51c78d-4082-4caf-9ba2-f86c7ea55482"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="bb266952-b5f2-47a0-af07-7eab8690aad4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Обработка уведомления с некорректным eventType" searchProperties="true"><con:settings/><con:testStep type="calltestcase" name="Проверить наличие пациента со всеми девайсами" id="72e59fbc-990f-4552-ad35-ae5d9425871e"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>8b02303a-6777-41ea-82a5-b12e2458b742</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="Подобрать данные для теста" id="80b7459f-e330-4ee3-8803-c5cb3c71eafe"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+appointmentId=UUID.randomUUID().toString()
+testRunner.testCase.testSuite.setPropertyValue("appointmentId",appointmentId)
+testRunner.testCase.testSuite.setPropertyValue("eventType2","create")
+testRunner.testCase.testSuite.setPropertyValue("currentDateTimeForDB",currentDateTimeForDB.toString())
+testRunner.testCase.testSuite.setPropertyValue("emiasId2","\""+patientId+"\"")
+testRunner.testCase.testSuite.setPropertyValue("phoneNum","\"00000000000\"")
+testRunner.testCase.testSuite.setPropertyValue("expertSpeciality2","\"Офтальмоуролог\"")
+testRunner.testCase.testSuite.setPropertyValue("expertName2","\"Анатолий Бердянский\"")
+testRunner.testCase.testSuite.setPropertyValue("procedureName2","\"узи\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"кабинет 123\"")
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:testStep type="calltestcase" name="Отправить уведомление" id="2c279b0d-f444-4a9e-80af-ceef1087d70a"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>18a624ac-aa00-46a2-966a-76108fb91ed9</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Получить timestamp сообщения" id="98e3a23a-0a2f-46bf-a52a-562cb2932a27"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>1878f8a1-f6d5-46ea-8d5b-de8b8f6fb96a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="calltestcase" name="Проверить отсутствие записи в таблице f_notification" id="31bf1325-3828-43c8-b5f0-1adedb9973fe"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>12e8bf99-6641-4202-a904-db36eed090bc</con:targetTestCase><con:properties><con:property><con:name>notificationId</con:name></con:property></con:properties><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="groovy" name="залогировать запрос кибаны" id="a9b7ae76-3b3f-4243-bd63-6dc004f80eda"><con:settings/><con:config><script>oms =testRunner.testCase.testSuite.getPropertyValue("oms")
+log.info ("KIBANA start")
+log.info("фильтр для поиска в кибана: \"events/send\" AND hospitalAppointment AND "+oms)
+log.info("по этому фильтру не должно быть логов")
+log.info ("KIBANA end")</script></con:config></con:testStep><con:testStep type="manualTestStep" name="Проверить логи в кибане" id="8a3d3695-8a60-41a6-b1b0-20573009beec"><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>В кибане есть запись об отправке
+ уведомления в ИСПК
+В логах записан фильтр для кибаны, 
+по нему есть уведомления с соответствующим
+ контентом только для залогированных девайсов</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>topic</con:name><con:value>KIS_appointment_changer</con:value></con:property><con:property><con:name>appointmentId1</con:name><con:value>890809809809</con:value></con:property><con:property><con:name>appointmentId</con:name><con:value>de67aae1-aaae-4bc0-a884-294d7a6c0aaa</con:value></con:property><con:property><con:name>patientId1</con:name><con:value>54628b9d-d4af-458c-82b2-33536288b484</con:value></con:property><con:property><con:name>patientId2</con:name><con:value>5aff02c7-8cb7-4f09-a277-159c03a1d319</con:value></con:property><con:property><con:name>emiasId1</con:name><con:value>12300</con:value></con:property><con:property><con:name>emiasId2</con:name><con:value>"123011"</con:value></con:property><con:property><con:name>phoneNum</con:name><con:value>"00000000000"</con:value></con:property><con:property><con:name>type</con:name><con:value>device</con:value></con:property><con:property><con:name>eventType1</con:name><con:value>created</con:value></con:property><con:property><con:name>eventType2</con:name><con:value>created</con:value></con:property><con:property><con:name>eventDate1</con:name><con:value>1960-01-01</con:value></con:property><con:property><con:name>eventDate2</con:name><con:value>1960-01-02</con:value></con:property><con:property><con:name>eventTime1</con:name><con:value>23:15</con:value></con:property><con:property><con:name>eventTime2</con:name><con:value>23:20</con:value></con:property><con:property><con:name>expertSpeciality1</con:name><con:value>"Офтальмоуролог "</con:value></con:property><con:property><con:name>expertSpeciality2</con:name><con:value/></con:property><con:property><con:name>expertName1</con:name><con:value>"Петров Е.В."</con:value></con:property><con:property><con:name>expertName2</con:name><con:value/></con:property><con:property><con:name>procedureName1</con:name><con:value>"анализ"</con:value></con:property><con:property><con:name>procedureName2</con:name><con:value/></con:property><con:property><con:name>office1</con:name><con:value>"кабинет 1"</con:value></con:property><con:property><con:name>office2</con:name><con:value/></con:property><con:property><con:name>address1</con:name><con:value>ул. Приозёрная, д. 24</con:value></con:property><con:property><con:name>address2</con:name><con:value>ул. Приозёрная, д. 24 к.1</con:value></con:property><con:property><con:name>nameMO1</con:name><con:value>ГБУЗ «ГКБ № 40 ДЗМ»</con:value></con:property><con:property><con:name>nameMO2</con:name><con:value>ГБУЗ «ГКБ № 40 к.2 ДЗМ»</con:value></con:property><con:property><con:name>testCase</con:name><con:value>Обработка уведомления с eventType=created. Заполнены только обязательные параметры(необяз. отсутствуют)</con:value></con:property><con:property><con:name>patientIdAllDevices</con:name><con:value>123011</con:value></con:property><con:property><con:name>oms</con:name><con:value>1000000000011</con:value></con:property><con:property><con:name>userId</con:name><con:value>16660</con:value></con:property><con:property><con:name>deviceGuid1</con:name><con:value>55045ad2-b0bc-4059-9943-d683c8934b31</con:value></con:property><con:property><con:name>deviceGuid2</con:name><con:value>7d317efc-17e3-41a8-9550-7d88590ee2ca</con:value></con:property><con:property><con:name>deviceGuid3</con:name><con:value>2527d2e8-1c58-42d3-93f8-8bb850986dc5</con:value></con:property><con:property><con:name>deviceGuid4</con:name><con:value>a94fd149-3ac4-48df-b3ef-ae7e4c6e70c4</con:value></con:property><con:property><con:name>deviceGuid5</con:name><con:value>903b3020-8777-4064-abed-3a6638c57b50</con:value></con:property><con:property><con:name>deviceGuid6</con:name><con:value>b00e116a-e455-4af9-b805-3466af58e64d</con:value></con:property><con:property><con:name>deviceGuid7</con:name><con:value>e31f0e2e-3aca-45fe-aa9a-e016d0cb2957</con:value></con:property><con:property><con:name>deviceGuid8</con:name><con:value>0dde3d26-fb92-46b1-acf7-da2e61f24d44</con:value></con:property><con:property><con:name>deviceGuid9</con:name><con:value>bb837424-9113-4e67-9890-df71c37be151</con:value></con:property><con:property><con:name>deviceGuid10</con:name><con:value>db90f9bb-e252-45bb-9f3b-cc4ff913abe9</con:value></con:property><con:property><con:name>deviceGuid11</con:name><con:value>0f66b4aa-c898-4955-a979-74ce0aa30486</con:value></con:property><con:property><con:name>deviceGuid12</con:name><con:value>758ca0dd-f246-4c48-944b-1bdfc250fa08</con:value></con:property><con:property><con:name>devicesToSend</con:name><con:value>5, 6</con:value></con:property><con:property><con:name>devicesCount</con:name><con:value>12</con:value></con:property><con:property><con:name>howToChange</con:name><con:value>all</con:value></con:property><con:property><con:name>currentDateTimeForDB</con:name><con:value>2024-05-31 10:44:19</con:value></con:property><con:property><con:name>notificationId</con:name><con:value>203288</con:value></con:property><con:property><con:name>messageTimestamp</con:name><con:value>2024-05-31 10:44:36.506</con:value></con:property><con:property><con:name>notifications</con:name><con:value>201519,201520,201521</con:value></con:property><con:property><con:name>patientBadDevices</con:name><con:value>123012</con:value></con:property><con:property><con:name>oms2</con:name><con:value>1000000000012</con:value></con:property><con:property><con:name>patientNoDevices</con:name><con:value>123013</con:value></con:property><con:property><con:name>oms3</con:name><con:value>1000000000013</con:value></con:property><con:property><con:name>patientDoestExist</con:name><con:value/></con:property><con:property><con:name>oms4</con:name><con:value>0009899890809</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>emiasInfoNotificationsEndpoint</con:name><con:value>http://notification-emiasinfo1.emias.solit-clouds.ru/</con:value></con:property><con:property><con:name>emiasInfoNotificationsDbConnection</con:name><con:value>172.17.5.11:29104/notification</con:value></con:property><con:property><con:name>emiasInfoNotificationsDbLogin</con:name><con:value>notification</con:value></con:property><con:property><con:name>emiasInfoNotificationsDbPassword</con:name><con:value>notification</con:value></con:property><con:property><con:name>emiasInfoNotificationsFullDbConnection</con:name><con:value>jdbc:postgresql://172.17.5.11:29104/notification?user=notification&amp;password=notification</con:value></con:property><con:property><con:name>emiasInfoNotificationsDBDriver</con:name><con:value>org.postgresql.Driver</con:value></con:property><con:property><con:name>topicAppointment2Bm</con:name><con:value>Appointment2Bm.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicAppointment2Doctor</con:name><con:value>Appointment2Doctor.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicAppointment2Ldp</con:name><con:value>Appointment2Ldp.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicBookingRecipeInfoMessage</con:name><con:value>BookingRecipeInfoMessage.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicMedicationAssignmentChangesPerDay</con:name><con:value>MedicationAssignmentChangesPerDay.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicKisNazToEmiasPublication</con:name><con:value>kisNazToEmiasPublication.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>bootstrapServers</con:name><con:value>10.2.172.24:9092</con:value></con:property><con:property><con:name>sendRequestPath</con:name><con:value>"/app/events/send"</con:value></con:property><con:property><con:name>topicTmkNotify</con:name><con:value>tmkNotify.EMIASINFO_SOLIT_TEST_4</con:value></con:property><con:property><con:name>emiasInfoEndpoint</con:name><con:value>http://application-emiasinfo1.emias.solit-clouds.ru/</con:value></con:property><con:property><con:name>emiasInfoDbConnection</con:name><con:value>172.17.5.11:29102/emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoDbLogin</con:name><con:value>emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoDbPassword</con:name><con:value>emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoFullDbConnection</con:name><con:value>jdbc:postgresql://172.17.5.11:29102/emiasinfoapp?user=emiasinfoapp&amp;password=emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoDBDriver</con:name><con:value>org.postgresql.Driver</con:value></con:property><con:property><con:name>env</con:name><con:value>solit2</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

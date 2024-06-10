@@ -1,0 +1,1 @@
+emiasGibddEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/Gibdd/Appointment/v2S/ProxyService

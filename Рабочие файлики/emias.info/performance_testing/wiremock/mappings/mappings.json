@@ -1,0 +1,185 @@
+{
+  "mappings" : [ {
+    "id" : "09dc29b4-0e0b-43ed-9aa1-a94c86af83c6",
+    "request" : {
+      "url" : "/getReferralsInfo",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "getReferralsInfo.xml",
+      "headers" : {
+        "Content-Type" : "application/xml; charset=utf-8"
+      }
+    },
+    "uuid" : "09dc29b4-0e0b-43ed-9aa1-a94c86af83c6",
+    "persistent" : true
+  }, {
+    "id" : "61df80dd-3898-4c3f-b95a-6d5b6481c1a3",
+    "request" : {
+      "url" : "/getLpusForVaccination",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "getLpusForVaccination.xml",
+      "headers" : {
+        "Content-Type" : "application/xml; charset=utf-8"
+      }
+    },
+    "uuid" : "61df80dd-3898-4c3f-b95a-6d5b6481c1a3",
+    "persistent" : true
+  }, {
+    "id" : "31cc0080-9ec4-4047-8ea8-e5155311bb5a",
+    "request" : {
+      "url" : "/getSpecialitiesInfo",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "getSpecialitiesInfo.xml",
+      "headers" : {
+        "Content-Type" : "application/xml; charset=utf-8"
+      }
+    },
+    "uuid" : "31cc0080-9ec4-4047-8ea8-e5155311bb5a",
+    "persistent" : true
+  }, {
+    "id" : "5640ac5f-ed4c-4ba3-9792-bf8147c68ee4",
+    "request" : {
+      "url" : "/getAssignmentsInfo",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "getAssignmentsInfo.xml",
+      "headers" : {
+        "Content-Type" : "application/xml; charset=utf-8"
+      }
+    },
+    "uuid" : "5640ac5f-ed4c-4ba3-9792-bf8147c68ee4",
+    "persistent" : true
+  }, {
+    "id" : "1f593076-e3ae-4e62-93a9-21d1840d12ce",
+    "request" : {
+      "url" : "/getAvailableResourceScheduleInfo",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "getAvailableResourceScheduleInfo.xml",
+      "headers" : {
+        "Content-Type" : "application/xml; charset=utf-8"
+      }
+    },
+    "uuid" : "1f593076-e3ae-4e62-93a9-21d1840d12ce",
+    "persistent" : true
+  }, {
+    "id" : "a718c839-b3e1-4c57-932e-5fd3b02b8e2e",
+    "request" : {
+      "url" : "/getDoctorsInfo",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "getDoctorsInfo.xml",
+      "headers" : {
+        "Content-Type" : "application/soap+xml",
+        "Encoding" : "UTF-8",
+        "Http-Method" : "POST"
+      }
+    },
+    "uuid" : "a718c839-b3e1-4c57-932e-5fd3b02b8e2e",
+    "persistent" : true
+  }, {
+    "id" : "d908f793-a902-4fe3-8748-d6c1d28ac745",
+    "request" : {
+      "url" : "/createAppointment",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "createAppointment.xml",
+      "headers" : {
+        "Content-Type" : "application/xml; charset=utf-8"
+      }
+    },
+    "uuid" : "d908f793-a902-4fe3-8748-d6c1d28ac745",
+    "persistent" : true
+  }, {
+    "id" : "ec5c0578-435b-4cad-a50e-726c9d76eafd",
+    "request" : {
+      "url" : "/getAppointmentReceptionsByPatient",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "getAppointmentReceptionsByPatient.xml",
+      "headers" : {
+        "Content-Type" : "application/xml; charset=utf-8"
+      }
+    },
+    "uuid" : "ec5c0578-435b-4cad-a50e-726c9d76eafd",
+    "persistent" : true
+  }, {
+    "id" : "4216dade-669d-445c-95a2-28f31529e203",
+    "request" : {
+      "url" : "/getArchivedAppointments",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "getArchivedAppointments.xml",
+      "headers" : {
+        "Content-Type" : "application/xml; charset=utf-8"
+      }
+    },
+    "uuid" : "4216dade-669d-445c-95a2-28f31529e203",
+    "persistent" : true
+  }, {
+    "id" : "c81fc878-db32-4776-9623-a769bc26c90a",
+    "request" : {
+      "url" : "/getInquiryPurpose",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "getInquiryPurpose.xml",
+      "headers" : {
+        "Content-Type" : "application/xml; charset=utf-8"
+      }
+    },
+    "uuid" : "c81fc878-db32-4776-9623-a769bc26c90a"
+  }, {
+    "id" : "89467413-d8d6-4e06-8cb0-86fb464c4158",
+    "request" : {
+      "urlPathPattern" : "/api/internal/3/emc-permissions?(.*)",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "api-internal-3-emc-permissions.json",
+      "headers" : {
+        "Content-Type" : "application/json; charset=utf-8"
+      }
+    },
+    "uuid" : "89467413-d8d6-4e06-8cb0-86fb464c4158"
+  }, {
+    "id" : "83f121d6-ec2a-4848-b9a7-75a6bfc337ca",
+    "request" : {
+      "urlPathPattern" : "/sps/oauth/me?(.*)",
+      "method" : "ANY"
+    },
+    "response" : {
+      "status" : 200,
+      "bodyFileName" : "sps-oauth-me.json",
+      "headers" : {
+        "Content-Type" : "application/json; charset=utf-8"
+      }
+    },
+    "uuid" : "83f121d6-ec2a-4848-b9a7-75a6bfc337ca"
+  } ],
+  "meta" : {
+    "total" : 12
+  }
+}

@@ -1,0 +1,5 @@
+saOrchestratorEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService
+saOrchestratorDbConnection=
+saOrchestratorDbLogin=
+saOrchestratorDbPassword=
+saOrchestratorFullDbConnection=

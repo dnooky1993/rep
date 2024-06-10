@@ -1,0 +1,6 @@
+hospitalizationsEndpoint=http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService
+hospitalizationsDbConnection=10.2.172.90:5432/emias_gsp
+hospitalizationsDbLogin=admin
+hospitalizationsDbPassword=admin
+hospitalizationsFullDbConnection=jdbc:postgresql://10.2.172.90:5432/emias_gsp?user=admin&password=admin
+hospitalizationsDBDriver=org.postgresql.Driver

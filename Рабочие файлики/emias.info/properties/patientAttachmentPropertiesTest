@@ -1,0 +1,12 @@
+suppDbConnection=
+suppDbLogin=
+suppDbPassword=
+suppFullDbConnection=
+suppEndpoint=http://esbcamel.test.emias.mos.ru/proxy/PGU/v1.1S/ProxyService  
+suppDBDriver=
+contingentDbConnection=
+contingentDbLogin=
+contingentDbPassword=
+contingentFullDbConnection=
+contingentEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/Contingent/PGUContingent/v2S/ProxyService   
+contingentDBDriver=

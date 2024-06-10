@@ -1,0 +1,59 @@
+{
+	"patientInfo": {
+		"emiasId": "20948239",
+		"caseNum": "49955-2023",
+		"caseDate": "2012-04-23"
+	},
+	"moInfo": {
+		"moId": "204",
+		"moName": "ГБУЗ ГП №175 ДЗМ"
+	},
+	"mdInfo": {
+		"mdSurname": "Петров",
+		"mdName": "Иван",
+		"mdPatron": "Михайлович",
+		"mdPosition": "Заведующий отделением эндокринологии"
+	},
+	"hospInfo": {
+		"patientId": "20948239",
+		"naz_id": "dfb8941b-9539-4e43-acb1-324fac62c282",
+		"case_id": "ca5a762c-0611-442c-a452-0957b71b84e1"
+	},
+	"appointment": {
+		"state": "new",
+		"timestamp": "2012-04-23T18:25:43.511Z",
+		"name": "Телемедицинская консультация",
+		"urgency": "Плановая",
+		"appointTimestamp": "2012-08-28T18:25:43.511Z",
+		"procedures": {
+			"quantity": "10",
+			"multiplicity": "2",
+			"duration": {
+				"hour": "0",
+				"minutes": "30"
+			},
+			"scope": "Верхневозлежащий крестец",
+			"office": "12Б"
+		},
+		"drugAssignment": {
+			"drug": [
+				{
+					"mnnName": "Дихлорэтана трихитронитротолуол бериллия",
+					"dose": "0,25"
+				}
+			],
+			"introduction": "Парабульбарно",
+			"repetition": "24 т/д",
+			"schedule": {
+				"assigned": [
+				"2012-04-23", 
+				"2012-04-24"
+				]
+			},
+			"applyFrom": "2012-04-23",
+			"justification": "Высыпания",
+			"notice": "Капсулу для приёма извлекать из блистера",
+			"infusion": "В/В инфузомат 1,25 мл/мин в течение 3 минут"
+		}
+	}
+}

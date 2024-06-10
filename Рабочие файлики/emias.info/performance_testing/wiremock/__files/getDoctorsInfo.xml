@@ -1,0 +1,1168 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+        <ns3:getDoctorsInfoResponse xmlns:ns2="http://api.service.soap.emias.lanit.ru/core/v5/" xmlns:ns3="http://api.service.soap.emias.lanit.ru/v5/">
+            <availableResource>
+                <id>20186485697</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186417917</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20670217064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186228064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186489464</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186415539</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20698417064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20187710064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>28546417064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20137217064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20181280064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20854617064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20256417064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186735064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186412364</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186569064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186417789</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20169817064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186417456</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20186417064</id>
+                <lpuId>204</lpuId>
+                <name>Разработка_Глазков_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>239140163</id>
+                    <name>000003</name>
+                    <room>
+                        <id>29803323</id>
+                        <number>000003КК</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>19904350421</id>
+                <lpuId>10000375</lpuId>
+                <name>Капинос филиал 1 с ЭКГ 88</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>236367538</id>
+                    <name>88</name>
+                    <room>
+                        <id>28657373</id>
+                        <number>88</number>
+                        <lpuId>10000375</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 Ф 1 (ГП 16)</lpuShortName>
+                        <addressPointId>2122269</addressPointId>
+                        <defaultAddress>Москва, улица Старый Гай, д. 5</defaultAddress>
+                        <availabilityDate>2023-05-03T08:00:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>19905398983</id>
+                <lpuId>204</lpuId>
+                <name>ТЕСТ_Артур_Прием</name>
+                <arType>20</arType>
+                <specialityChangeAbility>false</specialityChangeAbility>
+                <ldpType>
+                    <code>600020</code>
+                    <name>ЭКГ</name>
+                </ldpType>
+                <complexResource>
+                    <id>236399313</id>
+                    <name>113</name>
+                    <room>
+                        <id>10480032</id>
+                        <number>113</number>
+                        <lpuId>204</lpuId>
+                        <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                        <addressPointId>9133131</addressPointId>
+                        <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                        <availabilityDate>2023-05-02T15:45:00+03:00</availabilityDate>
+                    </room>
+                </complexResource>
+                <district>false</district>
+                <replacement>false</replacement>
+                <nondistrict>true</nondistrict>
+                <availableByReferral>true</availableByReferral>
+            </availableResource>
+            <availableResource>
+                <id>20455900839</id>
+                <lpuId>204</lpuId>
+                <name>Беда Р. А. </name>
+                    <arType>20</arType>
+                    <specialityChangeAbility>false</specialityChangeAbility>
+                    <ldpType>
+                        <code>600020</code>
+                        <name>ЭКГ</name>
+                    </ldpType>
+                    <complexResource>
+                        <id>240926738</id>
+                        <name>1602</name>
+                        <room>
+                            <id>30510573</id>
+                            <number>1602</number>
+                            <lpuId>204</lpuId>
+                            <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                            <addressPointId>9133131</addressPointId>
+                            <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                            <availabilityDate>2023-05-02T16:00:00+03:00</availabilityDate>
+                        </room>
+                    </complexResource>
+                    <district>false</district>
+                    <replacement>false</replacement>
+                    <nondistrict>true</nondistrict>
+                    <availableByReferral>true</availableByReferral>
+                </availableResource>
+                <availableResource>
+                    <id>19903301831</id>
+                    <lpuId>204</lpuId>
+                    <name>Беда ЭКГ 81</name>
+                    <arType>20</arType>
+                    <specialityChangeAbility>false</specialityChangeAbility>
+                    <ldpType>
+                        <code>600020</code>
+                        <name>ЭКГ</name>
+                    </ldpType>
+                    <complexResource>
+                        <id>236285538</id>
+                        <name>81</name>
+                        <room>
+                            <id>28630723</id>
+                            <number>8141</number>
+                            <lpuId>204</lpuId>
+                            <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                            <addressPointId>9133131</addressPointId>
+                            <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                            <availabilityDate>2023-05-02T16:00:00+03:00</availabilityDate>
+                        </room>
+                    </complexResource>
+                    <district>false</district>
+                    <replacement>false</replacement>
+                    <nondistrict>true</nondistrict>
+                    <availableByReferral>true</availableByReferral>
+                </availableResource>
+                <availableResource>
+                    <id>19903301835</id>
+                    <lpuId>204</lpuId>
+                    <name>111_тест_1</name>
+                    <arType>20</arType>
+                    <specialityChangeAbility>false</specialityChangeAbility>
+                    <ldpType>
+                        <code>22109</code>
+                        <name>Передача ЭКГ по каналам связи (телефон,радио и т.д.)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22105</code>
+                        <name>ЭКГ (в 12-ти отведениях) ПА5-02</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22106</code>
+                        <name>ЭКГ (в 12-ти отведениях) 2-3-канальным электрокардиографом</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122160</code>
+                        <name>Съемка ЭКГ без врачебного анализа</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22107</code>
+                        <name>ЭКГ переносным аппаратом в палатах стационара  и др. помещениях  ЛПУ по вызову (вне кабинетов ЭКГ);в т.ч. по cito</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22108</code>
+                        <name>ЭКГ переносным аппаратом на дому</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22101</code>
+                        <name>ЭКГ (в 12-ти отведениях) 6-ти канальным неавтоматизированным  электрокардиографом</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22102</code>
+                        <name>ЭКГ (в 12-ти отведениям) одноканальным неавтоматизированным  электрокардиографом</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22103</code>
+                        <name>ЭКГ (в 12-ти отведениях) ЭКЧМП-3050</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22104</code>
+                        <name>ЭКГ (в 12-ти отведениях) ЭКЧМП-3051</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>26192</code>
+                        <name>Тромбоэластография</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600121</code>
+                        <name>Регистрация ЭКГ в одном отведении для оценки ритма у детей</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600640</code>
+                        <name>ЭКГ переносным аппаратом на дому у детей</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600120</code>
+                        <name>Дополнительное ЭКГ-исследование в 3-х отведениях у детей</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>35212</code>
+                        <name>RG-графия трубчатых костей</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22116</code>
+                        <name>Функциональная проба при ЭКГ с бегом на месте (дополнительно к основной ЭКГ)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>40006</code>
+                        <name>Эластометрия печени</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22117</code>
+                        <name>Физическая нагрузка в виде 20 приседаний (дополнительно к основному ЭКГ-исследованию)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22118</code>
+                        <name>ЭКГ в условиях непрерывного потока исследуемых при медицинских осмотрах организованных групп 6-канальными или автоматическими приборами</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22119</code>
+                        <name>ЭКГ в условиях непрерывного потока при медицинских осмотрах организованных групп 1-канальными неавтоматизированными аппаратами</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22112</code>
+                        <name>Регистрация ЭКГ в одном отведении для оценки ритма (дополнительно к основной ЭКГ)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22113</code>
+                        <name>ЭКГ по Небу</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>135103</code>
+                        <name>Rg-графия брюшной полости (обзорная)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22114</code>
+                        <name>Медикаментозные пробы при ЭКГ (дополнительно к основной ЭКГ)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>126192</code>
+                        <name>Тромбоэластография</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22115</code>
+                        <name>Ортостатическая проба при ЭКГ (дополнительно к основной ЭКГ)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>135226</code>
+                        <name>Rg-графия височных костей, височно-челюстных суставов, сосцевидных отростков</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22110</code>
+                        <name>Прием и расшифровка ЭКГ, переданных по каналам связи (телефон, радио и т.д.)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22111</code>
+                        <name>Дополнительное ЭКГ-исследование в 3-х отведениях (дополнительно к 22.101 и 22.109)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122119</code>
+                        <name>ЭКГ в условиях непрерывного потока при мед. осмотрах организованных групп 1-канальными  неавтом. аппаратами</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22160</code>
+                        <name>Съемка ЭКГ без врачебного анализа</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122117</code>
+                        <name>Физич. нагрузка в виде 20 приседаний (допол. к основному ЭКГ-исслед)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122118</code>
+                        <name>ЭКГв условях непрерывного    потока исследуемых при медицинских  осмотрах  организованных  групп  6-канальными  или автоматизированными приборами</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>35109</code>
+                        <name>Холангиохолецистография внутривеннная</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122111</code>
+                        <name>Дополнит. ЭКГ-исследование в 3-х отведениях (дополнительно к 122.106 и 122.107)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>35103</code>
+                        <name>Rg-графия брюшной полости (обзорная)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122112</code>
+                        <name>Регистрация ЭКГ в одном отвед. для оценки ритма (дополнит. к основной ЭКГ)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>35226</code>
+                        <name>Rg-графия височных костей,височно-челюст. суставов,сосцев. отростков</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122110</code>
+                        <name>Прием и расшиф.ЭКГ, переданных по каналам связи (телефон, радио и т.д.)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122115</code>
+                        <name>Ортостатическая проба при ЭКГ (дополнительно к основной ЭКГ)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122116</code>
+                        <name>Функцион. проба при ЭКГ с бегом на месте (дополнит. к основной ЭКГ)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122113</code>
+                        <name>ЭКГ по Небу</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>140006</code>
+                        <name>Эластометрия печени у детей</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122114</code>
+                        <name>Медикаментозные пробы при ЭКГ (дополнительно к основной ЭКГ)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600306</code>
+                        <name>Холтеровское мониторирование ЭКГ у детей</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>135212</code>
+                        <name>RG-графия трубчатых костей</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>22720</code>
+                        <name>ЭКГ плода</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122108</code>
+                        <name>ЭКГ переносным аппаратом на дому</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122109</code>
+                        <name>Передача ЭКГ по каналам связи (телефон,радио и т.д.)</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122106</code>
+                        <name>ЭКГ (в 12-ти отведениях) 2-3-канальным электрокардиографом</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122107</code>
+                        <name>ЭКГпереносным аппаратом в палатах стационара и др.помещениях ЛПУ по вызову (вне кабинета ЭКГ);в том числе по cito</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122101</code>
+                        <name>ЭКГ (в 12-ти отведениях) 6-ти канал. неавтоматизир. электрокардиографом</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600022</code>
+                        <name>Регистрация ЭКГ в одном отведении для оценки ритма</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122104</code>
+                        <name>ЭКГ (в 12-ти отведениях) ЭКЧМП-3051</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122105</code>
+                        <name>ЭКГ (в 12-ти отведениях) ПА5-02</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122102</code>
+                        <name>ЭКГ (в 12-ти отведениях) одноканальным неавтоматиз. электрокардиографом</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600021</code>
+                        <name>Дополнительное ЭКГ-исследование в 3-х отведениях</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>122103</code>
+                        <name>ЭКГ (в 12-ти отведениях) ЭКЧМП-3050</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600020</code>
+                        <name>ЭКГ</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600119</code>
+                        <name>ЭКГ у детей</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>135006</code>
+                        <name>Rg-графия диафрагмы</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600639</code>
+                        <name>ЭКГ переносным аппаратом на дому</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>135206</code>
+                        <name>Rg-графия грудн. отдела позвоноч.,грудины, ребер во время дыхания</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>35005</code>
+                        <name>Rg-графия гортани</name>
+                    </ldpType>
+                    <ldpType>
+                        <code>600033</code>
+                        <name>Холтеровское мониторирование ЭКГ</name>
+                    </ldpType>
+                    <complexResource>
+                        <id>236291688</id>
+                        <name>333 (ЭКГ)</name>
+                        <room>
+                            <id>28627648</id>
+                            <number>333 (ЭКГ)</number>
+                            <lpuId>204</lpuId>
+                            <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                            <addressPointId>9133131</addressPointId>
+                            <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                            <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                        </room>
+                    </complexResource>
+                    <complexResource>
+                        <id>236292713</id>
+                        <name>8690</name>
+                    </complexResource>
+                    <district>false</district>
+                    <replacement>false</replacement>
+                    <nondistrict>true</nondistrict>
+                    <availableByReferral>true</availableByReferral>
+                </availableResource>
+                <availableResource>
+                    <id>19913787573</id>
+                    <lpuId>204</lpuId>
+                    <name>Медсестра ФД_Силина</name>
+                    <arType>20</arType>
+                    <specialityChangeAbility>false</specialityChangeAbility>
+                    <ldpType>
+                        <code>600020</code>
+                        <name>ЭКГ</name>
+                    </ldpType>
+                    <complexResource>
+                        <id>236780613</id>
+                        <name>113</name>
+                        <room>
+                            <id>10480032</id>
+                            <number>113</number>
+                            <lpuId>204</lpuId>
+                            <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                            <addressPointId>9133131</addressPointId>
+                            <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                            <availabilityDate>2023-05-02T15:40:00+03:00</availabilityDate>
+                        </room>
+                    </complexResource>
+                    <district>false</district>
+                    <replacement>false</replacement>
+                    <nondistrict>true</nondistrict>
+                    <availableByReferral>true</availableByReferral>
+                </availableResource>
+                <availableResource>
+                    <id>17569174163</id>
+                    <lpuId>204</lpuId>
+                    <name>Тест_Денис_Прием</name>
+                    <arType>20</arType>
+                    <specialityChangeAbility>false</specialityChangeAbility>
+                    <ldpType>
+                        <code>600020</code>
+                        <name>ЭКГ</name>
+                    </ldpType>
+                    <complexResource>
+                        <id>140307613</id>
+                        <name>113</name>
+                    </complexResource>
+                    <complexResource>
+                        <id>215182838</id>
+                        <name>321</name>
+                        <room>
+                            <id>10004275</id>
+                            <number>321</number>
+                            <lpuId>204</lpuId>
+                            <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                            <addressPointId>9133131</addressPointId>
+                            <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                            <availabilityDate>2023-05-02T15:45:00+03:00</availabilityDate>
+                        </room>
+                    </complexResource>
+                    <district>false</district>
+                    <replacement>false</replacement>
+                    <nondistrict>true</nondistrict>
+                    <availableByReferral>true</availableByReferral>
+                </availableResource>
+                <availableResource>
+                    <id>20019693639</id>
+                    <lpuId>204</lpuId>
+                    <name>
+                        102 Полинский Д. Г. (ИиП)</name>
+                        <arType>20</arType>
+                        <specialityChangeAbility>false</specialityChangeAbility>
+                        <ldpType>
+                            <code>600020</code>
+                            <name>ЭКГ</name>
+                        </ldpType>
+                        <complexResource>
+                            <id>237983963</id>
+                            <name>102</name>
+                            <room>
+                                <id>29452773</id>
+                                <number>102</number>
+                                <lpuId>204</lpuId>
+                                <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                                <addressPointId>9133131</addressPointId>
+                                <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                                <availabilityDate>2023-05-03T08:00:00+03:00</availabilityDate>
+                            </room>
+                        </complexResource>
+                        <district>false</district>
+                        <replacement>false</replacement>
+                        <nondistrict>true</nondistrict>
+                        <availableByReferral>true</availableByReferral>
+                    </availableResource>
+                    <availableResource>
+                        <id>20059539489</id>
+                        <lpuId>204</lpuId>
+                        <name>Туманова инфомат</name>
+                        <arType>10</arType>
+                        <specialityChangeAbility>false</specialityChangeAbility>
+                        <arSpecialityId>10</arSpecialityId>
+                        <arSpecialityName>Врач-эндокринолог</arSpecialityName>
+                        <mainDoctor>
+                            <specialityName>Врач-эндокринолог</specialityName>
+                            <specialityId>10</specialityId>
+                            <firstName>Татьяна</firstName>
+                            <lastName>Туманова</lastName>
+                            <secondName>Викторовна</secondName>
+                            <mejiId>10008483</mejiId>
+                            <employeeId>10006779</employeeId>
+                        </mainDoctor>
+                        <ldpType>
+                            <code>600020</code>
+                            <name>ЭКГ</name>
+                        </ldpType>
+                        <complexResource>
+                            <id>238369363</id>
+                            <name>101</name>
+                            <room>
+                                <id>29451748</id>
+                                <number>101</number>
+                                <lpuId>204</lpuId>
+                                <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                                <addressPointId>9133131</addressPointId>
+                                <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                                <availabilityDate>2023-05-02T16:00:00+03:00</availabilityDate>
+                            </room>
+                        </complexResource>
+                        <district>false</district>
+                        <replacement>false</replacement>
+                        <nondistrict>true</nondistrict>
+                        <availableByReferral>true</availableByReferral>
+                    </availableResource>
+                    <availableResource>
+                        <id>19907496138</id>
+                        <lpuId>204</lpuId>
+                        <name>Тест_Барский</name>
+                        <arType>20</arType>
+                        <specialityChangeAbility>false</specialityChangeAbility>
+                        <ldpType>
+                            <code>600020</code>
+                            <name>ЭКГ</name>
+                        </ldpType>
+                        <complexResource>
+                            <id>239188338</id>
+                            <name>402</name>
+                        </complexResource>
+                        <complexResource>
+                            <id>240290213</id>
+                            <name>000001</name>
+                            <room>
+                                <id>29801273</id>
+                                <number>00016С</number>
+                                <lpuId>204</lpuId>
+                                <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                                <addressPointId>9133131</addressPointId>
+                                <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                                <availabilityDate>2023-05-02T16:00:00+03:00</availabilityDate>
+                            </room>
+                        </complexResource>
+                        <complexResource>
+                            <id>240291238</id>
+                            <name>102</name>
+                        </complexResource>
+                        <district>false</district>
+                        <replacement>false</replacement>
+                        <nondistrict>true</nondistrict>
+                        <availableByReferral>true</availableByReferral>
+                    </availableResource>
+                    <availableResource>
+                        <id>20506232439</id>
+                        <lpuId>204</lpuId>
+                        <name>Щербакова В. И. </name>
+                            <arType>10</arType>
+                            <specialityChangeAbility>false</specialityChangeAbility>
+                            <arSpecialityId>602</arSpecialityId>
+                            <arSpecialityName>Врач-терапевт участковый</arSpecialityName>
+                            <mainDoctor>
+                                <specialityName>Врач-терапевт участковый</specialityName>
+                                <specialityId>602</specialityId>
+                                <firstName>Вера</firstName>
+                                <lastName>Щербакова</lastName>
+                                <secondName>Ильинична</secondName>
+                                <mejiId>13024415078</mejiId>
+                                <employeeId>19134112</employeeId>
+                            </mainDoctor>
+                            <ldpType>
+                                <code>600020</code>
+                                <name>ЭКГ</name>
+                            </ldpType>
+                            <complexResource>
+                                <id>241130713</id>
+                                <name>1602</name>
+                                <room>
+                                    <id>30510573</id>
+                                    <number>1602</number>
+                                    <lpuId>204</lpuId>
+                                    <lpuShortName>ГБУЗ ГП 175 ДЗМ</lpuShortName>
+                                    <addressPointId>9133131</addressPointId>
+                                    <defaultAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</defaultAddress>
+                                    <availabilityDate>2023-05-02T16:00:00+03:00</availabilityDate>
+                                </room>
+                            </complexResource>
+                            <district>false</district>
+                            <replacement>false</replacement>
+                            <availableByReferral>true</availableByReferral>
+                        </availableResource>
+                    </ns3:getDoctorsInfoResponse>
+                </soap:Body>
+            </soap:Envelope>

@@ -1,0 +1,8 @@
+bzhdEndpoint=http://bzhd.test.emias.mos.ru
+bzhdDbConnection=
+bzhdDbLogin=
+bzhdDbPassword=
+bzhdFullDbConnection=
+bzhdDbDriver=
+acquireRemoteId_oms=
+acquireRemoteId_birthDate=

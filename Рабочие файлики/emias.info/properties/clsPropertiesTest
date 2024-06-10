@@ -1,0 +1,6 @@
+clsDictionariesEndpoint=http://cls.test.emias.mos.ru/laboratory/application/api/Dictionaries
+clsDbConnection=10.2.172.21:1521/emiasdb
+clsDbLogin=EMIAS_CLS
+clsDbPassword=EMIAS_CLS
+clsFullDbConnection=jdbc:oracle:thin:EMIAS_CLS/EMIAS_CLS@//10.2.172.21:1521/emiasdb
+clsDBDriver=oracle.jdbc.driver.OracleDriver

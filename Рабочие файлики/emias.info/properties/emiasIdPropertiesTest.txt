@@ -1,0 +1,1 @@
+emiasIdEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/instrumental/assignment/v2.2S/ProxyService

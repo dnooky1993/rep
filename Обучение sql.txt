@@ -1,0 +1,139 @@
+SELECT OMS_assurance_series FROM EMIAS_CLUSTER.PATIENT - выбрать серии омс из таблицы пациентов
+
+SELECT * FROM EMIAS_CLUSTER.PATIENT - показать все колонки из таблицы пациентов
+
+SELECT * FROM EMIAS_CLUSTER.PATIENT WHERE FIRST_NAME = 'Константин'
+только пациентов с именем Константин
+
+SELECT * FROM EMIAS_CLUSTER.PATIENT WHERE BIRTH_DATE BETWEEN TO_DATE('1984-07-08 00:00:00','YYYY-MM-DD HH24:MI:SS') AND TO_DATE('1986-07-08 00:00:00','YYYY-MM-DD HH24:MI:SS')
+- с промежутком даты рождения
+
+SELECT * FROM EMIAS_CLUSTER.PATIENT WHERE BIRTH_DATE > SYSDATE -INTERVAL '12' YEAR - те, кому от текущей даты меньше 12 лет
+
+SELECT * FROM EMIAS_CLUSTER.PATIENT WHERE SECOND_NAME LIKE '_ко%'
+фамилия со 2й и 3й буквами "КО"
+
+SELECT * FROM EMIAS_CLUSTER.PATIENT WHERE CITY NOT LIKE 'М%'
+города, начинающиеся не на букву "М"
+
+SELECT * FROM EMIAS_CLUSTER.PATIENT WHERE REGEXP_LIKE (CITY, '^[Нкэ]')
+только из городов, начинающихся на "Н" "к" и "э" (регул.выражение)
+
+SELECT * FROM EMIAS_CLUSTER.PATIENT WHERE REGEXP_LIKE(LAST_NAME, '(.)\1') 
+двойная буква в фамилии ("." показывает, что нужно запомнить символ, а "\1" что его нужно еще раз подстваить после запомненного символа)
+
+
+SELECT emias_cluster.PATIENT.FIRST_NAME, emias_cluster.PATIENT.LAST_NAME, emias_cluster.PATIENT.JOB, emias_cluster.BENEFIT.BENEFIT_CODE FROM EMIAS_CLUSTER.PATIENT
+INNER JOIN EMIAS_CLUSTER.BENEFIT ON emias_cluster.patient.PATIENT_ID = emias_cluster.BENEFIT.PATIENT
+WHERE BENEFIT_CODE = '726'
+AND JOB IS NOT NULL
+AND FIRST_NAME IS NOT NULL
+Диабетики (код 726) с заполненным именем и местом работы
+
+SELECT emias_cluster.PATIENT.FIRST_NAME, emias_cluster.PATIENT.LAST_NAME, emias_cluster.PATIENT.JOB, emias_cluster.BENEFIT.BENEFIT_CODE FROM EMIAS_CLUSTER.PATIENT
+INNER JOIN EMIAS_CLUSTER.BENEFIT ON emias_cluster.patient.PATIENT_ID = emias_cluster.BENEFIT.PATIENT
+WHERE BENEFIT_CODE = '726'
+ORDER BY LAST_NAME DESC NULLS LAST
+Фильтр по фамилии с конца с нулевыми значениями в конце
+
+SELECT emias_cluster.PATIENT.FIRST_NAME, emias_cluster.PATIENT.LAST_NAME, emias_cluster.PATIENT.JOB, emias_cluster.BENEFIT.BENEFIT_CODE FROM EMIAS_CLUSTER.PATIENT
+INNER JOIN EMIAS_CLUSTER.BENEFIT ON emias_cluster.patient.PATIENT_ID = emias_cluster.BENEFIT.PATIENT
+WHERE BENEFIT_CODE = '726'
+ORDER BY SUBSTR(LAST_NAME,1,2) asc
+
+Фильтр по фамилии с начала списка по первым 2м буквам
+
+SELECT emias_cluster.PATIENT.FIRST_NAME, emias_cluster.PATIENT.LAST_NAME, emias_cluster.PATIENT.JOB, emias_cluster.BENEFIT.BENEFIT_CODE FROM EMIAS_CLUSTER.PATIENT
+INNER JOIN EMIAS_CLUSTER.BENEFIT ON emias_cluster.patient.PATIENT_ID = emias_cluster.BENEFIT.PATIENT
+WHERE BENEFIT_CODE IN ('726', '725', '702', '728')
+AND FIRST_NAME IS NOT NULL
+ORDER BY FIRST_NAME
+Отбор по нескольким значениями в коротком виде
+
+SELECT PATIENT_ID, FIRST_NAME, LAST_NAME, BIRTH_DATE, OMS_NEW_ASSURANCE_NUMBER FROM EMIAS_CLUSTER.PATIENT
+WHERE FIRST_NAME IS NOT NULL 
+AND PATIENT_ID NOT IN (SELECT patient FROM emias_cluster.BENEFIT
+WHERE document_name LIKE '%справка%')
+Подзапрос в запросе с отбором пациентов, у которых название документа о льготе не Справка
+
+SELECT PATIENT_ID, FIRST_NAME, LAST_NAME, BIRTH_DATE, OMS_NEW_ASSURANCE_NUMBER FROM EMIAS_CLUSTER.PATIENT p
+WHERE NOT EXISTS (SELECT 1 FROM emias_cluster.BENEFIT b WHERE p.PATIENT_ID=b.PATIENT)
+Подзапрос через экзист с выводом пациентов, у которых нет льгот
+
+SELECT DISTINCT FIRST_NAME, LAST_NAME, second_name, age, speciality from
+(
+SELECT emias_cluster.MEDICAL_EMPLOYEE.FIRST_NAME, emias_cluster.MEDICAL_EMPLOYEE.LAST_NAME, emias_cluster.MEDICAL_EMPLOYEE.SECOND_NAME, emias_cluster.MEDICAL_EMPLOYEE.BIRTH_DATE, 
+TRUNC(MONTHS_BETWEEN(SYSDATE, BIRTH_DATE)/12) AS age, emias_cluster.MEDICAL_EMPLOYEE_JOB_INFO.SPECIALITY_ID AS speciality, emias_cluster.MEDICAL_EMPLOYEE_JOB_INFO.JOB_START_DATE, emias_cluster.MEDICAL_EMPLOYEE_JOB_INFO.JOB_END_DATE
+FROM EMIAS_CLUSTER.MEDICAL_EMPLOYEE INNER JOIN EMIAS_CLUSTER.MEDICAL_EMPLOYEE_JOB_INFO ON emias_cluster.MEDICAL_EMPLOYEE.ID = emias_cluster.MEDICAL_EMPLOYEE_JOB_INFO.MEDICAL_EMPLOYEE_ID
+WHERE emias_cluster.MEDICAL_EMPLOYEE_JOB_INFo.SPECIALITY_ID = '3'
+AND TRUNC(MONTHS_BETWEEN(SYSDATE, BIRTH_DATE)/12) IS NOT NULL
+)
+WHERE age BETWEEN '30' AND '40'
+Подзапрос с подсчетом возраста, с выводом 1 результата по каждому сотрудникe, который еще работает в должности врача хирурга
+
+SELECT emias_cluster.PATIENT.FIRST_NAME, emias_cluster.PATIENT.LAST_NAME, emias_cluster.PATIENT.BIRTH_DATE, emias_cluster.SOCIAL_STATUS.NAME FROM EMIAS_CLUSTER.PATIENT
+INNER JOIN EMIAS_CLUSTER.SOCIAL_STATUS ON emias_cluster.PATIENT.SOCIAL_STATUS_CODE = emias_cluster.SOCIAL_STATUS.CODE
+ORDER BY CASE NAME
+ WHEN 'Военнослужащий' THEN 1
+ WHEN 'Работающий' THEN 2
+ ELSE 3
+END;
+Кастомная сортировка по соц.статусу через выражение 
+
+
+SELECT NAME,
+CASE
+	WHEN Name LIKE '%Дошкольник%' THEN 'Совсем малой'
+	WHEN name LIKE 'Учащийся' THEN 'Малой'
+	WHEN name LIKE 'Работающий' THEN 'Большой'
+	WHEN name LIKE 'Пенсионер' THEN 'Совсем большой'
+	ELSE 'Нипанятна'
+	END AS class
+FROM emias_Cluster.SOCIAL_STATUS
+ORDER BY Class
+Разбиение через кейс на группы
+
+
+SELECT BENEFIT_CODE, count (*) FROM EMIAS_CLUSTER.BENEFIT
+GROUP BY BENEFIT_CODE
+HAVING BENEFIT_CODE = '82
+Сгруппировать по типу льготы с кол-вом в каждой группе, а также вывести только кол-во пациентов с кодом льготы 82
+
+
+
+SELECT ACTUAL_CITY, SOCIAL_STATUS_CODE, listagg (LAST_NAME, ';')
+WITHIN GROUP (ORDER BY SOCIAL_STATUS_CODE DESC) AS list
+FROM PATIENT
+GROUP BY ACTUAL_CITY, SOCIAL_STATUS_CODE
+Пациенты, живущие в Москве с одинаковым соц статусом. (не выполнится т.к. слишком много фамилий)
+
+UPDATE EMIAS_RESOURCES2_NEW_DEV.MEDICAL_FACILITY
+SET NAME_SHORT = 'йц666'
+WHERE NAME_SHORT = 'йц5'
+Обновить имя му
+
+SELECT * FROM USER_CONSTRAINTS
+WHERE table_name = 'medical_facility'
+Посмотреть ограничения
+
+INSERT INTO EMIAS_RESOURCES2_NEW_DEV.MEDICAL_FACILITY
+VALUES (30333, 0, 2000, 'Тест', 'Тестовое', 'Полнеое тестовое', 0, NULL, NULL, Null)
+Создать запись в бд
+
+SELECT * FROM 
+(SELECT * FROM EMIAS_RESOURCES2_NEW_DEV.MEDICAL_FACILITY ORDER BY id DESC)
+WHERE rownum < 5
+Вывести первые 4 строки му с самым большим номером id
+
+DELETE FROM EMIAS_RESOURCES2_NEW_DEV.MEDICAL_FACILITY WHERE NAME_SHORT = 'Тест'
+Удалить строку
+
+
+
+
+
+
+
+
+
+

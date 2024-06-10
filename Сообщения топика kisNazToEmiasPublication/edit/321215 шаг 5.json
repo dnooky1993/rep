@@ -1,0 +1,48 @@
+{
+	"patientInfo": {
+		"emiasId": "20948239",
+		"caseNum": "49955-2023",
+		"caseDate": "2012-04-23"
+	},
+	"moInfo": {
+		"moId": "14932313293",
+		"moName": "ГБУЗ «НИИ СП им. Н. В. Склифосовского ДЗМ»"
+	},
+	"mdInfo": {
+		"mdSurname": "Петров",
+		"mdName": "Иван",
+		"mdPatron": "Михайлович",
+		"mdPosition": "Заведующий отделением эндокринологии"
+	},
+	"hospInfo": {
+		"patientId": "20948239",
+		"naz_id": "dfb8941b-9539-4e43-acb1-324fac62c201",
+		"case_id": "ca5a762c-0611-442c-a452-0957b71b84e1"
+	},
+	"appointment": {
+		"state": "edit",
+		"timestamp": "2023-08-23T18:25:43.511Z",
+		"name": "Таблетки",
+		"urgency": "Плановая",
+		"appointTimestamp": "2023-09-28T18:25:43.511Z",
+		"drugAssignment": {
+			"drug": [
+				{
+					"dose": "0,75 мГ/3 капсулы",
+					"unitsNumber": "1 таблетка"
+				},
+				{
+					"dose": "2 мг",
+					"unitsNumber": "1 таблетка"
+				}
+			],
+			"introduction": "Парабульбарно",
+			"repetition": "24 т/д",
+			"applyFrom": "2023-08-23",
+			"duration": "5 дней",
+			"relativeFeed": "До еды",
+			"justification": "Высыпания",
+			"notice": "Капсулу для приёма извлекать из блистера"
+		}
+	}
+}

@@ -1,0 +1,31 @@
+{
+  "patientInfo": {
+    "emiasId": "12003",
+    "caseNum": "9260-23-С",
+    "caseDate": "2023-03-21"
+  },
+  "moInfo": {
+    "moId": "10492228",
+    "moName": "ГБУЗ \"НИИ СП им. Н.В. Склифосовского ДЗМ\""
+  },
+  "mdInfo": {
+    "mdSurname": "ВРАЧ",
+    "mdName": "НЕ",
+    "mdPatron": "ТРОГАТЬ",
+    "mdPosition": "Врач-акушер-гинеколог"
+  },
+  "hospInfo": {
+    "patientId": "e5f37ebb-24f0-11ec-8a2e-00155d03ca20",
+    "naz_id": "4f2358f8-0fa1-4807-849c-2f2caba2a971",
+    "case_id": "2ddfeca5-7da1-4aa3-b4a9-dab19fdb82e2"
+  },
+  "appointment": {
+    "state": "edit",
+	"create_dt": "2023-12-10T10:41:56.098Z",
+    "timestamp": "2023-12-19T13:01:09.568Z",
+    "name": "Анализ ткани",
+    "appointTimestamp": "2023-12-21T17:11:42.000Z",
+    "type": "histology",
+    "urgency": "Экстренная"
+  }
+}

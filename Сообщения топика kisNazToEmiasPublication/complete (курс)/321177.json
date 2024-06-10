@@ -1,0 +1,60 @@
+{
+	"patientInfo": {
+		"emiasId": "22479058",
+		"caseNum": "49955-2023",
+		"caseDate": "2012-04-23"
+	},
+	"moInfo": {
+		"moId": "204",
+		"moName": "ГБУЗ ГП №175 ДЗМ"
+	},
+	"mdInfo": {
+		"mdSurname": "Петров",
+		"mdName": "Иван",
+		"mdPatron": "Михайлович",
+		"mdPosition": "Заведующий отделением эндокринологии"
+	},
+	"hospInfo": {
+		"patientId": "22479058",
+		"naz_id": "0501d275-cbf0-40e3-8f3d-04a0cf510llkqg2",
+		"case_id": "ca5a762c-0611-442c-a452-0957b71b84e1"
+	},
+	"appointment": {
+		"state": "complete",
+		"timestamp": "2023-08-23T18:25:43.511Z",
+		"name": "Телемедицинская консультация",
+		"urgency": "Плановая",
+		"appointTimestamp": "2023-09-27T18:25:43.511Z",
+		"drugAssignment": {
+			"drug": [
+				{
+					"mnnName": "Дихлорэтана трихитронитротолуол бериллия",
+					"dose": "0,25",
+					"unitsNumber": "1"
+				},
+				{
+					"mnnName": "Анальгин",
+					"dose": "2 мг",
+					"unitsNumber": "1 табл."
+				}
+			],
+			"introduction": "Парабульбарно",
+			"repetition": "24 т/д",
+			"applyFrom": "2023-08-23",
+			"duration": "5 дней",
+			"schedule": {
+				"assigned": [
+				"2012-04-23", 
+				"2012-04-24"
+				],
+				"timeslot": [
+				"06:00", 
+				"18:00"
+				]
+			},
+			"relativeFeed": "До еды",
+			"justification": "Высыпания",
+			"notice": "Капсулу для приёма извлекать из блистера"
+		}
+	}
+}

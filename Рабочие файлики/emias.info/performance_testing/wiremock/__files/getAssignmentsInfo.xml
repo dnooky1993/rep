@@ -1,0 +1,226 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+        <ns2:getAssignmentsInfoResponse xmlns:ns2="http://api.service.soap.emias.lanit.ru/v5/">
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>1</id>
+                    <name>Взятие венозной крови</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010873</entryId>
+                    <laboratoryId>2906</laboratoryId>
+                    <laboratoryName>Общий клинический анализ крови (скрининг)</laboratoryName>
+                    <biomaterialId>2</biomaterialId>
+                    <biomaterialName>Кровь цельная</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>4</id>
+                    <name>Цитологическое исследование мазка с шейки матки</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010872</entryId>
+                    <laboratoryId>2491</laboratoryId>
+                    <laboratoryName>Цитологическое исследование материала, полученного при гинекологическом осмотре (проф.скрининге)</laboratoryName>
+                    <biomaterialId>59</biomaterialId>
+                    <biomaterialName>Соскоб с шейки матки</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>1</id>
+                    <name>Взятие венозной крови</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010873</entryId>
+                    <laboratoryId>2906</laboratoryId>
+                    <laboratoryName>Общий клинический анализ крови (скрининг)</laboratoryName>
+                    <biomaterialId>2</biomaterialId>
+                    <biomaterialName>Кровь цельная</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>4</id>
+                    <name>Цитологическое исследование мазка с шейки матки</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010872</entryId>
+                    <laboratoryId>2491</laboratoryId>
+                    <laboratoryName>Цитологическое исследование материала, полученного при гинекологическом осмотре (проф.скрининге)</laboratoryName>
+                    <biomaterialId>59</biomaterialId>
+                    <biomaterialName>Соскоб с шейки матки</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>1</id>
+                    <name>Взятие венозной крови</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010873</entryId>
+                    <laboratoryId>2906</laboratoryId>
+                    <laboratoryName>Общий клинический анализ крови (скрининг)</laboratoryName>
+                    <biomaterialId>2</biomaterialId>
+                    <biomaterialName>Кровь цельная</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>4</id>
+                    <name>Цитологическое исследование мазка с шейки матки</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010872</entryId>
+                    <laboratoryId>2491</laboratoryId>
+                    <laboratoryName>Цитологическое исследование материала, полученного при гинекологическом осмотре (проф.скрининге)</laboratoryName>
+                    <biomaterialId>59</biomaterialId>
+                    <biomaterialName>Соскоб с шейки матки</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>1</id>
+                    <name>Взятие венозной крови</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010873</entryId>
+                    <laboratoryId>2906</laboratoryId>
+                    <laboratoryName>Общий клинический анализ крови (скрининг)</laboratoryName>
+                    <biomaterialId>2</biomaterialId>
+                    <biomaterialName>Кровь цельная</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>4</id>
+                    <name>Цитологическое исследование мазка с шейки матки</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010872</entryId>
+                    <laboratoryId>2491</laboratoryId>
+                    <laboratoryName>Цитологическое исследование материала, полученного при гинекологическом осмотре (проф.скрининге)</laboratoryName>
+                    <biomaterialId>59</biomaterialId>
+                    <biomaterialName>Соскоб с шейки матки</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>1</id>
+                    <name>Взятие венозной крови</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010873</entryId>
+                    <laboratoryId>2906</laboratoryId>
+                    <laboratoryName>Общий клинический анализ крови (скрининг)</laboratoryName>
+                    <biomaterialId>2</biomaterialId>
+                    <biomaterialName>Кровь цельная</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+            <assignment>
+                <moId>204</moId>
+                <toBM>
+                    <id>4</id>
+                    <name>Цитологическое исследование мазка с шейки матки</name>
+                    <self>false</self>
+                </toBM>
+                <period>
+                    <dateFrom>2023-01-10</dateFrom>
+                    <dateTo>2023-12-31</dateTo>
+                </period>
+                <active>true</active>
+                <appointmentAvailable>true</appointmentAvailable>
+                <registryEntry>
+                    <entryId>152010872</entryId>
+                    <laboratoryId>2491</laboratoryId>
+                    <laboratoryName>Цитологическое исследование материала, полученного при гинекологическом осмотре (проф.скрининге)</laboratoryName>
+                    <biomaterialId>59</biomaterialId>
+                    <biomaterialName>Соскоб с шейки матки</biomaterialName>
+                    <hasMemo>false</hasMemo>
+                </registryEntry>
+            </assignment>
+        </ns2:getAssignmentsInfoResponse>
+    </soap:Body>
+</soap:Envelope>

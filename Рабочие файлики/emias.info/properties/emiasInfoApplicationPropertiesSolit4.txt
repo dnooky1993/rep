@@ -1,0 +1,7 @@
+emiasInfoEndpoint=http://application-emiasinfo4.emias.solit-clouds.ru/
+emiasInfoDbConnection=172.17.5.11:29301/emiasinfoapp
+emiasInfoDbLogin=emiasinfoapp
+emiasInfoDbPassword=emiasinfoapp
+emiasInfoFullDbConnection=jdbc:postgresql://172.17.5.11:29301/emiasinfoapp?user=emiasinfoapp&password=emiasinfoapp
+emiasInfoDBDriver=org.postgresql.Driver
+env=solit4

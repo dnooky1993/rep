@@ -1,0 +1,49 @@
+{
+  "patientInfo": {
+    "emiasId": "12003",
+    "caseNum": "8118-23-С",
+    "caseDate": "2023-03-15"
+  },
+  "moInfo": {
+    "moId": "10492228",
+    "moName": "ГБУЗ \"НИИ СП им. Н.В. Склифосовского ДЗМ\""
+  },
+  "mdInfo": {
+    "mdSurname": "КОРНЯКОВ",
+    "mdName": "НАРАН",
+    "mdPatron": "АРСЛАНОВИЧ",
+    "mdPosition": "Логопед"
+  },
+  "hospInfo": {
+    "patientId": "820eb99c-19e9-4b54-ae32-681ddb962d1f",
+    "naz_id": "7c9bbac7-7c68-47ae-9269-94364113c894",
+    "case_id": "a1cb5cc5-5f8b-4928-9e7e-db53658e37b9"
+  },
+  "appointment": {
+    "state": "edit",
+	"create_dt": "2023-12-10T10:41:56.098Z",
+    "timestamp": "2023-12-21T14:47:26.551Z",
+    "name": "Бронхо-альвеолярный лаваж",
+    "type": "procedure",
+    "urgency": "Плановая",
+    "appointTimestamp": "2023-12-21T14:46:30.000Z",
+    "procedures": {
+      "quantity": "10",
+      "multiplicity": "3",
+      "schedule": {
+        "daily": "Ежедневно",
+        "assigned": [
+          "2023-12-21",
+          "2023-12-22",
+          "2023-12-23",
+          "2023-12-24"
+        ],
+        "timeslot": [
+          "00:00",
+          "12:00",
+          "17:00"
+        ]
+      }
+    }
+  }
+}

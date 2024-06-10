@@ -1,0 +1,1 @@
+chatBotEndPoint=http://esbcamelvv.test.emias.mos.ru/proxy/chatbot/interviewService/v1S/ProxyService

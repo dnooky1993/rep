@@ -1,0 +1,6 @@
+pdnEndpoint=http://esbcamel.test.emias.mos.ru/proxy/dnpdn/dnpdnService/v2S/ProxyService
+pdnDbConnection=10.2.172.41:5432/dnpdn
+pdnDbLogin=dnpdn
+pdnDbPassword=dnpdn
+pdnFullDbConnection=jdbc:postgresql://10.2.172.41/dnpdn?user=dnpdn&password=dnpdn
+pdnDBDriver=org.postgresql.Driver

@@ -1,0 +1,42 @@
+{
+	"patientInfo": {
+		"emiasId": "20948239",
+		"caseNum": "49956-2023",
+		"caseDate": "2023-08-21"
+	},
+	"moInfo": {
+		"moId": "204",
+		"moName": "ГБУЗ ГП №175 ДЗМ"
+	},
+	"mdInfo": {
+		"mdSurname": "Петров",
+		"mdName": "Иван",
+		"mdPatron": "Михайлович",
+		"mdPosition": "Заведующий отделением эндокринологии"
+	},
+	"hospInfo": {
+		"patientId": "20948239",
+		"naz_id": "dfb8941b-9539-4e43-acb1-324fac62c280",
+		"case_id": "4639e096-75e2-470e-859c-6868b539eb78"
+	},
+	"appointment": {
+		"state": "new",
+		"timestamp": "2023-08-22T17:25:43.511Z",
+		"name": "Забор крови",
+		"urgency": "Плановая",
+		"appointTimestamp": "2023-08-23T18:00:00.000Z",
+		"procedures": {
+			"multiplicity": "3",
+			"duration": {
+				"minutes": "30"
+			},
+			"schedule": {
+				"daily": "В дату",
+				"assigned": [
+					"2023-04-20",
+					"2023-04-21"
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,80 @@
+Для автотестов
+
+ЗАПУСТИТЬ ШАГ
+testRunner.runTestStepByName("getDrugInfo")
+
+JSONPATH
+ПОИСК JSONPATH БЕЗ []
+$.error.code - расписать весь путь (иначе $..code вернет ответ со скобками [])
+ПРОВЕРИТЬ ЕСТЬ ЛИ НУЖНЫЙ ПАРАМЕТР И ЕСЛИ ЕСТЬ ВЫВЕСТИ ДРУГОЙ
+$.subscription[?(@.notificationFormat)].destinationAddress
+
+
+XPATH
+ПОЛУЧИТЬ ЗНАЧЕНИЕ АТРИБУТА XML
+//ResultSet/@fetchSize (иногда может быть пример - //*:medication[2]//*:medicationInfo[1]/@id)
+КОЛ-ВО ЗАПИСЕЙ В JDBC
+count(//*:Row)
+
+ПРОВЕРИТЬ, ЧТО В БД ЗАПИСЬ=NULL
+concat(//*:F_USER_DEVICE.ESIA_AUTHENTICATION/text(),"")
+
+GROOVY
+ЕСЛИ ЕСТЬ ПАРАМЕТРЫ С АТТРИБУТАМИ, ТО ПОЛУЧАТЬ ИХ ЗНАЧЕНИЯ НУЖНО ЧЕРЕЗ XPATH
+def soapNSI = groovyUtils.getXmlHolder('Получить содержимое справочника НСИ#Response')
+soapNSI.getNodeValue('//ns3:items['+i+']/ns3:itemAttribute[@name = "ARCHIVED"]')
+ИЛИ ТАКЖЕ ЧЕРЕЗ xmlHolder
+assignments[i].suppReferralId.@id.text() - где id - нужный атрибут
+
+получить из xml значение аттрибута и там много всяких аттрибутов
+//parent[@name='Parent_1']//child/@name - https://stackoverflow.com/questions/4835891/extract-value-of-attribute-node-via-xpath
+
+ПОЛУЧИТЬ ТЕКУЩУЮ ДАТУ
+Date date = new Date()
+String datePart = date.format("yyyy-MM-dd")
+
+РАСПАРСИТЬ ДАТУ
+String dTF = "yyyy-MM-dd'T'hh:mm:ss"
+String dateTimeFormat="yyyy-MM-dd'T'hh:mm:ss.SSS+03:00" //устанавливаем формат даты
+def currentDate = new Date() // получаем текущую дату
+def date_min = Date.parse(dateTimeFormat, onlyTextSoap.Body.GetPlanExtensionResponse.result.eventsPeriod[n].endTime.text())// объявляем дату в распарсенном формате
+
+ТЕКУЩУЮ ДАТУ В НУЖНЫЙ ФОРМАТ
+def currentDate = new Date() // получаем текущую дату
+def sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS+03:00")
+def sdf1 = new SimpleDateFormat("MMM")
+def sdf2 = new SimpleDateFormat("d")
+def currentTime = sdf.format(currentDate)
+
+ПОЛУЧИТЬ ДАТУ БЕЗ ПОСЛЕДНИХ СИМВОЛОВ
+createDate="дата с лишними символами".toString()
+String createdDate = createDate.substring(0, createDate.length() - 2)
+
+ПОЛУЧИТЬ МИНИМАЛЬНОЕ ЗНАЧЕНИЕ
+def min_date_soap = Collections.min(massiv_date)
+
+УБРАТЬ НУЛИ В КОНЦЕ ДАТЫ
+long min_time = min_date.getTime()/1000 (если дата с .sss)
+
+ПОЛУЧИТЬ СОКРАЩЕННЫЙ МЕСЯЦ
+def sdf1 = new SimpleDateFormat("MMM")
+def currentTime = sdf1.format(currentDate)
+def shortMonth = currentTime.substring(0,3)
+
+ВЫЧЕСТЬ ВРЕМЯ ИЗ ТЕКУЩЕЙ ДАТЫ
+Date dateMinus = LocalDateTime.now().plusSeconds(-67).toDate()
+
+ВЫЧЕСТЬ ИЗ ТЕКУЩЕГО ВРЕМНИ ЛЮБОЕ ДРУГОЕ (ОТВЕТ В ФОРМАТЕ ЧЧ:ММ)
+def date = new Date()
+def currentDateTimeForDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+testRunner.testCase.setPropertyValue("currentDateTimeForDB", currentDateTimeForDB.toString())
+int longTime = (date.getTime() - dateMinus.getTime())/1000
+int hours = (longTime / 3600)*60;
+int minutes = longTime / 3600*60 + (longTime / 3600) / 60
+int seconds = longTime % 60;
+String timeCallInProgress = String.format("%02d:%02d", minutes, seconds)
+testRunner.testCase.setPropertyValue("timeCallInProgress", timeCallInProgress.toString())
+
+СКЛОНЕНИЕ СЛОВА В ЗАВИСИМОСТИ ОТ ДАТЫ
+callCounter = testRunner.testCase.getPropertyValue("callCounter")
+countResult = callCounter ? (callCounter.endsWith("2") || callCounter.endsWith("3") || callCounter.endsWith("4")) && !List.of("12", "13", "14").contains(callCounter) ? "раза" : "раз" : null

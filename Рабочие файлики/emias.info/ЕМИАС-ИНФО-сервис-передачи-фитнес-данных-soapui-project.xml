@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6e4a8348-8688-4b14-ac08-82d9a8c42922" activeEnvironment="Default" name="ЕМИАС.ИНФО сервис передачи фитнес-данных" resourceRoot="${projectDir}" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="9eae93b4-fd5f-4a4f-813f-91cc69eeb7bc" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://bzhd.test.emias.mos.ru" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://bzhd.test.emias.mos.ru</con:endpoint></con:endpoints><con:resource name="AcquireRemoteId" path="/api/v1/acquireRemoteId/${#Project#acquireRemoteId_oms}/${#Project#acquireRemoteId_birthDate}" id="f35d180c-4073-4fc8-99e3-502b481e7b23"><con:settings/><con:parameters/><con:method name="AcquireRemoteId 1" id="7716e190-52e9-49d4-8e1c-63d3a88aab8d" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404 400 500</con:status><con:params/><con:element xmlns:acq="http://bzhd.test.emias.mos.ru/api/v1/acquireRemoteId/">acq:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:acq="http://bzhd.test.emias.mos.ru/api/v1/acquireRemoteId/">acq:Response</con:element></con:representation><con:request name="Request 1" id="f5db2b8b-5205-4b6d-865c-e6dfb4ce7450" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://bzhd.test.emias.mos.ru</con:endpoint><con:request/><con:originalUri>http://bzhd.test.emias.mos.ru/api/v1/acquireRemoteId/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="processTelemetry" path="/api/v1/processTelemetry" id="a4010476-def4-491b-bf81-4886ba66ec91"><con:settings/><con:parameters/><con:method name="Method 1" id="d3118131-f55e-49a1-8f91-dc8f393384a4" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:proc="http://bzhd.test.emias.mos.ru/api/v1/processTelemetry">proc:Response</con:element></con:representation><con:request name="Request 1" id="21d3254f-eceb-40d7-9aad-7f51016b5582" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://bzhd.test.emias.mos.ru</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="f209f87e-ffbf-4764-9fcf-9b9d946c3586" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://emiasinfo1.emias.solit-clouds.ru" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://emiasinfo1.emias.solit-clouds.ru</con:endpoint></con:endpoints><con:resource name="PopularSpecialities" path="/api/v2/mainPage/popularSpecialities" id="fa8edeff-59d8-42d2-b375-b8f87cf8fd14"><con:settings/><con:parameters/><con:method name="PopularSpecialities 1" id="665c4ef0-bcec-4892-a6a8-d4a2396f2c2b" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:pop="http://emiasinfo1.emias.solit-clouds.ru/api/v2/mainPage/popularSpecialities">pop:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="199413c7-d049-4ca3-a06c-251ecfdcd5e4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://emiasinfo1.emias.solit-clouds.ru</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="getCountForServicesForYou" path="/api/v2/mainPage/getCountForServicesForYou" id="8e80192d-3615-490a-b6bf-0573dade5f69"><con:settings/><con:parameters><con:parameter><con:name>ehrId</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>omsNumber</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>isCovidQR</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Method 1" id="43e58d62-ddba-4e80-aba3-d7b842edc9bb" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:get="http://emiasinfo1.emias.solit-clouds.ru/api/v2/mainPage/getCountForServicesForYou">get:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400 500</con:status><con:params/><con:element xmlns:get="http://emiasinfo1.emias.solit-clouds.ru/api/v2/mainPage/getCountForServicesForYou">get:Fault</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>503</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" id="4c6aab46-2fc1-4056-870d-538c13ce3fe3" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="X-Access-JWT" value="${#Project#token}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://emiasinfo1.emias.solit-clouds.ru</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>ehrId</con:entry><con:entry>omsNumber</con:entry><con:entry>isCovidQR</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="acquireRemoteId" path="/api/v2/bzhd/acquireRemoteId" id="5e843edc-e8ba-4c49-8538-7059873ccf62"><con:settings/><con:parameters><con:parameter><con:name>oms</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>birthDate</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Method 1" id="9b776d76-dbbb-429b-ac79-7d961cf19352" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:acq="http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/acquireRemoteId">acq:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400 500</con:status><con:params/><con:element xmlns:acq="http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/acquireRemoteId">acq:Fault</con:element></con:representation><con:request name="Request 1" id="da7b749a-e6e6-4e5a-9096-766bf47601b7" mediaType="application/json"><con:settings/><con:endpoint>http://emiasinfo1.emias.solit-clouds.ru</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>oms</con:entry><con:entry>birthDate</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="processTelemetry" path="/api/v2/bzhd/processTelemetry" id="261de010-7494-49a9-8b5c-9ab52402ed79"><con:settings/><con:parameters/><con:method name="Method 1" id="fdd92802-698c-4492-b3dd-7ea28f8ba4f3" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:proc="http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/processTelemetry">proc:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:proc="http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/processTelemetry">proc:Fault</con:element></con:representation><con:request name="Request 1" id="fa4ce8f1-5725-41ba-81e5-73fcc9939aab" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://emiasinfo1.emias.solit-clouds.ru</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="a1b58658-bf4a-4c4e-a04b-96b0da5e47c5" name="acquireRemoteId"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9f686842-1388-456d-b964-b33da6a0de8d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ОС. Получение remoteId" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="Получить oms и birthDate" id="5363e8d6-c5e6-4a41-a57c-185dbd8dbbda"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>${#Project#suppDbDriver}</con:driver><con:connectionString>${#Project#suppFullDBConnection}</con:connectionString><con:query>SELECT * 
+FROM (
+	SELECT OMS_ASSURANCE_SERIES, OMS_ASSURANCE_NUMBER,
+	OMS_REGION_ASSURANCE_SERIES, OMS_REGION_ASSURANCE_NUMBER,
+	OMS_NEW_ASSURANCE_NUMBER, BIRTH_DATE
+	FROM PATIENT 
+	WHERE ((OMS_NEW_ASSURANCE_NUMBER IS NOT NULL) OR (OMS_REGION_ASSURANCE_SERIES IS NOT NULL AND OMS_REGION_ASSURANCE_NUMBER IS NOT NULL) 
+	OR (OMS_ASSURANCE_SERIES IS NOT NULL AND OMS_ASSURANCE_NUMBER IS NOT NULL)) AND rownum&lt;1000
+	ORDER BY DBMS_RANDOM.RANDOM)
+WHERE ROWNUM&lt;2
+</con:query><con:assertion type="JDBC Status" id="c6351c96-646e-429c-a5bc-b47951f7382b" name="JDBC Status"/><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Записать ОМС и birthDate" id="ca872ca8-6cc7-445a-a688-ea867b5a5e97"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+import java.util.Calendar
+import java.util.TimeZone
+def PatientOmsResponse = context.expand('${Получить oms и birthDate#ResponseAsXml}')
+PatientOms = new XmlSlurper().parseText(PatientOmsResponse)
+
+Result = PatientOms.ResultSet.Row
+//Получение серии и номера полиса ОМС
+OMS_ASSURANCE_SERIES = Result.OMS_ASSURANCE_SERIES !="" ? Result.OMS_ASSURANCE_SERIES:null
+OMS_ASSURANCE_NUMBER = Result.OMS_ASSURANCE_NUMBER !="" ? Result.OMS_ASSURANCE_NUMBER: null
+OMS_REGION_ASSURANCE_SERIES = Result.OMS_REGION_ASSURANCE_SERIES !="" ? Result.OMS_REGION_ASSURANCE_SERIES:null
+OMS_REGION_ASSURANCE_NUMBER = Result.OMS_REGION_ASSURANCE_NUMBER !="" ? Result.OMS_REGION_ASSURANCE_NUMBER:null
+OMS_NEW_ASSURANCE_NUMBER = Result.OMS_NEW_ASSURANCE_NUMBER !="" ? Result.OMS_NEW_ASSURANCE_NUMBER:null
+
+//Получение даты рождения и перевод ее в unix формат. Запись даты в свойства проекта и кейса.
+BIRTH_DATE = Result.BIRTH_DATE.toString().split(" ")[0]
+BIRTH_DATE = BIRTH_DATE.split("-")
+year = BIRTH_DATE[0].toInteger()
+month = BIRTH_DATE[1].toInteger()
+day=BIRTH_DATE[2].toInteger()
+log.info "date $day $month $year"
+Calendar date = new GregorianCalendar(year, month-1, day)
+TimeZone timeZone = TimeZone.getTimeZone("GMT")
+date.setTimeZone(timeZone)
+long birthDate = date.getTimeInMillis() / 1000
+log.info birthDate
+testRunner.testCase.setPropertyValue( "birthDate",birthDate.toString())
+testRunner.testCase.testSuite.Project.setPropertyValue( "acquireRemoteId_birthDate",birthDate.toString())
+
+log.info OMS_NEW_ASSURANCE_NUMBER
+log.info OMS_ASSURANCE_SERIES
+log.info OMS_ASSURANCE_NUMBER
+log.info OMS_REGION_ASSURANCE_SERIES
+log.info OMS_REGION_ASSURANCE_NUMBER
+
+//Составление полиса ОМС (серия + номер) и запись в свойства проекта и кейса
+
+if (OMS_NEW_ASSURANCE_NUMBER){
+	oms = OMS_NEW_ASSURANCE_NUMBER.toString()
+	testRunner.testCase.setPropertyValue( "oms",oms)
+	testRunner.testCase.testSuite.project.setPropertyValue( "acquireRemoteId_oms",oms)
+	return 1
+}
+
+if (OMS_ASSURANCE_SERIES &amp;&amp; OMS_ASSURANCE_NUMBER){
+	oms = OMS_ASSURANCE_SERIES.toString() + OMS_ASSURANCE_NUMBER.toString()
+	testRunner.testCase.setPropertyValue( "oms",oms)
+	testRunner.testCase.testSuite.project.setPropertyValue( "acquireRemoteId_oms",oms)
+	return 2
+}
+
+if (OMS_REGION_ASSURANCE_SERIES &amp;&amp; OMS_REGION_ASSURANCE_NUMBER){
+	oms = OMS_REGION_ASSURANCE_SERIES.toString() + OMS_REGION_ASSURANCE_NUMBER.toString()
+	testRunner.testCase.setPropertyValue( "oms",oms)
+	testRunner.testCase.testSuite.project.setPropertyValue( "acquireRemoteId_oms",oms)
+	return 3
+}</script></con:config></con:testStep><con:testStep type="restrequest" name="acquireRemoteId bzhd" id="dbac3711-4dc3-41b2-9ad9-b91ff52f0168"><con:settings/><con:config service="http://bzhd.test.emias.mos.ru" resourcePath="/api/v1/acquireRemoteId/${#Project#acquireRemoteId_oms}/${#Project#acquireRemoteId_birthDate}" methodName="AcquireRemoteId 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="acquireRemoteId bzhd" id="9562076c-2239-43bd-9e66-fae3d9ef91d5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#bzhdEndpoint}</con:endpoint><con:request/><con:originalUri>http://bzhd.test.emias.mos.ru/api/v1/acquireRemoteId/</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="43a4cad4-09f8-423e-9924-3d06114e70e2" name="Valid HTTP Status Code 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="e84be613-d830-4fba-9a06-7acbd234e55e" name="Contains remote_id"><con:configuration><token>remote_id</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Записать remote_id" id="0657071e-1291-4ac0-b757-b304c53484bd"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>remote_id</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>acquireRemoteId bzhd</con:sourceStep><con:sourcePath>$.data.remote_id</con:sourcePath><con:targetType>remote_id</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="acquireRemoteId INFO" id="a0821b01-4095-4409-9437-0c24d048cffa"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/bzhd/acquireRemoteId" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="acquireRemoteId INFO" id="6b7196e4-0e0c-4c0f-90f5-1c34388d53b1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/acquireRemoteId</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c9581208-c51e-4015-b1fa-8e25c3e94025" name="Valid HTTP Status Code 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="90518725-da9d-4294-8854-ed351914d5ce" name="Проверка remote_id"><con:configuration><path>$.payload.remoteId</path><content>${#TestCase#remote_id}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="oms" value="${#TestCase#oms}"/>
+  <con:entry key="birthDate" value="${#TestCase#birthDate}"/>
+</con:parameters><con:parameterOrder><con:entry>oms</con:entry><con:entry>birthDate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>oms</con:name><con:value>7700009061700262</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>377308800</con:value></con:property><con:property><con:name>remote_id</con:name><con:value>59ef0480-fced-44d7-8dc4-071d320c9a74</con:value></con:property></con:properties></con:testCase><con:testCase id="c6eeecbc-33cf-4f8b-9fb1-8e77c4fcc353" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Невалидный oms. AC1 (BZHD_AUTHORIZATION_ERROR)" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="Получить oms и birthDate" id="e3b32758-f039-4a55-b362-795fe8e0db7c"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>${#Project#suppDBDriver}</con:driver><con:connectionString>${#Project#suppFullDbConnection}</con:connectionString><con:query>SELECT * 
+FROM (
+	SELECT OMS_ASSURANCE_SERIES, OMS_ASSURANCE_NUMBER,
+	OMS_REGION_ASSURANCE_SERIES, OMS_REGION_ASSURANCE_NUMBER,
+	OMS_NEW_ASSURANCE_NUMBER, BIRTH_DATE
+	FROM PATIENT 
+	WHERE ((OMS_NEW_ASSURANCE_NUMBER IS NOT NULL) OR (OMS_REGION_ASSURANCE_SERIES IS NOT NULL AND OMS_REGION_ASSURANCE_NUMBER IS NOT NULL) 
+	OR (OMS_ASSURANCE_SERIES IS NOT NULL AND OMS_ASSURANCE_NUMBER IS NOT NULL)) AND rownum&lt;1000
+	ORDER BY DBMS_RANDOM.RANDOM)
+WHERE ROWNUM&lt;2
+</con:query><con:assertion type="JDBC Status" id="c6351c96-646e-429c-a5bc-b47951f7382b" name="JDBC Status"/><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Записать ОМС и birthDate" id="8c637d22-acf3-4bc4-af50-b558de096cdb"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+import java.util.Calendar
+import java.util.TimeZone
+def PatientOmsResponse = context.expand('${Получить oms и birthDate#ResponseAsXml}')
+PatientOms = new XmlSlurper().parseText(PatientOmsResponse)
+
+Result = PatientOms.ResultSet.Row
+//Получение серии и номера полиса ОМС
+OMS_ASSURANCE_SERIES = Result.OMS_ASSURANCE_SERIES !="" ? Result.OMS_ASSURANCE_SERIES:null
+OMS_ASSURANCE_NUMBER = Result.OMS_ASSURANCE_NUMBER !="" ? Result.OMS_ASSURANCE_NUMBER: null
+OMS_REGION_ASSURANCE_SERIES = Result.OMS_REGION_ASSURANCE_SERIES !="" ? Result.OMS_REGION_ASSURANCE_SERIES:null
+OMS_REGION_ASSURANCE_NUMBER = Result.OMS_REGION_ASSURANCE_NUMBER !="" ? Result.OMS_REGION_ASSURANCE_NUMBER:null
+OMS_NEW_ASSURANCE_NUMBER = Result.OMS_NEW_ASSURANCE_NUMBER !="" ? Result.OMS_NEW_ASSURANCE_NUMBER:null
+
+//Получение даты рождения и перевод ее в unix формат. Запись даты в свойства проекта и кейса.
+BIRTH_DATE = Result.BIRTH_DATE.toString().split(" ")[0]
+BIRTH_DATE = BIRTH_DATE.split("-")
+year = BIRTH_DATE[0].toInteger()
+month = BIRTH_DATE[1].toInteger()
+day=BIRTH_DATE[2].toInteger()
+log.info "date $day $month $year"
+Calendar date = new GregorianCalendar(year, month-1, day)
+TimeZone timeZone = TimeZone.getTimeZone("GMT")
+date.setTimeZone(timeZone)
+long birthDate = date.getTimeInMillis() / 1000
+log.info birthDate
+testRunner.testCase.setPropertyValue( "birthDate",birthDate.toString())
+testRunner.testCase.testSuite.Project.setPropertyValue( "acquireRemoteId_birthDate",birthDate.toString())
+
+log.info OMS_NEW_ASSURANCE_NUMBER
+log.info OMS_ASSURANCE_SERIES
+log.info OMS_ASSURANCE_NUMBER
+log.info OMS_REGION_ASSURANCE_SERIES
+log.info OMS_REGION_ASSURANCE_NUMBER
+
+//Составление полиса ОМС (серия + номер) и запись в свойства проекта и кейса
+
+if (OMS_NEW_ASSURANCE_NUMBER){
+	oms = OMS_NEW_ASSURANCE_NUMBER.toString()+"123"
+	testRunner.testCase.setPropertyValue( "oms",oms)
+	testRunner.testCase.testSuite.project.setPropertyValue( "acquireRemoteId_oms",oms)
+	return 1
+}
+
+if (OMS_ASSURANCE_SERIES &amp;&amp; OMS_ASSURANCE_NUMBER){
+	oms = OMS_ASSURANCE_SERIES.toString() + OMS_ASSURANCE_NUMBER.toString()+"123"
+	testRunner.testCase.setPropertyValue( "oms",oms)
+	testRunner.testCase.testSuite.project.setPropertyValue( "acquireRemoteId_oms",oms)
+	return 2
+}
+
+if (OMS_REGION_ASSURANCE_SERIES &amp;&amp; OMS_REGION_ASSURANCE_NUMBER){
+	oms = OMS_REGION_ASSURANCE_SERIES.toString() + OMS_REGION_ASSURANCE_NUMBER.toString()+"123"
+	testRunner.testCase.setPropertyValue( "oms",oms)
+	testRunner.testCase.testSuite.project.setPropertyValue( "acquireRemoteId_oms",oms)
+	return 3
+}</script></con:config></con:testStep><con:testStep type="restrequest" name="acquireRemoteId bzhd" id="f53c3e37-2e86-4d86-8fee-798a4dfcf8e4"><con:settings/><con:config service="http://bzhd.test.emias.mos.ru" resourcePath="/api/v1/acquireRemoteId/${#Project#acquireRemoteId_oms}/${#Project#acquireRemoteId_birthDate}" methodName="AcquireRemoteId 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="acquireRemoteId bzhd" id="9562076c-2239-43bd-9e66-fae3d9ef91d5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#bzhdEndpoint}</con:endpoint><con:request/><con:originalUri>http://bzhd.test.emias.mos.ru/api/v1/acquireRemoteId/</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="43a4cad4-09f8-423e-9924-3d06114e70e2" name="Valid HTTP Status Code 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="70e86609-ee6e-43e4-84ad-154c92176be3" name="JsonPath Match"><con:configuration><path>$.success</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="acquireRemoteId INFO" id="dad8ca80-d8d7-4a07-8aeb-d06e89d9ad7a"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/bzhd/acquireRemoteId" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="acquireRemoteId INFO" id="6b7196e4-0e0c-4c0f-90f5-1c34388d53b1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/acquireRemoteId</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c9581208-c51e-4015-b1fa-8e25c3e94025" name="Valid HTTP Status Code 400"><con:configuration><codes>400
+</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="05d61ff2-6ec7-4434-8270-c82ffb151f0b" name="Значение code = BZHD_AUTHORIZATION_ERROR"><con:configuration><path>$.error.code</path><content>BZHD_AUTHORIZATION_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="9250a963-f302-4fc7-a669-bf77fb297f57" name="Значение description = При попытке авторизации произошла ошибка, попробуйте еще раз"><con:configuration><path>$.error.description</path><content>При попытке авторизации произошла ошибка, попробуйте еще раз</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c0a0c010-28e4-4a57-bf45-933978b3ed00" name="Значение type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="oms" value="${#TestCase#oms}123"/>
+  <con:entry key="birthDate" value="${#TestCase#birthDate}"/>
+</con:parameters><con:parameterOrder><con:entry>oms</con:entry><con:entry>birthDate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>oms</con:name><con:value>7757930841000720123</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>680832000</con:value></con:property></con:properties></con:testCase><con:testCase id="11fc0c0d-390b-4112-969b-61540d9f8ae5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Невалидный birthDate. AC1 (BZHD_AUTHORIZATION_ERROR)" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="Получить oms и birthDate" id="7cc881eb-d999-4e25-bbdd-5db2927e3bf3"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>${#Project#suppDbDriver}</con:driver><con:connectionString>${#Project#suppFullDbConnection}</con:connectionString><con:query>SELECT * 
+FROM (
+	SELECT OMS_ASSURANCE_SERIES, OMS_ASSURANCE_NUMBER,
+	OMS_REGION_ASSURANCE_SERIES, OMS_REGION_ASSURANCE_NUMBER,
+	OMS_NEW_ASSURANCE_NUMBER, BIRTH_DATE
+	FROM PATIENT 
+	WHERE ((OMS_NEW_ASSURANCE_NUMBER IS NOT NULL) OR (OMS_REGION_ASSURANCE_SERIES IS NOT NULL AND OMS_REGION_ASSURANCE_NUMBER IS NOT NULL) 
+	OR (OMS_ASSURANCE_SERIES IS NOT NULL AND OMS_ASSURANCE_NUMBER IS NOT NULL)) AND rownum&lt;1000
+	ORDER BY DBMS_RANDOM.RANDOM)
+WHERE ROWNUM&lt;2
+</con:query><con:assertion type="JDBC Status" id="c6351c96-646e-429c-a5bc-b47951f7382b" name="JDBC Status"/><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="Записать ОМС и birthDate" id="8b0e805d-dd58-4e83-b4eb-c70e90930b7b"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+import java.util.Calendar
+import java.util.TimeZone
+def PatientOmsResponse = context.expand('${Получить oms и birthDate#ResponseAsXml}')
+PatientOms = new XmlSlurper().parseText(PatientOmsResponse)
+
+Result = PatientOms.ResultSet.Row
+//Получение серии и номера полиса ОМС
+OMS_ASSURANCE_SERIES = Result.OMS_ASSURANCE_SERIES !="" ? Result.OMS_ASSURANCE_SERIES:null
+OMS_ASSURANCE_NUMBER = Result.OMS_ASSURANCE_NUMBER !="" ? Result.OMS_ASSURANCE_NUMBER: null
+OMS_REGION_ASSURANCE_SERIES = Result.OMS_REGION_ASSURANCE_SERIES !="" ? Result.OMS_REGION_ASSURANCE_SERIES:null
+OMS_REGION_ASSURANCE_NUMBER = Result.OMS_REGION_ASSURANCE_NUMBER !="" ? Result.OMS_REGION_ASSURANCE_NUMBER:null
+OMS_NEW_ASSURANCE_NUMBER = Result.OMS_NEW_ASSURANCE_NUMBER !="" ? Result.OMS_NEW_ASSURANCE_NUMBER:null
+
+//Получение даты рождения и перевод ее в unix формат. Запись даты в свойства проекта и кейса.
+BIRTH_DATE = Result.BIRTH_DATE.toString().split(" ")[0]
+BIRTH_DATE = BIRTH_DATE.split("-")
+year = BIRTH_DATE[0].toInteger()
+month = BIRTH_DATE[1].toInteger()
+day=BIRTH_DATE[2].toInteger()
+log.info "date $day $month $year"
+Calendar date = new GregorianCalendar(year, month-1, day)
+TimeZone timeZone = TimeZone.getTimeZone("GMT")
+date.setTimeZone(timeZone)
+long birthDate = date.getTimeInMillis() / 1000
+log.info birthDate
+testRunner.testCase.setPropertyValue( "birthDate",birthDate.toString()+"123")
+testRunner.testCase.testSuite.Project.setPropertyValue( "acquireRemoteId_birthDate",birthDate.toString()+"123")
+
+log.info OMS_NEW_ASSURANCE_NUMBER
+log.info OMS_ASSURANCE_SERIES
+log.info OMS_ASSURANCE_NUMBER
+log.info OMS_REGION_ASSURANCE_SERIES
+log.info OMS_REGION_ASSURANCE_NUMBER
+
+//Составление полиса ОМС (серия + номер) и запись в свойства проекта и кейса
+
+if (OMS_NEW_ASSURANCE_NUMBER){
+	oms = OMS_NEW_ASSURANCE_NUMBER.toString()
+	testRunner.testCase.setPropertyValue( "oms",oms)
+	testRunner.testCase.testSuite.project.setPropertyValue( "acquireRemoteId_oms",oms)
+	return 1
+}
+
+if (OMS_ASSURANCE_SERIES &amp;&amp; OMS_ASSURANCE_NUMBER){
+	oms = OMS_ASSURANCE_SERIES.toString() + OMS_ASSURANCE_NUMBER.toString()
+	testRunner.testCase.setPropertyValue( "oms",oms)
+	testRunner.testCase.testSuite.project.setPropertyValue( "acquireRemoteId_oms",oms)
+	return 2
+}
+
+if (OMS_REGION_ASSURANCE_SERIES &amp;&amp; OMS_REGION_ASSURANCE_NUMBER){
+	oms = OMS_REGION_ASSURANCE_SERIES.toString() + OMS_REGION_ASSURANCE_NUMBER.toString()
+	testRunner.testCase.setPropertyValue( "oms",oms)
+	testRunner.testCase.testSuite.project.setPropertyValue( "acquireRemoteId_oms",oms)
+	return 3
+}</script></con:config></con:testStep><con:testStep type="restrequest" name="acquireRemoteId bzhd" id="c3bb2f97-f1a3-4a5d-a421-1bef589f35d3"><con:settings/><con:config service="http://bzhd.test.emias.mos.ru" resourcePath="/api/v1/acquireRemoteId/${#Project#acquireRemoteId_oms}/${#Project#acquireRemoteId_birthDate}" methodName="AcquireRemoteId 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="acquireRemoteId bzhd" id="9562076c-2239-43bd-9e66-fae3d9ef91d5" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#bzhdEndpoint}</con:endpoint><con:request/><con:originalUri>http://bzhd.test.emias.mos.ru/api/v1/acquireRemoteId/</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="43a4cad4-09f8-423e-9924-3d06114e70e2" name="Valid HTTP Status Code 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="70e86609-ee6e-43e4-84ad-154c92176be3" name="JsonPath Match"><con:configuration><path>$.success</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="acquireRemoteId INFO" id="026f192f-7240-47dc-9fb1-c4a90a839437"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/bzhd/acquireRemoteId" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="acquireRemoteId INFO" id="6b7196e4-0e0c-4c0f-90f5-1c34388d53b1" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/acquireRemoteId</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c9581208-c51e-4015-b1fa-8e25c3e94025" name="Valid HTTP Status Code 400"><con:configuration><codes>400
+</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="05d61ff2-6ec7-4434-8270-c82ffb151f0b" name="Значение code = BZHD_AUTHORIZATION_ERROR"><con:configuration><path>$.error.code</path><content>BZHD_AUTHORIZATION_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="9250a963-f302-4fc7-a669-bf77fb297f57" name="Значение description = При попытке авторизации произошла ошибка, попробуйте еще раз"><con:configuration><path>$.error.description</path><content>При попытке авторизации произошла ошибка, попробуйте еще раз</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c0a0c010-28e4-4a57-bf45-933978b3ed00" name="Значение type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="oms" value="${#TestCase#oms}"/>
+  <con:entry key="birthDate" value="${#TestCase#birthDate}123"/>
+</con:parameters><con:parameterOrder><con:entry>oms</con:entry><con:entry>birthDate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>oms</con:name><con:value>5050610883002390</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>949536000123</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:testSuite id="f86f29a6-d173-45f8-8d5f-c8afdd941660" name="POST processTelemetry"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="8dedab41-52ec-453d-9c04-686a8d95eac6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ОС.Передача фитнес-данных." searchProperties="true"><con:settings/><con:testStep type="jdbc" name="Получить oms и birthDate" id="ce113331-7a06-4147-96cf-bcc71fcad8cb"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>${#Project#suppDbDriver}</con:driver><con:connectionString>${#Project#suppFullDBConnection}</con:connectionString><con:query>SELECT * 
+FROM (
+	SELECT OMS_NEW_ASSURANCE_NUMBER, BIRTH_DATE
+	FROM PATIENT 
+	WHERE OMS_NEW_ASSURANCE_NUMBER IS NOT NULL AND rownum&lt;1000
+	ORDER BY DBMS_RANDOM.RANDOM)
+WHERE ROWNUM&lt;2
+</con:query><con:assertion type="JDBC Status" id="d3888fb9-3ff4-43e7-90c1-968f49e46546" name="JDBC Status"/><con:assertion type="Simple Contains" id="0980c977-824d-4788-aaba-1ac63fdeec04" name="Вернулся ОМС"><con:configuration><token>OMS_NEW_ASSURANCE_NUMBER</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:properties/></con:config></con:testStep><con:testStep type="transfer" name="Записать ОМС и дату рождения" id="eae9620c-a642-447d-88e9-70c352e76c86"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>oms</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Получить oms и birthDate</con:sourceStep><con:sourcePath>//Row[1]/OMS_NEW_ASSURANCE_NUMBER</con:sourcePath><con:targetType>oms</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>birthDate</con:name><con:sourceType>ResponseAsXml</con:sourceType><con:sourceStep>Получить oms и birthDate</con:sourceStep><con:sourcePath>//Row[1]/BIRTH_DATE</con:sourcePath><con:targetType>birthDate</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="groovy" name="Записать валидный birthDate" id="52788842-fdc0-4475-8a5a-2456cb2d45fa"><con:settings/><con:config><script>import groovy.xml.XmlSlurper
+import java.util.Calendar
+import java.util.TimeZone
+def PatientOmsResponse = context.expand('${Получить oms и birthDate#ResponseAsXml}')
+PatientOms = new XmlSlurper().parseText(PatientOmsResponse)
+Result = PatientOms.ResultSet.Row
+
+//Получение даты рождения и перевод ее в unix формат. Запись даты в свойства проекта и кейса.
+BIRTH_DATE = Result.BIRTH_DATE.toString().split(" ")[0]
+BIRTH_DATE = BIRTH_DATE.split("-")
+year = BIRTH_DATE[0].toInteger()
+month = BIRTH_DATE[1].toInteger()
+day=BIRTH_DATE[2].toInteger()
+log.info "date $day $month $year"
+Calendar date = new GregorianCalendar(year, month-1, day)
+TimeZone timeZone = TimeZone.getTimeZone("GMT")
+date.setTimeZone(timeZone)
+long birthDate = date.getTimeInMillis() / 1000
+log.info birthDate
+testRunner.testCase.setPropertyValue( "birthDate",birthDate.toString())</script></con:config></con:testStep><con:testStep type="restrequest" name="getAcquireRemoteId" id="34e61173-daa0-407d-877e-a98d07fac3bd"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/bzhd/acquireRemoteId" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getAcquireRemoteId" id="da7b749a-e6e6-4e5a-9096-766bf47601b7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/acquireRemoteId</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="aaf8273f-e9b9-4ca8-8577-f054c6da2a33" name="HTTP Status Codes = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="533dbd1f-417c-4475-9bd5-6fd9eb4e6141" name="В ответе содержится remoteId"><con:configuration><token>remoteId</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="oms" value="${#TestCase#oms}"/>
+  <con:entry key="birthDate" value="${#TestCase#birthDate}"/>
+</con:parameters><con:parameterOrder><con:entry>oms</con:entry><con:entry>birthDate</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Записать remoteId" id="a645a854-eae5-4240-b295-186964a6fcf0"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>remoteId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getAcquireRemoteId</con:sourceStep><con:sourcePath>$.payload.remoteId</con:sourcePath><con:targetType>remoteId</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="postProcessTelemetry bzhd" id="7962bdcf-f8b1-4a1f-a540-5ad08167c68c"><con:settings/><con:config service="http://bzhd.test.emias.mos.ru" resourcePath="/api/v1/processTelemetry" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="postProcessTelemetry bzhd" id="21d3254f-eceb-40d7-9aad-7f51016b5582" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#bzhdEndpoint}</con:endpoint><con:request> {
+    "remote_id": "${#TestCase#remoteId}",
+    "data":{ 
+    "heart_rate": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+     "saturation": [ 
+        {
+        "source_name": "Google fit",
+        "value": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+         "blood_glucose": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+             "body_temperature": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ]
+    }
+}</con:request><con:originalUri>http://bzhd.test.emias.mos.ru/api/v1/processTelemetry</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="48cf0643-f8d4-43b4-82fd-9aa514a2260a" name="HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="e4073cc5-6dae-4d06-8016-2872727081b4" name="Значение success = true"><con:configuration><path>$success</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="postProcessTelemetry INFO" id="b5bc4a8a-ac3e-453d-8046-5fe66af82a7d"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/bzhd/processTelemetry" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="postProcessTelemetry INFO" id="fa4ce8f1-5725-41ba-81e5-73fcc9939aab" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request> {
+    "remoteId": "${#TestCase#remoteId}",
+    "data":{ 
+    "heart_rate": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+     "saturation": [ 
+        {
+        "source_name": "Google fit",
+        "value": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+         "blood_glucose": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+             "body_temperature": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ]
+    }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/processTelemetry</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8fed4f8b-b815-4809-a876-9897bb2429ab" name="HTTP Status Codes = 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="87a00855-b26c-4037-b0b5-c0331dc8b0e5" name="Значение success = true"><con:configuration><path>$payload.success</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>oms</con:name><con:value>7798099769001234</con:value></con:property><con:property><con:name>birthDate</con:name><con:value>1233273600</con:value></con:property><con:property><con:name>remoteId</con:name><con:value>ce0e7cc3-f6f9-4a39-9753-9084d28506ee</con:value></con:property></con:properties></con:testCase><con:testCase id="f9bce2dd-8d6f-40ce-9e5f-94071d38d2d0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС1. Невалидный remoteId (BZHD_SEND_DATA_ERROR )" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="postProcessTelemetry" id="138f9d66-fd01-4dc4-afa8-16230dd64eba"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/bzhd/processTelemetry" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="postProcessTelemetry" id="fa4ce8f1-5725-41ba-81e5-73fcc9939aab" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request> {
+    "remoteId": "123",
+    "data":{ 
+    "heart_rate": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+     "saturation": [ 
+        {
+        "source_name": "Google fit",
+        "value": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+         "blood_glucose": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+             "body_temperature": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ]
+    }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/processTelemetry</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a65995a9-b0e4-4e28-811c-41e7da3dfc30" name="HTTP Status Codes = 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="89c29e6a-ac51-4865-a5e5-021e38b5ee6b" name="code = BZHD_SEND_DATA_ERROR"><con:configuration><path>$error.code</path><content>BZHD_SEND_DATA_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="e5e2e2f8-9e31-441c-b429-daaaf2671a89" name="description = Не удалось отправить данные в ЕМИАС.БЖД"><con:configuration><path>$error.description</path><content>Не удалось отправить данные в ЕМИАС.БЖД</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="27ad022d-f27a-4b9d-917a-886f0e839205" name="type = BUSINESS"><con:configuration><path>$error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0334130a-3621-41cc-9f52-37ea23ef4360" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Некорректные входные данные (SERVER_ERROR_BAD_REQUEST)" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="postProcessTelemetry" id="92b18967-fcaa-435a-b309-061d014db7a8"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/bzhd/processTelemetry" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="postProcessTelemetry" id="fa4ce8f1-5725-41ba-81e5-73fcc9939aab" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request> {
+    "remoteId": "${#TestCase#remoteId}",
+    "data":{ 
+    "heart_rate": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99.33,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+     "saturation": [ 
+        {
+        "source_name": "Google fit",
+        "value": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+         "blood_glucose": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ],
+             "body_temperature": [ 
+        {
+        "source_name": "Google fit",
+        "value_avg": 99,
+        "start_time": 1665426200,
+        "end_time": 1665496200
+        }
+    ]
+    }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/bzhd/processTelemetry</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c99dc239-f7d0-4032-b705-348df50e3fbb" name="HTTP Status Codes = 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="cea9f502-d03a-4351-b3a4-4973db679e26" name="code = SERVER_ERROR_BAD_REQUEST"><con:configuration><path>$error.code</path><content>SERVER_ERROR_BAD_REQUEST</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="e4a94e22-d62f-4f76-8c3e-4c847f9d18b6" name="description = Некорректные входные данные"><con:configuration><path>$error.description</path><content>Некорректные входные данные</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="0e6556d8-3ccd-476e-9da5-5c2412fee7fe" name="type = TECHNICAL"><con:configuration><path>$error.type</path><content>TECHNICAL</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>bzhdEndpoint</con:name><con:value>http://bzhd.test.emias.mos.ru</con:value></con:property><con:property><con:name>acquireRemoteId_oms</con:name><con:value>5050610883002390</con:value></con:property><con:property><con:name>acquireRemoteId_birthDate</con:name><con:value>432518400123</con:value></con:property><con:property><con:name>suppDbDriver</con:name><con:value>oracle.jdbc.driver.OracleDriver</con:value></con:property><con:property><con:name>suppFullDBConnection</con:name><con:value>jdbc:oracle:thin:EMIAS_CLUSTER/EMIAS_CLUSTER@//10.2.172.242:1521/emiasdb</con:value></con:property><con:property><con:name>emiasInfoEndpoint</con:name><con:value>http://emiasinfo1.emias.solit-clouds.ru/</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

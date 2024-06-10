@@ -1,0 +1,2537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <ns3:GetInquiryPurposesResponse xmlns:ns2="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v1/types/" xmlns:ns3="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v1/" xmlns:ns4="http://emias.mos.ru/system/v1/faults/" xmlns:ns5="http://emias.mos.ru/system/v1/userContext/">
+         <Result pageNumber="0" pageTotal="0" pageSize="0" morePagesAvailable="false" totalItemsCount="0">
+            <ns2:Patient>
+               <ns2:InquiryPurposeDictionary id="18">
+                  <ns2:code>1</ns2:code>
+                  <ns2:name>C жалобами на ОРВИ первичный</ns2:name>
+                  <ns2:InquiryPurposeInfo id="1">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:ParentInquiryPurposeDictionary id="38">
+                        <ns2:code>21</ns2:code>
+                        <ns2:name>По заболеванию</ns2:name>
+                     </ns2:ParentInquiryPurposeDictionary>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="311">
+                     <ns2:name>Дежурный врач ОРВИ</ns2:name>
+                     <ns2:code>2017</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="19">
+                  <ns2:code>2</ns2:code>
+                  <ns2:name>C жалобами на ОРВИ повторный</ns2:name>
+                  <ns2:InquiryPurposeInfo id="2">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:ParentInquiryPurposeDictionary id="38">
+                        <ns2:code>21</ns2:code>
+                        <ns2:name>По заболеванию</ns2:name>
+                     </ns2:ParentInquiryPurposeDictionary>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="311">
+                     <ns2:name>Дежурный врач ОРВИ</ns2:name>
+                     <ns2:code>2017</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="20">
+                  <ns2:code>3</ns2:code>
+                  <ns2:name>Не связано с ОРВИ первичный</ns2:name>
+                  <ns2:InquiryPurposeInfo id="3">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:ParentInquiryPurposeDictionary id="38">
+                        <ns2:code>21</ns2:code>
+                        <ns2:name>По заболеванию</ns2:name>
+                     </ns2:ParentInquiryPurposeDictionary>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="271">
+                     <ns2:name>Врач-уролог</ns2:name>
+                     <ns2:code>2</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="170">
+                     <ns2:name>Врач-хирург</ns2:name>
+                     <ns2:code>3</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="206">
+                     <ns2:name>Врач-офтальмолог</ns2:name>
+                     <ns2:code>6</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="232">
+                     <ns2:name>Врач-кардиолог</ns2:name>
+                     <ns2:code>8</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="273">
+                     <ns2:name>Врач-невролог</ns2:name>
+                     <ns2:code>9</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="274">
+                     <ns2:name>Врач-эндокринолог</ns2:name>
+                     <ns2:code>10</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="143">
+                     <ns2:name>Врач-гастроэнтеролог</ns2:name>
+                     <ns2:code>11</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="152">
+                     <ns2:name>Аллерголог</ns2:name>
+                     <ns2:code>15</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="207">
+                     <ns2:name>Врач-флеболог</ns2:name>
+                     <ns2:code>17</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="295">
+                     <ns2:name>Ортопед</ns2:name>
+                     <ns2:code>24</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="167">
+                     <ns2:name>Врач-онколог</ns2:name>
+                     <ns2:code>26</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="118">
+                     <ns2:name>Врач-маммолог</ns2:name>
+                     <ns2:code>27</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="183">
+                     <ns2:name>Врач-педиатр</ns2:name>
+                     <ns2:code>44</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="172">
+                     <ns2:name>Врач-нефролог</ns2:name>
+                     <ns2:code>48</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="290">
+                     <ns2:name>Врач-гематолог</ns2:name>
+                     <ns2:code>49</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="285">
+                     <ns2:name>Врач-инфекционист</ns2:name>
+                     <ns2:code>50</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="173">
+                     <ns2:name>Врач-ревматолог</ns2:name>
+                     <ns2:code>55</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="231">
+                     <ns2:name>Врач-фтизиатр</ns2:name>
+                     <ns2:code>56</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="209">
+                     <ns2:name>Врач-пульмонолог</ns2:name>
+                     <ns2:code>58</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="211">
+                     <ns2:name>Врач-травматолог-ортопед</ns2:name>
+                     <ns2:code>61</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="256">
+                     <ns2:name>Врач-аллерголог-иммунолог</ns2:name>
+                     <ns2:code>65</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="228">
+                     <ns2:name>Подростковый врач</ns2:name>
+                     <ns2:code>96</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="227">
+                     <ns2:name>Хирург-ортопед</ns2:name>
+                     <ns2:code>97</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="237">
+                     <ns2:name>Врач-колопроктолог</ns2:name>
+                     <ns2:code>120</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="176">
+                     <ns2:name>Врач-эпилептолог</ns2:name>
+                     <ns2:code>123</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="140">
+                     <ns2:name>Эпилептолог-невролог</ns2:name>
+                     <ns2:code>124</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="65">
+                     <ns2:name>Заведующий центром амбулаторной хирургии – врач - уролог</ns2:name>
+                     <ns2:code>401</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="283">
+                     <ns2:name>Врач-оториноларинголог</ns2:name>
+                     <ns2:code>603</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="197">
+                     <ns2:name>Врач - детский кардиолог</ns2:name>
+                     <ns2:code>712</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="221">
+                     <ns2:name>Врач - детский онколог</ns2:name>
+                     <ns2:code>713</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="222">
+                     <ns2:name>Врач - детский уролог-андролог</ns2:name>
+                     <ns2:code>714</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="223">
+                     <ns2:name>Врач - детский хирург</ns2:name>
+                     <ns2:code>715</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="220">
+                     <ns2:name>Врач - детский эндокринолог</ns2:name>
+                     <ns2:code>716</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="280">
+                     <ns2:name>Врач-гериатр</ns2:name>
+                     <ns2:code>750</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="251">
+                     <ns2:name>Врач-педиатр городской (районный)</ns2:name>
+                     <ns2:code>758</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="252">
+                     <ns2:name>Врач-педиатр участковый</ns2:name>
+                     <ns2:code>759</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="177">
+                     <ns2:name>Врач-сурдолог-оториноларинголог</ns2:name>
+                     <ns2:code>768</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="275">
+                     <ns2:name>Врач по паллиативной медицинской помощи</ns2:name>
+                     <ns2:code>856</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="253">
+                     <ns2:name>Врач-педиатр (Здоровое детство)</ns2:name>
+                     <ns2:code>863</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="14">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский хирург</ns2:name>
+                     <ns2:code>892</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="85">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский эндокринолог</ns2:name>
+                     <ns2:code>893</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="50">
+                     <ns2:name>Заведующий структурным подразделением - врач-инфекционист</ns2:name>
+                     <ns2:code>910</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="93">
+                     <ns2:name>Заведующий структурным подразделением - врач-кардиолог</ns2:name>
+                     <ns2:code>911</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="52">
+                     <ns2:name>Заведующий структурным подразделением - врач-невролог</ns2:name>
+                     <ns2:code>914</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="28">
+                     <ns2:name>Заведующий структурным подразделением - врач-оториноларинголог</ns2:name>
+                     <ns2:code>918</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="108">
+                     <ns2:name>Заведующий структурным подразделением - врач-офтальмолог</ns2:name>
+                     <ns2:code>919</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="95">
+                     <ns2:name>Заведующий структурным подразделением - врач-педиатр</ns2:name>
+                     <ns2:code>921</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="82">
+                     <ns2:name>Заведующий структурным подразделением - врач-уролог</ns2:name>
+                     <ns2:code>938</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="101">
+                     <ns2:name>Заведующий структурным подразделением - врач-хирург</ns2:name>
+                     <ns2:code>940</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="98">
+                     <ns2:name>Заведующий структурным подразделением - врач-эндокринолог</ns2:name>
+                     <ns2:code>941</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="1">
+                     <ns2:name>Заведующий отделением медицинской помощи взрослому населению на дому – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>968</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="3">
+                     <ns2:name>Заведующий отделением общей врачебной практики – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>972</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="21">
+                  <ns2:code>4</ns2:code>
+                  <ns2:name>Не связано с ОРВИ повторный</ns2:name>
+                  <ns2:InquiryPurposeInfo id="4">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:ParentInquiryPurposeDictionary id="38">
+                        <ns2:code>21</ns2:code>
+                        <ns2:name>По заболеванию</ns2:name>
+                     </ns2:ParentInquiryPurposeDictionary>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="271">
+                     <ns2:name>Врач-уролог</ns2:name>
+                     <ns2:code>2</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="170">
+                     <ns2:name>Врач-хирург</ns2:name>
+                     <ns2:code>3</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="206">
+                     <ns2:name>Врач-офтальмолог</ns2:name>
+                     <ns2:code>6</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="232">
+                     <ns2:name>Врач-кардиолог</ns2:name>
+                     <ns2:code>8</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="273">
+                     <ns2:name>Врач-невролог</ns2:name>
+                     <ns2:code>9</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="274">
+                     <ns2:name>Врач-эндокринолог</ns2:name>
+                     <ns2:code>10</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="143">
+                     <ns2:name>Врач-гастроэнтеролог</ns2:name>
+                     <ns2:code>11</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="152">
+                     <ns2:name>Аллерголог</ns2:name>
+                     <ns2:code>15</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="207">
+                     <ns2:name>Врач-флеболог</ns2:name>
+                     <ns2:code>17</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="295">
+                     <ns2:name>Ортопед</ns2:name>
+                     <ns2:code>24</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="167">
+                     <ns2:name>Врач-онколог</ns2:name>
+                     <ns2:code>26</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="118">
+                     <ns2:name>Врач-маммолог</ns2:name>
+                     <ns2:code>27</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="183">
+                     <ns2:name>Врач-педиатр</ns2:name>
+                     <ns2:code>44</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="172">
+                     <ns2:name>Врач-нефролог</ns2:name>
+                     <ns2:code>48</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="290">
+                     <ns2:name>Врач-гематолог</ns2:name>
+                     <ns2:code>49</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="285">
+                     <ns2:name>Врач-инфекционист</ns2:name>
+                     <ns2:code>50</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="173">
+                     <ns2:name>Врач-ревматолог</ns2:name>
+                     <ns2:code>55</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="231">
+                     <ns2:name>Врач-фтизиатр</ns2:name>
+                     <ns2:code>56</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="209">
+                     <ns2:name>Врач-пульмонолог</ns2:name>
+                     <ns2:code>58</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="211">
+                     <ns2:name>Врач-травматолог-ортопед</ns2:name>
+                     <ns2:code>61</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="256">
+                     <ns2:name>Врач-аллерголог-иммунолог</ns2:name>
+                     <ns2:code>65</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="228">
+                     <ns2:name>Подростковый врач</ns2:name>
+                     <ns2:code>96</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="227">
+                     <ns2:name>Хирург-ортопед</ns2:name>
+                     <ns2:code>97</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="237">
+                     <ns2:name>Врач-колопроктолог</ns2:name>
+                     <ns2:code>120</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="176">
+                     <ns2:name>Врач-эпилептолог</ns2:name>
+                     <ns2:code>123</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="140">
+                     <ns2:name>Эпилептолог-невролог</ns2:name>
+                     <ns2:code>124</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="65">
+                     <ns2:name>Заведующий центром амбулаторной хирургии – врач - уролог</ns2:name>
+                     <ns2:code>401</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="283">
+                     <ns2:name>Врач-оториноларинголог</ns2:name>
+                     <ns2:code>603</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="197">
+                     <ns2:name>Врач - детский кардиолог</ns2:name>
+                     <ns2:code>712</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="221">
+                     <ns2:name>Врач - детский онколог</ns2:name>
+                     <ns2:code>713</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="222">
+                     <ns2:name>Врач - детский уролог-андролог</ns2:name>
+                     <ns2:code>714</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="223">
+                     <ns2:name>Врач - детский хирург</ns2:name>
+                     <ns2:code>715</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="220">
+                     <ns2:name>Врач - детский эндокринолог</ns2:name>
+                     <ns2:code>716</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="280">
+                     <ns2:name>Врач-гериатр</ns2:name>
+                     <ns2:code>750</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="251">
+                     <ns2:name>Врач-педиатр городской (районный)</ns2:name>
+                     <ns2:code>758</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="252">
+                     <ns2:name>Врач-педиатр участковый</ns2:name>
+                     <ns2:code>759</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="177">
+                     <ns2:name>Врач-сурдолог-оториноларинголог</ns2:name>
+                     <ns2:code>768</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="275">
+                     <ns2:name>Врач по паллиативной медицинской помощи</ns2:name>
+                     <ns2:code>856</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="253">
+                     <ns2:name>Врач-педиатр (Здоровое детство)</ns2:name>
+                     <ns2:code>863</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="14">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский хирург</ns2:name>
+                     <ns2:code>892</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="85">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский эндокринолог</ns2:name>
+                     <ns2:code>893</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="50">
+                     <ns2:name>Заведующий структурным подразделением - врач-инфекционист</ns2:name>
+                     <ns2:code>910</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="93">
+                     <ns2:name>Заведующий структурным подразделением - врач-кардиолог</ns2:name>
+                     <ns2:code>911</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="52">
+                     <ns2:name>Заведующий структурным подразделением - врач-невролог</ns2:name>
+                     <ns2:code>914</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="28">
+                     <ns2:name>Заведующий структурным подразделением - врач-оториноларинголог</ns2:name>
+                     <ns2:code>918</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="108">
+                     <ns2:name>Заведующий структурным подразделением - врач-офтальмолог</ns2:name>
+                     <ns2:code>919</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="95">
+                     <ns2:name>Заведующий структурным подразделением - врач-педиатр</ns2:name>
+                     <ns2:code>921</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="82">
+                     <ns2:name>Заведующий структурным подразделением - врач-уролог</ns2:name>
+                     <ns2:code>938</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="101">
+                     <ns2:name>Заведующий структурным подразделением - врач-хирург</ns2:name>
+                     <ns2:code>940</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="98">
+                     <ns2:name>Заведующий структурным подразделением - врач-эндокринолог</ns2:name>
+                     <ns2:code>941</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="1">
+                     <ns2:name>Заведующий отделением медицинской помощи взрослому населению на дому – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>968</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="3">
+                     <ns2:name>Заведующий отделением общей врачебной практики – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>972</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="22">
+                  <ns2:code>5</ns2:code>
+                  <ns2:name>Хроническое заболевание – плановый осмотр</ns2:name>
+                  <ns2:InquiryPurposeInfo id="5">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="271">
+                     <ns2:name>Врач-уролог</ns2:name>
+                     <ns2:code>2</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="170">
+                     <ns2:name>Врач-хирург</ns2:name>
+                     <ns2:code>3</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="206">
+                     <ns2:name>Врач-офтальмолог</ns2:name>
+                     <ns2:code>6</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="232">
+                     <ns2:name>Врач-кардиолог</ns2:name>
+                     <ns2:code>8</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="273">
+                     <ns2:name>Врач-невролог</ns2:name>
+                     <ns2:code>9</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="274">
+                     <ns2:name>Врач-эндокринолог</ns2:name>
+                     <ns2:code>10</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="143">
+                     <ns2:name>Врач-гастроэнтеролог</ns2:name>
+                     <ns2:code>11</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="152">
+                     <ns2:name>Аллерголог</ns2:name>
+                     <ns2:code>15</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="207">
+                     <ns2:name>Врач-флеболог</ns2:name>
+                     <ns2:code>17</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="295">
+                     <ns2:name>Ортопед</ns2:name>
+                     <ns2:code>24</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="167">
+                     <ns2:name>Врач-онколог</ns2:name>
+                     <ns2:code>26</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="118">
+                     <ns2:name>Врач-маммолог</ns2:name>
+                     <ns2:code>27</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="183">
+                     <ns2:name>Врач-педиатр</ns2:name>
+                     <ns2:code>44</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="172">
+                     <ns2:name>Врач-нефролог</ns2:name>
+                     <ns2:code>48</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="290">
+                     <ns2:name>Врач-гематолог</ns2:name>
+                     <ns2:code>49</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="285">
+                     <ns2:name>Врач-инфекционист</ns2:name>
+                     <ns2:code>50</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="173">
+                     <ns2:name>Врач-ревматолог</ns2:name>
+                     <ns2:code>55</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="231">
+                     <ns2:name>Врач-фтизиатр</ns2:name>
+                     <ns2:code>56</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="209">
+                     <ns2:name>Врач-пульмонолог</ns2:name>
+                     <ns2:code>58</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="211">
+                     <ns2:name>Врач-травматолог-ортопед</ns2:name>
+                     <ns2:code>61</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="256">
+                     <ns2:name>Врач-аллерголог-иммунолог</ns2:name>
+                     <ns2:code>65</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="228">
+                     <ns2:name>Подростковый врач</ns2:name>
+                     <ns2:code>96</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="227">
+                     <ns2:name>Хирург-ортопед</ns2:name>
+                     <ns2:code>97</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="237">
+                     <ns2:name>Врач-колопроктолог</ns2:name>
+                     <ns2:code>120</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="176">
+                     <ns2:name>Врач-эпилептолог</ns2:name>
+                     <ns2:code>123</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="140">
+                     <ns2:name>Эпилептолог-невролог</ns2:name>
+                     <ns2:code>124</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="65">
+                     <ns2:name>Заведующий центром амбулаторной хирургии – врач - уролог</ns2:name>
+                     <ns2:code>401</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="283">
+                     <ns2:name>Врач-оториноларинголог</ns2:name>
+                     <ns2:code>603</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="197">
+                     <ns2:name>Врач - детский кардиолог</ns2:name>
+                     <ns2:code>712</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="221">
+                     <ns2:name>Врач - детский онколог</ns2:name>
+                     <ns2:code>713</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="222">
+                     <ns2:name>Врач - детский уролог-андролог</ns2:name>
+                     <ns2:code>714</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="223">
+                     <ns2:name>Врач - детский хирург</ns2:name>
+                     <ns2:code>715</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="220">
+                     <ns2:name>Врач - детский эндокринолог</ns2:name>
+                     <ns2:code>716</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="280">
+                     <ns2:name>Врач-гериатр</ns2:name>
+                     <ns2:code>750</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="251">
+                     <ns2:name>Врач-педиатр городской (районный)</ns2:name>
+                     <ns2:code>758</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="252">
+                     <ns2:name>Врач-педиатр участковый</ns2:name>
+                     <ns2:code>759</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="177">
+                     <ns2:name>Врач-сурдолог-оториноларинголог</ns2:name>
+                     <ns2:code>768</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="275">
+                     <ns2:name>Врач по паллиативной медицинской помощи</ns2:name>
+                     <ns2:code>856</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="253">
+                     <ns2:name>Врач-педиатр (Здоровое детство)</ns2:name>
+                     <ns2:code>863</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="14">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский хирург</ns2:name>
+                     <ns2:code>892</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="85">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский эндокринолог</ns2:name>
+                     <ns2:code>893</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="50">
+                     <ns2:name>Заведующий структурным подразделением - врач-инфекционист</ns2:name>
+                     <ns2:code>910</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="93">
+                     <ns2:name>Заведующий структурным подразделением - врач-кардиолог</ns2:name>
+                     <ns2:code>911</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="52">
+                     <ns2:name>Заведующий структурным подразделением - врач-невролог</ns2:name>
+                     <ns2:code>914</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="28">
+                     <ns2:name>Заведующий структурным подразделением - врач-оториноларинголог</ns2:name>
+                     <ns2:code>918</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="108">
+                     <ns2:name>Заведующий структурным подразделением - врач-офтальмолог</ns2:name>
+                     <ns2:code>919</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="95">
+                     <ns2:name>Заведующий структурным подразделением - врач-педиатр</ns2:name>
+                     <ns2:code>921</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="82">
+                     <ns2:name>Заведующий структурным подразделением - врач-уролог</ns2:name>
+                     <ns2:code>938</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="101">
+                     <ns2:name>Заведующий структурным подразделением - врач-хирург</ns2:name>
+                     <ns2:code>940</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="98">
+                     <ns2:name>Заведующий структурным подразделением - врач-эндокринолог</ns2:name>
+                     <ns2:code>941</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="1">
+                     <ns2:name>Заведующий отделением медицинской помощи взрослому населению на дому – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>968</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="3">
+                     <ns2:name>Заведующий отделением общей врачебной практики – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>972</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="23">
+                  <ns2:code>6</ns2:code>
+                  <ns2:name>Больничный лист</ns2:name>
+                  <ns2:InquiryPurposeInfo id="6">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="271">
+                     <ns2:name>Врач-уролог</ns2:name>
+                     <ns2:code>2</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="170">
+                     <ns2:name>Врач-хирург</ns2:name>
+                     <ns2:code>3</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="206">
+                     <ns2:name>Врач-офтальмолог</ns2:name>
+                     <ns2:code>6</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="232">
+                     <ns2:name>Врач-кардиолог</ns2:name>
+                     <ns2:code>8</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="273">
+                     <ns2:name>Врач-невролог</ns2:name>
+                     <ns2:code>9</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="274">
+                     <ns2:name>Врач-эндокринолог</ns2:name>
+                     <ns2:code>10</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="143">
+                     <ns2:name>Врач-гастроэнтеролог</ns2:name>
+                     <ns2:code>11</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="152">
+                     <ns2:name>Аллерголог</ns2:name>
+                     <ns2:code>15</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="207">
+                     <ns2:name>Врач-флеболог</ns2:name>
+                     <ns2:code>17</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="295">
+                     <ns2:name>Ортопед</ns2:name>
+                     <ns2:code>24</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="167">
+                     <ns2:name>Врач-онколог</ns2:name>
+                     <ns2:code>26</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="118">
+                     <ns2:name>Врач-маммолог</ns2:name>
+                     <ns2:code>27</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="183">
+                     <ns2:name>Врач-педиатр</ns2:name>
+                     <ns2:code>44</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="172">
+                     <ns2:name>Врач-нефролог</ns2:name>
+                     <ns2:code>48</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="290">
+                     <ns2:name>Врач-гематолог</ns2:name>
+                     <ns2:code>49</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="285">
+                     <ns2:name>Врач-инфекционист</ns2:name>
+                     <ns2:code>50</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="173">
+                     <ns2:name>Врач-ревматолог</ns2:name>
+                     <ns2:code>55</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="231">
+                     <ns2:name>Врач-фтизиатр</ns2:name>
+                     <ns2:code>56</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="209">
+                     <ns2:name>Врач-пульмонолог</ns2:name>
+                     <ns2:code>58</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="211">
+                     <ns2:name>Врач-травматолог-ортопед</ns2:name>
+                     <ns2:code>61</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="256">
+                     <ns2:name>Врач-аллерголог-иммунолог</ns2:name>
+                     <ns2:code>65</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="228">
+                     <ns2:name>Подростковый врач</ns2:name>
+                     <ns2:code>96</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="227">
+                     <ns2:name>Хирург-ортопед</ns2:name>
+                     <ns2:code>97</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="237">
+                     <ns2:name>Врач-колопроктолог</ns2:name>
+                     <ns2:code>120</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="176">
+                     <ns2:name>Врач-эпилептолог</ns2:name>
+                     <ns2:code>123</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="140">
+                     <ns2:name>Эпилептолог-невролог</ns2:name>
+                     <ns2:code>124</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="65">
+                     <ns2:name>Заведующий центром амбулаторной хирургии – врач - уролог</ns2:name>
+                     <ns2:code>401</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="283">
+                     <ns2:name>Врач-оториноларинголог</ns2:name>
+                     <ns2:code>603</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="197">
+                     <ns2:name>Врач - детский кардиолог</ns2:name>
+                     <ns2:code>712</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="221">
+                     <ns2:name>Врач - детский онколог</ns2:name>
+                     <ns2:code>713</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="222">
+                     <ns2:name>Врач - детский уролог-андролог</ns2:name>
+                     <ns2:code>714</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="223">
+                     <ns2:name>Врач - детский хирург</ns2:name>
+                     <ns2:code>715</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="220">
+                     <ns2:name>Врач - детский эндокринолог</ns2:name>
+                     <ns2:code>716</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="280">
+                     <ns2:name>Врач-гериатр</ns2:name>
+                     <ns2:code>750</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="251">
+                     <ns2:name>Врач-педиатр городской (районный)</ns2:name>
+                     <ns2:code>758</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="252">
+                     <ns2:name>Врач-педиатр участковый</ns2:name>
+                     <ns2:code>759</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="177">
+                     <ns2:name>Врач-сурдолог-оториноларинголог</ns2:name>
+                     <ns2:code>768</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="275">
+                     <ns2:name>Врач по паллиативной медицинской помощи</ns2:name>
+                     <ns2:code>856</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="253">
+                     <ns2:name>Врач-педиатр (Здоровое детство)</ns2:name>
+                     <ns2:code>863</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="14">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский хирург</ns2:name>
+                     <ns2:code>892</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="85">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский эндокринолог</ns2:name>
+                     <ns2:code>893</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="50">
+                     <ns2:name>Заведующий структурным подразделением - врач-инфекционист</ns2:name>
+                     <ns2:code>910</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="93">
+                     <ns2:name>Заведующий структурным подразделением - врач-кардиолог</ns2:name>
+                     <ns2:code>911</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="52">
+                     <ns2:name>Заведующий структурным подразделением - врач-невролог</ns2:name>
+                     <ns2:code>914</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="28">
+                     <ns2:name>Заведующий структурным подразделением - врач-оториноларинголог</ns2:name>
+                     <ns2:code>918</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="108">
+                     <ns2:name>Заведующий структурным подразделением - врач-офтальмолог</ns2:name>
+                     <ns2:code>919</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="95">
+                     <ns2:name>Заведующий структурным подразделением - врач-педиатр</ns2:name>
+                     <ns2:code>921</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="82">
+                     <ns2:name>Заведующий структурным подразделением - врач-уролог</ns2:name>
+                     <ns2:code>938</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="101">
+                     <ns2:name>Заведующий структурным подразделением - врач-хирург</ns2:name>
+                     <ns2:code>940</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="98">
+                     <ns2:name>Заведующий структурным подразделением - врач-эндокринолог</ns2:name>
+                     <ns2:code>941</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="1">
+                     <ns2:name>Заведующий отделением медицинской помощи взрослому населению на дому – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>968</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="3">
+                     <ns2:name>Заведующий отделением общей врачебной практики – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>972</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="24">
+                  <ns2:code>7</ns2:code>
+                  <ns2:name>Получить направление на исследование/ анализы</ns2:name>
+                  <ns2:InquiryPurposeInfo id="7">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="271">
+                     <ns2:name>Врач-уролог</ns2:name>
+                     <ns2:code>2</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="170">
+                     <ns2:name>Врач-хирург</ns2:name>
+                     <ns2:code>3</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="206">
+                     <ns2:name>Врач-офтальмолог</ns2:name>
+                     <ns2:code>6</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="232">
+                     <ns2:name>Врач-кардиолог</ns2:name>
+                     <ns2:code>8</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="273">
+                     <ns2:name>Врач-невролог</ns2:name>
+                     <ns2:code>9</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="274">
+                     <ns2:name>Врач-эндокринолог</ns2:name>
+                     <ns2:code>10</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="143">
+                     <ns2:name>Врач-гастроэнтеролог</ns2:name>
+                     <ns2:code>11</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="152">
+                     <ns2:name>Аллерголог</ns2:name>
+                     <ns2:code>15</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="207">
+                     <ns2:name>Врач-флеболог</ns2:name>
+                     <ns2:code>17</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="295">
+                     <ns2:name>Ортопед</ns2:name>
+                     <ns2:code>24</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="167">
+                     <ns2:name>Врач-онколог</ns2:name>
+                     <ns2:code>26</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="118">
+                     <ns2:name>Врач-маммолог</ns2:name>
+                     <ns2:code>27</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="183">
+                     <ns2:name>Врач-педиатр</ns2:name>
+                     <ns2:code>44</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="172">
+                     <ns2:name>Врач-нефролог</ns2:name>
+                     <ns2:code>48</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="290">
+                     <ns2:name>Врач-гематолог</ns2:name>
+                     <ns2:code>49</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="285">
+                     <ns2:name>Врач-инфекционист</ns2:name>
+                     <ns2:code>50</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="173">
+                     <ns2:name>Врач-ревматолог</ns2:name>
+                     <ns2:code>55</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="231">
+                     <ns2:name>Врач-фтизиатр</ns2:name>
+                     <ns2:code>56</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="209">
+                     <ns2:name>Врач-пульмонолог</ns2:name>
+                     <ns2:code>58</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="211">
+                     <ns2:name>Врач-травматолог-ортопед</ns2:name>
+                     <ns2:code>61</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="256">
+                     <ns2:name>Врач-аллерголог-иммунолог</ns2:name>
+                     <ns2:code>65</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="228">
+                     <ns2:name>Подростковый врач</ns2:name>
+                     <ns2:code>96</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="227">
+                     <ns2:name>Хирург-ортопед</ns2:name>
+                     <ns2:code>97</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="237">
+                     <ns2:name>Врач-колопроктолог</ns2:name>
+                     <ns2:code>120</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="176">
+                     <ns2:name>Врач-эпилептолог</ns2:name>
+                     <ns2:code>123</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="140">
+                     <ns2:name>Эпилептолог-невролог</ns2:name>
+                     <ns2:code>124</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="65">
+                     <ns2:name>Заведующий центром амбулаторной хирургии – врач - уролог</ns2:name>
+                     <ns2:code>401</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="283">
+                     <ns2:name>Врач-оториноларинголог</ns2:name>
+                     <ns2:code>603</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="197">
+                     <ns2:name>Врач - детский кардиолог</ns2:name>
+                     <ns2:code>712</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="221">
+                     <ns2:name>Врач - детский онколог</ns2:name>
+                     <ns2:code>713</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="222">
+                     <ns2:name>Врач - детский уролог-андролог</ns2:name>
+                     <ns2:code>714</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="223">
+                     <ns2:name>Врач - детский хирург</ns2:name>
+                     <ns2:code>715</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="220">
+                     <ns2:name>Врач - детский эндокринолог</ns2:name>
+                     <ns2:code>716</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="280">
+                     <ns2:name>Врач-гериатр</ns2:name>
+                     <ns2:code>750</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="251">
+                     <ns2:name>Врач-педиатр городской (районный)</ns2:name>
+                     <ns2:code>758</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="252">
+                     <ns2:name>Врач-педиатр участковый</ns2:name>
+                     <ns2:code>759</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="177">
+                     <ns2:name>Врач-сурдолог-оториноларинголог</ns2:name>
+                     <ns2:code>768</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="275">
+                     <ns2:name>Врач по паллиативной медицинской помощи</ns2:name>
+                     <ns2:code>856</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="253">
+                     <ns2:name>Врач-педиатр (Здоровое детство)</ns2:name>
+                     <ns2:code>863</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="14">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский хирург</ns2:name>
+                     <ns2:code>892</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="85">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский эндокринолог</ns2:name>
+                     <ns2:code>893</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="50">
+                     <ns2:name>Заведующий структурным подразделением - врач-инфекционист</ns2:name>
+                     <ns2:code>910</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="93">
+                     <ns2:name>Заведующий структурным подразделением - врач-кардиолог</ns2:name>
+                     <ns2:code>911</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="52">
+                     <ns2:name>Заведующий структурным подразделением - врач-невролог</ns2:name>
+                     <ns2:code>914</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="28">
+                     <ns2:name>Заведующий структурным подразделением - врач-оториноларинголог</ns2:name>
+                     <ns2:code>918</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="108">
+                     <ns2:name>Заведующий структурным подразделением - врач-офтальмолог</ns2:name>
+                     <ns2:code>919</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="95">
+                     <ns2:name>Заведующий структурным подразделением - врач-педиатр</ns2:name>
+                     <ns2:code>921</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="82">
+                     <ns2:name>Заведующий структурным подразделением - врач-уролог</ns2:name>
+                     <ns2:code>938</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="101">
+                     <ns2:name>Заведующий структурным подразделением - врач-хирург</ns2:name>
+                     <ns2:code>940</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="98">
+                     <ns2:name>Заведующий структурным подразделением - врач-эндокринолог</ns2:name>
+                     <ns2:code>941</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="1">
+                     <ns2:name>Заведующий отделением медицинской помощи взрослому населению на дому – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>968</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="3">
+                     <ns2:name>Заведующий отделением общей врачебной практики – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>972</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="25">
+                  <ns2:code>8</ns2:code>
+                  <ns2:name>Плановая госпитализация</ns2:name>
+                  <ns2:InquiryPurposeInfo id="8">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="271">
+                     <ns2:name>Врач-уролог</ns2:name>
+                     <ns2:code>2</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="170">
+                     <ns2:name>Врач-хирург</ns2:name>
+                     <ns2:code>3</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="206">
+                     <ns2:name>Врач-офтальмолог</ns2:name>
+                     <ns2:code>6</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="232">
+                     <ns2:name>Врач-кардиолог</ns2:name>
+                     <ns2:code>8</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="273">
+                     <ns2:name>Врач-невролог</ns2:name>
+                     <ns2:code>9</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="274">
+                     <ns2:name>Врач-эндокринолог</ns2:name>
+                     <ns2:code>10</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="143">
+                     <ns2:name>Врач-гастроэнтеролог</ns2:name>
+                     <ns2:code>11</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="152">
+                     <ns2:name>Аллерголог</ns2:name>
+                     <ns2:code>15</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="207">
+                     <ns2:name>Врач-флеболог</ns2:name>
+                     <ns2:code>17</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="295">
+                     <ns2:name>Ортопед</ns2:name>
+                     <ns2:code>24</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="118">
+                     <ns2:name>Врач-маммолог</ns2:name>
+                     <ns2:code>27</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="183">
+                     <ns2:name>Врач-педиатр</ns2:name>
+                     <ns2:code>44</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="172">
+                     <ns2:name>Врач-нефролог</ns2:name>
+                     <ns2:code>48</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="290">
+                     <ns2:name>Врач-гематолог</ns2:name>
+                     <ns2:code>49</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="285">
+                     <ns2:name>Врач-инфекционист</ns2:name>
+                     <ns2:code>50</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="173">
+                     <ns2:name>Врач-ревматолог</ns2:name>
+                     <ns2:code>55</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="231">
+                     <ns2:name>Врач-фтизиатр</ns2:name>
+                     <ns2:code>56</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="209">
+                     <ns2:name>Врач-пульмонолог</ns2:name>
+                     <ns2:code>58</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="211">
+                     <ns2:name>Врач-травматолог-ортопед</ns2:name>
+                     <ns2:code>61</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="256">
+                     <ns2:name>Врач-аллерголог-иммунолог</ns2:name>
+                     <ns2:code>65</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="228">
+                     <ns2:name>Подростковый врач</ns2:name>
+                     <ns2:code>96</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="227">
+                     <ns2:name>Хирург-ортопед</ns2:name>
+                     <ns2:code>97</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="237">
+                     <ns2:name>Врач-колопроктолог</ns2:name>
+                     <ns2:code>120</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="176">
+                     <ns2:name>Врач-эпилептолог</ns2:name>
+                     <ns2:code>123</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="140">
+                     <ns2:name>Эпилептолог-невролог</ns2:name>
+                     <ns2:code>124</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="65">
+                     <ns2:name>Заведующий центром амбулаторной хирургии – врач - уролог</ns2:name>
+                     <ns2:code>401</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="283">
+                     <ns2:name>Врач-оториноларинголог</ns2:name>
+                     <ns2:code>603</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="197">
+                     <ns2:name>Врач - детский кардиолог</ns2:name>
+                     <ns2:code>712</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="221">
+                     <ns2:name>Врач - детский онколог</ns2:name>
+                     <ns2:code>713</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="222">
+                     <ns2:name>Врач - детский уролог-андролог</ns2:name>
+                     <ns2:code>714</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="223">
+                     <ns2:name>Врач - детский хирург</ns2:name>
+                     <ns2:code>715</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="220">
+                     <ns2:name>Врач - детский эндокринолог</ns2:name>
+                     <ns2:code>716</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="280">
+                     <ns2:name>Врач-гериатр</ns2:name>
+                     <ns2:code>750</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="251">
+                     <ns2:name>Врач-педиатр городской (районный)</ns2:name>
+                     <ns2:code>758</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="252">
+                     <ns2:name>Врач-педиатр участковый</ns2:name>
+                     <ns2:code>759</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="177">
+                     <ns2:name>Врач-сурдолог-оториноларинголог</ns2:name>
+                     <ns2:code>768</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="275">
+                     <ns2:name>Врач по паллиативной медицинской помощи</ns2:name>
+                     <ns2:code>856</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="253">
+                     <ns2:name>Врач-педиатр (Здоровое детство)</ns2:name>
+                     <ns2:code>863</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="14">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский хирург</ns2:name>
+                     <ns2:code>892</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="85">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский эндокринолог</ns2:name>
+                     <ns2:code>893</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="50">
+                     <ns2:name>Заведующий структурным подразделением - врач-инфекционист</ns2:name>
+                     <ns2:code>910</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="93">
+                     <ns2:name>Заведующий структурным подразделением - врач-кардиолог</ns2:name>
+                     <ns2:code>911</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="52">
+                     <ns2:name>Заведующий структурным подразделением - врач-невролог</ns2:name>
+                     <ns2:code>914</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="28">
+                     <ns2:name>Заведующий структурным подразделением - врач-оториноларинголог</ns2:name>
+                     <ns2:code>918</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="108">
+                     <ns2:name>Заведующий структурным подразделением - врач-офтальмолог</ns2:name>
+                     <ns2:code>919</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="95">
+                     <ns2:name>Заведующий структурным подразделением - врач-педиатр</ns2:name>
+                     <ns2:code>921</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="82">
+                     <ns2:name>Заведующий структурным подразделением - врач-уролог</ns2:name>
+                     <ns2:code>938</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="101">
+                     <ns2:name>Заведующий структурным подразделением - врач-хирург</ns2:name>
+                     <ns2:code>940</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="98">
+                     <ns2:name>Заведующий структурным подразделением - врач-эндокринолог</ns2:name>
+                     <ns2:code>941</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="1">
+                     <ns2:name>Заведующий отделением медицинской помощи взрослому населению на дому – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>968</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="3">
+                     <ns2:name>Заведующий отделением общей врачебной практики – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>972</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="26">
+                  <ns2:code>9</ns2:code>
+                  <ns2:name>Санаторно - курортная карта</ns2:name>
+                  <ns2:InquiryPurposeInfo id="9">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="271">
+                     <ns2:name>Врач-уролог</ns2:name>
+                     <ns2:code>2</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="170">
+                     <ns2:name>Врач-хирург</ns2:name>
+                     <ns2:code>3</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="206">
+                     <ns2:name>Врач-офтальмолог</ns2:name>
+                     <ns2:code>6</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="232">
+                     <ns2:name>Врач-кардиолог</ns2:name>
+                     <ns2:code>8</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="273">
+                     <ns2:name>Врач-невролог</ns2:name>
+                     <ns2:code>9</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="274">
+                     <ns2:name>Врач-эндокринолог</ns2:name>
+                     <ns2:code>10</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="143">
+                     <ns2:name>Врач-гастроэнтеролог</ns2:name>
+                     <ns2:code>11</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="152">
+                     <ns2:name>Аллерголог</ns2:name>
+                     <ns2:code>15</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="207">
+                     <ns2:name>Врач-флеболог</ns2:name>
+                     <ns2:code>17</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="295">
+                     <ns2:name>Ортопед</ns2:name>
+                     <ns2:code>24</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="118">
+                     <ns2:name>Врач-маммолог</ns2:name>
+                     <ns2:code>27</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="183">
+                     <ns2:name>Врач-педиатр</ns2:name>
+                     <ns2:code>44</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="172">
+                     <ns2:name>Врач-нефролог</ns2:name>
+                     <ns2:code>48</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="290">
+                     <ns2:name>Врач-гематолог</ns2:name>
+                     <ns2:code>49</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="285">
+                     <ns2:name>Врач-инфекционист</ns2:name>
+                     <ns2:code>50</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="173">
+                     <ns2:name>Врач-ревматолог</ns2:name>
+                     <ns2:code>55</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="231">
+                     <ns2:name>Врач-фтизиатр</ns2:name>
+                     <ns2:code>56</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="209">
+                     <ns2:name>Врач-пульмонолог</ns2:name>
+                     <ns2:code>58</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="211">
+                     <ns2:name>Врач-травматолог-ортопед</ns2:name>
+                     <ns2:code>61</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="256">
+                     <ns2:name>Врач-аллерголог-иммунолог</ns2:name>
+                     <ns2:code>65</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="228">
+                     <ns2:name>Подростковый врач</ns2:name>
+                     <ns2:code>96</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="227">
+                     <ns2:name>Хирург-ортопед</ns2:name>
+                     <ns2:code>97</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="237">
+                     <ns2:name>Врач-колопроктолог</ns2:name>
+                     <ns2:code>120</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="176">
+                     <ns2:name>Врач-эпилептолог</ns2:name>
+                     <ns2:code>123</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="140">
+                     <ns2:name>Эпилептолог-невролог</ns2:name>
+                     <ns2:code>124</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="65">
+                     <ns2:name>Заведующий центром амбулаторной хирургии – врач - уролог</ns2:name>
+                     <ns2:code>401</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="283">
+                     <ns2:name>Врач-оториноларинголог</ns2:name>
+                     <ns2:code>603</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="197">
+                     <ns2:name>Врач - детский кардиолог</ns2:name>
+                     <ns2:code>712</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="221">
+                     <ns2:name>Врач - детский онколог</ns2:name>
+                     <ns2:code>713</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="222">
+                     <ns2:name>Врач - детский уролог-андролог</ns2:name>
+                     <ns2:code>714</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="223">
+                     <ns2:name>Врач - детский хирург</ns2:name>
+                     <ns2:code>715</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="220">
+                     <ns2:name>Врач - детский эндокринолог</ns2:name>
+                     <ns2:code>716</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="280">
+                     <ns2:name>Врач-гериатр</ns2:name>
+                     <ns2:code>750</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="251">
+                     <ns2:name>Врач-педиатр городской (районный)</ns2:name>
+                     <ns2:code>758</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="252">
+                     <ns2:name>Врач-педиатр участковый</ns2:name>
+                     <ns2:code>759</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="177">
+                     <ns2:name>Врач-сурдолог-оториноларинголог</ns2:name>
+                     <ns2:code>768</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="275">
+                     <ns2:name>Врач по паллиативной медицинской помощи</ns2:name>
+                     <ns2:code>856</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="253">
+                     <ns2:name>Врач-педиатр (Здоровое детство)</ns2:name>
+                     <ns2:code>863</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="14">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский хирург</ns2:name>
+                     <ns2:code>892</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="85">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский эндокринолог</ns2:name>
+                     <ns2:code>893</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="50">
+                     <ns2:name>Заведующий структурным подразделением - врач-инфекционист</ns2:name>
+                     <ns2:code>910</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="93">
+                     <ns2:name>Заведующий структурным подразделением - врач-кардиолог</ns2:name>
+                     <ns2:code>911</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="52">
+                     <ns2:name>Заведующий структурным подразделением - врач-невролог</ns2:name>
+                     <ns2:code>914</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="28">
+                     <ns2:name>Заведующий структурным подразделением - врач-оториноларинголог</ns2:name>
+                     <ns2:code>918</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="108">
+                     <ns2:name>Заведующий структурным подразделением - врач-офтальмолог</ns2:name>
+                     <ns2:code>919</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="95">
+                     <ns2:name>Заведующий структурным подразделением - врач-педиатр</ns2:name>
+                     <ns2:code>921</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="82">
+                     <ns2:name>Заведующий структурным подразделением - врач-уролог</ns2:name>
+                     <ns2:code>938</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="101">
+                     <ns2:name>Заведующий структурным подразделением - врач-хирург</ns2:name>
+                     <ns2:code>940</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="98">
+                     <ns2:name>Заведующий структурным подразделением - врач-эндокринолог</ns2:name>
+                     <ns2:code>941</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="1">
+                     <ns2:name>Заведующий отделением медицинской помощи взрослому населению на дому – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>968</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="3">
+                     <ns2:name>Заведующий отделением общей врачебной практики – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>972</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="27">
+                  <ns2:code>10</ns2:code>
+                  <ns2:name>Выписка лекарств</ns2:name>
+                  <ns2:InquiryPurposeInfo id="10">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="271">
+                     <ns2:name>Врач-уролог</ns2:name>
+                     <ns2:code>2</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="170">
+                     <ns2:name>Врач-хирург</ns2:name>
+                     <ns2:code>3</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="206">
+                     <ns2:name>Врач-офтальмолог</ns2:name>
+                     <ns2:code>6</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="232">
+                     <ns2:name>Врач-кардиолог</ns2:name>
+                     <ns2:code>8</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="273">
+                     <ns2:name>Врач-невролог</ns2:name>
+                     <ns2:code>9</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="274">
+                     <ns2:name>Врач-эндокринолог</ns2:name>
+                     <ns2:code>10</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="143">
+                     <ns2:name>Врач-гастроэнтеролог</ns2:name>
+                     <ns2:code>11</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="152">
+                     <ns2:name>Аллерголог</ns2:name>
+                     <ns2:code>15</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="207">
+                     <ns2:name>Врач-флеболог</ns2:name>
+                     <ns2:code>17</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="295">
+                     <ns2:name>Ортопед</ns2:name>
+                     <ns2:code>24</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="167">
+                     <ns2:name>Врач-онколог</ns2:name>
+                     <ns2:code>26</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="118">
+                     <ns2:name>Врач-маммолог</ns2:name>
+                     <ns2:code>27</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="183">
+                     <ns2:name>Врач-педиатр</ns2:name>
+                     <ns2:code>44</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="172">
+                     <ns2:name>Врач-нефролог</ns2:name>
+                     <ns2:code>48</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="290">
+                     <ns2:name>Врач-гематолог</ns2:name>
+                     <ns2:code>49</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="285">
+                     <ns2:name>Врач-инфекционист</ns2:name>
+                     <ns2:code>50</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="173">
+                     <ns2:name>Врач-ревматолог</ns2:name>
+                     <ns2:code>55</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="231">
+                     <ns2:name>Врач-фтизиатр</ns2:name>
+                     <ns2:code>56</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="209">
+                     <ns2:name>Врач-пульмонолог</ns2:name>
+                     <ns2:code>58</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="211">
+                     <ns2:name>Врач-травматолог-ортопед</ns2:name>
+                     <ns2:code>61</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="256">
+                     <ns2:name>Врач-аллерголог-иммунолог</ns2:name>
+                     <ns2:code>65</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="302">
+                     <ns2:name>Фельдшер</ns2:name>
+                     <ns2:code>71</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="228">
+                     <ns2:name>Подростковый врач</ns2:name>
+                     <ns2:code>96</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="227">
+                     <ns2:name>Хирург-ортопед</ns2:name>
+                     <ns2:code>97</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="237">
+                     <ns2:name>Врач-колопроктолог</ns2:name>
+                     <ns2:code>120</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="176">
+                     <ns2:name>Врач-эпилептолог</ns2:name>
+                     <ns2:code>123</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="140">
+                     <ns2:name>Эпилептолог-невролог</ns2:name>
+                     <ns2:code>124</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="65">
+                     <ns2:name>Заведующий центром амбулаторной хирургии – врач - уролог</ns2:name>
+                     <ns2:code>401</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="283">
+                     <ns2:name>Врач-оториноларинголог</ns2:name>
+                     <ns2:code>603</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="197">
+                     <ns2:name>Врач - детский кардиолог</ns2:name>
+                     <ns2:code>712</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="221">
+                     <ns2:name>Врач - детский онколог</ns2:name>
+                     <ns2:code>713</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="222">
+                     <ns2:name>Врач - детский уролог-андролог</ns2:name>
+                     <ns2:code>714</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="223">
+                     <ns2:name>Врач - детский хирург</ns2:name>
+                     <ns2:code>715</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="220">
+                     <ns2:name>Врач - детский эндокринолог</ns2:name>
+                     <ns2:code>716</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="280">
+                     <ns2:name>Врач-гериатр</ns2:name>
+                     <ns2:code>750</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="251">
+                     <ns2:name>Врач-педиатр городской (районный)</ns2:name>
+                     <ns2:code>758</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="252">
+                     <ns2:name>Врач-педиатр участковый</ns2:name>
+                     <ns2:code>759</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="177">
+                     <ns2:name>Врач-сурдолог-оториноларинголог</ns2:name>
+                     <ns2:code>768</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="275">
+                     <ns2:name>Врач по паллиативной медицинской помощи</ns2:name>
+                     <ns2:code>856</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="253">
+                     <ns2:name>Врач-педиатр (Здоровое детство)</ns2:name>
+                     <ns2:code>863</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="14">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский хирург</ns2:name>
+                     <ns2:code>892</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="85">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский эндокринолог</ns2:name>
+                     <ns2:code>893</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="50">
+                     <ns2:name>Заведующий структурным подразделением - врач-инфекционист</ns2:name>
+                     <ns2:code>910</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="93">
+                     <ns2:name>Заведующий структурным подразделением - врач-кардиолог</ns2:name>
+                     <ns2:code>911</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="52">
+                     <ns2:name>Заведующий структурным подразделением - врач-невролог</ns2:name>
+                     <ns2:code>914</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="28">
+                     <ns2:name>Заведующий структурным подразделением - врач-оториноларинголог</ns2:name>
+                     <ns2:code>918</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="108">
+                     <ns2:name>Заведующий структурным подразделением - врач-офтальмолог</ns2:name>
+                     <ns2:code>919</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="95">
+                     <ns2:name>Заведующий структурным подразделением - врач-педиатр</ns2:name>
+                     <ns2:code>921</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="82">
+                     <ns2:name>Заведующий структурным подразделением - врач-уролог</ns2:name>
+                     <ns2:code>938</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="101">
+                     <ns2:name>Заведующий структурным подразделением - врач-хирург</ns2:name>
+                     <ns2:code>940</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="98">
+                     <ns2:name>Заведующий структурным подразделением - врач-эндокринолог</ns2:name>
+                     <ns2:code>941</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="1">
+                     <ns2:name>Заведующий отделением медицинской помощи взрослому населению на дому – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>968</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="3">
+                     <ns2:name>Заведующий отделением общей врачебной практики – врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>972</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="28">
+                  <ns2:code>11</ns2:code>
+                  <ns2:name>Справка</ns2:name>
+                  <ns2:InquiryPurposeInfo id="11">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="167">
+                     <ns2:name>Врач-онколог</ns2:name>
+                     <ns2:code>26</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="303">
+                     <ns2:name>Кабинет выдачи справок и направлений</ns2:name>
+                     <ns2:code>2001</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="29">
+                  <ns2:code>12</ns2:code>
+                  <ns2:name>Инвалидность</ns2:name>
+                  <ns2:InquiryPurposeInfo id="12">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="261">
+                     <ns2:name>Врач-терапевт</ns2:name>
+                     <ns2:code>1</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="232">
+                     <ns2:name>Врач-кардиолог</ns2:name>
+                     <ns2:code>8</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="273">
+                     <ns2:name>Врач-невролог</ns2:name>
+                     <ns2:code>9</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="274">
+                     <ns2:name>Врач-эндокринолог</ns2:name>
+                     <ns2:code>10</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="143">
+                     <ns2:name>Врач-гастроэнтеролог</ns2:name>
+                     <ns2:code>11</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="152">
+                     <ns2:name>Аллерголог</ns2:name>
+                     <ns2:code>15</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="207">
+                     <ns2:name>Врач-флеболог</ns2:name>
+                     <ns2:code>17</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="295">
+                     <ns2:name>Ортопед</ns2:name>
+                     <ns2:code>24</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="118">
+                     <ns2:name>Врач-маммолог</ns2:name>
+                     <ns2:code>27</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="183">
+                     <ns2:name>Врач-педиатр</ns2:name>
+                     <ns2:code>44</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="262">
+                     <ns2:name>Врач-терапевт участковый цехового врачебного участка</ns2:name>
+                     <ns2:code>46</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="289">
+                     <ns2:name>Врач-терапевт подростковый</ns2:name>
+                     <ns2:code>47</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="172">
+                     <ns2:name>Врач-нефролог</ns2:name>
+                     <ns2:code>48</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="290">
+                     <ns2:name>Врач-гематолог</ns2:name>
+                     <ns2:code>49</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="285">
+                     <ns2:name>Врач-инфекционист</ns2:name>
+                     <ns2:code>50</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="173">
+                     <ns2:name>Врач-ревматолог</ns2:name>
+                     <ns2:code>55</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="231">
+                     <ns2:name>Врач-фтизиатр</ns2:name>
+                     <ns2:code>56</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="209">
+                     <ns2:name>Врач-пульмонолог</ns2:name>
+                     <ns2:code>58</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="211">
+                     <ns2:name>Врач-травматолог-ортопед</ns2:name>
+                     <ns2:code>61</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="256">
+                     <ns2:name>Врач-аллерголог-иммунолог</ns2:name>
+                     <ns2:code>65</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="213">
+                     <ns2:name>Врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>69</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="228">
+                     <ns2:name>Подростковый врач</ns2:name>
+                     <ns2:code>96</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="227">
+                     <ns2:name>Хирург-ортопед</ns2:name>
+                     <ns2:code>97</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="237">
+                     <ns2:name>Врач-колопроктолог</ns2:name>
+                     <ns2:code>120</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="176">
+                     <ns2:name>Врач-эпилептолог</ns2:name>
+                     <ns2:code>123</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="140">
+                     <ns2:name>Эпилептолог-невролог</ns2:name>
+                     <ns2:code>124</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="309">
+                     <ns2:name>Участковый врач</ns2:name>
+                     <ns2:code>200</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="288">
+                     <ns2:name>Врач-терапевт участковый</ns2:name>
+                     <ns2:code>602</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="197">
+                     <ns2:name>Врач - детский кардиолог</ns2:name>
+                     <ns2:code>712</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="221">
+                     <ns2:name>Врач - детский онколог</ns2:name>
+                     <ns2:code>713</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="222">
+                     <ns2:name>Врач - детский уролог-андролог</ns2:name>
+                     <ns2:code>714</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="220">
+                     <ns2:name>Врач - детский эндокринолог</ns2:name>
+                     <ns2:code>716</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="280">
+                     <ns2:name>Врач-гериатр</ns2:name>
+                     <ns2:code>750</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="251">
+                     <ns2:name>Врач-педиатр городской (районный)</ns2:name>
+                     <ns2:code>758</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="252">
+                     <ns2:name>Врач-педиатр участковый</ns2:name>
+                     <ns2:code>759</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="177">
+                     <ns2:name>Врач-сурдолог-оториноларинголог</ns2:name>
+                     <ns2:code>768</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="275">
+                     <ns2:name>Врач по паллиативной медицинской помощи</ns2:name>
+                     <ns2:code>856</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="85">
+                     <ns2:name>Заведующий структурным подразделением - врач - детский эндокринолог</ns2:name>
+                     <ns2:code>893</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="21">
+                     <ns2:name>Заведующий структурным подразделением - врач общей практики (семейный врач)</ns2:name>
+                     <ns2:code>897</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="50">
+                     <ns2:name>Заведующий структурным подразделением - врач-инфекционист</ns2:name>
+                     <ns2:code>910</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="93">
+                     <ns2:name>Заведующий структурным подразделением - врач-кардиолог</ns2:name>
+                     <ns2:code>911</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="52">
+                     <ns2:name>Заведующий структурным подразделением - врач-невролог</ns2:name>
+                     <ns2:code>914</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="95">
+                     <ns2:name>Заведующий структурным подразделением - врач-педиатр</ns2:name>
+                     <ns2:code>921</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="107">
+                     <ns2:name>Заведующий структурным подразделением - врач-терапевт</ns2:name>
+                     <ns2:code>935</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="98">
+                     <ns2:name>Заведующий структурным подразделением - врач-эндокринолог</ns2:name>
+                     <ns2:code>941</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="31">
+                  <ns2:code>14</ns2:code>
+                  <ns2:name>Вакцинация</ns2:name>
+                  <ns2:InquiryPurposeInfo id="14">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="322">
+                     <ns2:name>Вакцинация</ns2:name>
+                     <ns2:code>2021</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="33">
+                  <ns2:code>16</ns2:code>
+                  <ns2:name>Сдача мазка на covid-19 (ПЦР)</ns2:name>
+                  <ns2:InquiryPurposeInfo id="16">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>20</ns2:code>
+                        <ns2:title>Педиатрический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="306">
+                     <ns2:name>Мазок на covid-19 (ПЦР)</ns2:name>
+                     <ns2:code>2010</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="36">
+                  <ns2:code>19</ns2:code>
+                  <ns2:name>Запись к стоматологу</ns2:name>
+                  <ns2:InquiryPurposeInfo id="19">
+                     <ns2:areaType>
+                        <ns2:code>190</ns2:code>
+                        <ns2:title>Детский стоматологический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>30</ns2:code>
+                        <ns2:title>Взрослый стоматологический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="166">
+                     <ns2:name>Врач-стоматолог детский</ns2:name>
+                     <ns2:code>21</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="181">
+                     <ns2:name>Врач-пародонтолог</ns2:name>
+                     <ns2:code>40</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="131">
+                     <ns2:name>Врач-стоматолог-хирург</ns2:name>
+                     <ns2:code>91</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="117">
+                     <ns2:name>Зубной врач-гигиенист</ns2:name>
+                     <ns2:code>93</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="196">
+                     <ns2:name>Врач-стоматолог-терапевт</ns2:name>
+                     <ns2:code>112</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="215">
+                     <ns2:name>Врач-стоматолог-ортопед</ns2:name>
+                     <ns2:code>125</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="263">
+                     <ns2:name>Врач-ортодонт</ns2:name>
+                     <ns2:code>755</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="310">
+                     <ns2:name>Зубной врач</ns2:name>
+                     <ns2:code>785</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="70">
+                     <ns2:name>Заведующий структурным подразделением - врач-ортодонт</ns2:name>
+                     <ns2:code>917</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="90">
+                     <ns2:name>Заведующий структурным подразделением - врач-стоматолог</ns2:name>
+                     <ns2:code>929</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="9">
+                     <ns2:name>Заведующий структурным подразделением - врач-стоматолог детский</ns2:name>
+                     <ns2:code>930</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="20">
+                     <ns2:name>Заведующий структурным подразделением - врач-стоматолог-ортопед</ns2:name>
+                     <ns2:code>931</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="10">
+                     <ns2:name>Заведующий структурным подразделением - врач-стоматолог-терапевт</ns2:name>
+                     <ns2:code>932</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="78">
+                     <ns2:name>Заведующий структурным подразделением - врач-стоматолог-хирург</ns2:name>
+                     <ns2:code>933</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="5">
+                     <ns2:name>Заведующий стоматологической зуботехнической лабораторией</ns2:name>
+                     <ns2:code>975</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="54">
+                     <ns2:name>Заведующий производством учреждений (отделов, отделений, лабораторий) зубопротезирования;</ns2:name>
+                     <ns2:code>1047</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="35">
+                  <ns2:code>18</ns2:code>
+                  <ns2:name>Запись в женскую консультацию</ns2:name>
+                  <ns2:InquiryPurposeInfo id="18">
+                     <ns2:ageMin>18</ns2:ageMin>
+                     <ns2:gender>
+                        <ns2:globalId>125677140</ns2:globalId>
+                        <ns2:title>Женский</ns2:title>
+                     </ns2:gender>
+                     <ns2:areaType>
+                        <ns2:code>70</ns2:code>
+                        <ns2:title>Гинекологический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="171">
+                     <ns2:name>Врач-акушер-гинеколог</ns2:name>
+                     <ns2:code>4</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="148">
+                     <ns2:name>Гинеколог</ns2:name>
+                     <ns2:code>102</ns2:code>
+                  </ns2:speciality>
+                  <ns2:speciality id="53">
+                     <ns2:name>Заведующий структурным подразделением - врач-акушер-гинеколог</ns2:name>
+                     <ns2:code>903</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="30">
+                  <ns2:code>13</ns2:code>
+                  <ns2:name>Диспансеризация</ns2:name>
+                  <ns2:InquiryPurposeInfo id="21">
+                     <ns2:ageMin>18</ns2:ageMin>
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="304">
+                     <ns2:name>Диспансеризация/Профилактический мед.осмотр</ns2:name>
+                     <ns2:code>2008</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="34">
+                  <ns2:code>17</ns2:code>
+                  <ns2:name>Сдача крови (антитела covid-19)</ns2:name>
+                  <ns2:InquiryPurposeInfo id="17">
+                     <ns2:ageMin>18</ns2:ageMin>
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="307">
+                     <ns2:name>Кровь (антитела covid-19)</ns2:name>
+                     <ns2:code>2009</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="39">
+                  <ns2:code>22</ns2:code>
+                  <ns2:name>Дежурный врач ОРВИ</ns2:name>
+                  <ns2:InquiryPurposeInfo id="22"/>
+                  <ns2:speciality id="311">
+                     <ns2:name>Дежурный врач ОРВИ</ns2:name>
+                     <ns2:code>2017</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+               <ns2:InquiryPurposeDictionary id="32">
+                  <ns2:code>15</ns2:code>
+                  <ns2:name>Вакцинация от COVID</ns2:name>
+                  <ns2:InquiryPurposeInfo id="15">
+                     <ns2:areaType>
+                        <ns2:code>10</ns2:code>
+                        <ns2:title>Терапевтический</ns2:title>
+                     </ns2:areaType>
+                     <ns2:areaType>
+                        <ns2:code>327</ns2:code>
+                        <ns2:title>Вакцинация от COVID-19</ns2:title>
+                     </ns2:areaType>
+                  </ns2:InquiryPurposeInfo>
+                  <ns2:speciality id="305">
+                     <ns2:name>Вакцинация от COVID-19</ns2:name>
+                     <ns2:code>2011</ns2:code>
+                  </ns2:speciality>
+               </ns2:InquiryPurposeDictionary>
+            </ns2:Patient>
+         </Result>
+      </ns3:GetInquiryPurposesResponse>
+   </soap:Body>
+</soap:Envelope>

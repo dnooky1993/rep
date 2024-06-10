@@ -1,0 +1,266 @@
+{
+  "permissions": [
+    {
+      "policyNum": "7797599783001194",
+      "permissionType": "CHILD",
+      "name": "Виктория Алексеевна Ш.",
+      "birthday": "2004-02-16",
+      "emiasId": 23546287,
+      "ehrId": "46d9395c-730a-401b-8edf-27614000c4a9",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7752400878000832",
+      "permissionType": "CHILD",
+      "name": "Екатерина Вадимовна К.",
+      "birthday": "1995-07-21",
+      "emiasId": 25198285,
+      "ehrId": "8b027aa5-c2fe-4293-a71f-a1af0a04bc64",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7791889720000557",
+      "permissionType": "CHILD",
+      "name": "Тимофей Александрович Ч.",
+      "birthday": "2011-08-29",
+      "emiasId": 17619598,
+      "ehrId": "95706443-b316-4442-894c-748da1962c80",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7758020846000146",
+      "permissionType": "CHILD",
+      "name": "Сергей Николаевич М.",
+      "birthday": "1979-01-03",
+      "emiasId": 21264626,
+      "ehrId": "b5149aa1-c845-482b-b134-04c0bf414ddf",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7769450890001301",
+      "permissionType": "CHILD",
+      "name": "Надежда Максимовна Н.",
+      "birthday": "1945-10-09",
+      "emiasId": 10148044,
+      "ehrId": "e9879d9e-3cce-40b8-84c7-5e84723a0189",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7700007102714409",
+      "permissionType": "PERSONAL",
+      "name": "Максим Олегович Е.",
+      "birthday": "2009-04-21",
+      "emiasId": 10188303,
+      "ehrId": "a4b64610-cf31-4ad8-8f35-a47dcc88330d",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7754920873000352",
+      "permissionType": "PERSONAL",
+      "name": "Виктория Алексеевна Б.",
+      "birthday": "1970-05-27",
+      "emiasId": 19865621,
+      "ehrId": "acb9a991-f1e9-4b4a-b956-052b923a8f3b",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "5056230870001448",
+      "permissionType": "PERSONAL",
+      "name": "Галина Игоревна К.",
+      "birthday": "1967-03-30",
+      "emiasId": 25503647,
+      "ehrId": "94a38b3f-a1cc-44e0-863e-60bc1e6aa4ac",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7700008084130662",
+      "permissionType": "CHILD",
+      "name": "Светлана Петровна А.",
+      "birthday": "1962-06-13",
+      "emiasId": 10697616,
+      "ehrId": "56b974a7-18b8-4a5d-80b7-b43bc8db2c25",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7700004150810165",
+      "permissionType": "PERSONAL",
+      "name": "Юрий Сергеевич П.",
+      "birthday": "1965-01-31",
+      "emiasId": 23307251,
+      "ehrId": "95cf4809-c72d-4f7f-bfa7-747363a9ebfa",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7792189787001617",
+      "permissionType": "PERSONAL",
+      "name": "Ольга Евгеньевна К.",
+      "birthday": "2018-07-12",
+      "emiasId": 4362304728036,
+      "ehrId": "e3aee028-1688-4432-b638-200f4c6497a0",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "6192989744000489",
+      "permissionType": "CHILD",
+      "name": "Михаил Михайлович М.",
+      "birthday": "2010-07-05",
+      "emiasId": 22875871,
+      "ehrId": "fa6e4bb9-016d-4537-b148-4beb63c5adea",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "2747040891000176",
+      "permissionType": "CHILD",
+      "name": "Лидия Алексеевна Ц.",
+      "birthday": "1959-12-08",
+      "emiasId": 2243511644,
+      "ehrId": "fe67f35f-11fe-433f-8438-ff4e026785b9",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7752800824001018",
+      "permissionType": "CHILD",
+      "name": "Александр Александрович Д.",
+      "birthday": "1991-07-25",
+      "emiasId": 17248972,
+      "ehrId": "0b31f977-39df-4446-bd78-af2ff077caaf",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7795489734001653",
+      "permissionType": "CHILD",
+      "name": "Максим Игоревич Ё.",
+      "birthday": "2015-04-15",
+      "emiasId": 2238373652,
+      "ehrId": "1ad78a45-6f8d-488b-8cd3-3ae1a7a0a7dd",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7700000050000000",
+      "permissionType": "PERSONAL",
+      "name": "Тестовый Пациент Н.",
+      "birthday": "2000-05-10",
+      "emiasId": 15511762342,
+      "ehrId": "4976b8fe-c876-4e48-a63d-aea8ff3e7130",
+      "gender": null
+    },
+    {
+      "policyNum": "7795789781000288",
+      "permissionType": "PERSONAL",
+      "name": "Василиса Игоревна Г.",
+      "birthday": "2012-04-18",
+      "emiasId": 16075553,
+      "ehrId": "6f77aba8-2370-49f5-b5e8-2a22f0a38309",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7700007066630284",
+      "permissionType": "PERSONAL",
+      "name": "Олег Юрьевич С.",
+      "birthday": "1984-02-13",
+      "emiasId": 31110819,
+      "ehrId": "d3f163b7-e833-4297-8111-861a66ecd854",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7700007034660256",
+      "permissionType": "PERSONAL",
+      "name": "Сергей Иванович Ж.",
+      "birthday": "1956-02-16",
+      "emiasId": 21588713,
+      "ehrId": "027529fb-558c-4324-b196-62b6d587ac34",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "5050040844000848",
+      "permissionType": "PERSONAL",
+      "name": "Сергей Анатольевич Г.",
+      "birthday": "1959-09-05",
+      "emiasId": 24107262,
+      "ehrId": "ea458b1c-a25d-48a0-a931-f54f4bb1bfcd",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7757440897003024",
+      "permissionType": "PERSONAL",
+      "name": "Любовь Васильевна С.",
+      "birthday": "1955-02-02",
+      "emiasId": 30055163,
+      "ehrId": "48d04bc8-39c9-4059-80df-88c51afc003c",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7700000167800359",
+      "permissionType": "PERSONAL",
+      "name": "Василий Михайлович З.",
+      "birthday": "1959-03-30",
+      "emiasId": 19204507,
+      "ehrId": "8cde70b6-ee64-42af-a407-81ecc57e55ea",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7753420887001885",
+      "permissionType": "PERSONAL",
+      "name": "Татьяна Вячеславовна М.",
+      "birthday": "1975-06-12",
+      "emiasId": 17977911,
+      "ehrId": "7f1c426f-9198-47c8-a0fd-a9ed06b15cf7",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7798299798000112",
+      "permissionType": "PERSONAL",
+      "name": "Екатерина Максимовна А.",
+      "birthday": "2007-01-01",
+      "emiasId": 30875570,
+      "ehrId": "bb8fbbbb-b6c7-4300-89fa-6d81a72ececd",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7758730888000693",
+      "permissionType": "PERSONAL",
+      "name": "Наталья Николаевна Д.",
+      "birthday": "1962-01-11",
+      "emiasId": 17192837,
+      "ehrId": "71c59b3d-e8f4-45f7-8455-81c59455ab75",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7752330848001232",
+      "permissionType": "PERSONAL",
+      "name": "Александр Евгеньевич М.",
+      "birthday": "1966-07-01",
+      "emiasId": 22209902,
+      "ehrId": "37ea9847-1a6c-4914-9315-fa42b1d76363",
+      "gender": "MALE"
+    },
+    {
+      "policyNum": "7701009219050653",
+      "permissionType": "PERSONAL",
+      "name": "Татьяна Георгиевна Л.",
+      "birthday": "1953-06-05",
+      "emiasId": 16542405,
+      "ehrId": "12b7ca46-74ce-43f1-8659-5e31898580db",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7748310870000218",
+      "permissionType": "PERSONAL",
+      "name": "Оксана Владимировна П.",
+      "birthday": "1986-11-29",
+      "emiasId": 19184405,
+      "ehrId": "119defa4-7921-4e24-a88a-c5098e70d995",
+      "gender": "FEMALE"
+    },
+    {
+      "policyNum": "7700003027090482",
+      "permissionType": "PERSONAL",
+      "name": "Яна Михайловна В.",
+      "birthday": "1982-04-09",
+      "emiasId": 25517322,
+      "ehrId": "78c3f6ee-e387-4b98-abe8-8f9332fe2401",
+      "gender": "FEMALE"
+    }
+  ],
+  "phoneNum": "79265209207"
+}

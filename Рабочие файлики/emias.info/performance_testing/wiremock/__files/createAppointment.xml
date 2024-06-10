@@ -1,0 +1,10 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <ns3:createAppointmentResponse xmlns:ns2="http://api.service.soap.emias.lanit.ru/core/v5/" xmlns:ns3="http://api.service.soap.emias.lanit.ru/v5/">
+         <appointmentDesc>
+            <appointmentId>391897999848</appointmentId>
+            <appointmentNumber>С20230503-73</appointmentNumber>
+         </appointmentDesc>
+      </ns3:createAppointmentResponse>
+   </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,53 @@
+{
+	"patientInfo": {
+		"emiasId": "12003",
+		"caseNum": "49520-23-С",
+		"caseDate": "2023-07-06"
+	},
+	"moInfo": {
+		"moId": "10492228",
+		"moName": "ГБУЗ \"НИИ СП им. Н.В. Склифосовского ДЗМ\""
+	},
+	"mdInfo": {
+		"mdSurname": "ТРУБИЛОВА",
+		"mdName": "ЕКАТЕРИНА",
+		"mdPatron": "НИКОЛАЕВНА",
+		"mdPosition": "Врач-кардиолог"
+	},
+	"hospInfo": {
+		"patientId": "c038fb0a-44b3-4777-99d2-2c4db319fffe",
+		"naz_id": "4c273635-5cf0-433e-a471-a8c1badc20ab",
+		"case_id": "8ba22a78-7254-43c5-a443-be59b84214fe"
+	},
+	"appointment": {
+		"state": "cancel",
+		"create_dt": "2023-12-10T10:41:56.098Z",
+		"timestamp": "2023-12-20T10:41:56.098Z",
+		"name": "Назначение лекарственных препаратов, методов, форм лечебной физкультуры",
+		"appointTimestamp": "2023-12-21T17:11:42.000Z",
+		"type": "drugs",
+		"drugAssignment": {
+			"drug": [
+				{
+					"mnnName": "Вода для инъекций",
+					"dose": "500 мл",
+					"unitsNumber": "1 бут"
+				},
+				{
+					"mnnName": "Парацетомол",
+					"dose": "1 мг",
+					"unitsNumber": "1 таб"
+				}
+			],
+			"introduction": "В/В",
+			"repetition": "однократно",
+			"applyFrom": "2023-12-20",
+			"duration": "1 день",
+			"schedule": {
+				"timeslot": [
+					"10:40"
+				]
+			}
+		}
+	}
+}

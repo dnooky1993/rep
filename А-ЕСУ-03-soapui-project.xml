@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="a04e9d10-98e9-40ba-996b-a62444536418" activeEnvironment="Default" name="А_ЕСУ_03" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testSuite id="dab8bd0c-10bd-45db-8359-34b117e2db4f" name="А_ЕСУ_03 - Получение сообщения о назначениях при госпитализации"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="45755b02-2440-41f5-bbf1-030e8d2ae6d0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверить наличие пациента со всеми девайсами" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить пациента с девайсами со всеми настройками" id="9fa351b1-ce86-4ac9-b90c-cc6655298f8a"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+//в этом кейсе создадутся все минмально необходимые левайсы с настройками для проверки А_ЕСУ_03 шаг 2
+// и  А_ВА_15
+
+// функция, проверяющая есть ли девайс с нужной комбинацией параметров. если нет - досоздает. также вызывает функцию  checkSettings
+def checkDevice(long userId, def a, def d, def v,  int i){
+			log.info "проверяю девайс номер "+i+"с параметрами a="+a+" d="+d+" v="+v
+			voipCondition= v != null ? "="+v : "is null"
+			deviceQuery="select fud.device_guid from f_user_device fud "+
+							"left join f_device_settings fds on fds.device_guid =fud.device_guid "+
+							"where fud.user_id ="+userId+" and fud.authentication ="+a+
+							" and fud.deleted ="+d+" and fud.voip  "+voipCondition
+//			log.info deviceQuery
+			device=sql.firstRow(deviceQuery)
+//			log.info "device result "+device
+			guid=""
+			newDevice=false
+//			log.info device
+			if(device){
+				guid=device.device_guid
+			}
+			else{
+//				log.info deviceQuery
+				guid= java.util.UUID.randomUUID()
+				cloud= java.util.UUID.randomUUID()
+				devQuery="INSERT INTO f_device (device_guid, app_version, platform, device_cloud_id, cloud_token_delete) VALUES('"+guid+"', '1.3.2', 'ANDROID','"+cloud+"', NULL)"
+				userDevQuery="INSERT INTO f_user_device (id, device_guid, user_id, authentication, deleted, deleted_date, esia_authentication, main_policy, voip) VALUES(nextval('f_user_device_sequence'), '"+guid+"', "+userId+", "+a.toString()+", "+d.toString()+", NULL, NULL, NULL, "+v.toString()+")"
+//				log.info "device devQuery "+devQuery
+//				log.info "device userDevQuery "+userDevQuery
+				sql.execute(devQuery)
+				sql.execute(userDevQuery)
+				newDevice=true
+			}
+			log.info guid
+			testRunner.testCase.testSuite.setPropertyValue("deviceGuid"+i, guid.toString())
+}
+
+// проверить, что пациент с идентификатором в сьюте есть в бд
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+oms =testRunner.testCase.testSuite.getPropertyValue("oms")
+user=sql.firstRow("select * from f_user where patient_id="+patientId)
+//log.info user
+userId=0
+if( !user){
+	query="INSERT INTO f_user VALUES(nextval('f_user_sequence'), "+patientId+", '"+oms+"', '2012-06-07') RETURNING id "
+	userId=sql.firstRow(query).id 
+}
+else{
+//	log.info("пациент есть")
+	userId=user.id
+}
+//log.info userId
+testRunner.testCase.testSuite.setPropertyValue("userId", userId.toString())
+
+//для каждого важного параметра в f_user_device собрать возможные значения
+auth=[true, false]
+deleted=[true, false]
+voip=[true, false, null]
+// в массиве собраны те комбинации параметров f_user_device, для которых должна быть отправка 
+specialDevSettings=[
+							[auth:true, del:false, voip:null ],
+							[auth:true, del:false, voip:false]
+							]
+
+allDeviseParamCombinations=[]
+// собрать все комбинации параметров в f_user_device
+auth.each{ a ->
+	deleted.each{ d ->
+		voip.each{ v ->
+			devParams=[auth:a, del:d, voip:v ]
+			allDeviseParamCombinations &lt;&lt; devParams
+		}
+	}
+}
+
+i=1
+//список индексов девайсов, по которым должна будет осуществиться отправка уведомлений
+devicesToSend=[]
+
+//для каждой комбинации основных параметров создать девайс с соответствующими настройками
+allDeviseParamCombinations.eachWithIndex{it, index1 ->
+	checkDevice(userId,  it.auth,  it.del,  it.voip, i)
+	// если комбинация параметров  есть в списке specialDevSettings определить для них особые значения настроек и создать/обновить данные
+	specialDevSettings.each{ spec ->
+		if (spec == it) devicesToSend &lt;&lt; i
+	}
+	i +=1
+}
+
+devicesCount=i-1
+testRunner.testCase.testSuite.setPropertyValue("devicesToSend", devicesToSend.toString().replace('[','').replace(']',''))
+testRunner.testCase.testSuite.setPropertyValue("devicesCount", devicesCount.toString())</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ccb52540-125c-4d39-b9cc-a0e219c7f365" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Отправить уведомления" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Отправить уведомление" id="68fadea4-ff3e-4230-a15e-29a4c48353ef"><con:settings/><con:config><script><![CDATA[def mainScripts = new ScriptLibrary(context, testRunner, log)
+tc = testRunner.testCase.testSuite.getPropertyValue("testCase")
+log.info "Отправить сообщение по ТК \""+tc+"\""
+
+def removeEmptyOptinalParams(String message, String paramName, String value){
+	if(value == ""){
+		toRemove= "\""+paramName+"\": ,"
+		message=message.replace(toRemove,"")
+	}
+	if(paramName == 'office' || paramName == 'infusion' && value == ""){
+		toRemove= ",\""+paramName+"\": "
+		message=message.replace(toRemove,"")
+	}
+	if(paramName == 'drugObject' && value == ""){
+		toRemove= """,{"unitsNumber": }"""
+		message=message.replace(toRemove,"")
+	}
+	if(paramName == 'doseUnits' && value == ""){
+		toRemove= ""","unitsNumber": """
+		message=message.replace(toRemove,"")
+	}
+	if(paramName == 'schedule' && value == ""){
+		toRemove= """"schedule": {"assigned": [,],"timeslot": [,]},"""
+		message=message.replace(toRemove,"")
+	}
+	if(paramName == 'assigned' && value == ""){
+		toRemove= """"assigned": [,],"""
+		message=message.replace(toRemove,"")
+	}
+	if(paramName == 'timeslot' && value == ""){
+		toRemove= ""","timeslot": [,]"""
+		message=message.replace(toRemove,"")
+	}
+	return message
+}
+
+// сформировать сообщение
+//eventId = testRunner.testCase.getPropertyValue("eventId")
+drugAssignment = testRunner.testCase.testSuite.getPropertyValue("drugAssignment")
+emiasId = testRunner.testCase.testSuite.getPropertyValue("emiasId2")
+appointmentId = testRunner.testCase.testSuite.getPropertyValue("appointmentId")
+caseNum = testRunner.testCase.testSuite.getPropertyValue("caseNum2")
+caseDate = testRunner.testCase.testSuite.getPropertyValue("caseDate2")
+moId = testRunner.testCase.testSuite.getPropertyValue("moId2")
+moName = testRunner.testCase.testSuite.getPropertyValue("moName2")
+mdSurname = testRunner.testCase.testSuite.getPropertyValue("mdSurname2")
+mdName = testRunner.testCase.testSuite.getPropertyValue("mdName2")
+mdPatron = testRunner.testCase.testSuite.getPropertyValue("mdPatron2")
+mdPosition = testRunner.testCase.testSuite.getPropertyValue("mdPosition2")
+nazId = testRunner.testCase.testSuite.getPropertyValue("nazId2")
+case_id = testRunner.testCase.testSuite.getPropertyValue("case_id2")
+state = testRunner.testCase.testSuite.getPropertyValue("state2")
+timestamp = testRunner.testCase.testSuite.getPropertyValue("timestamp2")
+create_dt = testRunner.testCase.testSuite.getPropertyValue("create_dt2")
+name = testRunner.testCase.testSuite.getPropertyValue("name2")
+type = testRunner.testCase.testSuite.getPropertyValue("type2")
+urgency = testRunner.testCase.testSuite.getPropertyValue("urgency2")
+appointTimestamp = testRunner.testCase.testSuite.getPropertyValue("appointTimestamp2")
+quantity = testRunner.testCase.testSuite.getPropertyValue("quantity2")
+multiplicity = testRunner.testCase.testSuite.getPropertyValue("multiplicity2")
+hour = testRunner.testCase.testSuite.getPropertyValue("hour2")
+minutes = testRunner.testCase.testSuite.getPropertyValue("minutes2")
+daily = testRunner.testCase.testSuite.getPropertyValue("daily2")
+assignedDate1 = testRunner.testCase.testSuite.getPropertyValue("assignedDate1")
+assignedDate2 = testRunner.testCase.testSuite.getPropertyValue("assignedDate2")
+timeslot1 = testRunner.testCase.testSuite.getPropertyValue("timeslot1")
+timeslot2 = testRunner.testCase.testSuite.getPropertyValue("timeslot2")
+scope = testRunner.testCase.testSuite.getPropertyValue("scope2")
+office = testRunner.testCase.testSuite.getPropertyValue("office2")
+mnnName1 = testRunner.testCase.testSuite.getPropertyValue("mnnName1")
+mnnName2 = testRunner.testCase.testSuite.getPropertyValue("mnnName2")
+dose1 = testRunner.testCase.testSuite.getPropertyValue("dose1")
+dose2 = testRunner.testCase.testSuite.getPropertyValue("dose2")
+unitsNumber1 = testRunner.testCase.testSuite.getPropertyValue("unitsNumber1")
+unitsNumber2 = testRunner.testCase.testSuite.getPropertyValue("unitsNumber2")
+introduction = testRunner.testCase.testSuite.getPropertyValue("introduction2")
+repetition = testRunner.testCase.testSuite.getPropertyValue("repetition2")
+applyFrom = testRunner.testCase.testSuite.getPropertyValue("applyFrom2")
+duration = testRunner.testCase.testSuite.getPropertyValue("duration2")
+relativeFeed = testRunner.testCase.testSuite.getPropertyValue("relativeFeed2")
+justification = testRunner.testCase.testSuite.getPropertyValue("justification2")
+notice = testRunner.testCase.testSuite.getPropertyValue("notice2")
+infusion = testRunner.testCase.testSuite.getPropertyValue("infusion2")
+
+if(drugAssignment == "true"){
+	message="{"+
+		"\"patientInfo\": {"+
+			"\"emiasId\": \""+emiasId+"\","+
+	    		"\"caseNum\": \""+caseNum+"\","+
+	    		"\"caseDate\": \""+caseDate+"\""+
+	    	"},"+
+		"\"moInfo\": {"+
+			"\"moId\": \""+moId+"\","+
+			"\"moName\": \""+emiasId+"\","+
+	    	"},"+
+		"\"mdInfo\": {"+
+			"\"mdSurname\": \""+mdSurname+"\","+
+			"\"mdName\": \""+mdName+"\","+
+			"\"mdPatron\": \""+mdPatron+"\","+
+			"\"mdPosition\": \""+mdPosition+"\""+
+	    	"},"+
+		"\"hospInfo\": {"+
+			"\"patientId\": \""+emiasId+"\","+
+			"\"naz_id\": \""+nazId+"\","+
+			"\"case_id\": \""+nazId+"\""+
+	    	"},"+
+		"\"appointment\": {"+
+			"\"state\": \""+state+"\","+
+			"\"timestamp\": \""+timestamp+"\","+
+			"\"create_dt\": \""+create_dt+"\","+
+			"\"name\": \""+name+"\","+
+			"\"type\": \""+type+"\","+
+			"\"urgency\": "+urgency+","+
+			"\"appointTimestamp\": "+appointTimestamp+","+
+			"\"drugAssignment\": {"+
+				"\"drug\": ["+
+		    			"{"+
+						"\"mnnName\": "+mnnName1+","+
+						"\"dose\": "+dose1+","+
+						"\"unitsNumber\": "+unitsNumber1+""+
+		    			"},"+
+		    			"{"+
+						"\"mnnName\": "+mnnName2+","+
+						"\"dose\": "+dose2+","+
+						"\"unitsNumber\": "+unitsNumber2+""+
+		    			"}"+
+	    			"],"+
+				"\"introduction\": "+introduction+","+
+				"\"repetition\": "+repetition+","+
+				"\"schedule\": {"+
+					"\"assigned\": ["+
+						""+assignedDate1+","+
+						""+assignedDate2+""+
+	    				"],"+
+					"\"timeslot\": ["+
+						""+timeslot1+","+
+						""+timeslot2+""+
+	    				"]"+
+	    			"},"+
+				"\"applyFrom\": "+applyFrom+","+
+				"\"duration\": "+duration+","+
+				"\"relativeFeed\": "+relativeFeed+","+
+				"\"justification\": "+justification+","+
+				"\"notice\": "+notice+","+
+				"\"infusion\": "+infusion+""+
+		    	"}"+
+		"}"+
+	"}"
+}
+else {
+	message="{"+
+		"\"patientInfo\": {"+
+			"\"emiasId\": \""+emiasId+"\","+
+	    		"\"caseNum\": \""+caseNum+"\","+
+	    		"\"caseDate\": \""+caseDate+"\""+
+	    	"},"+
+		"\"moInfo\": {"+
+			"\"moId\": \""+moId+"\","+
+			"\"moName\": \""+emiasId+"\""+
+	    	"},"+
+		"\"mdInfo\": {"+
+			"\"mdSurname\": \""+mdSurname+"\","+
+			"\"mdName\": \""+mdName+"\","+
+			"\"mdPatron\": \""+mdPatron+"\","+
+			"\"mdPosition\": \""+mdPosition+"\""+
+	    	"},"+
+		"\"hospInfo\": {"+
+			"\"patientId\": \""+emiasId+"\","+
+			"\"naz_id\": \""+nazId+"\","+
+			"\"case_id\": \""+nazId+"\""+
+	    	"},"+
+		"\"appointment\": {"+
+			"\"state\": \""+state+"\","+
+			"\"timestamp\": \""+timestamp+"\","+
+			"\"create_dt\": \""+create_dt+"\","+
+			"\"name\": \""+name+"\","+
+			"\"type\": \""+type+"\","+
+			"\"urgency\": "+urgency+","+
+			"\"appointTimestamp\": "+appointTimestamp+","+
+			"\"procedures\": {"+
+				"\"quantity\": "+quantity+","+
+				"\"multiplicity\": "+multiplicity+","+
+				"\"duration\": {"+
+					"\"hour\": "+hour+","+
+					"\"minutes\": "+minutes+""+
+	    			"},"+
+				"\"schedule\": {"+
+					"\"daily\": "+daily+","+
+					"\"assigned\": ["+
+						""+assignedDate1+","+
+						""+assignedDate2+""+
+	    				"],"+
+					"\"timeslot\": ["+
+						""+timeslot1+","+
+						""+timeslot2+""+
+	    				"]"+
+	    			"},"+
+				"\"scope\": "+scope+","+
+				"\"office\": "+office+""+
+	    		"}"+
+	    	"}"+
+	"}"
+}
+
+message= removeEmptyOptinalParams( message,  "mdPatron",  mdPatron)
+message= removeEmptyOptinalParams( message,  "urgency",  urgency)
+message= removeEmptyOptinalParams( message,  "appointTimestamp",  appointTimestamp)
+message= removeEmptyOptinalParams( message,  "quantity",  quantity)
+message= removeEmptyOptinalParams( message,  "multiplicity",  multiplicity)
+message= removeEmptyOptinalParams( message,  "hour",  hour)
+message= removeEmptyOptinalParams( message,  "minutes",  minutes)
+message= removeEmptyOptinalParams( message,  "daily",  daily)
+message= removeEmptyOptinalParams( message,  "scope",  scope)
+message= removeEmptyOptinalParams( message,  "office",  office)
+message= removeEmptyOptinalParams( message,  "mnnName",  mnnName1)
+message= removeEmptyOptinalParams( message,  "dose",  dose1)
+message= removeEmptyOptinalParams( message,  "unitsNumber",  unitsNumber1)
+message= removeEmptyOptinalParams( message,  "introduction",  introduction)
+message= removeEmptyOptinalParams( message,  "repetition",  repetition)
+message= removeEmptyOptinalParams( message,  "duration",  duration)
+message= removeEmptyOptinalParams( message,  "relativeFeed",  relativeFeed)
+message= removeEmptyOptinalParams( message,  "justification",  justification)
+message= removeEmptyOptinalParams( message,  "notice",  notice)
+message= removeEmptyOptinalParams( message,  "infusion",  infusion)
+message= removeEmptyOptinalParams( message,  "mnnName",  mnnName2)
+message= removeEmptyOptinalParams( message,  "dose",  dose2)
+message= removeEmptyOptinalParams( message,  "unitsNumber",  unitsNumber2)
+message= removeEmptyOptinalParams( message,  "drugObject",  mnnName2+unitsNumber2+dose2)
+message= removeEmptyOptinalParams( message,  "doseUnits",  unitsNumber2+dose2)
+message= removeEmptyOptinalParams( message,  "schedule",  daily+assignedDate1+timeslot1)
+message= removeEmptyOptinalParams( message,  "assigned",  assignedDate1+assignedDate2)
+message= removeEmptyOptinalParams( message,  "timeslot",  timeslot1+timeslot2)
+
+log.info message
+//sleep(2000)
+// отправить сообщение    
+topicName = testRunner.testCase.testSuite.getPropertyValue("topic")
+//mainScripts.kafka().sendMessageToKafka(topicName,message)]]></script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="88817aa3-3d08-4c11-a9d9-616966832923" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Очистка созданных данных" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Очистить данные" id="63f3395e-f7cb-4408-aeb0-c43255e0803f"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+notificationId = testRunner.testCase.testSuite.getPropertyValue("notificationId")
+query1="delete from f_notification_task where notification_id="+notificationId
+query2="delete from f_notification_hospital_assignment where notification_id="+notificationId
+query3="delete from f_notification where id="+notificationId
+//log.info query
+sql.execute(query1)
+sql.execute(query2)
+sql.execute(query3)
+tc = testRunner.testCase.testSuite.getPropertyValue("testCase")
+log.info "Завершен  ТК \""+tc+"\""</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="31f86616-80f7-4485-b3c3-84960c9fa579" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверка создания записи в таблице f_notification" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить создание записи в f_notification" id="9d81525f-3d11-4ef7-81d2-774151650317"><con:settings/><con:config><script><![CDATA[import groovy.sql.Sql
+import java.util.Date
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("значение "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+def checkTitleForStateNew(String type){
+	type = testRunner.testCase.testSuite.getPropertyValue("type2")
+	switch (type) {
+		case "drugs":
+			dbTitle="Назначено лекарство"
+		break;
+		case "labs" || "histilogy":
+			dbTitle="Назначен анализ"
+		break;
+		case "surgery":
+			dbTitle="Назначена операция"
+		break;
+		case "procedure":
+			multiplicity = testRunner.testCase.testSuite.getPropertyValue("state2").replace("\"","")
+			if (multiplicity == "1" || multiplicity == ""){
+				dbTitle="Назначена манипуляция"
+			}
+			else {
+				dbTitle="Назначен курс манипуляций"
+			}
+		break;
+		case "instrumental":
+			dbTitle="Назначено исследование"
+		break;
+		case "consult":
+			dbTitle="Назначена консультация"
+		break;
+		default:
+			testRunner.fail(" В своствах кейса некорректный type='"+type+"'. должен быть один из: drugs, labs, histilogy, surgery, procedure, instrumental, consult")
+		break;
+	}
+}
+
+def checkTitleForStateEdit(String type){
+	type = testRunner.testCase.testSuite.getPropertyValue("type2")
+	dbTitle=""
+	switch (type) {
+		case "drugs":
+			dbTitle="Обновление назначения на лекарство"
+		break;
+		case "labs" || "histilogy":
+			dbTitle="Обновление назначения на анализ"
+		break;
+		case "surgery":
+			dbTitle="Обновление назначения на операцию"
+		break;
+		case "procedure":
+			multiplicity = testRunner.testCase.testSuite.getPropertyValue("state2").replace("\"","")
+			if (multiplicity == "1" || multiplicity == ""){
+				dbTitle="Обновление назначения на манипуляцию"
+			}
+			else {
+				dbTitle="Обновление курса манипуляций"
+			}
+		break;
+		case "instrumental":
+			dbTitle="Обновление назначения на исследование"
+		break;
+		case "consult":
+			dbTitle="Обновление назначения на консультацию"
+		break;
+		default:
+			testRunner.fail(" В своствах кейса некорректный type='"+type+"'. должен быть один из: drugs, labs, histilogy, surgery, procedure, instrumental, consult")
+		break;
+	}
+}
+
+def checkTitle(String state, String type){
+	state = testRunner.testCase.testSuite.getPropertyValue("state2")
+	dbTitle=""
+	switch (state) {
+		case "new":
+			checkTitleForStateNew(type)
+		break;
+		case "edit":
+			checkTitleForStateEdit(type)
+		break;
+		case "cancel":
+			dbTitle="Отмена назначения"
+		break;
+		default:
+			testRunner.fail(" В своствах кейса некорректный state='"+state+"'. должен быть один из: new, edit, cancel")
+		break;
+	}
+	checkParameter("notification.title",dbTitle,title)
+}
+
+def checkDescription( String description){
+	type = testRunner.testCase.testSuite.getPropertyValue("type2")
+	name = testRunner.testCase.testSuite.getPropertyValue("name2")
+	appointTimestamp = testRunner.testCase.testSuite.getPropertyValue("dateForDB").replace("\"","")
+	multiplicity = testRunner.testCase.testSuite.getPropertyValue("multiplicity2").replace("\"","")
+	mnnName1 = testRunner.testCase.testSuite.getPropertyValue("mnnName1").replace("\"","")
+	mnnName2 = testRunner.testCase.testSuite.getPropertyValue("mnnName2").replace("\"","")
+	duration = testRunner.testCase.testSuite.getPropertyValue("duration2").replace("\"","")
+	repetition = testRunner.testCase.testSuite.getPropertyValue("repetition2").replace("\"","")
+	quantity = testRunner.testCase.testSuite.getPropertyValue("quantity2").replace("\"","")
+	assigned = testRunner.testCase.testSuite.getPropertyValue("assignedDate1").replace("\"","")
+	dbDescription=""
+	switch(type){
+		case "labs" | "histology"|| "surgery" || "instrumental":
+			dbDescription += name
+			if (appointTimestamp) dbDescription += ", "+appointTimestamp
+			return dbDescription
+			break
+		case "drugs":
+			if (mnnName1 && mnnName2) dbDescription += mnnName1 + ", " + mnnName2
+			if (mnnName2 && !mnnName2) dbDescription += mnnName1
+			if (!mnnName1 && mnnName2) dbDescription += mnnName2
+			if (duration) dbDescription += ", " + duration
+			if (repetition) dbDescription += ", " + repetition
+			break
+		case "consult":
+			dbDescription += name
+			break
+		case "procedure":
+			if (multiplicity == "1" || multiplicity == ""){
+				dbDescription += name
+			}
+			else {
+				dbDescription += name
+				if (quantity ! = ""){
+					procedure = (quantity.endsWith("2") || quantity.endsWith("3") || quantity.endsWith("4")) && !List.of("12", "13", "14").contains(quantity) ? "процедуры" : (quantity.endsWith("1")) && !List.of("11").contains(quantity) ? "процедура" : "процедур"
+					dbDescription += ", " + quantity + " " + procedure
+				}
+			}
+			if (assigned) dbDescription += ", c" + assigned
+			break
+		default:
+		testRunner.fail(" В своствах кейса некорректный eventType2='"+eventType+"'. должен быть один из: created, edited, cancelled")
+		break
+	}	
+	checkParameter("notification.description",dbDescription,description)
+}
+
+
+userId = testRunner.testCase.testSuite.getPropertyValue("userId")
+dateForDBSQL= testRunner.testCase.testSuite.getPropertyValue("dateForDBSQL")
+query="SELECT * FROM f_notification WHERE user_id = "+userId+" AND notification_type_id=(select id from d_notification_type where title='hospitalAssignment') and  create_date > '"+dateForDBSQL+"'"
+//log.info query
+notifications=sql.rows(query)
+if(notifications.size() == 1){
+	notification=notifications[0]
+	testRunner.testCase.testSuite.setPropertyValue("notificationId",notification.id.toString())
+	checkTitle(notification.title)
+	checkDescription(notification.description)
+	checkParameter("notification.deleted",false,notification.deleted )
+	checkParameter("notification.viewed",false,notification.viewed )
+	testRunner.testCase.setPropertyValue("notificationId", notification.id.toString())
+}
+else{ 
+	testRunner.testCase.testSuite.setPropertyValue("notificationId","")
+	testRunner.fail("Количество записей в f_notification не равно 1. фактическое ="+notifications.size())
+}
+log.info "проверка создания записи в f_notification завершена"]]></script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2dfcf3f7-e299-4568-a763-e0e83601efc0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверка соответствия записи в БД notification в f_notification_task" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить создание записей в f_notification_task" id="7330ff5c-d92a-4d40-b4ab-198fdd0be630"><con:settings/><con:config><script>import groovy.sql.Sql
+import java.text.SimpleDateFormat
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+
+log.info "проверка создания записи в f_notification_task завершена"
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("значение "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+notificationId = testRunner.testCase.testSuite.getPropertyValue("notificationId")
+if(notificationId != "null"){	
+	devicesCount = testRunner.testCase.testSuite.getPropertyValue("devicesCount").toInteger()
+	dateForDBSQL = testRunner.testCase.testSuite.getPropertyValue("dateForDBSQL")
+	
+	sendDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dateForDBSQL)
+	log.info sendDate
+	
+	devicesToSend=testRunner.testCase.testSuite.getPropertyValue("devicesToSend")
+	devicesToSendList=devicesToSend.split(',').collect{it as int}
+	
+	for(i=1; i &lt;=devicesCount; i++ ){
+	//	log.info statuses
+		deviceGuid=testRunner.testCase.testSuite.getPropertyValue("deviceGuid"+i)
+		tasks=sql.rows("select * from f_notification_task where notification_id="+notificationId+" and device_guid='"+deviceGuid+"'")
+	//	log.info "Проверяю notification task для девайса "+deviceGuid
+		if(devicesToSendList.contains(i)){
+			if( tasks.size()==1){
+				task=tasks[0]
+				checkParameter("task status","SEND",task.status)
+				task.send_date.each{
+						if( it &lt; sendDate) testRunner.fail("значение sendDate не соответствует ожидаемому. ожидаемое : больше "+dateForDBSQL+", фактическое ="+it.toString())
+				}
+			}
+			else testRunner.fail("Количество записей в f_notification_task не равно 1. фактическое ="+tasks.size())
+		}
+		else{
+			if(tasks.size()>0) testRunner.fail("Количество записей в f_notification_task не равно 0. фактическое ="+tasks.size())
+		}
+	}
+}
+else{
+	log.info "Не проверяю f_notification_task, т.к. не найдена запись в f_notification"
+}
+log.info "проверка создания записи в f_notification_task завершена"</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9b61f3b5-a216-468e-bc7c-5bfaf3b02bae" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверка соответствия записи в БД notification в f_notification_hospital_assignment" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Проверить" id="25e74952-ece3-467d-8599-337c8385bd42"><con:settings/><con:config><script>import groovy.sql.Sql
+connection =testRunner.testCase.testSuite.project.getPropertyValue("emiasInfoNotificationsFullDbConnection")
+sql = Sql.newInstance(connection)
+
+def checkParameter(String paramName, def expValue, def currentValue){
+	if(currentValue != expValue) testRunner.fail("значение "+paramName+" не соответствует ожидаемому. ожидаемое ="+expValue.toString()+", фактическое ="+currentValue.toString())
+}
+
+drugAssignment = testRunner.testCase.testSuite.getPropertyValue("drugAssignment")
+desc=""
+
+def getProcedureFullMessageBig(desc){
+  if(drugAssignment == false){	
+	name = testRunner.testCase.testSuite.getPropertyValue("name2")
+	moName = testRunner.testCase.testSuite.getPropertyValue("moName2")
+	mdSurname = testRunner.testCase.testSuite.getPropertyValue("mdSurname2")
+	mdName = testRunner.testCase.testSuite.getPropertyValue("mdName2")
+	mdPatron = testRunner.testCase.testSuite.getPropertyValue("mdPatron2")
+	assignedDate1 = testRunner.testCase.testSuite.getPropertyValue("assignedDate1")
+	assignedTime1 = testRunner.testCase.testSuite.getPropertyValue("assignedTime1")
+	assignedDate2 = testRunner.testCase.testSuite.getPropertyValue("assignedDate2")
+	assignedTime2 = testRunner.testCase.testSuite.getPropertyValue("assignedTime2")
+	quantity = testRunner.testCase.testSuite.getPropertyValue("quantity2")
+	multiplicity = testRunner.testCase.testSuite.getPropertyValue("multiplicity2")
+	hour = testRunner.testCase.testSuite.getPropertyValue("hour2")
+	minutes = testRunner.testCase.testSuite.getPropertyValue("minutes2")
+	scope = testRunner.testCase.testSuite.getPropertyValue("scope2")
+	office = testRunner.testCase.testSuite.getPropertyValue("office2")
+	desc += "Назначено: " + name
+	if() desc += "тест с параметром2"
+  }
+  return desc
+}
+
+notificationId = testRunner.testCase.testSuite.getPropertyValue("notificationId")
+if(notificationId != "null"){	
+	query="select * from  f_notification_hospital_assignment where notification_id= "+notificationId
+	appointments=sql.rows(query)
+	if(appointments.size() == 1){
+		//log.info appointment
+		//	log.info "проскочили проверку howToChange "
+		appointment=appointments[0]
+		
+		appointmentId = testRunner.testCase.testSuite.getPropertyValue("appointmentId")
+		eventType = testRunner.testCase.testSuite.getPropertyValue("eventType2")
+		eventDate = testRunner.testCase.testSuite.getPropertyValue("eventDate2")
+		eventTime = testRunner.testCase.testSuite.getPropertyValue("eventTime2")
+		expertName = getOptionalParameter("expertName2")
+		expertSpeciality = getOptionalParameter("expertSpeciality2")
+		procedureName = getOptionalParameter("procedureName2")
+		office = getOptionalParameter("office2",)
+		address = testRunner.testCase.testSuite.getPropertyValue("address2")
+		nameMO = testRunner.testCase.testSuite.getPropertyValue("nameMO2")
+		messageTimestamp = testRunner.testCase.testSuite.getPropertyValue("messageTimestamp")
+		checkParameter("appointment_id",appointmentId, appointment.appointment_id)
+		checkParameter("event_type",eventType, appointment.event_type.toString())
+		checkParameter("event_date",eventDate, appointment.event_date.toString())
+		checkParameter("event_time",eventTime, appointment.event_time.toString())
+		checkParameter("resource_speciality",expertSpeciality, appointment.resource_speciality.toString())
+		checkParameter("resource_name",expertName, appointment.resource_name.toString())
+		checkParameter("resource_procedure",procedureName, appointment.resource_procedure.toString())
+		checkParameter("resource_office",office, appointment.resource_office.toString())
+		checkParameter("resource_address",address, appointment.resource_address.toString())
+		checkParameter("resource_mo",nameMO, appointment.resource_mo.toString())
+		checkParameter("message_datetime",messageTimestamp, appointment.message_datetime.toString())
+
+	}
+	else testRunner.fail("Количество записей в f_notification_hospital_appointment не равно 1. фактическое ="+appointments.size())
+}
+else{
+	log.info "Не проверяю f_notification_hospital_appointment, т.к. не найдена запись в f_notification"
+}
+log.info "проверка создания записи в f_notification_hospital_assignment завершена"</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="651d3dd8-22d5-4b35-ad33-040fc218b6c8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Пример new" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="1d55ac2a-54f9-4390-84c7-8eac26892d9c"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+
+def date = new Date()
+Date datePlus1 = LocalDateTime.now().plusMinutes(1440).toDate()
+Date datePlus2 = LocalDateTime.now().plusMinutes(2995).toDate()
+def currentDateTimeForDBSQL = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+def currentDateTimeForDB = new SimpleDateFormat("dd.MM.yyyy").format(datePlus1)
+def timestamp2 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").format(date)
+def caseDate2 = new SimpleDateFormat("yyyy-MM-dd").format(date)
+def appointTimestamp2 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").format(datePlus1)
+def assignedDate1 = new SimpleDateFormat("yyyy-MM-dd").format(datePlus1)
+def assignedDate2 = new SimpleDateFormat("yyyy-MM-dd").format(datePlus2)
+def assignedTime1 = new SimpleDateFormat("HH:mm").format(datePlus1)
+def assignedTime2 = new SimpleDateFormat("HH:mm").format(datePlus2)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+nazId=UUID.randomUUID().toString()
+
+testRunner.testCase.testSuite.setPropertyValue("drugAssignment","false")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2", patientId )
+testRunner.testCase.testSuite.setPropertyValue("caseNum2","49956-2024")
+testRunner.testCase.testSuite.setPropertyValue("caseDate2",caseDate2)
+testRunner.testCase.testSuite.setPropertyValue("moId2","204")
+testRunner.testCase.testSuite.setPropertyValue("moName2","ГБУЗ ГП №175 ДЗМ")
+testRunner.testCase.testSuite.setPropertyValue("mdSurname2","Петров")
+testRunner.testCase.testSuite.setPropertyValue("mdName2","Иван")
+testRunner.testCase.testSuite.setPropertyValue("mdPatron2","Михайлович")
+testRunner.testCase.testSuite.setPropertyValue("mdPosition2","Заведующий отделением эндокринологии")
+testRunner.testCase.testSuite.setPropertyValue("nazId2",nazId)
+testRunner.testCase.testSuite.setPropertyValue("case_id2",nazId)
+testRunner.testCase.testSuite.setPropertyValue("state2","new")
+testRunner.testCase.testSuite.setPropertyValue("timestamp2",timestamp2 +'Z')
+testRunner.testCase.testSuite.setPropertyValue("create_dt2",timestamp2 +'Z')
+testRunner.testCase.testSuite.setPropertyValue("name2","Назначена операция")
+testRunner.testCase.testSuite.setPropertyValue("type2","surgery")
+testRunner.testCase.testSuite.setPropertyValue("urgency2", "\"Экстренная\"")
+testRunner.testCase.testSuite.setPropertyValue("appointTimestamp2","\"" + appointTimestamp2 + "Z\"")
+testRunner.testCase.testSuite.setPropertyValue("quantity2","\"1\"")
+testRunner.testCase.testSuite.setPropertyValue("multiplicity2","\"1\"")
+testRunner.testCase.testSuite.setPropertyValue("hour2","\"1\"")
+testRunner.testCase.testSuite.setPropertyValue("minutes2","\"30\"")
+testRunner.testCase.testSuite.setPropertyValue("daily2","\"В дату\"")
+testRunner.testCase.testSuite.setPropertyValue("assignedDate1","\"" +assignedDate1 + "\"")
+testRunner.testCase.testSuite.setPropertyValue("assignedDate2","\"" +assignedDate2 + "\"")
+testRunner.testCase.testSuite.setPropertyValue("timeslot1","\"" +assignedTime1 + "\"")
+testRunner.testCase.testSuite.setPropertyValue("timeslot2","\"" +assignedTime2 + "\"")
+testRunner.testCase.testSuite.setPropertyValue("scope2","\"Верхневозлежащий крестец\"")
+testRunner.testCase.testSuite.setPropertyValue("office2","\"14Б\"")
+testRunner.testCase.testSuite.setPropertyValue("dateForDB", currentDateTimeForDB)
+testRunner.testCase.testSuite.setPropertyValue("dateForDBSQL", currentDateTimeForDBSQL)
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="bb97ec7c-b244-4e4a-b9cd-62568a313cf9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Пример drugs" searchProperties="true" disabled="true"><con:settings/><con:testStep type="groovy" name="Подобрать данные для теста" id="669d505f-1df2-4534-b489-dc93dfc65171"><con:settings/><con:config><script>import java.util.Date
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+
+def date = new Date()
+Date datePlus1 = LocalDateTime.now().plusMinutes(1440).toDate()
+Date datePlus2 = LocalDateTime.now().plusMinutes(2995).toDate()
+def currentDateTimeForDBSQL = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+def currentDateTimeForDB = new SimpleDateFormat("dd.MM.yyyy").format(datePlus1)
+def timestamp2 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").format(date)
+def caseDate2 = new SimpleDateFormat("yyyy-MM-dd").format(date)
+def appointTimestamp2 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").format(datePlus1)
+log.info appointTimestamp2
+def assignedDate1 = new SimpleDateFormat("yyyy-MM-dd").format(datePlus1)
+def assignedDate2 = new SimpleDateFormat("yyyy-MM-dd").format(datePlus2)
+def assignedTime1 = new SimpleDateFormat("HH:mm").format(datePlus1)
+def assignedTime2 = new SimpleDateFormat("HH:mm").format(datePlus2)
+patientId =testRunner.testCase.testSuite.getPropertyValue("patientIdAllDevices")
+nazId=UUID.randomUUID().toString()
+
+testRunner.testCase.testSuite.setPropertyValue("drugAssignment","true")
+testRunner.testCase.testSuite.setPropertyValue("emiasId2",patientId)
+testRunner.testCase.testSuite.setPropertyValue("caseNum2","49956-2024")
+testRunner.testCase.testSuite.setPropertyValue("caseDate2",caseDate2)
+testRunner.testCase.testSuite.setPropertyValue("moId2","204")
+testRunner.testCase.testSuite.setPropertyValue("moName2","ГБУЗ ГП №175 ДЗМ")
+testRunner.testCase.testSuite.setPropertyValue("mdSurname2","Петров")
+testRunner.testCase.testSuite.setPropertyValue("mdName2","Иван")
+testRunner.testCase.testSuite.setPropertyValue("mdPatron2","Михайлович")
+testRunner.testCase.testSuite.setPropertyValue("mdPosition2","Заведующий отделением эндокринологии")
+testRunner.testCase.testSuite.setPropertyValue("nazId2",nazId)
+testRunner.testCase.testSuite.setPropertyValue("case_id2",nazId)
+testRunner.testCase.testSuite.setPropertyValue("state2","new")
+testRunner.testCase.testSuite.setPropertyValue("timestamp2",timestamp2 +'Z')
+testRunner.testCase.testSuite.setPropertyValue("create_dt2",timestamp2 +'Z')
+testRunner.testCase.testSuite.setPropertyValue("name2","Назначена операция")
+testRunner.testCase.testSuite.setPropertyValue("type2","surgery")
+testRunner.testCase.testSuite.setPropertyValue("mnnName1","\"Дихлорэтана трихитронитротолуол бериллия\"")
+testRunner.testCase.testSuite.setPropertyValue("mnnName2","\"Анальгин\"")
+testRunner.testCase.testSuite.setPropertyValue("dose1","\"0,75 мГ/3 капсулы\"")
+testRunner.testCase.testSuite.setPropertyValue("dose2","\"2 мг\"")
+testRunner.testCase.testSuite.setPropertyValue("unitsNumber1","\"1 таблетка\"")
+testRunner.testCase.testSuite.setPropertyValue("unitsNumber2","\"2 таблетки\"")
+testRunner.testCase.testSuite.setPropertyValue("introduction2","\"Парабульбарно\"")
+testRunner.testCase.testSuite.setPropertyValue("repetition2","\"Принимать через равные промежутки времени 8 часов не более 3х раз в сутки\"")
+testRunner.testCase.testSuite.setPropertyValue("daily2","")
+testRunner.testCase.testSuite.setPropertyValue("assignedDate1","\"" +assignedDate1 + "\"")
+testRunner.testCase.testSuite.setPropertyValue("assignedDate2","\"" +assignedDate2 + "\"")
+testRunner.testCase.testSuite.setPropertyValue("timeslot1","\"" +assignedTime1 + "\"")
+testRunner.testCase.testSuite.setPropertyValue("timeslot2","\"" +assignedTime2 + "\"")
+testRunner.testCase.testSuite.setPropertyValue("applyFrom2", "\"" +assignedTime1 + "\"")
+testRunner.testCase.testSuite.setPropertyValue("duration2", "\"2 дня\"")
+testRunner.testCase.testSuite.setPropertyValue("relativeFeed2", "\"До еды\"")
+testRunner.testCase.testSuite.setPropertyValue("justification2", "\"Головные боли, мигрени\"")
+testRunner.testCase.testSuite.setPropertyValue("notice2", "\"Капсулу для приёма извлекать из блистера\"")
+testRunner.testCase.testSuite.setPropertyValue("infusion2", "\"В/В инфузомат 1,25 мл/мин в течение 3 минут\"")
+testRunner.testCase.testSuite.setPropertyValue("dateForDB", currentDateTimeForDB)
+testRunner.testCase.testSuite.setPropertyValue("dateForDBSQL", currentDateTimeForDBSQL)
+testRunner.testCase.testSuite.setPropertyValue("testCase",testRunner.testCase.getName())
+sleep(2000)</script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>drugAssignment</con:name><con:value>false</con:value></con:property><con:property><con:name>tc</con:name><con:value>Кейс1</con:value></con:property><con:property><con:name>patientIdAllDevices</con:name><con:value>123011</con:value></con:property><con:property><con:name>userId</con:name><con:value>16660</con:value></con:property><con:property><con:name>deviceGuid1</con:name><con:value>55045ad2-b0bc-4059-9943-d683c8934b31</con:value></con:property><con:property><con:name>deviceGuid2</con:name><con:value>7d317efc-17e3-41a8-9550-7d88590ee2ca</con:value></con:property><con:property><con:name>deviceGuid3</con:name><con:value>2527d2e8-1c58-42d3-93f8-8bb850986dc5</con:value></con:property><con:property><con:name>deviceGuid4</con:name><con:value>a94fd149-3ac4-48df-b3ef-ae7e4c6e70c4</con:value></con:property><con:property><con:name>deviceGuid5</con:name><con:value>903b3020-8777-4064-abed-3a6638c57b50</con:value></con:property><con:property><con:name>deviceGuid6</con:name><con:value>b00e116a-e455-4af9-b805-3466af58e64d</con:value></con:property><con:property><con:name>deviceGuid7</con:name><con:value>e31f0e2e-3aca-45fe-aa9a-e016d0cb2957</con:value></con:property><con:property><con:name>deviceGuid8</con:name><con:value>0dde3d26-fb92-46b1-acf7-da2e61f24d44</con:value></con:property><con:property><con:name>deviceGuid9</con:name><con:value>bb837424-9113-4e67-9890-df71c37be151</con:value></con:property><con:property><con:name>deviceGuid10</con:name><con:value>db90f9bb-e252-45bb-9f3b-cc4ff913abe9</con:value></con:property><con:property><con:name>deviceGuid11</con:name><con:value>0f66b4aa-c898-4955-a979-74ce0aa30486</con:value></con:property><con:property><con:name>deviceGuid12</con:name><con:value>758ca0dd-f246-4c48-944b-1bdfc250fa08</con:value></con:property><con:property><con:name>devicesToSend</con:name><con:value>5, 6</con:value></con:property><con:property><con:name>devicesCount</con:name><con:value>12</con:value></con:property><con:property><con:name>timestamp2</con:name><con:value>2024-06-03T09:47:27.089Z</con:value></con:property><con:property><con:name>create_dt2</con:name><con:value>2024-06-03T09:47:27.089Z</con:value></con:property><con:property><con:name>name2</con:name><con:value>Назначена операция</con:value></con:property><con:property><con:name>type2</con:name><con:value>surgery</con:value></con:property><con:property><con:name>urgency2</con:name><con:value>"Экстренная"</con:value></con:property><con:property><con:name>appointTimestamp2</con:name><con:value>"2024-06-04T09:47:27.090Z"</con:value></con:property><con:property><con:name>quantity2</con:name><con:value>"21"</con:value></con:property><con:property><con:name>multiplicity2</con:name><con:value>"1"</con:value></con:property><con:property><con:name>hour2</con:name><con:value>"1"</con:value></con:property><con:property><con:name>minutes2</con:name><con:value>"30"</con:value></con:property><con:property><con:name>daily2</con:name><con:value>"В дату"</con:value></con:property><con:property><con:name>assignedDate1</con:name><con:value>"2024-06-04"</con:value></con:property><con:property><con:name>timeslot1</con:name><con:value>"09:47"</con:value></con:property><con:property><con:name>scope2</con:name><con:value>"Верхневозлежащий крестец"</con:value></con:property><con:property><con:name>office2</con:name><con:value>"14Б"</con:value></con:property><con:property><con:name>mnnName1</con:name><con:value>"Дихлорэтана трихитронитротолуол бериллия"</con:value></con:property><con:property><con:name>mnnName2</con:name><con:value>"Анальгин"</con:value></con:property><con:property><con:name>dose1</con:name><con:value>"0,75 мГ/3 капсулы"</con:value></con:property><con:property><con:name>dose2</con:name><con:value>"2 мг"</con:value></con:property><con:property><con:name>unitsNumber1</con:name><con:value>"1 таблетка"</con:value></con:property><con:property><con:name>unitsNumber2</con:name><con:value>"2 таблетки"</con:value></con:property><con:property><con:name>introduction2</con:name><con:value>"Парабульбарно"</con:value></con:property><con:property><con:name>repetition2</con:name><con:value>"Принимать через равные промежутки времени 8 часов не более 3х раз в сутки"</con:value></con:property><con:property><con:name>assignedDate2</con:name><con:value>"2024-06-05"</con:value></con:property><con:property><con:name>timeslot2</con:name><con:value>"11:42"</con:value></con:property><con:property><con:name>applyFrom2</con:name><con:value>"07:48"</con:value></con:property><con:property><con:name>duration2</con:name><con:value>"2 дня"</con:value></con:property><con:property><con:name>relativeFeed2</con:name><con:value>"До еды"</con:value></con:property><con:property><con:name>justification2</con:name><con:value>"Головные боли, мигрени"</con:value></con:property><con:property><con:name>topic</con:name><con:value>kisNazToEmiasPublication</con:value></con:property><con:property><con:name>emiasId2</con:name><con:value>123011</con:value></con:property><con:property><con:name>caseNum2</con:name><con:value>49956-2024</con:value></con:property><con:property><con:name>caseDate2</con:name><con:value>2024-06-03</con:value></con:property><con:property><con:name>moId2</con:name><con:value>204</con:value></con:property><con:property><con:name>moName2</con:name><con:value>ГБУЗ ГП №175 ДЗМ</con:value></con:property><con:property><con:name>mdSurname2</con:name><con:value>Петров</con:value></con:property><con:property><con:name>mdName2</con:name><con:value>Иван</con:value></con:property><con:property><con:name>mdPosition2</con:name><con:value>Заведующий отделением эндокринологии</con:value></con:property><con:property><con:name>nazId2</con:name><con:value>faa56d15-1062-4d86-a220-d2a9f026497f</con:value></con:property><con:property><con:name>case_id2</con:name><con:value>faa56d15-1062-4d86-a220-d2a9f026497f</con:value></con:property><con:property><con:name>state2</con:name><con:value>new</con:value></con:property><con:property><con:name>notice2</con:name><con:value>"Капсулу для приёма извлекать из блистера"</con:value></con:property><con:property><con:name>infusion2</con:name><con:value/></con:property><con:property><con:name>testCase</con:name><con:value>Пример new</con:value></con:property><con:property><con:name>mdPatron2</con:name><con:value>Михайлович</con:value></con:property><con:property><con:name>dateForDB</con:name><con:value>04.06.2024</con:value></con:property><con:property><con:name>dateForDBSQL</con:name><con:value>2024-06-03 09:47:27</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>emiasInfoEndpoint</con:name><con:value>http://application-emiasinfo1.emias.solit-clouds.ru/</con:value></con:property><con:property><con:name>emiasInfoDbConnection</con:name><con:value>172.17.5.11:29102/emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoDbLogin</con:name><con:value>emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoDbPassword</con:name><con:value>emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoFullDbConnection</con:name><con:value>jdbc:postgresql://172.17.5.11:29102/emiasinfoapp?user=emiasinfoapp&amp;password=emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoDBDriver</con:name><con:value>org.postgresql.Driver</con:value></con:property><con:property><con:name>env</con:name><con:value>solit1</con:value></con:property><con:property><con:name>emiasInfoNotificationsEndpoint</con:name><con:value>http://notification-emiasinfo1.emias.solit-clouds.ru/</con:value></con:property><con:property><con:name>emiasInfoNotificationsDbConnection</con:name><con:value>172.17.5.11:29104/notification</con:value></con:property><con:property><con:name>emiasInfoNotificationsDbLogin</con:name><con:value>notification</con:value></con:property><con:property><con:name>emiasInfoNotificationsDbPassword</con:name><con:value>notification</con:value></con:property><con:property><con:name>emiasInfoNotificationsFullDbConnection</con:name><con:value>jdbc:postgresql://172.17.5.11:29104/notification?user=notification&amp;password=notification</con:value></con:property><con:property><con:name>emiasInfoNotificationsDBDriver</con:name><con:value>org.postgresql.Driver</con:value></con:property><con:property><con:name>topicAppointment2Bm</con:name><con:value>Appointment2Bm.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicAppointment2Doctor</con:name><con:value>Appointment2Doctor.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicAppointment2Ldp</con:name><con:value>Appointment2Ldp.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicBookingRecipeInfoMessage</con:name><con:value>BookingRecipeInfoMessage.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicMedicationAssignmentChangesPerDay</con:name><con:value>MedicationAssignmentChangesPerDay.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicKisNazToEmiasPublication</con:name><con:value>kisNazToEmiasPublication.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicTmkNotify</con:name><con:value>tmkNotify.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>bootstrapServers</con:name><con:value>10.2.172.24:9092</con:value></con:property><con:property><con:name>topicKIS_appointment_reminder</con:name><con:value>KIS_appointment_reminder.EMIASINFO_SOLIT_TEST_1</con:value></con:property><con:property><con:name>topicKIS_appointment_changer</con:name><con:value>KIS_appointment_changer.EMIASINFO_SOLIT_TEST_1</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

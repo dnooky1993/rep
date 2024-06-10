@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5d13a6cb-da0b-447f-88b0-f0215ab95cab" activeEnvironment="Default" name="ЕМИАС.ИНФО мок сервер" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testSuite id="64efccb0-eaed-44b6-8878-15b11aa86420" name="Работа с данными в бд мок-сервера"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="0dfaed6d-7c0d-419d-8203-d5423003f1f5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Создание мока в бд с response из файла с полным адресом" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Создать запись  телом мока из файла с полным адресом" id="1911723e-1d69-4e82-ac24-fd022cd29f2c"><con:settings/><con:config><script>import java.nio.file.Paths
+import groovy.sql.Sql
+
+//получить из свойств кейса данные мока
+fileFullPath = testRunner.testCase.getPropertyValue("fileFullPath")
+path = testRunner.testCase.getPropertyValue("path")
+code = testRunner.testCase.getPropertyValue("code")
+commentValue = testRunner.testCase.getPropertyValue("comment")
+connemt = commentValue == "" ? null : "'"+commentValue+"'"
+
+// получить response из файла
+def file=new File(fileFullPath)
+String response = file.getText('UTF-8')
+//log.info response
+
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+//создать запись
+query="INSERT INTO template_response "+
+"(\"path\", code, response, \"comment\") "+
+"VALUES('"+path+"', "+code+", '"+response+"', "+connemt+")"
+//log.info query
+sql.execute(query)</script></con:config></con:testStep><con:properties><con:property><con:name>path</con:name><con:value>тест </con:value></con:property><con:property><con:name>fileFullPath</con:name><con:value>C:/Users/ekomarova/Desktop/Проекты/емиас инфо/моки/getSpec.txt</con:value></con:property><con:property><con:name>fileName</con:name><con:value/></con:property><con:property><con:name>code</con:name><con:value>200</con:value></con:property><con:property><con:name>comment</con:name><con:value/></con:property></con:properties></con:testCase><con:testCase id="a8aa4a12-454a-41e7-b5b6-0bfa8b8c542f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Создание мока в бд с response из текста внутри скрипта" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Создать запись с response из текста внутри скрипта" id="d8ff7036-8e8c-4cf0-bb33-d2f4a16727ad"><con:settings/><con:config><script>import groovy.sql.Sql
+
+//получить из свойств кейса данные мока
+path = testRunner.testCase.getPropertyValue("path")
+code = testRunner.testCase.getPropertyValue("code")
+commentValue = testRunner.testCase.getPropertyValue("comment")
+connemt = commentValue == "" ? null : "'"+commentValue+"'"
+
+response ="""response"""
+
+
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+//создать запись
+query="INSERT INTO template_response "+
+"(\"path\", code, response, \"comment\") "+
+"VALUES('"+path+"', "+code+", '"+response+"', "+connemt+")"
+//log.info query
+sql.execute(query)</script></con:config></con:testStep><con:properties><con:property><con:name>path</con:name><con:value>тест 2</con:value></con:property><con:property><con:name>fileName</con:name><con:value/></con:property><con:property><con:name>code</con:name><con:value>200</con:value></con:property><con:property><con:name>comment</con:name><con:value/></con:property></con:properties></con:testCase><con:testCase id="1189dad3-3261-42e1-98d2-c5f04fffa43a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Изменение code мока в бд" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Изменить code мока в бд" id="48223941-6df6-4344-a036-f61dfd3af39e"><con:settings/><con:config><script>import java.nio.file.Paths
+import groovy.sql.Sql
+
+//получить из свойств кейса данные мока
+path = testRunner.testCase.getPropertyValue("path")
+code = testRunner.testCase.getPropertyValue("code")
+
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+//изменить запись
+query="update template_response set code=' "+code+"' where \"path\"= '"+path+"'"
+
+//log.info query
+sql.execute(query)</script></con:config></con:testStep><con:properties><con:property><con:name>path</con:name><con:value>тест </con:value></con:property><con:property><con:name>fileFullPath</con:name><con:value>C:/Users/ekomarova/Desktop/Проекты/емиас инфо/моки/getSpec.txt</con:value></con:property><con:property><con:name>fileName</con:name><con:value/></con:property><con:property><con:name>code</con:name><con:value>1</con:value></con:property><con:property><con:name>comment</con:name><con:value/></con:property></con:properties></con:testCase><con:testCase id="6cfc915d-27ff-4cd2-a0b3-01b3a775e557" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Изменение response мока в бд  из файла с полным адресом" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Изменить response мока в бд  из файла с полным адресом" id="7cb8f53d-3eaf-435b-947d-35dd4a52335b"><con:settings/><con:config><script>import java.nio.file.Paths
+import groovy.sql.Sql
+
+//получить из свойств кейса данные мока
+fileFullPath = testRunner.testCase.getPropertyValue("fileFullPath")
+path = testRunner.testCase.getPropertyValue("path")
+
+// получить response из файла
+def file=new File(fileFullPath)
+String response = file.getText('UTF-8')
+//log.info response
+
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+//изменить запись
+query="update template_response set response=' "+response+"' where \"path\"= '"+path+"'"
+//log.info query
+sql.execute(query)</script></con:config></con:testStep><con:properties><con:property><con:name>path</con:name><con:value>тест </con:value></con:property><con:property><con:name>fileFullPath</con:name><con:value>C:/Users/ekomarova/Desktop/Проекты/емиас инфо/моки/getSpec.txt</con:value></con:property></con:properties></con:testCase><con:testCase id="f7a1673e-3853-493e-8385-dc2a52181add" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Изменение response мока в бд из текста внутри скрипта" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Изменить response мока из текста внутри скрипта" id="55380339-6397-4d7a-bf99-578e56eb7be8"><con:settings/><con:config><script>import groovy.sql.Sql
+
+//получить из свойств кейса данные мока
+path = testRunner.testCase.getPropertyValue("path")
+
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+//изменить запись
+query="delete from template_response where \"path\"= '"+path+"'"
+//log.info query
+sql.execute(query)</script></con:config></con:testStep><con:properties><con:property><con:name>path</con:name><con:value>тест 2</con:value></con:property></con:properties></con:testCase><con:testCase id="8ca63b80-f729-498e-9354-ea9dbfcfa851" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Удаление мока по path" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Удалить мок в бд" id="27e53e5a-e869-4b48-93be-58eefed832f1"><con:settings/><con:config><script>import java.nio.file.Paths
+import groovy.sql.Sql
+
+//получить из свойств кейса данные мока
+path = testRunner.testCase.getPropertyValue("path")
+code = testRunner.testCase.getPropertyValue("code")
+
+//подключиться к бд 
+connection =testRunner.testCase.testSuite.project.getPropertyValue("mockDbFullConnection")
+sql = Sql.newInstance(connection)
+
+//изменить запись
+query="update template_response set code=' "+code+"' where \"path\"= '"+path+"'"
+
+//log.info query
+sql.execute(query)</script></con:config></con:testStep><con:properties><con:property><con:name>path</con:name><con:value>тест </con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>proxyUrl</con:name><con:value>http://application-mock.emias.solit-clouds.ru</con:value></con:property><con:property><con:name>mockDbFullConnection</con:name><con:value>jdbc:postgresql://172.17.5.17:29107/emias_info_mock?user=emias_info&amp;password=emias_info</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

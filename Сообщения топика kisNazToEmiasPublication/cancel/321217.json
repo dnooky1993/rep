@@ -1,0 +1,50 @@
+{
+	"patientInfo": {
+		"emiasId": "22479058",
+		"caseNum": "49955-2023",
+		"caseDate": "2012-04-23"
+	},
+	"moInfo": {
+		"moId": "204",
+		"moName": "ГБУЗ ГП №175 ДЗМ"
+	},
+	"mdInfo": {
+		"mdSurname": "Петров",
+		"mdName": "Иван",
+		"mdPatron": "Михайлович",
+		"mdPosition": "Заведующий отделением эндокринологии"
+	},
+	"hospInfo": {
+		"patientId": "22479058",
+		"naz_id": "0501d275-cbf0-40e3-8f3d-04a0cf510llkl1",
+		"case_id": "ca5a762c-0611-442c-a452-0957b71b84e1"
+	},
+	"appointment": {
+		"state": "cancel",
+		"timestamp": "2023-08-23T18:25:43.511Z",
+		"name": "Телемедицинская консультация",
+		"urgency": "Плановая",
+		"appointTimestamp": "2023-09-83T18:25:43.511Z",
+		"procedures": {
+			"quantity": "10",
+			"multiplicity": "2",
+			"duration": {
+				"hour": "0",
+				"minutes": "30"
+			},
+			"schedule": {
+				"daily": "Ежедневно",
+				"assigned": [
+					"2023-04-20",
+					"2023-04-21"
+				],
+				"timeslot": [
+					"10:00",
+					"12:00"
+				]
+			},
+			"scope": "Верхневозлежащий крестец",
+			"office": "12Б"
+		}
+	}
+}

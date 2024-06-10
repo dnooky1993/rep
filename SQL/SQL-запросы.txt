@@ -1,0 +1,258 @@
+ТИПЫ ДАННЫХ
+--serial  автоматическая нумерация строк
+-- smallint  2 байта   -32 768..32 767
+-- int       4 байта   -2 147 483 648..2 147 483 647
+-- bigint    8 байт    -9 223 372 036 854 775 808..9 223 372 036 854 775 807
+
+-- character  char (длина всегда фиксированная, даже если слово 10 символов, а поле  рассчитано на 20 - будут добавляться пробелы в конце)
+-- character varying  varchar
+-- text
+
+-- float float4 real  4 байта   - особенность у данного типа - при операциях (н-р делении) значения округляются (не исп-ся для денежных типов данных)
+-- double precision, float8  8 байт - особенность у данного типа - при операциях (н-р делении) значения округляются (не исп-ся для денежных типов данных)
+-- numeric(n, m), decimal(n, m)   1 234 567.890   numeric(15, 5)
+
+-- date
+-- timestamp 
+-- time
+-- interval
+ 
+--bool
+
+drop table internet_customer;				- удалить таблицу
+
+create table internet_customer 				- создать таблицу
+(internet_customer_id int not null,
+login varchar(20) not null,
+rating float default(0) not null),
+check(length(login) >= 6 and login <> first_name and login <> last_name), 	- при создании таблицы можно добавлять проверку (логин больше равен 6 и не равен имени или фамилии)
+constraint internet_customer_rating check(rating >= 0),						- то же самое, только проверку называем своим именем (internet_customer_rating)
+unique(login)																- тоже проверка, но уникальности поля
+															-Также можно сослаться на другую таблицу
+															(пример internet_customer_id int references internet_customer(customer_id))
+															поле internet_customer_id вторичный ключ из таблицы internet_customer по полю customer_id
+
+alter table internet_customer add column 	- добавить колонку к уже существующей таблице с данными
+confirmed bool default(false) not null;
+
+alter table internet_customer drop column 	- добавить колонку от уже существующей таблицы с данными без потери других данных
+confirmed;
+
+insert into internet_customer				- заполнить таблицу данными
+(login, internet_customer_id)
+values 
+('login1', 1),
+('login2', 2)
+
+insert into internet_film						- заполнить таблицу взяв нужные поля из другой таблицы 
+(title, price, rental_duration, description)		(в данном случае берем название рейтинг описание и выбираем только фильмы с рейтингом G)
+select
+f.title,
+2,
+f.rental_duration,
+f.description 
+from 
+film f
+where 
+f.rating = 'G';
+
+delete from internet_customer				- удалить значения из таблицы
+where
+internet_customer_id = 1;
+
+update internet_customer					- обновить данные в таблице
+set login = 'testlogin'
+where 
+login  = 'login1';
+
+select concat('текст перед значенирем поля 1', название поля 1; 	- объединить 2 поля в одно с добавлением какого-либо текста
+'текст перед значением поля 2', название поля 2; итд) 				
+
+select first_name || last_name 			- то же самое. что и первое
+																												
+select trim('A ' from description) - 		удалить из названия букву А с пробелом
+
+select substring(title, 1, strpos(title, ' ') - 1) - 	удалить из подстроки в поле title, все, что идет после пробела 
+														(title - название поля, 1 - с какого символа искать(брать), strpos(title, ' ' - что именно ищем для удаления))
+														в конце обязательно "-1" т.к. берем все ДО пробела, а не включая пробел
+											
+select trim(leading/trailing from ' ' || название поля || ' ') - удалить пробелы в начале/в конце значения поля
+
+WHERE payment_date between '2007-03-01' and '2007-03-31' - условия для выборки в диапазоне (например дат)
+
+WHERE title LIKE/NOT LIKE '%какой-то текст%' - 	условия для выборки, с содержанием/исключением в строке какого-то текста
+
+ctrl + "/" - 					закомментировать выделенные строки
+
+where mod(payment_id, 10) = 1 - условия для выборки числа, у которого последняя цифра 1(остаток от деления на 10 равен 1)
+
+order by first_name desc/asc, last_name desc/asc - отсортировать по нескольким полям по убыванию/возрастанию
+
+select distinct substring(first_name, 1, 3) - вывести уникальные значения первых трех букв из поля first_name
+from actor
+
+select distinct on (staff_id)  - 	ТОЛЬКО ДЛЯ POSTGRE выбрать уникальное значение только по 1 полю (иначе будет выбираться уникальная комбинация всех полей)
+staff_id,							по умолчанию дистникт выбирает самое маленькое значение. Чтобы выбрать самое большое значение поля нужно добавить
+amount								order by указав обязательно поле в скобках (у distinct) и затем все нужные поля
+from payment
+order by staff_id, amount desc;
+
+inner join actor a             -   если при соединении таблиц в разных таблицах поля называются одинаково, можно сократить написание до "using (название поля)"
+using (actor_id) 					при этом поле, по которому происходит соединение в результате будет выведено только 1 раз
+
+select *							- left join добавляет к левой таблице (film) добавляет правую (inventory)			
+from film f LEFT JOIN inventory i 	- right join делает наоборот, к правой (inventory) добавляет левую (film)
+using (film_id)						- full join просто соединяет обе таблицы
+
+select f.title,											- cross join выполняет декартово произведение. Выводит все возможные комбинации одного поля с другим
+a.first_name || ' ' || a.last_name as actor_name
+from film f 
+CROSS JOIN actor a
+
+select 													- запрос с группировкой по полю rating
+	rating,
+	count(*) films_count,								- посчитать кол-во в 1 группе
+	sum(название поля) as total_length,					- просуммировать все значения из группы
+	max(название поля) as max_length,					- макс.значение из группы
+	min(название поля) as min_length,					- мин. значений из группы
+	avg(название поля) as avg_length,
+	string_agg(название поля, '; ')						- вывести все значения поля из одной группы через разделитель ";"
+from 
+	film f
+group by
+	название поля; 										- по какому полю группировать
+	
+select 													- запрос с выводом сортировки по кол-ву сгруппированного значения через having
+	a.first_name || ' ' || a.last_name as actor_name,
+	count(*) as film_number
+from 
+	actor a
+join film_actor fa on
+	a.actor_id = fa.actor_id
+group by 
+	actor_name
+having 
+	count(*) > 20;
+
+select f.title, f.rating, 															- вывод значения через case (аналог if-else)
+case 
+	when f.rating = 'G' then 'Нет возрастных ограничений'
+	when f.rating = 'PG' then 'Рекомендуется присутствие родителей'
+	when f.rating = 'PG-13' then 'Детям до 13 лет просмотр не желателен'
+	when f.rating = 'R' then 'Лицам до 17 лет обязательно присутствие взрослого'
+	when f.rating = 'NC-17' then 'Нет возрастных ограничений'
+	else "Другое ограничение"
+end as "Возрастное ограничение"
+from film f
+
+limit 50													- Вывести первые 50 строк
+offset 50													- Пропустить первые 50 строк
+
+UNION INTERSECT EXCEPT
+union - объединяет 2 запроса, исключая дубли
+union all - объединяет 2 запроса, результат выводится вместе с дублями
+except - разность 2х запросов (Отображает все значения, которые есть в результате левого запроса, но отсутствуют в результате правого запроса)
+intersect - возвращает только те значения, которые есть в результатах обоих запросов
+ПРИМЕРЫ
+select f.title from film f
+where rating = 'R'
+UNION ALL - вернет 253 строки
+UNION вернет 245 строк
+select f.title from film f
+join film_category fc using (film_id)
+join category c using (category_id)
+where c."name" = 'Comedy'
+
+select f.title as src from film f
+where rating = 'R'
+EXCEPT
+select f.title from film f
+join film_category fc using (film_id)
+join category c using (category_id)
+where c."name" = 'Comedy'
+
+select 										- фильтрация по количеству
+count(*),									- просто посчитать количество
+count(*) filter(where length > 100),		- посчитать количество с указанным фильтром (длина фильма больше 100, 120, 140)
+count(*) filter(where length > 120),
+count(*) filter(where length > 140)
+from 
+film;
+
+
+
+ВЛОЖЕННЫЕ ЗАПРОСЫ			- наиболее часты тип, не коррелирующий (вложенный запрос к не вложеннолму не обращается)
+select 							присоединяется в join по какому-либо полю (в данном случае по полю rating)
+f.title,						здесь отбираем фильмы, рейтинг и количество фильмов с таким рейтингом
+f.rating,
+fr.cnt as rating_film_cnt		есть еще вложенные запросы через exists(коррелирующий, не очень эффективный. Проверяются совпадения. Пишется в where)
+from 														через in, any, all
+film f 
+join (
+select 
+f.rating,
+count(*) as cnt
+from 
+film f 
+group by
+f.rating 
+) fr
+on f.rating = fr.rating
+
+ОКОННЫЕЕ ФУНКЦИИ (аналог или очень похожи на group by)
+select 
+f.title,
+f.rating,
+f.length,
+min(f.length) over w as min_rating_length,					-минимальная длина фильма из группы рейтинга
+max(f.length) over w as max_rating_length,					- максимальная
+sum(f.length) over w as sum_rating_length,					-сумма продолжительности фильмов в 1 группе рейтинга
+avg(f.length) over w as avg_rating_length,					-средняя продолжительность
+count(f.length) over w as count_rating_length				-сумма
+from 
+film f 
+window w as (partition by f.rating)							- оконная функция задается тут, в window, затем через имя w используется в запросе
+order by
+f.rating,
+f.length;
+
+select 
+f.title,
+f.rating,
+f.length,
+lag(f.length, 1) over(partition by f.rating order by f.length) as prev_length,
+lead(f.length, 1) over(partition by f.rating order by f.length) as next_length,
+f.length - lag(f.length, 1) over(partition by f.rating order by f.length) as diff_length		- в этом запросе также оконна яфункция. считает разницу между
+from 																						продолжительности текущего фильма и предыдущего
+film f;
+
+ПРЕОБРАЗОВАНИЕ ТИПОВ ДАННЫХ
+select 
+f.rental_rate,
+cast(f.rental_rate as varchar(10))			- синтаксис (преобразуем rental_rate в строку) (также можно написать f.rental_rate::varchar(10))
+from 										-про преобразование дат можно почитать в документации https://postgrespro.ru/docs/postgresql/9.5/functions-formatting
+film f;
+
+ПРЕДСТАВЛЕНИЯ (ВЬЮХИ view)					
+create materialized view film_amount_mat as  		- нужны, чтобы каждый раз не писать запрос. Есть материализованные и нематериализованные
+select													Материализованные создают образную таблицу, а нематериализованные каждый раз выполняют запрос
+f.film_id,
+sum(p.amount) as amount								- чтобы обратитсья к этой вьюхе можно написать select*from film_amount_mat
+from 
+film f 												- чтобы обновить матер.представление - refresh materialized view film_amount_mat
+left join inventory i 								- чтобы удалить представление drop view film_actor_cnt;
+on i.film_id = f.film_id
+left join rental r 
+on r.inventory_id = i.inventory_id 
+left join payment p 
+on p.rental_id = r.rental_id 
+group by
+f.film_id;
+
+explain analyze		- Функция анализа выполненного запроса. Показывает фактическое время выполнения и плановое. Если написать только explain - выведется плановое время
+select
+*
+from 
+film
+where 
+length > 150;

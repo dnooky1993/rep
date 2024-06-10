@@ -1,0 +1,44 @@
+{
+  "patientInfo": {
+    "emiasId": "12003",
+    "caseNum": "10169-23-С",
+    "caseDate": "2023-03-26"
+  },
+  "moInfo": {
+    "moId": "10492228",
+    "moName": "ГБУЗ \"НИИ СП им. Н.В. Склифосовского ДЗМ\""
+  },
+  "mdInfo": {
+    "mdSurname": "КОРНЯКОВ",
+    "mdName": "НАРАН",
+    "mdPatron": "АРСЛАНОВИЧ",
+    "mdPosition": "Логопед"
+  },
+  "hospInfo": {
+    "patientId": "f72a6f70-280a-4647-834c-e820d619d31d",
+    "naz_id": "64f4e755-7092-40de-81d6-3e0efbe43ca8",
+    "case_id": "fcd4069f-6acb-4683-9107-e4f34928173d"
+  },
+  "appointment": {
+    "state": "edit",
+	"create_dt": "2023-12-10T10:41:56.098Z",
+    "timestamp": "2023-12-21T17:12:44.225Z",
+    "name": "Промывание",
+    "type": "procedure",
+    "urgency": "Плановая",
+    "appointTimestamp": "2023-12-21T17:11:42.000Z",
+    "procedures": {
+      "quantity": "1",
+      "multiplicity": "1",
+      "schedule": {
+        "daily": "В дату",
+        "assigned": [
+          "2023-12-21"
+        ],
+        "timeslot": [
+          "12:00"
+        ]
+      }
+    }
+  }
+}

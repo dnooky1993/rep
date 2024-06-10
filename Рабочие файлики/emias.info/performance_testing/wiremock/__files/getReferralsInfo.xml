@@ -1,0 +1,180 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <ns3:getReferralsInfoResponse xmlns:ns2="http://api.service.soap.emias.lanit.ru/core/v5/" xmlns:ns3="http://api.service.soap.emias.lanit.ru/v5/">
+         <referral>
+            <id>74383292739</id>
+            <number>Н20221217-3</number>
+            <startTime>2023-12-02</startTime>
+            <endTime>2023-12-31</endTime>
+            <type>REF_TO_DOCTOR</type>
+            <lpuId>204</lpuId>
+            <lpuType>Городская поликлиника</lpuType>
+            <lpuName>ГБУЗ ГП 175 ДЗМ</lpuName>
+            <availableResourceId>20291274595</availableResourceId>
+            <toDoctor>
+               <specialityId>3</specialityId>
+               <specialityName>Врач-хирург</specialityName>
+               <doctorFio>Тен Ген Сук</doctorFio>
+               <receptionTypeId>1913</receptionTypeId>
+            </toDoctor>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+         <referral>
+            <id>74383293764</id>
+            <number>Н20221217-4</number>
+            <startTime>2023-12-02</startTime>
+            <endTime>2023-12-31</endTime>
+            <type>REF_TO_DOCTOR</type>
+            <lpuId>204</lpuId>
+            <lpuType>Городская поликлиника</lpuType>
+            <lpuName>ГБУЗ ГП 175 ДЗМ</lpuName>
+            <toDoctor>
+               <specialityId>70</specialityId>
+               <specialityName>Медицинская сестра (медбрат)</specialityName>
+               <receptionTypeId>1942</receptionTypeId>
+            </toDoctor>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+         <referral>
+            <id>74386412839</id>
+            <number>Н20230110-223</number>
+            <startTime>2023-01-10</startTime>
+            <endTime>2023-12-31</endTime>
+            <type>REF_TO_DOCTOR</type>
+            <lpuId>204</lpuId>
+            <lpuType>Городская поликлиника</lpuType>
+            <lpuName>ГБУЗ ГП 175 ДЗМ</lpuName>
+            <toDoctor>
+               <specialityId>69</specialityId>
+               <specialityName>Врач общей практики (семейный врач)</specialityName>
+               <receptionTypeId>1807</receptionTypeId>
+            </toDoctor>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+         <referral>
+            <id>74386413864</id>
+            <number>Н20230110-224</number>
+            <startTime>2023-01-10</startTime>
+            <endTime>2023-12-31</endTime>
+            <type>REF_TO_DOCTOR</type>
+            <lpuId>204</lpuId>
+            <lpuType>Городская поликлиника</lpuType>
+            <lpuName>ГБУЗ ГП 175 ДЗМ</lpuName>
+            <toDoctor>
+               <specialityId>72</specialityId>
+               <specialityName>Акушер(-ка)</specialityName>
+               <receptionTypeId>1942</receptionTypeId>
+            </toDoctor>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+         <referral>
+            <id>74386414889</id>
+            <number>Н20230110-225</number>
+            <startTime>2023-01-10</startTime>
+            <endTime>2023-12-31</endTime>
+            <type>REF_TO_DOCTOR</type>
+            <lpuId>204</lpuId>
+            <lpuType>Городская поликлиника</lpuType>
+            <lpuName>ГБУЗ ГП 175 ДЗМ</lpuName>
+            <toDoctor>
+               <specialityId>70</specialityId>
+               <specialityName>Медицинская сестра (медбрат)</specialityName>
+               <receptionTypeId>777</receptionTypeId>
+            </toDoctor>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+         <referral>
+            <id>74394869089</id>
+            <number>Н20230227-258</number>
+            <startTime>2023-02-27</startTime>
+            <endTime>2023-05-28</endTime>
+            <type>REF_TO_DOCTOR</type>
+            <lpuId>10000454</lpuId>
+            <lpuType>Городская поликлиника</lpuType>
+            <lpuName>ГБУЗ ГП 12 ДЗМ</lpuName>
+            <availableResourceId>19990333539</availableResourceId>
+            <toDoctor>
+               <specialityId>8</specialityId>
+               <specialityName>Врач-кардиолог</specialityName>
+               <doctorFio>Гаврикова Нина Витальевна</doctorFio>
+               <receptionTypeId>1879</receptionTypeId>
+            </toDoctor>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+         <referral>
+            <id>74394870114</id>
+            <number>Н20230227-259</number>
+            <startTime>2023-02-27</startTime>
+            <endTime>2023-05-28</endTime>
+            <type>REF_TO_DOCTOR</type>
+            <lpuId>10000454</lpuId>
+            <lpuType>Городская поликлиника</lpuType>
+            <lpuName>ГБУЗ ГП 12 ДЗМ</lpuName>
+            <toDoctor>
+               <specialityId>8</specialityId>
+               <specialityName>Врач-кардиолог</specialityName>
+               <receptionTypeId>1879</receptionTypeId>
+            </toDoctor>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+         <referral>
+            <id>74394871139</id>
+            <number>Н20230227-260</number>
+            <startTime>2023-02-27</startTime>
+            <endTime>2023-05-28</endTime>
+            <type>REF_TO_DOCTOR</type>
+            <lpuId>10000454</lpuId>
+            <lpuType>Городская поликлиника</lpuType>
+            <lpuName>ГБУЗ ГП 12 ДЗМ</lpuName>
+            <toDoctor>
+               <specialityId>9</specialityId>
+               <specialityName>Врач-невролог</specialityName>
+               <receptionTypeId>1992</receptionTypeId>
+            </toDoctor>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+         <referral>
+            <id>74386415914</id>
+            <number>32158907</number>
+            <comment>Назначено в рамках Пакета</comment>
+            <startTime>2023-01-10</startTime>
+            <endTime>2023-12-31</endTime>
+            <type>REF_TO_LDP</type>
+            <lpuId>204</lpuId>
+            <lpuName>ГБУЗ "ГП № 175 ДЗМ"</lpuName>
+            <toLdp>
+               <ldpTypeId>141478754</ldpTypeId>
+               <ldpTypeName>ЭКГ</ldpTypeName>
+               <countAssignmentProcedures>1</countAssignmentProcedures>
+            </toLdp>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+         <referral>
+            <id>74393171689</id>
+            <number>32192607</number>
+            <comment>обоснование 1</comment>
+            <startTime>2023-08-04</startTime>
+            <endTime>2023-09-02</endTime>
+            <type>REF_TO_LDP</type>
+            <lpuId>10000454</lpuId>
+            <lpuName>ГБУЗ "ГП № 12 ДЗМ"</lpuName>
+            <toLdp>
+               <ldpTypeId>141478754</ldpTypeId>
+               <ldpTypeName>ЭКГ</ldpTypeName>
+               <countAssignmentProcedures>1</countAssignmentProcedures>
+            </toLdp>
+            <countActiveAppointment>0</countActiveAppointment>
+            <countAppointmentWithReceptionFact>0</countAppointmentWithReceptionFact>
+         </referral>
+      </ns3:getReferralsInfoResponse>
+   </soap:Body>
+</soap:Envelope>

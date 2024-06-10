@@ -1,0 +1,1 @@
+smrpEndpoint=http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/ISMRPService/v1S/ProxyService

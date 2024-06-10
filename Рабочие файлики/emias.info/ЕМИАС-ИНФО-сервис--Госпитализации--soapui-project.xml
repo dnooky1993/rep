@@ -1,0 +1,1577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="220bc330-8a2a-4829-a691-7a45abb2a429" activeEnvironment="Default" name="ЕМИАС.ИНФО сервис &quot;Госпитализации&quot;" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="11f1b7c6-51f5-4743-84d2-6e8d772f4483" wsaVersion="NONE" name="hospitalServiceBinding" type="wsdl" bindingName="{http://emias.mos.ru/hospitalization/hospitalService/v2/}hospitalServiceBinding" soapVersion="1_2" anonymous="optional" definition="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?wsdl"><con:part><con:url>http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="hospitalServiceV2" targetNamespace="http://emias.mos.ru/hospitalization/hospitalService/v2/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns1="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:nsf="http://emias.mos.ru/system/v1/faults/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://emias.mos.ru/hospitalization/hospitalService/v2/" xmlns:uctx="http://emias.mos.ru/system/v2/userContext/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>Версия 1.4.0.85</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://emias.mos.ru/system/v2/userContext/" schemaLocation="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDTCIKKplRTf4WQugAOTDB3XtiTgBkXUbvh4N.qJHfFS7TM68sgOGBCl4-"/>
+      <xs:import namespace="http://emias.mos.ru/system/v1/faults/" schemaLocation="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDTCIKKplRTf4WQvsSKS72wTtuWBxhonVp0RSczfm3Skj5tNod"/>
+      <xs:import namespace="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" schemaLocation="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfVD2kF6sZXjcQJJ1ICudKQvUcLzLrxnR6eB1iBVf_hs9m.ZCDetDRV4DIesEDk_xQES6ZlxUAymHvEA4X"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getHospitalPatientOutput">
+    <wsdl:part element="ns1:getHospitalizationInfoByPatientResponse" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fault">
+    <wsdl:documentation>Ошибка</wsdl:documentation>
+    <wsdl:part element="nsf:fault" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHospitalPatientInput">
+    <wsdl:part element="ns1:getHospitalizationInfoByPatientRequest" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="userContext">
+    <wsdl:documentation>Контекст пользователя</wsdl:documentation>
+    <wsdl:part element="uctx:userContext" name="userContext"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="hospitalServicePortType">
+    <wsdl:operation name="getHospitalizationInfoByPatient">
+      <wsdl:input message="tns:getHospitalPatientInput"></wsdl:input>
+      <wsdl:output message="tns:getHospitalPatientOutput"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="hospitalServiceBinding" type="tns:hospitalServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getHospitalizationInfoByPatient">
+      <soap:operation soapAction="getHospitalizationInfoByPatient"/>
+      <wsdl:input>
+        <soap:header message="tns:userContext" part="userContext" use="literal"></soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="hospitalServiceV2">
+    <wsdl:port binding="tns:hospitalServiceBinding" name="hospitalServicePort">
+      <soap:address location="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService"/>
+    </wsdl:port>
+    <wsp:PolicyReference URI="#authPolicy"/>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="authPolicy">
+    <sp:SupportingTokens xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+      <wsp:Policy>
+        <sp:UsernameToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+          <wsp:Policy>
+            <sp:NoPassword/>
+          </wsp:Policy>
+        </sp:UsernameToken>
+      </wsp:Policy>
+    </sp:SupportingTokens>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDTCIKKplRTf4WQugAOTDB3XtiTgBkXUbvh4N.qJHfFS7TM68sgOGBCl4-</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v2/userContext/" xmlns="http://emias.mos.ru/system/v2/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDTCIKKplRTf4WQuUAOMjB75csIli4ZYKDqcpdbA0-"/>
+  <xs:element name="userContext" type="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="systemName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Шифр системы-потребителя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя пользователя (логин)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRoleId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Идентификатор Роли пользователя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="isUserRoleSystemWide" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак "Общесистемная Роль пользователя"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRights">
+        <xs:annotation>
+          <xs:documentation>Коллекция Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>ИД Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jobExecutionId" type="ID"/>
+      <xs:element minOccurs="0" name="hostIp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>IP адрес хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hostName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDTCIKKplRTf4WQuUAOMjB75csIli4ZYKDqcpdbA0-</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--error message description-->
+  <xs:complexType name="ErrorMessageCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция сообщений об ошибках</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="message" type="ErrorMessage">
+        <xs:annotation>
+          <xs:documentation>Сообщение об ошибке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorMessage">
+    <xs:annotation>
+      <xs:documentation>Сообщение об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parameters">
+            <xs:annotation>
+              <xs:documentation>Коллекция параметров сообщения</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="parameter" type="KeyValuePair">
+                  <xs:annotation>
+                    <xs:documentation>Параметр сообщения</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Сопутствующие сообщения об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="ErrorMessageTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип сообщения</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ErrorMessageTypes">
+    <xs:annotation>
+      <xs:documentation>Тип сообщения об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation>Ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WARNING">
+        <xs:annotation>
+          <xs:documentation>Предупреждение (не блокирующая ошибка)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INFO">
+        <xs:annotation>
+          <xs:documentation>Информационное сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:complexType name="KeyValuePair">
+    <xs:annotation>
+      <xs:documentation>Представляет тип "ключ/значение"</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Ключ</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Message">
+    <xs:annotation>
+      <xs:documentation>Сообщение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Текст сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDTCIKKplRTf4WQvsSKS72wTtuWBxhonVp0RSczfm3Skj5tNod</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/faults/" xmlns="http://emias.mos.ru/system/v1/faults/" xmlns:uctx="http://emias.mos.ru/system/v2/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDTCIKKplRTf4WQuUAOMjB75csIli4ZYKDqcpdbA0-"/>
+  <xs:import namespace="http://emias.mos.ru/system/v2/userContext/" schemaLocation="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDTCIKKplRTf4WQugAOTDB3XtiTgBkXUbvh4N.qJHfFS7TM68sgOGBCl4-"/>
+  <!--faults-->
+  <xs:element name="fault" type="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Базовый тип ошибки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SecurityFault">
+    <xs:annotation>
+      <xs:documentation>Ошибка безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element ref="uctx:userContext"/>
+          <xs:choice>
+            <xs:element name="unauthorizedRequestSecurityException" type="UnauthorizedRequestSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="otherSecurityException" type="OtherSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute fixed="SECURITY" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BusinessFault">
+    <xs:annotation>
+      <xs:documentation>Бизнес ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Коллекция Сообщений об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="hasErrors" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак наличия ошибок в списке сообщений</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="BUSINESS" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnexpectedFault">
+    <xs:annotation>
+      <xs:documentation>Непредвиденная ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="version" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Версия продукта-сервиса</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stackTrace">
+            <xs:annotation>
+              <xs:documentation>Стек вызова (последние 10 записей)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="10" name="stackTraceRecord">
+                  <xs:annotation>
+                    <xs:documentation>Запись StackTrace</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="declaringClass" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование класса, содержащего метод</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="methodName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование метода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="fileName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование файла</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="lineNumber" type="xs:int">
+                        <xs:annotation>
+                          <xs:documentation>Номер строки кода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="UNEXPECTED" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Описание базового типа описания ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--security exceptions-->
+  <xs:complexType name="UnauthorizedRequestSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="requiredRights">
+        <xs:annotation>
+          <xs:documentation>Перечень идентификаторов недостающих Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Идентификатор Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="UNAUTHORIZED_REQUEST_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="OtherSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="message" type="Message">
+        <xs:annotation>
+          <xs:documentation>Сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="OTHER_SECURITY_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:simpleType name="SecurityExceptionTypes">
+    <xs:annotation>
+      <xs:documentation>Типы исключений безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNAUTHORIZED_REQUEST_EXCEPTION"/>
+      <xs:enumeration value="OTHER_SECURITY_EXCEPTION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--components-->
+  <xs:simpleType name="FaultTypes">
+    <xs:annotation>
+      <xs:documentation>Тип ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SECURITY">
+        <xs:annotation>
+          <xs:documentation>Непредвиденная ошибка приложения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUSINESS">
+        <xs:annotation>
+          <xs:documentation>Бизнес ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UNEXPECTED">
+        <xs:annotation>
+          <xs:documentation>Ошибка безопасности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfVD2kF6sZXjcQJJ1ICudKQvUcLzLrxnR6eB1iBVf_hs9m.ZCDetDRV4DIesEDk_xQES6ZlxUAymHvEA4X</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" version="Версия 1.4.0.85" xmlns:core="http://emias.mos.ru/hospitalization/core/v2/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://emias.mos.ru/hospitalization/core/v2/" schemaLocation="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfVD2kF6sZXjcQJJ1ICudKQv4cLiesxCc4Uwt0O.EIWYW92Xo6qRmYgGvsQQ--"/>
+  <xs:element name="getHospitalizationInfoByPatientRequest">
+    <xs:annotation>
+      <xs:documentation>Входные параметры метода getHospitalizationInfoByPatient</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="patientId" type="xs:long"/>
+        <xs:element name="options" type="core:Options"/>
+        <xs:element maxOccurs="1" minOccurs="0" name="datePeriod" type="core:DatePeriod"/>
+        <xs:element maxOccurs="1" minOccurs="0" name="pagingOptions" type="core:PagingSortingOptions"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getHospitalizationInfoByPatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="pagingResults" type="core:PagingResultsImpl">
+          <xs:annotation>
+            <xs:documentation>Параметры пагинации</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element maxOccurs="1" minOccurs="0" name="patientId" type="xs:long">
+          <xs:annotation>
+            <xs:documentation>Идентификатор Пациента</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element maxOccurs="1" minOccurs="0" name="hospitalizationSign" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Признак госпитализации пациента</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element maxOccurs="1" minOccurs="0" name="deathSign" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Признак смерти пациента</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="hospitalizations" type="core:Hospitalization">
+          <xs:annotation>
+            <xs:documentation>Госпитализации</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfVD2kF6sZXjcQJJ1ICudKQv4cLiesxCc4Uwt0O.EIWYW92Xo6qRmYgGvsQQ--</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/hospitalization/core/v2/" xmlns="http://emias.mos.ru/hospitalization/core/v2/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDXDQLO9JKUaZcH_lsSkR2uTCFetzyWJNcLv8K"/>
+  <xs:complexType name="Hospitalization">
+    <xs:annotation>
+      <xs:documentation>Сущность Госпитализации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="docId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Идентификатор документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hospitalDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Дата и время госпитализации</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="admissionsDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Дата и время поступления в стационар</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MOName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование стационарной МО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MOId" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Идентификатор МО (МО, в которой осуществлялось лечение)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="departmentName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование стационарного отделения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="diagnosis" type="Diagnosis">
+        <xs:annotation>
+          <xs:documentation>Диагноз при поступлении (развернутый клинический диагноз)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hospitalizationStatus" type="KeyValuePair">
+        <xs:annotation>
+          <xs:documentation>Статус случая госпитализации</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="epicrisis" nillable="true" type="HospitalizationEpicris">
+        <xs:annotation>
+          <xs:documentation>Выписные эпикризы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="deathFact" nillable="true" type="HospitalizationDeathFact">
+        <xs:annotation>
+          <xs:documentation>Выписные эпикризы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HospitalizationDeathFact">
+    <xs:sequence>
+      <xs:element name="docId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Идентификатор документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="deathDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Дата смерти пациента</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HospitalizationEpicris">
+    <xs:sequence>
+      <xs:element name="docId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Идентификатор документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hospitalAdmissionsDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Идентификатор документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="extractDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Идентификатор документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="isConfidential" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Идентификатор документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Diagnosis">
+    <xs:sequence>
+      <xs:element name="diagnosisTypeCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код типа диагноза</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MKB10Code" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код диагноза по МКБ-10</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MKB10Name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование диагноза по МКБ-10</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="detailedDiagnosis" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Развернутый клинический диагноз</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PagingSortingOptions">
+    <xs:complexContent>
+      <xs:extension base="PagingOptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sortingOptions" type="SortingOptions">
+            <xs:annotation>
+              <xs:documentation>Параметры сортировки</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры сортировки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="3" minOccurs="1" name="sortOrder" type="SortOrder">
+        <xs:annotation>
+          <xs:documentation>Условия сортировки (используются в соответствии с переданной
+                        последовательностью)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SortOrder">
+    <xs:annotation>
+      <xs:documentation>Условия сортировки
+                (используются в соответствии с переданной последовательностью)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="attributeName" type="SortVariant">
+        <xs:annotation>
+          <xs:documentation>Наименование поля, по которому должна быть произведена сортировка.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="descending" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Направление сортировки.
+                        Возможные значения:
+                        true - сортировка по убыванию;
+                        false - сортировка по возрастанию
+                        По умолчанию устанавливается значение true.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SortVariant">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="hospitalizationMOName"/>
+      <xs:enumeration value="hospitalizationsdiagnosisTypeCode"/>
+      <xs:enumeration value="hospitalizationhospitalDate"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDXDQLO9JKUaZcH_lsSkR2uTCFetzyWJNcLv8K</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService?xsd=AAAADHAjUCM4P2cuZURELkK9jOJsv5giiOUhb0eXelLZ_MVcjWuwlyDKagWTUZFb5IrTJjaIkVwX6_lRYMzStnQS4B57K5YfWT..BrFDTCIKKplRTf4WQuUAOMjB75csIli4ZYKDqcpdbA0-"/>
+  <!--references-->
+  <xs:element name="medicalOrganizationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинской организации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="medicalFacilityId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинского учреждения</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--async operation status-->
+  <xs:element name="operationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор операции</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="OperationExecutionStatus">
+    <xs:annotation>
+      <xs:documentation>Статус выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="isCompleted" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак окончания выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="completenessProgress" type="OperationCompletenessBase">
+        <xs:annotation>
+          <xs:documentation>Сведения о текущем статусе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasSucceded" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак успешности выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+        <xs:annotation>
+          <xs:documentation>Коллекция сообщений, порожденных в ходе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор операции</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="OperationCompletenessPercentage">
+    <xs:annotation>
+      <xs:documentation>Описание текущего статуса выполнения операции в процентах (0%-100%)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="OperationCompletenessBase">
+        <xs:sequence>
+          <xs:element name="completenessStatus">
+            <xs:annotation>
+              <xs:documentation>Статус (0%-100%)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:unsignedByte">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="OperationCompletenessBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип для описания текущего статуса выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--calling methods' options-->
+  <xs:element name="options" type="Options">
+    <xs:annotation>
+      <xs:documentation>Параметры вызова метода</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Options">
+    <xs:annotation>
+      <xs:documentation>Набор именованных значений</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="KeyValuePair">
+        <xs:annotation>
+          <xs:documentation>Именованное значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--pagination-->
+  <xs:element name="pagingOptions" type="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType abstract="true" name="PagingResults">
+    <xs:annotation>
+      <xs:documentation>Список с пагинацией</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageTotal" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество страниц</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="totalItemsCount" type="xs:long" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество элементов в выборке</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="morePagesAvailable" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Флаг доступности других страниц с результатами для "постраничного листания" (true -
+                    если доступны еще страницы; false - иначе)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="PagingResultsImpl">
+    <xs:complexContent>
+      <xs:extension base="PagingResults"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--base types-->
+  <xs:complexType name="TimeInterval">
+    <xs:annotation>
+      <xs:documentation>Временной период (время)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время начала интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время окончания интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DatePeriod">
+    <xs:annotation>
+      <xs:documentation>Временной период (дата)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата окончания периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService</con:endpoint></con:endpoints><con:operation id="700d80cb-5009-45fe-9bac-34c2e5251ef8" isOneWay="false" action="getHospitalizationInfoByPatient" name="getHospitalizationInfoByPatient" bindingOperationName="getHospitalizationInfoByPatient" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8ee6d7fe-b233-4c7f-b42a-c973dcd493ae" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://YRS0055:8080/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v2/userContext/" xmlns:typ="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:v2="http://emias.mos.ru/hospitalization/core/v2/">\r
+   <soap:Header>\r
+      <user:userContext>\r
+         <user:systemName>?</user:systemName>\r
+         <user:userName>?</user:userName>\r
+         <user:userRoleId>?</user:userRoleId>\r
+         <!--Optional:-->\r
+         <user:isUserRoleSystemWide>?</user:isUserRoleSystemWide>\r
+         <user:userRights>\r
+            <!--Zero or more repetitions:-->\r
+            <user:userRightId>?</user:userRightId>\r
+         </user:userRights>\r
+         <user:jobExecutionId>?</user:jobExecutionId>\r
+         <!--Optional:-->\r
+         <user:hostIp>?</user:hostIp>\r
+         <!--Optional:-->\r
+         <user:hostName>?</user:hostName>\r
+      </user:userContext>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <typ:getHospitalizationInfoByPatientRequest>\r
+         <typ:patientId>?</typ:patientId>\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <v2:entry key="?">?</v2:entry>\r
+         </typ:options>\r
+         <!--Optional:-->\r
+         <typ:datePeriod>\r
+            <!--Optional:-->\r
+            <v2:start>?</v2:start>\r
+            <!--Optional:-->\r
+            <v2:end>?</v2:end>\r
+         </typ:datePeriod>\r
+         <!--Optional:-->\r
+         <typ:pagingOptions pageNumber="?" pageSize="?">\r
+            <!--Optional:-->\r
+            <v2:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <v2:sortOrder>\r
+                  <v2:attributeName>?</v2:attributeName>\r
+                  <v2:descending>?</v2:descending>\r
+               </v2:sortOrder>\r
+            </v2:sortingOptions>\r
+         </typ:pagingOptions>\r
+      </typ:getHospitalizationInfoByPatientRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/hospitalization/hospitalService/v2/hospitalServicePortType/getHospitalizationInfoByPatientRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:RestService" id="ac98cc53-b413-4f08-8f7a-e03e72c29ee8" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://emiasinfo1.emias.solit-clouds.ru" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://emiasinfo1.emias.solit-clouds.ru</con:endpoint></con:endpoints><con:resource name="hospitalizations" path="/api/v2/hospitalization/hospitalizations" id="e8eaf78a-0579-4315-8e57-89cbdc3e6ec7"><con:settings/><con:parameters><con:parameter><con:name>EI-Token</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Mock-hospitalization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Method 1" id="6a527787-50b4-4ebc-a22f-ede800f09c06" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:hos="http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations">hos:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>401 500 403 400</con:status><con:params/><con:element xmlns:hos="http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations">hos:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#TestSuite#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="16eeed5a-2f98-48df-afe0-e38f53bfee9e" name="POST hospitalization"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="95b7b934-6518-40ec-9aee-d47c15cadff0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Сохранить токен" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Сохранить" id="3f48a9dc-79c3-4f54-b95b-83d02febc5ee"><con:settings/><con:config><script>def guid =com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "guid" )
+def base64 =com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "base64" )
+def sudirToken =com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "sudirToken" )
+def accessToken =com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "X-Access-JWT" )
+def refreshToken =com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "refreshToken" )
+def refreshXAccessJWT =com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "refresh-X-Access-JWT" )
+log.info sudirToken
+log.info accessToken
+testRunner.testCase.testSuite.project.setPropertyValue("sudirToken", sudirToken)
+testRunner.testCase.testSuite.project.setPropertyValue("X-Access-JWT", accessToken)
+testRunner.testCase.testSuite.project.setPropertyValue("refreshToken", refreshToken)
+testRunner.testCase.testSuite.project.setPropertyValue("refresh-X-Access-JWT", refreshXAccessJWT)
+testRunner.testCase.testSuite.project.setPropertyValue("guid", guid)
+testRunner.testCase.testSuite.setPropertyValue("base64", base64)
+log.info "w"</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="67752cc7-46be-4b9c-9d67-f8f140711998" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Получить данные о госпитализации пациента c отсутствующей dischargeDate и diagnosis ОС319646" searchProperties="true"><con:settings/><con:testStep type="request" name="Получить госпитализации" id="9782a636-094a-4793-a5a3-922d1c50d324"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>hospitalServiceBinding</con:interface><con:operation>getHospitalizationInfoByPatient</con:operation><con:request name="Получить госпитализации" id="f43ae350-9321-4f4b-8a47-4a3bdb264017"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#hospitalizationsEndpoint}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:v2="http://emias.mos.ru/hospitalization/core/v2/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>EIM</user:systemName>
+         <user:userName>af3e4ac5-96dd-4167-afb3-244eb7187aba</user:userName>
+         <user:isUserRoleSystemWide>true</user:isUserRoleSystemWide>
+         <user:userRights>
+            <user:userRightId>570001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>0</user:jobExecutionId>
+      </user:userContext>
+      <wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>EIM/EIM</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:getHospitalizationInfoByPatientRequest>
+         <typ:patientId>${#TestCase#patientId}</typ:patientId>
+         <typ:options>
+            <v2:entry key="hospitalizationForLK">true</v2:entry>
+            <v2:entry key="restrictionsHemodialysis">true</v2:entry>
+         </typ:options>
+         <typ:pagingOptions pageNumber="0" pageSize="20">
+            <v2:sortingOptions>
+               <v2:sortOrder>
+                  <v2:attributeName>hospitalizationhospitalDate</v2:attributeName>
+                  <v2:descending>true</v2:descending>
+               </v2:sortOrder>
+            </v2:sortingOptions>
+         </typ:pagingOptions>
+      </typ:getHospitalizationInfoByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="092e71bf-1d8f-48ae-bbd2-5220069c0a31" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="Госпитализации без dischargeDate и diagnosis" id="e1d4012f-1d84-4746-b49f-31fd6248542c"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Госпитализации без dischargeDate и diagnosis" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "pagingOptions": {
+    "pageNumber": 0,
+    "pageSize": 20
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="031f3529-3537-42c7-996c-ebbac176ab80" name="В ответе отсутствует dischargeDate"><con:configuration><token>dischargeDate</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#Project#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Сравнить ответ" id="f4d873fb-54fd-40bf-9d61-e05a8bb6754a"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.text.SimpleDateFormat
+
+String dTF = "yyyy-MM-dd'T'hh:mm:ss"
+String dateTimeFormat="yyyy-MM-dd'T'hh:mm:ss" //устанавливаем формат даты
+def currentDate = new Date() // получаем текущую дату
+
+def hospRestResponse = context.expand('${Госпитализации без dischargeDate и diagnosis#Response}')
+def slurperJson = new JsonSlurper()
+def getHosp = slurperJson.parseText(hospRestResponse) //парсим json
+
+def hospSoapResponse = context.expand('${Получить госпитализации#Response}')
+getHospSoap = new XmlSlurper().parseText(hospSoapResponse) //парсим xml
+
+responseSoap = getHospSoap.Body.getHospitalizationInfoByPatientResponse //путь до нужного элемента xml
+responseRest = getHosp.payload //путь до нужного элемента json
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context ) // используем класс groovyUtils
+def soapHosp = groovyUtils.getXmlHolder('Получить госпитализации#Response') //получаем ответ с помощью groovyUtils, для того, чтобы использовать xPath
+
+assert soapHosp.getNodeValue('//*:pagingResults/@pageNumber').toInteger() == responseRest.pagingResults.pageNumber //сравнить номера страниц
+assert soapHosp.getNodeValue('//*:pagingResults/@pageSize').toInteger() == responseRest.pagingResults.pageSize //сравнить размеры страниц
+assert soapHosp.getNodeValue('//*:pagingResults/@morePagesAvailable').toBoolean() == responseRest.pagingResults.morePagesAvailable //сравнить доступность следующей страницы
+
+dateRest =[] //объявляем массив для дат из json
+dateSoap=[] //объявляем массив для дат из soap
+for (int i=0; i<responseSoap.hospitalizations.size(); i++){
+	def dateS = Date.parse(dateTimeFormat, responseSoap.hospitalizations[i].hospitalDate.text()) //парсим дату soap
+	def dateR = Date.parse(dateTimeFormat, responseRest.hospitalizations[i].hospitalDate) //парсим дату json
+	dateSoap.add(dateS) //записываем в массив дату soap
+	dateRest.add(dateR) //записываем в массив дату json
+	for(int n=0; n<responseRest.hospitalizations.size(); n++){
+		if(responseRest.hospitalizations[n].hospitalDate == responseSoap.hospitalizations[i].hospitalDate.text() && responseRest.hospitalizations[n].moId == responseSoap.hospitalizations[i].MOId.toInteger()){
+			assert responseSoap.hospitalizations[i].MOName == responseRest.hospitalizations[n].moName //сверяем moName
+			assert responseSoap.hospitalizations[i].MOId == responseRest.hospitalizations[n].moId //сверяем moId
+			if (responseSoap.hospitalizations[n].diagnosis.diagnosisTypeCode != ""){ //отбираем только записи, подходящие по 1му пункту
+				for(int k=0; k<responseSoap.hospitalizations[n].diagnosis.size(); k++){
+					if(responseSoap.hospitalizations[i].diagnosis[k].diagnosisTypeCode == 'MAIN' && responseSoap.hospitalizations[n].diagnosis.MKB10Code != "" && responseSoap.hospitalizations[i].diagnosis.MKB10Name != ""){ //отбираем только записи, подходящие по 3м пунктам
+						 testRunner.fail("Диагноза быть не должно") //роняем проверку т.к. есть диагноз
+					}
+				}
+			}
+			if (responseSoap.hospitalizations[i].epicrisis.extractDate != ""){ //отбираем только записи, подходящие по 1му пункту
+				 testRunner.fail("Даты выписки быть не должно") //роняем проверку, т.к. есть дата выписки 
+			}
+		}
+	}
+}
+
+dateSort = dateSoap.sort() //сортируем даты в массиве
+dateSort = dateSort.reverse() //отсортированный массив сортируем по убыванию
+for(int i=0; i<dateSort.size(); i++){
+	assert dateSort[i] == dateRest[i] //сверяем даты в массиве
+}
+]]></script></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>30000000506224</con:value></con:property></con:properties></con:testCase><con:testCase id="aa04f388-a420-4562-a797-1231c2c92dc9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Получить данные о госпитализациях пациента без госпитализаций ОС320269" searchProperties="true"><con:settings/><con:testStep type="request" name="Получить госпитализации пациента" id="3c67392a-b32c-4fa7-925f-91339a2061d8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>hospitalServiceBinding</con:interface><con:operation>getHospitalizationInfoByPatient</con:operation><con:request name="Получить госпитализации пациента" id="f43ae350-9321-4f4b-8a47-4a3bdb264017"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#hospitalizationsEndpoint}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:v2="http://emias.mos.ru/hospitalization/core/v2/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>EIM</user:systemName>
+         <user:userName>af3e4ac5-96dd-4167-afb3-244eb7187aba</user:userName>
+         <user:isUserRoleSystemWide>true</user:isUserRoleSystemWide>
+         <user:userRights>
+            <user:userRightId>570001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>0</user:jobExecutionId>
+      </user:userContext>
+      <wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>EIM/EIM</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:getHospitalizationInfoByPatientRequest>
+         <typ:patientId>${#TestCase#patientId}</typ:patientId>
+         <typ:options>
+            <v2:entry key="hospitalizationForLK">true</v2:entry>
+            <v2:entry key="restrictionsHemodialysis">true</v2:entry>
+         </typ:options>
+         <typ:pagingOptions pageNumber="0" pageSize="20">
+            <v2:sortingOptions>
+               <v2:sortOrder>
+                  <v2:attributeName>hospitalizationhospitalDate</v2:attributeName>
+                  <v2:descending>true</v2:descending>
+               </v2:sortOrder>
+            </v2:sortingOptions>
+         </typ:pagingOptions>
+      </typ:getHospitalizationInfoByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="092e71bf-1d8f-48ae-bbd2-5220069c0a31" name="Код ответа 500"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="63d6c19b-154d-4c96-bb76-bcaa9b667b20" name="Код ошибки - E001"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/system/v1/faults/';
+declare namespace ns1='http://emias.mos.ru/system/v1/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//ns2:code</path><content>E001</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="Госпитализации страница 3" id="5a0b4d9a-09b4-4746-b4c2-476929dc6c14"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Госпитализации страница 3" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "pagingOptions": {
+    "pageNumber":0,
+    "pageSize": 20
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 204"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#Project#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>16373300 </con:value></con:property></con:properties></con:testCase><con:testCase id="3b332820-3fe7-4216-b982-56b929d86143" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Получить данные о госпитализации пациента c dischargeDate и diagnosis ОС 320264" searchProperties="true"><con:settings/><con:testStep type="request" name="Получить госпитализации" id="2cb42346-13e7-4ed0-9b59-feb4abc56302"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>hospitalServiceBinding</con:interface><con:operation>getHospitalizationInfoByPatient</con:operation><con:request name="Получить госпитализации" id="f43ae350-9321-4f4b-8a47-4a3bdb264017"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#hospitalizationsEndpoint}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:v2="http://emias.mos.ru/hospitalization/core/v2/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>EIM</user:systemName>
+         <user:userName>af3e4ac5-96dd-4167-afb3-244eb7187aba</user:userName>
+         <user:isUserRoleSystemWide>true</user:isUserRoleSystemWide>
+         <user:userRights>
+            <user:userRightId>570001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>0</user:jobExecutionId>
+      </user:userContext>
+      <wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>EIM/EIM</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:getHospitalizationInfoByPatientRequest>
+         <typ:patientId>${#TestCase#patientId}</typ:patientId>
+         <typ:options>
+            <v2:entry key="hospitalizationForLK">true</v2:entry>
+            <v2:entry key="restrictionsHemodialysis">true</v2:entry>
+         </typ:options>
+         <typ:pagingOptions pageNumber="0" pageSize="20">
+            <v2:sortingOptions>
+               <v2:sortOrder>
+                  <v2:attributeName>hospitalizationhospitalDate</v2:attributeName>
+                  <v2:descending>true</v2:descending>
+               </v2:sortOrder>
+            </v2:sortingOptions>
+         </typ:pagingOptions>
+      </typ:getHospitalizationInfoByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="092e71bf-1d8f-48ae-bbd2-5220069c0a31" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="Госпитализации с dischargeDate и diagnosis" id="eec719d2-0819-43e7-8b5a-13edf8af66c4"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Госпитализации с dischargeDate и diagnosis" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "pagingOptions": {
+    "pageNumber": 0,
+    "pageSize": 20
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="031f3529-3537-42c7-996c-ebbac176ab80" name="В ответе отсутствует dischargeDate"><con:configuration><token>dischargeDate</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#Project#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Сравнить ответ" id="d219e275-5ef1-4c97-812e-8cc36c38925d"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.text.SimpleDateFormat
+
+String dTF = "yyyy-MM-dd'T'hh:mm:ss"
+String dateTimeFormat="yyyy-MM-dd'T'hh:mm:ss" //устанавливаем формат даты
+def currentDate = new Date() // получаем текущую дату
+
+def hospRestResponse = context.expand('${Госпитализации с dischargeDate и diagnosis#Response}')
+def slurperJson = new JsonSlurper()
+def getHosp = slurperJson.parseText(hospRestResponse) //парсим json
+
+def hospSoapResponse = context.expand('${Получить госпитализации#Response}')
+getHospSoap = new XmlSlurper().parseText(hospSoapResponse) //парсим xml
+
+responseSoap = getHospSoap.Body.getHospitalizationInfoByPatientResponse //путь до нужного элемента xml
+responseRest = getHosp.payload //путь до нужного элемента json
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context ) // используем класс groovyUtils
+def soapHosp = groovyUtils.getXmlHolder('Получить госпитализации#Response') //получаем ответ с помощью groovyUtils, для того, чтобы использовать xPath
+
+assert soapHosp.getNodeValue('//*:pagingResults/@pageNumber').toInteger() == responseRest.pagingResults.pageNumber //сравнить номера страниц
+assert soapHosp.getNodeValue('//*:pagingResults/@pageSize').toInteger() == responseRest.pagingResults.pageSize //сравнить размеры страниц
+assert soapHosp.getNodeValue('//*:pagingResults/@morePagesAvailable').toBoolean() == responseRest.pagingResults.morePagesAvailable //сравнить доступность следующей страницы
+
+diagnosis =[]
+dischargeDate=[]
+dateRest =[] //объявляем массив для дат из json
+dateSoap=[] //объявляем массив для дат из soap
+for (int i=0; i<responseSoap.hospitalizations.size(); i++){
+	def dateS = Date.parse(dateTimeFormat, responseSoap.hospitalizations[i].hospitalDate.text()) //парсим дату soap
+	def dateR = Date.parse(dateTimeFormat, responseRest.hospitalizations[i].hospitalDate) //парсим дату json
+	dateSoap.add(dateS) //записываем в массив дату soap
+	dateRest.add(dateR) //записываем в массив дату json
+	for(int n=0; n<responseRest.hospitalizations.size(); n++){
+		if(responseRest.hospitalizations[n].hospitalDate == responseSoap.hospitalizations[i].hospitalDate.text() && responseRest.hospitalizations[n].moId == responseSoap.hospitalizations[i].MOId.toInteger()){	
+			assert responseSoap.hospitalizations[i].MOName == responseRest.hospitalizations[n].moName //сверяем moName
+			assert responseSoap.hospitalizations[i].MOId == responseRest.hospitalizations[n].moId //сверяем moId
+			if (responseSoap.hospitalizations[i].diagnosis.diagnosisTypeCode != ""){ //отбираем только записи, подходящие по 1му пункту
+				for(int k=0; k<responseSoap.hospitalizations[i].diagnosis.size(); k++){
+					if(responseSoap.hospitalizations[i].diagnosis[k].diagnosisTypeCode == 'MAIN' && responseSoap.hospitalizations[i].diagnosis[k].MKB10Code != "" && responseSoap.hospitalizations[i].diagnosis[k].MKB10Name != ""){ //отбираем только записи, подходящие по 3м пунктам
+						def diag = responseRest.hospitalizations[n].diagnosis.code
+						diagnosis.add(diag)
+						assert responseSoap.hospitalizations[i].diagnosis[k].MKB10Code == responseRest.hospitalizations[n].diagnosis.code //сверяем code
+						assert responseSoap.hospitalizations[i].diagnosis[k].MKB10Name == responseRest.hospitalizations[n].diagnosis.name //сверяем name
+					}
+				}
+			}
+			if (responseSoap.hospitalizations[i].epicrisis.extractDate != ""){ //отбираем только записи, подходящие по 1му пункту
+				def date = responseRest.hospitalizations[n].dischargeDate
+				dischargeDate.add(date)
+				//assert responseSoap.hospitalizations[i].epicrisis.extractDate == responseRest.hospitalizations[n].dischargeDate //сверяем dischargeDate и extractDate 
+			}
+		}
+	}
+}
+
+log.info diagnosis
+if(diagnosis = "[]"){
+	 testRunner.fail("Отсутствует диагноз")
+}
+if (dischargeDate = "[]"){
+	testRunner.fail("Отсутствует дата выписки")
+}
+dateSort = dateSoap.sort() //сортируем даты в массиве
+dateSort = dateSort.reverse() //отсортированный массив сортируем по убыванию
+for(int i=0; i<dateSort.size(); i++){
+	assert dateSort[i] == dateRest[i] //сверяем даты в массиве
+}
+]]></script></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>20948239</con:value></con:property></con:properties></con:testCase><con:testCase id="58dd0be7-9330-45f8-b264-4ac939cf5258" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Получить данные об активных госпитализациях пациента (onlyActul=true). ОС378443" searchProperties="true"><con:settings/><con:testStep type="request" name="Получить госпитализации" id="ac2631f2-20ba-4c6b-8fe2-eabd7be8e9f9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>hospitalServiceBinding</con:interface><con:operation>getHospitalizationInfoByPatient</con:operation><con:request name="Получить госпитализации" id="f43ae350-9321-4f4b-8a47-4a3bdb264017"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#hospitalizationsEndpoint}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:v2="http://emias.mos.ru/hospitalization/core/v2/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>EIM</user:systemName>
+         <user:userName>af3e4ac5-96dd-4167-afb3-244eb7187aba</user:userName>
+         <user:isUserRoleSystemWide>true</user:isUserRoleSystemWide>
+         <user:userRights>
+            <user:userRightId>570001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>0</user:jobExecutionId>
+      </user:userContext>
+      <wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>EIM/EIM</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:getHospitalizationInfoByPatientRequest>
+         <typ:patientId>${#TestCase#patientId}</typ:patientId>
+         <typ:options>
+            <v2:entry key="hospitalizationForLK">true</v2:entry>
+            <v2:entry key="restrictionsHemodialysis">true</v2:entry>
+            <v2:entry key="actualHospital">true</v2:entry>
+         </typ:options>
+         <typ:pagingOptions pageNumber="0" pageSize="20">
+            <v2:sortingOptions>
+               <v2:sortOrder>
+                  <v2:attributeName>hospitalizationhospitalDate</v2:attributeName>
+                  <v2:descending>true</v2:descending>
+               </v2:sortOrder>
+            </v2:sortingOptions>
+         </typ:pagingOptions>
+      </typ:getHospitalizationInfoByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="092e71bf-1d8f-48ae-bbd2-5220069c0a31" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="Госпитализации без dischargeDate и diagnosis" id="04669054-d421-42d1-81f3-f0c04c8359db"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Госпитализации без dischargeDate и diagnosis" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "onlyActual": true,
+  "pagingOptions": {
+    "pageNumber": 0,
+    "pageSize": 20
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="031f3529-3537-42c7-996c-ebbac176ab80" name="В ответе отсутствует dischargeDate"><con:configuration><token>dischargeDate</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#Project#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Сравнить ответ" id="bcb560c7-777d-4d4a-985d-757e4f6b12e8"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.text.SimpleDateFormat
+
+String dTF = "yyyy-MM-dd'T'hh:mm:ss"
+String dateTimeFormat="yyyy-MM-dd'T'hh:mm:ss" //устанавливаем формат даты
+def currentDate = new Date() // получаем текущую дату
+
+def hospRestResponse = context.expand('${Госпитализации без dischargeDate и diagnosis#Response}')
+def slurperJson = new JsonSlurper()
+def getHosp = slurperJson.parseText(hospRestResponse) //парсим json
+
+def hospSoapResponse = context.expand('${Получить госпитализации#Response}')
+getHospSoap = new XmlSlurper().parseText(hospSoapResponse) //парсим xml
+
+responseSoap = getHospSoap.Body.getHospitalizationInfoByPatientResponse //путь до нужного элемента xml
+responseRest = getHosp.payload //путь до нужного элемента json
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context ) // используем класс groovyUtils
+def soapHosp = groovyUtils.getXmlHolder('Получить госпитализации#Response') //получаем ответ с помощью groovyUtils, для того, чтобы использовать xPath
+
+assert soapHosp.getNodeValue('//*:pagingResults/@pageNumber').toInteger() == responseRest.pagingResults.pageNumber //сравнить номера страниц
+assert soapHosp.getNodeValue('//*:pagingResults/@pageSize').toInteger() == responseRest.pagingResults.pageSize //сравнить размеры страниц
+assert soapHosp.getNodeValue('//*:pagingResults/@morePagesAvailable').toBoolean() == responseRest.pagingResults.morePagesAvailable //сравнить доступность следующей страницы
+
+dateRest =[] //объявляем массив для дат из json
+dateSoap=[] //объявляем массив для дат из soap
+for (int i=0; i<responseSoap.hospitalizations.size(); i++){
+	if (responseRest.hospitalizations.size() == 1){
+		def dateS = Date.parse(dateTimeFormat, responseSoap.hospitalizations[i].hospitalDate.text()) //парсим дату soap
+		def dateR = Date.parse(dateTimeFormat, responseRest.hospitalizations[i].hospitalDate) //парсим дату json
+		dateSoap.add(dateS) //записываем в массив дату soap
+		dateRest.add(dateR) //записываем в массив дату json
+		for(int n=0; n<responseRest.hospitalizations.size(); n++){
+			if(responseRest.hospitalizations[n].hospitalDate == responseSoap.hospitalizations[i].hospitalDate.text() && responseRest.hospitalizations[n].moId == responseSoap.hospitalizations[i].MOId.toInteger()){
+				assert responseSoap.hospitalizations[i].MOName == responseRest.hospitalizations[n].moName //сверяем moName
+				assert responseSoap.hospitalizations[i].MOId == responseRest.hospitalizations[n].moId //сверяем moId
+				if (responseSoap.hospitalizations[n].diagnosis.diagnosisTypeCode != ""){ //отбираем только записи, подходящие по 1му пункту
+					for(int k=0; k<responseSoap.hospitalizations[n].diagnosis.size(); k++){
+						if(responseSoap.hospitalizations[i].diagnosis[k].diagnosisTypeCode == 'MAIN' && responseSoap.hospitalizations[n].diagnosis.MKB10Code != "" && responseSoap.hospitalizations[i].diagnosis.MKB10Name != ""){ //отбираем только записи, подходящие по 3м пунктам
+							 testRunner.fail("Диагноза быть не должно") //роняем проверку т.к. есть диагноз
+						}
+					}
+				}
+				if (responseSoap.hospitalizations[i].epicrisis.extractDate != ""){ //отбираем только записи, подходящие по 1му пункту
+					 testRunner.fail("Даты выписки быть не должно") //роняем проверку, т.к. есть дата выписки 
+				}
+			}
+		}
+	}
+	else {
+		testRunner.fail("Вернулось больше одной госпитализации")
+	}
+}
+
+dateSort = dateSoap.sort() //сортируем даты в массиве
+dateSort = dateSort.reverse() //отсортированный массив сортируем по убыванию
+for(int i=0; i<dateSort.size(); i++){
+	assert dateSort[i] == dateRest[i] //сверяем даты в массиве
+}
+]]></script></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>30000000506224</con:value></con:property></con:properties></con:testCase><con:testCase id="7c53f963-c30a-4626-bae9-d6c78b71ec2f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Получить данные обо всех госпитализациях пациента (onlyActual=false). ОС 378444" searchProperties="true"><con:settings/><con:testStep type="request" name="Получить госпитализации" id="9407bd54-a8d4-450e-8747-67c9744256c0"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>hospitalServiceBinding</con:interface><con:operation>getHospitalizationInfoByPatient</con:operation><con:request name="Получить госпитализации" id="f43ae350-9321-4f4b-8a47-4a3bdb264017"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#hospitalizationsEndpoint}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:v2="http://emias.mos.ru/hospitalization/core/v2/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>EIM</user:systemName>
+         <user:userName>af3e4ac5-96dd-4167-afb3-244eb7187aba</user:userName>
+         <user:isUserRoleSystemWide>true</user:isUserRoleSystemWide>
+         <user:userRights>
+            <user:userRightId>570001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>0</user:jobExecutionId>
+      </user:userContext>
+      <wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>EIM/EIM</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:getHospitalizationInfoByPatientRequest>
+         <typ:patientId>${#TestCase#patientId}</typ:patientId>
+         <typ:options>
+            <v2:entry key="hospitalizationForLK">true</v2:entry>
+            <v2:entry key="restrictionsHemodialysis">true</v2:entry>
+            <v2:entry key="actualHospital">false</v2:entry>
+         </typ:options>
+         <typ:pagingOptions pageNumber="0" pageSize="20">
+            <v2:sortingOptions>
+               <v2:sortOrder>
+                  <v2:attributeName>hospitalizationhospitalDate</v2:attributeName>
+                  <v2:descending>true</v2:descending>
+               </v2:sortOrder>
+            </v2:sortingOptions>
+         </typ:pagingOptions>
+      </typ:getHospitalizationInfoByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="092e71bf-1d8f-48ae-bbd2-5220069c0a31" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="Госпитализации с dischargeDate и diagnosis" id="18bbdccd-01af-44dd-bc2f-62100a848903"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Госпитализации с dischargeDate и diagnosis" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "onlyActual": false,
+  "pagingOptions": {
+    "pageNumber": 0,
+    "pageSize": 20
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="031f3529-3537-42c7-996c-ebbac176ab80" name="В ответе отсутствует dischargeDate"><con:configuration><token>dischargeDate</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#Project#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Сравнить ответ" id="9e00b187-862a-4970-81a7-f881440defd2"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import groovy.xml.XmlSlurper
+import java.text.SimpleDateFormat
+
+String dTF = "yyyy-MM-dd'T'hh:mm:ss"
+String dateTimeFormat="yyyy-MM-dd'T'hh:mm:ss" //устанавливаем формат даты
+def currentDate = new Date() // получаем текущую дату
+
+def hospRestResponse = context.expand('${Госпитализации с dischargeDate и diagnosis#Response}')
+def slurperJson = new JsonSlurper()
+def getHosp = slurperJson.parseText(hospRestResponse) //парсим json
+
+def hospSoapResponse = context.expand('${Получить госпитализации#Response}')
+getHospSoap = new XmlSlurper().parseText(hospSoapResponse) //парсим xml
+
+responseSoap = getHospSoap.Body.getHospitalizationInfoByPatientResponse //путь до нужного элемента xml
+responseRest = getHosp.payload //путь до нужного элемента json
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context ) // используем класс groovyUtils
+def soapHosp = groovyUtils.getXmlHolder('Получить госпитализации#Response') //получаем ответ с помощью groovyUtils, для того, чтобы использовать xPath
+
+assert soapHosp.getNodeValue('//*:pagingResults/@pageNumber').toInteger() == responseRest.pagingResults.pageNumber //сравнить номера страниц
+assert soapHosp.getNodeValue('//*:pagingResults/@pageSize').toInteger() == responseRest.pagingResults.pageSize //сравнить размеры страниц
+assert soapHosp.getNodeValue('//*:pagingResults/@morePagesAvailable').toBoolean() == responseRest.pagingResults.morePagesAvailable //сравнить доступность следующей страницы
+
+diagnosis =[]
+dischargeDate=[]
+dateRest =[] //объявляем массив для дат из json
+dateSoap=[] //объявляем массив для дат из soap
+for (int i=0; i<responseSoap.hospitalizations.size(); i++){
+	def dateS = Date.parse(dateTimeFormat, responseSoap.hospitalizations[i].hospitalDate.text()) //парсим дату soap
+	def dateR = Date.parse(dateTimeFormat, responseRest.hospitalizations[i].hospitalDate) //парсим дату json
+	dateSoap.add(dateS) //записываем в массив дату soap
+	dateRest.add(dateR) //записываем в массив дату json
+	for(int n=0; n<responseRest.hospitalizations.size(); n++){
+		if(responseRest.hospitalizations[n].hospitalDate == responseSoap.hospitalizations[i].hospitalDate.text() && responseRest.hospitalizations[n].moId == responseSoap.hospitalizations[i].MOId.toInteger()){	
+			assert responseSoap.hospitalizations[i].MOName == responseRest.hospitalizations[n].moName //сверяем moName
+			assert responseSoap.hospitalizations[i].MOId == responseRest.hospitalizations[n].moId //сверяем moId
+			if (responseSoap.hospitalizations[i].diagnosis.diagnosisTypeCode != ""){ //отбираем только записи, подходящие по 1му пункту
+				for(int k=0; k<responseSoap.hospitalizations[i].diagnosis.size(); k++){
+					if(responseSoap.hospitalizations[i].diagnosis[k].diagnosisTypeCode == 'MAIN' && responseSoap.hospitalizations[i].diagnosis[k].MKB10Code != "" && responseSoap.hospitalizations[i].diagnosis[k].MKB10Name != ""){ //отбираем только записи, подходящие по 3м пунктам
+						def diag = responseRest.hospitalizations[n].diagnosis.code
+						diagnosis.add(diag)
+						assert responseSoap.hospitalizations[i].diagnosis[k].MKB10Code == responseRest.hospitalizations[n].diagnosis.code //сверяем code
+						assert responseSoap.hospitalizations[i].diagnosis[k].MKB10Name == responseRest.hospitalizations[n].diagnosis.name //сверяем name
+					}
+				}
+			}
+			if (responseSoap.hospitalizations[i].epicrisis.extractDate != ""){ //отбираем только записи, подходящие по 1му пункту
+				def date = responseRest.hospitalizations[n].dischargeDate
+				dischargeDate.add(date)
+				//assert responseSoap.hospitalizations[i].epicrisis.extractDate == responseRest.hospitalizations[n].dischargeDate //сверяем dischargeDate и extractDate 
+			}
+		}
+	}
+}
+
+log.info diagnosis
+if(diagnosis = "[]"){
+	 testRunner.fail("Отсутствует диагноз")
+}
+if (dischargeDate = "[]"){
+	testRunner.fail("Отсутствует дата выписки")
+}
+dateSort = dateSoap.sort() //сортируем даты в массиве
+dateSort = dateSort.reverse() //отсортированный массив сортируем по убыванию
+for(int i=0; i<dateSort.size(); i++){
+	assert dateSort[i] == dateRest[i] //сверяем даты в массиве
+}
+]]></script></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>20948239</con:value></con:property></con:properties></con:testCase><con:testCase id="2fdaafc9-0248-4217-ae40-b0b691a213c0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Проверка пагинации ОС320265" searchProperties="true"><con:settings/><con:testStep type="request" name="Получить 1ю страницу госпитализаций" id="8fdbeb99-5b05-44ba-bc9f-b56f9dbdc844"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>hospitalServiceBinding</con:interface><con:operation>getHospitalizationInfoByPatient</con:operation><con:request name="Получить 1ю страницу госпитализаций" id="f43ae350-9321-4f4b-8a47-4a3bdb264017"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#hospitalizationsEndpoint}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:v2="http://emias.mos.ru/hospitalization/core/v2/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>EIM</user:systemName>
+         <user:userName>af3e4ac5-96dd-4167-afb3-244eb7187aba</user:userName>
+         <user:isUserRoleSystemWide>true</user:isUserRoleSystemWide>
+         <user:userRights>
+            <user:userRightId>570001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>0</user:jobExecutionId>
+      </user:userContext>
+      <wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>EIM/EIM</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:getHospitalizationInfoByPatientRequest>
+         <typ:patientId>${#TestCase#patientId}</typ:patientId>
+         <typ:options>
+            <v2:entry key="hospitalizationForLK">true</v2:entry>
+            <v2:entry key="restrictionsHemodialysis">true</v2:entry>
+         </typ:options>
+         <typ:pagingOptions pageNumber="0" pageSize="2">
+            <v2:sortingOptions>
+               <v2:sortOrder>
+                  <v2:attributeName>hospitalizationhospitalDate</v2:attributeName>
+                  <v2:descending>true</v2:descending>
+               </v2:sortOrder>
+            </v2:sortingOptions>
+         </typ:pagingOptions>
+      </typ:getHospitalizationInfoByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="092e71bf-1d8f-48ae-bbd2-5220069c0a31" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="c2e172a6-e400-4c98-814c-b6b36cc278d8" name="Открыта первая страница"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+//ns4:pagingResults/@pageNumber</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="8821d233-9f84-40fd-b243-60fdf83b25ce" name="Кол-во записей - 2"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+//ns4:pagingResults/@pageSize</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="e77af055-c8fa-471c-8a09-1db1252bef5b" name="Есть еще страница"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+//ns4:pagingResults/@morePagesAvailable</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="91d8068a-8c28-430e-83ef-67df740555d8" name="Выведено только 2 объекта hospitalizations"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+count(//ns4:hospitalizations)</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="Госпитализации страница 1" id="061e980f-4c64-4c95-b32a-5a4bb96911df"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Госпитализации страница 1" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "pagingOptions": {
+    "pageNumber": 0,
+    "pageSize": 2
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="0066e0f5-3fb2-4810-990c-fd561c55a849" name="Открыта 1я страница"><con:configuration><path>$.payload.pagingResults.pageNumber</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7742d2b1-8099-457a-98a2-a3fa027ea75b" name="На странице 2 записи"><con:configuration><path>$.payload.pagingResults.pageSize</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="b0868e53-6007-4e45-a0c8-232432026880" name="Есть еще страница"><con:configuration><path>$.payload.pagingResults.morePagesAvailable</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="25468721-ab67-4fbd-ba97-0043dc343b3b" name="В ответе 2 объекта hospitalizations"><con:configuration><path>$.payload.hospitalizations.size()</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#Project#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="request" name="Copy of Получить 2ю страницу госпитализаций" id="779eefc3-56f5-4535-b596-cc93e8eaec42"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>hospitalServiceBinding</con:interface><con:operation>getHospitalizationInfoByPatient</con:operation><con:request name="Copy of Получить 2ю страницу госпитализаций" id="f43ae350-9321-4f4b-8a47-4a3bdb264017"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#hospitalizationsEndpoint}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:v2="http://emias.mos.ru/hospitalization/core/v2/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>EIM</user:systemName>
+         <user:userName>af3e4ac5-96dd-4167-afb3-244eb7187aba</user:userName>
+         <user:isUserRoleSystemWide>true</user:isUserRoleSystemWide>
+         <user:userRights>
+            <user:userRightId>570001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>0</user:jobExecutionId>
+      </user:userContext>
+      <wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>EIM/EIM</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:getHospitalizationInfoByPatientRequest>
+         <typ:patientId>${#TestCase#patientId}</typ:patientId>
+         <typ:options>
+            <v2:entry key="hospitalizationForLK">true</v2:entry>
+            <v2:entry key="restrictionsHemodialysis">true</v2:entry>
+         </typ:options>
+         <typ:pagingOptions pageNumber="1" pageSize="2">
+            <v2:sortingOptions>
+               <v2:sortOrder>
+                  <v2:attributeName>hospitalizationhospitalDate</v2:attributeName>
+                  <v2:descending>true</v2:descending>
+               </v2:sortOrder>
+            </v2:sortingOptions>
+         </typ:pagingOptions>
+      </typ:getHospitalizationInfoByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="092e71bf-1d8f-48ae-bbd2-5220069c0a31" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="c2e172a6-e400-4c98-814c-b6b36cc278d8" name="Открыта 2я страница"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+//ns4:pagingResults/@pageNumber</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="8821d233-9f84-40fd-b243-60fdf83b25ce" name="Кол-во записей - 2"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+//ns4:pagingResults/@pageSize</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="e77af055-c8fa-471c-8a09-1db1252bef5b" name="Еще страницы - нет"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+//ns4:pagingResults/@morePagesAvailable</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="91d8068a-8c28-430e-83ef-67df740555d8" name="Выведено только 2 объекта hospitalizations"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+count(//ns4:hospitalizations)</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="Copy of Госпитализации страница 2" id="1ff92bf7-6676-435f-a7f5-c50c76aa9d33"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of Госпитализации страница 2" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "pagingOptions": {
+    "pageNumber": 1,
+    "pageSize": 2
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="0066e0f5-3fb2-4810-990c-fd561c55a849" name="Открыта 2я страница"><con:configuration><path>$.payload.pagingResults.pageNumber</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7742d2b1-8099-457a-98a2-a3fa027ea75b" name="На странице 2 записи"><con:configuration><path>$.payload.pagingResults.pageSize</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="b0868e53-6007-4e45-a0c8-232432026880" name="Еще страницы - нет"><con:configuration><path>$.payload.pagingResults.morePagesAvailable</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="25468721-ab67-4fbd-ba97-0043dc343b3b" name="В ответе 2 объекта hospitalizations"><con:configuration><path>$.payload.hospitalizations.size()</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#Project#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="request" name="Получить 3ю страницу госпитализаций" id="cc32c1b3-8414-48fb-a0bb-d38e7e545589"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>hospitalServiceBinding</con:interface><con:operation>getHospitalizationInfoByPatient</con:operation><con:request name="Получить 3ю страницу госпитализаций" id="f43ae350-9321-4f4b-8a47-4a3bdb264017"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#hospitalizationsEndpoint}</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/hospitalization/hospitalService/v2/types/" xmlns:v2="http://emias.mos.ru/hospitalization/core/v2/">
+   <soap:Header>
+      <user:userContext>
+         <user:systemName>EIM</user:systemName>
+         <user:userName>af3e4ac5-96dd-4167-afb3-244eb7187aba</user:userName>
+         <user:isUserRoleSystemWide>true</user:isUserRoleSystemWide>
+         <user:userRights>
+            <user:userRightId>570001</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>0</user:jobExecutionId>
+      </user:userContext>
+      <wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>EIM/EIM</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>
+      <typ:getHospitalizationInfoByPatientRequest>
+         <typ:patientId>${#TestCase#patientId}</typ:patientId>
+         <typ:options>
+            <v2:entry key="hospitalizationForLK">true</v2:entry>
+            <v2:entry key="restrictionsHemodialysis">true</v2:entry>
+         </typ:options>
+         <typ:pagingOptions pageNumber="2" pageSize="2">
+            <v2:sortingOptions>
+               <v2:sortOrder>
+                  <v2:attributeName>hospitalizationhospitalDate</v2:attributeName>
+                  <v2:descending>true</v2:descending>
+               </v2:sortOrder>
+            </v2:sortingOptions>
+         </typ:pagingOptions>
+      </typ:getHospitalizationInfoByPatientRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="092e71bf-1d8f-48ae-bbd2-5220069c0a31" name="Код ответа 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="c2e172a6-e400-4c98-814c-b6b36cc278d8" name="Открыта 3я страница"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+//ns4:pagingResults/@pageNumber</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="8821d233-9f84-40fd-b243-60fdf83b25ce" name="Кол-во записей - 2"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+//ns4:pagingResults/@pageSize</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="e77af055-c8fa-471c-8a09-1db1252bef5b" name="Еще страницы - нет"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+//ns4:pagingResults/@morePagesAvailable</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="91d8068a-8c28-430e-83ef-67df740555d8" name="Отсутствуют объекты hospitalizations"><con:configuration><path>declare namespace ns2='http://emias.mos.ru/hospitalization/core/v2/';
+declare namespace ns3='http://emias.mos.ru/system/v1/userContext/';
+declare namespace ns5='http://emias.mos.ru/system/v2/userContext/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns4='http://emias.mos.ru/hospitalization/hospitalService/v2/types/';
+declare namespace ns6='http://emias.mos.ru/system/v1/faults/';
+count(//ns4:hospitalizations)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="restrequest" name="Госпитализации страница 3" id="e38ab97b-5bfd-433d-99bf-89deccfee640"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Госпитализации страница 3" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "pagingOptions": {
+    "pageNumber": 2,
+    "pageSize": 2
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 204"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#Project#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>30000000506224</con:value></con:property></con:properties></con:testCase><con:testCase id="1718c0f6-4df3-4da3-8b4f-649e80e3a2dc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС0 - ошибка SERVER_ERROR 320266" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Ошибка SERVER_ERROR" id="557eb3fc-c84b-44ca-b1e0-37abe5bab9d6"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Ошибка SERVER_ERROR" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "pagingOptions": {
+    "pageNumber": 0,
+    "pageSize": 20
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 500"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="70604417-d2d4-45a2-91d7-dd05c86856c6" name="code=error"><con:configuration><path>$.error.code</path><content>SERVER_ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="1bd4229e-061b-4019-a55e-6d611c1c7dfa" name="description = Ошибка выполнения метода"><con:configuration><path>$.error.description</path><content>Ошибка выполнения метода</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c5831ca2-bb33-4f33-85b9-a461977cf4f7" name="type = TECHNICAL"><con:configuration><path>$.error.type</path><content>TECHNICAL</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>20948239</con:value></con:property></con:properties></con:testCase><con:testCase id="ac9d007e-a64f-4448-bd6f-f504dc165394" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС1- ошибка доступа к ЭМК АС320267" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Ошибка SERVER_ERROR" id="03c4a1e8-85e7-4729-9d83-3c6efecbeb01"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v2/hospitalization/hospitalizations" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Ошибка SERVER_ERROR" id="ec524c92-f5e2-4413-b6a4-014a0209a3e5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+  "patientId": ${#TestCase#patientId},
+  "pagingOptions": {
+    "pageNumber": 0,
+    "pageSize": 20
+  }
+}</con:request><con:originalUri>http://emiasinfo1.emias.solit-clouds.ru/api/v2/hospitalization/hospitalizations</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a7724535-fd69-4b4d-a24e-42dae8671589" name="Код ответа 403"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="70604417-d2d4-45a2-91d7-dd05c86856c6" name="code=ACCESS_DENIED"><con:configuration><path>$.error.code</path><content>ACCESS_DENIED</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="1bd4229e-061b-4019-a55e-6d611c1c7dfa" name="description = Доступ к запрошенной медкарте отсутствует"><con:configuration><path>$.error.description</path><content>Доступ к запрошенной медкарте отсутствует</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c5831ca2-bb33-4f33-85b9-a461977cf4f7" name="type = BUSINESS"><con:configuration><path>$.error.type</path><content>BUSINESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="EI-Token" value="${#Project#sudirToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>EI-Token</con:entry><con:entry>Mock-hospitalization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>patientId</con:name><con:value>300000005062</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>base64</con:name><con:value>ZHlufmVtaWFzLmluZm9+MDhjYjIxODItYzk0My00ZTc5LTkyZTUtNTA3YjMwNmE4YmFjOkc1VEVLNEs3MGhTSzBMRA==</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>hospitalizationsEndpoint</con:name><con:value>http://esbcamel.test.emias.mos.ru/proxy/hospitalization/hospitalService/v2/ProxyService</con:value></con:property><con:property><con:name>hospitalizationsDbConnection</con:name><con:value>10.2.172.90:5432/emias_gsp</con:value></con:property><con:property><con:name>hospitalizationsDbLogin</con:name><con:value>admin</con:value></con:property><con:property><con:name>hospitalizationsDbPassword</con:name><con:value>admin</con:value></con:property><con:property><con:name>hospitalizationsFullDbConnection</con:name><con:value>jdbc:postgresql://10.2.172.90:5432/emias_gsp?user=admin&amp;password=admin</con:value></con:property><con:property><con:name>hospitalizationsDBDriver</con:name><con:value>org.postgresql.Driver</con:value></con:property><con:property><con:name>emiasInfoEndpoint</con:name><con:value>http://application-emiasinfo4.emias.solit-clouds.ru/</con:value></con:property><con:property><con:name>emiasInfoDbConnection</con:name><con:value>172.17.5.11:29301/emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoDbLogin</con:name><con:value>emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoDbPassword</con:name><con:value>emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoFullDbConnection</con:name><con:value>jdbc:postgresql://172.17.5.11:29301/emiasinfoapp?user=emiasinfoapp&amp;password=emiasinfoapp</con:value></con:property><con:property><con:name>emiasInfoDBDriver</con:name><con:value>org.postgresql.Driver</con:value></con:property><con:property><con:name>sudirToken</con:name><con:value>-3aq160ayMxMKB439nxFW_3gikwIAzcOJiuskdnh30A</con:value></con:property><con:property><con:name>X-Access-JWT</con:name><con:value>eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyX2F1dGgiLCJleHAiOjE3MDExNzg3ODEsImF1ZCI6IlBBVElFTlQiLCJzdWIiOiI3NTgzNWNiNy05ZTI3LTRhY2ItYTk1ZC1hOWRiMzRlOTY0MWUiLCJzaWQiOiJjZGJjMzEyYy1kYTk0LTRiNDItYTc5OS0zMWRiODdmNGMzZDEiLCJwaG9uZSI6Ijc5MTUwMDQ5NzY2Iiwic3NvX2lkIjoiczk5b0RPOEJKN0pqL3FyWXI3OVZXZXQrby9JSWtxY1dMNWRMY2EzK2U5VlVLejN4dFRPQWkxalZIbXNWKzVCMWFYNEdpdytxYWovZkRIU3p2WUhlZFBwQVJnZzdFT3g1NXVSMGRIbHBEbzd0VGlmL1o0b1NOSlI3QlluSFhXTEFvREhGdUs3ZlM2clp3YUlZRXQ0ODdXbWw1ZDRabThDNEdzOUtKSmRaQmtJSkxpaUk0WUxOL3FROWdzTVMzUzZ0ZS9pbFNIdlRSTmsxMnM0a09pZjNrOXNjSjlIU05VZlN4cTBqbis4Y2lhdW1BOVBnRkJrRVZvZ0w2LzlMY0QzRFM5QTUxaGFkZFBnNVFSdkJIU0YybldXOEFadFNWdnRZd3hLcVIxODcwcUpxV0RLb3hsYS9XT0YwUWZ0d3lEaTQ5c0R1Mm40YTdsdGloaVhXVTVaWmp3PT0iLCJlbWFpbCI6IiIsImZpcnN0X25hbWUiOiJcdTA0MjVcdTA0MzBcdTA0M2RcdTA0NDNcdTA0M2MiLCJzZWNvbmRfbmFtZSI6Ilx1MDQxMC4iLCJtaWRkbGVfbmFtZSI6Ilx1MDQxN1x1MDQzOFx1MDQ0MFx1MDQzMFx1MDQzY1x1MDQ0M1x1MDQ0Mlx1MDQzNFx1MDQzOFx1MDQzZFx1MDQzZVx1MDQzMlx1MDQzZFx1MDQzMCIsImJpcnRoX2RhdGUiOiIyMDAxLTA2LTA2In0.ZsY85NwNeiSWGCaMKyJbsBPJ0qVd_8ME3SbhYcBtx1tbhwYFju3pVyrdOQCnIj9vxVIWnADp4PVgL-BMe9fB5DdRXoP-cx4bMj55pIe109LE0MkM6iFYCEIxb9RrKVioCjucfXnnIP_5Mx_8FRwn4YSOUpFe-VWhrzgOfK2JVLDeAjUkCje2ZlP790InKsI8CGdLOToPCmrNL8z2X6pChnN2b8UwP3byLvgoVcOaysFWZtNGHC19ZAzHHsPDVvapXNU-U-PpmVjU4iHm8fjhFOtiAMt91t2XsBW0iiBMeCtkd0zPKFOABf_uKK3UGrXB3T45IDuqsJTGR4Oc4rB2IlX91i0M9A15KDIGqjg0GnkTsNVMCYqgKqp_BMIwfYl1pwiRmrqi33JuIC-nil9-qzPlXPYRp5kTHCBptfEjzP6mpWmjYHTTuXvYtmML5i8LTK3YoXaNmQhrQHF9LZ-BXTe5kaHp7-vciLvk-B75Wrw7IYuVNJfnACmkeBz3ASw0kQ0dUniKVvlUp9hePRcbaFbzy4Q0ta0ecMTit9cyFhR2hx5h0q1ohRKrReqfw-mKMA6i8QopQjSDavTCWQl-0OMU_f62w-hyF2ov9Cx_v4aIYRRjodytg_XcOP9Ke4jkOpLZ5GIB6y7hU1cjsAXAorgFOelehviUoCnVGdeZBJg</con:value></con:property><con:property><con:name>refreshToken</con:name><con:value>gsD3vbK9Q9MD5S-nOyEDo7jtXm9VjckYKZD8k49qH_Oq-lO4qw7wKMiLUL6EmScWhl_CftQlikapQ74SGD7ARg</con:value></con:property><con:property><con:name>refresh-X-Access-JWT</con:name><con:value>eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyX2F1dGgiLCJyaWQiOiIwMTQxYWQyYS0xZTBiLTQ4NzYtOTBkNS00MmQxNDZlY2Q2YjIiLCJzaWQiOiJjZGJjMzEyYy1kYTk0LTRiNDItYTc5OS0zMWRiODdmNGMzZDEiLCJleHAiOjE3MDE3Nzk5ODEsInN1YiI6Ijc1ODM1Y2I3LTllMjctNGFjYi1hOTVkLWE5ZGIzNGU5NjQxZSIsInNzb19pZCI6ImUydjZBN1JJRnFHM1RFZGVkYkdncG15dWlxWkxBQmxMZTdJd01sbXBRVXVSM3ZOejNYcEFYWTNSek5EMzFpa1UxdzdTaDVSY1g0ZE02ZDZPNjdRb2JwL0ZYVEEvMUdnTnlZWHVRTWZIbzhIMlVxcjE3Vkx4OVo2NmJMWFBxMndKSjc3MjRXU3QrSmJOQVp5a1ZDUWRtTGxYMHFyLzBjRWJKc2ZVNWR0SGlmRWdhVU1LOVJld1lmYVhiTTFQWHlhNGhlWHFQRm9zckEyY29HYW5teVhBNnA4WUpQNi80bGFEamQva01FdktWSk5kZmN6cWN5SW5mQjNiS1hQS25RdHE2dFVtYTNVRnRvWEpvWGFLRmRwTTgzeVM0bHJqRHRVTjNWWHo0YkMxVHM4ekREZjEyTDI5V0hyWnFVSkIvaXlSdlVCUVdCN3p2S1ZIQ01vNFFHbUdPdz09In0.sQ-Uc1zX0ohdWfbdRSj2qqapQXrbL47QEqHVmUpOPm8uoY02DiSucqMKqCuDDbzwe2we9xSNHr0OiPQAiAZB5H_WYh6KBbHqUolz488OqCEzbbRwqewd6g7WlZq5SbkyoNSkR7jBW6jUFtmr74QbBTTS3slS64S8OLsg0Krta7l_HkCbal0JcgRoOTE5yPeuJbynt4Q9UHDD5cVt4USiyUB34BlMU9xhNp1mY8eAYvPbW452EclBTPq-Y-vuBL8xYh9Wj4BG8YZ4MZJONFKTZ8OTNUeb-kuDl_Uef2g8isfB2qxsIQtW4tco161mVP8vTFnw8lrxSD6eVDweDGrubvdjU0aes8ZULVx0cNqRy-NoWw9uU4fjspfVUPGzsXasiGpNVi-RM5YAPgxRkC7ovD8SQgoaO2LA3Rf3zeBOuuzzVaP8XFnO-xju8MXqjExRB8KwQiHDa9yBTuMDvuTlgL73nxtYE8BZvURg6Tz8NxW3T62TW44pzMcXdCPMRABn_6ZpmBYHvcVB7UiQttdmCPqcQnDjsT4IEtmKXUH_LlKWrjsRyUoiRVQA3U2Zbk4r88Du7ZbQ_Sv-LrZ-0a6FwgS9Xi2OtiH6um2Wbx3eetQqnWBsu0CbRFNJkgVJoOkydKuzbeSom_Y1PTsVp4aaQT6JjtFG5jV95OUC4QRoIr8</con:value></con:property><con:property><con:name>guid</con:name><con:value>10d59080-73a2-4587-9931-c18fb90831b2</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

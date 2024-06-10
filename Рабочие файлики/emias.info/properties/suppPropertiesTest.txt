@@ -1,0 +1,5 @@
+suppDbConnection=@//10.2.172.242:1521/emiasdb
+suppDbLogin=EMIAS_CLUSTER
+suppDbPassword=EMIAS_CLUSTER
+suppFullDbConnection= jdbc:oracle:thin:EMIAS_CLUSTER/EMIAS_CLUSTER@//10.2.172.242:1521/emiasdb
+suppDBDriver=oracle.jdbc.driver.OracleDriver

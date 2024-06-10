@@ -1,0 +1,4 @@
+Адрес подключения 178.208.149.4
+Логин: solit_knaumov
+Пароль: PVL0l2bW
+Shared Secret:UpHZRuQht9W1GViCBlEv

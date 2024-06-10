@@ -1,0 +1,45 @@
+{
+  "campaignId": "Vacc1",
+  "patientInfo": [
+    {
+     "patientId": 6842427937529,
+      "birthDate": "2243-10-17",
+      "omsNumber":"invaljqvpjffalwnfqmv",
+      "pushTitle": "pushTitleVoip",
+      "pushBody": "pushBodyVoip",
+      "html": "htmlVoip"
+    },
+{
+     "patientId": 8861260743001,
+      "birthDate": "2243-10-17",
+      "omsNumber":"udbalfuvfcwqpcpwgurb",
+      "pushTitle": "pushTitleVoip",
+      "pushBody": "pushBodyVoip",
+      "html": "htmlVoip"
+    },
+{
+     "patientId": 6684460930658,
+      "birthDate": "2243-10-17",
+      "omsNumber":"thnegrtbggmqgtkihvnv",
+      "pushTitle": "pushTitleVoip",
+      "pushBody": "pushBodyVoip",
+      "html": "htmlVoip"
+    },
+{
+     "patientId": 6571521535948,
+      "birthDate": "2243-10-17",
+      "omsNumber":"hagyvouzcriajxrnekgj",
+      "pushTitle": "pushTitleVoip",
+      "pushBody": "pushBodyVoip",
+      "html": "htmlVoip"
+    },
+{
+     "patientId": 3487231150863,
+      "birthDate": "2243-10-17",
+      "omsNumber":"xtmyxqncphyblnrvmfjt",
+      "pushTitle": "pushTitleVoip",
+      "pushBody": "pushBodyVoip",
+      "html": "htmlVoip"
+    }
+  ]
+}

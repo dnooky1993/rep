@@ -1,0 +1,1106 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+        <ns2:getLpusForVaccinationResponse xmlns:ns2="http://api.service.soap.emias.lanit.ru/v5/">
+            <lpu>
+                <lpuId>1</lpuId>
+                <shortName>ГБУЗ ГП 1 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>14087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 1</addressString>
+                    <terCode>0100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>1</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>2</lpuId>
+                <shortName>ГБУЗ ГП 2 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>24087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 2</addressString>
+                    <terCode>0200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>2</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>3</lpuId>
+                <shortName>ГБУЗ ГП 3 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>34087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 3</addressString>
+                    <terCode>0300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>3</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>4</lpuId>
+                <shortName>ГБУЗ ГП 4 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>44087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 4</addressString>
+                    <terCode>0400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>4</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>5</lpuId>
+                <shortName>ГБУЗ ГП 5 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>54087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 5</addressString>
+                    <terCode>0500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>5</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>6</lpuId>
+                <shortName>ГБУЗ ГП 6 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>64087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 6</addressString>
+                    <terCode>0600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>6</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>7</lpuId>
+                <shortName>ГБУЗ ГП 7 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>74087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 7</addressString>
+                    <terCode>0700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>7</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>8</lpuId>
+                <shortName>ГБУЗ ГП 8 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>84087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 8</addressString>
+                    <terCode>0800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>8</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>9</lpuId>
+                <shortName>ГБУЗ ГП 9 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>94087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 9</addressString>
+                    <terCode>0900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>9</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>10</lpuId>
+                <shortName>ГБУЗ ГП 10 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>104087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 10</addressString>
+                    <terCode>01000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>10</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>11</lpuId>
+                <shortName>ГБУЗ ГП 11 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>114087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 11</addressString>
+                    <terCode>01100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>11</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>12</lpuId>
+                <shortName>ГБУЗ ГП 12 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>124087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 12</addressString>
+                    <terCode>01200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>12</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>13</lpuId>
+                <shortName>ГБУЗ ГП 13 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>134087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 13</addressString>
+                    <terCode>01300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>13</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>14</lpuId>
+                <shortName>ГБУЗ ГП 14 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>144087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 14</addressString>
+                    <terCode>01400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>14</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>15</lpuId>
+                <shortName>ГБУЗ ГП 15 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>154087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 15</addressString>
+                    <terCode>01500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>15</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>16</lpuId>
+                <shortName>ГБУЗ ГП 16 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>164087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 16</addressString>
+                    <terCode>01600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>16</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>17</lpuId>
+                <shortName>ГБУЗ ГП 17 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>174087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 17</addressString>
+                    <terCode>01700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>17</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>18</lpuId>
+                <shortName>ГБУЗ ГП 18 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>184087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 18</addressString>
+                    <terCode>01800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>18</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>19</lpuId>
+                <shortName>ГБУЗ ГП 19 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>194087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 19</addressString>
+                    <terCode>01900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>19</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>20</lpuId>
+                <shortName>ГБУЗ ГП 20 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>204087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 20</addressString>
+                    <terCode>02000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>20</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>21</lpuId>
+                <shortName>ГБУЗ ГП 21 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>214087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 21</addressString>
+                    <terCode>02100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>21</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>22</lpuId>
+                <shortName>ГБУЗ ГП 22 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>224087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 22</addressString>
+                    <terCode>02200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>22</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>23</lpuId>
+                <shortName>ГБУЗ ГП 23 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>234087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 23</addressString>
+                    <terCode>02300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>23</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>24</lpuId>
+                <shortName>ГБУЗ ГП 24 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>244087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 24</addressString>
+                    <terCode>02400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>24</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>25</lpuId>
+                <shortName>ГБУЗ ГП 25 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>254087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 25</addressString>
+                    <terCode>02500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>25</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>26</lpuId>
+                <shortName>ГБУЗ ГП 26 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>264087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 26</addressString>
+                    <terCode>02600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>26</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>27</lpuId>
+                <shortName>ГБУЗ ГП 27 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>274087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 27</addressString>
+                    <terCode>02700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>27</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>28</lpuId>
+                <shortName>ГБУЗ ГП 28 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>284087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 28</addressString>
+                    <terCode>02800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>28</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>29</lpuId>
+                <shortName>ГБУЗ ГП 29 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>294087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 29</addressString>
+                    <terCode>02900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>29</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>30</lpuId>
+                <shortName>ГБУЗ ГП 30 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>304087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 30</addressString>
+                    <terCode>03000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>30</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>31</lpuId>
+                <shortName>ГБУЗ ГП 31 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>314087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 31</addressString>
+                    <terCode>03100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>31</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>32</lpuId>
+                <shortName>ГБУЗ ГП 32 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>324087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 32</addressString>
+                    <terCode>03200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>32</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>33</lpuId>
+                <shortName>ГБУЗ ГП 33 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>334087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 33</addressString>
+                    <terCode>03300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>33</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>34</lpuId>
+                <shortName>ГБУЗ ГП 34 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>344087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 34</addressString>
+                    <terCode>03400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>34</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>35</lpuId>
+                <shortName>ГБУЗ ГП 35 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>354087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 35</addressString>
+                    <terCode>03500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>35</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>36</lpuId>
+                <shortName>ГБУЗ ГП 36 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>364087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 36</addressString>
+                    <terCode>03600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>36</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>37</lpuId>
+                <shortName>ГБУЗ ГП 37 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>374087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 37</addressString>
+                    <terCode>03700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>37</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>38</lpuId>
+                <shortName>ГБУЗ ГП 38 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>384087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 38</addressString>
+                    <terCode>03800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>38</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>39</lpuId>
+                <shortName>ГБУЗ ГП 39 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>394087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 39</addressString>
+                    <terCode>03900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>39</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>40</lpuId>
+                <shortName>ГБУЗ ГП 40 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>404087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 40</addressString>
+                    <terCode>04000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>40</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>41</lpuId>
+                <shortName>ГБУЗ ГП 41 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>414087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 41</addressString>
+                    <terCode>04100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>41</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>42</lpuId>
+                <shortName>ГБУЗ ГП 42 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>424087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 42</addressString>
+                    <terCode>04200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>42</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>43</lpuId>
+                <shortName>ГБУЗ ГП 43 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>434087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 43</addressString>
+                    <terCode>04300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>43</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>44</lpuId>
+                <shortName>ГБУЗ ГП 44 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>444087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 44</addressString>
+                    <terCode>04400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>44</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>45</lpuId>
+                <shortName>ГБУЗ ГП 45 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>454087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 45</addressString>
+                    <terCode>04500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>45</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>46</lpuId>
+                <shortName>ГБУЗ ГП 46 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>464087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 46</addressString>
+                    <terCode>04600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>46</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>47</lpuId>
+                <shortName>ГБУЗ ГП 47 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>474087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 47</addressString>
+                    <terCode>04700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>47</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>48</lpuId>
+                <shortName>ГБУЗ ГП 48 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>484087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 48</addressString>
+                    <terCode>04800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>48</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>49</lpuId>
+                <shortName>ГБУЗ ГП 49 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>494087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 49</addressString>
+                    <terCode>04900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>49</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>50</lpuId>
+                <shortName>ГБУЗ ГП 50 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>504087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 50</addressString>
+                    <terCode>05000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>50</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>51</lpuId>
+                <shortName>ГБУЗ ГП 51 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>514087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 51</addressString>
+                    <terCode>05100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>51</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>52</lpuId>
+                <shortName>ГБУЗ ГП 52 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>524087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 52</addressString>
+                    <terCode>05200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>52</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>53</lpuId>
+                <shortName>ГБУЗ ГП 53 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>534087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 53</addressString>
+                    <terCode>05300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>53</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>54</lpuId>
+                <shortName>ГБУЗ ГП 54 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>544087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 54</addressString>
+                    <terCode>05400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>54</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>55</lpuId>
+                <shortName>ГБУЗ ГП 55 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>554087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 55</addressString>
+                    <terCode>05500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>55</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>56</lpuId>
+                <shortName>ГБУЗ ГП 56 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>564087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 56</addressString>
+                    <terCode>05600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>56</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>57</lpuId>
+                <shortName>ГБУЗ ГП 57 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>574087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 57</addressString>
+                    <terCode>05700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>57</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>58</lpuId>
+                <shortName>ГБУЗ ГП 58 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>584087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 58</addressString>
+                    <terCode>05800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>58</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>59</lpuId>
+                <shortName>ГБУЗ ГП 59 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>594087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 59</addressString>
+                    <terCode>05900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>59</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>60</lpuId>
+                <shortName>ГБУЗ ГП 60 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>604087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 60</addressString>
+                    <terCode>06000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>60</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>61</lpuId>
+                <shortName>ГБУЗ ГП 61 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>614087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 61</addressString>
+                    <terCode>06100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>61</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>62</lpuId>
+                <shortName>ГБУЗ ГП 62 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>624087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 62</addressString>
+                    <terCode>06200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>62</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>63</lpuId>
+                <shortName>ГБУЗ ГП 63 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>634087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 63</addressString>
+                    <terCode>06300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>63</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>64</lpuId>
+                <shortName>ГБУЗ ГП 64 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>644087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 64</addressString>
+                    <terCode>06400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>64</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>65</lpuId>
+                <shortName>ГБУЗ ГП 65 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>654087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 65</addressString>
+                    <terCode>06500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>65</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>66</lpuId>
+                <shortName>ГБУЗ ГП 66 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>664087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 66</addressString>
+                    <terCode>06600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>66</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>67</lpuId>
+                <shortName>ГБУЗ ГП 67 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>674087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 67</addressString>
+                    <terCode>06700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>67</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>68</lpuId>
+                <shortName>ГБУЗ ГП 68 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>684087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 68</addressString>
+                    <terCode>06800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>68</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>69</lpuId>
+                <shortName>ГБУЗ ГП 69 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>694087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 69</addressString>
+                    <terCode>06900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>69</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>70</lpuId>
+                <shortName>ГБУЗ ГП 70 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>704087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 70</addressString>
+                    <terCode>07000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>70</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>71</lpuId>
+                <shortName>ГБУЗ ГП 71 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>714087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 71</addressString>
+                    <terCode>07100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>71</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>72</lpuId>
+                <shortName>ГБУЗ ГП 72 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>724087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 72</addressString>
+                    <terCode>07200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>72</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>73</lpuId>
+                <shortName>ГБУЗ ГП 73 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>734087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 73</addressString>
+                    <terCode>07300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>73</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>74</lpuId>
+                <shortName>ГБУЗ ГП 74 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>744087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 74</addressString>
+                    <terCode>07400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>74</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>75</lpuId>
+                <shortName>ГБУЗ ГП 75 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>754087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 75</addressString>
+                    <terCode>07500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>75</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>76</lpuId>
+                <shortName>ГБУЗ ГП 76 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>764087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 76</addressString>
+                    <terCode>07600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>76</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>77</lpuId>
+                <shortName>ГБУЗ ГП 77 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>774087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 77</addressString>
+                    <terCode>07700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>77</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>78</lpuId>
+                <shortName>ГБУЗ ГП 78 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>784087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 78</addressString>
+                    <terCode>07800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>78</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>79</lpuId>
+                <shortName>ГБУЗ ГП 79 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>794087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 79</addressString>
+                    <terCode>07900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>79</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>80</lpuId>
+                <shortName>ГБУЗ ГП 80 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>804087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 80</addressString>
+                    <terCode>08000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>80</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>81</lpuId>
+                <shortName>ГБУЗ ГП 81 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>814087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 81</addressString>
+                    <terCode>08100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>81</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>82</lpuId>
+                <shortName>ГБУЗ ГП 82 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>824087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 82</addressString>
+                    <terCode>08200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>82</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>83</lpuId>
+                <shortName>ГБУЗ ГП 83 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>834087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 83</addressString>
+                    <terCode>08300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>83</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>84</lpuId>
+                <shortName>ГБУЗ ГП 84 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>844087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 84</addressString>
+                    <terCode>08400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>84</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>85</lpuId>
+                <shortName>ГБУЗ ГП 85 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>854087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 85</addressString>
+                    <terCode>08500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>85</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>86</lpuId>
+                <shortName>ГБУЗ ГП 86 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>864087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 86</addressString>
+                    <terCode>08600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>86</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>87</lpuId>
+                <shortName>ГБУЗ ГП 87 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>874087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 87</addressString>
+                    <terCode>08700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>87</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>88</lpuId>
+                <shortName>ГБУЗ ГП 88 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>884087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 88</addressString>
+                    <terCode>08800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>88</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>89</lpuId>
+                <shortName>ГБУЗ ГП 89 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>894087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 89</addressString>
+                    <terCode>08900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>89</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>90</lpuId>
+                <shortName>ГБУЗ ГП 90 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>904087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 90</addressString>
+                    <terCode>09000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>90</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>91</lpuId>
+                <shortName>ГБУЗ ГП 91 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>914087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 91</addressString>
+                    <terCode>09100</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>91</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>92</lpuId>
+                <shortName>ГБУЗ ГП 92 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>924087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 92</addressString>
+                    <terCode>09200</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>92</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>93</lpuId>
+                <shortName>ГБУЗ ГП 93 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>934087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 93</addressString>
+                    <terCode>09300</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>93</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>94</lpuId>
+                <shortName>ГБУЗ ГП 94 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>944087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 94</addressString>
+                    <terCode>09400</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>94</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>95</lpuId>
+                <shortName>ГБУЗ ГП 95 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>954087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 95</addressString>
+                    <terCode>09500</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>95</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>96</lpuId>
+                <shortName>ГБУЗ ГП 96 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>964087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 96</addressString>
+                    <terCode>09600</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>96</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>97</lpuId>
+                <shortName>ГБУЗ ГП 97 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>974087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 97</addressString>
+                    <terCode>09700</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>97</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>98</lpuId>
+                <shortName>ГБУЗ ГП 98 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>984087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 98</addressString>
+                    <terCode>09800</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>98</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>99</lpuId>
+                <shortName>ГБУЗ ГП 99 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>994087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 99</addressString>
+                    <terCode>09900</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>99</arSpecialityId>
+                </addressPoint>
+            </lpu>
+            <lpu>
+                <lpuId>100</lpuId>
+                <shortName>ГБУЗ ГП 100 ДЗМ</shortName>
+                <addressPoint>
+                    <addressPointId>1004087</addressPointId>
+                    <addressString>Москва, улица Декабристов, д. 100</addressString>
+                    <terCode>010000</terCode>
+                    <terName>СВАО</terName>
+                    <arSpecialityId>100</arSpecialityId>
+                </addressPoint>
+            </lpu>
+        </ns2:getLpusForVaccinationResponse>
+    </soap:Body>
+</soap:Envelope>

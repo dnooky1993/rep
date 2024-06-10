@@ -1,0 +1,551 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <ns3:getAppointmentReceptionsByPatientResponse xmlns:ns2="http://api.service.soap.emias.lanit.ru/core/v5/" xmlns:ns3="http://api.service.soap.emias.lanit.ru/v5/">
+         <appointment>
+            <id>391893380173</id>
+            <number>С20230330-264</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-03T15:30:00+03:00</startTime>
+            <endTime>2023-04-03T16:00:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>19895961797</availableResourceId>
+            <complexResourceId>236048763</complexResourceId>
+            <roomId>10001687</roomId>
+            <roomNumber>320</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>2017</specialityId>
+               <specialityName>Дежурный врач ОРВИ</specialityName>
+               <doctorFio>Силина Юлия Михайловна</doctorFio>
+               <receptionTypeId>101600</receptionTypeId>
+            </toDoctor>
+            <statusId>10</statusId>
+         </appointment>
+         <appointment>
+            <id>391893885498</id>
+            <number>И20230403-1302</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-03T17:30:00+03:00</startTime>
+            <endTime>2023-04-03T17:40:00+03:00</endTime>
+            <type>LDP</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>20186417064</availableResourceId>
+            <complexResourceId>239140163</complexResourceId>
+            <roomId>29803323</roomId>
+            <roomNumber>000003КК</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toLdp>
+               <ldpTypeId>600027</ldpTypeId>
+               <ldpTypeName>Спирометрия</ldpTypeName>
+            </toLdp>
+            <statusId>20</statusId>
+            <referral>
+               <referralId>74391040714</referralId>
+               <startTime>2023-02-01</startTime>
+               <endTime>2023-12-01</endTime>
+               <lpuId>204</lpuId>
+            </referral>
+         </appointment>
+         <appointment>
+            <id>391894014648</id>
+            <number>С20230404-762</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-04T15:30:00+03:00</startTime>
+            <endTime>2023-04-04T16:00:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>20394034915</availableResourceId>
+            <complexResourceId>240759663</complexResourceId>
+            <roomId>28666598</roomId>
+            <roomNumber>111</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>3</specialityId>
+               <specialityName>Врач-хирург</specialityName>
+               <doctorFio>Аскеров Фирутдин Бедретдинович</doctorFio>
+               <receptionTypeId>1913</receptionTypeId>
+            </toDoctor>
+            <statusId>10</statusId>
+         </appointment>
+         <appointment>
+            <id>391894044373</id>
+            <number>И20230404-1163</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-04T18:20:00+03:00</startTime>
+            <endTime>2023-04-04T18:30:00+03:00</endTime>
+            <type>LDP</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>19913787573</availableResourceId>
+            <complexResourceId>236780613</complexResourceId>
+            <roomId>10480032</roomId>
+            <roomNumber>113</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toLdp>
+               <ldpTypeId>600027</ldpTypeId>
+               <ldpTypeName>Спирометрия</ldpTypeName>
+            </toLdp>
+            <statusId>20</statusId>
+            <referral>
+               <referralId>74391040714</referralId>
+               <startTime>2023-02-01</startTime>
+               <endTime>2023-12-01</endTime>
+               <lpuId>204</lpuId>
+            </referral>
+         </appointment>
+         <appointment>
+            <id>391894045398</id>
+            <number>С20230404-1182</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-05T07:15:00+03:00</startTime>
+            <endTime>2023-04-05T07:30:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>10374445</availableResourceId>
+            <complexResourceId>10483167</complexResourceId>
+            <roomId>10477989</roomId>
+            <roomNumber>236</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>6</specialityId>
+               <specialityName>Врач-офтальмолог</specialityName>
+               <doctorFio>Огонькова Анна Ивановна</doctorFio>
+               <receptionTypeId>1975</receptionTypeId>
+            </toDoctor>
+            <statusId>20</statusId>
+         </appointment>
+         <appointment>
+            <id>391893550323</id>
+            <number>С20230331-182</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-05T11:00:00+03:00</startTime>
+            <endTime>2023-04-05T11:20:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>10444023</availableResourceId>
+            <complexResourceId>10151185</complexResourceId>
+            <roomId>10004274</roomId>
+            <roomNumber>317</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>8</specialityId>
+               <specialityName>Врач-кардиолог</specialityName>
+               <doctorFio>Сабитова Ольга Викторовна</doctorFio>
+               <receptionTypeId>1879</receptionTypeId>
+            </toDoctor>
+            <statusId>20</statusId>
+         </appointment>
+         <appointment>
+            <id>391894112023</id>
+            <number>И20230405-343</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-05T14:10:00+03:00</startTime>
+            <endTime>2023-04-05T14:20:00+03:00</endTime>
+            <type>LDP</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>19913787573</availableResourceId>
+            <complexResourceId>236780613</complexResourceId>
+            <roomId>10480032</roomId>
+            <roomNumber>113</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toLdp>
+               <ldpTypeId>600027</ldpTypeId>
+               <ldpTypeName>Спирометрия</ldpTypeName>
+            </toLdp>
+            <statusId>20</statusId>
+            <referral>
+               <referralId>74391040714</referralId>
+               <startTime>2023-02-01</startTime>
+               <endTime>2023-12-01</endTime>
+               <lpuId>204</lpuId>
+            </referral>
+         </appointment>
+         <appointment>
+            <id>391893816823</id>
+            <number>С20230403-942</number>
+            <lpuId>10000392</lpuId>
+            <typeLpu>Детская городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ДГП 120 ДЗМ</nameLpu>
+            <lpuAddress>Москва, Святоозерская улица, д. 10</lpuAddress>
+            <startTime>2023-04-06T12:00:00+03:00</startTime>
+            <endTime>2023-04-06T12:30:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>19991382134</availableResourceId>
+            <complexResourceId>237776913</complexResourceId>
+            <roomId>10053690</roomId>
+            <roomNumber>102</roomNumber>
+            <addressPointId>2405068</addressPointId>
+            <toDoctor>
+               <specialityId>2011</specialityId>
+               <specialityName>Вакцинация от COVID-19</specialityName>
+               <doctorFio>Альмяшева Инга Маратовна</doctorFio>
+               <receptionTypeId>2057</receptionTypeId>
+            </toDoctor>
+            <statusId>20</statusId>
+         </appointment>
+         <appointment>
+            <id>391894326248</id>
+            <number>С20230406-523</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-06T15:30:00+03:00</startTime>
+            <endTime>2023-04-06T16:00:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>20078413839</availableResourceId>
+            <complexResourceId>238507738</complexResourceId>
+            <roomId>29452773</roomId>
+            <roomNumber>102</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>2011</specialityId>
+               <specialityName>Вакцинация от COVID-19</specialityName>
+               <doctorFio>Абдувохидов Парвизджон Абдусамиевич</doctorFio>
+               <receptionTypeId>1863</receptionTypeId>
+            </toDoctor>
+            <statusId>10</statusId>
+         </appointment>
+         <appointment>
+            <id>391894349823</id>
+            <number>С20230406-682</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-06T18:00:00+03:00</startTime>
+            <endTime>2023-04-06T18:30:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>19953633414</availableResourceId>
+            <complexResourceId>237526813</complexResourceId>
+            <roomId>28622523</roomId>
+            <roomNumber>11-07</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>8</specialityId>
+               <specialityName>Врач-кардиолог</specialityName>
+               <doctorFio>Сабитова Ольга Викторовна</doctorFio>
+               <receptionTypeId>1879</receptionTypeId>
+            </toDoctor>
+            <statusId>20</statusId>
+         </appointment>
+         <appointment>
+            <id>391894352898</id>
+            <number>С20230406-704</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-06T19:30:00+03:00</startTime>
+            <endTime>2023-04-06T20:00:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>19953633414</availableResourceId>
+            <complexResourceId>237526813</complexResourceId>
+            <roomId>28622523</roomId>
+            <roomNumber>11-07</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>8</specialityId>
+               <specialityName>Врач-кардиолог</specialityName>
+               <doctorFio>Сабитова Ольга Викторовна</doctorFio>
+               <receptionTypeId>1879</receptionTypeId>
+            </toDoctor>
+            <statusId>10</statusId>
+         </appointment>
+         <appointment>
+            <id>391894369298</id>
+            <number>И20230406-752</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-06T21:50:00+03:00</startTime>
+            <endTime>2023-04-06T22:00:00+03:00</endTime>
+            <type>LDP</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>19913787573</availableResourceId>
+            <complexResourceId>236780613</complexResourceId>
+            <roomId>10480032</roomId>
+            <roomNumber>113</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toLdp>
+               <ldpTypeId>600027</ldpTypeId>
+               <ldpTypeName>Спирометрия</ldpTypeName>
+            </toLdp>
+            <statusId>10</statusId>
+            <referral>
+               <referralId>74391040714</referralId>
+               <startTime>2023-02-01</startTime>
+               <endTime>2023-12-01</endTime>
+               <lpuId>204</lpuId>
+            </referral>
+         </appointment>
+         <appointment>
+            <id>391894322148</id>
+            <number>С20230406-484</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-07T09:35:00+03:00</startTime>
+            <endTime>2023-04-07T09:40:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>20013402189</availableResourceId>
+            <complexResourceId>237937838</complexResourceId>
+            <roomId>21204598</roomId>
+            <roomNumber>137</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>4</specialityId>
+               <specialityName>Врач-акушер-гинеколог</specialityName>
+               <doctorFio>Абраамян Мелине Самвеловна</doctorFio>
+               <receptionTypeId>2031</receptionTypeId>
+            </toDoctor>
+            <statusId>10</statusId>
+         </appointment>
+         <appointment>
+            <id>391894412348</id>
+            <number>И20230407-243</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-07T11:50:00+03:00</startTime>
+            <endTime>2023-04-07T12:00:00+03:00</endTime>
+            <type>LDP</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>19913787573</availableResourceId>
+            <complexResourceId>236780613</complexResourceId>
+            <roomId>10480032</roomId>
+            <roomNumber>113</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toLdp>
+               <ldpTypeId>600027</ldpTypeId>
+               <ldpTypeName>Спирометрия</ldpTypeName>
+            </toLdp>
+            <statusId>10</statusId>
+            <referral>
+               <referralId>74391040714</referralId>
+               <startTime>2023-02-01</startTime>
+               <endTime>2023-12-01</endTime>
+               <lpuId>204</lpuId>
+            </referral>
+         </appointment>
+         <appointment>
+            <id>391894420548</id>
+            <number>С20230407-269</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-07T12:05:00+03:00</startTime>
+            <endTime>2023-04-07T12:10:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>18999430452</availableResourceId>
+            <complexResourceId>159296763</complexResourceId>
+            <roomId>17698073</roomId>
+            <roomNumber>208</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>10</specialityId>
+               <specialityName>Врач-эндокринолог</specialityName>
+               <doctorFio>Галеев Иван Викторович</doctorFio>
+               <receptionTypeId>1891</receptionTypeId>
+            </toDoctor>
+            <statusId>10</statusId>
+         </appointment>
+         <appointment>
+            <id>391894424648</id>
+            <number>С20230407-322</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-07T12:30:00+03:00</startTime>
+            <endTime>2023-04-07T13:00:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>20356286214</availableResourceId>
+            <complexResourceId>240694063</complexResourceId>
+            <roomId>29801273</roomId>
+            <roomNumber>00016С</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>125</specialityId>
+               <specialityName>Врач-стоматолог-ортопед</specialityName>
+               <doctorFio>Стоматолог Тест Ортопед</doctorFio>
+               <receptionTypeId>109406</receptionTypeId>
+            </toDoctor>
+            <statusId>10</statusId>
+         </appointment>
+         <appointment>
+            <id>391894397998</id>
+            <number>С20230407-143</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-07T12:30:00+03:00</startTime>
+            <endTime>2023-04-07T13:00:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>20059539489</availableResourceId>
+            <complexResourceId>238369363</complexResourceId>
+            <roomId>29451748</roomId>
+            <roomNumber>101</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>10</specialityId>
+               <specialityName>Врач-эндокринолог</specialityName>
+               <doctorFio>Туманова Татьяна Викторовна</doctorFio>
+               <receptionTypeId>1891</receptionTypeId>
+            </toDoctor>
+            <statusId>20</statusId>
+         </appointment>
+         <appointment>
+            <id>391894442073</id>
+            <number>С20230407-483</number>
+            <lpuId>10000375</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 Ф 1 (ГП 16)</nameLpu>
+            <lpuAddress>Москва, улица Старый Гай, д. 5</lpuAddress>
+            <startTime>2023-04-07T21:48:00+03:00</startTime>
+            <endTime>2023-04-07T22:00:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>13670723</availableResourceId>
+            <complexResourceId>208323538</complexResourceId>
+            <roomId>12408061</roomId>
+            <roomNumber>333</roomNumber>
+            <addressPointId>2122269</addressPointId>
+            <toDoctor>
+               <specialityId>2021</specialityId>
+               <specialityName>Вакцинация от гриппа</specialityName>
+               <doctorFio>Гавашелишвили Паата Зурабович</doctorFio>
+               <receptionTypeId>1161</receptionTypeId>
+            </toDoctor>
+            <statusId>10</statusId>
+         </appointment>
+         <appointment>
+            <id>391894363148</id>
+            <number>С20230406-746</number>
+            <lpuId>136</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 Ф 2 (ГП 86)</nameLpu>
+            <lpuAddress>Москва, Сиреневый бульвар, д. 30</lpuAddress>
+            <startTime>2023-04-08T09:15:00+03:00</startTime>
+            <endTime>2023-04-08T09:30:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>10374445</availableResourceId>
+            <complexResourceId>240746338</complexResourceId>
+            <roomId>13037414</roomId>
+            <roomNumber>102</roomNumber>
+            <addressPointId>2115727</addressPointId>
+            <toDoctor>
+               <specialityId>6</specialityId>
+               <specialityName>Врач-офтальмолог</specialityName>
+               <doctorFio>Огонькова Анна Ивановна</doctorFio>
+               <receptionTypeId>1975</receptionTypeId>
+            </toDoctor>
+            <statusId>10</statusId>
+         </appointment>
+         <appointment>
+            <id>391894421573</id>
+            <number>С20230407-270</number>
+            <lpuId>10000382</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 Ф 3 (ГП 130)</nameLpu>
+            <lpuAddress>Москва, улица Молостовых, д. 7А</lpuAddress>
+            <startTime>2023-04-10T09:30:00+03:00</startTime>
+            <endTime>2023-04-10T10:00:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>18861018650</availableResourceId>
+            <complexResourceId>124381163</complexResourceId>
+            <roomId>10003549</roomId>
+            <roomNumber>412</roomNumber>
+            <addressPointId>2122270</addressPointId>
+            <toDoctor>
+               <specialityId>8</specialityId>
+               <specialityName>Врач-кардиолог</specialityName>
+               <doctorFio>Горсткина Екатерина Геннадьевна</doctorFio>
+               <receptionTypeId>1879</receptionTypeId>
+            </toDoctor>
+            <statusId>20</statusId>
+         </appointment>
+         <appointment>
+            <id>391893552373</id>
+            <number>С20230331-202</number>
+            <lpuId>204</lpuId>
+            <typeLpu>Городская поликлиника</typeLpu>
+            <nameLpu>ГБУЗ ГП 175 ДЗМ</nameLpu>
+            <lpuAddress>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д. 20</lpuAddress>
+            <startTime>2023-04-10T10:00:00+03:00</startTime>
+            <endTime>2023-04-10T10:20:00+03:00</endTime>
+            <type>RECEPTION</type>
+            <enableCancel>false</enableCancel>
+            <enableShift>false</enableShift>
+            <availableResourceId>10444023</availableResourceId>
+            <complexResourceId>10151185</complexResourceId>
+            <roomId>10004274</roomId>
+            <roomNumber>317</roomNumber>
+            <addressPointId>9133131</addressPointId>
+            <toDoctor>
+               <specialityId>8</specialityId>
+               <specialityName>Врач-кардиолог</specialityName>
+               <doctorFio>Сабитова Ольга Викторовна</doctorFio>
+               <receptionTypeId>1879</receptionTypeId>
+            </toDoctor>
+            <statusId>20</statusId>
+         </appointment>
+      </ns3:getAppointmentReceptionsByPatientResponse>
+   </soap:Body>
+</soap:Envelope>
