@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:esuAppointment xmlns:ns2="http://emias.mos.ru/selfAppointment/selfAppointmentService/v1/">
+    <event>
+        <id>65683980632</id>
+        <type>CANCEL</type>
+        <time>2024-01-09T12:31:00+03:00</time>
+        <system>EIM</system>
+        <login>UlgAbdullaeva</login>
+    </event>
+    <patient>
+        <id>12300</id>
+        <oms>100000000000</oms>
+        <name12>Алексей Леонидович</name12>
+        <phone>9037009500</phone>
+    </patient>
+    <appointment>
+        <id>391930042141</id>
+        <startTime>2024-01-09T13:00:00+03:00</startTime>
+        <endTime>2024-01-09T13:30:00+03:00</endTime>
+        <number>Л20240109-45</number>
+    </appointment>
+    <availableResource>
+        <id>20736918977</id>
+        <name>Кабинет взятия венозной крови</name>
+    </availableResource>
+    <complexResource>
+        <id>243986363</id>
+        <number>316</number>
+        <address>Москва, Велозаводская улица, д.1/1, стр.7</address>
+        <roomId>14893687</roomId>
+    </complexResource>
+    <lpu>
+        <id>10083253</id>
+        <shortName>ГКБ 13 ПО</shortName>
+        <fullName>ГБУЗ "ГКБ № 13 ДЗМ" (поликлиническое отделение)</fullName>
+        <phone>(495) 122-02-21</phone>
+        <mainLpuId>10457378</mainLpuId>
+    </lpu>
+    <samplingType>
+        <id>1</id>
+        <name>Взятие венозной крови</name>
+    </samplingType>
+</ns2:esuAppointment>

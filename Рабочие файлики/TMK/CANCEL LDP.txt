@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:esuAppointment xmlns:ns2="http://emias.mos.ru/selfAppointment/selfAppointmentService/v1/">
+    <event>
+        <id>65684432233</id>
+        <type>CANCEL</type>
+        <time>2024-01-10T11:38:21+03:00</time>
+        <system>EIM</system>
+        <login>VMisheeva</login>
+    </event>
+    <patient>
+        <id>12300</id>
+        <oms>100000000000</oms>
+        <name12>Алексей Леонидович</name12>
+    </patient>
+    <appointment>
+        <id>391930045490</id>
+        <startTime>2024-01-11T13:15:00+03:00</startTime>
+        <endTime>2024-01-11T13:45:00+03:00</endTime>
+        <number>И20240110-35</number>
+        <referralId>74444357327</referralId>
+        <protocolId>9db588b8-7cb6-45d8-9312-74b5748d7d36</protocolId>
+    </appointment>
+    <availableResource>
+        <id>20704413172</id>
+        <name>Приём-Романовский-не трогать</name>
+    </availableResource>
+    <complexResource>
+        <id>243023888</id>
+        <number>113</number>
+        <address>Москва, внутригородская территория поселение Филимонковское, деревня Верхнее Валуево, 5-я Валуевская улица, д.20</address>
+        <roomId>10480032</roomId>
+    </complexResource>
+    <lpu>
+        <id>204</id>
+        <shortName>ГБУЗ ГП 175 ДЗМ</shortName>
+        <fullName>ГБУЗ ГП №175 ДЗМ</fullName>
+        <phone>(495) 122-02-21</phone>
+        <mainLpuId>204</mainLpuId>
+    </lpu>
+    <ldp>
+        <id>599892</id>
+        <name>Рентгенография крестца и копчика</name>
+        <examination>true</examination>
+    </ldp>
+</ns2:esuAppointment>

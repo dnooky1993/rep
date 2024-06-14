@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:esuAppointment xmlns:ns2="http://emias.mos.ru/selfAppointment/selfAppointmentService/v1/">
+    <event>
+        <id>65683958356</id>
+        <type>CREATE</type>
+        <time>2024-01-10T17:36:41+03:00</time>
+        <system>EIM</system>
+    </event>
+    <patient>
+        <id>12300</id>
+        <oms>100000000000</oms>
+        <name12>Адолина Давыдовна</name12>
+        <phone>79530785000</phone>
+    </patient>
+    <appointment>
+        <id>391930044486</id>
+        <startTime>2024-01-09T22:30:00+03:00</startTime>
+        <endTime>2024-01-09T23:00:00+03:00</endTime>
+        <number>С20240109-132</number>
+        <speciality>
+            <id>52</id>
+            <name>Врач-радиолог</name>
+        </speciality>
+    </appointment>
+    <availableResource>
+        <id>20701267400</id>
+        <name>Адиатуллина Х. С. &lt;42&gt; спец.</name>
+    </availableResource>
+    <complexResource>
+        <id>242612863</id>
+        <number>42</number>
+        <address>Москва, 2-й Боткинский проезд, д. 5, к. 1</address>
+        <roomId>30690973</roomId>
+    </complexResource>
+    <lpu>
+        <id>10492228</id>
+        <shortName>ГБУЗ «ГКБ им. С.П.Боткина ДЗМ»</shortName>
+        <fullName>Государственное бюджетное учреждение здравоохранения города Москвы «Городская клиническая больница имени С.П. Боткина Департамента здравоохранения города Москвы»</fullName>
+        <phone></phone>
+        <mainLpuId>10492228</mainLpuId>
+    </lpu>
+    <doctor>
+        <lastName>Адиатуллина</lastName>
+        <firstName>Хамдия</firstName>
+        <middleName>Салиховна</middleName>
+        <speciality>
+            <id>52</id>
+            <name>Врач-радиолог</name>
+        </speciality>
+        <receptionTypeId>1234</receptionTypeId>
+    </doctor>
+</ns2:esuAppointment>
