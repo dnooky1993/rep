@@ -1,0 +1,24 @@
+Четверг 06.06
+регресс https://jira.mos.social/browse/EINFOSRV-2704
+
+Пятница 07.06 
+поздравление + регресс https://jira.mos.social/browse/EINFOSRV-2704
+
+Понедельник 10.06
+https://jira.mos.social/browse/EINFOSRV-2733 1ч
+https://jira.mos.social/browse/EINFOSRV-2732 1ч
+https://jira.mos.social/browse/EINFOSRV-2353 30м
+https://jira.mos.social/browse/EINFOSRV-2728 2ч
+https://jira.mos.social/browse/EINFOSRV-1962 2ч
+https://jira.mos.social/browse/EINFOSRV-147 - проблема с впнами 2ч
+
+Вторник 11.06
+регресс - https://jira.mos.social/browse/EINFOSRV-2704
+Позравление Глеба 1,5 ч
+Созвон по оценке ТМК 30м - https://jira.mos.social/browse/EINFORAZV-14084 45м
+Статус ТЛ https://jira.mos.social/browse/EINFOSRV-147 3-м
+
+Четверг 13.06
+Простой весь день из-за доступа
+30 минут статус
+
