@@ -1,0 +1,80 @@
+Шаблон бага
+
+{code:java}
+Устройство: Redmi Note 11s
+7.16.1-solittest1-0a584dd54-feature/broadcast_newborn (70038)
+Версия ОС: Android 13
+{code}
+
+*Предусловия:*
+* Пользователь запустил приложение
+* Пользователь авторизован через mos.ru
+* Пользователь - e@rdf.ru / Mm123456
+* Пациент - Раиса Захаровна Т.
+*Шаги:*
+# Перейти на ГСП
+# Перейти в раздел видеонаблюдений
+# Открыть видеотрансляцию
+# Проверить вызов метода GET api/1/newborn-reanimation-broadcast/active-streams по истечению времени в config.polling_interval 
+*Ожидаемый результат:*
+Согласно [постановке|https://wiki.mos.social/pages/viewpage.action?pageId=801780037] ожидаю вызова метода  GET api/1/newborn-reanimation-broadcast/active-streams периодически раз в config.polling_interval 
+ !screenshot-2.png|thumbnail! 
+{*}Фактический результат{*}:
+При полученном "pollingInterval": 5 в ответе метода http://application-emiasinfo1.dev-emias.emias.ru/api/v2/config :
+Метод  GET api/1/newborn-reanimation-broadcast/active-streams не вызывается после истечения значения "pollingInterval"
+ !screenshot-1.png|thumbnail! 
+
+
+{color:#ffab00}*Не исправлено*{color}
+ !Не исправлено.png|thumbnail! 
+Проверено на:
+{code:java}
+Устройство: Redmi Note 11s
+Version 7.17.0-solittest3-6fcbcb0cd-task/EINFORAZV-16018 (70038)
+Версия ОС: Android 13
+{code}
+
+
+Закрытие бага
+{color:#00875a}*Исправлено*{color}
+Постановка на шаге 4
+ !шаг6.png|thumbnail!
+Реализация. Для архивных симптоматических назначений возвращается dayHistory = true/false
+ !Исправлено с true.png|thumbnail!  !Исправлено с false.png|thumbnail! 
+Проверено на:
+{code:java}
+Устройство: Redmi Note 11s
+Version 7.17.0-solittest3-6fcbcb0cd-task/EINFORAZV-16018 (70038)
+Версия ОС: Android 13
+{code}
+
+
+
+Закрытие задачи (первый круг)
+Первый круг тестирования окончен. Заведены дефекты на фронте и вопрос к СА
+!ТП.png|thumbnail! 
+Проверено на:
+{code:java}
+Устройство: Redmi Note 11s
+Version 7.18.0-solittest2-410d80d3e-feature/lifeC (70038)
+Версия ОС: Android 13
+{code}
+
+
+{color:#00875a}Проверено полностью{color}
+За исключение вопроса [EINFOSRV-2359|https://jira.mos.social/browse/EINFOSRV-2359]. Ожидается ответ
+{code:java}
+http://application-emiasinfo1.emias.solit-clouds.ru/
+Проект собран из репозитория: https://git.emias.mos.ru/emias-info/services
+Версия: 1.11.0
+Ветка: release_1.1.0
+Ревизия: 88c3a91961d009dec7f856e7a11f7d1189ba5c84
+{code}
+
+Проверены:
+1. Получение пустого и не пустого списка заказов
+2. Получение активных и архивных заказов
+3. Обязательность и множественность параметров
+4. Все АС
+5. Написана [документация|https://testit.solit-clouds.ru/projects/145062/tests?isolatedSection=dc965adc-adcd-4fd8-b54b-4f665c04912b]
+6. Написан АТ. Выгружен в репозиторий
