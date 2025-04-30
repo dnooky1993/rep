@@ -2229,12 +2229,10 @@
    </soap:Header>
    <soap:Body>\r
       <v5:cancelAppointment>\r
-         <omsNumber>?</omsNumber>\r
-         <!--Optional:-->\r
-         <omsSeries>?</omsSeries>\r
-         <birthDate>?</birthDate>\r
-         <appointmentId>?</appointmentId>\r
-         <externalSystemId>?</externalSystemId>\r
+         <omsNumber>7700007178231039</omsNumber>\r
+         <birthDate>1939-10-23</birthDate>\r
+         <appointmentId>391930464870</appointmentId>\r
+         <externalSystemId>EIM</externalSystemId>\r
       </v5:cancelAppointment>\r
    </soap:Body>\r
 </soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://impl.service.soap.emias.lanit.ru/v5/SelfAppointmentServiceV5PT/cancelAppointment"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="ff0b36b3-b7c3-4f55-925d-8362389166ae" isOneWay="false" action="urn://cancelAppointmentByID" name="cancelAppointmentByID" bindingOperationName="cancelAppointmentByID" type="Request-Response" outputName="cancelAppointmentByIDResponse" inputName="cancelAppointmentByID" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ee5cb7a1-b44a-4d50-8dab-f767d18c61bc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v5="http://api.service.soap.emias.lanit.ru/v5/">\r
@@ -2264,7 +2262,7 @@
          <appointmentId>?</appointmentId>\r
       </v5:cancelAppointmentToDutyDoctorByPatient>\r
    </soap:Body>\r
-</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://impl.service.soap.emias.lanit.ru/v5/SelfAppointmentServiceV5PT/cancelAppointmentToDutyDoctorByPatient"/></con:call></con:operation><con:operation id="b1ea7d5d-18a7-489d-b92d-1bf5ef821a1a" isOneWay="false" action="urn://createAppointment" name="createAppointment" bindingOperationName="createAppointment" type="Request-Response" outputName="createAppointmentResponse" inputName="createAppointment" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="721d38a8-1d6c-4935-b7da-49c4b029ea05" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v5="http://api.service.soap.emias.lanit.ru/v5/">\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://impl.service.soap.emias.lanit.ru/v5/SelfAppointmentServiceV5PT/cancelAppointmentToDutyDoctorByPatient"/></con:call></con:operation><con:operation id="b1ea7d5d-18a7-489d-b92d-1bf5ef821a1a" isOneWay="false" action="urn://createAppointment" name="createAppointment" bindingOperationName="createAppointment" type="Request-Response" outputName="createAppointmentResponse" inputName="createAppointment" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="721d38a8-1d6c-4935-b7da-49c4b029ea05" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v5="http://api.service.soap.emias.lanit.ru/v5/">\r
    <soap:Header/>\r
    <soap:Body>\r
       <v5:createAppointment>\r
@@ -2752,8 +2750,23 @@
    </soap:Header>
    <soap:Body>\r
       <v5:getSpecialitiesInfo>\r
-         <omsNumber>7700001038030984</omsNumber>\r
-         <birthDate>1984-09-03</birthDate>\r       
+         <omsNumber>7700007178231039</omsNumber>\r
+         <birthDate>1939-10-23</birthDate>\r       
+         <externalSystemId>EIM</externalSystemId>
+      </v5:getSpecialitiesInfo>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://impl.service.soap.emias.lanit.ru/v5/SelfAppointmentServiceV5PT/getSpecialitiesInfo"/><con:wsrmConfig version="1.2"/></con:call><con:call id="a61666ef-8fdc-4623-829b-15632335d375" name="Copy of getSpecialitiesInfo"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v5="http://api.service.soap.emias.lanit.ru/v5/">
+   <soap:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken>
+            <wsse:Username>EIM</wsse:Username>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap:Header>
+   <soap:Body>\r
+      <v5:getSpecialitiesInfo>\r
+         <omsNumber>7752800824001018</omsNumber>\r
+         <birthDate>1991-07-25</birthDate>\r       
          <externalSystemId>EIM</externalSystemId>
       </v5:getSpecialitiesInfo>\r
    </soap:Body>\r
@@ -6104,7 +6117,7 @@
    </soap:Header>\r
    <soap:Body>\r
       <getCatalogItemsRequest xmlns="http://emias.mos.ru/nsiProductPublication/publicationService/v1/types/" xmlns:ns2="http://emias.mos.ru/system/v1/userContext/" xmlns:ns3="http://emias.mos.ru/nsiProductPublication/core/v1/" xmlns:ns4="http://emias.mos.ru/system/v1/faults/">\r
-         <id>5102</id>\r
+         <id>2600</id>\r
       </getCatalogItemsRequest>\r
    </soap:Body>\r
 </soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/nsiProductPublication/publicationService/v1/publicationServicePortType/getCatalogItemsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="581ea6fe-9256-497d-8372-5d14054f5774" isOneWay="false" action="getCatalogList" name="getCatalogList" bindingOperationName="getCatalogList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9a4892ec-f4f6-40b5-a88a-7af96817037e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamel.test.emias.mos.ru/proxy/Composite/nsi2PublicationAuth/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/nsiProductPublication/publicationService/v1/types/">\r
@@ -11010,7 +11023,7 @@
          <externalSystemId>?</externalSystemId>\r
       </v2:getPatientInfo2>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn://getPatientInfo2"/></con:call></con:operation><con:operation id="f9c139ad-f634-4a9e-83b9-6a166648b391" isOneWay="false" action="urn://getPatientInfo3" name="getPatientInfo3" bindingOperationName="getPatientInfo3" type="Request-Response" outputName="getPatientInfo3Response" inputName="getPatientInfo3" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="60070e74-7a30-470c-9232-4d2f652e67d7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Contingent/PGUContingent/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://api.service.soap.emias.lanit.ru/v2/">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn://getPatientInfo2"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f9c139ad-f634-4a9e-83b9-6a166648b391" isOneWay="false" action="urn://getPatientInfo3" name="getPatientInfo3" bindingOperationName="getPatientInfo3" type="Request-Response" outputName="getPatientInfo3Response" inputName="getPatientInfo3" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="60070e74-7a30-470c-9232-4d2f652e67d7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Contingent/PGUContingent/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://api.service.soap.emias.lanit.ru/v2/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <v2:getPatientInfo3>\r
@@ -11038,14 +11051,14 @@
    <soap:Header>\r
       <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
          <wsse:UsernameToken wsu:Id="UsernameToken-3a094e1a-44b0-4fa7-9f50-660124e5f3dc">\r
-            <wsse:Username>EIM/EIM</wsse:Username>\r
+            <wsse:Username>EIM</wsse:Username>\r
          </wsse:UsernameToken>\r
       </wsse:Security>\r
    </soap:Header>\r
    <soap:Body>\r
       <ns2:getPatientInfo3 xmlns:ns2="http://api.service.soap.emias.lanit.ru/v2/" xmlns:ns3="http://api.service.soap.emias.lanit.ru/v33/" xmlns:ns4="http://api.service.soap.emias.lanit.ru/" xmlns:ns5="urn:emias:llo.lookup">\r
-         <omsNumber>7796699729001463</omsNumber>\r
-         <birthDate>2003-03-20T00:00:00</birthDate>\r
+         <omsNumber>0000000000017087</omsNumber>\r
+         <birthDate>1973-05-15T00:00:00</birthDate>\r
          <typeAttach>0</typeAttach>\r
          <typeAttach>1</typeAttach>\r
          <typeAttach>2</typeAttach>\r
@@ -19268,9 +19281,9 @@ including as a SOAP header.</xsd:documentation>
    </soap:Header>\r
    <soap:Body>\r
       <GetLinkRequest xmlns="http://emias.mos.ru/inquiry-purpose/link/v3/types/" xmlns:ns2="http://emias.mos.ru/system/v1/userContext/" xmlns:ns3="http://emias.mos.ru/system/v1/faults/">\r
-         <appointmentId>391930442586</appointmentId>\r
-         <patientId>10166510</patientId>\r
-         <positionNomCode>72</positionNomCode>\r
+         <appointmentId>391930588915</appointmentId>\r
+         <patientId>16509466</patientId>\r
+         <positionNomCode>26</positionNomCode>\r
       </GetLinkRequest>\r
    </soap:Body>\r
 </soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/inquiry-purpose/link/v3/soap/LinkService/GetLinkRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="26f196c5-2375-46db-bd0f-c01649cd79d0" isOneWay="false" action="GetLinkByAppoinmentId" name="GetLinkByAppoinmentId" bindingOperationName="GetLinkByAppoinmentId" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4dbc3df0-de9e-4d08-a1e6-8a761b5d276a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/link/v3S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:typ="http://emias.mos.ru/inquiry-purpose/link/v3/types/">\r
@@ -21246,10 +21259,10 @@ including as a SOAP header.</xsd:documentation>
    </soap:Header>
    <soap:Body>\r
       <typ:GetPatientComplaintForAppointmentRequest>\r
-         <typ:positionNomCode>6</typ:positionNomCode>\r
+         <typ:positionNomCode>4</typ:positionNomCode>\r
          <typ:patientData>
-            <typ:omsNumber>7700007178231039</typ:omsNumber>
-            <typ:birthDate>1939-10-23</typ:birthDate>
+            <typ:omsNumber>7794599793000361</typ:omsNumber>
+            <typ:birthDate>2004-05-06</typ:birthDate>
          </typ:patientData>
       </typ:GetPatientComplaintForAppointmentRequest>\r
    </soap:Body>\r
@@ -29798,15 +29811,9 @@ including as a SOAP header.</xsd:documentation>
    </soap:Header>
    <soap:Body>\r
       <typ:getHospitalizationCaseByPatientRequest>\r
-         <typ:patientId>11930002173036</typ:patientId>\r
-         <typ:actualHospitalFilter>false</typ:actualHospitalFilter>\r
+         <typ:patientId>30698965</typ:patientId>\r
+         <typ:actualHospitalFilter>true</typ:actualHospitalFilter>\r
          <typ:pagingOptions pageNumber="0" pageSize="50">\r
-            <v2:sortingOptions>\r
-               <v2:sortOrder>\r
-                  <v2:attributeName>hospitalizationDate</v2:attributeName>\r
-                  <v2:descending>true</v2:descending>\r
-               </v2:sortOrder>\r
-            </v2:sortingOptions>\r
          </typ:pagingOptions>\r
          <v2:options>
             <v2:entry key="hospitalizationForLK">true</v2:entry>
@@ -30750,10 +30757,10 @@ including as a SOAP header.</xsd:documentation>
 </soap:Header>
    <soap:Body>\r
       <v1:CreateAppointmentRequest>\r
-         <oms>7758010875002485</oms>\r
-         <birthday>1989-01-24</birthday>\r
-         <availableResourceId>5601</availableResourceId>\r
-         <startDate>2024-03-28T15:45:00</startDate>\r
+         <oms>7700008052220357</oms>\r
+         <birthday>1957-03-22</birthday>\r
+         <availableResourceId>5681</availableResourceId>\r
+         <startDate>2025-01-16T11:00:00</startDate>\r
          <referenceId>1</referenceId>\r
       </v1:CreateAppointmentRequest>\r
    </soap:Body>\r
@@ -38899,7 +38906,7 @@ true - только экстренные
          </v1:options>\r
       </typ:searchAssignmentsShortRequest>\r
    </soap:Body>\r
-</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/emiasid/assignmentService/v2_2/assignmentServicePortType/searchAssignmentsShortRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="987ddeef-28eb-4732-99dd-12b562c42118" wsaVersion="NONE" name="Молочная кухня" type="wsdl" bindingName="{http://emias2.gov.ru/business/freeFoodInfo/v1}FreeFoodInfoServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v1S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v1S/ProxyService?wsdl"><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v1S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="FreeFoodInfoServiceV1" targetNamespace="http://emias2.gov.ru/business/freeFoodInfo/v1" xmlns:ns1="http://emias2.gov.ru/business/freeFoodInfo/v1/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://emias2.gov.ru/business/freeFoodInfo/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/emiasid/assignmentService/v2_2/assignmentServicePortType/searchAssignmentsShortRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="987ddeef-28eb-4732-99dd-12b562c42118" wsaVersion="NONE" name="Молочная кухня" type="wsdl" bindingName="{http://emias2.gov.ru/business/freeFoodInfo/v1}FreeFoodInfoServiceV1SoapBinding" soapVersion="1_1" anonymous="optional" definition="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v1S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v1S/ProxyService?wsdl"><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v1S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="FreeFoodInfoServiceV1" targetNamespace="http://emias2.gov.ru/business/freeFoodInfo/v1" xmlns:ns1="http://emias2.gov.ru/business/freeFoodInfo/v1/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://emias2.gov.ru/business/freeFoodInfo/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema>
       <xsd:import namespace="http://emias2.gov.ru/business/freeFoodInfo/v1/types" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v1S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELlFF9_9ZLgn8htUIM0pOoFA67.1Ek1idIcDntjSE3uhQHFAvqkSwY5vXfp8rrnFzOs7gx.8yDelbw_5nxAd1Y4MdiZgfNog7c8tHba7uV1L5vPrY2_AAmeFlHQ0bY6RQ_EkpTR1XhKFN5t_3ZwDvhscLTw--"/>
@@ -38935,7 +38942,7 @@ true - только экстренные
   <wsdl:message name="fpiGetList">
     <wsdl:part element="ns1:fpiGetListRequest" name="fpiGetListRequest"></wsdl:part>
   </wsdl:message>
-  <wsdl:portType name="FreeFoodInfoSrv">
+  <wsdl:portType name="FreeFoodInfoSrvV1">
     <wsdl:operation name="fpiCheckPatient">
       <wsdl:input message="tns:fpiCheckPatient" name="fpiCheckPatient"></wsdl:input>
       <wsdl:output message="tns:fpiCheckPatientResponse" name="fpiCheckPatientResponse"></wsdl:output>
@@ -38957,7 +38964,7 @@ true - только экстренные
       <wsdl:output message="tns:fpiGetDetailsResponse" name="fpiGetDetailsResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="FreeFoodInfoServiceSoapBinding" type="tns:FreeFoodInfoSrv">
+  <wsdl:binding name="FreeFoodInfoServiceV1SoapBinding" type="tns:FreeFoodInfoSrvV1">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="fpiCheckPatient">
       <soap:operation soapAction="fpiCheckPatient" style="document"/>
@@ -39005,8 +39012,8 @@ true - только экстренные
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="FreeFoodInfoService">
-    <wsdl:port binding="tns:FreeFoodInfoServiceSoapBinding" name="FreeFoodInfoSrvPort">
+  <wsdl:service name="FreeFoodInfoServiceV1">
+    <wsdl:port binding="tns:FreeFoodInfoServiceV1SoapBinding" name="FreeFoodInfoSrvV1Port">
       <soap:address location="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v1S/ProxyService"/>
     </wsdl:port>
   </wsdl:service>
@@ -42596,7 +42603,7 @@ true - только экстренные
          </v2:options>\r
       </typ:syncPatientDoublesRequest>\r
    </soap:Body>\r
-</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/emiascej/clinicalExamination/v2/clinicalExaminationPT/syncPatientDoublesRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="12527589-04e9-4d6c-8134-2d226fdb32c2" wsaVersion="NONE" name="Электро Молочная кухня" type="wsdl" bindingName="{http://emias2.gov.ru/business/eFreeFoodService/v1}EFreeFoodServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService?wsdl"><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="EFreeFoodService" targetNamespace="http://emias2.gov.ru/business/eFreeFoodService/v1" xmlns:ns1="http://emias2.gov.ru/business/eFreeFoodService/v1/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://emias2.gov.ru/business/eFreeFoodService/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/emiascej/clinicalExamination/v2/clinicalExaminationPT/syncPatientDoublesRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="12527589-04e9-4d6c-8134-2d226fdb32c2" wsaVersion="NONE" name="Электро молочка" type="wsdl" bindingName="{http://emias2.gov.ru/business/eFreeFoodService/v1}EFreeFoodServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService?wsdl"><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="EFreeFoodService" targetNamespace="http://emias2.gov.ru/business/eFreeFoodService/v1" xmlns:ns1="http://emias2.gov.ru/business/eFreeFoodService/v1/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://emias2.gov.ru/business/eFreeFoodService/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema>
       <xsd:import namespace="http://emias2.gov.ru/business/eFreeFoodService/v1/types" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELmhfFmu8padN6vTbPvz8LPMB9RdTDXxPr7appT68KpzqKIOgkXGPuix5s1uekU8VumT62XkeBoWB5sYkIrpewVhMjRgmJmvbLY15WY4GmamFZVNWEA9QlXtf4PfIwTTLQmWXheRkhSc5l2l7"/>
@@ -42604,6 +42611,9 @@ true - только экстренные
   </wsdl:types>
   <wsdl:message name="createOrderResponse">
     <wsdl:part element="ns1:createOrderResponse" name="createOrderResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setScheduleBatchResponse">
+    <wsdl:part element="ns1:setScheduleBatchResponse" name="setScheduleBatchResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="refreshQRCodeResponse">
     <wsdl:part element="ns1:refreshQRCodeResponse" name="refreshQRCodeResponse"></wsdl:part>
@@ -42613,6 +42623,9 @@ true - только экстренные
   </wsdl:message>
   <wsdl:message name="refreshQRCode">
     <wsdl:part element="ns1:refreshQRCodeRequest" name="refreshQRCodeRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrderBatchResponse">
+    <wsdl:part element="ns1:createOrderBatchResponse" name="createOrderBatchResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="setScheduleResponse">
     <wsdl:part element="ns1:setScheduleResponse" name="setScheduleResponse"></wsdl:part>
@@ -42629,6 +42642,12 @@ true - только экстренные
   <wsdl:message name="getMilkShopListResponse">
     <wsdl:part element="ns1:getMilkShopListResponse" name="getMilkShopListResponse"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="createOrderBatch">
+    <wsdl:part element="ns1:createOrderBatchRequest" name="createOrderBatchRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="refreshQRCodeBatch">
+    <wsdl:part element="ns1:refreshQRCodeBatchRequest" name="refreshQRCodeBatchRequest"></wsdl:part>
+  </wsdl:message>
   <wsdl:message name="getOrders">
     <wsdl:part element="ns1:getOrdersRequest" name="getOrdersRequest"></wsdl:part>
   </wsdl:message>
@@ -42637,6 +42656,9 @@ true - только экстренные
   </wsdl:message>
   <wsdl:message name="changeMilkShopResponse">
     <wsdl:part element="ns1:changeMilkShopResponse" name="changeMilkShopResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setScheduleBatch">
+    <wsdl:part element="ns1:setScheduleBatchRequest" name="setScheduleBatchRequest"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="getScheduleResponse">
     <wsdl:part element="ns1:getScheduleResponse" name="getScheduleResponse"></wsdl:part>
@@ -42649,6 +42671,9 @@ true - только экстренные
   </wsdl:message>
   <wsdl:message name="getMilkShopList">
     <wsdl:part element="ns1:getMilkShopListRequest" name="getMilkShopListRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="refreshQRCodeBatchResponse">
+    <wsdl:part element="ns1:refreshQRCodeBatchResponse" name="refreshQRCodeBatchResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="checkBenefitResponse">
     <wsdl:part element="ns1:checkBenefitResponse" name="checkBenefitResponse"></wsdl:part>
@@ -42692,6 +42717,21 @@ true - только экстренные
     <wsdl:operation name="getSchedule">
       <wsdl:input message="tns:getSchedule" name="getSchedule"></wsdl:input>
       <wsdl:output message="tns:getScheduleResponse" name="getScheduleResponse"></wsdl:output>
+      <wsdl:fault message="tns:EFreeFoodServiceException" name="EFreeFoodServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createOrderBatch">
+      <wsdl:input message="tns:createOrderBatch" name="createOrderBatch"></wsdl:input>
+      <wsdl:output message="tns:createOrderBatchResponse" name="createOrderBatchResponse"></wsdl:output>
+      <wsdl:fault message="tns:EFreeFoodServiceException" name="EFreeFoodServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="refreshQRCodeBatch">
+      <wsdl:input message="tns:refreshQRCodeBatch" name="refreshQRCodeBatch"></wsdl:input>
+      <wsdl:output message="tns:refreshQRCodeBatchResponse" name="refreshQRCodeBatchResponse"></wsdl:output>
+      <wsdl:fault message="tns:EFreeFoodServiceException" name="EFreeFoodServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setScheduleBatch">
+      <wsdl:input message="tns:setScheduleBatch" name="setScheduleBatch"></wsdl:input>
+      <wsdl:output message="tns:setScheduleBatchResponse" name="setScheduleBatchResponse"></wsdl:output>
       <wsdl:fault message="tns:EFreeFoodServiceException" name="EFreeFoodServiceException"></wsdl:fault>
     </wsdl:operation>
   </wsdl:portType>
@@ -42787,6 +42827,42 @@ true - только экстренные
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="getScheduleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="EFreeFoodServiceException">
+        <soap:fault name="EFreeFoodServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createOrderBatch">
+      <soap:operation soapAction="createOrderBatch" style="document"/>
+      <wsdl:input name="createOrderBatch">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createOrderBatchResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="EFreeFoodServiceException">
+        <soap:fault name="EFreeFoodServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="refreshQRCodeBatch">
+      <soap:operation soapAction="refreshQRCodeBatch" style="document"/>
+      <wsdl:input name="refreshQRCodeBatch">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="refreshQRCodeBatchResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="EFreeFoodServiceException">
+        <soap:fault name="EFreeFoodServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setScheduleBatch">
+      <soap:operation soapAction="setScheduleBatch" style="document"/>
+      <wsdl:input name="setScheduleBatch">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setScheduleBatchResponse">
         <soap:body use="literal"/>
       </wsdl:output>
       <wsdl:fault name="EFreeFoodServiceException">
@@ -43086,6 +43162,82 @@ true - только экстренные
       <xs:element minOccurs="0" name="title" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="CreateOrderBatchRequestType">
+    <xs:sequence>
+      <xs:element name="requestGUID" type="xs:string"/>
+      <xs:element name="ident" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="optionID" type="xs:string"/>
+      <xs:element minOccurs="0" name="milkshopID" type="xs:long"/>
+      <xs:element minOccurs="0" name="serviceSchedule" type="tns:ServiceScheduleType"/>
+      <xs:element minOccurs="0" name="ssoID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CreateOrderBatchResponseType">
+    <xs:sequence>
+      <xs:element name="responseGUID" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="prescriptions" type="tns:PrescriptionsType"/>
+      <xs:element name="requestGUID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PrescriptionsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="prescriptionNumber" type="xs:string"/>
+      <xs:element name="optionID" type="xs:string"/>
+      <xs:element minOccurs="0" name="QRCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="rejectReason" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefreshQRCodeBatchRequestType">
+    <xs:sequence>
+      <xs:element name="requestGUID" type="xs:string"/>
+      <xs:element name="ident" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="orderID" type="xs:long"/>
+      <xs:element minOccurs="0" name="ssoID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefreshQRCodeBatchResponseType">
+    <xs:sequence>
+      <xs:element name="responseGUID" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="QRCodes" type="tns:QRCodesType"/>
+      <xs:element name="requestGUID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QRCodesType">
+    <xs:sequence>
+      <xs:element name="orderID" type="xs:string"/>
+      <xs:element minOccurs="0" name="QRCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="rejectReason" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ServiceScheduleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="scheduleType" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="servicingDay" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SetScheduleBatchRequestType">
+    <xs:sequence>
+      <xs:element name="requestGUID" type="xs:string"/>
+      <xs:element name="ident" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="prescriptionNumber" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="servicingDay" type="xs:int"/>
+      <xs:element minOccurs="0" name="ssoID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SetScheduleBatchResponseType">
+    <xs:sequence>
+      <xs:element name="responseGUID" type="xs:string"/>
+      <xs:element name="requestGUID" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="whyNoSchedule" type="tns:WhyNoScheduleType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WhyNoScheduleType">
+    <xs:sequence>
+      <xs:element name="prescriptionNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="rejectCode" type="xs:string"/>
+      <xs:element name="rejectCause" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:element name="refreshQRCodeRequest" nillable="true" type="tns:refreshQRCodeRequestType"/>
   <xs:element name="refreshQRCodeResponse" nillable="true" type="tns:refreshQRCodeResponseType"/>
   <xs:element name="checkBenefitRequest" nillable="true" type="tns:checkBenefitRequestType"/>
@@ -43102,6 +43254,12 @@ true - только экстренные
   <xs:element name="getOrdersResponse" nillable="true" type="tns:getOrdersResponseType"/>
   <xs:element name="getScheduleRequest" nillable="true" type="tns:getScheduleRequestType"/>
   <xs:element name="getScheduleResponse" nillable="true" type="tns:getScheduleResponseType"/>
+  <xs:element name="createOrderBatchRequest" nillable="true" type="tns:CreateOrderBatchRequestType"/>
+  <xs:element name="createOrderBatchResponse" nillable="true" type="tns:CreateOrderBatchResponseType"/>
+  <xs:element name="refreshQRCodeBatchRequest" nillable="true" type="tns:RefreshQRCodeBatchRequestType"/>
+  <xs:element name="refreshQRCodeBatchResponse" nillable="true" type="tns:RefreshQRCodeBatchResponseType"/>
+  <xs:element name="setScheduleBatchRequest" nillable="true" type="tns:SetScheduleBatchRequestType"/>
+  <xs:element name="setScheduleBatchResponse" nillable="true" type="tns:SetScheduleBatchResponseType"/>
 </xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService</con:endpoint></con:endpoints><con:operation id="eeb958de-e482-4be9-b53c-592c79591c01" isOneWay="false" action="changeMilkShop" name="changeMilkShop" bindingOperationName="changeMilkShop" type="Request-Response" outputName="changeMilkShopResponse" inputName="changeMilkShop" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="243d8d91-0baa-4166-a13b-01b13d00c853" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias2.gov.ru/business/eFreeFoodService/v1/types">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
@@ -43148,6 +43306,14 @@ true - только экстренные
          <typ:ident>EMIASINFO</typ:ident>\r
          <typ:requestGUID>${=java.util.UUID.randomUUID()}</typ:requestGUID>\r
          <typ:searchString>ул.Корчагина Павла, д.10</typ:searchString>\r
+      </typ:getMilkShopListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getMilkShopList"/><con:wsrmConfig version="1.2"/></con:call><con:call id="9d8f7316-a9e6-4baa-9c1c-064b6d3a4d7a" name="getMilkshop"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias2.gov.ru/business/eFreeFoodService/v1/types">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <typ:getMilkShopListRequest>\r
+         <typ:ident>EMIASINFO</typ:ident>\r
+         <typ:requestGUID>${=java.util.UUID.randomUUID()}</typ:requestGUID>\r
       </typ:getMilkShopListRequest>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getMilkShopList"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="747617ac-c8fe-42cd-9014-9b0b50b7b70c" isOneWay="false" action="getOrders" name="getOrders" bindingOperationName="getOrders" type="Request-Response" outputName="getOrdersResponse" inputName="getOrders" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2cc08468-8402-4fe1-820d-12098cf32ad3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias2.gov.ru/business/eFreeFoodService/v1/types">\r
@@ -43205,7 +43371,54 @@ true - только экстренные
          <typ:ssoID>?</typ:ssoID>\r
       </typ:setScheduleRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="setSchedule"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="799236fd-8bed-4d7a-8edd-e55f3336ad10" wsaVersion="NONE" name="ДН" type="wsdl" bindingName="{http://emias.mos.ru/dn/dn/v4/}dnServiceBinding" soapVersion="1_2" anonymous="optional" definition="http://esbcamel.test.emias.mos.ru/proxy/dn/dn/v4S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamel.test.emias.mos.ru/proxy/dn/dn/v4S/ProxyService?wsdl"><con:part><con:url>http://esbcamel.test.emias.mos.ru/proxy/dn/dn/v4S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="dnService" targetNamespace="http://emias.mos.ru/dn/dn/v4/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns1="http://emias.mos.ru/dn/dn/v4/types/" xmlns:nsf="http://emias.mos.ru/system/v1/faults/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://emias.mos.ru/dn/dn/v4/" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="setSchedule"/></con:call></con:operation><con:operation id="af19fc7e-7a37-4e69-b80a-62d9299b3a1f" isOneWay="false" action="createOrderBatch" name="createOrderBatch" bindingOperationName="createOrderBatch" type="Request-Response" outputName="createOrderBatchResponse" inputName="createOrderBatch" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8a8225f0-ddf1-4284-bbd6-0f72ed9b2620" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias2.gov.ru/business/eFreeFoodService/v1/types">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <typ:createOrderBatchRequest>\r
+         <typ:requestGUID>?</typ:requestGUID>\r
+         <typ:ident>?</typ:ident>\r
+         <!--1 or more repetitions:-->\r
+         <typ:optionID>?</typ:optionID>\r
+         <!--Optional:-->\r
+         <typ:milkshopID>?</typ:milkshopID>\r
+         <!--Optional:-->\r
+         <typ:serviceSchedule>\r
+            <!--Optional:-->\r
+            <typ:scheduleType>?</typ:scheduleType>\r
+            <!--Zero or more repetitions:-->\r
+            <typ:servicingDay>?</typ:servicingDay>\r
+         </typ:serviceSchedule>\r
+         <!--Optional:-->\r
+         <typ:ssoID>?</typ:ssoID>\r
+      </typ:createOrderBatchRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="createOrderBatch"/></con:call></con:operation><con:operation id="4cf28196-6e50-4cb7-b14f-b5b9abcfb5d0" isOneWay="false" action="refreshQRCodeBatch" name="refreshQRCodeBatch" bindingOperationName="refreshQRCodeBatch" type="Request-Response" outputName="refreshQRCodeBatchResponse" inputName="refreshQRCodeBatch" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2d88fd06-fd41-463c-ba81-fedeca398997" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias2.gov.ru/business/eFreeFoodService/v1/types">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <typ:refreshQRCodeBatchRequest>\r
+         <typ:requestGUID>?</typ:requestGUID>\r
+         <typ:ident>?</typ:ident>\r
+         <!--1 or more repetitions:-->\r
+         <typ:orderID>?</typ:orderID>\r
+         <!--Optional:-->\r
+         <typ:ssoID>?</typ:ssoID>\r
+      </typ:refreshQRCodeBatchRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="refreshQRCodeBatch"/></con:call></con:operation><con:operation id="acbfe5cb-a659-475a-8711-471583e7f70c" isOneWay="false" action="setScheduleBatch" name="setScheduleBatch" bindingOperationName="setScheduleBatch" type="Request-Response" outputName="setScheduleBatchResponse" inputName="setScheduleBatch" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0e54d9e7-6ad5-4bc3-a1e4-11fd1af28171" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/eFreeFoodService/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://emias2.gov.ru/business/eFreeFoodService/v1/types">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <typ:setScheduleBatchRequest>\r
+         <typ:requestGUID>?</typ:requestGUID>\r
+         <typ:ident>?</typ:ident>\r
+         <!--1 or more repetitions:-->\r
+         <typ:prescriptionNumber>?</typ:prescriptionNumber>\r
+         <!--1 or more repetitions:-->\r
+         <typ:servicingDay>?</typ:servicingDay>\r
+         <!--Optional:-->\r
+         <typ:ssoID>?</typ:ssoID>\r
+      </typ:setScheduleBatchRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="setScheduleBatch"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="799236fd-8bed-4d7a-8edd-e55f3336ad10" wsaVersion="NONE" name="ДН" type="wsdl" bindingName="{http://emias.mos.ru/dn/dn/v4/}dnServiceBinding" soapVersion="1_2" anonymous="optional" definition="http://esbcamel.test.emias.mos.ru/proxy/dn/dn/v4S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamel.test.emias.mos.ru/proxy/dn/dn/v4S/ProxyService?wsdl"><con:part><con:url>http://esbcamel.test.emias.mos.ru/proxy/dn/dn/v4S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="dnService" targetNamespace="http://emias.mos.ru/dn/dn/v4/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns1="http://emias.mos.ru/dn/dn/v4/types/" xmlns:nsf="http://emias.mos.ru/system/v1/faults/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://emias.mos.ru/dn/dn/v4/" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <wsdl:documentation>Версия 2.0.0</wsdl:documentation>
   <wsdl:types>
     <xs:schema>
@@ -57966,7 +58179,2363 @@ true - только экстренные
          </options>\r
       </v2:SyncPatientDoublesRequest>\r
    </soap:Body>\r
-</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/contactService/v2/emiasContactPortType/syncPatientDoublesRequest"/></con:call></con:operation></con:interface><con:testSuite id="8e4e3cf0-d417-40d4-8198-983248086ba3" name="authentication/logout"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="4afb6346-0ccf-461d-9147-a43a9ff182b8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС0_ID279037" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="logout. Ошибка SERVER_ERROR" id="a5634437-fb7f-4986-8422-1e606b194863"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v1/user/authentication/logout" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="logout. Ошибка SERVER_ERROR" id="0d9178c4-e1da-4f0e-bf61-a348e7ffdd59" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/contactService/v2/emiasContactPortType/syncPatientDoublesRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="9c8fe9cb-e18a-4f60-baa5-2702b0c42f76" wsaVersion="NONE" name="Молочка в2" type="wsdl" bindingName="{http://emias2.gov.ru/business/freeFoodInfo/v2}FreeFoodInfoServiceV2SoapBinding" soapVersion="1_2" anonymous="optional" definition="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?wsdl"><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="FreeFoodInfoServiceV2" targetNamespace="http://emias2.gov.ru/business/freeFoodInfo/v2" xmlns:ns1="http://emias2.gov.ru/business/freeFoodInfo/v2/types" xmlns:nsf="http://emias.mos.ru/system/v1/faults/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://emias2.gov.ru/business/freeFoodInfo/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://emias2.gov.ru/business/freeFoodInfo/v2/types" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhhdEzrsQivZPcC._MxctqQciboh3fu.NWulbfQ--"/>
+      <xsd:import namespace="http://emias.mos.ru/system/v1/faults/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx_UAfTCvubVbZrA8dFvvMCc2MspyZdtbx_gxY_Yr"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getOrdersBatchResponse">
+    <wsdl:part element="ns1:getOrdersBatchResponse" name="getOrdersBatchResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMilkshopListResponse">
+    <wsdl:part element="ns1:getMilkShopListResponse" name="getMilkShopListResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkPatients">
+    <wsdl:part element="ns1:checkPatientsRequest" name="checkPatientsRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOrdersToSignBatch">
+    <wsdl:part element="ns1:getOrdersToSignBatchRequest" name="getOrdersToSignBatchRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOrdersBatch">
+    <wsdl:part element="ns1:getOrdersBatchRequest" name="getOrdersBatchRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkPatientsResponse">
+    <wsdl:part element="ns1:checkPatientsResponse" name="checkPatientsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMilkshopList">
+    <wsdl:part element="ns1:getMilkShopListRequest" name="getMilkShopListRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOrdersToSignBatchResponse">
+    <wsdl:part element="ns1:getOrdersToSignBatchResponse" name="getOrdersToSignBatchResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fault">
+    <wsdl:part element="nsf:fault" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScheduleBatchResponse">
+    <wsdl:part element="ns1:getScheduleBatchResponse" name="getScheduleBatchResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScheduleBatch">
+    <wsdl:part element="ns1:getScheduleBatchRequest" name="getScheduleBatchRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="FreeFoodInfoSrvV2">
+    <wsdl:operation name="getScheduleBatch">
+      <wsdl:input message="tns:getScheduleBatch" name="getScheduleBatch"></wsdl:input>
+      <wsdl:output message="tns:getScheduleBatchResponse" name="getScheduleBatchResponse"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOrdersToSignBatch">
+      <wsdl:input message="tns:getOrdersToSignBatch" name="getOrdersToSignBatch"></wsdl:input>
+      <wsdl:output message="tns:getOrdersToSignBatchResponse" name="getOrdersToSignBatchResponse"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOrdersBatch">
+      <wsdl:input message="tns:getOrdersBatch" name="getOrdersBatch"></wsdl:input>
+      <wsdl:output message="tns:getOrdersBatchResponse" name="getOrdersBatchResponse"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMilkshopList">
+      <wsdl:input message="tns:getMilkshopList" name="getMilkshopList"></wsdl:input>
+      <wsdl:output message="tns:getMilkshopListResponse" name="getMilkshopListResponse"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkPatients">
+      <wsdl:input message="tns:checkPatients" name="checkPatients"></wsdl:input>
+      <wsdl:output message="tns:checkPatientsResponse" name="checkPatientsResponse"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="fault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FreeFoodInfoServiceV2SoapBinding" type="tns:FreeFoodInfoSrvV2">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getScheduleBatch">
+      <soap:operation soapAction="getScheduleBatch" style="document"/>
+      <wsdl:input name="getScheduleBatch">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getScheduleBatchResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOrdersToSignBatch">
+      <soap:operation soapAction="getOrdersToSignBatch" style="document"/>
+      <wsdl:input name="getOrdersToSignBatch">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOrdersToSignBatchResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOrdersBatch">
+      <soap:operation soapAction="getOrdersBatch" style="document"/>
+      <wsdl:input name="getOrdersBatch">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOrdersBatchResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMilkshopList">
+      <soap:operation soapAction="getMilkshopList" style="document"/>
+      <wsdl:input name="getMilkshopList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMilkshopListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkPatients">
+      <soap:operation soapAction="checkPatients" style="document"/>
+      <wsdl:input name="checkPatients">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="checkPatientsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FreeFoodInfoServiceV2">
+    <wsdl:port binding="tns:FreeFoodInfoServiceV2SoapBinding" name="FreeFoodInfoSrvV2Port">
+      <soap:address location="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhhdEzrsQivZPcC._MxctqQciboh3fu.NWulbfQ--</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://emias2.gov.ru/business/freeFoodInfo/v2/types" xmlns:tns="http://emias2.gov.ru/business/freeFoodInfo/v2/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx_AOejn1vKoDL.0gWmfOjQjyUmgJ_qw09LGWPg--"/>
+  <xs:element name="getScheduleBatchRequest" nillable="true" type="tns:GetScheduleBatchRequestType"/>
+  <xs:element name="getScheduleBatchResponse" nillable="true" type="tns:GetScheduleBatchResponseType"/>
+  <xs:element name="getOrdersToSignBatchRequest" nillable="true" type="tns:GetOrdersToSignBatchReqType"/>
+  <xs:element name="getOrdersToSignBatchResponse" nillable="true" type="tns:GetOrdersToSignBatchResType"/>
+  <xs:element name="getOrdersBatchRequest" nillable="true" type="tns:GetOrdersBatchRequestType"/>
+  <xs:element name="getOrdersBatchResponse" nillable="true" type="tns:GetOrdersBatchResponseType"/>
+  <xs:element name="getMilkShopListRequest" nillable="true" type="tns:GetMilkShopListRequestType"/>
+  <xs:element name="getMilkShopListResponse" nillable="true" type="tns:GetMilkShopListResponseType"/>
+  <xs:element name="checkPatientsRequest" nillable="true" type="tns:CheckPatientsRequestType"/>
+  <xs:element name="checkPatientsResponse" nillable="true" type="tns:CheckPatientsResponseType"/>
+  <xs:complexType name="GetScheduleBatchRequestType">
+    <xs:sequence>
+      <xs:element name="requestGUID" type="xs:string"/>
+      <xs:element name="ident" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="prescriptionNumber" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="optionID" type="xs:string"/>
+      <xs:element minOccurs="0" name="milkShopId" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetScheduleBatchResponseType">
+    <xs:sequence>
+      <xs:element name="responseGUID" type="xs:string"/>
+      <xs:element name="prescriptionPeriod" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="whyNoSchedule" type="tns:WhyNoScheduleType"/>
+      <xs:element maxOccurs="unbounded" name="schedule" type="tns:ScheduleType"/>
+      <xs:element minOccurs="0" name="serviceMode" type="xs:string"/>
+      <xs:element minOccurs="0" name="milkShop" type="tns:ScheduleMilkShopType"/>
+      <xs:element name="requestGUID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WhyNoScheduleType">
+    <xs:sequence>
+      <xs:element name="prescriptionNumber" type="xs:string"/>
+      <xs:element name="rejectCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="rejectCause" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScheduleType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="optionID" type="xs:string"/>
+      <xs:element minOccurs="0" name="prescriptionNumber" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="days" type="tns:DaysType"/>
+      <xs:element minOccurs="0" name="scheduleServiceMode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DaysType">
+    <xs:sequence>
+      <xs:element name="day" type="xs:int"/>
+      <xs:element name="date" type="xs:string"/>
+      <xs:element name="workload" type="xs:string"/>
+      <xs:element minOccurs="0" name="isScheduled" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="timeSlot" type="tns:TimeSlotType"/>
+      <xs:element minOccurs="0" name="notes" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TimeSlotType">
+    <xs:sequence>
+      <xs:element name="slotType" type="xs:string"/>
+      <xs:element name="slotStart" type="xs:string"/>
+      <xs:element name="slotEnd" type="xs:string"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="service" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScheduleMilkShopType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="address" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetMilkShopListRequestType">
+    <xs:sequence>
+      <xs:element name="requestGUID" type="xs:string"/>
+      <xs:element name="ident" type="xs:string"/>
+      <xs:element minOccurs="0" name="milkShopID" type="xs:long"/>
+      <xs:element minOccurs="0" name="stationID" type="xs:long"/>
+      <xs:element minOccurs="0" name="OMKTE" type="xs:string"/>
+      <xs:element minOccurs="0" name="searchString" type="xs:string"/>
+      <xs:element minOccurs="0" name="searchRadius" type="tns:SearchRadiusType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchRadiusType">
+    <xs:sequence>
+      <xs:element name="geoTag" type="xs:string"/>
+      <xs:element name="distance" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetMilkShopListResponseType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="milkShop" type="tns:FullMilkShopType"/>
+      <xs:element name="responseGUID" type="xs:string"/>
+      <xs:element name="requestGUID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FullMilkShopType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="address" type="xs:string"/>
+      <xs:element minOccurs="0" name="area" type="tns:AreaType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="nearestMetro" type="tns:NearestMetroType"/>
+      <xs:element minOccurs="0" name="geoTag" type="xs:string"/>
+      <xs:element minOccurs="0" name="loadLevel" type="xs:string"/>
+      <xs:element minOccurs="0" name="openingHours" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AreaType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OMKTE" type="xs:string"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NearestMetroType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="stationID" type="xs:long"/>
+      <xs:element minOccurs="0" name="lineID" type="xs:long"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CheckPatientsRequestType">
+    <xs:sequence>
+      <xs:element name="requestGUID" type="xs:string"/>
+      <xs:element name="ident" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="patientID" type="xs:string"/>
+      <xs:element minOccurs="0" name="options" type="tns:Options"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CheckPatientsResponseType">
+    <xs:sequence>
+      <xs:element name="responseGUID" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="patientID" type="xs:string"/>
+      <xs:element name="requestGUID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetOrdersToSignBatchReqType">
+    <xs:sequence>
+      <xs:element name="requestGUID" type="xs:string"/>
+      <xs:element name="ident" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="emiasID" type="xs:string"/>
+      <xs:element minOccurs="0" name="ssoID" type="xs:string"/>
+      <xs:element minOccurs="0" name="options" type="tns:Options"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetOrdersToSignBatchResType">
+    <xs:sequence>
+      <xs:element name="responseGUID" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="patientOrders" type="tns:ToSignPatientOrdersType"/>
+      <xs:element name="requestGUID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ToSignPatientOrdersType">
+    <xs:sequence>
+      <xs:element name="emiasID" type="xs:string"/>
+      <xs:element minOccurs="0" name="whyNoOrders" type="tns:WhyNoOrdersType"/>
+      <xs:element minOccurs="0" name="defaultMilkShop" type="tns:DefaultMilkShopType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderToSign" type="tns:OrderToSignType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WhyNoOrdersType">
+    <xs:sequence>
+      <xs:element name="rejectCode" type="xs:string"/>
+      <xs:element name="rejectCause" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DefaultMilkShopType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="address" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrderToSignType">
+    <xs:sequence>
+      <xs:element name="orderPeriod" type="xs:string"/>
+      <xs:element name="dateBegin" type="xs:date"/>
+      <xs:element name="dateEnd" type="xs:date"/>
+      <xs:element maxOccurs="unbounded" name="option" type="tns:OptionType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OptionType">
+    <xs:sequence>
+      <xs:element name="optionID" type="xs:string"/>
+      <xs:element name="optionName" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="optionLine" type="tns:ToSignOptionLineType"/>
+      <xs:element minOccurs="0" name="feedingType" type="xs:string"/>
+      <xs:element name="maxDaysQuantity" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ToSignOptionLineType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineNo" type="xs:integer"/>
+      <xs:element name="productName" type="xs:string"/>
+      <xs:element name="periodicity" type="xs:string"/>
+      <xs:element name="unit" type="xs:string"/>
+      <xs:element name="productOutput" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetOrdersBatchRequestType">
+    <xs:sequence>
+      <xs:element name="requestGUID" type="xs:string"/>
+      <xs:element name="ident" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="emiasID" type="xs:string"/>
+      <xs:element minOccurs="0" name="ssoID" type="xs:string"/>
+      <xs:element minOccurs="0" name="options" type="tns:Options"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetOrdersBatchResponseType">
+    <xs:sequence>
+      <xs:element name="responseGUID" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="patientOrders" type="tns:PatientOrdersType"/>
+      <xs:element name="requestGUID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PatientOrdersType">
+    <xs:sequence>
+      <xs:element name="emiasID" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderToReceive" type="tns:OrderToReceiveType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderFinished" type="tns:OrderFinishedType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrderToReceiveType">
+    <xs:sequence>
+      <xs:element name="orderID" type="tns:ID"/>
+      <xs:element name="orderNumber" type="xs:string"/>
+      <xs:element name="orderPeriod" type="xs:string"/>
+      <xs:element name="dateBegin" type="xs:date"/>
+      <xs:element name="dateEnd" type="xs:date"/>
+      <xs:element name="issueDate" type="xs:date"/>
+      <xs:element name="prescriptionTitle" type="xs:string"/>
+      <xs:element minOccurs="0" name="MUTitle" type="xs:string"/>
+      <xs:element minOccurs="0" name="doctorName" type="xs:string"/>
+      <xs:element name="state" type="xs:string"/>
+      <xs:element minOccurs="0" name="notes" type="xs:string"/>
+      <xs:element minOccurs="0" name="milkShop" type="tns:ToReceiveMilkShopType"/>
+      <xs:element maxOccurs="unbounded" name="optionLine" type="tns:ToReceiveOptionLineType"/>
+      <xs:element minOccurs="0" name="feedingType" type="xs:string"/>
+      <xs:element minOccurs="0" name="QRCode" type="xs:string"/>
+      <xs:element name="maxDaysQuantity" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ToReceiveMilkShopType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="address" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ToReceiveOptionLineType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineNo" type="xs:integer"/>
+      <xs:element name="productName" type="xs:string"/>
+      <xs:element name="periodicity" type="xs:string"/>
+      <xs:element name="unit" type="xs:string"/>
+      <xs:element name="productOutput" type="xs:long"/>
+      <xs:element minOccurs="0" name="productRemain" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrderFinishedType">
+    <xs:sequence>
+      <xs:element name="orderID" type="tns:ID"/>
+      <xs:element name="orderNumber" type="xs:string"/>
+      <xs:element name="orderPeriod" type="xs:string"/>
+      <xs:element name="dateBegin" type="xs:date"/>
+      <xs:element name="dateEnd" type="xs:date"/>
+      <xs:element name="issueDate" type="xs:date"/>
+      <xs:element name="prescriptionTitle" type="xs:string"/>
+      <xs:element minOccurs="0" name="MUTitle" type="xs:string"/>
+      <xs:element minOccurs="0" name="doctorName" type="xs:string"/>
+      <xs:element name="state" type="xs:string"/>
+      <xs:element minOccurs="0" name="notes" type="xs:string"/>
+      <xs:element minOccurs="0" name="milkShop" type="tns:FinishedMilkShopType"/>
+      <xs:element maxOccurs="unbounded" name="optionLine" type="tns:OptionLineType"/>
+      <xs:element minOccurs="0" name="feedingType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FinishedMilkShopType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="address" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OptionLineType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineNo" type="xs:integer"/>
+      <xs:element name="productName" type="xs:string"/>
+      <xs:element name="periodicity" type="xs:string"/>
+      <xs:element name="unit" type="xs:string"/>
+      <xs:element name="productOutput" type="xs:long"/>
+      <xs:element minOccurs="0" name="productRemain" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx_AOejn1vKoDL.0gWmfOjQjyUmgJ_qw09LGWPg--</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx.AYeyi.p7VbZrA8dFtKO26ezKitZLbtnaZMSKX8"/>
+  <!--references-->
+  <xs:element name="mail" type="Mail">
+    <xs:annotation>
+      <xs:documentation>Адрес электронной почты</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="medicalOrganizationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинской организации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="medicalFacilityId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинского учреждения</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="compositionId" type="GUID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор
+				Композиции Think!EHR
+				ЕМИАС.СИМИ</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="simiDocumentId" type="GUID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор
+				Документа СИМИ
+				ЕМИАС.СИМИ</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--abstract types-->
+  <xs:complexType abstract="true" name="Base">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип,
+				используемый для описания
+				компонентов сущностей,
+				владельцеми которых является
+				текущий продукт ЕМИАС</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор
+					сущности/записи
+					на уровне всего ЕМИАС</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="EntityBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип,
+				используемый для описания сущностей,
+				владельцем которых является
+				текущий продукт ЕМИАС</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Base">
+        <xs:attribute name="archived" type="xs:boolean" use="required">
+          <xs:annotation>
+            <xs:documentation>Признак "Архивная сущность"</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="ForeignBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип,
+				используемый для описания
+				компонентов сущностей,
+				владельцами которых являются
+				другие продукты ЕМИАС</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Base"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="ForeignEntityBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип,
+				используемый для описания сущностей,
+				владельцами которых являются
+				другие продукты ЕМИАС</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EntityBase"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="NsiBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип,
+				используемый для описания типов,
+				реализующих справочники ЕМИАС.НСИ.2</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignEntityBase">
+        <xs:sequence>
+          <xs:element name="title" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Наименование элемента справочника</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="NsiWithCodeBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип,
+				используемый для описания типов,
+				реализующих справочники ЕМИАС.НСИ.2, в которых имеется бизнес-код</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="NsiBase">
+        <xs:attribute name="code" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Бизнес-код</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="SIMIDocumentBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип,
+				используемый для описания cведений о документе СИМИ</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="simiDocumentId"/>
+      <xs:element minOccurs="0" ref="compositionId"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--async operation status-->
+  <xs:element name="operationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор операции</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="OperationExecutionStatus">
+    <xs:annotation>
+      <xs:documentation>Статус выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="isCompleted" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак окончания выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="completenessProgress" type="OperationCompletenessBase">
+        <xs:annotation>
+          <xs:documentation>Сведения о текущем статусе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasSucceded" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак успешности выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+        <xs:annotation>
+          <xs:documentation>Коллекция сообщений, порожденных в ходе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор операции</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType abstract="false" name="OperationCompletenessPercentage">
+    <xs:annotation>
+      <xs:documentation>Описание текущего статуса выполнения операции в процентах (0%-100%)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="OperationCompletenessBase">
+        <xs:sequence>
+          <xs:element name="completenessStatus">
+            <xs:annotation>
+              <xs:documentation>Статус (0%-100%)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:unsignedByte">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="OperationCompletenessBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип для описания текущего статуса выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--calling methods' options-->
+  <xs:element name="options" type="Options">
+    <xs:annotation>
+      <xs:documentation>Параметры вызова метода</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Options">
+    <xs:annotation>
+      <xs:documentation>Набор именованных значений</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="KeyValuePair">
+        <xs:annotation>
+          <xs:documentation>Именованное значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--pagination-->
+  <xs:element name="pagingOptions" type="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType abstract="true" name="PagingResults">
+    <xs:annotation>
+      <xs:documentation>Список с пагинацией</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageTotal" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество страниц</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="morePagesAvailable" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Флаг доступности других страниц с результатами для "постраничного листания" (true - если доступны еще страницы; false - иначе)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="totalItemsCount" type="xs:long" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество элементов (на всех страницах)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="sortingOptions"/>
+    </xs:sequence>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--sorting-->
+  <xs:element name="sortingOptions" type="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры сортировки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Условия сортировки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="3" name="sortOrder" type="SortOrder">
+        <xs:annotation>
+          <xs:documentation>Условия сортировки
+						(используются в соответствии с
+						переданной последовательностью)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SortOrder">
+    <xs:annotation>
+      <xs:documentation>Сортировка</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="attributeName" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование поля, по которому должна быть произведена сортировка</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute default="false" name="desceding" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>Направление сортировки</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--void response-->
+  <xs:element fixed="true" name="result">
+    <xs:annotation>
+      <xs:documentation>Элемент для использования в методах, не предполагающих возврат какого-либо значения</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:boolean"/>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--base types-->
+  <xs:complexType name="TimeInterval">
+    <xs:annotation>
+      <xs:documentation>Временной период (время)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время начала интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время окончания интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DatePeriod">
+    <xs:annotation>
+      <xs:documentation>Временной период (дата)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата окончания периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--keys-->
+  <xs:complexType name="EntityId">
+    <xs:annotation>
+      <xs:documentation>Идентфикатор сущности,
+				непосредственно принадлежащей
+				текущему продукту ЕМИАС</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Base"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ForeignEntityId">
+    <xs:annotation>
+      <xs:documentation>Идентфикатор
+				сущности ЕМИАС,
+				внешней по отношнению
+				к текущему продукту ЕМИАС</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignBase"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NsiGlobalId">
+    <xs:annotation>
+      <xs:documentation>Глобальный идентфикатор
+				ЕМИАС.НСИ</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ForeignBase"/>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx.AYeyi.p7VbZrA8dFtKO26ezKitZLbtnaZMSKX8</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--error message description-->
+  <xs:complexType name="ErrorMessageCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция сообщений об ошибках</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="message" type="ErrorMessage">
+        <xs:annotation>
+          <xs:documentation>Сообщение об ошибке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorMessage">
+    <xs:annotation>
+      <xs:documentation>Сообщение об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parameters">
+            <xs:annotation>
+              <xs:documentation>Коллекция параметров сообщения</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="parameter" type="KeyValuePair">
+                  <xs:annotation>
+                    <xs:documentation>Параметр сообщения</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Сопутствующие сообщения об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="ErrorMessageTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип сообщения</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ErrorMessageTypes">
+    <xs:annotation>
+      <xs:documentation>Тип сообщения об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation>Ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WARNING">
+        <xs:annotation>
+          <xs:documentation>Предупреждение (не блокирующая ошибка)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INFO">
+        <xs:annotation>
+          <xs:documentation>Информационное сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:simpleType name="GUID">
+    <xs:annotation>
+      <xs:documentation>Глобальный 128-битный идентификатор (Globally Unique Identifier)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="KeyValuePair">
+    <xs:annotation>
+      <xs:documentation>Представляет тип "ключ/значение"</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Ключ</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="Mail">
+    <xs:annotation>
+      <xs:documentation>Адрес электронной почты</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="320"/>
+      <xs:pattern value=".+@.+\..+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Message">
+    <xs:annotation>
+      <xs:documentation>Сообщение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Текст сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx_UAfTCvubVbZrA8dFvvMCc2MspyZdtbx_gxY_Yr</con:url><con:content><![CDATA[<!--edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Vladimir Makarov (Private)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/faults/" xmlns="http://emias.mos.ru/system/v1/faults/" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx.AYeyi.p7VbZrA8dFtKO26ezKitZLbtnaZMSKX8"/>
+  <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx.AYeyi.p7VbZrAxdFpecZIzd9_pSseKGYWCbYPSFIveQeVpTb4t_7wl"/>
+  <!--faults-->
+  <xs:element name="fault" type="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Базовый тип ошибки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SecurityFault">
+    <xs:annotation>
+      <xs:documentation>Ошибка безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element ref="uctx:userContext"/>
+          <xs:choice>
+            <xs:element name="unauthorizedRequestSecurityException" type="UnauthorizedRequestSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="otherSecurityException" type="OtherSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute fixed="SECURITY" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BusinessFault">
+    <xs:annotation>
+      <xs:documentation>Бизнес ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="messages">
+            <xs:annotation>
+              <xs:documentation>Коллекция Сообщений об ошибках</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="messages" type="ErrorMessage">
+                  <xs:annotation>
+                    <xs:documentation>Сообщение об ошибке</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="hasErrors" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак наличия ошибок в списке сообщений</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="BUSINESS" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnexpectedFault">
+    <xs:annotation>
+      <xs:documentation>Непредвиденная ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="version" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Версия продукта-сервиса</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stackTrace">
+            <xs:annotation>
+              <xs:documentation>Стек вызова (последние 10  записей)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="10" name="stackTraceRecord">
+                  <xs:annotation>
+                    <xs:documentation>Запись StackTrace</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="declaringClass" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование класса, содержащего метод</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="methodName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование метода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="fileName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование файла</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="lineNumber" type="xs:int">
+                        <xs:annotation>
+                          <xs:documentation>Номер строки кода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="UNEXPECTED" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Описание базового типа описания ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--security exceptions-->
+  <xs:complexType name="UnauthorizedRequestSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="requiredRights">
+        <xs:annotation>
+          <xs:documentation>Перечень идентификаторов недостающих Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Идентификатор Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="UNAUTHORIZED_REQUEST_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="OtherSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="message" type="Message">
+        <xs:annotation>
+          <xs:documentation>Сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="OTHER_SECURITY_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:simpleType name="SecurityExceptionTypes">
+    <xs:annotation>
+      <xs:documentation>Типы исключений безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNAUTHORIZED_REQUEST_EXCEPTION"/>
+      <xs:enumeration value="OTHER_SECURITY_EXCEPTION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--components-->
+  <xs:simpleType name="FaultTypes">
+    <xs:annotation>
+      <xs:documentation>Тип ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SECURITY">
+        <xs:annotation>
+          <xs:documentation>Непредвиденная ошибка приложения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUSINESS">
+        <xs:annotation>
+          <xs:documentation>Бизнес ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UNEXPECTED">
+        <xs:annotation>
+          <xs:documentation>Ошибка безопасности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx.AYeyi.p7VbZrAxdFpecZIzd9_pSseKGYWCbYPSFIveQeVpTb4t_7wl</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/userContext/" xmlns="http://emias.mos.ru/system/v1/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELtjXRTdv.h46Rify6qxVZInKEFjNGWHk95_tBIEHklVJBGh9sIcmSvGDxHzSTeRlrILlx7pzOHSzI5kXGkwtYKdNk4Ff0ct_FWIkpSLBqXFk6kBVWjIFhgFM1awKx_AOejn1vKoDL.0gWmfOjQjyUmgJ_qw09LGWPg--"/>
+  <xs:element name="userContext" type="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="systemName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Шифр системы-потребителя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя пользователя (логин)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRoleId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Код Роли</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="isUserRoleSystemWide" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак "Общесистемная Роль"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRights">
+        <xs:annotation>
+          <xs:documentation>Коллекция Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Код Полномочия</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jobExecutionId" type="ID"/>
+      <xs:element minOccurs="0" name="hostIp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>IP адрес хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hostName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="options" type="Options">
+        <xs:annotation>
+          <xs:documentation>Набор именованных значений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint></con:endpoints><con:operation id="37a12c3a-b1a2-494d-8b9a-154fd8fb1ace" isOneWay="false" action="checkPatients" name="checkPatients" bindingOperationName="checkPatients" type="Request-Response" outputName="checkPatientsResponse" inputName="checkPatients" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7011cdeb-0fa7-4dab-90eb-0d49e0733bf4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias2.gov.ru/business/freeFoodInfo/v2/types">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:checkPatientsRequest>\r
+         <typ:requestGUID>?</typ:requestGUID>\r
+         <typ:ident>?</typ:ident>\r
+         <!--1 or more repetitions:-->\r
+         <typ:patientID>?</typ:patientID>\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <typ:entry key="?">?</typ:entry>\r
+         </typ:options>\r
+      </typ:checkPatientsRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/business/freeFoodInfo/v2/FreeFoodInfoSrvV2/checkPatients"/></con:call></con:operation><con:operation id="dbf51327-7d5f-4ea6-a807-a12404c89a70" isOneWay="false" action="getMilkshopList" name="getMilkshopList" bindingOperationName="getMilkshopList" type="Request-Response" outputName="getMilkshopListResponse" inputName="getMilkshopList" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="471e65e4-546e-4e50-b1f3-ccf8af332413" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias2.gov.ru/business/freeFoodInfo/v2/types">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:getMilkShopListRequest>\r
+         <typ:requestGUID>?</typ:requestGUID>\r
+         <typ:ident>?</typ:ident>\r
+         <!--Optional:-->\r
+         <typ:milkShopID>?</typ:milkShopID>\r
+         <!--Optional:-->\r
+         <typ:stationID>?</typ:stationID>\r
+         <!--Optional:-->\r
+         <typ:OMKTE>?</typ:OMKTE>\r
+         <!--Optional:-->\r
+         <typ:searchString>?</typ:searchString>\r
+         <!--Optional:-->\r
+         <typ:searchRadius>\r
+            <typ:geoTag>?</typ:geoTag>\r
+            <typ:distance>?</typ:distance>\r
+         </typ:searchRadius>\r
+      </typ:getMilkShopListRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/business/freeFoodInfo/v2/FreeFoodInfoSrvV2/getMilkshopList"/></con:call><con:call id="56ea4eaa-baa4-44e6-bb30-cae9b1418a4a" name="milkshop"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias2.gov.ru/business/freeFoodInfo/v2/types">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:getMilkShopListRequest>\r
+         <typ:requestGUID>${=java.util.UUID.randomUUID().toString()}</typ:requestGUID>\r
+         <typ:ident>630782866</typ:ident>\r
+         <!--Optional:-->\r
+         <typ:milkShopID>?</typ:milkShopID>\r
+         <!--Optional:-->\r
+         <typ:stationID>?</typ:stationID>\r
+         <!--Optional:-->\r
+         <typ:OMKTE>?</typ:OMKTE>\r
+         <!--Optional:-->\r
+         <typ:searchString>?</typ:searchString>\r
+         <!--Optional:-->\r
+         <typ:searchRadius>\r
+            <typ:geoTag>?</typ:geoTag>\r
+            <typ:distance>?</typ:distance>\r
+         </typ:searchRadius>\r
+      </typ:getMilkShopListRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/business/freeFoodInfo/v2/FreeFoodInfoSrvV2/getMilkshopList"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="2346695a-ae34-4dbb-8e7c-471b74a1cb10" isOneWay="false" action="getOrdersBatch" name="getOrdersBatch" bindingOperationName="getOrdersBatch" type="Request-Response" outputName="getOrdersBatchResponse" inputName="getOrdersBatch" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="08519110-a129-4c31-a962-0cfa5b730aca" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias2.gov.ru/business/freeFoodInfo/v2/types">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:getOrdersBatchRequest>\r
+         <typ:requestGUID>?</typ:requestGUID>\r
+         <typ:ident>?</typ:ident>\r
+         <!--1 or more repetitions:-->\r
+         <typ:emiasID>?</typ:emiasID>\r
+         <!--Optional:-->\r
+         <typ:ssoID>?</typ:ssoID>\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <typ:entry key="?">?</typ:entry>\r
+         </typ:options>\r
+      </typ:getOrdersBatchRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/business/freeFoodInfo/v2/FreeFoodInfoSrvV2/getOrdersBatch"/></con:call><con:call id="dac4a6ba-d696-4060-ac5f-caf231d7e70d" name="getOrder"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias2.gov.ru/business/freeFoodInfo/v2/types">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:getOrdersBatchRequest>\r
+         <typ:requestGUID>${=java.util.UUID.randomUUID().toString()}</typ:requestGUID>\r
+         <typ:ident>EMIASINFO</typ:ident>\r
+         <typ:emiasID>31434483</typ:emiasID>\r
+         <typ:options>\r
+            <typ:entry key="get_feeding_type">true</typ:entry>\r
+         </typ:options>\r
+      </typ:getOrdersBatchRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/business/freeFoodInfo/v2/FreeFoodInfoSrvV2/getOrdersBatch"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="cd5d897a-6f76-43f3-a531-84b69a1cccd1" isOneWay="false" action="getOrdersToSignBatch" name="getOrdersToSignBatch" bindingOperationName="getOrdersToSignBatch" type="Request-Response" outputName="getOrdersToSignBatchResponse" inputName="getOrdersToSignBatch" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0bf09c2e-1523-4719-80c5-bf382a258e6e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias2.gov.ru/business/freeFoodInfo/v2/types">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:getOrdersToSignBatchRequest>\r
+         <typ:requestGUID>?</typ:requestGUID>\r
+         <typ:ident>?</typ:ident>\r
+         <!--1 or more repetitions:-->\r
+         <typ:emiasID>?</typ:emiasID>\r
+         <!--Optional:-->\r
+         <typ:ssoID>?</typ:ssoID>\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <typ:entry key="?">?</typ:entry>\r
+         </typ:options>\r
+      </typ:getOrdersToSignBatchRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/business/freeFoodInfo/v2/FreeFoodInfoSrvV2/getOrdersToSignBatch"/></con:call><con:call id="eaa86b81-cc6a-4738-b5af-0f29f93da182" name="getOrders"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias2.gov.ru/business/freeFoodInfo/v2/types">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:getOrdersToSignBatchRequest>\r
+         <typ:requestGUID>${=java.util.UUID.randomUUID().toString()}</typ:requestGUID>\r
+         <typ:ident>EMIASINFO</typ:ident>\r
+         <typ:emiasID>2239931516</typ:emiasID>\r
+         <typ:options>\r
+            <typ:entry key="get_feeding_type">true</typ:entry>\r
+         </typ:options>\r
+      </typ:getOrdersToSignBatchRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/business/freeFoodInfo/v2/FreeFoodInfoSrvV2/getOrdersToSignBatch"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="ccf27b9d-78cf-4ff6-8875-2aeaaa65914d" isOneWay="false" action="getScheduleBatch" name="getScheduleBatch" bindingOperationName="getScheduleBatch" type="Request-Response" outputName="getScheduleBatchResponse" inputName="getScheduleBatch" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f6b166f4-faa7-4449-8b93-be65d5f4634f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias2.gov.ru/business/freeFoodInfo/v2/types">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:getScheduleBatchRequest>\r
+         <typ:requestGUID>?</typ:requestGUID>\r
+         <typ:ident>?</typ:ident>\r
+         <!--Zero or more repetitions:-->\r
+         <typ:prescriptionNumber>?</typ:prescriptionNumber>\r
+         <!--Zero or more repetitions:-->\r
+         <typ:optionID>?</typ:optionID>\r
+         <!--Optional:-->\r
+         <typ:milkShopId>?</typ:milkShopId>\r
+      </typ:getScheduleBatchRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/business/freeFoodInfo/v2/FreeFoodInfoSrvV2/getScheduleBatch"/></con:call><con:call id="3b396a21-a967-423a-b71d-8769da55cbad" name="shedule"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/emiasff/freeFoodInfoService/v2S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://emias2.gov.ru/business/freeFoodInfo/v2/types">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <typ:getScheduleBatchRequest>\r
+         <typ:requestGUID>${=java.util.UUID.randomUUID().toString()}</typ:requestGUID>\r
+         <typ:ident>EMIASINFO</typ:ident>\r
+         <typ:prescriptionNumber>БП-681509239</typ:prescriptionNumber>\r
+      </typ:getScheduleBatchRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias2.gov.ru/business/freeFoodInfo/v2/FreeFoodInfoSrvV2/getScheduleBatch"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="bdb7eefc-bbb2-4656-8e51-d8621178cdfe" wsaVersion="NONE" name="ЦО3" type="wsdl" bindingName="{http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/soap/}InquiryPurposeOrchestrationBinding" soapVersion="1_2" anonymous="optional" definition="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?wsdl"><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="InquiryPurposeOrchestration" targetNamespace="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/soap/" xmlns:anw="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>version="1.0"</wsdl:documentation>
+  <wsdl:import location="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?wsdl=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthI8brbk0Xui56eXF_OgOoVzHXC1asITCFV7HPttBhXvubPgo9b_h5Jshkr7HrMvzBMOdDWe4.ad1ZaJLuA4tbu4Xvt24dF9R8hrAht.0zZWRRXy" namespace="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/"></wsdl:import>
+  <wsdl:binding name="InquiryPurposeOrchestrationBinding" type="anw:InquiryPurposeOrchestrationService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetInquiryPurposes">
+      <soap:operation soapAction="GetInquiryPurposes"/>
+      <wsdl:input>
+        <soap:header message="anw:UserContext" part="UserContext" use="literal"></soap:header>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="InquiryPurposeOrchestrationCodeError">
+        <soap:fault name="InquiryPurposeOrchestrationCodeError" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InquiryPurposeOrchestrationService">
+    <wsdl:port binding="tns:InquiryPurposeOrchestrationBinding" name="InquiryPurposeOrchestrationBinding">
+      <soap:address location="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?wsdl=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthI8brbk0Xui56eXF_OgOoVzHXC1asITCFV7HPttBhXvubPgo9b_h5Jshkr7HrMvzBMOdDWe4.ad1ZaJLuA4tbu4Xvt24dF9R8hrAht.0zZWRRXy</con:url><con:content><![CDATA[<wsdl:definitions name="InquiryPurposeOrchestration" targetNamespace="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/" xmlns:nsf="http://emias.mos.ru/system/v1/faults/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tcx="http://emias.mos.ru/system/v1/userContext/" xmlns:tnc="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/types/" xmlns:tns="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>version="1.0"</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema targetNamespace="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://emias.mos.ru/system/v1/faults/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IYobE0h6BqdsWAEmNWsIHAW15lYdD81TAgs_"/>
+      <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IZkJA1ZNGudgTh3u5bv8tO4LC808m8dMZ.HUt.893RI-"/>
+      <xs:import namespace="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/types/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1hXy947uMHKf9P4JxAmyjIYUUF1FnB_A5WxDou6z8tZ69moNni1z8GKA60RUPN2uI9OKC35DCdqUl77W7X.RCACzPRQ4oExt7NDLVdprJnZ6jBQ--"/>
+      <xs:element name="GetInquiryPurposesRequest">
+        <xs:annotation>
+          <xs:documentation>Входные параметры метода GetInquiryPurposes</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="omsNumber" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер медицинского полиса</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="patientId" type="tnc:ID">
+              <xs:annotation>
+                <xs:documentation>Идентификатор пациента</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="genderKpi" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Пол пациента, полученный из КПИ</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="birthDate" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Дата рождения пациента</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="paging_options" type="tnc:PagingOptions"/>
+            <xs:element minOccurs="0" ref="tnc:options"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInquiryPurposesResponse">
+        <xs:annotation>
+          <xs:documentation>Выходные параметры метода GetInquiryPurposes</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Result" type="tnc:OrchestrationServiceResultPage"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetInquiryPurposesRequest">
+    <wsdl:part element="tns:GetInquiryPurposesRequest" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UserContext">
+    <wsdl:part element="tcx:userContext" name="UserContext"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetInquiryPurposesResponse">
+    <wsdl:part element="tns:GetInquiryPurposesResponse" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fault">
+    <wsdl:documentation>Ошибка</wsdl:documentation>
+    <wsdl:part element="nsf:fault" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="InquiryPurposeOrchestrationService">
+    <wsdl:operation name="GetInquiryPurposes">
+      <wsdl:input message="tns:GetInquiryPurposesRequest"></wsdl:input>
+      <wsdl:output message="tns:GetInquiryPurposesResponse"></wsdl:output>
+      <wsdl:fault message="tns:fault" name="InquiryPurposeOrchestrationCodeError"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IYobE0h6BqdsWAEmNWsIHAW15lYdD81TAgs_</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/faults/" version="1.0" xmlns="http://emias.mos.ru/system/v1/faults/" xmlns:uctx="http://emias.mos.ru/system/v1/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IZQJAmKxZGvqhRt2W7wO9lxHYYQ-"/>
+  <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IZkJA1ZNGudgTh3u5bv8tO4LC808m8dMZ.HUt.893RI-"/>
+  <!--faults-->
+  <xs:element name="fault" type="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Базовый тип ошибки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SecurityFault">
+    <xs:annotation>
+      <xs:documentation>Ошибка безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element ref="uctx:userContext"/>
+          <xs:choice>
+            <xs:element name="unauthorizedRequestSecurityException" type="UnauthorizedRequestSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="otherSecurityException" type="OtherSecurityException">
+              <xs:annotation>
+                <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute fixed="SECURITY" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BusinessFault">
+    <xs:annotation>
+      <xs:documentation>Бизнес ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Коллекция Сообщений об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="hasErrors" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак наличия ошибок в списке сообщений</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="BUSINESS" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnexpectedFault">
+    <xs:annotation>
+      <xs:documentation>Непредвиденная ошибка</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseFault">
+        <xs:sequence>
+          <xs:element name="version" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Версия продукта-сервиса</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stackTrace">
+            <xs:annotation>
+              <xs:documentation>Стек вызова (последние 10  записей)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="10" name="stackTraceRecord">
+                  <xs:annotation>
+                    <xs:documentation>Запись StackTrace</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="declaringClass" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование класса, содержащего метод</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="methodName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование метода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="fileName" type="xs:string">
+                        <xs:annotation>
+                          <xs:documentation>Наименование файла</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                      <xs:element minOccurs="0" name="lineNumber" type="xs:int">
+                        <xs:annotation>
+                          <xs:documentation>Номер строки кода</xs:documentation>
+                        </xs:annotation>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute fixed="UNEXPECTED" name="type" type="FaultTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип ошибки</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="BaseFault">
+    <xs:annotation>
+      <xs:documentation>Описание базового типа описания ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--security exceptions-->
+  <xs:complexType name="UnauthorizedRequestSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа UNAUTHORIZED_REQUEST_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="requiredRights">
+        <xs:annotation>
+          <xs:documentation>Перечень идентификаторов недостающих Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Идентификатор Полномочия пользователя</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="UNAUTHORIZED_REQUEST_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="OtherSecurityException">
+    <xs:annotation>
+      <xs:documentation>Исключение безопасности типа OTHER_SECURITY_EXCEPTION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="message" type="Message">
+        <xs:annotation>
+          <xs:documentation>Сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute fixed="OTHER_SECURITY_EXCEPTION" name="type" type="SecurityExceptionTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>Тип исключения безопасности</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:simpleType name="SecurityExceptionTypes">
+    <xs:annotation>
+      <xs:documentation>Типы исключений безопасности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNAUTHORIZED_REQUEST_EXCEPTION"/>
+      <xs:enumeration value="OTHER_SECURITY_EXCEPTION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--components-->
+  <xs:simpleType name="FaultTypes">
+    <xs:annotation>
+      <xs:documentation>Тип ошибки</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SECURITY">
+        <xs:annotation>
+          <xs:documentation>Непредвиденная ошибка приложения</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUSINESS">
+        <xs:annotation>
+          <xs:documentation>Бизнес ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UNEXPECTED">
+        <xs:annotation>
+          <xs:documentation>Ошибка безопасности</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IZkJA1ZNGudgTh3u5bv8tO4LC808m8dMZ.HUt.893RI-</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/system/v1/userContext/" version="1.0" xmlns="http://emias.mos.ru/system/v1/userContext/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQBuX_L953XDG.fIgM4IszX0rxKwbb.EQOPWJ1"/>
+  <xs:element name="userContext" type="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UserContext">
+    <xs:annotation>
+      <xs:documentation>Контекст пользователя</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="systemName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Шифр системы-потребителя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя пользователя (логин)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRoleId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Код Роли</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="isUserRoleSystemWide" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак "Общесистемная Роль"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="userRights">
+        <xs:annotation>
+          <xs:documentation>Коллекция Полномочий пользователя</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="userRightId" type="ID">
+              <xs:annotation>
+                <xs:documentation>Код Полномочия</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jobExecutionId" type="ID"/>
+      <xs:element minOccurs="0" name="hostIp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>IP адрес хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hostName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя хоста</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="options" type="Options">
+        <xs:annotation>
+          <xs:documentation>Набор именованных значений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQBuX_L953XDG.fIgM4IszX0rxKwbb.EQOPWJ1</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IZQJAmKxZGvqhRt2W7wO9lxHYYQ-"/>
+  <!--references-->
+  <xs:element name="medicalOrganizationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинской организации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="medicalFacilityId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор Медицинского учреждения</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--async operation status-->
+  <xs:element name="operationId" type="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор операции</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="OperationExecutionStatus">
+    <xs:annotation>
+      <xs:documentation>Статус выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="isCompleted" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак окончания выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="completenessProgress" type="OperationCompletenessBase">
+        <xs:annotation>
+          <xs:documentation>Сведения о текущем статусе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasSucceded" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак успешности выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+        <xs:annotation>
+          <xs:documentation>Коллекция сообщений, порожденных в ходе выполнения операции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор операции</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType abstract="false" name="OperationCompletenessPercentage">
+    <xs:annotation>
+      <xs:documentation>Описание текущего статуса выполнения операции в процентах (0%-100%)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="OperationCompletenessBase">
+        <xs:sequence>
+          <xs:element name="completenessStatus">
+            <xs:annotation>
+              <xs:documentation>Статус (0%-100%)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:unsignedByte">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="OperationCompletenessBase">
+    <xs:annotation>
+      <xs:documentation>Базовый абстрактный тип для описания текущего статуса выполнения операции</xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+  <!--calling methods' options-->
+  <xs:element name="options" type="Options">
+    <xs:annotation>
+      <xs:documentation>Параметры вызова метода</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Options">
+    <xs:annotation>
+      <xs:documentation>Набор именованных значений</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="KeyValuePair">
+        <xs:annotation>
+          <xs:documentation>Именованное значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--pagination-->
+  <xs:element name="pagingOptions" type="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType abstract="true" name="PagingResults">
+    <xs:annotation>
+      <xs:documentation>Список с пагинацией</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageTotal" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество страниц</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="morePagesAvailable" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Флаг доступности других страниц с результатами для "постраничного листания" (true - если доступны еще страницы; false - иначе)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="totalItemsCount" type="xs:long" use="required">
+      <xs:annotation>
+        <xs:documentation>Общее количество элементов (на всех страницах)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="PagingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры пагинации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="sortingOptions"/>
+    </xs:sequence>
+    <xs:attribute name="pageNumber" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер страницы (zero-based)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="pageSize" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation>Размер страницы</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--sorting-->
+  <xs:element name="sortingOptions" type="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Параметры сортировки</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SortingOptions">
+    <xs:annotation>
+      <xs:documentation>Условия сортировки</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="3" name="sortOrder" type="SortOrder">
+        <xs:annotation>
+          <xs:documentation>Условия сортировки
+(используются в соответствии с
+переданной последовательностью)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SortOrder">
+    <xs:annotation>
+      <xs:documentation>Сортировка</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="attributeName" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование поля, по которому должна быть произведена сортировка</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute default="false" name="desceding" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>Направление сортировки</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--void response-->
+  <xs:element fixed="true" name="result">
+    <xs:annotation>
+      <xs:documentation>Элемент для использования в методах, не предполагающих возврат какого-либо значения</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:boolean"/>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--base types-->
+  <xs:complexType name="TimeInterval">
+    <xs:annotation>
+      <xs:documentation>Временной период (время)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время начала интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Время окончания интервала</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DatePeriod">
+    <xs:annotation>
+      <xs:documentation>Временной период (дата)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="start" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="end" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата окончания периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IZQJAmKxZGvqhRt2W7wO9lxHYYQ-</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--error message description-->
+  <xs:complexType name="ErrorMessageCollection">
+    <xs:annotation>
+      <xs:documentation>Коллекция сообщений об ошибках</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="message" type="ErrorMessage">
+        <xs:annotation>
+          <xs:documentation>Сообщение об ошибке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorMessage">
+    <xs:annotation>
+      <xs:documentation>Сообщение об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parameters">
+            <xs:annotation>
+              <xs:documentation>Коллекция параметров сообщения</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="parameter" type="KeyValuePair">
+                  <xs:annotation>
+                    <xs:documentation>Параметр сообщения</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messages" type="ErrorMessageCollection">
+            <xs:annotation>
+              <xs:documentation>Сопутствующие сообщения об ошибках</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="ErrorMessageTypes" use="required">
+          <xs:annotation>
+            <xs:documentation>Тип сообщения</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ErrorMessageTypes">
+    <xs:annotation>
+      <xs:documentation>Тип сообщения об ошибке</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation>Ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WARNING">
+        <xs:annotation>
+          <xs:documentation>Предупреждение (не блокирующая ошибка)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INFO">
+        <xs:annotation>
+          <xs:documentation>Информационное сообщение</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ID">
+    <xs:annotation>
+      <xs:documentation>Идентификатор</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:simpleType name="GUID">
+    <xs:annotation>
+      <xs:documentation>Глобальный 128-битный идентификатор (Globally Unique Identifier)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="KeyValuePair">
+    <xs:annotation>
+      <xs:documentation>Представляет тип "ключ/значение"</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>Ключ</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Message">
+    <xs:annotation>
+      <xs:documentation>Сообщение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Текст сообщения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1hXy947uMHKf9P4JxAmyjIYUUF1FnB_A5WxDou6z8tZ69moNni1z8GKA60RUPN2uI9OKC35DCdqUl77W7X.RCACzPRQ4oExt7NDLVdprJnZ6jBQ--</con:url><con:content><![CDATA[<!--edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by DIT (DIT)-->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/types/" version="1.0" xmlns="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/types/" xmlns:ns1="http://emias.mos.ru/system/v1/userContext/" xmlns:ns2="http://emias.mos.ru/system/v1/faults/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQBuX_L953XDG.fIgM4IszX0rxKwbb.EQOPWJ1"/>
+  <xs:import namespace="http://emias.mos.ru/system/v1/userContext/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IZkJA1ZNGudgTh3u5bv8tO4LC808m8dMZ.HUt.893RI-"/>
+  <xs:import namespace="http://emias.mos.ru/system/v1/faults/" schemaLocation="http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService?xsd=AAAADHAjUCM4P2cuZURELqG3P6wP_Wz3ORN5dsqWI22b8cq6f8HE7AOvRN3oZKGdd5FOlBAhZEIPPYpltER25_Tz7RDWuQsjv1dSnml5wXXtl9tOUZ2tT9Fz5o1ScmO.eT4vrpAZR1zPqNK5bHZZAtZaPsTG4Bg9WFz7EV41bvV2N9WnthIzbra1iX.l96HQFvP.PpVsQ2n3IYobE0h6BqdsWAEmNWsIHAW15lYdD81TAgs_"/>
+  <xs:complexType name="Patient">
+    <xs:annotation>
+      <xs:documentation>Информация о пациенте</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="InquiryPurposeDictionary" type="InquiryPurposeDictionary">
+        <xs:annotation>
+          <xs:documentation>Доступные цели обращения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InquiryPurposeDictionary">
+    <xs:annotation>
+      <xs:documentation>Информация из справочника целей обращения</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Код цели обращения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование цели обращения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="shortName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование цели обращения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Описание справочной цели обращения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sortNumber" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Вес (ценность) записи по которой производится сортировка по умолчанию</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="appointmentBlock" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Блокировка записи</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InquiryPurposeInfo" type="InquiryPurposeInfo"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="speciality" type="Speciality"/>
+      <xs:element minOccurs="0" name="InquiryPurposeCategory" type="InquiryPurposeCategory"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор Цели обращения</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="OrchestrationServiceResultPage">
+    <xs:annotation>
+      <xs:documentation>Результат</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PagingResults">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Patient" type="Patient"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Warnings" type="ns2:BusinessFault"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InquiryPurposeInfo">
+    <xs:annotation>
+      <xs:documentation>Дополнительная информация из справочника целей обращения</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ageMin" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Минимальный возраст</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ageMax" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Максимальный возраст</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="gender" type="Gender">
+        <xs:annotation>
+          <xs:documentation>Пол</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="areaType" type="AreaType">
+        <xs:annotation>
+          <xs:documentation>Тип участка</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ParentInquiryPurposeDictionary" type="ParentInquiryPurposeDictionary">
+        <xs:annotation>
+          <xs:documentation>Родительский идентификатор ЦО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="InquiryPurposeCategory">
+    <xs:annotation>
+      <xs:documentation>Информация о категории цели обращения</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Минимальный возраст</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="Gender">
+    <xs:annotation>
+      <xs:documentation>Информация по полу пациента</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="globalId" type="ID">
+        <xs:annotation>
+          <xs:documentation>Глобальный идентификатор</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="title" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование пола</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AreaType">
+    <xs:annotation>
+      <xs:documentation>Информация о типе участка</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Код Типа участка</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="title" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование Типа участка</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Speciality">
+    <xs:annotation>
+      <xs:documentation>Информация о специализации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование специальности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="code" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Код специальности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="isIgnoreAttachment" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак, что специальность относится к тем специальностям, для записи к которым не учитывается прикрепление пациента</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="isPaid" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Признак платной специальности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="ParentInquiryPurposeDictionary">
+    <xs:annotation>
+      <xs:documentation>Информация из справочника целей обращения о родительской ЦО</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Код цели обращения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование цели обращения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="ID" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор цели обращения</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService</con:endpoint></con:endpoints><con:operation id="5bdeb6de-628d-4c09-87e4-fa52aad7122d" isOneWay="false" action="GetInquiryPurposes" name="GetInquiryPurposes" bindingOperationName="GetInquiryPurposes" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c38593c9-c848-4b5a-b3dd-be1aab44ef2a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:v3="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/" xmlns:typ="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/types/">\r
+   <soap:Header>\r
+      <user:userContext>\r
+         <user:systemName>?</user:systemName>\r
+         <user:userName>?</user:userName>\r
+         <user:userRoleId>?</user:userRoleId>\r
+         <!--Optional:-->\r
+         <user:isUserRoleSystemWide>?</user:isUserRoleSystemWide>\r
+         <user:userRights>\r
+            <!--Zero or more repetitions:-->\r
+            <user:userRightId>?</user:userRightId>\r
+         </user:userRights>\r
+         <user:jobExecutionId>?</user:jobExecutionId>\r
+         <!--Optional:-->\r
+         <user:hostIp>?</user:hostIp>\r
+         <!--Optional:-->\r
+         <user:hostName>?</user:hostName>\r
+         <!--Optional:-->\r
+         <user:options>\r
+            <!--Zero or more repetitions:-->\r
+            <user:entry key="?">?</user:entry>\r
+         </user:options>\r
+      </user:userContext>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <v3:GetInquiryPurposesRequest>\r
+         <omsNumber>?</omsNumber>\r
+         <!--Optional:-->\r
+         <patientId>?</patientId>\r
+         <!--Optional:-->\r
+         <genderKpi>?</genderKpi>\r
+         <!--Optional:-->\r
+         <birthDate>?</birthDate>\r
+         <paging_options pageNumber="?" pageSize="?">\r
+            <!--Optional:-->\r
+            <typ:sortingOptions>\r
+               <!--1 to 3 repetitions:-->\r
+               <typ:sortOrder attributeName="?" desceding="false"/>\r
+            </typ:sortingOptions>\r
+         </paging_options>\r
+         <!--Optional:-->\r
+         <typ:options>\r
+            <!--Zero or more repetitions:-->\r
+            <typ:entry key="?">?</typ:entry>\r
+         </typ:options>\r
+      </v3:GetInquiryPurposesRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/soap/InquiryPurposeOrchestrationService/GetInquiryPurposesRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="31b64709-5db3-4971-9a5a-b80f55a2831c" name="ЦО"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/inquirypurpose/orchestration/v3S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v1/userContext/" xmlns:v3="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/" xmlns:typ="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/types/">\r
+<soap:Header>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+              <wsse:UsernameToken wsu:Id="-">
+              <wsse:Username>EIM</wsse:Username>
+              </wsse:UsernameToken>
+         </wsse:Security>
+   <user:userContext>
+         <user:systemName>EIM</user:systemName>
+         <user:userName>EIM</user:userName>
+         <user:userRoleId>7187</user:userRoleId>
+         <user:userRights>
+            <user:userRightId>606002</user:userRightId>
+         </user:userRights>
+         <user:jobExecutionId>0</user:jobExecutionId>
+      </user:userContext>
+   </soap:Header>
+   <soap:Body>\r
+      <v3:GetInquiryPurposesRequest>\r
+         <omsNumber>7700007178231039</omsNumber>\r
+         <birthDate>1939-10-23</birthDate>\r
+         <paging_options pageNumber="0" pageSize="100">\r
+         </paging_options>
+      </v3:GetInquiryPurposesRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/inquiry-purpose/inquiry-purpose-orchestration/v3/soap/InquiryPurposeOrchestrationService/GetInquiryPurposesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="8e4e3cf0-d417-40d4-8198-983248086ba3" name="authentication/logout"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="4afb6346-0ccf-461d-9147-a43a9ff182b8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="АС0_ID279037" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="logout. Ошибка SERVER_ERROR" id="a5634437-fb7f-4986-8422-1e606b194863"><con:settings/><con:config service="http://emiasinfo1.emias.solit-clouds.ru" resourcePath="/api/v1/user/authentication/logout" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="logout. Ошибка SERVER_ERROR" id="0d9178c4-e1da-4f0e-bf61-a348e7ffdd59" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#emiasInfoEndpoint}</con:endpoint><con:request>{
   "deviceGuid": "e1428369-71c0-40ee-a71e-7b7b8b4dc29",
   "patientId": [
     17612323

@@ -1,0 +1,67 @@
+{
+  "surveyTaskId": 205,
+  "surveyId": 389,
+  "sentOption": [
+    {
+      "key": "flagSentWorkDayInPP",
+      "value": "false"
+    },
+    {
+      "key": "delaySentTime",
+      "value": "2024-11-12T10:00:00"
+    },
+    {
+      "key": "PP",
+      "value": "FALSE"
+    },
+    {
+      "key": "ISPK",
+      "value": "FALSE"
+    },
+    {
+      "key": "E_INFO",
+      "value": "TRUE"
+    },
+    {
+      "key": "ISPK_E",
+      "value": "FALSE"
+    },
+    {
+      "key": "LIFE_C",
+      "value": "FALSE"
+    },
+    {
+      "key": "delayedSent",
+      "value": "[{\"type\":\"DAY\",\"noLater\":0,\"noEarlier\":0,\"endLinkAssistant\":10}]"
+    },
+    {
+      "key": "PERSON_TYPE",
+      "value": "PATIENT"
+    },
+    {
+      "key": "EVENT_CODE",
+      "value": "PUT_ON_REMOTE_MONITORING"
+    },
+    {
+      "key": "EVENT_DATA",
+      "value": "{\"eventCode\":\"PUT_ON_REMOTE_MONITORING\",\"eventName\":\"Постановка на дистанционный мониторинг\",\"eventDate\":\"2024-10-07T14:25:56\",\"moId\":14932313369,\"muId\":14932313369,\"jobExecutionId\":null,\"MKB10\":[\"C40.3\"]}"
+    },
+    {
+      "key": "TREATMENT_SCHEMA",
+      "value": "sh0068"
+    },
+    {
+      "key": "PROTOCOL_NUMBER",
+      "value": "138-003-1-2033-0020121"
+    },
+    {
+      "key": "DRUG_INTAKE_DATE",
+      "value": "2024-11-22T00:00:00"
+    },
+    {
+      "key": "EVENT_ID",
+      "value": "0b9d2253-c15b-43b3-849a-63ac280866ca"
+    }
+  ],
+  "personId": 10166510
+}

@@ -1,3 +1,5 @@
+Version 7.26.0-emiastest-d40d175e4-pillbox_2025_fixes(70038)
+
 Шаблон бага
 
 {code:java}
@@ -7,22 +9,23 @@
 {code}
 
 *Предусловия:*
-* Пользователь запустил приложение
-* Пользователь авторизован через mos.ru
-* Пользователь - e@rdf.ru / Mm123456
-* Пациент - Раиса Захаровна Т.
+ * Пользователь запустил приложение
+ * Пользователь авторизован через mos.ru
+ * Пользователь - e@rdf.ru / Mm123456
+ * Пациент - Вера Николаевна Х.
+ * У пользователя есть действительный не пройденный опрос с expiresAt != текущая дата
+
 *Шаги:*
-# Перейти на ГСП
-# Перейти в раздел видеонаблюдений
-# Открыть видеотрансляцию
-# Проверить вызов метода GET api/1/newborn-reanimation-broadcast/active-streams по истечению времени в config.polling_interval 
+ # Перейти на ГСП
+ # Перейти в раздел "Мониторинги и опросы"
+ # Проверить отображение срока действия опроса
+
 *Ожидаемый результат:*
-Согласно [постановке|https://wiki.mos.social/pages/viewpage.action?pageId=801780037] ожидаю вызова метода  GET api/1/newborn-reanimation-broadcast/active-streams периодически раз в config.polling_interval 
- !screenshot-2.png|thumbnail! 
+Согласно [постановке|https://wiki.mos.social/pages/viewpage.action?pageId=841206898] ожидаю, что "Заполните до 22 ноября 23:59" выделен оранжевым
+!22.png! 
 {*}Фактический результат{*}:
-При полученном "pollingInterval": 5 в ответе метода http://application-emiasinfo1.dev-emias.emias.ru/api/v2/config :
-Метод  GET api/1/newborn-reanimation-broadcast/active-streams не вызывается после истечения значения "pollingInterval"
- !screenshot-1.png|thumbnail! 
+"Заполните до 22 ноября 23:59" оранжевым не выделяется
+!Текст.png!
 
 
 {color:#ffab00}*Не исправлено*{color}
@@ -37,14 +40,11 @@ Version 7.17.0-solittest3-6fcbcb0cd-task/EINFORAZV-16018 (70038)
 
 Закрытие бага
 {color:#00875a}*Исправлено*{color}
-Постановка на шаге 4
- !шаг6.png|thumbnail!
-Реализация. Для архивных симптоматических назначений возвращается dayHistory = true/false
- !Исправлено с true.png|thumbnail!  !Исправлено с false.png|thumbnail! 
+ !Исправлено.png|thumbnail! 
 Проверено на:
 {code:java}
 Устройство: Redmi Note 11s
-Version 7.17.0-solittest3-6fcbcb0cd-task/EINFORAZV-16018 (70038)
+Version 7.26.0-solittest2-e28188d2f-develop_auth (70038)
 Версия ОС: Android 13
 {code}
 

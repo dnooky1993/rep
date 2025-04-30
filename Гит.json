@@ -1,0 +1,52 @@
+Гит
+В репе андроида - можно нажать на хистори и посмотреть сколько есть коммитов и какая сборка есть с каким коммитом
+В пайплайне - все сборки (зеленые ок, красные - упали, синие - в процессе). Выкачать - справа кнопка, зип архив скачивается
+Мердж реквест - в статусе опен висят талоны не вмерженные. Во вкладке мерджед - висят уже вмерженные в ветку
+
+Чтобы сделать сборку
+В постмане - 
+токен статичный
+ref - пишем ветку
+variables(билд) - контур
+variables(клин_вершион) - чистый вариант версии без указания хэша
+
+Где меняем:
+• ref = название ветки
+• variables[CONFIGURATION] = стенд бэкенда
+2. Идем в Гит и смотрим, что сборка запущена: https://git.emias.mos.ru/emias-info/android/-/pipelines
+3. По завершению переходим в AppCenter (https://appcenter.ms/users/ddomushchey-solit-clouds.ru/apps/EMIAS.INFO.NEXT-android/distribute/distribution-groups/Collaborators/releases) и скачиваем сборку/либо переходим по ссылке, которую пришлет бот в чате.
+
+Возможные варианты BUILD_VARIANT (Android):
+1. тестовые сборки для разных контуров бэка:
+solittest1
+solittest1
+emiastest
+predppak
+ppak
+
+2. продакшеновая сборка для Play Market:
+googleplay
+
+Возможные варианты CONFIGURATION (iOS):
+1. тестовые сборки:
+SolitTest1
+SolitTest2
+EmiasTest
+PredPPAK
+PPAK
+2. продакшеновая сборка для AppStore:
+AppStore
+
+Android
+curl --location 'https://git.emias.mos.ru/api/v4/projects/691/trigger/pipeline' \
+--form 'token="68055aeeece98c7eb64bf9c615ff09"' \
+--form 'ref="master_auth"' \
+--form 'variables[BUILD_VARIANT]="emiastest"' \
+--form 'variables[CLEAN_VER]="true"'
+
+iOS
+curl --location 'https://git.emias.mos.ru/api/v4/projects/690/trigger/pipeline' \
+--form 'token="cb4f165235d1846479e5836e4c4202"' \
+--form 'ref="master_auth"' \
+--form 'variables[CONFIGURATION]="EmiasTest"' \
+--form 'variables[CLEAR_VER]="true"'
