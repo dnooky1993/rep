@@ -10,8 +10,10 @@
     "middle_name": "Михайловна"
 }
 
-10d59080-73a2-4587-9931-c18fb90831b2
-33da09b6-93ac-4312-b66e-d04c2dbc5082
+10d59080-73a2-4587-9931-c18fb90831b2 - e@rdf
+33da09b6-93ac-4312-b66e-d04c2dbc5082 - med_test_2022@bk.ru
+b954f557-51e2-468a-902d-a209c2a6048b - knaumov.solit@gmail.com
+22a9f080-19d8-4503-8af7-7c623d171154 - mtkb92@rambler.ru
 
 test_000-099-782@pflbmail.hopto.org (ППАК)
 4aC2kwV2
@@ -23,3 +25,6 @@ Mm123456
 
 7993581-95-61
 qwertY6789.
+
+knaumov.solit@gmail.com
+Mm123456

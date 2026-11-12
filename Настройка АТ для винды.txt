@@ -1,0 +1,79 @@
+ЗАПУСК ДЛЯ РАБОТЫ
+1. Включить ВПН до мос.ру
+2. Запустить jar прокси (через cmd из папки командой java -jar target/forwarding-proxy-1.0.0.jar)
+3. Проверить http://localhost:8052/
+4. Запустить драйвер апиума (через cmd командой appium --address 0.0.0.0 --port 4723)
+5. Запустить Апиум
+6. Проверить порт чтобы он для дроида по умолчанию был не заполнен 4723, для ios был вручную вписан как 4725
+7. Проверить настройки апиум подключения
+{
+  "appium:automationName": "UiAutomator2",
+  "appium:appWaitActivity": "ru.solitclouds.android.emiasinfo.MainActivity",
+  "appium:noReset": true,
+  "appium:udid": "emulator-5554",
+  "platformName": "Android"
+}
+8. Запустить Android Studio и эмулятор
+9. Запустить IDEA
+
+
+УСТАНОВКА ВСЕГО НА КОМП
+1. Установка Node.js
+Node.js — это среда выполнения JavaScript, которая включает в себя менеджер пакетов npm, необходимый для установки Appium.
+Скачайте установщик. Перейдите на официальный сайт (https://nodejs.org/en/download/) Node.js и скачайте LTS-версию (Long-Term Support) для Windows (.msi).
+Запустите установку. Откройте скачанный .msi файл и следуйте инструкциям мастера установки. Убедитесь, что отмечена опция добавления Node.js в системную переменную PATH.
+Проверьте установку. После завершения откройте командную строку (CMD) или PowerShell и выполните следующие команды, чтобы убедиться в успешной установке:
+node -v
+npm -v
+В ответ вы должны увидеть версии установленных Node.js и npm.
+
+2. Установка Appium
+Appium — это инструмент с открытым исходным кодом для автоматизации нативных, мобильных веб- и гибридных приложений на платформах iOS, Android и Windows.
+Откройте командную строку. Запустите командную строку (CMD) или PowerShell от имени администратора.
+Установите Appium. Введите следующую команду для глобальной установки Appium с помощью npm:
+npm install -g appium
+Проверьте установку. После завершения процесса введите команду:
+appium -v
+Это покажет вам установленную версию Appium.
+Запустите сервер. Для запуска сервера Appium используется команда:
+appium
+
+3. Установка Appium Inspector
+Appium Inspector — это графический интерфейс для Appium, который позволяет инспектировать элементы в вашем приложении, просматривать их атрибуты и взаимодействовать с ними.
+Скачайте приложение. Перейдите на страницу релизов Appium Inspector на GitHub.
+Найдите последнюю версию. Загрузите установочный файл для Windows (например, Appium-Inspector-windows-x.x.x-x64.exe).
+Запустите установку. Откройте скачанный .exe файл. Windows может отобразить предупреждение безопасности. Если это произойдет, нажмите “Подробнее” (More info), а затем “Выполнить в любом случае” (Run anyway).
+Следуйте инструкциям. В мастере установки выберите нужные параметры. После завершения установки Appium Inspector будет готов к использованию.
+
+4. Установка git https://git-scm.com/install/windows )(Все просто - скачать и установить)
+
+5. Склонировать себе репозиторий https://git.emias.mos.ru/test-automation-team/emias-info-tests через гит
+
+6. Установка java 21 (https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html версию Java SE Development Kit 21.0.12), либо установить JDK в Idea IntelliJ → File → Project Structure → Project → SDK → Add SDK → Download JDK → Version 21 → Eclipse Temurin - я использовал загрузку в idea
+
+7. Установка maven https://maven.apache.org/download.cgi
+Скачать архив Binary zip archive и распаковать его. Затем добавить его в PATH (В поиске ввести "Изменение системных переменных среды" - выбрать "Переменные среды"... - выбрать "PATH" и нажать "Изменить" - нажать "Создать" - указать путь к папке bin внутри распакованной папки Maven (пример C:\Program Files\apache-maven-3.10.0\apache-maven-3.10.0\bin) - нажимать "ОК" пока не закроются все окна). Проверить, что все ок - запусть cmd и ввести mvn -v, покажет версию maven, путь к maven и дополнительно версию java
+
+8. Установка gauge npm install -g @getgauge/cli
+
+9. Установка docker https://www.docker.com/products/docker-desktop/
+(При ошибке подсистемы линукс в докере - решение тут https://learn.microsoft.com/en-in/answers/questions/5918460/windows-11-unable-to-enable-wsl2-virtual-machine-p
+Включите необходимые функции через PowerShell.
+Откройте PowerShell от имени администратора.
+Явно включите платформу виртуальных машин :
+PowerShell
+     dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+Включите подсистему Windows для Linux, если она еще не включена (согласно инструкции по ручной установке):
+PowerShell
+     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux)
+
+10. Проверка версий (Везде должны быть версии):
+java -version
+mvn -v
+gauge -v
+node -v
+npm -v
+
+11. Запуск IDEA
+
+12. Вместо докера запускал из файла через cmd "java -jar forwarding-proxy-1.0.0.jar"

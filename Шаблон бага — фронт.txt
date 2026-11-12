@@ -1,4 +1,10 @@
-Version 7.26.0-emiastest-d40d175e4-pillbox_2025_fixes(70038)
+Version 7.62.1-emiastest-75abc326d-feature/EINFORAZV-32640(70038)
+Version 7.64.0-emiastest-fcfc4495d-develop_auth(70038)
+Version 7.62.1-solittest2-ae9267c2a-feature/my_blood_pressure(70038)
+Version 7.46.1-emiastest-c6ae766cb-master_spb(70038)
+Version 7.64.0-ppak-6bf9a6da5-master_auth(70038)
+10.2.1-spbdev1-e304d4bad-develop_spb_noauth_new
+Версия 10.0.0-spbdev1-3eddec76d-task/270_spbnoauth(70038)
 
 Шаблон бага
 
@@ -12,7 +18,7 @@ Version 7.26.0-emiastest-d40d175e4-pillbox_2025_fixes(70038)
  * Пользователь запустил приложение
  * Пользователь авторизован через mos.ru
  * Пользователь - e@rdf.ru / Mm123456
- * Пациент - Вера Николаевна Х.
+ * Пациент - Людмила Д
  * У пользователя есть действительный не пройденный опрос с expiresAt != текущая дата
 
 *Шаги:*
@@ -23,10 +29,10 @@ Version 7.26.0-emiastest-d40d175e4-pillbox_2025_fixes(70038)
 *Ожидаемый результат:*
 Согласно [постановке|https://wiki.mos.social/pages/viewpage.action?pageId=841206898] ожидаю, что "Заполните до 22 ноября 23:59" выделен оранжевым
 !22.png! 
+
 {*}Фактический результат{*}:
 "Заполните до 22 ноября 23:59" оранжевым не выделяется
 !Текст.png!
-
 
 {color:#ffab00}*Не исправлено*{color}
  !Не исправлено.png|thumbnail! 
@@ -78,3 +84,5 @@ http://application-emiasinfo1.emias.solit-clouds.ru/
 4. Все АС
 5. Написана [документация|https://testit.solit-clouds.ru/projects/145062/tests?isolatedSection=dc965adc-adcd-4fd8-b54b-4f665c04912b]
 6. Написан АТ. Выгружен в репозиторий
+
+29.01.1980

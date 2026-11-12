@@ -1,5 +1,6 @@
-https://jira.mos.social/browse/EINFORAZV-14249?filter=-1&jql=project%20%3D%20%D0%A0%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D0%B5_%D0%95%D0%9C%D0%98%D0%90%D0%A1.%D0%B8%D0%BD%D1%84%D0%BE%20AND%20labels%20%3D%20%D0%A7%D0%A2%D0%97
-Закончил на кейсе 184418 (его не смотрел) - КРАТНОСТЬ
+https://jira.mos.social/browse/EINFORAZV-14310
+
+https://testit.dev-emias.emias.ru/projects/101119/tests?isolatedSection=0d8229c6-c59e-404c-b296-5107d68d4ec0 - на завтра
 
 {code:java}
 Устройство: Redmi Note 11s
@@ -26,18 +27,16 @@ Version 7.18.0-emiastest-df5ca9067-task/EINFORAZV-16226 (70038)
 {*}Фактический результат{*}:
 Краш приложения
 Скринкаст: [^Краш.mp4]
-Логи: [^Xiaomi-2201117SY-Android-13_2025-02-05_131827.logcat]
+Логи: [^Xiaomi-2201117SY-Android-13_2025-02-05_131827.logcat
 
 16360 талон для прикрепления
 
 
-Актуализирована ТД с учетом изменений:
+ТД актуализирована с учетом изменений:
 
  * Добавлены
-
-
-
-* Удалены
-
+https://testit.dev-emias.emias.ru/projects/101119/tests/561465?isolatedSection=9cbce18b-f35c-4d04-a034-a4c165cc36d0
 
  * Скорректированы
+https://testit.dev-emias.emias.ru/projects/101119/tests/559697?isolatedSection=9cbce18b-f35c-4d04-a034-a4c165cc36d0
+https://testit.dev-emias.emias.ru/projects/101119/tests/559698?isolatedSection=9cbce18b-f35c-4d04-a034-a4c165cc36d0

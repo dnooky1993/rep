@@ -1,0 +1,2 @@
+PatientId;OmsNumber;BirthDate;PushTitle;PushBody;Html
+18628485;7753710871002901;1982-06-28;Вы справились с самым сложным;Пройдите опрос для помощи;<h1>Вы справились с самым сложным</h1><p>Мы рядом, чтобы поддержать вас на каждом шаге. <a href='emiasinfo://pushSurvey?policyNumber=7753710871002901&type=brain&title=опрос'>Пройдите опрос</a></p>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="e645d906-a9aa-4bed-8086-2d1da9ec80e4" activeEnvironment="Default" name="My project" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="61a4f95b-c5bd-4f21-af31-6b7b0149c389" wsaVersion="NONE" name="Самозапись. Оркестратор" type="wsdl" bindingName="{http://impl.service.soap.emias.lanit.ru/v5/}SelfAppointmentServiceV5Binding" soapVersion="1_2" anonymous="optional" definition="http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService?wsdl"><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SelfAppointmentService" targetNamespace="http://impl.service.soap.emias.lanit.ru/v5/" xmlns:api="http://api.service.soap.emias.lanit.ru/v5/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://impl.service.soap.emias.lanit.ru/v5/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<con:soapui-project id="e645d906-a9aa-4bed-8086-2d1da9ec80e4" activeEnvironment="Default" name="My project1" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="61a4f95b-c5bd-4f21-af31-6b7b0149c389" wsaVersion="NONE" name="Самозапись. Оркестратор" type="wsdl" bindingName="{http://impl.service.soap.emias.lanit.ru/v5/}SelfAppointmentServiceV5Binding" soapVersion="1_2" anonymous="optional" definition="http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService?wsdl"><con:part><con:url>http://esbcamelvv.test.emias.mos.ru/proxy/Composite/saOrchestrator/v1S/ProxyService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SelfAppointmentService" targetNamespace="http://impl.service.soap.emias.lanit.ru/v5/" xmlns:api="http://api.service.soap.emias.lanit.ru/v5/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://impl.service.soap.emias.lanit.ru/v5/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <!--WSDL контракта 5 (доработки по записи 2-х детей, для Инфомата и поддержки ЦЛС)-->
   <wsdl:documentation>version="5.2"</wsdl:documentation>
   <wsdl:types>
@@ -15054,7 +15054,7 @@
          <externalSystemId>?</externalSystemId>\r
       </api:getLdpTypesInfo>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:#getLdpTypesInfo"/></con:call></con:operation><con:operation id="19f4f4bc-d38c-407e-9cdc-9d2893076e8e" isOneWay="false" action="urn:#getLpuScheduleInfo" name="getLpuScheduleInfo" bindingOperationName="getLpuScheduleInfo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="51cf9246-2708-49fa-b92e-b9207e3e431f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/PGU/v1.1S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:#getLdpTypesInfo"/></con:call></con:operation><con:operation id="19f4f4bc-d38c-407e-9cdc-9d2893076e8e" isOneWay="false" action="urn:#getLpuScheduleInfo" name="getLpuScheduleInfo" bindingOperationName="getLpuScheduleInfo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="51cf9246-2708-49fa-b92e-b9207e3e431f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbcamelvv.test.emias.mos.ru/proxy/Rir/PguService/v1S/ProxyService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Header>
         <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
             <wsse:UsernameToken wsu:Id="UsernameToken-b6cc4ca6-c892-4cda-bade-63a69e24ceac">
@@ -15065,7 +15065,7 @@
     <soap:Body>
         <ns5:getLpuScheduleInfo xmlns:ns2="http://api.service.soap.emias.lanit.ru/v33/" xmlns:ns3="http://api.service.soap.emias.lanit.ru/v2/" xmlns:ns4="urn:emias:llo.lookup" xmlns:ns5="http://api.service.soap.emias.lanit.ru/">
             <lpuId>204</lpuId>
-            <employeeJobInfoIds>18208983914</employeeJobInfoIds>
+            <employeeJobInfoIds>32631971725</employeeJobInfoIds>
             <externalSystemId>EMIASINFO</externalSystemId>
         </ns5:getLpuScheduleInfo>
     </soap:Body>
@@ -63906,12 +63906,13 @@ true - только экстренные
   </soap:Header>
    <soap:Body>
       <typ:getNextBusinessFunctionRequest>
-         <v1:emiasId>24288645</v1:emiasId>
+         <v1:emiasId>10596353</v1:emiasId>
          <v1:clientPathCode>2</v1:clientPathCode>
-         <v1:branchCode>0</v1:branchCode>
-         <v1:completedStep>0</v1:completedStep>
-         <v1:functionalBlockCode>"FB000"</v1:functionalBlockCode>
-         <v1:resultData>{"dataCollected":true,"nextBranchCode":25}</v1:resultData>
+         <v1:branchCode>24</v1:branchCode>
+         <v1:previousStep>1</v1:previousStep>
+         <v1:completedStep>4</v1:completedStep>
+         <v1:functionalBlockCode>"FB002"</v1:functionalBlockCode>
+         <v1:resultData>{"agree":true}</v1:resultData>
       </typ:getNextBusinessFunctionRequest>
    </soap:Body>
 </soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://emias.mos.ru/sappointmbff/clientPathService/v1/clientPathServiceType/getNextBusinessFunctionRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5a48f29a-e462-4c27-a9d6-9b3bbb1f4b13" isOneWay="false" action="validateSecondSurveyResult" name="validateSecondSurveyResult" bindingOperationName="validateSecondSurveyResult" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3f52055c-3362-41d2-a55e-30757ddebe95" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://sappointmbff.test.emias.mos.ru/api/ClientPath</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:user="http://emias.mos.ru/system/v2/userContext/" xmlns:typ="http://emias.mos.ru/sappointmbff/clientPathService/v1/types/" xmlns:v1="http://emias.mos.ru/sappointmbff/core/v1/">\r

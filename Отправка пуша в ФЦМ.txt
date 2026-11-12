@@ -1,0 +1,36 @@
+Инструкция по отправке пуша напрямую в ФЦМ
+Сообщение:
+curl --location 'https://fcm.googleapis.com/v1/projects/emias-info-beta/messages:send' \
+--header 'Authorization: Bearer $GOOGLE_TOKEN' \
+--header 'Content-Type: application/json' \
+--data '{
+    "message": {
+        "token": "$CLOUD_ID",
+        "notification": {
+            "body": "$MESSAGE",
+            "title": "$HEADER_MESSAGE"
+        },
+        "data": {
+            "body": "ЭКГ, ГБУЗ ГП 175 ДЗМ\nЗапишитесь на исследование ЭКГ  до 19.12.2024",
+            "message_uuid": "506392ca-4639-40a1-b652-dfa9e2a7e28f",
+            "notificationId": "18641232",
+            "payload": "{\"oms\":\"7700007178231039\"}",
+            "push_msg_type": "chat_notification",
+            "push_type": "chat_notification",
+            "title": "Направление отменено",
+            "to": "0xc0002592b0",
+            "type": "referral",
+            "url": ""
+        }
+    }
+}'
+где:
+$GOOGLE_TOKEN = токен FCM, который можно получить только через разработчиков (написать, например, Владу Снопову)
+$CLOUD_ID = облачный токен устройства, device_cloud_id
+$MESSAGE = тело сообщения, которое отобразится в пуше
+$HEADER_MESSAGE = заголовок, который отобразится в пуше
+Это основные значения, которые необходимы для видимого отображения пуша
+Также в data для корректной обработки пуша - необходимо заполнить значения параметров:
+body и title = заголовку и телу пуша, которые отображаются
+paload = как правило это номер полиса ОМС, но бывают исключения (смотреть в соответствующем алгоритме бэка https://wiki.mos.social/spaces/EINFOSRV/pages/601817656/.%D0%92%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D0%B5+%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D1%8F+vdevelop)
+type = тип пуш уведомления (appointment, referral, oncoMonitoring, doctorVisitEvaluation и т.д.)
